@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.3">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.9">
+    <script>node {
+    
+    notify(&apos;Started&apos;)
+    
+    try {
+        stage &apos;checkout&apos;
+        git &apos;https://github.com/g0t4/jenkins2-course-spring-boot.git&apos;
+        
+        
+        def project_path = &quot;spring-boot-samples/spring-boot-sample-atmosphere&quot;
+        dir(project_path) {
+            
+            stage &apos;compiling, test, packaging&apos;
+            // on windows use: bat &apos;mvn clean package&apos;
+            sh &apos;mvn clean package&apos;
+        
+            stage &apos;archival&apos;
+            step([$class: &apos;ArtifactArchiver&apos;, 
+                   artifacts: &quot;target/*.jar&quot;, 
+                   excludes: null])
+        
+        }
+        
+        notify(&apos;Success&apos;)
+        
+    } catch (err) {
+        notify(&quot;Error ${err}&quot;)
+        currentBuild.result = &apos;FAILURE&apos;
+    }
+    
+    
+
+    
+}
+
+def notify(status){
+    emailext (
+      to: &quot;wesmdemos@gmail.com&quot;,
+      subject: &quot;${status}: Job &apos;${env.JOB_NAME} [${env.BUILD_NUMBER}]&apos;&quot;,
+      body: &quot;&quot;&quot;&lt;p&gt;${status}: Job &apos;${env.JOB_NAME} [${env.BUILD_NUMBER}]&apos;:&lt;/p&gt;
+        &lt;p&gt;Check console output at &lt;a href=&apos;${env.BUILD_URL}&apos;&gt;${env.JOB_NAME} [${env.BUILD_NUMBER}]&lt;/a&gt;&lt;/p&gt;&quot;&quot;&quot;,
+    )
+}
+
+
+       
+
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers>
+    <hudson.triggers.SCMTrigger>
+      <spec>* * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+</flow-definition>
