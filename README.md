@@ -1,4 +1,9 @@
 # Official Dev Web App for goba Sports
 
 1. Documentation
-2. Auth with tool suite
+	- CLI docs and usages
+	- API docs
+	- PHP docs
+	- Misc docs
+2. Auth with roles
+3. Tools suite
