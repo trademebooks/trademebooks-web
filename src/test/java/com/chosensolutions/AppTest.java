@@ -1,4 +1,4 @@
-package com.boot;
+package com.chosensolutions;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

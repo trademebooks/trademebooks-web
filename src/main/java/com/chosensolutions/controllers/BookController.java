@@ -1,4 +1,4 @@
-package com.boot.controllers;
+package com.chosensolutions.controllers;
 
 import org.springframework.stereotype.Controller;
 
