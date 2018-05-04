@@ -4,7 +4,8 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class BookController {
-    public String hello() {
+
+    public String books() {
         System.out.println("Hello");
         return "hi";
     }
