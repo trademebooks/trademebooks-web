@@ -1,12 +1,12 @@
-# MEW
+# Book Exchange Please
 
 ## Onboarding process
-- git and git extensions
-- eclipse, intellij
+- git
+- intellij
 - tomcat
 - maven
 - jenkins
-- mysql database setup - hibernate, and flyway?
+- mysql, hibernate, flyway
 - java 
     - spring mvc 4
     - hibernate 5
