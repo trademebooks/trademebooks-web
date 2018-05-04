@@ -8,7 +8,7 @@
 - jenkins
 - mysql, hibernate, flyway
 - java 
-    - spring mvc 4
+    - spring boot 2
     - hibernate 5
 - node and SCSS setup
 - trello tasks
