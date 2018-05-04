@@ -27,4 +27,3 @@
 
 ## Tests
 - comment out @EnableWebMVC in the WebConfig.java file: C:\wamp64\www\projects\my-esports-world\src\main\java\com\chosensolutions\WebConfig.java
-
