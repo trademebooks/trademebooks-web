@@ -1,7 +1,13 @@
 package com.chosensolutions.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "books")
 public class Book {
 
+    @Id // primary key
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     private String title;

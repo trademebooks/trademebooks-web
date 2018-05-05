@@ -1,12 +1,17 @@
 package com.chosensolutions.services;
 
 import com.chosensolutions.models.Book;
+import com.chosensolutions.repositories.BooksRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
 public class BookService {
+
+    @Autowired
+    private BooksRepository booksRepository;
 
     private List<Book> books = new ArrayList<>(
             Arrays.asList(
@@ -19,6 +24,8 @@ public class BookService {
     // business services ar singletons
     // controllers can inject the SERVICE
     public List<Book> getAll() {
+        List<Book> books = new ArrayList<>();
+        booksRepository.findAll().forEach(books::add);
         return books;
     }
 
@@ -37,7 +44,7 @@ public class BookService {
     }
 
     public void create(Book book) {
-        books.add(book);
+        booksRepository.save(book);
     }
 
     public void update() {

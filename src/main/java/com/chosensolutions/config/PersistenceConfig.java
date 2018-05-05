@@ -1,4 +1,3 @@
-/*
 package com.chosensolutions.config;
 
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
@@ -9,14 +8,13 @@ import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class PersistenceConfig {
 
-    @Bean
+/*    @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     @Primary
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
-    }
+    }*/
 }
-*/
