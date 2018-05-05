@@ -1,3 +1,4 @@
+/*
 package com.chosensolutions.config;
 
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
@@ -18,3 +19,4 @@ public class PersistenceConfig {
         return DataSourceBuilder.create().build();
     }
 }
+*/
