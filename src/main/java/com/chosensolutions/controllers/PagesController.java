@@ -20,4 +20,9 @@ public class PagesController {
     public String contact() {
         return "pages/contact";
     }
+
+/*    @RequestMapping("/error")
+    public String error() {
+        return "pages/404";
+    }*/
 }

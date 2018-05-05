@@ -6,13 +6,11 @@ import javax.persistence.*;
 @Table(name = "books")
 public class Book {
 
-    @Id // primary key
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     private String title;
-
-    private String description;
 
     public Book() {
 
@@ -21,12 +19,6 @@ public class Book {
     public Book(String id, String title) {
         this.id = id;
         this.title = title;
-    }
-
-    public Book(String id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
     }
 
     public String getId() {
@@ -45,11 +37,4 @@ public class Book {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

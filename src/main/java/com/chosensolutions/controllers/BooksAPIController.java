@@ -7,36 +7,35 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@RequestMapping("/api/v1/books")
+@RequestMapping("/api/v1/")
 @RestController
 public class BooksAPIController {
 
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/")
+    @RequestMapping("/books")
     public List<Book> index() {
-        return bookService.getAll();
+        return bookService.getAllBooks();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/books/{id}")
     public Book show(@PathVariable("id") String id) {
-        return bookService.getById(id);
+        return bookService.getBookById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST, value = "/books")
     public void create(@RequestBody Book book) {
-        bookService.create(book);
+        bookService.createBook(book);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/update")
-    public void update(@RequestBody Book book) {
-        bookService.create(book);
+    @RequestMapping(method = RequestMethod.PUT, value = "/books/{id}")
+    public void update(@PathVariable("id") String id, @RequestBody Book book) {
+        bookService.updateBook(id, book);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/delete")
-    public void delete(@RequestBody Book book) {
-        bookService.create(book);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/books/{id}")
+    public void delete(@PathVariable("id") String id) {
+        bookService.deleteBook(id);
     }
-
 }

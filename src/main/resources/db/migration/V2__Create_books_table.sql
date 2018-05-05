@@ -8,3 +8,7 @@ CREATE TABLE books (
 )
   ENGINE = InnoDB
   CHARACTER SET utf8;
+
+INSERT INTO `books` (`id`, `title`, `created_at`, `updated_at`) VALUES (1, 'book1', NOW(), NOW());
+INSERT INTO `books` (`id`, `title`, `created_at`, `updated_at`) VALUES (2, 'book2', NOW(), NOW());
+INSERT INTO `books` (`id`, `title`, `created_at`, `updated_at`) VALUES (3, 'book3', NOW(), NOW());
