@@ -14,6 +14,11 @@ public class BooksAPIController {
     @Autowired
     private BookService bookService;
 
+
+    /*static BooksAPIController(BookService bookService) {
+        this.bookService = bookService;
+    }*/
+
     @RequestMapping("/books")
     public List<Book> index() {
         return bookService.getAllBooks();

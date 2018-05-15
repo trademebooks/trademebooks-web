@@ -6,11 +6,9 @@
 <div th:replace="layouts/navbar :: navbar"></div>
 
 <main>
-    <h1>About</h1>
+    <h1>Book Stores SHOW: <span th:text="${bookStore.getName()}"></span></h1>
 </main>
 
 <div th:replace="layouts/footer :: footer"></div>
-
-<script th:src="@{/public/js/app.js}"></script>
 </body>
 </html>

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8"/>
+    <title>CUSBE</title>
+    <div th:replace="layouts/styles :: styles"></div>
 </head>
 <body>
 <div th:replace="layouts/navbar :: navbar"></div>
 
 <main>
     <h1>Home</h1>
+    <!-- src="/images/gengar.png" -->
+    <img th:src="@{/images/gengar.png}"/>
 </main>
 
 <div th:replace="layouts/footer :: footer"></div>
+
+<div th:replace="layouts/scripts :: scripts"></div>
 </body>
 </html>

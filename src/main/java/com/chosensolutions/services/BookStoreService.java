@@ -1,8 +1,6 @@
 package com.chosensolutions.services;
 
-import com.chosensolutions.models.Book;
-import com.chosensolutions.repositories.BooksRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.chosensolutions.models.BookStore;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,48 +10,19 @@ import java.util.List;
 @Service
 public class BookStoreService {
 
-    @Autowired
-    private BooksRepository booksRepository;
-
-    private List<Book> books = new ArrayList<>(
+    private List<BookStore> bookStores = new ArrayList<>(
             Arrays.asList(
-                    new Book("1", "Book1"),
-                    new Book("2", "Book2"),
-                    new Book("3", "Book3")
+                new BookStore("Book store 1"),
+                new BookStore("Book store 2"),
+                new BookStore("Book Store 3")
             )
     );
 
-    // business services ar singletons
-    // controllers can inject the SERVICE
-    public List<Book> getAll() {
-        List<Book> books = new ArrayList<>();
-        booksRepository.findAll().forEach(books::add);
-        return books;
+    public List<BookStore> getAll() {
+        return bookStores;
     }
 
-    public Book getById(String id) {
-        /*
-        Book book1 = null;
-        for (Book book: books) {
-            if (book.getId() == id) {
-                book1 = book;
-            }
-        }
-
-        return book1;
-        */
-        return books.stream().filter(book -> book.getId().equals(id)).findFirst().get();
-    }
-
-    public void create(Book book) {
-        booksRepository.save(book);
-    }
-
-    public void update() {
-
-    }
-
-    public void delete() {
-
+    public BookStore getById() {
+        return bookStores.get(0);
     }
 }

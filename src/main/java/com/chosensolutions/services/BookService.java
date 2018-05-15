@@ -20,7 +20,8 @@ public class BookService {
     }
 
     public Book getBookById(String id) {
-        return booksRepository.findOne(id);
+        Book book = booksRepository.getOne(id);
+        return book;
     }
 
     public void createBook(Book book) {
@@ -32,6 +33,6 @@ public class BookService {
     }
 
     public void deleteBook(String id) {
-        booksRepository.delete(id);
+        booksRepository.deleteById(id);
     }
 }

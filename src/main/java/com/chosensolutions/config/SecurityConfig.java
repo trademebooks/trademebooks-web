@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .inMemoryAuthentication()
                 .withUser("yichen")
-                .password("yichen")
+                .password("{noop}yichen")
                 .roles("USER");
     }
 
@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 /*            .antMatchers("/css/**", "/index").permitAll()
             .antMatchers("/user/**").hasRole("USER")*/
             .formLogin()
-                .loginPage("/auth/login")
+                //.loginPage("/auth/login")
                 .and()
             .httpBasic();
     }
