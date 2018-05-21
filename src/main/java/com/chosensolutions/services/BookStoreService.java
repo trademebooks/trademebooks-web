@@ -12,9 +12,9 @@ public class BookStoreService {
 
     private List<BookStore> bookStores = new ArrayList<>(
             Arrays.asList(
-                new BookStore("Book store 1"),
-                new BookStore("Book store 2"),
-                new BookStore("Book Store 3")
+                new BookStore("Book store 1", "description 1"),
+                new BookStore("Book store 2", "description 2"),
+                new BookStore("Book Store 3", "description 3")
             )
     );
 

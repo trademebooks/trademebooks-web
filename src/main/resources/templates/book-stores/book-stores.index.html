@@ -7,6 +7,12 @@
 
 <main>
     <h1>Book Stores Index</h1>
+    <table>
+        <tr th:each="bookStore: ${bookStores}">
+            <td th:text="${bookStore.getName()}"></td>
+            <td th:text="${bookStore.getDescription()}"></td>
+        </tr>
+    </table>
 </main>
 
 <div th:replace="layouts/footer :: footer"></div>

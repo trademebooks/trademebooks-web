@@ -15,7 +15,9 @@ public class BookStoresController {
     BookStoreService bookStoreService;
 
     @RequestMapping("/book-stores")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("bookStores", bookStoreService.getAll());
+
         return "book-stores/book-stores.index";
     }
 
@@ -23,6 +25,7 @@ public class BookStoresController {
     public String show(/*@RequestParam int id, */Model model) {
         BookStore bookStore = bookStoreService.getById();
         model.addAttribute(bookStore);
+
         return "book-stores/book-stores.show";
     }
 }
