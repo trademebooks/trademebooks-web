@@ -1,4 +1,4 @@
-package com.chosensolutions.models.recipe;
+package com.chosensolutions.models.recipe.models;
 
 import org.springframework.data.annotation.Id;
 
@@ -24,14 +24,22 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe") // stored in private Recipe recipe;
     private Set<Ingredient> ingredients;
 
-    //TODO
-    //difficultity
-
     @Lob // binary large object field
     private Byte[] image;
 
+    @Enumerated(value = EnumType.STRING) // ordinal 1, 2, 3 | String = the actual strings
+    private Diffculty difficulty;
+
     @OneToOne(cascade = CascadeType.ALL) // deleting the recipe will delete the notes
     private Note notes;
+
+    @ManyToMany
+    @JoinTable(
+            name                = "recipe_category",
+            joinColumns         = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns  = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories;
 
     public Long getId() {
         return id;
@@ -119,5 +127,21 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Diffculty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Diffculty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }

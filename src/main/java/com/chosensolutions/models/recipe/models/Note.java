@@ -1,4 +1,4 @@
-package com.chosensolutions.models.recipe;
+package com.chosensolutions.models.recipe.models;
 
 import javax.persistence.*;
 
