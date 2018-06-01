@@ -67,7 +67,7 @@
                         '<div class="list-group search-results-dropdown">'
                     ],
                     suggestion: function (data) {
-                        return '<a href="' + data.id + '" class="list-group-item">' + data.volumeInfo.title + ' - ' + data.volumeInfo.authors[0] + '</a>'
+                        return '<div><a href="' + data.id + '" class="list-group-item">' + data.volumeInfo.title + ' - ' + data.volumeInfo.authors[0] + '<img src="' + data.volumeInfo.imageLinks.thumbnail +'"/> '+ '</a></div>'
               }
                 }
             });
