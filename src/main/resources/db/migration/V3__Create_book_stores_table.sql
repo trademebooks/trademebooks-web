@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS book_stores;
+/*DROP TABLE IF EXISTS book_stores;
 
 CREATE TABLE book_stores (
   id          INT AUTO_INCREMENT PRIMARY KEY,
@@ -7,4 +7,4 @@ CREATE TABLE book_stores (
   updated_at  DATETIME
 )
   ENGINE = InnoDB
-  CHARACTER SET utf8;
+  CHARACTER SET utf8;*/

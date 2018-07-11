@@ -1,5 +1,6 @@
 package com.chosensolutions.config;
 
+import com.chosensolutions.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,6 +17,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
@@ -26,17 +30,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+/*        http
             .authorizeRequests()
                 .anyRequest()
                 .authenticated()
                 .and()
-/*            .antMatchers("/css/**", "/index").permitAll()
-            .antMatchers("/user/**").hasRole("USER")*/
+            .antMatchers("/css/**", "/index").permitAll()
+            .antMatchers("/user/**").hasRole("USER")
+
             .formLogin()
                 //.loginPage("/auth/login")
                 .and()
-            .httpBasic();
+            .httpBasic();*/
     }
 
 }

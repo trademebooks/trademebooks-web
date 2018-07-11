@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS notifications;
+/*DROP TABLE IF EXISTS notifications;
 
 CREATE TABLE notifications (
   id          INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -9,4 +9,4 @@ CREATE TABLE notifications (
   updated_at  DATETIME
 )
   ENGINE = InnoDB
-  CHARACTER SET utf8;
+  CHARACTER SET utf8;*/
