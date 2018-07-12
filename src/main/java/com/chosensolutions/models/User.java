@@ -13,11 +13,11 @@ import javax.persistence.Table;
 import javax.persistence.*;
 import java.util.Collection;
 
-@Entity
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+/*@Entity
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))*/
 public class User {
 
-    @Id
+/*    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -104,5 +104,5 @@ public class User {
                 ", password='" + "*********" + '\'' +
                 ", roles=" + roles +
                 '}';
-    }
+    }*/
 }

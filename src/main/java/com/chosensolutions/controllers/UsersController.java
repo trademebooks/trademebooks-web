@@ -11,12 +11,12 @@ import java.util.List;
 @RequestMapping("/users")
 public class UsersController {
 
-    @Autowired
+/*    @Autowired
     private UserRepository userRepository;
 
     @GetMapping
     public List getUsers(){
         return userRepository.findAll();
-    }
+    }*/
 
 }

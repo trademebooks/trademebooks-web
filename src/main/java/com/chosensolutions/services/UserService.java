@@ -14,10 +14,10 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-@Service
-public class UserService implements UserDetailsService {
+//@Service
+public class UserService /*implements UserDetailsService*/ {
 
-    @Autowired
+/*    @Autowired
     private UserRepository userRepository;
 
     @Override
@@ -35,5 +35,5 @@ public class UserService implements UserDetailsService {
         return roles.stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
-    }
+    }*/
 }
