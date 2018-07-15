@@ -3,6 +3,7 @@ package com.chosensolutions;
 import com.chosensolutions.utils.HTTP;
 import com.google.gson.*;
 import org.junit.Test;
+
 import static org.junit.Assert.assertTrue;
 
 public class SearchFunctionTest {
@@ -30,7 +31,7 @@ public class SearchFunctionTest {
 
         System.out.println(jsonObject);
 
-        for (JsonElement item: items) {
+        for (JsonElement item : items) {
             System.out.println(item.getAsJsonObject().getAsJsonPrimitive("id"));
         }
 
