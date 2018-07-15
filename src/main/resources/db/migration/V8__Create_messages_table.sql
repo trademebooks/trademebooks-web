@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS messages;
+/*DROP TABLE IF EXISTS messages;
 
 CREATE TABLE messages (
   id          INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -10,4 +10,4 @@ CREATE TABLE messages (
   updated_at  DATETIME
 )
   ENGINE = InnoDB
-  CHARACTER SET utf8;
+  CHARACTER SET utf8;*/

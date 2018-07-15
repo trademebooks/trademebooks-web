@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS profiles;
+/*DROP TABLE IF EXISTS profiles;
 
 CREATE TABLE profiles (
   id          INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -9,4 +9,4 @@ CREATE TABLE profiles (
   updated_at  DATETIME
 )
   ENGINE = InnoDB
-  CHARACTER SET utf8;
+  CHARACTER SET utf8;*/

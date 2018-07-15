@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS accounts;
+/*DROP TABLE IF EXISTS accounts;
 
 CREATE TABLE accounts (
   id              INT AUTO_INCREMENT PRIMARY KEY,
@@ -7,4 +7,4 @@ CREATE TABLE accounts (
   updated_at      DATETIME
 )
   ENGINE = InnoDB
-  CHARACTER SET utf8;
+  CHARACTER SET utf8;*/

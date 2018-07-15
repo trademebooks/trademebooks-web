@@ -21,7 +21,7 @@ public class BookStore {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "book_stores", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "bookStore", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<Book> books;
 
     public BookStore() {
