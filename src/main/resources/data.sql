@@ -1,4 +1,4 @@
-SET FOREIGN_KEY_CHECKS=0;
+/*SET FOREIGN_KEY_CHECKS=0;
 
 INSERT INTO users (id, username, email, password, enabled) VALUES (1, 'yichen', 'yichenzhu1337@gmail.com', '{noop}yichen', 1);
 INSERT INTO users (id, username, email, password, enabled) VALUES (2, 'joe', 'joe@joe', '{noop}joe', 1);
@@ -20,4 +20,4 @@ INSERT INTO books (id, book_store_id, title) VALUES (1, 1, 'book1');
 INSERT INTO books (id, book_store_id, title) VALUES (2, 1, 'book2');
 INSERT INTO books (id, book_store_id, title) VALUES (3, 1, 'book3');
 
-SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=0;*/

@@ -9,7 +9,6 @@ public class AppTest {
 
     @Test
     public void testApp() {
-
         PagesController pagesController = new PagesController();
         String aboutPage = pagesController.about();
         assertEquals(aboutPage, "pages/about");
