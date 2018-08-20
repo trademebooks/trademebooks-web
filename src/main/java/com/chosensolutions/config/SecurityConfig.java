@@ -2,20 +2,16 @@ package com.chosensolutions.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /*
  * Sources:
  * https://www.udemy.com/how-to-use-spring-security-to-secure-your-java-applications/learn/v4/t/lecture/1939854?start=0
  */
-@Configuration
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+/*@Configuration
+@EnableWebSecurity*/
+public class SecurityConfig /* extends WebSecurityConfigurerAdapter*/ {
 
-    @Autowired
+/*    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
@@ -31,12 +27,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-/*            .antMatchers("/css/**", "/index").permitAll()
-            .antMatchers("/user/**").hasRole("USER")*/
+*//*            .antMatchers("/css/**", "/index").permitAll()
+            .antMatchers("/user/**").hasRole("USER")*//*
                 .formLogin()
 
                 .and()
                 .httpBasic();
-    }
+    }*/
 
 }

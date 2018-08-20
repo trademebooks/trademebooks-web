@@ -1,7 +1,10 @@
 package com.chosensolutions.models;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "books")
 public class Book {
@@ -26,26 +29,4 @@ public class Book {
         this.title = title;
     }
 
-    public BookStore getBookStore() {
-        return bookStore;
-    }
-
-    public void setBookStore(BookStore bookStore) {
-        this.bookStore = bookStore;
-    }
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }
