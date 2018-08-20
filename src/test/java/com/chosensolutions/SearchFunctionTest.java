@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 public class SearchFunctionTest {
 
-    @Test
+/*    @Test
     public void HTTPGet() throws Exception {
         String url = "https://www.googleapis.com/books/v1/volumes?q=calculus%20spivak";
         String response = HTTP.get(url);
@@ -36,5 +36,5 @@ public class SearchFunctionTest {
         }
 
         assertTrue(totalItems.isNumber());
-    }
+    }*/
 }
