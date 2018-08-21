@@ -1,22 +1,27 @@
-package com.chosensolutions.controllers;
+package com.chosensolutions.controllers.auth;
 
+import com.chosensolutions.models.User;
+import com.chosensolutions.services.IUserService;
+import com.chosensolutions.validation.EmailExistsException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
 
 @Controller
 public class AuthController {
+
+    @Autowired
+    private IUserService userService;
 
     @RequestMapping("/login")
     public String list() {
         return "auth/login";
     }
-
-/*
-
-    @Autowired
-    private IUserService userService;
-
-    //
 
     @RequestMapping(value = "signup")
     public ModelAndView registrationForm() {
@@ -36,6 +41,5 @@ public class AuthController {
         }
         return new ModelAndView("redirect:/login");
     }
-*/
 
 }

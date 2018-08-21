@@ -6,13 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.util.Calendar;
+import javax.validation.constraints.*;
 
-//import com.baeldung.lss.validation.PasswordMatches;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import com.chosensolutions.validation.PasswordMatches;
 
 @Entity
-//@PasswordMatches
+@PasswordMatches
 public class User {
 
     @Id
