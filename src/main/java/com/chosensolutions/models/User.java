@@ -1,15 +1,13 @@
 package com.chosensolutions.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.Calendar;
 import javax.validation.constraints.*;
 
 import com.chosensolutions.validation.PasswordMatches;
+import lombok.*;
 
+@Data
 @Entity
 @PasswordMatches
 public class User {
@@ -31,48 +29,4 @@ public class User {
 
     private Calendar created = Calendar.getInstance();
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Calendar getCreated() {
-        return this.created;
-    }
-
-    public void setCreated(Calendar created) {
-        this.created = created;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(final String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(final String password) {
-        this.password = password;
-    }
-
-    public String getPasswordConfirmation() {
-        return passwordConfirmation;
-    }
-
-    public void setPasswordConfirmation(final String passwordConfirmation) {
-        this.passwordConfirmation = passwordConfirmation;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", passwordConfirmation='" + passwordConfirmation + '\'' + ", created=" + created + '}';
-    }
 }

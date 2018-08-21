@@ -7,10 +7,10 @@ import static org.junit.Assert.*;
 
 public class AppTest {
 
-/*    @Test
+    @Test
     public void testApp() {
         PagesController pagesController = new PagesController();
         String aboutPage = pagesController.about();
         assertEquals(aboutPage, "pages/about");
-    }*/
+    }
 }

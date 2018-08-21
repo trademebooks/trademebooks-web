@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
-    <meta charset="UTF-8"/>
-    <title>CUSBE</title>
-    <div th:replace="layouts/styles :: styles"></div>
+    <title>Home Page</title>
 </head>
 <body>
-<div th:replace="layouts/navbar :: navbar"></div>
-
-<main>
-    <h1>Home</h1>
-    <!-- src="/images/gengar.png" -->
-    <img th:src="@{/images/gengar.png}"/>
-</main>
-
-<div th:replace="layouts/footer :: footer"></div>
-
-<div th:replace="layouts/scripts :: scripts"></div>
+    <h1 layout:fragment="header">Home Page here</h1>
+    <div layout:fragment="content" class="container">
+        Sexy landing page here
+    </div>
 </body>
 </html>

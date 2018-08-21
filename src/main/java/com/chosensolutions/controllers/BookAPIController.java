@@ -9,7 +9,7 @@ import java.util.*;
 
 @RequestMapping("/api/v1/")
 @RestController
-public class BooksAPIController {
+public class BookAPIController {
 
     @Autowired
     private BookService bookService;

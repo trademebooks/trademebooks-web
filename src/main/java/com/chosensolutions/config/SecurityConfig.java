@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/signup", "/user/register").permitAll()
+                .antMatchers("/", "/signup", "/user/register").permitAll()
                 //.antMatchers("/about").hasAnyAuthority("ADMIN", "USER")// everything that matches /about must have a role of admin or else it will not work
                 .antMatchers("/contact").hasAnyAuthority("ADMIN")// everything that matches /about must have a role of admin or else it will not work
                 .anyRequest().authenticated()
