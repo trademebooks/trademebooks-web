@@ -33,9 +33,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // JS and CSS
         http
                 .authorizeRequests()
                 .antMatchers("/webjars/**", "/js/**", "/css/**")
+                .permitAll();
+
+        // Public pages that anyone can view
+        http
+                .authorizeRequests()
+                .antMatchers("/about", "/terms")
                 .permitAll();
 
         http
