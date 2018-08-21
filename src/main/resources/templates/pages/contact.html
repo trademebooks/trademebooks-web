@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
+    <title>Contact Us</title>
 </head>
 <body>
-<div th:replace="layouts/navbar :: navbar"></div>
-
-<main>
-    <h1>Contact Us</h1>
-</main>
-
-<div th:replace="layouts/footer :: footer"></div>
+<div layout:fragment="content">
+    <h1>Contact Us Page</h1>
+    Contact form here here
+</div>
 </body>
 </html>

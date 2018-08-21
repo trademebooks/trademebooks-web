@@ -1,56 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
-<head>
-    <title>Book Exchange Please</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <script src="/webjars/jquery/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="container">
-    <!-- Navigation Bar start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Home</a>
+    <head>
+        <title>Book Exchange Please</title>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- Styles- Vendor - start -->
+        <div th:replace="~{_components/styles/vendor :: vendor_styles}"></div>
+        <!-- Styles - Vendor - end   -->
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/terms">Terms</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
-                </li>
-            </ul>
+        <!-- Styls - Application - start -->
+        <div th:replace="~{_components/styles/app :: application_styles}"></div>
+        <!-- Styles - Application - end   -->
+    </head>
+    <body>
+        <div class="container">
+            <!-- Navigation Bar - start -->
+            <div th:replace="~{_components/navbars/master-navbar :: master-navbar}"></div>
+            <!-- Navigation Bar - end   -->
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <!-- Main app body - start -->
+            <main>
+                <div layout:fragment="content">Some content</div>
+            </main>
+            <!-- Main app body - end    -->
+
+            <!-- Footer - start -->
+            <div></div>
+            <!-- Footer - end   -->
+
+            <!-- Scripts - Vendor - start -->
+            <div th:replace="~{_components/scripts/vendor :: vendor_scripts}"></div>
+            <!-- Scripts - Vendor - end   -->
+
+            <!-- Scripts - Application - start -->
+            <div th:replace="~{_components/scripts/app :: application_scripts}"></div>
+            <!-- Scripts - Application - end   -->
         </div>
-    </nav>
-    <!-- Navigation Bar end   -->
-
-    <!-- Main app body start -->
-    <main>
-        <h1 layout:fragment="header">Layout</h1>
-
-        <div layout:fragment="content">Some content</div>
-    </main>
-    <!-- Main app body end    -->
-</div>
-</body>
+    </body>
 </html>

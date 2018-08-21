@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
-    <title>Login Page</title>
-
-    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-
+    <title>Login</title>
 </head>
 <body>
-<div class="container">
+<div layout:fragment="content">
     <h1>Login page</h1>
 
     <div th:if="${param.error}" class="alert alert-danger">Invalid username and password.</div>
@@ -34,6 +30,5 @@
         </div>
     </form>
 </div>
-
 </body>
 </html>

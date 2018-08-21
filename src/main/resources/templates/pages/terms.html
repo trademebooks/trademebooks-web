@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
+    <title>Home Page</title>
 </head>
 <body>
-<div th:replace="layouts/navbar :: navbar"></div>
-
-<main>
-    <h1>About</h1>
-</main>
-
-<div th:replace="layouts/footer :: footer"></div>
-
-<script th:src="@{/public/js/app.js}"></script>
+<div layout:fragment="content">
+    <h1>Terms and Conditions Page</h1>
+    Terms and conditions here
+</div>
 </body>
 </html>

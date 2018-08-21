@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
+    <title>Home Page</title>
 </head>
 <body>
-<div th:replace="layouts/navbar :: navbar"></div>
-
-<main>
+<div layout:fragment="content">
     <h1>404</h1>
     <p>Page not found!</p>
-</main>
-
-<div th:replace="layouts/footer :: footer"></div>
+</div>
 </body>
 </html>
