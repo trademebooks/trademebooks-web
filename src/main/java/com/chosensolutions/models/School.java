@@ -17,4 +17,10 @@ public class School {
     @Column(name = "school_name")
     private String name;
 
+    @Column
+    private String shortName;
+
+    @Column
+    private String code;
+
 }

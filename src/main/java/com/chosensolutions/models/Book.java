@@ -20,6 +20,15 @@ public class Book {
     @Column(name = "title")
     private String title;
 
+    @Column
+    private String datePublished;
+
+    @Column
+    private String isbnNumber;
+
+    @Column
+    private String publisher;
+
     public Book() {
 
     }

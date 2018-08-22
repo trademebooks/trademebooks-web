@@ -4,26 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class PagesController {
+public class AccountController {
 
-    @RequestMapping("/")
-    public String home() {
-        return "pages/home";
-    }
-
-    @RequestMapping("/about")
-    public String about() {
-        return "pages/about";
-    }
-
-    @RequestMapping("/contact")
-    public String contact() {
-        return "pages/contact";
-    }
-
-    @RequestMapping("/terms")
-    public String terms() {
-        return "pages/terms";
+    @RequestMapping("/account/edit")
+    public String accountEditPage() {
+        return "account/account.edit";
     }
 
 }

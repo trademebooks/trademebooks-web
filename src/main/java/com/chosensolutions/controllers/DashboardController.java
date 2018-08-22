@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AccountController {
+public class DashboardController {
 
-    @RequestMapping("/account/edit")
-    public String accountEditPage() {
-        return "account/account.edit";
+    @RequestMapping("/dashboard")
+    public String authDashboardPage() {
+        return "dashboard/dashboard";
     }
 
 }

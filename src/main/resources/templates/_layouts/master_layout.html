@@ -13,13 +13,13 @@
         <!-- Styles - Application - end   -->
     </head>
     <body>
-        <div class="container">
+        <div>
             <!-- Navigation Bar - start -->
             <div th:replace="~{_components/navbars/master-navbar :: master-navbar}"></div>
             <!-- Navigation Bar - end   -->
 
             <!-- Main app body - start -->
-            <main>
+            <main class="container">
                 <div layout:fragment="content">Some content</div>
             </main>
             <!-- Main app body - end    -->

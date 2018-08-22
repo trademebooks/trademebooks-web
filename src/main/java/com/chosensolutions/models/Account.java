@@ -14,6 +14,10 @@ public class Account {
     @Column(name = "id")
     private String id;
 
+    @Column
+    private String phoneNumber;
+
+    @Column
     private boolean receiveEmail;
 
 }
