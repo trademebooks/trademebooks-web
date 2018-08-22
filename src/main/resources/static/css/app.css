@@ -4,4 +4,5 @@ h1 {
 
 main {
     margin-top: 20px;
+    min-height: 50vh;
 }
