@@ -12,7 +12,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @ManyToOne
     private BookStore bookStore;
@@ -33,7 +33,7 @@ public class Book {
 
     }
 
-    public Book(String id, String title) {
+    public Book(Long id, String title) {
         this.id = id;
         this.title = title;
     }
