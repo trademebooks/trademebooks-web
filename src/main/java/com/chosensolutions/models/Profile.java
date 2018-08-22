@@ -12,7 +12,7 @@ public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     private String firstName;
 
