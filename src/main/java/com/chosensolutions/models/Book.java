@@ -3,19 +3,20 @@ package com.chosensolutions.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "books")
-public class Book {
+public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private String id;
+    private Long id;
 
-    @ManyToOne
-    private BookStore bookStore;
+/*    @ManyToOne
+    private BookStore bookStore;*/
 
     @Column(name = "title")
     private String title;
@@ -28,14 +29,5 @@ public class Book {
 
     @Column
     private String publisher;
-
-    public Book() {
-
-    }
-
-    public Book(String id, String title) {
-        this.id = id;
-        this.title = title;
-    }
 
 }

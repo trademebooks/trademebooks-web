@@ -1,0 +1,138 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Landing Page</title>
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font: 400 15px/1.8 "Lato", sans-serif;
+            color: #777;
+        }
+
+        .bgimg-1 {
+            position: relative;
+            opacity: 0.65;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("images/background-books-1.jpg");
+            height: 100%;
+        }
+
+        .caption {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .lp-search-box {
+            padding: 20px 40px 20px 40px;
+            width: 700px;
+            border-radius: 40px;
+            border: solid #8f8c8c 2px;
+            font-size: 22px;
+            opacity: 0.9;
+        }
+
+        .lp-search-box:focus {
+            /*border: solid red 10px;*/
+            outline:none;
+        }
+    </style>
+
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<div class="bgimg-1">
+    <div class="caption">
+        <h1>CUSBE</h1>
+        <form>
+            <div class="form-group">
+                <input class="lp-search-box" type="text" placeholder="Search book tilte, isbn, author, publisher, or course code..."/>
+            </div>
+        </form>
+<!--
+
+        <form class="typeahead" role="search">
+            <div class="form-group">
+                <input type="search" name="q" class="form-control search-input" placeholder="Search" autocomplete="off">
+            </div>
+        </form>
+-->
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins  and Typeahead) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Typeahead.js Bundle -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+<!-- Typeahead Initialization -->
+<script>
+    jQuery(document).ready(function ($) {
+        // Set the Options for "Bloodhound" suggestion engine
+        var engine = new Bloodhound({
+            remote: {
+                url: 'https://www.googleapis.com/books/v1/volumes?q=%QUERY%',
+                wildcard: '%QUERY%',
+                transform: function (response) {
+                    return response.items;
+                }
+            },
+            datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+        });
+
+        $(".search-input").typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, {
+            source: engine.ttAdapter(),
+
+            // This will be appended to "tt-dataset-" to form the class name of the suggestion menu.
+            name: 'items',
+
+            display: 'items',
+
+            // the key from the array we want to display (name,id,email,etc...)
+            templates: {
+                empty: [
+                    '<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                ],
+                header: [
+                    '<div class="list-group search-results-dropdown">'
+                ],
+                suggestion: function (data) {
+                    return '<div><a href="' + data.id + '" class="list-group-item">' + data.volumeInfo.title + ' - ' + data.volumeInfo.authors[0] + '<img src="' + data.volumeInfo.imageLinks.thumbnail + '"/> ' + '</a></div>'
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

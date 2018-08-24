@@ -26,4 +26,9 @@ public class PagesController {
         return "pages/terms";
     }
 
+    @RequestMapping("/landing")
+    public String landingPage() {
+        return "pages/landing";
+    }
+
 }

@@ -36,13 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // JS and CSS
         http
                 .authorizeRequests()
-                .antMatchers("/webjars/**", "/js/**", "/css/**")
+                .antMatchers("/webjars/**", "/js/**", "/css/**", "/images/**")
                 .permitAll();
 
         // Public pages that anyone can view
         http
                 .authorizeRequests()
-                .antMatchers("/about", "/terms")
+                .antMatchers("/about", "/terms", "/api/v1/**")
                 .permitAll();
 
         http

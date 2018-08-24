@@ -9,26 +9,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+import java.util.Set;
+
 import static org.junit.Assert.assertEquals;
 
-//@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class BookServiceTest {
 
-   /* @Autowired
+    @Autowired
     BookService bookService;
-
     @Test
     public void testViewABookById() {
-        // http://www.baeldung.com/spring-boot-testing
-        //Book book2 = bookService.getBookById("2");
-        //assertEquals("2", book2.getId());
+       //http://www.baeldung.com/spring-boot-testing
+       //Book book = bookService.getBookById(1L);
+       //assertEquals(new Long(2L), book2.getId());
     }
 
     @Test
     public void testViewAllBooks() {
-        // http://www.baeldung.com/spring-boot-testing
+        List<Book> books = bookService.getAllBooks();
 
-        bookService.getAllBooks();
-    }*/
+        System.out.println(books);
+    }
 }

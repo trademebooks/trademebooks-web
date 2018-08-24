@@ -15,14 +15,14 @@ public class BookService {
 
     public List<Book> getAllBooks() {
         List<Book> books = new ArrayList<>();
-        booksRepository.findAll().forEach(books::add);
+        booksRepository.findAll().iterator().forEachRemaining(books::add);
         return books;
     }
 
-    public Book getBookById(String id) {
-        Book book = booksRepository.getOne(id);
+/*    public Book getBookById(long id) {
+        Book book = booksRepository.findById( Long.toString(id));
         return book;
-    }
+    }*/
 
     public void createBook(Book book) {
         booksRepository.save(book);

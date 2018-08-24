@@ -16,13 +16,17 @@ public class BookAPIController {
 
     @RequestMapping("/books")
     public List<Book> index() {
+
+
+
+        System.out.println("test123");
         return bookService.getAllBooks();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/books/{id}")
+/*    @RequestMapping(method = RequestMethod.GET, value = "/books/{id}")
     public Book show(@PathVariable("id") String id) {
         return bookService.getBookById(id);
-    }
+    }*/
 
     @RequestMapping(method = RequestMethod.POST, value = "/books")
     public void create(@RequestBody Book book) {

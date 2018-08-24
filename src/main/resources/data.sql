@@ -23,10 +23,10 @@ VALUES
   (2, 'best bookstore NA 2', 'bookstore 2', 1),
   (3, 'best bookstore NA 3', 'bookstore 3', 1);
 
-INSERT INTO books (id, book_store_id, title)
+INSERT INTO books (id,/* book_store_id,*/ title)
 VALUES
-  (1, 1, 'book1'),
-  (2, 1, 'book2'),
-  (3, 1, 'book3');
+  (1, /*1,*/ 'book1'),
+  (2, /*1, */'book2'),
+  (3, /*1, */'book3');
 
 SET FOREIGN_KEY_CHECKS=1;
