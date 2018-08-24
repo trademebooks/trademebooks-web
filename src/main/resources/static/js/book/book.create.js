@@ -25,7 +25,7 @@
             templates: {
                 empty: [
                     '<div class="list-group search-results-dropdown">',
-                        '<div class="list-group-item">Nothing found.</div>',
+                    '<div class="list-group-item">Nothing found.</div>',
                     '</div>'
                 ].join('\n'),
                 header: [
@@ -33,16 +33,29 @@
                 ],
 
                 suggestion: function (data) {
+                    var id = data.id;
+                    var title = data.volumeInfo.title;
+                    var authors = data.volumeInfo.authors.join(' ');
+
+                    if (data && data.volumeInfo && data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail) {
+                        var image = data.volumeInfo.imageLinks.thumbnail;
+                    }
+                    else {
+                        image = 'http://static.springfree.com/sites/springfreetrampoline.com/files/images/headers/book-image.png';
+                    }
+
                     return [
                         '<div>',
-                            '<img width="50" src="' + data.volumeInfo.imageLinks.thumbnail + '"/> ',
-                            data.volumeInfo.title + ' - ' + data.volumeInfo.authors[0],
+                            '<div>',
+                        '<img width="50" src="' + image + '"/> ',
+                        '<span>' + title + '</span>',
+                        '<sub> - ' + authors + '</sub>',
                         '</div>'
                     ].join('\n');
                 }
             }
         });
-        
+
         $('.search-input').on('typeahead:select', function (event, suggestion) {
             console.log(event);
             console.log(suggestion);
