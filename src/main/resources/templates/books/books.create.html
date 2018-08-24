@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css" />
+    <style>
+        span.twitter-typeahead .tt-suggestion {
+            padding: 10px 20px;
+        }
+    </style>
 </head>
 <body>
-<div th:replace="layouts/navbar :: navbar"></div>
 
-<main>
-    <h1>Books Create</h1>
-</main>
+<div layout:fragment="content">
+    <h1>Create a book here</h1>
 
-<div th:replace="layouts/footer :: footer"></div>
+    <form class="typeahead" role="search">
+        <div class="form-group">
+            <input type="search" name="q" class="form-control search-input" placeholder="Search" autocomplete="off">
+        </div>
+    </form>
+</div>
+
+<div layout:fragment="custom_js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="/js/book/book.create.js"></script>
+</div>
 </body>
+
 </html>
