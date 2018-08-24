@@ -6,16 +6,21 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "profiles")
-public class Profile {
+@Table(name = "notifications")
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-    private String firstName;
+    @Column
+    private String title;
 
-    private String lastName;
+    @Column
+    private String description;
+
+    @Column
+    private boolean isRead;
 
 }

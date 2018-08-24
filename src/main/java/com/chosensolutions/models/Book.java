@@ -30,4 +30,12 @@ public class Book implements Serializable {
     @Column
     private String publisher;
 
+    public Book() {
+
+    }
+
+    public Book(Long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
 }

@@ -6,8 +6,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "accounts")
-public class Account {
+@Table(name = "messages")
+public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,9 +15,18 @@ public class Account {
     private Long id;
 
     @Column
-    private String phoneNumber;
+    private String title;
 
     @Column
-    private boolean receiveEmail;
+    private String body;
+
+    @Column
+    private boolean isRead;
+
+    @Column
+    private long fromUserId;
+
+    @Column
+    private long toUserId;
 
 }
