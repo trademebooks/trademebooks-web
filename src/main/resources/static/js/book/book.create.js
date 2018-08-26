@@ -35,13 +35,19 @@
                 suggestion: function (data) {
                     var id = data.id;
                     var title = data.volumeInfo.title;
-                    var authors = data.volumeInfo.authors.join(' ');
 
                     if (data && data.volumeInfo && data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail) {
                         var image = data.volumeInfo.imageLinks.thumbnail;
                     }
                     else {
                         image = 'http://static.springfree.com/sites/springfreetrampoline.com/files/images/headers/book-image.png';
+                    }
+
+                    if (data && data.volumeInfo && data.volumeInfo.authors) {
+                        var authors = data.volumeInfo.authors.join(' ');
+                    }
+                    else {
+                        authors = '';
                     }
 
                     return [
