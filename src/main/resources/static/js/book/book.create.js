@@ -65,6 +65,48 @@
         $('.search-input').on('typeahead:select', function (event, suggestion) {
             console.log(event);
             console.log(suggestion);
+
+            var data = suggestion;
+
+            var title = data.volumeInfo.title;
+
+            if (data && data.volumeInfo && data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail) {
+                var image = data.volumeInfo.imageLinks.thumbnail;
+            }
+            else {
+                image = 'http://static.springfree.com/sites/springfreetrampoline.com/files/images/headers/book-image.png';
+            }
+
+            if (data && data.volumeInfo && data.volumeInfo.authors) {
+                var authors = data.volumeInfo.authors.join(' ');
+            }
+            else {
+                authors = '';
+            }
+
+            console.log(title, image, authors);
+
+            $("input#form-create-book-title").val(title);
+            $("input#form-create-book-authors").val(authors);
         });
     });
 })(jQuery);
+
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();

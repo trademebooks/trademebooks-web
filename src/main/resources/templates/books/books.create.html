@@ -13,13 +13,71 @@
 <body>
 
 <div layout:fragment="content">
-    <h1>Create a book here</h1>
+    <h1>Create a Book Listing</h1>
 
+    <!-- Search box start -->
     <form class="typeahead" role="search">
         <div class="form-group">
             <input type="search" name="q" class="form-control search-input" placeholder="Search" autocomplete="off">
         </div>
     </form>
+    <!-- Search box end   -->
+
+    <!-- Input Fields start -->
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="form-create-book-title">Book Title</label>
+                <input type="text" class="form-control" id="form-create-book-title" placeholder="Calculus 2018" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="form-create-book-authors">Book Author(s)</label>
+                <input type="text" class="form-control" id="form-create-book-authors" placeholder="Michael Spivak, John Smith" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="form-create-book-price">Book Price</label>
+                <input type="number" class="form-control" id="form-create-book-price" placeholder="100" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                    Please enter a book price.
+                </div>
+            </div>
+        </div>
+<!--        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom03">City</label>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="City" value="123" required>
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom04">State</label>
+                <input type="text" class="form-control" id="validationCustom04" placeholder="State" value="123" required>
+                <div class="invalid-feedback">
+                    Please provide a valid state.
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom05">Zip</label>
+                <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" value="123" required>
+                <div class="invalid-feedback">
+                    Please provide a valid zip.
+                </div>
+            </div>
+        </div>-->
+
+        <button class="btn btn-primary" type="submit">Post Book Listing</button>
+    </form>
+    <!-- Input Fields end   -->
 </div>
 
 <div layout:fragment="custom_js">
