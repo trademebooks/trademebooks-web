@@ -19,8 +19,13 @@ public class AuthController {
     private IUserService userService;
 
     @RequestMapping("/login")
-    public String list() {
+    public String login() {
         return "auth/login";
+    }
+
+    @RequestMapping("/login2")
+    public String login2() {
+        return "auth/login2";
     }
 
     @RequestMapping(value = "signup")

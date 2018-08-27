@@ -26,7 +26,7 @@
 <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.js"></script>
 <script type="text/javascript">
-    if (window.location.hash == '#_=_'){
+    if (window.location.hash === '#_=_'){
         history.replaceState
             ? history.replaceState(null, null, window.location.href.split('#')[0])
             : window.location.hash = '';
