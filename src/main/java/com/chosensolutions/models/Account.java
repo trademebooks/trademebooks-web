@@ -1,10 +1,11 @@
 package com.chosensolutions.models;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "accounts")
 public class Account {

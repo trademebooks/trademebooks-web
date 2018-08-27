@@ -9,6 +9,10 @@ VALUES
   (5, 'marry@marry.com',    'password', '2018-08-21 17:30:26'),
   (6, 'susan@susan.com',    'password', '2018-08-21 17:30:26');
 
+INSERT INTO profiles (id, user_id, username, first_name, last_name)
+VALUES
+  (1, 1, 'yichenzhu1337',  'Yi Chen', 'Zhu');
+
 -- INSERT INTO `authorities` VALUES ('john','ROLE_EMPLOYEE');
 -- INSERT INTO `authorities` VALUES ('mary','ROLE_EMPLOYEE');
 -- INSERT INTO `authorities` VALUES ('mary','ROLE_MANAGER');

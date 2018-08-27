@@ -1,10 +1,11 @@
 package com.chosensolutions.models;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "profiles")
 public class Profile {
@@ -14,8 +15,16 @@ public class Profile {
     @Column(name = "id")
     private Long id;
 
+    @Column
+    private String username;
+
+    @Column
     private String firstName;
 
+    @Column
     private String lastName;
+
+    @OneToOne
+    private User user;
 
 }

@@ -13,7 +13,7 @@ public class BookStoreController {
     @Autowired
     BookStoreService bookStoreService;
 
-    @RequestMapping("/book-stores")
+    @RequestMapping("/my-book-store")
     public String index(Model model) {
         model.addAttribute("bookStores", bookStoreService.getAll());
 

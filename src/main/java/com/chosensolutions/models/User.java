@@ -7,7 +7,8 @@ import javax.validation.constraints.*;
 import com.chosensolutions.validation.PasswordMatches;
 import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @PasswordMatches
 public class User {
@@ -28,5 +29,8 @@ public class User {
     private String passwordConfirmation;
 
     private Calendar created = Calendar.getInstance();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Profile profile;
 
 }
