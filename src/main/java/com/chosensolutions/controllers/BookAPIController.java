@@ -30,6 +30,7 @@ public class BookAPIController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/books")
     public void create(@RequestBody Book book) {
+        System.out.println(book);
         bookService.createBook(book);
     }
 
