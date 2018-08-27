@@ -20,7 +20,7 @@ public class BookAPIController {
 
 
         System.out.println("test123");
-        return bookService.getAllBooks();
+        return bookService.getAuthAllBooks();
     }
 
 /*    @RequestMapping(method = RequestMethod.GET, value = "/books/{id}")
