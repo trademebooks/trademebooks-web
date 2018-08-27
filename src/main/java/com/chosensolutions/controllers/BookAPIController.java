@@ -29,9 +29,11 @@ public class BookAPIController {
     }*/
 
     @RequestMapping(method = RequestMethod.POST, value = "/books")
-    public void create(@RequestBody Book book) {
+    public void create(@RequestBody String book) {
         System.out.println(book);
-        bookService.createBook(book);
+
+
+        //bookService.createBook(book);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/books/{id}")
@@ -39,8 +41,8 @@ public class BookAPIController {
         bookService.updateBook(id, book);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/books/{id}")
+/*    @RequestMapping(method = RequestMethod.DELETE, value = "/books/{id}")
     public void delete(@PathVariable("id") String id) {
         bookService.deleteBook(id);
-    }
+    }*/
 }

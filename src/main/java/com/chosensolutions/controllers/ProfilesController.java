@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ProfileController {
+public class ProfilesController {
 
-    @RequestMapping("/profiles/{id}")
+    @RequestMapping("/profiles/123")
     public String profilePage() {
         return "profile/profile.show";
     }

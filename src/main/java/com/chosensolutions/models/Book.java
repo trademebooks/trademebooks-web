@@ -1,22 +1,25 @@
 package com.chosensolutions.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
-@Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Getter
+@Setter
 @Entity
 @Table(name = "books")
-public class Book implements Serializable {
+public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-/*    @ManyToOne
-    private BookStore bookStore;*/
+    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "book_store_id", nullable = false)
+    private BookStore bookStore;
 
     @Column(name = "title")
     private String title;

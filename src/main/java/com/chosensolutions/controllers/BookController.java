@@ -1,10 +1,24 @@
 package com.chosensolutions.controllers;
 
+import com.chosensolutions.models.Book;
+import com.chosensolutions.models.BookStore;
+import com.chosensolutions.repositories.BookStoresRepository;
+import com.chosensolutions.repositories.BooksRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 public class BookController {
+
+    @Autowired
+    BooksRepository booksRepository;
+
+    @Autowired
+    BookStoresRepository bookStoresRepository;
 
     @RequestMapping("/books")
     public String index() {
@@ -23,6 +37,19 @@ public class BookController {
 
     @RequestMapping("/books/edit")
     public String edit() {
+//        List<Book> books = booksRepository.findAll();
+//        System.out.println(books);
+//        List<BookStore> bookStores = bookStoresRepository.findAll();
+//        System.out.println(bookStores);
+
+        System.out.println("break");
+        long long1 = 1;
+        Optional<BookStore> bookStore1 = bookStoresRepository.findById(long1);
+
+        if (bookStore1.isPresent()) {
+            System.out.println(bookStore1.get());
+        }
+
         return "books/books.edit";
     }
 }

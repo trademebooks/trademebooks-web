@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
+    <title>About Us</title>
 </head>
 <body>
-<div th:replace="layouts/navbar :: navbar"></div>
 
-<main>
-    <h1>Books Edit</h1>
-</main>
+<div layout:fragment="content">
+    <h1>Edit a Book</h1>
+</div>
 
-<div th:replace="layouts/footer :: footer"></div>
+<div layout:fragment="custom_js">
+    <script src="/js/book/book.create.js"></script>
+</div>
 </body>
+
 </html>

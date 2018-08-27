@@ -1,17 +1,20 @@
 package com.chosensolutions.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Getter
+@Setter
 @Entity
 @Table(name = "book_stores")
 public class BookStore {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -24,8 +27,11 @@ public class BookStore {
     @Column(name = "description")
     private String description;
 
-/*    @OneToMany(mappedBy = "bookStore", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Book> books;*/
+    @OneToMany(
+            mappedBy = "bookStore",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<Book> books;
 
     public BookStore() {
 
@@ -40,4 +46,14 @@ public class BookStore {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "BookStore{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", books=" + books +
+                '}';
+    }
 }
