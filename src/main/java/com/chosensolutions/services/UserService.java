@@ -6,6 +6,9 @@ import com.chosensolutions.models.User;
 import com.chosensolutions.repositories.UserRepository;
 import com.chosensolutions.validation.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,4 +31,16 @@ class UserService implements IUserService {
         return user != null;
     }
 
+    /**
+     * Very Important function that returns the currently authenticated User object
+     *
+     * @return User
+     */
+    public User getCurrentAuthUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName();
+        User user = repository.findByEmail(email);
+
+        return user;
+    }
 }

@@ -13,6 +13,13 @@ public class BookService {
     @Autowired
     private BooksRepository booksRepository;
 
+    @Autowired
+    private IUserService userService;
+
+    public List<Book> getAllAuthBooks() {
+        return userService.getCurrentAuthUser().getBookStore().getBooks();
+    }
+
     public List<Book> getAllBooks() {
         List<Book> books = new ArrayList<>();
         booksRepository.findAll().iterator().forEachRemaining(books::add);

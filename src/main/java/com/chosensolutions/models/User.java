@@ -30,7 +30,12 @@ public class User {
 
     private Calendar created = Calendar.getInstance();
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
     private Profile profile;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private BookStore bookStore;
 
 }

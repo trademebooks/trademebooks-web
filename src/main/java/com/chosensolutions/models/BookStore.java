@@ -18,9 +18,6 @@ public class BookStore {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
-
     @Column(name = "name")
     private String name;
 
@@ -33,6 +30,10 @@ public class BookStore {
             fetch = FetchType.LAZY)
     private List<Book> books;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public BookStore() {
 
     }
@@ -44,16 +45,5 @@ public class BookStore {
     public BookStore(String name, String description) {
         this.name = name;
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "BookStore{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", books=" + books +
-                '}';
     }
 }

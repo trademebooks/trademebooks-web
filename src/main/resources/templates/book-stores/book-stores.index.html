@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="_layouts/master_layout">
 <head>
+    <title>About Us</title>
 </head>
 <body>
-<div th:replace="layouts/navbar :: navbar"></div>
-
-<main>
-    <h1>Book Stores Index</h1>
-    <table>
+<div layout:fragment="content">
+    <h1>Book Stores Index - All my books</h1>
+    <table><!--
         <tr th:each="bookStore: ${bookStores}">
             <td th:text="${bookStore.getName()}"></td>
             <td th:text="${bookStore.getDescription()}"></td>
+        </tr>-->
+        <tr th:each="book: ${books}">
+            <td th:text="${book.getTitle()}"></td>
         </tr>
     </table>
-</main>
-
-<div th:replace="layouts/footer :: footer"></div>
+</div>
 </body>
 </html>

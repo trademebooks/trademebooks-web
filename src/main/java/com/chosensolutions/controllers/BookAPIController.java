@@ -2,6 +2,7 @@ package com.chosensolutions.controllers;
 
 import com.chosensolutions.models.Book;
 import com.chosensolutions.services.BookService;
+import com.chosensolutions.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,13 +15,25 @@ public class BookAPIController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private IUserService userService;
+
     @RequestMapping("/books")
     public List<Book> index() {
-
-
-
         System.out.println("test123");
         return bookService.getAllBooks();
+    }
+
+    @RequestMapping("/auth/books")
+    public List<Book> getAllAuthBooks() {
+        System.out.println("all auth books");
+        List<Book> theBooks = new LinkedList<>();
+        for (Book book: bookService.getAllAuthBooks()) {
+            System.out.println(book);
+            theBooks.add(book);
+        }
+
+        return theBooks;
     }
 
 /*    @RequestMapping(method = RequestMethod.GET, value = "/books/{id}")
@@ -29,9 +42,14 @@ public class BookAPIController {
     }*/
 
     @RequestMapping(method = RequestMethod.POST, value = "/books")
-    public void create(@RequestBody String book) {
+    public void create(@RequestBody Book book) {
         System.out.println(book);
 
+        //userService.getCurrentAuthUser().getBookStore().getId();
+
+        System.out.println(userService.getCurrentAuthUser().getBookStore().getId());
+
+        System.out.println(book);
 
         //bookService.createBook(book);
     }

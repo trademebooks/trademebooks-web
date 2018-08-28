@@ -13,17 +13,7 @@ import java.security.Principal;
 public class ProfilesController {
 
     @RequestMapping("/my-profile")
-    public String profilePage(Principal principal, Authentication authentication) {
-
-        System.out.println(principal.getName());
-        System.out.println(authentication);
-
-        //User user = (User) SecurityContextHolder.getContext().getAuthentication().getDetails();
-
-/*        final UserDetails currentUser = (UserDetails) ((Authentication) principal).getPrincipal();
-
-        System.out.println(currentUser.getId());*/
-
+    public String profilePage() {
         return "profile/profile.show";
     }
 

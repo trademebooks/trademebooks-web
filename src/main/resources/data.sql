@@ -22,8 +22,8 @@ VALUES
 INSERT INTO book_stores (description,	name,	user_id)
 VALUES
   ('best bookstore NA 1', 'bookstore 1', 1),
-  ('best bookstore NA 2', 'bookstore 2', 1),
-  ('best bookstore NA 3', 'bookstore 3', 1);
+  ('best bookstore NA 2', 'bookstore 2', 2),
+  ('best bookstore NA 3', 'bookstore 3', 3);
 
 INSERT INTO books (book_store_id, title)
 VALUES

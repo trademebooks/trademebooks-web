@@ -1,5 +1,6 @@
 package com.chosensolutions.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -17,8 +18,9 @@ public class Book {
     @Column(name = "id")
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "book_store_id", nullable = false)
+    @JoinColumn(name = "book_store_id")
     private BookStore bookStore;
 
     @Column(name = "title")

@@ -24,7 +24,8 @@ public class Profile {
     @Column
     private String lastName;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
 }

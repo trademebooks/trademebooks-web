@@ -4,10 +4,13 @@ import com.chosensolutions.models.Book;
 import com.chosensolutions.models.BookStore;
 import com.chosensolutions.repositories.BookStoresRepository;
 import com.chosensolutions.repositories.BooksRepository;
+import com.chosensolutions.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +23,22 @@ public class BookController {
     @Autowired
     BookStoresRepository bookStoresRepository;
 
+    @Autowired
+    BookService bookService;
+
+    @RequestMapping("/my-books")
+    public String myBooks(Model model) {
+        System.out.println("all auth books");
+        List<Book> theBooks = new LinkedList<>();
+        for (Book book: bookService.getAllAuthBooks()) {
+            System.out.println(book);
+            theBooks.add(book);
+        }
+
+        model.addAttribute("books", theBooks);
+
+        return "book-stores/book-stores.index";
+    }
     @RequestMapping("/books")
     public String index() {
         return "books/books.index";
