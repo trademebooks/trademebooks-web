@@ -8,7 +8,7 @@ import java.security.Principal;
 @Controller
 public class AccountController {
 
-    @RequestMapping("/account/edit")
+    @RequestMapping("/account")
     public String accountEditPage() {
         return "account/account.edit";
     }
@@ -17,5 +17,6 @@ public class AccountController {
     public Principal user(Principal principal) {
         return principal;
     }
+
 
 }
