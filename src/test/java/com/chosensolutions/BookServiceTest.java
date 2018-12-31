@@ -1,8 +1,7 @@
 package com.chosensolutions;
 
-import com.chosensolutions.controllers.PagesController;
-import com.chosensolutions.models.Book;
-import com.chosensolutions.services.BookService;
+import com.chosensolutions.cusbe.models.Book;
+import com.chosensolutions.cusbe.services.BookService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
