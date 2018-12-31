@@ -47,7 +47,7 @@ public class BookAPIController {
 
         //userService.getCurrentAuthUser().getBookStore().getId();
 
-        System.out.println(userService.getCurrentAuthUser().getBookStore().getId());
+        //System.out.println(userService.getCurrentAuthUser().getBookStore().getId());
 
         System.out.println(book);
 
