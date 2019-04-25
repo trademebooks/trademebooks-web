@@ -1,7 +1,7 @@
-package com.chosensolutions.services;
+package com.chosensolutions.cusbe.services;
 
-import com.chosensolutions.models.Book;
-import com.chosensolutions.repositories.BooksRepository;
+import com.chosensolutions.cusbe.models.Book;
+import com.chosensolutions.cusbe.repositories.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.chosensolutions.models;
+package com.chosensolutions.cusbe.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

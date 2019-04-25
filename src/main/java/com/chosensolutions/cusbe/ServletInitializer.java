@@ -1,4 +1,4 @@
-package com.chosensolutions;
+package com.chosensolutions.cusbe;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

@@ -1,14 +1,13 @@
-package com.chosensolutions.services;
+package com.chosensolutions.cusbe.services;
 
 import javax.transaction.Transactional;
 
-import com.chosensolutions.models.User;
-import com.chosensolutions.repositories.UserRepository;
-import com.chosensolutions.validation.EmailExistsException;
+import com.chosensolutions.cusbe.models.User;
+import com.chosensolutions.cusbe.repositories.UserRepository;
+import com.chosensolutions.cusbe.validation.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service

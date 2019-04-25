@@ -1,4 +1,4 @@
-package com.chosensolutions.validation;
+package com.chosensolutions.cusbe.validation;
 
 public class EmailExistsException extends Throwable {
 

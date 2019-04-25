@@ -1,6 +1,6 @@
 package com.chosensolutions.utility;
 
-import com.chosensolutions.utils.HTTP;
+import com.chosensolutions.cusbe.utils.HTTP;
 import com.google.gson.*;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.chosensolutions.utils;
+package com.chosensolutions.cusbe.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

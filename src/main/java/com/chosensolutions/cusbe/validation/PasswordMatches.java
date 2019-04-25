@@ -1,4 +1,4 @@
-package com.chosensolutions.validation;
+package com.chosensolutions.cusbe.validation;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.TYPE;

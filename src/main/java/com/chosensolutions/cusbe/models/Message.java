@@ -1,4 +1,4 @@
-package com.chosensolutions.models;
+package com.chosensolutions.cusbe.models;
 
 import lombok.Data;
 

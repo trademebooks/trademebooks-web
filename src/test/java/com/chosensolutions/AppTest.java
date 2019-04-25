@@ -1,6 +1,6 @@
 package com.chosensolutions;
 
-import com.chosensolutions.controllers.pages.PagesController;
+import com.chosensolutions.cusbe.controllers.PagesController;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

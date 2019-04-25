@@ -1,6 +1,6 @@
-package com.chosensolutions.services;
+package com.chosensolutions.cusbe.services;
 
-import com.chosensolutions.models.BookStore;
+import com.chosensolutions.cusbe.models.BookStore;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

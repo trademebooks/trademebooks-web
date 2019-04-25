@@ -1,6 +1,6 @@
-package com.chosensolutions.repositories;
+package com.chosensolutions.cusbe.repositories;
 
-import com.chosensolutions.models.Book;
+import com.chosensolutions.cusbe.models.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

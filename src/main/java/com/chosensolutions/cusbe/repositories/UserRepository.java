@@ -1,6 +1,6 @@
-package com.chosensolutions.repositories;
+package com.chosensolutions.cusbe.repositories;
 
-import com.chosensolutions.models.User;
+import com.chosensolutions.cusbe.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

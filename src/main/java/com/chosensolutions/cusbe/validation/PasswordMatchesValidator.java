@@ -1,9 +1,9 @@
-package com.chosensolutions.validation;
+package com.chosensolutions.cusbe.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.chosensolutions.models.User;
+import com.chosensolutions.cusbe.models.User;
 
 public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
 

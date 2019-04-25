@@ -1,11 +1,11 @@
-package com.chosensolutions.security;
+package com.chosensolutions.cusbe.security;
 
 import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.Collection;
 
-import com.chosensolutions.models.User;
-import com.chosensolutions.repositories.UserRepository;
+import com.chosensolutions.cusbe.models.User;
+import com.chosensolutions.cusbe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

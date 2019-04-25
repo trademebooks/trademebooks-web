@@ -1,10 +1,10 @@
-package com.chosensolutions.models;
+package com.chosensolutions.cusbe.models;
 
 import javax.persistence.*;
 import java.util.Calendar;
 import javax.validation.constraints.*;
 
-import com.chosensolutions.validation.PasswordMatches;
+import com.chosensolutions.cusbe.validation.PasswordMatches;
 import lombok.*;
 
 @Getter
