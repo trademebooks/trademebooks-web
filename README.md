@@ -20,7 +20,7 @@ yarn install
 yarn start
 ```
 
-# Backend Work Flow DB
+## Backend Work Flow DB
 ```
 sh bin\migrate.sh
 ```
