@@ -1,29 +1,31 @@
-# Book Exchange Please
+# CUSBE - Canadian University Student Book Exchange
 
-## Onboarding process
-- git
-- intellij
-- tomcat
-- maven
-- jenkins
-- mysql, hibernate, flyway
-- java 
-    - spring boot 2
-    - hibernate 5
-- node and SCSS setup
-- trello tasks
-- jboss/wildfly - defining application context - https://stackoverflow.com/questions/28470872/how-to-define-context-path-in-wildfly
-    - delete welcome-content folder
-- deployment to production and dev?
+## About
+CUSBE is the place to go to for University students to buy, exchange, and sell books.
+
+The key features are:
+1. Simple single on options like FaceBook, Google, and Twitter.
+2. A Social and Profile based approach.
+3. A mobile image recognition that adds a book with the snap of a picture.
+
+## Tech Stack
+- Frontend: JavaScript and ReactJS
+- Backend: Java and Spring
+- Server (DevOps): Home Server, Tomcat, and Jenkins
     
-## CSS watcher
-- sh bin\scss-watch.sh
+## Frontend Work Flow
+```
+cd client
+yarn install
+yarn start
+```
 
-## DB
-- sh bin\migrate.sh
+# Backend Work Flow DB
+```
+sh bin\migrate.sh
+```
 
 ## GIT/VCS
-- sh bin\push.sh
-
-## Tests
-- comment out @EnableWebMVC in the WebConfig.java file: C:\wamp64\www\projects\my-esports-world\src\main\java\com\chosensolutions\WebConfig.java
+```
+sh bin\push.sh
+```
