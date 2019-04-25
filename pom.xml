@@ -7,8 +7,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Book Exchange Please</name>
-    <description>Demo project for Spring Boot</description>
+    <name>cusbe</name>
+    <description>Best student book exchange in the world!</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
