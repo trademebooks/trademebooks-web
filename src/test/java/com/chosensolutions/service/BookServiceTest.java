@@ -1,6 +1,5 @@
-package com.chosensolutions;
+package com.chosensolutions.service;
 
-import com.chosensolutions.controllers.PagesController;
 import com.chosensolutions.models.Book;
 import com.chosensolutions.services.BookService;
 import org.junit.Test;

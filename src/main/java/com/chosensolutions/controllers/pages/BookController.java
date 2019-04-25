@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers;
+package com.chosensolutions.controllers.pages;
 
 import com.chosensolutions.models.Book;
 import com.chosensolutions.models.BookStore;

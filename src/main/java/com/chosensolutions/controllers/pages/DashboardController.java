@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers;
+package com.chosensolutions.controllers.pages;
 
 import com.chosensolutions.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers.auth;
+package com.chosensolutions.controllers.pages.auth;
 
 import com.chosensolutions.models.User;
 import com.chosensolutions.services.IUserService;

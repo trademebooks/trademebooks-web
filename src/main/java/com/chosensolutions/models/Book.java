@@ -26,17 +26,19 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @Column
+    @Column(name = "date_published")
     private String datePublished;
 
-    @Column
+    @Column(name = "isbn_number")
     private String isbnNumber;
 
-    @Column
+    @Column(name = "publisher")
     private String publisher;
 
-    public Book() {
+    @Column(name = "edition")
+    private String edition;
 
+    public Book() {
     }
 
     public Book(Long id, String title) {

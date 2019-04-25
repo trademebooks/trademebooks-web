@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers;
+package com.chosensolutions.controllers.pages;
 
 import com.chosensolutions.models.User;
 import org.springframework.security.core.Authentication;

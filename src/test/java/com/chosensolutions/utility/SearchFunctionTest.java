@@ -1,4 +1,4 @@
-package com.chosensolutions;
+package com.chosensolutions.utility;
 
 import com.chosensolutions.utils.HTTP;
 import com.google.gson.*;
