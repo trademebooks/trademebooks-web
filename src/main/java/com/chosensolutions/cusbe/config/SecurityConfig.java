@@ -40,11 +40,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(getPasswordEncoder());
 
-/*        auth
+        auth
                 .inMemoryAuthentication()
                 .withUser("yichen")
                 .password("{noop}yichen")
-                .roles("USER");*/
+                .roles("USER");
     }
 
     @Override

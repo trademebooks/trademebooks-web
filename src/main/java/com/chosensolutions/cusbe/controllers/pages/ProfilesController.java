@@ -1,6 +1,6 @@
-package com.chosensolutions.controllers.pages;
+package com.chosensolutions.cusbe.controllers.pages;
 
-import com.chosensolutions.models.User;
+import com.chosensolutions.cusbe.models.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

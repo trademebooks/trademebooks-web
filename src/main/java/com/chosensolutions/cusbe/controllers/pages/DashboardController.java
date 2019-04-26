@@ -1,6 +1,6 @@
 package com.chosensolutions.controllers.pages;
 
-import com.chosensolutions.services.IUserService;
+import com.chosensolutions.cusbe.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

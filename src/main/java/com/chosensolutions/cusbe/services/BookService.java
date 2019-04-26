@@ -27,7 +27,7 @@ public class BookService {
     }
 
 /*    public Book getBookById(long id) {
-        Book book = booksRepository.findById( Long.toString(id));
+        Book book = booksRepository.findById((new Long(id)));
         return book;
     }*/
 

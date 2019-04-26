@@ -1,10 +1,10 @@
-package com.chosensolutions.controllers.pages;
+package com.chosensolutions.cusbe.controllers.pages;
 
-import com.chosensolutions.models.Book;
-import com.chosensolutions.models.BookStore;
-import com.chosensolutions.repositories.BookStoresRepository;
-import com.chosensolutions.repositories.BooksRepository;
-import com.chosensolutions.services.BookService;
+import com.chosensolutions.cusbe.models.Book;
+import com.chosensolutions.cusbe.models.BookStore;
+import com.chosensolutions.cusbe.repositories.BookStoresRepository;
+import com.chosensolutions.cusbe.repositories.BooksRepository;
+import com.chosensolutions.cusbe.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

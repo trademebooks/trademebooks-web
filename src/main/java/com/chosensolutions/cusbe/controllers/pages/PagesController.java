@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers.pages;
+package com.chosensolutions.cusbe.controllers.pages;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

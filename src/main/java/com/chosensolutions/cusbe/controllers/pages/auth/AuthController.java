@@ -1,8 +1,8 @@
 package com.chosensolutions.controllers.pages.auth;
 
-import com.chosensolutions.models.User;
-import com.chosensolutions.services.IUserService;
-import com.chosensolutions.validation.EmailExistsException;
+import com.chosensolutions.cusbe.models.User;
+import com.chosensolutions.cusbe.services.IUserService;
+import com.chosensolutions.cusbe.validation.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

@@ -1,8 +1,8 @@
-package com.chosensolutions.controllers.api;
+package com.chosensolutions.cusbe.controllers.api;
 
-import com.chosensolutions.models.Book;
-import com.chosensolutions.services.BookService;
-import com.chosensolutions.services.IUserService;
+import com.chosensolutions.cusbe.models.Book;
+import com.chosensolutions.cusbe.services.BookService;
+import com.chosensolutions.cusbe.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,22 +12,23 @@ import java.util.*;
 @RestController
 public class BookAPIController {
 
-    @Autowired
     private BookService bookService;
-
-    @Autowired
     private IUserService userService;
+
+    public BookAPIController(BookService bookService, IUserService userService) {
+        this.bookService = bookService;
+        this.userService = userService;
+    }
 
     @RequestMapping("/books")
     public List<Book> index() {
-        System.out.println("test123");
         return bookService.getAllBooks();
     }
 
     @RequestMapping("/auth/books")
     public List<Book> getAllAuthBooks() {
         System.out.println("all auth books");
-        List<Book> theBooks = new LinkedList<>();
+        List<Book> theBooks = new ArrayList<>();
         for (Book book: bookService.getAllAuthBooks()) {
             System.out.println(book);
             theBooks.add(book);
@@ -44,8 +45,6 @@ public class BookAPIController {
     @RequestMapping(method = RequestMethod.POST, value = "/books")
     public void create(@RequestBody Book book) {
         System.out.println(book);
-
-        //userService.getCurrentAuthUser().getBookStore().getId();
 
         System.out.println(userService.getCurrentAuthUser().getBookStore().getId());
 
