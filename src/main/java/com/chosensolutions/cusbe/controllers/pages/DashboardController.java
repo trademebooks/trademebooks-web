@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers.pages;
+package com.chosensolutions.cusbe.controllers.pages;
 
 import com.chosensolutions.cusbe.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers.pages.auth;
+package com.chosensolutions.cusbe.controllers.pages.auth;
 
 import com.chosensolutions.cusbe.models.User;
 import com.chosensolutions.cusbe.services.IUserService;

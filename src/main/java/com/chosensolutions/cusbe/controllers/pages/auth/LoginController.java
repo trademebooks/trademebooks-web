@@ -1,4 +1,4 @@
-package com.chosensolutions.controllers.pages.auth;
+package com.chosensolutions.cusbe.controllers.pages.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ResolvableType;
