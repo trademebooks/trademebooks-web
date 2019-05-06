@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@RequestMapping("/api/v1/")
+@RequestMapping("/api")
 @RestController
 public class BookAPIController {
 
@@ -21,8 +21,11 @@ public class BookAPIController {
     }
 
     @RequestMapping("/books")
-    public List<Book> index() {
-        return bookService.getAllBooks();
+    public List<Book> getAllBooks() {
+        List<Book> books = bookService.getAllBooks();
+        System.out.println(books.get(0).getBookStore().getName());
+
+        return books;
     }
 
     @RequestMapping("/auth/books")

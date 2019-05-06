@@ -1,5 +1,6 @@
 package com.chosensolutions.cusbe.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -24,6 +25,7 @@ public class BookStore {
     @Column(name = "description")
     private String description;
 
+    @JsonIgnore
     @OneToMany(
             mappedBy = "bookStore",
             cascade = CascadeType.ALL,
