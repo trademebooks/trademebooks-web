@@ -1,4 +1,4 @@
-package com.chosensolutions.utility;
+package com.chosensolutions.cusbe.utility;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

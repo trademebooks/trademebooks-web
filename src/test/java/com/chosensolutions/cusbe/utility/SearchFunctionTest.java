@@ -1,4 +1,4 @@
-package com.chosensolutions.utility;
+package com.chosensolutions.cusbe.utility;
 
 import com.chosensolutions.cusbe.utils.HTTP;
 import com.google.gson.*;

@@ -1,4 +1,4 @@
-package com.chosensolutions;
+package com.chosensolutions.cusbe;
 
 import com.chosensolutions.cusbe.controllers.pages.PagesController;
 import org.junit.Test;
