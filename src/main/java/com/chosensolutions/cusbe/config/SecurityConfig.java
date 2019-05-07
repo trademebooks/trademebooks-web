@@ -1,28 +1,28 @@
 package com.chosensolutions.cusbe.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.chosensolutions.cusbe.services.user.UserService;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private UserService userDetailsService;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public SecurityConfig() {
-        super();
+    public SecurityConfig(UserService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userDetailsService = userDetailsService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(getPasswordEncoder());
+                .passwordEncoder(bCryptPasswordEncoder);
 
         auth
                 .inMemoryAuthentication()
@@ -43,38 +43,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/landing", "/about", "/terms", "/api/**", "/api/v2/**")
-                .permitAll();
+                .permitAll()
+        .anyRequest().authenticated().and().addFilter(getAuthenticationFilter());
 
-        http
-                .authorizeRequests()
-                .antMatchers("/", "/signup", "/user/register", "/login2").permitAll()
-                //.antMatchers("/about").hasAnyAuthority("ADMIN", "USER")// everything that matches /about must have a role of admin or else it will not work
-                .antMatchers("/contact").hasAnyAuthority("ADMIN")// everything that matches /about must have a role of admin or else it will not work
-                .anyRequest().authenticated()
 
-                .and()
-                .formLogin().loginPage("/login").permitAll()
-                .loginProcessingUrl("/doLogin")
-
-                .and()
-                .logout().permitAll().logoutUrl("/doLogout")
-
-                .and()
-                .csrf().disable();
+        http.csrf().disable();
     }
 
-    private PasswordEncoder getPasswordEncoder() {
-        return new PasswordEncoder() {
-            @Override
-            public String encode(CharSequence charSequence) {
-                return charSequence.toString();
-            }
-
-            @Override
-            public boolean matches(CharSequence charSequence, String s) {
-                return true;
-            }
-        };
+    // change the default URL from /login to /api/auth/login
+    public AuthenticationFilter getAuthenticationFilter() throws Exception {
+        final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
+        filter.setFilterProcessesUrl("/api/auth/login");
+        return filter;
     }
 
 }

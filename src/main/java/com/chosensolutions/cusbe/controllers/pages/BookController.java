@@ -4,7 +4,7 @@ import com.chosensolutions.cusbe.models.Book;
 import com.chosensolutions.cusbe.models.BookStore;
 import com.chosensolutions.cusbe.repositories.BookStoresRepository;
 import com.chosensolutions.cusbe.repositories.BooksRepository;
-import com.chosensolutions.cusbe.services.BookService;
+import com.chosensolutions.cusbe.services.book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,10 +30,6 @@ public class BookController {
     public String myBooks(Model model) {
         System.out.println("all auth books");
         List<Book> theBooks = new LinkedList<>();
-        for (Book book: bookService.getAllAuthBooks()) {
-            System.out.println(book);
-            theBooks.add(book);
-        }
 
         model.addAttribute("books", theBooks);
 

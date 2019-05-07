@@ -1,4 +1,4 @@
-package com.chosensolutions.cusbe.services;
+package com.chosensolutions.cusbe.services.book;
 
 import com.chosensolutions.cusbe.models.BookStore;
 import org.springframework.stereotype.Service;

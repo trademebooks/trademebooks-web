@@ -1,9 +1,7 @@
 package com.chosensolutions.cusbe.controllers.api;
 
 import com.chosensolutions.cusbe.models.Book;
-import com.chosensolutions.cusbe.services.BookService;
-import com.chosensolutions.cusbe.services.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.chosensolutions.cusbe.services.book.BookService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -13,11 +11,9 @@ import java.util.*;
 public class BookAPIController {
 
     private BookService bookService;
-    private IUserService userService;
 
-    public BookAPIController(BookService bookService, IUserService userService) {
+    public BookAPIController(BookService bookService) {
         this.bookService = bookService;
-        this.userService = userService;
     }
 
     @RequestMapping("/books")
@@ -32,10 +28,6 @@ public class BookAPIController {
     public List<Book> getAllAuthBooks() {
         System.out.println("all auth books");
         List<Book> theBooks = new ArrayList<>();
-        for (Book book: bookService.getAllAuthBooks()) {
-            System.out.println(book);
-            theBooks.add(book);
-        }
 
         return theBooks;
     }
@@ -47,18 +39,6 @@ public class BookAPIController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/books")
     public void create(@RequestBody Book book) {
-        System.out.println(book);
-
-        System.out.println(userService.getCurrentAuthUser().getBookStore().getId());
-
-        System.out.println(book);
-
-        //bookService.createBook(book);
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, value = "/books/{id}")
-    public void update(@PathVariable("id") String id, @RequestBody Book book) {
-        bookService.updateBook(id, book);
     }
 
 /*    @RequestMapping(method = RequestMethod.DELETE, value = "/books/{id}")
