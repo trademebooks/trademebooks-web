@@ -3,6 +3,7 @@ package com.chosensolutions.cusbe.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 import javax.validation.constraints.*;
 
 import com.chosensolutions.cusbe.validation.PasswordMatches;
@@ -55,5 +56,8 @@ public class User implements Serializable {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private BookStore bookStore;
+
+    @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
+    private List<AddressEntity> addresses;
 
 }

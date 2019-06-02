@@ -51,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     // change the default URL from /login to /api/auth/login
+    // https://www.udemy.com/restful-web-service-with-spring-boot-jpa-and-mysql/learn/lecture/10210344#overview
     public AuthenticationFilter getAuthenticationFilter() throws Exception {
         final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
         filter.setFilterProcessesUrl("/api/auth/login");

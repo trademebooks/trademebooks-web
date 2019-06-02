@@ -1,9 +1,11 @@
 package com.chosensolutions.cusbe.services.user;
 
+import com.chosensolutions.cusbe.domain.dto.AddressDto;
 import com.chosensolutions.cusbe.domain.dto.UserDto;
 import com.chosensolutions.cusbe.models.User;
 import com.chosensolutions.cusbe.repositories.UserRepository;
 import com.chosensolutions.cusbe.utils.Utils;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -32,16 +34,23 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("Email record already exists.");
         }
 
-        User userEntity = new User();
-        BeanUtils.copyProperties(user, userEntity);
+        for (int i = 0; i < user.getAddresses().size() ; i++) {
+            AddressDto address = user.getAddresses().get(i);
+            address.setUserDetails(user);
+            address.setAddressId(utils.generateAddressId(30));
+            user.getAddresses().set(i, address);
+        }
+
+        ModelMapper modelMapper = new ModelMapper();
+        User userEntity = modelMapper.map(user, User.class);
 
         userEntity.setUserId(utils.generateUserId(30));
         userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
         User storedUserDetails = userRepository.save(userEntity);
 
-        UserDto returnValue = new UserDto();
-        BeanUtils.copyProperties(storedUserDetails, returnValue);
+        //BeanUtils.copyProperties(storedUserDetails, returnValue);
+        UserDto returnValue = modelMapper.map(storedUserDetails, UserDto.class);
 
         return returnValue;
     }
@@ -56,6 +65,21 @@ public class UserServiceImpl implements UserService {
 
         UserDto returnValue = new UserDto();
         BeanUtils.copyProperties(userEntity, returnValue);
+
+        return returnValue;
+    }
+
+    public UserDto getUserByUserId(String userId) {
+        UserDto returnValue = new UserDto();
+
+        User userEntity = userRepository.findByUserId(userId);
+
+        if (userEntity == null) {
+            throw new UsernameNotFoundException(userId);
+        }
+
+        BeanUtils.copyProperties(userEntity, returnValue);
+
         return returnValue;
     }
 

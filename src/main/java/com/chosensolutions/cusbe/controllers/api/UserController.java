@@ -4,11 +4,12 @@ import com.chosensolutions.cusbe.domain.dto.UserDto;
 import com.chosensolutions.cusbe.domain.request.UserDetailsRequestModel;
 import com.chosensolutions.cusbe.domain.response.UserRest;
 import com.chosensolutions.cusbe.services.user.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/auth")
 public class UserController {
 
     private UserService userService;
@@ -17,20 +18,27 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public String getUser() {
-        return "get user";
+    @GetMapping(path = "/{id}")
+    public UserRest getUser(@PathVariable String id) {
+        UserDto userDto = userService.getUserByUserId(id);
+        ModelMapper modelMapper = new ModelMapper();
+        UserRest returnValue = modelMapper.map(userDto, UserRest.class);
+
+        return returnValue;
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public UserRest createUser(@RequestBody UserDetailsRequestModel userDetailsRequestModel) {
         UserRest returnValue = new UserRest();
 
-        UserDto userDto = new UserDto();
-        BeanUtils.copyProperties(userDetailsRequestModel, userDto);
+/*        UserDto userDto = new UserDto();
+        BeanUtils.copyProperties(userDetailsRequestModel, userDto);*/
+
+        ModelMapper modelMapper = new ModelMapper();
+        UserDto userDto = modelMapper.map(userDetailsRequestModel, UserDto.class);
 
         UserDto createdUser = userService.createUser(userDto);
-        BeanUtils.copyProperties(createdUser, returnValue);
+        returnValue = modelMapper.map(createdUser, UserRest.class);
 
         return returnValue;
     }

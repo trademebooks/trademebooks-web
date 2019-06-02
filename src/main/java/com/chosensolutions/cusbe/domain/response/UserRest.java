@@ -1,8 +1,8 @@
 package com.chosensolutions.cusbe.domain.response;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
+import java.util.List;
 
 @Data
 public class UserRest {
@@ -11,5 +11,7 @@ public class UserRest {
     private String firstName;
     private String lastName;
     private String email;
+
+    private List<AddressesRest> addresses;
 
 }
