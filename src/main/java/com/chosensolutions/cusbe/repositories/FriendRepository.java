@@ -25,5 +25,5 @@ public interface FriendRepository extends JpaRepository<FriendEntity, Long> {
             "FROM friends LEFT JOIN users AS users_table_1 ON users_table_1.id = friends.user_two_id " +
             "WHERE user_one_id = 1",
             nativeQuery = true)
-    List<FriendDto> queryGetAllFriendsOfUserThroughId(String id);
+    List<Object[]> queryGetAllFriendsOfUserThroughId(String id);
 }

@@ -5,6 +5,8 @@ import com.chosensolutions.cusbe.repositories.FriendRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -16,9 +18,19 @@ public class FriendController {
 
     @GetMapping("/all")
     public List<FriendDto> friends() {
+        List<Object[]> friends = friendRepository.queryGetAllFriendsOfUserThroughId("1");
+        List<FriendDto> friendDtos = new ArrayList<>();
+        for (Object[] friend : friends) {
+            FriendDto friendDto = new FriendDto();
 
-        //System.out.println(friendRepository.queryGetAllFriendsOfUserThroughId("1"));
-        return friendRepository.queryGetAllFriendsOfUserThroughId("1");
+            friendDto.setUserId((BigInteger) friend[0]);
+            friendDto.setEmail((String) friend[1]);
+            friendDto.setFirstName(String.valueOf(friend[2]));
+            friendDto.setLastName((String) friend[3]);
+            friendDtos.add(friendDto);
+        }
+
+        return friendDtos;
     }
 
 }
