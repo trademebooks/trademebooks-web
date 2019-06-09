@@ -22,4 +22,5 @@ public class App {
     public SpringApplicationContext springApplicationContext() {
         return new SpringApplicationContext();
     }
+
 }
