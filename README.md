@@ -21,7 +21,10 @@ yarn start
 ```
 
 ## Backend Work Flow DB
-Backend API Link: https://eblock.postman.co/collections/267717-f1be5c95-e9b7-4109-a87a-72a623794732?workspace=f4e60afd-9547-4e4e-ba66-ed89eaf382f4
+Backend API Link: 
+https://eblock.postman.co/collections/267717-f1be5c95-e9b7-4109-a87a-72a623794732?workspace=f4e60afd-9547-4e4e-ba66-ed89eaf382f4
+
+Database Migrations:
 ```
 sh bin\migrate.sh
 ```
