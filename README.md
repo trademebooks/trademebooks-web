@@ -1,7 +1,7 @@
 # CUSBE - Canadian University Student Book Exchange
 
 ## About
-CUSBE is the place to go to for University students to buy, exchange, and sell books.
+trademebooks.com is the place to go to for University students to buy, sell, and exchange books.
 
 The key features are:
 1. Simple single on options like FaceBook, Google, and Twitter.
