@@ -4,9 +4,9 @@
 trademebooks.com is the place to go to for University students to buy, sell, and exchange books.
 
 The key features are:
-1. Simple single on options like FaceBook, Google, and Twitter.
-2. A Social and Profile based approach.
-3. A mobile image recognition that adds a book with the snap of a picture.
+1. Simple single on options like FaceBook, Google, Linkedin, Twitter, and many more.
+2. Users have their own profile and their bookstore they want to advertise in order to seel their books.
+3. A mobile image recognition feature that can add books with the snap of a picture.
 
 ## Tech Stack
 - Frontend: JavaScript and ReactJS
