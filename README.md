@@ -1,4 +1,4 @@
-# CUSBE - Canadian University Student Book Exchange
+# trademebooks.com - TMB
 
 ## About
 trademebooks.com is the place to go to for University students to buy, sell, and exchange books.
