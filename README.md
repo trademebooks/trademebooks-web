@@ -16,8 +16,8 @@ The key features are:
 ## Frontend Work Flow
 ```
 cd client
-yarn install
-yarn start
+yarn install OR npm install
+yarn start OR npm start
 ```
 
 ## Backend Work Flow DB
