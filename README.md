@@ -8,7 +8,7 @@ The key features are:
 2. Users have their own profile and their bookstore they want to advertise in order to seel their books.
 3. A mobile image recognition feature that can add books with the snap of a picture.
 4. A middle man payment system;  
-    Suppose person A wants to buy from person B a pdf file, person A and person B both pay TMB and/or upload the file, then TMB pays and reveals the uploaded files if only both of the two parties have successfully submitted what they wanted from each other. That way, TMB acts a trusted middle man.
+    Suppose person A wants to buy from person B a pdf file, person A and person B both pay TMB and/or upload the file, then TMB pays and reveals the uploaded files if only both of the two parties have successfully submitted what they wanted from each other. That way, TMB acts as a trusted middle man.
 5. Have a good chat/messaging system in place in order to facilitate communication between buyers and sellers.  
  
 ## Tech Stack
