@@ -6,7 +6,7 @@ const HomePage = () => (
         Sexy landing page here,
         <br/>
 
-        last message at Tuesday 10:51, June 18th, 2019
+        last message at Tuesday 10:55, June 18th, 2019
     </div>
 );
 
