@@ -29,7 +29,7 @@ class HomePage extends Component {
                 Welcome to the TMB frontend
                 <br/>
 
-                last message at Tuesday 11:42, June 18th, 2019
+                last message at Tuesday 11:47, June 18th, 2019
             </div>
         );
     }
