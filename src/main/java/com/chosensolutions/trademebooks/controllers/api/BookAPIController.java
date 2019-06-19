@@ -19,7 +19,6 @@ public class BookAPIController {
     @RequestMapping("/books")
     public List<Book> getAllBooks() {
         List<Book> books = bookService.getAllBooks();
-        System.out.println(books.get(0).getBookStore().getName());
 
         return books;
     }
