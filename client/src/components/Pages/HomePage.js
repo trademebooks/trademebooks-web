@@ -8,7 +8,7 @@ class HomePage extends Component {
         super(props);
 
         this.state = {
-            books: ""
+            books: []
         };
     }
 
@@ -17,6 +17,10 @@ class HomePage extends Component {
             .then((response) => {
                 let data = response.data;
                 console.log(data);
+
+                this.setState({
+                   books: data
+                });
             })
             .catch(function (error) {
                 console.log(error);
@@ -31,6 +35,13 @@ class HomePage extends Component {
                 <br/>
 
                 last message at Tuesday 12:08, June 19th, 2019
+
+                <h1>HTTP CORS TEST</h1>
+                <div>
+                    {this.state.books.map(course => (
+                        <div key={course.title}>{course.title}</div>
+                    ))}
+                </div>
             </div>
         );
     }
