@@ -3,7 +3,7 @@ import React from "react";
 const HomePage = () => (
     <div>
         <h1>Home Page</h1>
-        Sexy landing page here,
+        Welcome to the TMB frontend
         <br/>
 
         last message at Tuesday 11:24, June 18th, 2019
