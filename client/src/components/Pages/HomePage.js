@@ -2,11 +2,11 @@ import React from "react";
 
 const HomePage = () => (
     <div>
-        <h2>Home</h2>
-        <p>
-            This app uses React, Redux, React Router, and many other helpful
-            libraries.
-        </p>
+        <h1>Home Page</h1>
+        Sexy landing page here,
+        <br/>
+
+        last message at Tuesday 10:51, June 18th, 2019
     </div>
 );
 
