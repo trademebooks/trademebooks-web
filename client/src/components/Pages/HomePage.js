@@ -13,13 +13,14 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-/*        axios.get(Constants.GET_ALL_PUBLIC_BOOKS_URL)
+        axios.get(Constants.GET_ALL_PUBLIC_BOOKS_URL)
             .then((response) => {
-                console.log(response);
+                let data = response.data;
+                console.log(data);
             })
             .catch(function (error) {
                 console.log(error);
-            });*/
+            });
     }
 
     render() {

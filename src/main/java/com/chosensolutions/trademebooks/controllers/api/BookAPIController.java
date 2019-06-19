@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+//@CrossOrigin(origins = "http://localhost:3100", maxAge = 3600)
 @RequestMapping("/api")
 @RestController
 public class BookAPIController {
