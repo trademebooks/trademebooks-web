@@ -6,7 +6,7 @@ const HomePage = () => (
         Welcome to the TMB frontend
         <br/>
 
-        last message at Tuesday 11:24, June 18th, 2019
+        last message at Tuesday 11:27, June 18th, 2019
     </div>
 );
 
