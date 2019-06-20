@@ -32,14 +32,16 @@ class HomePage extends Component {
             <div>
                 <h1>Home Page</h1>
                 Welcome to the TMB frontend
+
                 <br/>
 
                 last message at Tuesday 12:08, June 19th, 2019
 
                 <h1>HTTP CORS TEST</h1>
+
                 <div>
-                    {this.state.books.map(course => (
-                        <div key={course.title}>{course.title}</div>
+                    {this.state.books.map(book => (
+                        <div key={book.title}>{book.title}</div>
                     ))}
                 </div>
             </div>
