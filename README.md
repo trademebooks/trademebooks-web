@@ -6,7 +6,7 @@ trademebooks.com (TMB) is the place for university and college students to buy, 
 The key features are:
 1. Simple single on options like FaceBook, Google, Linkedin, Twitter, and many more.
 2. Users have their own profile and their bookstore they want to advertise in order to seel their books.
-3. Add/Upadting Books
+3. Add/Updating Books
     - Having the Auto-complete feature when add/updating a new or existing book.
     - A mobile image recognition feature that can add books with the snap of a picture.
 4. A middle man payment system;  
