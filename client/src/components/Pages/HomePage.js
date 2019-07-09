@@ -36,7 +36,9 @@ class HomePage extends Component {
                 <br/>
 
                 last message at Tuesday 12:08, June 19th, 2019
+                <br/>
 
+                last message at Tuesday 12:08, July 9th, 2019
                 <h1>HTTP CORS TEST</h1>
 
                 <div>
