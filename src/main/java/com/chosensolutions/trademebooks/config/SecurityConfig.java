@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Public pages that anyone can view
         http
                 .authorizeRequests()
-                .antMatchers("/landing", "/about", "/terms", "/api/**", "/api/v2/**")
+                .antMatchers("/books/create", "/landing", "/about", "/terms", "/api/**", "/api/v2/**")
                 .permitAll()
                 .anyRequest().authenticated().and().addFilter(getAuthenticationFilter());
 
