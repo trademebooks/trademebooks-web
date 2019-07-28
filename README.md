@@ -21,7 +21,8 @@ The key features are:
 ## Setup
 1. Install NodeJS - https://nodejs.org/en/
 2. Install Java JDK 8 - https://www.oracle.com/technetwork/java/javase/downloads/index.html
-3. Install MySQL - http://www.wampserver.com/en/
+3. Install Maven - https://www.youtube.com/watch?v=6AVC3X88z6E
+4. Install MySQL - http://www.wampserver.com/en/
 
 ## Frontend Work Flow
 ```bash
