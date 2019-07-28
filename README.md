@@ -17,7 +17,12 @@ The key features are:
 - Frontend: JavaScript and ReactJS
 - Backend: Java and Spring
 - Server (DevOps): Home Server, Tomcat, and Jenkins
-    
+
+## Setup
+1. Install NodeJS
+2. Install Java 8
+3. Install MySQL
+
 ## Frontend Work Flow
 ```bash
 cd client
@@ -35,6 +40,10 @@ Database Migrations:
 sh bin\migrate.sh
 ```
 
+Run the spring app:
+```
+mvn spring-boot:run
+```
 
 ## GIT/VCS
 ```bash
