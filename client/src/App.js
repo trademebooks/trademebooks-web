@@ -9,6 +9,10 @@ import ContactPage from "./components/Pages/ContactPage";
 
 import CoursesPage from "./components/Courses/CoursesPage";
 
+import Register from "./components/Auth/Register"
+import Login from "./components/Auth/Login"
+
+
 function App() {
     return (
         <div className="App">
@@ -21,6 +25,9 @@ function App() {
                 <Route path="/contact" component={ContactPage}/>
 
                 <Route path="/courses" component={CoursesPage}/>
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
+
 
                 <Route component={NotFoundPage}/>
             </Switch>

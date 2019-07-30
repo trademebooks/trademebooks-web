@@ -1,0 +1,74 @@
+#auth-page {
+    padding: 2rem 4rem;
+    font-family: Open Sans;
+
+    h1 {
+        margin: 0rem 0rem 2rem 0rem;
+        font-weight: bold;
+    }
+
+    h1, a {
+        color: #109383;
+    }
+
+    #auth-header {
+
+    }
+    #auth-interactable {
+        display: flex;
+
+        #auth-form {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding-right: 2rem;
+            border-right: 1px solid #C4C4C4;
+
+            input {
+                border: 1px solid #C4C4C4;
+                border-radius: 3px;
+                margin: 0.5rem 0rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .auth-tc {
+                margin: 3rem 0rem 0rem 0rem;
+            }
+
+        }
+
+        #auth-other {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding-left: 2rem;
+
+
+            .auth-other {
+                margin: 0.5rem 0rem;
+                border-radius: 3px;
+
+                &.facebook {
+                    background-color: #5D6ADB;
+                }
+                
+                &.google {
+                    background-color: #DC4468
+                }
+
+                &.twitter {
+                    background-color: #5DC4DB
+                }
+                
+                &.linkedin {
+                    background-color: #312F3A
+                }
+            }
+        }
+    }
+
+    .auth-options {
+        margin-top: 4rem;
+    }
+}
+
