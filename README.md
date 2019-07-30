@@ -17,7 +17,13 @@ The key features are:
 - Frontend: JavaScript and ReactJS
 - Backend: Java and Spring
 - Server (DevOps): Home Server, Tomcat, and Jenkins
-    
+
+## Setup
+1. Install NodeJS - https://nodejs.org/en/
+2. Install Java JDK 8 - https://www.oracle.com/technetwork/java/javase/downloads/index.html
+3. Install Maven - https://www.youtube.com/watch?v=6AVC3X88z6E
+4. Install MySQL - http://www.wampserver.com/en/
+
 ## Frontend Work Flow
 ```bash
 cd client
@@ -29,12 +35,21 @@ yarn start OR npm start
 Backend API Link:
 - https://eblock.postman.co/collections/267717-f1be5c95-e9b7-4109-a87a-72a623794732?workspace=f4e60afd-9547-4e4e-ba66-ed89eaf382f4
 
-
+*Note: no need for migration as Hibernate will do auto-migration on startup of the spring boot app
 Database Migrations:
 ```bash
 sh bin\migrate.sh
 ```
 
+Run the spring boot app:
+```
+mvn spring-boot:run
+```
+
+## Server and Devops
+- Jenkins URL: http://chosensolutions.asuscomm.com:8081/
+- https://wwww.trademebooks.com
+- https://api.trademebooks.com
 
 ## GIT/VCS
 ```bash
