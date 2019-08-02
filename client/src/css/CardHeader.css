@@ -1,0 +1,35 @@
+.edition{
+    font-family: Open Sans;
+    font-weight: 300;
+    font-size: 1rem;
+    align-items: center;
+
+    color: #898989;
+}
+.title{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.375rem;
+
+}
+
+.cardTitle{
+    padding-top:1%;
+    max-width: 700px
+}
+.col-lg-1{
+    padding-top:1%;
+}
+
+.amount{
+    text-align: right;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    padding-left:3%;
+    font-size: 2rem;
+    line-height: 27px;
+    padding-bottom: 0;
+    padding-top:0;
+}

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.search-bar{
+    padding-left: 15%;
+    padding-right: 20%;
+    padding-top: 3%;
+
+
+}
+.search-bar .input-group{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+}
+.search-bar .input-group-text{
+    border-right:none;
+    text-align: right;
+    background-color:white;
+
+}
+
+.search-bar .form-control{
+    border-left:none;
+    padding:2.25%;
+    padding-left:0;
+}
+
+.search-bar .material-icons{
+    font-size:1.5rem;
+}
+.search-bar .text-input{
+    border-left:none;
+    padding-left:0
+}
