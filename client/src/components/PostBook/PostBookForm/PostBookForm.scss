@@ -1,0 +1,55 @@
+.post-book-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+
+    .main-form {
+        display: flex;
+
+        .post-book-img{
+            display: flex;
+            flex-direction: column;
+            margin: 3rem 2rem;
+            align-items: center;
+
+            .book-img {
+                background-color: white;
+                height: 16rem;
+                width: 14rem;
+            }
+        }
+
+        .post-book-form-fields {
+            display: table;
+            margin: 3rem 2rem;
+            width: 100%;
+
+            .flex-outer li {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            .flex-outer > li > label {
+                flex: 1 0 120px;
+                max-width: 220px;
+            }
+            
+            .flex-outer > li > label + *{
+                flex: 100 0 220px;
+            }
+
+        }
+    }
+
+    .book-condtion {
+        display: flex;
+
+    }
+
+    button {
+        align-self: flex-end;
+        background: #109383;
+        color: white;
+        border-radius: 3px;
+    }
+}
