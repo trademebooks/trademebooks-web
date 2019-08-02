@@ -12,7 +12,6 @@ const BundleListItem = () => <Row className="bundle-item">
             &nbsp; &nbsp; Edition</span>
         <span className="title">
             &nbsp; &nbsp; 7</span>
-
     </Col>
 </Row>
 

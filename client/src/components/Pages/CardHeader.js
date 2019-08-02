@@ -21,9 +21,6 @@ const CardHeader = () => <Row>
     }}>
         <img src="http://via.placeholder.com/75x25"></img>
     </Col>
-    <Col className="amount" lg={2}>
-        <h1>$75</h1>
-    </Col>
 </Row>
 
 export default CardHeader;
