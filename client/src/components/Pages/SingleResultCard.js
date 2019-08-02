@@ -17,7 +17,7 @@ const SingleResultCard = () => <div className="card-container">
             </Col>
             <Col xs={9}>
                 <Card.Body>
-                    <CardTitle/>
+                    <CardHeader/>
                     <Row className="text-meta">
                         <span>MCMASTER UNIVERSITY</span>
                         <span>CIV358
