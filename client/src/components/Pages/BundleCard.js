@@ -14,7 +14,7 @@ const BundleCard = () => <div className="card-container">
             <Col xs={10}>
                 <Card.Body>
                     <CardHeader/>
-                    <Row className="text-meta">
+                    <Row className="text text-meta">
                         <span>MCMASTER UNIVERSITY</span>
                         <span>CIV358
                         </span>

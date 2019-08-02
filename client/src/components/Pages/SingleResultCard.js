@@ -16,40 +16,39 @@ const SingleResultCard = () => <div className="card-container">
                     variant="top"
                     src="http://via.placeholder.com/200x260"/>
             </Col>
-            <Col xs={7}>
-                <Card.Body>
-                    <CardHeader/>
-                    <Row className="text-meta">
-                        <span>MCMASTER UNIVERSITY</span>
-                        <span>CIV358
-                        </span>
-                        <span>CIV5481</span>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <span className="author-by">By</span>
-                            <span className="text-author">Richard Fymann, Qing Yu</span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col lg={6}>
-                            <p>
-                                The Tools. This was easily the best book I read in 2012. It's *packed* with
-                                goodness. Stutz and Michels are two no-nonsense therapists who developed
-                                powerful tools to transform our problems into courage, confidence, and
-                                creativity
-                            </p>
-                        </Col>
-                    </Row>
+            <Col xs ={9}>
+                <Row >
+                    <Col xs={9}>
+                        <Card.Body>
+                            <CardHeader/>
+                            <Row className="text-meta text">
+                                <span>MCMASTER UNIVERSITY</span>
+                                <span>CIV358
+                                </span>
+                                <span>CIV5481</span>
+                            </Row>
+                            <Row className="text">
+                                <span className="author-by">By</span>
+                                <span className="text-author">Richard Fymann, Qing Yu</span>
+                            </Row>
+                            <Row className="text">
+                                <p>
+                                    The Tools. This was easily the best book I read in 2012. It's *packed* with
+                                    goodness. Stutz and Michels are two no-nonsense therapists who developed
+                                    powerful tools to transform our problems into courage, confidence, and
+                                    creativity
+                                </p>
+                            </Row>
 
-                </Card.Body>
+                        </Card.Body>
+                    </Col>
+                    <Col xs={3}>
+                        <CardIcons/>
+                    </Col>
+                </Row>
+                <CardFooter/>
             </Col>
-            <Col xs={2}>
-                <CardIcons></CardIcons>
-            </Col>
-
         </Row>
-        <CardFooter/>
     </Card>
 </div>
 
