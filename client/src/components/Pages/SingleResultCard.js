@@ -13,14 +13,15 @@ const SingleResultCard = () => <div className="card-container">
             <Col xs={3}>
                 <Card.Img
                     className="card-image"
+                    fluid
                     variant="top"
                     src="http://via.placeholder.com/200x260"/>
             </Col>
             <Col xs ={9}>
                 <Row >
-                    <Col xs={9}>
+                    <Col xs={10}>
                         <Card.Body>
-                            <CardHeader/>
+                            <CardHeader single={true}/>
                             <Row className="text-meta text">
                                 <span>MCMASTER UNIVERSITY</span>
                                 <span>CIV358
@@ -42,7 +43,7 @@ const SingleResultCard = () => <div className="card-container">
 
                         </Card.Body>
                     </Col>
-                    <Col xs={3}>
+                    <Col xs={2}>
                         <CardIcons/>
                     </Col>
                 </Row>

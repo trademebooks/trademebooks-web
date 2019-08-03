@@ -1,5 +1,7 @@
 import React from "react";
 import '../../css/CardFooter.css';
+import Message_icon from "../../images/Icons/Message_icon.png"
+import Books_icon from "../../images/Icons/Books_icon.png"
 const CardIcons = () => <div
     className="card-icons"
     style={{
@@ -16,10 +18,16 @@ const CardIcons = () => <div
         marginTop: "3rem"
     }}>
         <p>
-            <img src="http://via.placeholder.com/50x50"></img>
+            <img height="50px" src={Message_icon}></img>
         </p>
 
-        <img src="http://via.placeholder.com/50x50"></img>
+        <img
+            style={{
+            marginRight: "6%",
+            marginTop: "3%"
+        }}
+            src={Books_icon}
+            height="50px"></img>
     </div>
 </div>
 export default CardIcons
