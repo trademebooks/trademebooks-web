@@ -19,13 +19,15 @@ const SignedOutNav = () => <Row
         offset: 1,
         span: 1
     }}>
-        <img
-            style={{
-            marginRight: "2%"
-        }}
-            src={Logo}
-            width="30px"
-            height="40px"></img>
+        <a href="/">
+            <img
+                style={{
+                marginRight: "2%"
+            }}
+                src={Logo}
+                width="30px"
+                height="40px"></img>
+        </a>
     </Col>
     <Col
         xs={{
@@ -63,13 +65,15 @@ const Navbar = () => <Row
     <Col xs={{
         span: 1
     }}>
-        <img
-            style={{
-            marginRight: "2%"
-        }}
-            src={Logo}
-            width="30px"
-            height="40px"></img>
+        <a href="/">
+            <img
+                style={{
+                marginRight: "2%"
+            }}
+                src={Logo}
+                width="30px"
+                height="40px"></img>
+        </a>
     </Col>
     <Col
         className="navbar-icons"
