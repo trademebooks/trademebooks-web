@@ -6,7 +6,9 @@
 body {
     /*background-color: #24252A;*/
 }
-
+.navbar-icons{
+    text-align: right
+}
 li, a, button {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
