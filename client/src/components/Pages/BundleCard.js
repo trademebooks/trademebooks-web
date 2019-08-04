@@ -7,6 +7,10 @@ import CardHeader from "./CardHeader.js"
 import CardFooter from "./CardFooter.js"
 import CardIcons from "./CardIcons.js"
 import BundleListItem from "./BundleListItem.js"
+import Fair_condition from "../../images/Icons/Fair_condition.png"
+import Likenew from "../../images/Icons/Likenew_condition.png"
+import Verygood_condition from "../../images/Icons/Verygood_condition.png"
+import Good_condition from "../../images/Icons/Good_condition.png"
 
 const BundleCard = () => <div className="card-container">
     <Card>
@@ -23,10 +27,10 @@ const BundleCard = () => <div className="card-container">
                     <Row>
                         <span className="expand-all">expand all</span>
                     </Row>
-                    <BundleListItem/>
-                    <BundleListItem/>
-                    <BundleListItem/>
-                    <BundleListItem/>
+                    <BundleListItem condition={Fair_condition}/>
+                    <BundleListItem condition={Likenew}/>
+                    <BundleListItem condition={Verygood_condition}/>
+                    <BundleListItem condition={Good_condition}/>
                     <Row>
                         <p className="user-review">The Tools. This was easily the best book I read in
                             2012. It's *packed* with goodness. Stutz and Michels are two no-nonsense
