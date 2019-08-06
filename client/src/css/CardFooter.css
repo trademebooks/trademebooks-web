@@ -1,0 +1,21 @@
+.md-18{
+    font-size: 1.25rem;
+}
+
+.card-footer{
+    padding:0;
+    border-top:none;
+    background-color:white;
+}
+.contact-info{
+    margin-top:10%;
+    margin-left:0.5%;
+}
+
+.location{
+    font-size:1.125rem;
+    margin-right:60%;
+    font-weight: 300;
+    font-family: 'Open Sans';
+    font-style: normal;
+}
