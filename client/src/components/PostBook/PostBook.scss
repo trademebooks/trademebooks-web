@@ -31,9 +31,19 @@
         }
     }
 
-    #search-book {
+    #search-book-container {
         display: flex;
         flex-direction: column;
+        padding: 3rem 8rem;
+
+        #search-box {
+            width: 100%;
+            margin: 1.5rem 0rem;
+        }
+
+        #create-new-listing {
+            align-self: flex-end;
+        }
     }
 
     .section {

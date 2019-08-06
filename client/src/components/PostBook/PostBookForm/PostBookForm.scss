@@ -41,8 +41,25 @@
         }
     }
 
-    .book-condtion {
+    #book-condition {
         display: flex;
+        align-items: center;
+
+        .condition {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem 2rem;
+
+            .condition-img {
+                width: 8rem;
+                margin: 1rem 0rem;
+            }
+            
+            .condition-desc {
+                text-align: center;
+            }
+        }
 
     }
 

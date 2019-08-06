@@ -23,6 +23,8 @@ class PostBookForm extends Component {
 
         this.onChangeBook = this.onChangeBook.bind(this);
         this.toggleEditable = this.toggleEditable.bind(this);
+        this.selectCondition = this.selectCondition.bind(this);
+
 
     }
 
@@ -37,6 +39,14 @@ class PostBookForm extends Component {
             editable: !this.state.editable
         });
     }
+
+    selectCondition(cond) {
+        this.setState({
+            condition: cond
+        });
+    }
+
+
 
 
     render() {
@@ -91,6 +101,24 @@ class PostBookForm extends Component {
 
         let editOpt = !this.state.editable ? <p>Information does not look correct? <span onClick={this.toggleEditable}>Manually Edit</span></p> : <span></span>
 
+        let conds = [
+                        {name: "Poor", img: require("../../../images/assets/Poor_condition_default.png"), desc: "No damage, lightly used, no markings", imgSelected: require("../../../images/assets/Poor_condition.png")},
+                        {name: "Fair", img: require("../../../images/assets/Fair_condition_default.png"), desc: "No damage, lightly used, no markings", imgSelected: require("../../../images/assets/Fair_condition.png")},
+                        {name: "Good", img: require("../../../images/assets/Good_condition_default.png"), desc: "No damage, lightly used, no markings", imgSelected: require("../../../images/assets/Good_condition.png")},
+                        {name: "Very Good", img: require("../../../images/assets/Verygood_condition_default.png"), desc: "No damage, lightly used, no markings", imgSelected: require("../../../images/assets/Verygood_condition.png")},
+                        {name: "Like New", img: require("../../../images/assets/Likenew_condition_default.png"), desc: "No damage, lightly used, no markings", imgSelected: require("../../../images/assets/Likenew_condition.png")},
+                    ];
+
+        let condEl = [];
+        conds.map((cond,i) => {
+            condEl.push(
+            <div class="condition">
+                <p className="condition-title">{cond.name}</p>
+                <img className="condition-img" src={this.state.condition === cond.name ? cond.imgSelected : cond.img } alt="" onClick={() => this.selectCondition(cond.name)}/>
+                <p className="condition-desc">{cond.desc}</p>
+            </div>
+            )
+        } )
 
         return (
             <div className="post-book-form">
@@ -108,8 +136,10 @@ class PostBookForm extends Component {
                 </div>
                 {editOpt}
 
-                <div className="book-condition">
-                    
+                <div id="book-condition">
+                    <p>Condition</p>
+
+                    {condEl}
                 </div>
 
                 <button onClick={this.toggleEditable}>Save Changes</button>

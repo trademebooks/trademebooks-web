@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import './PostBook.scss';
 import '../../css/global.css'
 
+import SearchBook from '../Bookstore/SearchBook/SearchBook';
 import PostBookForm from './PostBookForm/PostBookForm';
 
 class PostBook extends Component {
@@ -41,15 +42,13 @@ class PostBook extends Component {
                     </div>
                 </div>
 
-                <div id="search-book" className="section">
+                <div id="search-book-container" className="section">
                     <p className="section-header">SEARCH FROM OVER 25 MILLION BOOKS</p>
                     
                     <div id="search-box">
-                        {// replace this with s search component
-                        }
-                        <input type="text"/>
+                        <SearchBook></SearchBook>
                     </div>
-                    <p>Can't find your book? <a href="">Create Listing Manually</a></p>
+                    <p id="create-new-listing">Can't find your book? <a href="">Create Listing Manually</a></p>
                 </div>
 
                 <div id="post-book-form-container" className="section">
