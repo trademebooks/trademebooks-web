@@ -17,27 +17,51 @@
                 height: 16rem;
                 width: 14rem;
             }
+
+            #upload-btn {
+                padding: 1rem 2rem;
+                background: #FFFFFF;
+                border: 1px solid #C4C4C4;
+                box-sizing: border-box;
+                border-radius: 3px;
+            }
+
+            #upload-img {
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
         }
-
         .post-book-form-fields {
-            display: table;
-            margin: 3rem 2rem;
             width: 100%;
-
-            .flex-outer li {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-            }
-            .flex-outer > li > label {
-                flex: 1 0 120px;
-                max-width: 220px;
-            }
             
-            .flex-outer > li > label + *{
-                flex: 100 0 220px;
-            }
+            table {
+                width: 90%;
+    
+                tbody {
+                    tr {
+                        td {
+                            padding: 0.5rem 0rem;
+    
+                            .add-remove-author {
+                                background-color: white;
+                                color: black;
+                                box-shadow: none;
+                                border: 1px solid #C4C4C4;
+                                margin-left: 1rem;
+                            }
 
+                            .full-width {
+                                width: 100%;
+                            }
+                            &:first-child {
+                                width: 8rem;
+                                word-break: break-all;
+                            }
+                        }
+                    } 
+                } 
+            } 
         }
     }
 
@@ -54,6 +78,7 @@
             .condition-img {
                 width: 8rem;
                 margin: 1rem 0rem;
+                cursor: pointer;
             }
             
             .condition-desc {

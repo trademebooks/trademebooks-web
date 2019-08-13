@@ -11,7 +11,7 @@ class PostBookForm extends Component {
         this.state = {
             image: "",
             title: "",
-            authors: "",
+            authors: [],
             edition: "",
             isbn10: "",
             isbn13: "",
@@ -24,7 +24,7 @@ class PostBookForm extends Component {
         this.onChangeBook = this.onChangeBook.bind(this);
         this.toggleEditable = this.toggleEditable.bind(this);
         this.selectCondition = this.selectCondition.bind(this);
-
+        this.addAuthor = this.addAuthor.bind(this);
 
     }
 
@@ -46,57 +46,85 @@ class PostBookForm extends Component {
         });
     }
 
-
+    addAuthor(e) {
+        console.log('asdasd');
+        e.preventDefault();
+        this.setState({
+            authors: [...this.state.authors, ""]
+        });
+    }
 
 
     render() {
+        let authors = this.state.authors.map((authors, i) => {
+            return <tr>
+                <td ></td>
+                <td >
+                    <input type="text" name="author" value={this.state.authors[i + 1]} />
+                    <button type="button" className="add-remove-author">X</button>
+                </td>
+            </tr>
+        })
+
         let form;
         if (this.state.editable) {
-            form = <ul className="flex-outer">
-            <li>
-                <label for="first-name">Title:</label>
-                <input type="text" className="book-title" name="title" onChange={this.onChangeBook} />
-            </li>
-            <li>
-                <label for="last-name">Author(s):</label>
-                <input type="text" className="book-author" name="author" onChange={this.onChangeBook} />
-            </li>
-            <li>
-                <label for="email">ISBN-10:</label>
-                <input type="text" className="isbn10" name="isbn10" onChange={this.onChangeBook} />
-            </li>
-            <li>
-                <label for="phone">ISBN-13:</label>
-                <input type="text" className="isbn13" name="isbn13" onChange={this.onChangeBook} />
-            </li>
-            <li>
-                <label for="phone">Edition:</label>
-                <input type="text" className="edition" name="edition" onChange={this.onChangeBook} />
-            </li>
-        </ul>
+            form =             
+            <table>
+                <tbody>
+                    <tr>
+                        <td >Title:</td>
+                        <td ><input type="text" name="title" onChange={this.onChangeBook} value={this.state.title} className="full-width" /></td>
+                    </tr>
+                    <tr>
+                        <td >Author(s):</td>
+                        <td >
+                            <input type="text" name="author" onChange={this.onChangeBook} value={this.state.authors[0]} />
+                            <button type="button" className="add-remove-author" onClick={this.addAuthor}>Add Another Author</button>
+                        </td>
+                    </tr>
+                    {authors}
+
+                    <tr>
+                        <td >ISBN-10:</td>
+                        <td ><input type="text" name="isbn10" onChange={this.onChangeBook} value={this.state.isbn10} className="full-width" /></td>
+                    </tr>
+                    <tr>
+                        <td >ISBN-13:</td>
+                        <td ><input type="text" name="isbn13" onChange={this.onChangeBook} value={this.state.isbn13} className="full-width" /></td>
+                    </tr>
+                    <tr>
+                        <td >Edition:</td>
+                        <td ><input type="text" name="edition" onChange={this.onChangeBook} value={this.state.edition} className="full-width" /></td>
+                    </tr>
+                </tbody>
+            </table>
         } else {
-            form = <ul className="flex-outer">
-            <li>
-                <label for="first-name">Title:</label>
-                <p type="text" className="book-title" name="title">{this.state.title}</p>
-            </li>
-            <li>
-                <label for="last-name">Author(s):</label>
-                <p type="text" className="book-author" name="author">{this.state.authors}</p>
-            </li>
-            <li>
-                <label for="email">ISBN-10:</label>
-                <p type="text" className="isbn10" name="isbn10">{this.state.isbn10}</p>
-            </li>
-            <li>
-                <label for="phone">ISBN-13:</label>
-                <p type="text" className="isbn13" name="isbn13">{this.state.isbn13}</p>
-            </li>
-            <li>
-                <label for="phone">Edition:</label>
-                <p type="text" className="edition" name="edition">{this.state.edition}</p>
-            </li>
-        </ul>
+            form = 
+            <table>
+                <tbody>
+                    <tr>
+                        <td >Title:</td>
+                        <td ><p type="text" className="book-title" name="title">{this.state.title}</p></td>
+                    </tr>
+                    <tr>
+                        <td >Author(s):</td>
+                        <td ><p type="text" className="book-author" name="author">{this.state.authors}</p></td>
+                    </tr>
+                    <tr>
+                        <td >ISBN-10:</td>
+                        <td ><p type="text" className="isbn10" name="isbn10">{this.state.isbn10}</p></td>
+                    </tr>
+                    <tr>
+                        <td >ISBN-13:</td>
+                        <td ><p type="text" className="isbn13" name="isbn13">{this.state.isbn13}</p></td>
+                    </tr>
+                    <tr>
+                        <td >Edition:</td>
+                        <td ><p type="text" className="edition" name="edition">{this.state.edition}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+
         }
 
         let editOpt = !this.state.editable ? <p>Information does not look correct? <span onClick={this.toggleEditable}>Manually Edit</span></p> : <span></span>
@@ -114,7 +142,8 @@ class PostBookForm extends Component {
             condEl.push(
             <div class="condition">
                 <p className="condition-title">{cond.name}</p>
-                <img className="condition-img" src={this.state.condition === cond.name ? cond.imgSelected : cond.img } alt="" onClick={() => this.selectCondition(cond.name)}/>
+                <img className="condition-img" src={this.state.condition === cond.name ? cond.imgSelected : cond.img} 
+                alt={cond.name} name="condition" cond={cond.name} onClick={() => this.selectCondition(cond.name)}/>
                 <p className="condition-desc">{cond.desc}</p>
             </div>
             )
@@ -125,7 +154,8 @@ class PostBookForm extends Component {
                 <div className="main-form">
                     <div className="post-book-img">
                         <img className="book-img" src="" alt=""/>
-                        <p>Upload Image</p>
+                        <label htmlFor="upload-img" id="upload-btn">Upload Image</label>
+                        <input id="upload-img" type="file"/>
                     </div>
 
                     <form className="post-book-form-fields">

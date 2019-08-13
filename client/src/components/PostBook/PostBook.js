@@ -13,20 +13,52 @@ class PostBook extends Component {
 
         this.state = {
             quantity: "",
+            books: [],
+            courses: [""]
         };
 
         this.onClick = this.onClick.bind(this);
+        this.addCourse = this.addCourse.bind(this);
+        this.removeCourse = this.removeCourse.bind(this);
+
     }
 
     onClick(e) {
-        console.log("clicking");
         this.setState({
             [e.target.name]: e.target.value
         });
     }
 
+    addCourse(e) {
+        e.preventDefault();
+        this.setState({
+            courses: [...this.state.courses, ""]
+        });
+    }
+
+    removeCourse(i) {
+        let dupe = Array.from(this.state.courses)
+        dupe.splice(i, 1)
+        console.log(dupe);
+        this.setState({
+            courses: dupe
+        });
+    }
 
     render() {
+        let courses = []
+        for (let i = 1; i < this.state.courses.length; i++) {
+                courses.push(<tr>
+                    <td ></td>
+                    <td >
+                        <input type="text" name="course" />
+                        <button type="button" className="manip-course-btn" onClick={() =>this.removeCourse(i)}>X</button>
+                    </td>
+                </tr>
+                )
+        }
+        
+            
 
         return (
             <div id="post-book">
@@ -65,8 +97,12 @@ class PostBook extends Component {
                             </tr>
                             <tr>
                                 <td >Course:</td>
-                                <td ><input type="text" name="course" /></td>
+                                <td >
+                                    <input type="text" name="course" />
+                                    <button type="button" class="manip-course-btn" onClick={this.addCourse}>Add another course</button>
+                                </td>
                             </tr>
+                            {courses}
                             <tr>
                                 <td >Price:</td>
                                 <td ><input type="number" name="price" /></td>
