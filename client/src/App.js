@@ -12,6 +12,8 @@ import CoursesPage from "./components/Courses/CoursesPage";
 import Register from "./components/Auth/Register"
 import Login from "./components/Auth/Login"
 
+import Settings from "./components/Profile/AccountSettings"
+
 
 function App() {
     return (
@@ -28,6 +30,7 @@ function App() {
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
 
+                <Route path="/settings" component={Settings}/>
 
                 <Route component={NotFoundPage}/>
             </Switch>
