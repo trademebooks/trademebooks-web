@@ -84,7 +84,7 @@ const Navbar = () => <Row
         style={{
         paddingTop: "0.3%"
     }}>
-        <img width="25px" height="30px" src={Books_icon_white}></img>
+        <img width="25px" height="30px" src={Books_icon_white} alt="Bookstore"></img>
     </Col>
     <Col
         className="navbar-icons"
@@ -92,7 +92,7 @@ const Navbar = () => <Row
         style={{
         paddingTop: "0.3%"
     }}>
-        <img width="25px" height="30px" src={Message_navbar}></img>
+        <img width="25px" height="30px" src={Message_navbar} alt="Message Centre"></img>
     </Col>
     <Col
         className="navbar-icons"
@@ -100,7 +100,9 @@ const Navbar = () => <Row
         style={{
         paddingTop: "0.3%"
     }}>
-        <img width="25px" height="30px" src={Account_icon_white}></img>
+        <a href="/settings">
+            <img width="25px" height="30px" src={Account_icon_white} alt="Account Settings"></img>
+        </a>
     </Col>
     <Col xs={2} className="navbar-icons">
         <Button

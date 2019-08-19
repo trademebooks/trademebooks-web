@@ -15,10 +15,11 @@ class Settings extends Component {
                 name="Cedric"
                 />
 
-                <div id="settings-form-wrap">
-                    <form id="settings-form">
-                        <div id="l-col">
-                            <h1>Account</h1>
+                
+                <form id="settings-form">
+                    <div id="settings-form-wrap">
+                        <div class="tcol">
+                            <p class="section-text">ACCOUNT</p>
 
                             <p>Username</p>
                             <input name="username"
@@ -42,11 +43,26 @@ class Settings extends Component {
                                     />
                         </div>
 
-                        <div id="r-col">
+                        <div class="tcol">
+                            <p class="section-text">LOCATION</p>
 
+                            <p>Where can people meet you?</p>
+                            <input name="location"
+                                    type="text"
+                                    />
+
+                            <p class="section-text">SCHOOL</p>
+                            <p>Which school are you buying/selling from?</p>
+                            <input name="school"
+                                    type="text"
+                                    />
                         </div>
-                    </form>
-                </div>
+
+                    </div>
+                    <button class="btn">
+                        Save Changes
+                    </button>
+                </form>
             </div>
         );
     }
