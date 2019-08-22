@@ -13,6 +13,7 @@ import Register from "./components/Auth/Register"
 import Login from "./components/Auth/Login"
 
 import Settings from "./components/Profile/AccountSettings"
+import Bookstore from "./components/Bookstore/Bookstore"
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/login" component={Login}/>
 
                 <Route path="/settings" component={Settings}/>
+                <Route path="/bookstore" component={Bookstore}/>
 
                 <Route component={NotFoundPage}/>
             </Switch>
