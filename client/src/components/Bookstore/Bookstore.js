@@ -3,7 +3,7 @@ import NavigationSubBar from "../Pages/NavigationSubBar";
 import SecondarySearchBar from "../Pages/SecondarySearchBar";
 
 import "./Bookstore.css";
-import SingleResultCard from "../Pages/SingleResultCard";
+import MyBookstoreResultCard from "../Pages/MyBookstoreResultCard";
 
 class Bookstore extends Component {
 
@@ -24,8 +24,8 @@ class Bookstore extends Component {
 
                     
                     <div id="results-wrapper">
-                        <SingleResultCard/>
-                        <SingleResultCard/>
+                        <MyBookstoreResultCard/>
+                        <MyBookstoreResultCard/>
                     </div>
                 </div>
             </div>
