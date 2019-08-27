@@ -11,7 +11,7 @@ class PostBookForm extends Component {
         this.state = {
             image: "",
             title: "",
-            authors: [],
+            authors: [""],
             edition: "",
             isbn10: "",
             isbn13: "",
@@ -25,10 +25,14 @@ class PostBookForm extends Component {
         this.toggleEditable = this.toggleEditable.bind(this);
         this.selectCondition = this.selectCondition.bind(this);
         this.addAuthor = this.addAuthor.bind(this);
+        this.onChangeAuthor = this.onChangeAuthor.bind(this);
+        this.removeAuthor = this.removeAuthor.bind(this);
+
 
     }
 
     onChangeBook(e) {
+        console.log("asdasd");
         this.setState({
             [e.target.name]: e.target.value
         });
@@ -47,21 +51,39 @@ class PostBookForm extends Component {
     }
 
     addAuthor(e) {
-        console.log('asdasd');
         e.preventDefault();
         this.setState({
             authors: [...this.state.authors, ""]
         });
     }
 
+    removeAuthor(i) {
+        let dupe = Array.from(this.state.authors)
+        dupe.splice(i, 1)
+        this.setState({
+            authors: dupe
+        });
+    }
+
+    onChangeAuthor(i, event) {
+        let authors = this.state.authors.slice(); 
+        authors[i] = event.target.value;
+        this.setState({authors: authors}); 
+    }
+
 
     render() {
-        let authors = this.state.authors.map((authors, i) => {
+        let authors = this.state.authors.map((author, i) => {
+            let currBtn = i !== 0 ?
+                <button type="button" className="add-remove-author" onClick={() =>this.removeAuthor(i)}>X</button> :
+                <button type="button" className="add-remove-author" onClick={this.addAuthor}>Add Another Author</button>
+
             return <tr>
-                <td ></td>
+                <td >{i !== 0 ? '' :'Author(s):'}</td>
                 <td >
-                    <input type="text" name="author" value={this.state.authors[i + 1]} />
-                    <button type="button" className="add-remove-author">X</button>
+                    <input type="text" name="author" value={author} onChange={(e) => this.onChangeAuthor(i, e)} />
+                    
+                    {currBtn}
                 </td>
             </tr>
         })
@@ -74,13 +96,6 @@ class PostBookForm extends Component {
                     <tr>
                         <td >Title:</td>
                         <td ><input type="text" name="title" onChange={this.onChangeBook} value={this.state.title} className="full-width" /></td>
-                    </tr>
-                    <tr>
-                        <td >Author(s):</td>
-                        <td >
-                            <input type="text" name="author" onChange={this.onChangeBook} value={this.state.authors[0]} />
-                            <button type="button" className="add-remove-author" onClick={this.addAuthor}>Add Another Author</button>
-                        </td>
                     </tr>
                     {authors}
 
@@ -140,7 +155,7 @@ class PostBookForm extends Component {
         let condEl = [];
         conds.map((cond,i) => {
             condEl.push(
-            <div class="condition">
+            <div key={i} className="condition">
                 <p className="condition-title">{cond.name}</p>
                 <img className="condition-img" src={this.state.condition === cond.name ? cond.imgSelected : cond.img} 
                 alt={cond.name} name="condition" cond={cond.name} onClick={() => this.selectCondition(cond.name)}/>

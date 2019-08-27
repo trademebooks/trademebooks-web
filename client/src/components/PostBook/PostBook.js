@@ -13,19 +13,28 @@ class PostBook extends Component {
 
         this.state = {
             quantity: "",
-            books: [],
+            books: [{}],
             courses: [""]
         };
 
         this.onClick = this.onClick.bind(this);
         this.addCourse = this.addCourse.bind(this);
         this.removeCourse = this.removeCourse.bind(this);
+        this.addBook = this.addBook.bind(this);
+        this.onChangeCourse = this.onChangeCourse.bind(this);
+
 
     }
 
     onClick(e) {
         this.setState({
             [e.target.name]: e.target.value
+        });
+    }
+
+    addBook(e) {
+        this.setState({
+            books: [...this.state.books, {}]
         });
     }
 
@@ -44,20 +53,37 @@ class PostBook extends Component {
             courses: dupe
         });
     }
+    onChangeCourse(i, event) {
+        let courses = this.state.courses.slice(); 
+        courses[i] = event.target.value;
+        this.setState({courses: courses}); 
+    }
 
     render() {
-        let courses = []
-        for (let i = 1; i < this.state.courses.length; i++) {
-                courses.push(<tr>
-                    <td ></td>
-                    <td >
-                        <input type="text" name="course" />
-                        <button type="button" className="manip-course-btn" onClick={() =>this.removeCourse(i)}>X</button>
-                    </td>
-                </tr>
-                )
+        let courses = this.state.courses.map((course, i) => {
+            let currBtn = i !== 0 ?
+                <button type="button" className="manip-course-btn" onClick={() =>this.removeCourse(i)}>X</button> :
+                <button type="button" className="manip-course-btn" onClick={this.addCourse}>Add Another Course</button>
+
+            return <tr>
+                <td >{i !== 0 ? '' :'Course(s):'}</td>
+                <td >
+                    <input type="text" name="course" value={course} onChange={(e) => this.onChangeCourse(i, e)} />
+                    
+                    {currBtn}
+                </td>
+            </tr>
+        })
+
+        let addBookBtn;
+
+        if (this.state.quantity === "GROUP") {
+            addBookBtn = <button type="button" onClick={() =>this.addBook()}>Add Another Book</button>
+            
         }
-        
+        let postBookForms = this.state.books.map((book, i) => {
+            return <PostBookForm key={i}></PostBookForm>
+        })
             
 
         return (
@@ -83,8 +109,9 @@ class PostBook extends Component {
                     <p id="create-new-listing">Can't find your book? <a href="">Create Listing Manually</a></p>
                 </div>
 
-                <div id="post-book-form-container" className="section">
-                    <PostBookForm></PostBookForm>
+                <div id="post-book-form-container" >
+                    {postBookForms}
+                    {addBookBtn}
                 </div>
 
                 <form id="university-form-container" className="section">
@@ -95,13 +122,7 @@ class PostBook extends Component {
                                 <td >School:</td>
                                 <td ><input type="text" name="school" className="full-width" /></td>
                             </tr>
-                            <tr>
-                                <td >Course:</td>
-                                <td >
-                                    <input type="text" name="course" />
-                                    <button type="button" class="manip-course-btn" onClick={this.addCourse}>Add another course</button>
-                                </td>
-                            </tr>
+
                             {courses}
                             <tr>
                                 <td >Price:</td>
