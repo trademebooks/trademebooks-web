@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CardHeader from "./CardHeader.js"
 import CardFooter from "./CardFooter.js"
-import CardIcons from "./CardIcons"
+import CardFlexIcons from "./CardFlexIcons"
 
 const MyBookstoreResultCard = () => <div className="card-container">
     <Card>
@@ -44,7 +44,7 @@ const MyBookstoreResultCard = () => <div className="card-container">
                         </Card.Body>
                     </Col>
                     <Col xs={2}>
-                        <CardIcons/>
+                        <CardFlexIcons edit={true} delete={true} />
                     </Col>
                 </Row>
                 <CardFooter/>
