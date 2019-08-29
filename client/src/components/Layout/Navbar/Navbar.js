@@ -84,7 +84,9 @@ const Navbar = () => <Row
         style={{
         paddingTop: "0.3%"
     }}>
-        <img width="25px" height="30px" src={Books_icon_white} alt="Bookstore"></img>
+        <a href="/bookstore">
+            <img width="25px" height="30px" src={Books_icon_white} alt="Bookstore"></img>
+        </a>
     </Col>
     <Col
         className="navbar-icons"
