@@ -11,6 +11,8 @@ import CoursesPage from "./components/Courses/CoursesPage";
 
 import Register from "./components/Auth/Register"
 import Login from "./components/Auth/Login"
+import PostBook from "./components/PostBook/PostBook"
+
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
                 <Route path="/courses" component={CoursesPage}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/PostBook" component={PostBook}/>
 
 
                 <Route component={NotFoundPage}/>

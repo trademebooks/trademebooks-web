@@ -1,0 +1,99 @@
+.post-book-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0rem;
+    border-bottom: 1px solid #c4c4c4;
+
+    .main-form {
+        display: flex;
+
+        .post-book-img{
+            display: flex;
+            flex-direction: column;
+            margin: 3rem 2rem;
+            align-items: center;
+
+            .book-img {
+                background-color: white;
+                height: 16rem;
+                width: 14rem;
+            }
+
+            #upload-btn {
+                padding: 1rem 2rem;
+                background: #FFFFFF;
+                border: 1px solid #C4C4C4;
+                box-sizing: border-box;
+                border-radius: 3px;
+            }
+
+            #upload-img {
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+        }
+        .post-book-form-fields {
+            width: 100%;
+            
+            table {
+                width: 90%;
+    
+                tbody {
+                    tr {
+                        td {
+                            padding: 0.5rem 0rem;
+    
+                            .add-remove-author {
+                                background-color: white;
+                                color: black;
+                                box-shadow: none;
+                                border: 1px solid #C4C4C4;
+                                margin-left: 1rem;
+                            }
+
+                            .full-width {
+                                width: 100%;
+                            }
+                            &:first-child {
+                                width: 8rem;
+                                word-break: break-all;
+                            }
+                        }
+                    } 
+                } 
+            } 
+        }
+    }
+
+    #book-condition {
+        display: flex;
+        align-items: center;
+
+        .condition {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem 2rem;
+
+            .condition-img {
+                width: 8rem;
+                margin: 1rem 0rem;
+                cursor: pointer;
+            }
+            
+            .condition-desc {
+                text-align: center;
+            }
+        }
+
+    }
+
+    button {
+        align-self: flex-end;
+        background: #109383;
+        color: white;
+        border-radius: 3px;
+    }
+}
