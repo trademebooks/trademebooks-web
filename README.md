@@ -46,6 +46,13 @@ Run the spring boot app:
 mvn spring-boot:run
 ```
 
+Change up the trademebooks/src/main/resources/application.properties accordingly to match your local setup:
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/[my-local-database-name]?useSSL=false
+spring.datasource.username=my-local-database-username
+spring.datasource.password=my-local-database-password
+```
+
 ## Server and Devops
 - Jenkins URL: http://chosensolutions.asuscomm.com:8081/
 - https://wwww.trademebooks.com
