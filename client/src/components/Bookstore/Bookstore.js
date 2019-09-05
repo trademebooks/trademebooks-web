@@ -14,13 +14,15 @@ class Bookstore extends Component {
             showInternal: false,
             storeOwner: "YiChen",
             location: "North York, Toronto",
-            storeloc: "University of Toronto Scarborough"
+            storeloc: "University of Toronto Scarborough",
+            currentFilterView: "all",
         }
     }
 
     render() {
 
         // renders differently based on whether the owner is viewing
+        // checks showInternal's state to see if it should so the ext or int
         let storefragment;
 
         if (this.state.showInternal) {
@@ -36,8 +38,8 @@ class Bookstore extends Component {
 
                     
                     <div id="results-wrapper">
-                        <MyBookstoreResultCard/>
-                        <MyBookstoreResultCard/>
+                        <MyBookstoreResultCard edit={true} delete={true}/>
+                        <MyBookstoreResultCard edit={true} delete={true}/>
                     </div>
                 </div>
             </div>
@@ -61,12 +63,43 @@ class Bookstore extends Component {
                 <div id="main-bookstore">
                     <SecondarySearchBar placeholder={`Search ${this.state.storeOwner}'s bookstore`}/>
 
+                    <div id="search-options-bar">
+                        <div className="sortLabels">
+                            <div className="sortLabel-ind">
+                                <span>Date&nbsp;</span>
+                                <i class="material-icons md-18">arrow_upward</i>
+                            </div>
+
+                            <div className="sortLabel-ind">
+                                <span>Price&nbsp;</span>
+                                <i class="material-icons md-18">arrow_upward</i>
+                            </div>
+
+                            <div className="sortLabel-ind">
+                                <span>Condition&nbsp;</span>
+                                <i class="material-icons md-18">arrow_drop_down</i>
+                            </div>
+
+                            <div id="course-code-search">
+                                <SecondarySearchBar placeholder={"Course Code"}/>
+                            </div>
+                        </div>
+
+                        <div className="filterLabels">
+                            <span class={this.state.currentFilterView === 'all' ? "filter-cur" : "filter-not"}>
+                                All</span>
+                            <span class={this.state.currentFilterView === 'single' ? "filter-cur" : "filter-not"}>
+                                Single Books</span>
+                            <span class={this.state.currentFilterView === 'bundles' ? "filter-cur" : "filter-not"}>
+                                Bundles</span>
+                        </div>
+                    </div>
                     
                     <div id="results-wrapper">
-                        <MyBookstoreResultCard/>
-                        <MyBookstoreResultCard/>
-                        <MyBookstoreResultCard/>
-                        <MyBookstoreResultCard/>
+                        <MyBookstoreResultCard message={true}/>
+                        <MyBookstoreResultCard message={true}/>
+                        <MyBookstoreResultCard message={true}/>
+                        <MyBookstoreResultCard message={true}/>
                     </div>
                 </div>
             </div>
