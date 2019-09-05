@@ -4,6 +4,7 @@ import SecondarySearchBar from "../Pages/SecondarySearchBar";
 
 import "./Bookstore.css";
 import MyBookstoreResultCard from "../Pages/MyBookstoreResultCard";
+import loc_icon from "../../images/Icons/Location_icon.png"
 
 class Bookstore extends Component {
     // TODO currently useless, but we'll use it when we can check login status
@@ -43,28 +44,36 @@ class Bookstore extends Component {
                     </div>
                 </div>
             </div>
+
         } else {
             storefragment = 
             <div id="bookstore-ext">
-                
-                <h1>Welcome to {this.state.storeOwner}'s Bookstore</h1>
-
-                <div id="locations-bar">
-                    <div className="place-labels">
-                        Located in:
-                        <div>{this.state.location}</div>
-                    </div>
-                    <div className="place-labels">
-                        Selling books for:
-                        <div>{this.state.storeloc}</div>
-                    </div>
-                </div>
 
                 <div id="main-bookstore">
+                    <span id="owner-labels">
+                        Welcome to &nbsp;
+                        <b id="store-owner">{this.state.storeOwner}'s</b>
+                        &nbsp; Bookstore
+                    </span>
+
+                    <div id="locations-bar">
+                        <img height="50px" alt="location" className="dec-icon" src={loc_icon}></img>
+                        <div className="place-labels">
+                            Located in:
+                            <span className="major-label">{this.state.location}</span>
+                        </div>
+
+                        <img height="50px" alt="location" className="dec-icon" src={loc_icon}></img>
+                        <div className="place-labels">
+                            Selling books for:
+                            <span className="major-label">{this.state.storeloc}</span>
+                        </div>
+                    </div>
+
                     <SecondarySearchBar placeholder={`Search ${this.state.storeOwner}'s bookstore`}/>
 
                     <div id="search-options-bar">
-                        <div className="sortLabels">
+                        <div id="sortLabels">
                             <div className="sortLabel-ind">
                                 <span>Date&nbsp;</span>
                                 <i class="material-icons md-18">arrow_upward</i>
@@ -85,7 +94,7 @@ class Bookstore extends Component {
                             </div>
                         </div>
 
-                        <div className="filterLabels">
+                        <div id="filterLabels">
                             <span class={this.state.currentFilterView === 'all' ? "filter-cur" : "filter-not"}>
                                 All</span>
                             <span class={this.state.currentFilterView === 'single' ? "filter-cur" : "filter-not"}>

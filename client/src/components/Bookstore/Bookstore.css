@@ -19,9 +19,79 @@
 }
 
 .secondary-search {
-    margin: 10% 0%;
+    margin: 10% 0% 3% 0%;
 }
 
 .card-container {
     margin: 2rem 0%;
+}
+
+#owner-labels {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 7%;
+    color: #109383;
+    font-size: 40px;
+}
+
+#locations-bar {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5%;
+}
+
+.place-labels {
+    display: flex;
+    flex-direction: column;
+    margin-right: 7%;
+    font-weight: 300;
+}
+
+.dec-icon {
+    margin-right: 20px;
+}
+
+.major-label {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+#search-options-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#sortLabels {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.sortLabel-ind {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+}
+
+#course-code-search {
+    margin-right: 3rem;
+}
+
+span[class^="filter-"] {
+    margin-right: 2.5rem;
+    text-align: center;
+}
+
+#filterLabels {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filter-cur {
+    color: #109383;
 }
