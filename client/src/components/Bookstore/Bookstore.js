@@ -5,6 +5,7 @@ import SecondarySearchBar from "../Pages/SecondarySearchBar";
 import "./Bookstore.css";
 import MyBookstoreResultCard from "../Pages/MyBookstoreResultCard";
 import loc_icon from "../../images/Icons/Location_icon.png"
+import school_icon from "../../images/Icons/School_icon.png"
 
 class Bookstore extends Component {
     // TODO currently useless, but we'll use it when we can check login status
@@ -12,12 +13,23 @@ class Bookstore extends Component {
         super(props)
 
         this.state = {
-            showInternal: false,
+            showInternal: true,
             storeOwner: "YiChen",
             location: "North York, Toronto",
             storeloc: "University of Toronto Scarborough",
             currentFilterView: "all",
         }
+    }
+
+    // accepts 0 for "all", 1 for "single" or 2 for "bundles". Defaults to "all"
+    ChangeFilterView(filterIndex) {
+        let filterOpts = ["all", "single", "bundles"];
+        let filterby = 
+        (filterIndex in filterOpts ? filterOpts[filterIndex] : "all");
+        
+        this.setState({
+            currentFilterView: filterby,
+        });
     }
 
     render() {
@@ -63,7 +75,7 @@ class Bookstore extends Component {
                             <span className="major-label">{this.state.location}</span>
                         </div>
 
-                        <img height="50px" alt="location" className="dec-icon" src={loc_icon}></img>
+                        <img height="50px" alt="location" className="dec-icon" src={school_icon}></img>
                         <div className="place-labels">
                             Selling books for:
                             <span className="major-label">{this.state.storeloc}</span>
@@ -95,11 +107,14 @@ class Bookstore extends Component {
                         </div>
 
                         <div id="filterLabels">
-                            <span class={this.state.currentFilterView === 'all' ? "filter-cur" : "filter-not"}>
+                            <span class={this.state.currentFilterView === 'all' ? "filter-cur" : "filter-not"}
+                            onClick={() => this.ChangeFilterView(0)}>
                                 All</span>
-                            <span class={this.state.currentFilterView === 'single' ? "filter-cur" : "filter-not"}>
+                            <span class={this.state.currentFilterView === 'single' ? "filter-cur" : "filter-not"}
+                            onClick={() => this.ChangeFilterView(1)}>
                                 Single Books</span>
-                            <span class={this.state.currentFilterView === 'bundles' ? "filter-cur" : "filter-not"}>
+                            <span class={this.state.currentFilterView === 'bundles' ? "filter-cur" : "filter-not"}
+                            onClick={() => this.ChangeFilterView(2)}>
                                 Bundles</span>
                         </div>
                     </div>

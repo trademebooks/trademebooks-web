@@ -83,6 +83,7 @@
 
 span[class^="filter-"] {
     margin-right: 2.5rem;
+    cursor: pointer;
     text-align: center;
 }
 
@@ -90,6 +91,11 @@ span[class^="filter-"] {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.filter-not:hover {
+    font-style: italic;
+    color: #3a5746;
 }
 
 .filter-cur {
