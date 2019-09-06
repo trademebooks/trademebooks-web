@@ -23,6 +23,7 @@ The key features are:
 2. Install Java JDK 8 - https://www.oracle.com/technetwork/java/javase/downloads/index.html
 3. Install Maven - https://www.youtube.com/watch?v=6AVC3X88z6E
 4. Install MySQL - http://www.wampserver.com/en/
+5. (Highly recommended to install the IDE Intellij) - https://www.jetbrains.com/idea/download/
 
 ## Frontend Work Flow
 ```bash
@@ -45,6 +46,14 @@ Run the spring boot app:
 ```
 mvn spring-boot:run
 ```
+
+Change up the trademebooks/src/main/resources/application.properties accordingly to match your local setup:
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/**my-local-database-name**?useSSL=false
+spring.datasource.username=**my-local-database-username**
+spring.datasource.password=**my-local-database-password**
+```
+Note: **my-local-database-name, my-local-database-username, my-local-database-password** are your own local database settings.
 
 ## Server and Devops
 - Jenkins URL: http://chosensolutions.asuscomm.com:8081/

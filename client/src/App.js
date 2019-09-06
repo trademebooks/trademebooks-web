@@ -11,6 +11,8 @@ import CoursesPage from "./components/Courses/CoursesPage";
 
 import Register from "./components/Auth/Register"
 import Login from "./components/Auth/Login"
+import PostBook from "./components/PostBook/PostBook"
+
 
 import Settings from "./components/Profile/AccountSettings"
 import Bookstore from "./components/Bookstore/Bookstore"
@@ -30,6 +32,7 @@ function App() {
                 <Route path="/courses" component={CoursesPage}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/PostBook" component={PostBook}/>
 
                 <Route path="/settings" component={Settings}/>
                 <Route path="/bookstore" component={Bookstore}/>
