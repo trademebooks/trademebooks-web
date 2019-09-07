@@ -9,6 +9,7 @@ html, body {
     height: 100%;
     width: 100%;
     background-color: #e5e5e5;
+    isolation: isolate;
 }
 
 h1 {
