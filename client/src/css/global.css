@@ -26,8 +26,15 @@ input, textarea {
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 3px;
+    /* These were affecting ALL search bars across the site, 
+    so I've disabled them for now since it made them really ugly looking
+    
+    The "PostBook" pages made use of this though, so they look bad WITHOUT them
+    Should commit to either enforcing this across the site, or isolating it
+
     margin: 0.5rem 0rem;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.5rem; 
+    */
 }
 
 label {
