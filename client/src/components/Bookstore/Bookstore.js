@@ -13,7 +13,7 @@ class Bookstore extends Component {
         super(props)
 
         this.state = {
-            showInternal: true,
+            showInternal: false,
             storeOwner: "YiChen",
             location: "North York, Toronto",
             storeloc: "University of Toronto Scarborough",

@@ -1,9 +1,27 @@
 import React, {Component} from "react";
 import NavigationSubBar from "../Pages/NavigationSubBar";
+import Notification from "../Pages/DismissableNotify";
 
 import "./AccountSettings.css";
 
 class Settings extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            showNotification: false,
+        }
+    }
+
+    // change state of notification to given
+    changeNotificationVis(e, newVis) {
+        e.preventDefault();
+
+        this.setState({
+            showNotification : newVis,
+        });
+    }
 
     render() {
 
@@ -15,9 +33,15 @@ class Settings extends Component {
                 name="Cedric"
                 />
 
-                
+                { this.state.showNotification &&
+                <Notification
+                text="Changes Saved!"
+                closeClick={(e) => this.changeNotificationVis.bind(this)(e, false)}
+                />}
+
                 <form id="settings-form">
                     <div id="settings-form-wrap">
+
                         <div class="tcol">
                             <p class="section-text">ACCOUNT</p>
 
@@ -59,7 +83,7 @@ class Settings extends Component {
                         </div>
 
                     </div>
-                    <button class="btn">
+                    <button class="btn" onClick={(e) => this.changeNotificationVis(e, true)}>
                         Save Changes
                     </button>
                 </form>
