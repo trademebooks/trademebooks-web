@@ -1,0 +1,29 @@
+
+
+#NavSubBar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;   
+    font-size: 24px;
+}
+
+#NavWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user-hello {
+    font-weight: bold;
+    color: #C4C4C4;
+}
+
+.navtxt-cur {
+    color: #109383;
+}
+
+div[class^="navtxt-"] {
+    margin: 30px 20px;
+}

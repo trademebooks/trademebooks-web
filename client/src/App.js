@@ -18,8 +18,11 @@ import Toolbar from './components/Layout/Navbar/Toolbar/Toolbar';
 import SideDrawer from './components/Layout/Navbar/SideDrawer/SideDrawer';
 import Backdrop from './components/Layout/Navbar/Backdrop/Backdrop';
 
-class App extends Component {
+import Settings from "./components/Profile/AccountSettings"
+import Bookstore from "./components/Bookstore/Bookstore"
 
+class App extends Component {
+  
     state = {
         sideDrawerOpen: false
     };
@@ -40,7 +43,7 @@ class App extends Component {
         if (this.state.sideDrawerOpen) {
             backdrop = <Backdrop click={this.backdropClickHandler}/>
         }
-
+            
         return (
             <div className="App">
                 {/*<Navbar/>*/}
@@ -61,6 +64,9 @@ class App extends Component {
                         <Route path="/login" component={Login}/>
                         <Route path="/PostBook" component={PostBook}/>
 
+                        <Route path="/settings" component={Settings}/>
+                        <Route path="/bookstore" component={Bookstore}/>
+          
                         <Route component={NotFoundPage}/>
                     </Switch>
                 </main>
