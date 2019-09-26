@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {Route, Switch} from "react-router-dom";
 
 import Navbar from "./components/Layout/Navbar/Navbar";
@@ -13,34 +13,66 @@ import Register from "./components/Auth/Register"
 import Login from "./components/Auth/Login"
 import PostBook from "./components/PostBook/PostBook"
 
+/* Navbar Here */
+import Toolbar from './components/Layout/Navbar/Toolbar/Toolbar';
+import SideDrawer from './components/Layout/Navbar/SideDrawer/SideDrawer';
+import Backdrop from './components/Layout/Navbar/Backdrop/Backdrop';
 
 import Settings from "./components/Profile/AccountSettings"
 import Bookstore from "./components/Bookstore/Bookstore"
 
+class App extends Component {
+  
+    state = {
+        sideDrawerOpen: false
+    };
 
-function App() {
-    return (
-        <div className="App">
-            <Navbar/>
+    drawerToggleClickHandler = () => {
+        this.setState((prevState) => {
+            return {sideDrawerOpen: !prevState.sideDrawerOpen};
+        });
+    };
 
-            <Switch>
-                <Route exact path="/" component={HomePage}/>
+    backdropClickHandler = () => {
+        this.setState({sideDrawerOpen: false});
+    };
 
-                <Route path="/about" component={AboutPage}/>
-                <Route path="/contact" component={ContactPage}/>
+    render() {
+        let backdrop;
 
-                <Route path="/courses" component={CoursesPage}/>
-                <Route path="/register" component={Register}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/PostBook" component={PostBook}/>
+        if (this.state.sideDrawerOpen) {
+            backdrop = <Backdrop click={this.backdropClickHandler}/>
+        }
+            
+        return (
+            <div className="App">
+                {/*<Navbar/>*/}
 
-                <Route path="/settings" component={Settings}/>
-                <Route path="/bookstore" component={Bookstore}/>
+                <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+                <SideDrawer show={this.state.sideDrawerOpen}/>
+                {backdrop}
 
-                <Route component={NotFoundPage}/>
-            </Switch>
-        </div>
-    );
+                <main style={{marginTop: '70px', marginLeft: 'auto', marginRight: 'auto'}}>
+                    <Switch>
+                        <Route exact path="/" component={HomePage}/>
+
+                        <Route path="/about" component={AboutPage}/>
+                        <Route path="/contact" component={ContactPage}/>
+
+                        <Route path="/courses" component={CoursesPage}/>
+                        <Route path="/register" component={Register}/>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/PostBook" component={PostBook}/>
+
+                        <Route path="/settings" component={Settings}/>
+                        <Route path="/bookstore" component={Bookstore}/>
+          
+                        <Route component={NotFoundPage}/>
+                    </Switch>
+                </main>
+            </div>
+        );
+    }
 }
 
 export default App;
