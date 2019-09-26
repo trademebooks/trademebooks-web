@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {Route, Switch} from "react-router-dom";
 
 import Navbar from "./components/Layout/Navbar/Navbar";
@@ -13,29 +13,60 @@ import Register from "./components/Auth/Register"
 import Login from "./components/Auth/Login"
 import PostBook from "./components/PostBook/PostBook"
 
+/* Navbar Here */
+import Toolbar from './components/Layout/Navbar/Toolbar/Toolbar';
+import SideDrawer from './components/Layout/Navbar/SideDrawer/SideDrawer';
+import Backdrop from './components/Layout/Navbar/Backdrop/Backdrop';
 
+class App extends Component {
 
-function App() {
-    return (
-        <div className="App">
-            <Navbar/>
+    state = {
+        sideDrawerOpen: false
+    };
 
-            <Switch>
-                <Route exact path="/" component={HomePage}/>
+    drawerToggleClickHandler = () => {
+        this.setState((prevState) => {
+            return {sideDrawerOpen: !prevState.sideDrawerOpen};
+        });
+    };
 
-                <Route path="/about" component={AboutPage}/>
-                <Route path="/contact" component={ContactPage}/>
+    backdropClickHandler = () => {
+        this.setState({sideDrawerOpen: false});
+    };
 
-                <Route path="/courses" component={CoursesPage}/>
-                <Route path="/register" component={Register}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/PostBook" component={PostBook}/>
+    render() {
+        let backdrop;
 
+        if (this.state.sideDrawerOpen) {
+            backdrop = <Backdrop click={this.backdropClickHandler}/>
+        }
 
-                <Route component={NotFoundPage}/>
-            </Switch>
-        </div>
-    );
+        return (
+            <div className="App">
+                {/*<Navbar/>*/}
+
+                <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+                <SideDrawer show={this.state.sideDrawerOpen}/>
+                {backdrop}
+
+                <main style={{marginTop: '70px', marginLeft: 'auto', marginRight: 'auto'}}>
+                    <Switch>
+                        <Route exact path="/" component={HomePage}/>
+
+                        <Route path="/about" component={AboutPage}/>
+                        <Route path="/contact" component={ContactPage}/>
+
+                        <Route path="/courses" component={CoursesPage}/>
+                        <Route path="/register" component={Register}/>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/PostBook" component={PostBook}/>
+
+                        <Route component={NotFoundPage}/>
+                    </Switch>
+                </main>
+            </div>
+        );
+    }
 }
 
 export default App;

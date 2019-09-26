@@ -73,7 +73,7 @@ class PostBook extends Component {
                     {currBtn}
                 </td>
             </tr>
-        })
+        });
 
         let addBookBtn;
 
@@ -83,7 +83,7 @@ class PostBook extends Component {
         }
         let postBookForms = this.state.books.map((book, i) => {
             return <PostBookForm key={i}></PostBookForm>
-        })
+        });
             
 
         return (

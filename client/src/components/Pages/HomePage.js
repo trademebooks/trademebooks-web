@@ -9,6 +9,7 @@ import SearchBar from "./SearchBar.js"
 import SecondarySearchBar from "./SecondarySearchBar.js";
 import SingleResultCard from "./SingleResultCard.js";
 import BundleCard from "./BundleCard";
+
 class HomePage extends Component {
 
     constructor(props) {
