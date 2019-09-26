@@ -12,6 +12,8 @@
     height: 100%;
     align-items: center;
     padding: 0 1rem;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .toolbar__logo {
@@ -52,6 +54,10 @@
 @media (max-width: 768px) {
     .toolbar_navigation-items {
         display: none;
+    }
+
+    .toolbar__navigation {
+        width: 100%;
     }
 }
 

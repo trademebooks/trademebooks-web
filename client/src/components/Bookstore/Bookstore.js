@@ -10,7 +10,7 @@ import school_icon from "../../images/Icons/School_icon.png"
 class Bookstore extends Component {
     // TODO currently useless, but we'll use it when we can check login status
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             showInternal: false,
@@ -33,7 +33,6 @@ class Bookstore extends Component {
     }
 
     render() {
-
         // renders differently based on whether the owner is viewing
         // checks showInternal's state to see if it should so the ext or int
         let storefragment;
@@ -128,7 +127,6 @@ class Bookstore extends Component {
                 </div>
             </div>
         }
-
 
         return (
             // interior view, seen by owner

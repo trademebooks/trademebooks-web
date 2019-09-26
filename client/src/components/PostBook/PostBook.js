@@ -22,8 +22,6 @@ class PostBook extends Component {
         this.removeCourse = this.removeCourse.bind(this);
         this.addBook = this.addBook.bind(this);
         this.onChangeCourse = this.onChangeCourse.bind(this);
-
-
     }
 
     onClick(e) {
@@ -46,8 +44,8 @@ class PostBook extends Component {
     }
 
     removeCourse(i) {
-        let dupe = Array.from(this.state.courses)
-        dupe.splice(i, 1)
+        let dupe = Array.from(this.state.courses);
+        dupe.splice(i, 1);
         console.log(dupe);
         this.setState({
             courses: dupe
@@ -84,7 +82,6 @@ class PostBook extends Component {
         let postBookForms = this.state.books.map((book, i) => {
             return <PostBookForm key={i}></PostBookForm>
         });
-            
 
         return (
             <div id="post-book">
@@ -139,8 +136,6 @@ class PostBook extends Component {
                         </tbody>
                     </table>
                 </form>
-
-                
             </div>
         );
     }

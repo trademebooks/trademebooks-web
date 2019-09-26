@@ -4,16 +4,13 @@ import {connect} from 'react-redux';
 import './SearchBook.scss';
 import '../../../css/global.css'
 
-
 class SearchBook extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
         };
-
     }
-
 
     render() {
 

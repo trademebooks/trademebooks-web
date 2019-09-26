@@ -1,0 +1,36 @@
+.main-footer {
+    width: 100%;
+    background: #109383;
+    height: 60px;
+}
+
+.main-footer__navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main-footer-items {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    li {
+        padding: 0 0.5rem;
+    }
+}
+
+.main-footer-items a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-footer-items a:hover, .main-footer-items a:active {
+    color: #fa923f;
+}
