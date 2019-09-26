@@ -39,7 +39,6 @@ class Login extends Component {
         }
     }
 
-
     render() {
         return (
             <div id="auth-page">
