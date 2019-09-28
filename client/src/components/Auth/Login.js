@@ -37,6 +37,10 @@ class Login extends Component {
                 errors++;
             }
         }
+
+        if (errors > 0) {
+            console.log("we got errors bro");
+        }
     }
 
     render() {

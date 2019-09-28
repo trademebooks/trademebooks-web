@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './PostBook.scss';
-import '../../css/global.css'
+import '../../css/global/Main.scss'
 
 import SearchBook from '../Bookstore/SearchBook/SearchBook';
 import PostBookForm from './PostBookForm/PostBookForm';
@@ -103,7 +103,7 @@ class PostBook extends Component {
                     <div id="search-box">
                         <SearchBook></SearchBook>
                     </div>
-                    <p id="create-new-listing">Can't find your book? <a href="">Create Listing Manually</a></p>
+                    <p id="create-new-listing">Can't find your book? <a href="/">Create Listing Manually</a></p>
                 </div>
 
                 <div id="post-book-form-container" >

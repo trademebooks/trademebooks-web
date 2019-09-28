@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 
-import "../../css/NavigationSubBar.css";
+import "./NavigationSubBar.css";
 
 class NavigationSubBar extends Component {
     constructor(props) {

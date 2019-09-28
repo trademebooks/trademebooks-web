@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import NavigationSubBar from "../Pages/NavigationSubBar";
-import SecondarySearchBar from "../Pages/SecondarySearchBar";
+import NavigationSubBar from "../Layout/NavigationSubBar/NavigationSubBar";
+import SecondarySearchBar from "../Home/SecondarySearchBar";
 
 import "./Bookstore.scss";
-import MyBookstoreResultCard from "../Pages/MyBookstoreResultCard";
+import MyBookstoreResultCard from "./MyBookstoreResultCard";
 import loc_icon from "../../images/Icons/Location_icon.png"
 import school_icon from "../../images/Icons/School_icon.png"
 

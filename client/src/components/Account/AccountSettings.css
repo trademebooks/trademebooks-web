@@ -1,5 +1,3 @@
-
-
 #settings-page {
     background-color: #E5E5E5;
     position: absolute;
@@ -34,7 +32,6 @@ input {
     border-radius: 3px;
     box-sizing: border-box;
     padding: 10px 20px;
-    margin-bottom: 2.5rem;
 }
 
 .tcol {

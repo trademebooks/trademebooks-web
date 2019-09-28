@@ -37,6 +37,10 @@ class Register extends Component {
                 errors++;
             }
         }
+
+        if (errors > 0) {
+            console.log("we got errors bro");
+        }
     }
 
     render() {
@@ -67,7 +71,7 @@ class Register extends Component {
                                         placeholder="Password"
                                         value={this.state.password}/>
 
-                        <p className="auth-tc">By signing up, I agree to TMB’s <a>Terms and Conditions</a></p>
+                        <p className="auth-tc">By signing up, I agree to TMB’s <a href="/terms">Terms and Conditions</a></p>
 
                         <input className="auth-submit" type="submit" value="Signup"/>
                     </form>

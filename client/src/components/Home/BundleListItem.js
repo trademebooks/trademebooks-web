@@ -1,10 +1,10 @@
 import React from "react";
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import '../../css/CardFooter.css';
+import './CardFooter.scss';
 const BundleListItem = (props) => <Row className="bundle-item">
     <Col xs="auto">
-        <img height="15px" width="50px" src={props.condition}></img>
+        <img alt="test" height="15px" width="50px" src={props.condition}/>
     </Col>
     <Col>
         <span className="list-title">CALCULUS: EARLY TRANSCENDENTALS</span>

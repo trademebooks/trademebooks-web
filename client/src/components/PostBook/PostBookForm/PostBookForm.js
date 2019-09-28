@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './PostBookForm.scss';
-import '../../../css/global.css'
+import '../../../css/global/Main.scss'
 
 class PostBookForm extends Component {
     constructor(props) {
@@ -181,7 +181,9 @@ class PostBookForm extends Component {
             },
         ];
 
+
         let condEl = [];
+        // eslint-disable-next-line
         conds.map((cond, i) => {
             condEl.push(
                 <div key={i} className="condition">

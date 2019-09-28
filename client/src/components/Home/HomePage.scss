@@ -1,0 +1,40 @@
+.home-page-top-section {
+
+    text-align: center;
+    margin: 100px 0 50px 0;
+
+    &__main-text {
+        font-size: 40px;
+        color: #109383;
+    }
+
+    &__small-caption {
+
+    }
+}
+
+.home-page-main-section {
+
+    background: white;
+
+    &__container {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.number-of-results {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    color: #898989;
+}
+
+.home-search-box {
+    padding: 20px;
+
+    input {
+        width: 50%;
+        margin: 0 auto;
+    }
+}

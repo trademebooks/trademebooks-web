@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './SearchBook.scss';
-import '../../../css/global.css'
+import '../../../css/global/Main.scss'
 
 class SearchBook extends Component {
     constructor(props) {

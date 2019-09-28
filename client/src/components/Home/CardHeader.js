@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card"
 import React from "react";
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
-import '../../css/CardHeader.css';
+import './CardHeader.scss';
 import Verygood_condition from "../../images/Icons/Verygood_condition.png"
 const SingleHeader = () => <Row>
     <Col lg={{
@@ -20,9 +20,9 @@ const SingleHeader = () => <Row>
         span: 1,
         offset: 4
     }}>
-        <img height="25px" src ={Verygood_condition}></img>
+        <img height="25px" src ={Verygood_condition} alt="test"/>
     </Col>
-</Row>
+</Row>;
 
 const BundleHeader = () => <Row>
     <Col lg={{
@@ -32,7 +32,7 @@ const BundleHeader = () => <Row>
             <span className="title">CALCULUS: EARLY TRANSCENDENTALS</span>
         </Card.Title>
     </Col>
-</Row>
+</Row>;
 
 const CardHeader = (props) => {
     if (props.single) {

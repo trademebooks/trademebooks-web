@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Route, Switch} from "react-router-dom";
 
+import "./css/global/Main.scss";
+
 /* Main Navigation Bar */
 import Toolbar from './components/Layout/Navbar/Toolbar/Toolbar';
 import SideDrawer from './components/Layout/Navbar/SideDrawer/SideDrawer';
@@ -10,21 +12,21 @@ import Backdrop from './components/Layout/Navbar/Backdrop/Backdrop';
 import Footer from "./components/Layout/Footer/Footer";
 
 /* Static Pages */
-import AboutPage from "./components/Pages/AboutPage";
-import ContactPage from "./components/Pages/ContactPage";
+import AboutPage from "./components/Pages/About/AboutPage";
+import ContactPage from "./components/Pages/Contact/ContactPage";
 
 /* Auth - Login and Register  */
 import Login from "./components/Auth/Login"
 import Register from "./components/Auth/Register"
 
 /* 404 Not Found Page */
-import NotFoundPage from "./components/Pages/NotFoundPage";
+import NotFoundPage from "./components/Pages/404Page/NotFoundPage";
 
 /* Main Dynamic Pages */
-import HomePage from "./components/Pages/HomePage";
+import HomePage from "./components/Home/HomePage";
 import CoursesPage from "./components/Courses/CoursesPage";
 import PostBook from "./components/PostBook/PostBook"
-import Settings from "./components/Profile/AccountSettings"
+import Settings from "./components/Account/AccountSettings"
 import Bookstore from "./components/Bookstore/Bookstore"
 
 class App extends Component {

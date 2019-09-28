@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import '../../css/DismissableNotify.css';
+import './DismissableNotify.css';
 import X_icon from "../../images/Icons/X_button.png"
 
 class DismissableNotify extends Component {
@@ -22,6 +22,6 @@ class DismissableNotify extends Component {
 DismissableNotify.defaultProps = {
     text: "Generic Notification",
     closeClick: () => {},
-}
+};
 
 export default DismissableNotify;

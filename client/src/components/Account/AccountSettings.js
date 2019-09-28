@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import NavigationSubBar from "../Pages/NavigationSubBar";
-import Notification from "../Pages/DismissableNotify";
+import NavigationSubBar from "../Layout/NavigationSubBar/NavigationSubBar";
+import Notification from "./DismissableNotify";
 
 import "./AccountSettings.css";
 
