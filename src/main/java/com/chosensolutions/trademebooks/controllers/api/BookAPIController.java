@@ -18,8 +18,8 @@ public class BookAPIController {
     }
 
     @RequestMapping("/books")
-    public List<Book> getAllBooks() {
-        List<Book> books = bookService.getAllBooks();
+    public List<Book> getAllBooks(@RequestParam("title") String title) {
+        List<Book> books = bookService.getAllBooks(title);
 
         return books;
     }

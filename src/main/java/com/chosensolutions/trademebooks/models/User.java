@@ -9,8 +9,7 @@ import javax.validation.constraints.*;
 import com.chosensolutions.trademebooks.validation.PasswordMatches;
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Entity(name = "users")
 @PasswordMatches
 public class User implements Serializable {

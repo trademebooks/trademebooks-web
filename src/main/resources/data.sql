@@ -30,10 +30,10 @@ VALUES ('best bookstore NA 1', 'bookstore 1', 1),
        ('best bookstore NA 2', 'bookstore 2', 2),
        ('best bookstore NA 3', 'bookstore 3', 3);
 
-INSERT INTO books (book_store_id, title)
+/*INSERT INTO books (book_store_id, title)
 VALUES (1, 'book1 - Harry Potter'),
        (1, 'book2 - Clive Cusler'),
-       (1, 'book3 - WWE SmackDown vs RAW');
+       (1, 'book3 - WWE SmackDown vs RAW');*/
 
 INSERT INTO friends (user_one_id, user_two_id)
 VALUES (1, 2),

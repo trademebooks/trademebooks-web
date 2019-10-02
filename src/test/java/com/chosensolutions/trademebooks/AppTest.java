@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 public class AppTest {
 
+    // a controller test
     @Test
     public void testApp() {
         PagesController pagesController = new PagesController();

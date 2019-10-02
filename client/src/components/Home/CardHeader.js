@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import './CardHeader.scss';
 import Verygood_condition from "../../images/Icons/Verygood_condition.png"
+
 const SingleHeader = () => <Row>
     <Col lg={{
         span: 7
@@ -39,6 +40,6 @@ const CardHeader = (props) => {
         return <SingleHeader/>
     }
     return <BundleHeader/>
-}
+};
 
 export default CardHeader;

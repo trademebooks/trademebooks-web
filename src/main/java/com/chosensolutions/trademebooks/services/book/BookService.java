@@ -1,7 +1,7 @@
 package com.chosensolutions.trademebooks.services.book;
 
 import com.chosensolutions.trademebooks.models.Book;
-import com.chosensolutions.trademebooks.repositories.BooksRepository;
+import com.chosensolutions.trademebooks.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,11 @@ import java.util.*;
 public class BookService {
 
     @Autowired
-    private BooksRepository booksRepository;
+    private BookRepository bookRepository;
 
-    public List<Book> getAllBooks() {
+    public List<Book> getAllBooks(String title) {
         List<Book> books = new ArrayList<>();
-        booksRepository.findAll().iterator().forEachRemaining(books::add);
+        bookRepository.findByTitleContaining(title).iterator().forEachRemaining(books::add);
         return books;
     }
 }

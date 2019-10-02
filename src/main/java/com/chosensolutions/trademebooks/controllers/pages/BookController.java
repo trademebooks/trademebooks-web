@@ -3,7 +3,7 @@ package com.chosensolutions.trademebooks.controllers.pages;
 import com.chosensolutions.trademebooks.models.Book;
 import com.chosensolutions.trademebooks.models.BookStore;
 import com.chosensolutions.trademebooks.repositories.BookStoresRepository;
-import com.chosensolutions.trademebooks.repositories.BooksRepository;
+import com.chosensolutions.trademebooks.repositories.BookRepository;
 import com.chosensolutions.trademebooks.services.book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import java.util.Optional;
 public class BookController {
 
     @Autowired
-    BooksRepository booksRepository;
+    BookRepository bookRepository;
 
     @Autowired
     BookStoresRepository bookStoresRepository;

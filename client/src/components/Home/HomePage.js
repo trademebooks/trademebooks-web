@@ -72,6 +72,27 @@ class HomePage extends Component {
         console.log(search_query);
 
         if (search_query.length > 2) {
+            axios
+                .get(Constants.GET_ALL_PUBLIC_BOOKS_URL + "?title=" + search_query)
+                .then((response) => {
+                    let data = response.data;
+                    let items = data;
+                    let books = items.map(book => {
+                        return {
+                            book_title: book["title"]
+                        };
+                    });
+                    console.log(books);
+
+                    this.setState({books: books});
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
+        // add this to post a book
+        /*if (search_query.length > 2) {
             let url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyCpl497dKbKN-piJBJJ5zOf3sCPk7CKuJg&q=";
             axios
                 .get(url + search_query)
@@ -94,7 +115,7 @@ class HomePage extends Component {
                 .catch(function (error) {
                     console.log(error);
                 });
-        }
+        }*/
     };
 
     componentDidMount() {
@@ -183,17 +204,20 @@ class HomePage extends Component {
                             </div>
                             {/* ---------- Toolbar --- end ---------- */}
 
-                            <div className="row">
+{/*                            <div className="row">
                                 <span className="number-of-results">Showing 47 Results</span>
+                            </div>*/}
+
+                            <div>
+                                {this.state.books.map((book, index) => {
+                                    return <SingleResultCard title={book.book_title}/>
+                                })}
                             </div>
 
-                            <div className="row">
-                                <SingleResultCard/>
-                            </div>
-
+{/*
                             <div className="row">
                                 <BundleCard/>
-                            </div>
+                            </div>*/}
                         </div>
                     </section>
 

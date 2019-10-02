@@ -11,6 +11,7 @@ import CardIcons from "./CardIcons"
 
 import axios from "axios";
 import * as Constants from "../../utilities/Constants";
+import Verygood_condition from "../../images/Icons/Verygood_condition.png";
 
 class SingleResultCard extends Component {
 
@@ -26,21 +27,42 @@ class SingleResultCard extends Component {
 
     render() {
         return (
-            <div className="card-container">
-                <Card>
-                    <Row>
-                        <Col xs={3}>
+            <div className="card-container mt-5">
+                <div className="card">
+                    <div className="row">
+                        <div className="col-sm-3">
                             <Card.Img
                                 className="card-image"
                                 fluid
                                 variant="top"
                                 src="http://via.placeholder.com/200x260"/>
-                        </Col>
-                        <Col xs={9}>
-                            <Row>
-                                <Col xs={10}>
+                        </div>
+                        <div className="col-sm-9">
+                            <div className="row">
+                                <div className="col-sm-10">
                                     <Card.Body>
-                                        <CardHeader single={true}/>
+                                        {/*<CardHeader single={true}/>*/}
+
+                                        <Row>
+                                            <Col lg={{
+                                                span: 7
+                                            }} className="cardTitle">
+                                                <Card.Title>
+                                                    <span className="title">{this.props.title}</span>
+                                                    <span className="edition">Edition</span>
+                                                    <span className="title">7</span>
+                                                </Card.Title>
+                                            </Col>
+                                            <Col lg={{
+                                                span: 1,
+                                                offset: 4
+                                            }}>
+                                                <img height="25px" src ={Verygood_condition} alt="test"/>
+                                            </Col>
+                                        </Row>;
+
+
+
                                         <Row className="text-meta text">
                                             <span>MCMASTER UNIVERSITY</span>
                                             <span>CIV358</span>
@@ -59,17 +81,17 @@ class SingleResultCard extends Component {
                                                 creativity
                                             </p>
                                         </Row>
-
                                     </Card.Body>
-                                </Col>
-                                <Col xs={2}>
+                                </div>
+
+                                <div className="col-sm-2">
                                     <CardIcons/>
-                                </Col>
-                            </Row>
+                                </div>
+                            </div>
                             <CardFooter/>
-                        </Col>
-                    </Row>
-                </Card>
+                        </div>
+                    </div>
+                </div>
             </div>);
     }
 }

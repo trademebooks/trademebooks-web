@@ -12,7 +12,7 @@ export default function configureStore(initialState) {
         composeEnhancers(
             applyMiddleware(
                 thunk,
-                reduxImmutableStateInvariant()
+                reduxImmutableStateInvariant() // this will warn us if we accidentally mutate the Redux state in our store, remember just a warning
             )
         )
     );

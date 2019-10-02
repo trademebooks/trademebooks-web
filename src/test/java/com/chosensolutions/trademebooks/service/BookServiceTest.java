@@ -1,4 +1,4 @@
-package com.chosensolutions;
+package com.chosensolutions.trademebooks.service;
 
 import com.chosensolutions.trademebooks.models.Book;
 import com.chosensolutions.trademebooks.services.book.BookService;
@@ -16,6 +16,7 @@ public class BookServiceTest {
 
     @Autowired
     BookService bookService;
+
     @Test
     public void testViewABookById() {
        //http://www.baeldung.com/spring-boot-testing
@@ -25,8 +26,8 @@ public class BookServiceTest {
 
     @Test
     public void testViewAllBooks() {
-        List<Book> books = bookService.getAllBooks();
+        //List<Book> books = bookService.getAllBooks();
 
-        System.out.println(books);
+        //System.out.println(books);
     }
 }

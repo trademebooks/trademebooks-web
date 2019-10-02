@@ -1,11 +1,8 @@
 package com.chosensolutions.trademebooks.models;
 
 import lombok.*;
-
 import javax.persistence.*;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "accounts")
 public class Account {
@@ -20,5 +17,10 @@ public class Account {
 
     @Column
     private boolean receiveEmail;
+
+    public Account(String phoneNumber, boolean receiveEmail) {
+        this.phoneNumber = phoneNumber;
+        this.receiveEmail = receiveEmail;
+    }
 
 }

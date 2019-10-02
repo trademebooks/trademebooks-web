@@ -24,10 +24,12 @@ import NotFoundPage from "./components/Pages/404Page/NotFoundPage";
 
 /* Main Dynamic Pages */
 import HomePage from "./components/Home/HomePage";
-import CoursesPage from "./components/Courses/CoursesPage";
 import PostBook from "./components/PostBook/PostBook"
 import Settings from "./components/Account/AccountSettings"
 import Bookstore from "./components/Bookstore/Bookstore"
+
+// Learning
+import CoursesPage from "./components/Courses/CoursesPage";
 
 class App extends Component {
 
@@ -68,13 +70,15 @@ class App extends Component {
                         <Route path="/about" component={AboutPage}/>
                         <Route path="/contact" component={ContactPage}/>
 
-                        <Route path="/courses" component={CoursesPage}/>
                         <Route path="/register" component={Register}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/sell-a-book" component={PostBook}/>
 
                         <Route path="/settings" component={Settings}/>
                         <Route path="/bookstore" component={Bookstore}/>
+
+                        {/* Courses - learning purposes */}
+                        <Route path="/courses" component={CoursesPage}/>
 
                         <Route component={NotFoundPage}/>
                     </Switch>
