@@ -1,4 +1,4 @@
-export function getCourses() {
+export function getAuthors() {
     return (new Promise(function (resolve, reject_) {
         setTimeout(function () {
             resolve([
@@ -73,17 +73,6 @@ export function getCourses() {
                     "category": "HTML5"
                 }
             ]);
-        }, 0);
-    }));
-}
-
-export function addACourse() {
-    return (new Promise(function (resolve, reject_) {
-        setTimeout(function () {
-            resolve({
-                id: 1,
-                title: "course title 1"
-            });
         }, 0);
     }));
 }

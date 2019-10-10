@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as courseActions from "../../redux/actions/courseActions";
 import PropTypes from "prop-types";
-
+import CourseList from "./CourseList";
+import CourseSingle from "./CourseSingle";
 
 class CoursesPage extends Component {
 
@@ -35,17 +36,17 @@ class CoursesPage extends Component {
     handleSubmit(event) {
         event.preventDefault(); // keep it from posting back - tells browser to not go with the default behaviour
 
-        // 1. debugger; -- test here
-
-        // we have to call this.props.dispatch to dispatch an action, else else just calling
-        // courseActions.createCourse is NOT enough
-        this.props.createCourse(this.state.course);
-
-        // Connect Container Component - video
-        // https://app.pluralsight.com/course-player?clipId=894f080d-8786-4c09-ba83-5ceb355924f3
-        //  -- this is the ugly way
-        // this.props.dispatch(courseActions.createCourse(this.state.course))
+        // 1. debugger
+        this.props.actions.createCourse(this.state.course);
     }
+
+    // dispatch actions on load - https://app.pluralsight.com/player?course=react-redux-react-router-es6&author=cory-house&name=react-redux-react-router-es6-m9&clip=8&mode=live
+    componentDidMount() {
+        this.props.actions.loadCourses().catch( error => {
+            alert("loading courses failed: " + error);
+        });
+    }
+
 
     render() {
         return (
@@ -61,11 +62,17 @@ class CoursesPage extends Component {
                         <input type="submit" value="Save"/>
                     </form>
 
+
                     <div>
+                        <CourseSingle username={this.state.course.title}/>
+                    </div>
+
+                    <CourseList courses={this.props.courses} />
+{/*                    <div>
                         {this.props.courses.map(course => ( // why is it no this.state?
                             <div key={course.title}>{course.title}</div>
                         ))}
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         );
@@ -75,8 +82,7 @@ class CoursesPage extends Component {
 
 CoursesPage.propTypes = {
     courses: PropTypes.array.isRequired,
-    createCourse: PropTypes.func.isRequired,
-    //actions: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
 };
 
 // this function determines what state is passed to our component via props
@@ -84,30 +90,17 @@ function mapStateToProps(state, ownProps) {
     // be specific. Request only the data your components needs
 
     // 4. debugger; -- test here
-
     return {
         courses: state.courses
     }
 }
 
 // this lets us declare what actions to declare to our component on props
-const mapDispatchToProps = {
-    createCourse: courseActions.createCourse
-};
-
-/**
- * function mapDispatchToProps(dispatch) {
- *     return {
- *         createCourse: course => dispatch(courseActions.createCourse(course))
- *     }
- * }
- *
- * function mapDispatchToProps(dispatch) {
- *     return {
- *         actions: bindActionCreators(courseActions, dispatch) // we pass in all the actions from the courseActions.js
- *     }
- * }
- */
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(courseActions, dispatch)
+    }
+}
 
 export default connect(
     mapStateToProps,

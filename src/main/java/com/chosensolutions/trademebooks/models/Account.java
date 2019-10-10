@@ -3,6 +3,7 @@ package com.chosensolutions.trademebooks.models;
 import lombok.*;
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "accounts")
 public class Account {

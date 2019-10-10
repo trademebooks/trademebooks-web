@@ -1,6 +1,6 @@
 package com.chosensolutions.trademebooks;
 
-import com.chosensolutions.trademebooks.controllers.pages.PagesController;
+import com.chosensolutions.trademebooks.controllers.PagesController;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

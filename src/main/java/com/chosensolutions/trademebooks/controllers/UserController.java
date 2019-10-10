@@ -1,4 +1,4 @@
-package com.chosensolutions.trademebooks.controllers.api;
+package com.chosensolutions.trademebooks.controllers;
 
 import com.chosensolutions.trademebooks.domain.dto.UserDto;
 import com.chosensolutions.trademebooks.domain.request.UserDetailsRequestModel;

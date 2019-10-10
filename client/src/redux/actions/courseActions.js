@@ -13,6 +13,7 @@ export function loadCourseSuccess(courses) {
     return {type: types.LOAD_COURSES_SUCCESS, courses};
 }
 
+// Async in Redux - Add First Thunk - 1:25
 export function loadCourses() {
     return function (dispatch) {
         return courseApi

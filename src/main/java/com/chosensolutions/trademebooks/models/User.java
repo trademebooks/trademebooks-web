@@ -1,10 +1,11 @@
 package com.chosensolutions.trademebooks.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
-import javax.validation.constraints.*;
 
 import com.chosensolutions.trademebooks.validation.PasswordMatches;
 import lombok.*;

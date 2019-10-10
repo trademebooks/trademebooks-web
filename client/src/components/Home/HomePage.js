@@ -56,7 +56,52 @@ class HomePage extends Component {
         super(props);
 
         this.state = {
-            books: [],
+            books: [{
+                "id": 1,
+                "bookStore": null,
+                "title": "calculus 1",
+                "authors": "John Doe, Bobby Lee, Jane Doe",
+                "datePublished": "December 25th, 2019",
+                "isbnNumber10": "1234567890",
+                "isbnNumber13": "1234567890123",
+                "publisher": "Manning Publishing 1",
+                "edition": "1",
+                "bookCondition": "NEW",
+                "price": 100.0,
+                "description": "This is the best book in the world. Please buy it guys! Message me.",
+                "school": "UofT",
+                "book_cover_image": "http://localhost:8100/images/sample-book.png"
+            }, {
+                "id": 2,
+                "bookStore": null,
+                "title": "Calculus 2",
+                "authors": "Spivak",
+                "datePublished": "December 26th, 2019",
+                "isbnNumber10": "1234567891",
+                "isbnNumber13": "1234567890124",
+                "publisher": "Manning Publishing 2",
+                "edition": "1",
+                "bookCondition": "NEW",
+                "price": 100.0,
+                "description": "This is the best book in the world. Please buy it guys! Message me.",
+                "school": "UofT",
+                "book_cover_image": "http://localhost:8100/images/sample-book.png"
+            }, {
+                "id": 3,
+                "bookStore": null,
+                "title": "Calculus 3",
+                "authors": "Spivak 3",
+                "datePublished": "December 27th, 2019",
+                "isbnNumber10": "1234567892",
+                "isbnNumber13": "1234567890125",
+                "publisher": "Manning Publishing 3",
+                "edition": "1",
+                "bookCondition": "NEW",
+                "price": 100.0,
+                "description": "This is the best book in the world. Please buy it guys! Message me.",
+                "school": "UofT",
+                "book_cover_image": "http://localhost:8100/images/sample-book.png"
+            }],
             name: ""
         };
 
@@ -204,7 +249,7 @@ class HomePage extends Component {
                             </div>
                             {/* ---------- Toolbar --- end ---------- */}
 
-{/*                            <div className="row">
+                            {/*                            <div className="row">
                                 <span className="number-of-results">Showing 47 Results</span>
                             </div>*/}
 
@@ -214,7 +259,7 @@ class HomePage extends Component {
                                 })}
                             </div>
 
-{/*
+                            {/*
                             <div className="row">
                                 <BundleCard/>
                             </div>*/}

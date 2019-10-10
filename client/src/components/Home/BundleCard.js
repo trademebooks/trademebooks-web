@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CardHeader from "./CardHeader.js"
 import CardFooter from "./CardFooter.js"
-import CardIcons from "./CardIcons.js"
 import BundleListItem from "./BundleListItem.js"
 import Fair_condition from "../../images/Icons/Fair_condition.png"
 import Likenew from "../../images/Icons/Likenew_condition.png"
@@ -42,7 +41,7 @@ const BundleCard = () => (
                     </Card.Body>
                 </Col>
                 <Col xs={2}>
-                    <CardIcons/>
+
                 </Col>
             </Row>
             <CardFooter/>
