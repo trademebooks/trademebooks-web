@@ -21,13 +21,13 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false, length = 50)
+    //@Column(nullable = false, length = 50)
     private String firstName;
 
-    @Column(nullable = false, length = 50)
+    //@Column(nullable = false, length = 50)
     private String lastName;
 
     private String encryptedPassword;

@@ -30,7 +30,8 @@ class SingleResultCard extends Component {
                         {/* Column 1 - Image --- start */}
                         <div className="col-12 col-sm-12 col-xl-2">
                             <div className="single-card-container__image-section">
-                                <img className="single-card-container--card-image" src={sample_book_image} alt="single card book image"/>
+                                <img className="single-card-container--card-image" src={sample_book_image}
+                                     alt="single card book image"/>
                             </div>
                         </div>
                         {/* Column 1 - Image --- end   */}
@@ -59,8 +60,7 @@ class SingleResultCard extends Component {
 
                             <div className="">
                                 <p>
-                                    The Tools. This was easily the best book I read in 2012. It's *packed*
-                                    with
+                                    The Tools. This was easily the best book I read in 2012. It's *packed* with
                                     goodness. Stutz and Michels are two no-nonsense therapists who developed
                                     powerful tools to transform our problems into courage, confidence, and
                                     creativity

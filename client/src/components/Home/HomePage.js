@@ -181,7 +181,6 @@ class HomePage extends Component {
         return (
             <div className="home-page-container">
                 <div>
-
                     {/* ---------- home page top section --- start ---------- */}
                     <section className="home-page-top-section">
                         <div className="home-page-top-section__main-text">
@@ -193,7 +192,6 @@ class HomePage extends Component {
                             textbook technology - that is TMB
                         </div>
 
-
                         <div className="home-search-box">
                             <form>
                                 <div className="form-group">
@@ -203,15 +201,6 @@ class HomePage extends Component {
                                 </div>
                             </form>
                         </div>
-
-                        <div>{this.state.name}</div>
-
-
-                        <ul>
-                            {this.state.books.map((book, index) => {
-                                return <li key={index}>{book.book_title}</li>
-                            })}
-                        </ul>
                     </section>
                     {/* ---------- home page top section --- end ---------- */}
 
@@ -221,7 +210,6 @@ class HomePage extends Component {
                         <div className="home-page-main-section__container pt-3">
                             {/* ---------- Toolbar --- start ---------- */}
                             <div className="row">
-
                                 <div className="d-flex">
                                     <div className="mr-2"><span>Date</span><i
                                         className="material-icons md-18">arrow_upward</i></div>
@@ -249,20 +237,15 @@ class HomePage extends Component {
                             </div>
                             {/* ---------- Toolbar --- end ---------- */}
 
-                            {/*                            <div className="row">
+                            <div className="row">
                                 <span className="number-of-results">Showing 47 Results</span>
-                            </div>*/}
+                            </div>
 
                             <div>
                                 {this.state.books.map((book, index) => {
                                     return <SingleResultCard title={book.book_title}/>
                                 })}
                             </div>
-
-                            {/*
-                            <div className="row">
-                                <BundleCard/>
-                            </div>*/}
                         </div>
                     </section>
 

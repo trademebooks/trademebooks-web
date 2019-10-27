@@ -6,9 +6,9 @@ public class DataWrapperDTO {
 
     private Object data;
     private String message;
-    private List<String> errors;
+    private List<?> errors;
 
-    public DataWrapperDTO(Object data, String message, List<String> errors) {
+    public DataWrapperDTO(Object data, String message, List<?> errors) {
         this.data = data;
         this.message = message;
         this.errors = errors;
@@ -22,7 +22,7 @@ public class DataWrapperDTO {
         return message;
     }
 
-    public List<String> getErrors() {
+    public List<?> getErrors() {
         return errors;
     }
 

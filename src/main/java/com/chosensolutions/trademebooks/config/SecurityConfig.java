@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Public pages that anyone can view
         http
                 .authorizeRequests()
-                .antMatchers("/books/create", "/landing", "/about", "/terms", "/api/**", "/api/v2/**")
+                .antMatchers("/books/create", "/landing", "/about", "/terms", "/api/web/v1/**")
                 .permitAll()
                 .anyRequest().authenticated().and().addFilter(getAuthenticationFilter());
 
@@ -78,6 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
+
         return source;
     }
 
