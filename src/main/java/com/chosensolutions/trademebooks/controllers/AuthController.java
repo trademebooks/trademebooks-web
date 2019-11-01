@@ -7,6 +7,7 @@ import com.chosensolutions.trademebooks.services.UserAuthenticationService;
 import com.chosensolutions.trademebooks.services.user.UserService;
 import com.chosensolutions.trademebooks.utils.DataWrapperDTO;
 import com.chosensolutions.trademebooks.utils.ValidationErrorService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.naming.Binding;
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.List;
 
 @RequestMapping("/api/web/v1/auth")
@@ -31,9 +30,6 @@ public class AuthController {
     @Autowired
     private UserAuthenticationService userAuthenticationService;
 
-    @Autowired
-    private UserService userService;
-
     @PostMapping("/register")
     public ResponseEntity<DataWrapperDTO> register(@Valid @RequestBody RegisterUserRequestDTO registerUserRequestDTO, BindingResult bindingResult) throws Exception {
         // 1. Validation
@@ -45,12 +41,12 @@ public class AuthController {
         }
 
         // 2. Business Logic
-        User newUser = userAuthenticationService.registerUser(registerUserRequestDTO);
+        User registeredUser = userAuthenticationService.registerUser(registerUserRequestDTO);
 
         // 3. Success Response
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(new DataWrapperDTO(newUser, "User " + newUser.getEmail() + " successfully registered.", null));
+                .body(new DataWrapperDTO(registeredUser, "The email " + registeredUser.getEmail() + " has successfully registered.", null));
     }
 
     @RequestMapping("/login")
@@ -59,7 +55,6 @@ public class AuthController {
         String email = loginDTO.getEmail();
         String password = loginDTO.getPassword();
         */
-
 
         return null;
     }

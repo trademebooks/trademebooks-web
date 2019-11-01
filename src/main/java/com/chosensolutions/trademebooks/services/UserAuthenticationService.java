@@ -5,11 +5,9 @@ import com.chosensolutions.trademebooks.exceptions.UserEmailAlreadyExistsExcepti
 import com.chosensolutions.trademebooks.models.User;
 import com.chosensolutions.trademebooks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class UserAuthenticationService {
@@ -20,7 +18,7 @@ public class UserAuthenticationService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public User registerUser(RegisterUserRequestDTO registerUserRequestDTO) throws Exception {
+    public User registerUser(RegisterUserRequestDTO registerUserRequestDTO) {
         try {
             User user = new User();
             user.setEmail(registerUserRequestDTO.getEmail());
