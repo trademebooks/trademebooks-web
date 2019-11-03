@@ -3,38 +3,30 @@ package com.chosensolutions.trademebooks.models;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import com.chosensolutions.trademebooks.validation.PasswordMatches;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Data
 @Entity(name = "users")
 @PasswordMatches
-public class User implements Serializable {
-
-    private static final long serialVersionUID = 5313493413859894403L;
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@Column(nullable = false)
-    private String userId;
-
-    //@Column(nullable = false, length = 50)
+    ////////////////////////////////////////////////////////////////////////////////
+    // User Fields
+    ////////////////////////////////////////////////////////////////////////////////
     private String firstName;
 
-    //@Column(nullable = false, length = 50)
     private String lastName;
-
-    private String encryptedPassword;
-    private String emailVerificationToken;
-
-    @Column(nullable = true /*, columnDefinition = "boolean default false"*/)
-    private Boolean emailVerificationStatus = false;
 
     @Email
     @NotEmpty(message = "Email is required.")
@@ -44,12 +36,11 @@ public class User implements Serializable {
     @NotEmpty(message = "Password is required.")
     private String password;
 
-/*    @Transient
-    @NotEmpty(message = "Password confirmation is required.")
-    private String passwordConfirmation;*/
-
     private Calendar created = Calendar.getInstance();
 
+    ////////////////////////////////////////////////////////////////////////////////
+    // Relationships
+    ////////////////////////////////////////////////////////////////////////////////
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Profile profile;
 
@@ -59,5 +50,38 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
     private List<AddressEntity> addresses;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // UserDetails interface methods
+    ////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.getEmail();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 }

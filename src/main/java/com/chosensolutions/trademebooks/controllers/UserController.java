@@ -1,16 +1,12 @@
 package com.chosensolutions.trademebooks.controllers;
 
-import com.chosensolutions.trademebooks.domain.dto.UserDto;
-import com.chosensolutions.trademebooks.domain.request.UserDetailsRequestModel;
-import com.chosensolutions.trademebooks.domain.response.UserRest;
-import com.chosensolutions.trademebooks.services.user.UserService;
-import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
 
+/*
     private UserService userService;
 
     public UserController(UserService userService) {
@@ -30,8 +26,10 @@ public class UserController {
     public UserRest createUser(@RequestBody UserDetailsRequestModel userDetailsRequestModel) {
         UserRest returnValue = new UserRest();
 
+*/
 /*        UserDto userDto = new UserDto();
-        BeanUtils.copyProperties(userDetailsRequestModel, userDto);*/
+        BeanUtils.copyProperties(userDetailsRequestModel, userDto);*//*
+
 
         ModelMapper modelMapper = new ModelMapper();
         UserDto userDto = modelMapper.map(userDetailsRequestModel, UserDto.class);
@@ -51,5 +49,6 @@ public class UserController {
     public String deleteUser() {
         return "delete user";
     }
+*/
 
 }

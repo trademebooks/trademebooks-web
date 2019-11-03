@@ -1,4 +1,4 @@
-package com.chosensolutions.trademebooks.config;
+package com.chosensolutions.trademebooks.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

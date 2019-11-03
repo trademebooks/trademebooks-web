@@ -2,7 +2,7 @@
 [1mindex 8bdc75c..dac0b1a 100644[m
 [1m--- a/src/main/java/com/chosensolutions/trademebooks/controllers/AuthController.java[m
 [1m+++ b/src/main/java/com/chosensolutions/trademebooks/controllers/AuthController.java[m
-[36m@@ -7,6 +7,7 @@[m [mimport com.chosensolutions.trademebooks.services.UserAuthenticationService;[m
+[36m@@ -7,6 +7,7 @@[m [mimport com.chosensolutions.trademebooks.services.auth.UserAuthenticationService;[m
  import com.chosensolutions.trademebooks.services.user.UserService;[m
  import com.chosensolutions.trademebooks.utils.DataWrapperDTO;[m
  import com.chosensolutions.trademebooks.utils.ValidationErrorService;[m

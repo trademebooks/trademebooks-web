@@ -7,24 +7,27 @@ import com.chosensolutions.trademebooks.models.User;
 import com.chosensolutions.trademebooks.repositories.AccountRepository;
 import com.chosensolutions.trademebooks.repositories.BookRepository;
 import com.chosensolutions.trademebooks.repositories.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> {
 
+    @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private AccountRepository accountRepository;
 
+    @Autowired
     private BookRepository bookRepository;
 
-    public DatabaseSeed(UserRepository userRepository, AccountRepository accountRepository, BookRepository bookRepository) {
-        this.userRepository = userRepository;
-        this.accountRepository = accountRepository;
-        this.bookRepository = bookRepository;
-    }
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
@@ -38,11 +41,10 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
         user1.setFirstName("Yi Chen");
         user1.setLastName("Zhu");
         user1.setEmail("yichenzhu1337@gmail.com");
-        user1.setEmailVerificationStatus(true);
-        user1.setPassword("yichen");
-        //userRepository.save(user1);
+        user1.setPassword(bCryptPasswordEncoder.encode("yichen"));
+        userRepository.save(user1);
 
-        accountRepository.save(new Account("123", true));
+        accountRepository.save(new Account("416-293-2507", true));
     }
 
     private void bookSeeds() {

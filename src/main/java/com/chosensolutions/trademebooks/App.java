@@ -1,9 +1,6 @@
 package com.chosensolutions.trademebooks;
 
-import com.chosensolutions.trademebooks.config.SpringApplicationContext;
-import com.chosensolutions.trademebooks.models.User;
-import com.chosensolutions.trademebooks.repositories.UserRepository;
-import org.springframework.beans.factory.InitializingBean;
+import com.chosensolutions.trademebooks.utils.SpringApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

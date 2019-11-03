@@ -1,6 +1,5 @@
 package com.chosensolutions.trademebooks.services.friend;
 
-import com.chosensolutions.trademebooks.domain.dto.FriendDto;
 import com.chosensolutions.trademebooks.models.User;
 import com.chosensolutions.trademebooks.repositories.FriendRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ public class FriendService {
     @Autowired
     private FriendRepository friendRepository;
 
-    public List<FriendDto> getAllFriendsByUserId() {
+/*    public List<FriendDto> getAllFriendsByUserId() {
         List<Object[]> friends = friendRepository.queryGetAllFriendsOfUserThroughId("1");
         List<FriendDto> friendDtos = new ArrayList<>();
         for (Object[] friend : friends) {
@@ -33,6 +32,6 @@ public class FriendService {
         }
 
         return friendDtos;
-    }
+    }*/
 
 }
