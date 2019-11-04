@@ -4,7 +4,7 @@
 [1m+++ b/src/main/java/com/chosensolutions/trademebooks/controllers/AuthController.java[m
 [36m@@ -7,6 +7,7 @@[m [mimport com.chosensolutions.trademebooks.services.auth.UserAuthenticationService;[m
  import com.chosensolutions.trademebooks.services.user.UserService;[m
- import com.chosensolutions.trademebooks.utils.DataWrapperDTO;[m
+ import com.chosensolutions.trademebooks.dtos.DataWrapperDTO;[m
  import com.chosensolutions.trademebooks.utils.ValidationErrorService;[m
 [32m+[m
  import org.springframework.beans.factory.annotation.Autowired;[m
@@ -61,7 +61,7 @@
  package com.chosensolutions.trademebooks.exceptions;[m
  [m
 [31m-[m
- import com.chosensolutions.trademebooks.utils.DataWrapperDTO;[m
+ import com.chosensolutions.trademebooks.dtos.DataWrapperDTO;[m
  import org.springframework.http.HttpStatus;[m
  import org.springframework.http.ResponseEntity;[m
 [36m@@ -16,31 +15,11 @@[m [mimport java.util.Collections;[m

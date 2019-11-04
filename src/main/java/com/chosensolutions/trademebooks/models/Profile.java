@@ -4,16 +4,20 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 @Entity
 @Table(name = "profiles")
 public class Profile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column
     private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column
     private String username;
@@ -24,8 +28,10 @@ public class Profile {
     @Column
     private String lastName;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
-
+    public Profile(User user, String username, String firstName, String lastName) {
+        this.user = user;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

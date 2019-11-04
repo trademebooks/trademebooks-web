@@ -1,6 +1,6 @@
 package com.chosensolutions.trademebooks.repositories;
 
-import com.chosensolutions.trademebooks.models.FriendEntity;
+import com.chosensolutions.trademebooks.models.Friend;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface FriendRepository extends JpaRepository<FriendEntity, Long> {
+public interface FriendRepository extends JpaRepository<Friend, Long> {
 
     /*
      * SELECT

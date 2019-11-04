@@ -75,7 +75,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js"
                 ).permitAll()
-                .antMatchers("/api/web/v1/auth/**").permitAll()
+                .antMatchers(
+                        "/api/web/v1/auth/**",
+                        "/api/web/v1/books",
+                        "/api/web/v1/books/*"
+                ).permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

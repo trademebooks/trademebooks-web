@@ -1,9 +1,6 @@
 package com.chosensolutions.trademebooks.bootstrap;
 
-import com.chosensolutions.trademebooks.models.Account;
-import com.chosensolutions.trademebooks.models.Book;
-import com.chosensolutions.trademebooks.models.BookStore;
-import com.chosensolutions.trademebooks.models.User;
+import com.chosensolutions.trademebooks.models.*;
 import com.chosensolutions.trademebooks.repositories.AccountRepository;
 import com.chosensolutions.trademebooks.repositories.BookRepository;
 import com.chosensolutions.trademebooks.repositories.UserRepository;
@@ -42,9 +39,14 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
         user1.setLastName("Zhu");
         user1.setEmail("yichenzhu1337@gmail.com");
         user1.setPassword(bCryptPasswordEncoder.encode("yichen"));
-        userRepository.save(user1);
+        Account account1 = new Account(user1, "416-293-2507", true);
+        user1.setAccount(account1);
+        Profile profile1 = new Profile(user1, "yichen","Yi Chen", "Zhu");
+        user1.setProfile(profile1);
+        BookStore bookStore = new BookStore(user1, "Yichen's Awesome Bookstore!","50% off on everything! Just DM me!");
+        user1.setBookStore(bookStore);
 
-        accountRepository.save(new Account("416-293-2507", true));
+        userRepository.save(user1);
     }
 
     private void bookSeeds() {

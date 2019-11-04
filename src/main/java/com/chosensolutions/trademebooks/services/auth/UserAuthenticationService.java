@@ -16,6 +16,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -66,8 +67,19 @@ public class UserAuthenticationService {
         }
     }
 
-    public User getCurrentAuthUser() {
-        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public Object getCurrentAuthUser() {
+        //return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        /*
+        if (principal instanceof UserDetails) {
+            String user = ((UserDetails) principal).getUsername();
+            return user;
+        }
+        else {
+            return null;
+        }
+*/
     }
 
 }

@@ -7,7 +7,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
 @Entity
@@ -18,6 +17,10 @@ public class BookStore {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "name")
     private String name;
@@ -32,10 +35,6 @@ public class BookStore {
             fetch = FetchType.LAZY)
     private List<Book> books;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
-
     public BookStore() {
 
     }
@@ -47,5 +46,18 @@ public class BookStore {
     public BookStore(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public BookStore(User user, String name, String description) {
+        this.user = user;
+        this.name = name;
+        this.description = description;
+    }
+
+    public BookStore(User user, String name, String description, List<Book> books) {
+        this.user = user;
+        this.name = name;
+        this.description = description;
+        this.books = books;
     }
 }

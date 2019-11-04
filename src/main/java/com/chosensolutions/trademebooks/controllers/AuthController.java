@@ -5,7 +5,7 @@ import com.chosensolutions.trademebooks.dtos.request.LoginUserRequestDTO;
 import com.chosensolutions.trademebooks.dtos.response.LoginUserResponseDTO;
 import com.chosensolutions.trademebooks.models.User;
 import com.chosensolutions.trademebooks.services.auth.UserAuthenticationService;
-import com.chosensolutions.trademebooks.utils.DataWrapperDTO;
+import com.chosensolutions.trademebooks.dtos.DataWrapperDTO;
 import com.chosensolutions.trademebooks.utils.ValidationErrorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +27,13 @@ public class AuthController {
     @Autowired
     private UserAuthenticationService userAuthenticationService;
 
+    /**
+     * Registers the user in our database
+     *
+     * @param registerUserRequestDTO
+     * @param bindingResult
+     * @return
+     */
     @PostMapping("/register")
     public ResponseEntity<DataWrapperDTO> register(@Valid @RequestBody RegisterUserRequestDTO registerUserRequestDTO, BindingResult bindingResult) {
         // 1. Validation
@@ -34,7 +41,7 @@ public class AuthController {
         if (errors != null) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
-                    .body(new DataWrapperDTO(null, "Check fields", errors));
+                    .body(new DataWrapperDTO("Check fields", null, errors));
         }
 
         // 2. Business Logic
@@ -43,9 +50,16 @@ public class AuthController {
         // 3. Success Response
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(new DataWrapperDTO(registeredUser, "The email " + registeredUser.getEmail() + " has successfully registered.", null));
+                .body(new DataWrapperDTO("The email " + registeredUser.getEmail() + " has successfully registered.", registeredUser, null));
     }
 
+    /**
+     * Authenticates the user in with given credentials
+     *
+     * @param loginUserRequestDTO
+     * @param bindingResult
+     * @return
+     */
     @PostMapping("/login")
     public ResponseEntity<DataWrapperDTO> login(@Valid @RequestBody LoginUserRequestDTO loginUserRequestDTO, BindingResult bindingResult) {
         // 1. Validation - Constraint/Form
@@ -62,18 +76,22 @@ public class AuthController {
         // 3. Success response
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(new DataWrapperDTO(loginUserResponseDTO, "The email " + loginUserRequestDTO.getEmail() + " has successfully logged in.", null));
+                .body(new DataWrapperDTO("The email " + loginUserRequestDTO.getEmail() + " has successfully logged in.", loginUserResponseDTO, null));
     }
 
+    /**
+     * Get the currently authenticated user's profile information
+     *
+     * @return
+     */
     @GetMapping("/user")
     public ResponseEntity<DataWrapperDTO> getCurrentAuthUser() {
-        User user =new User();
-        user.setEmail("hi@gmail.com");
+        Object user = userAuthenticationService.getCurrentAuthUser();
 
         // 3. Success response
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(new DataWrapperDTO(user, "This is the currently authenticated user", null));
+                .body(new DataWrapperDTO("This is the currently authenticated user", user, null));
     }
 
 }

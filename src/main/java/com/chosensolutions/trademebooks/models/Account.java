@@ -13,15 +13,19 @@ public class Account {
     @Column(name = "id")
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Column
     private String phoneNumber;
 
     @Column
     private boolean receiveEmail;
 
-    public Account(String phoneNumber, boolean receiveEmail) {
+    public Account(User user, String phoneNumber, boolean receiveEmail) {
+        this.user = user;
         this.phoneNumber = phoneNumber;
         this.receiveEmail = receiveEmail;
     }
-
 }

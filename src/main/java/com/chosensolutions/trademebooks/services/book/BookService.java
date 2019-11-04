@@ -15,7 +15,14 @@ public class BookService {
 
     public List<Book> getAllBooks(String title) {
         List<Book> books = new ArrayList<>();
+
         bookRepository.findByTitleContaining(title).iterator().forEachRemaining(books::add);
+
         return books;
     }
+
+    public Book getBookById(Long id) {
+        return bookRepository.getBookById(id);
+    }
+
 }

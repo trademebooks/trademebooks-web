@@ -7,14 +7,12 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
 
-import com.chosensolutions.trademebooks.validation.PasswordMatches;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Data
 @Entity(name = "users")
-@PasswordMatches
 public class User implements UserDetails {
 
     @Id
@@ -28,12 +26,9 @@ public class User implements UserDetails {
 
     private String lastName;
 
-    @Email
-    @NotEmpty(message = "Email is required.")
     @Column(nullable = false, length = 100, unique = true)
     private String email;
 
-    @NotEmpty(message = "Password is required.")
     private String password;
 
     private Calendar created = Calendar.getInstance();
@@ -42,14 +37,13 @@ public class User implements UserDetails {
     // Relationships
     ////////////////////////////////////////////////////////////////////////////////
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Account account;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Profile profile;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private BookStore bookStore;
-
-    @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
-    private List<AddressEntity> addresses;
 
     ////////////////////////////////////////////////////////////////////////////////
     // UserDetails interface methods

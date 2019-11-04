@@ -2,7 +2,7 @@ package com.chosensolutions.trademebooks.exceptions;
 
 import com.chosensolutions.trademebooks.exceptions.auth.UserEmailAlreadyExistsException;
 import com.chosensolutions.trademebooks.exceptions.auth.UserLoginInvalidCredentialsException;
-import com.chosensolutions.trademebooks.utils.DataWrapperDTO;
+import com.chosensolutions.trademebooks.dtos.DataWrapperDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,14 +21,14 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     public final ResponseEntity<DataWrapperDTO> handleUserEmailAlreadyExists(UserEmailAlreadyExistsException exception, WebRequest request) {
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
-                .body(new DataWrapperDTO(null, exception.getMessage(), Collections.singletonList(exception.getMessage())));
+                .body(new DataWrapperDTO(exception.getMessage(), null, Collections.singletonList(exception.getMessage())));
     }
 
     @ExceptionHandler
     public final ResponseEntity<DataWrapperDTO> handleUserLoginInvalidCredentials(UserLoginInvalidCredentialsException exception, WebRequest request) {
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
-                .body(new DataWrapperDTO(null, exception.getMessage(), Collections.singletonList(exception.getMessage())));
+                .body(new DataWrapperDTO(exception.getMessage(), null, Collections.singletonList(exception.getMessage())));
     }
 
 }
