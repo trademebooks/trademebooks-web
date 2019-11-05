@@ -4,6 +4,7 @@ import com.chosensolutions.trademebooks.services.auth.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,9 +15,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import static com.chosensolutions.trademebooks.config.security.SecurityConstants.H2_URL;
-import static com.chosensolutions.trademebooks.config.security.SecurityConstants.SIGN_UP_URLS;
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -64,24 +67,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().sameOrigin() //To enable H2 Database
                 .and()
                 .authorizeRequests()
-                .antMatchers(
-                        "/",
-                        "/favicon.ico",
-                        "/**/*.png",
-                        "/**/*.gif",
-                        "/**/*.svg",
-                        "/**/*.jpg",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js"
-                ).permitAll()
-                .antMatchers(
-                        "/api/web/v1/auth/**",
-                        "/api/web/v1/books",
-                        "/api/web/v1/books/*"
-                ).permitAll()
+                .antMatchers("/api/web/v1/auth/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/web/v1/books").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/web/v1/books/{^[\\d]$}").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Bean
+    protected CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList(
+                "http://localhost:3100",
+                "https://localhost:3100",
+                "http://www.trademebooks.com",
+                "https://www.trademebooks.com"
+        ));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

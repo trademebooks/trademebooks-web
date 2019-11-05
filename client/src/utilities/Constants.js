@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:8100/api/';
+export const BASE_URL = 'http://localhost:8100/api/web/v1/';
 
 export const REGISTER_URL = BASE_URL + 'register';
 export const LOGIN_URL = BASE_URL + 'login';
