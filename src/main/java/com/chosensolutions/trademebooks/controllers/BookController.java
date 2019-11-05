@@ -23,7 +23,7 @@ public class BookController {
      * @return
      */
     @RequestMapping("")
-    public List<Book> getAllBooks(@RequestParam("title") String title) {
+    public List<Book> getAllBooks(@RequestParam(name = "title", defaultValue = "") String title) {
         List<Book> books = bookService.getAllBooks(title);
 
         return books;
