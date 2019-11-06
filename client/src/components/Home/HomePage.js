@@ -3,105 +3,20 @@ import React, {Component} from "react";
 import * as Constants from "../../utilities/Constants";
 import axios from "axios";
 
-import SearchBar from "./SearchBar.js"
 import SecondarySearchBar from "./SecondarySearchBar.js";
 import SingleResultCard from "./SingleResultCard.js";
-import BundleCard from "./BundleCard";
+
+import sample_book_image from '../../images/assets/sample-book.png';
 
 import './HomePage.scss';
 
-/**
- * 4 ways to create components
- * 1. createClass - ES6
- * 2. ES6 Class - ES6 Class syntax
- * 3. Function
- * 4. Arrow function
- *
- * 1.
- * var HelloWorld = React.createClass({
- *     render: function() {
- *         return (
- *             <h1>Hello World</h1>
- *         );
- *     }
- * });
- *
- * 2.
- * class HelloWorld extends React.Component {
- *      constructor(props) {
- *          super(props);
- *      }
- *
- *      render() {
- *          return (
- *             <h1>Hello World</h1>
- *          );
- *      }
- * }
- *
- * 3.
- * function HelloWorld(props) {
- *     return (
- *         <h1>Hello World</h1>
- *     );
- * }
- *
- * 4.
- * const HelloWorld = (props) => <h1>Hello World</h1>
- *
- */
 class HomePage extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            books: [{
-                "id": 1,
-                "bookStore": null,
-                "title": "calculus 1",
-                "authors": "John Doe, Bobby Lee, Jane Doe",
-                "datePublished": "December 25th, 2019",
-                "isbnNumber10": "1234567890",
-                "isbnNumber13": "1234567890123",
-                "publisher": "Manning Publishing 1",
-                "edition": "1",
-                "bookCondition": "NEW",
-                "price": 100.0,
-                "description": "This is the best book in the world. Please buy it guys! Message me.",
-                "school": "UofT",
-                "book_cover_image": "http://localhost:8100/images/sample-book.png"
-            }, {
-                "id": 2,
-                "bookStore": null,
-                "title": "Calculus 2",
-                "authors": "Spivak",
-                "datePublished": "December 26th, 2019",
-                "isbnNumber10": "1234567891",
-                "isbnNumber13": "1234567890124",
-                "publisher": "Manning Publishing 2",
-                "edition": "1",
-                "bookCondition": "NEW",
-                "price": 100.0,
-                "description": "This is the best book in the world. Please buy it guys! Message me.",
-                "school": "UofT",
-                "book_cover_image": "http://localhost:8100/images/sample-book.png"
-            }, {
-                "id": 3,
-                "bookStore": null,
-                "title": "Calculus 3",
-                "authors": "Spivak 3",
-                "datePublished": "December 27th, 2019",
-                "isbnNumber10": "1234567892",
-                "isbnNumber13": "1234567890125",
-                "publisher": "Manning Publishing 3",
-                "edition": "1",
-                "bookCondition": "NEW",
-                "price": 100.0,
-                "description": "This is the best book in the world. Please buy it guys! Message me.",
-                "school": "UofT",
-                "book_cover_image": "http://localhost:8100/images/sample-book.png"
-            }],
+            books: [],
             name: ""
         };
 
@@ -135,32 +50,6 @@ class HomePage extends Component {
                     console.log(error);
                 });
         }
-
-        // add this to post a book
-        /*if (search_query.length > 2) {
-            let url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyCpl497dKbKN-piJBJJ5zOf3sCPk7CKuJg&q=";
-            axios
-                .get(url + search_query)
-                .then((response) => {
-                    let data = response.data;
-                    let items = data.items;
-                    let books = items.map(book => {
-                        return {
-                            book_title: book["volumeInfo"]["title"],
-                            book_authors: book["volumeInfo"]["authors"],
-                            book_publisher: book["volumeInfo"]["publisher"],
-                            book_description: book["volumeInfo"]["description"],
-                            book_image: book["volumeInfo"]["imageLinks"]
-                        };
-                    });
-                    console.log(books);
-
-                    this.setState({books: books});
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }*/
     };
 
     componentDidMount() {
@@ -243,7 +132,7 @@ class HomePage extends Component {
 
                             <div>
                                 {this.state.books.map((book, index) => {
-                                    return <SingleResultCard title={book.book_title}/>
+                                    return <SingleResultCard key={book.id} book={book}/>
                                 })}
                             </div>
                         </div>

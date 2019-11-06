@@ -11,6 +11,11 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 @Component
 public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -41,15 +46,11 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
         user1.setPassword(bCryptPasswordEncoder.encode("yichen"));
         Account account1 = new Account(user1, "416-293-2507", true);
         user1.setAccount(account1);
-        Profile profile1 = new Profile(user1, "yichen","Yi Chen", "Zhu");
+        Profile profile1 = new Profile(user1, "yichen", "Yi Chen", "Zhu");
         user1.setProfile(profile1);
-        BookStore bookStore = new BookStore(user1, "Yichen's Awesome Bookstore!","50% off on everything! Just DM me!");
-        user1.setBookStore(bookStore);
 
-        userRepository.save(user1);
-    }
+        BookStore bookStore = new BookStore(user1, "Yichen's Awesome Bookstore!", "50% off on everything! Just DM me!");
 
-    private void bookSeeds() {
         Book book1 = new Book();
         book1.setTitle("calculus 1");
         book1.setAuthors("John Doe, Bobby Lee, Jane Doe");
@@ -92,10 +93,20 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
         book3.setSchool("UofT");
         book3.setBook_cover_image("http://google.com/images/hello.png");
 
-        bookRepository.save(book1);
-        bookRepository.save(book2);
-        bookRepository.save(book3);
+        List<Book> books = Stream.of(
+                book1,
+                book2,
+                book3
+        ).collect(Collectors.toList());
 
+        bookStore.setBooks(books);
+
+        user1.setBookStore(bookStore);
+
+        userRepository.save(user1);
+    }
+
+    private void bookSeeds() {
         BookFactory bookFactory = new BookFactory();
         for (int i = 0; i < 10; i++) {
             bookRepository.save(bookFactory.generateBook());

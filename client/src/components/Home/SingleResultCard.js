@@ -18,47 +18,50 @@ class SingleResultCard extends Component {
     }
 
     componentDidMount() {
-
     }
 
     render() {
         return (
-            <div className="single-card-container mt-5">
-                <div className="card">
-                    <div className="row">
+            <div className="single-card mt-5">
+                {/*<div className="card">*/}
+                    <div className="single-card-container">
 
                         {/* Column 1 - Image --- start */}
-                        <div className="col-12 col-sm-12 col-xl-2">
-                            <div className="single-card-container__image-section">
-                                <img className="single-card-container--card-image" src={sample_book_image}
-                                     alt="single card book image"/>
+                        <div className="single-card-column-section-1">
+                            <div className="single-card__image-section">
+                                <img className="single-card-image" src={sample_book_image} alt="single card book image"/>
                             </div>
                         </div>
                         {/* Column 1 - Image --- end   */}
 
                         {/* Column 2 - start */}
-                        <div className="col-12 col-sm-12 col-xl-9">
-                            <div className="">
-                                <span className="single-card-container__book-title">Calculus: Early Transcendentals</span>
+                        <div className="single-card-column-section-2">
+                            <div className="single-card-column-section-2__row-1">
+                                <span className="single-card__book-title">{this.props.book.title}</span>
                                 <span>&nbsp;</span>
-                                <span className="single-card-container__book-edition">Edition</span>
+                                <span className="single-card__book-edition">Edition</span>
                                 <span>&nbsp;</span>
-                                <span className="single-card-container__number">7</span>
+                                <span className="single-card__book-edition-number">7</span>
                             </div>
 
-                            <div className="">
-                                <span><img height="25px" src={very_good_condition_green_image} alt="test"/></span>
-                                <span>MCMASTER UNIVERSITY</span>
-                                <span>CIV358</span>
-                                <span>CIV5481</span>
+                            <div className="single-card-column-section-2__row-2">
+                                <div>
+                                    <span className="single-card__book-condition"><img height="25px" src={very_good_condition_green_image} alt="condition=good"/></span>
+                                </div>
+
+                                <div className="single-card__tags">
+                                    <span><a href="#">MCMASTER UNIVERSITY</a></span>
+                                    <span><a href="#">CIV358</a></span>
+                                    <span><a href="#">CIV5481</a></span>
+                                </div>
                             </div>
 
-                            <div className="">
+                            <div className="single-card-column-section-2__row-3">
                                 <span className="author-by">By</span>
-                                <span className="text-author">Richard Fymann, Qing Yu</span>
+                                <span className="text-authors">Richard Fymann, Qing Yu</span>
                             </div>
 
-                            <div className="">
+                            <div className="single-card-column-section-2__row-4">
                                 <p>
                                     The Tools. This was easily the best book I read in 2012. It's *packed* with
                                     goodness. Stutz and Michels are two no-nonsense therapists who developed
@@ -72,23 +75,25 @@ class SingleResultCard extends Component {
                         {/* Column 2 - end   */}
 
                         {/* Column 3 - start */}
-                        <div className="col-sm-12 col-xl-1">
-
+                        <div className="single-card-column-section-3">
                             <div className="money">
-                                <span className="dollar">$</span>
-                                <span className="amount">200</span>
+                                <span className="">$</span>
+                                <span className="">200</span>
                             </div>
                             <div>
-                                <p><img alt="test" height="50px" src={Message_icon}/></p>
+                                <img alt="test" height="50px" src={Message_icon}/>
                             </div>
                             <div>
                                 <img src={Books_icon} height="50px" alt="test"/>
                             </div>
+                            <div>
+                                July 15, 2019
+                            </div>
                         </div>
+                        {/* Column 3 - end */}
                     </div>
-                    {/* Column 3 - start */}
 
-                </div>
+                {/*</div>*/}
             </div>
         );
     }
