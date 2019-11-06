@@ -108,7 +108,7 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
 
     private void bookSeeds() {
         BookFactory bookFactory = new BookFactory();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             bookRepository.save(bookFactory.generateBook());
         }
     }

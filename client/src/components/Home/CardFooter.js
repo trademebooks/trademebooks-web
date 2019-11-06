@@ -1,7 +1,6 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import './CardFooter.scss';
 import Location_icon from '../../images/Icons/Location_icon.png';
 
 const CardFooter = () => <div className="card-footer">

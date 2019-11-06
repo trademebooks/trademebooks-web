@@ -8,6 +8,9 @@ import very_good_condition_green_image from "../../images/Icons/Verygood_conditi
 import sample_book_image from "../../images/assets/sample-book.png";
 import Message_icon from "../../images/Icons/Message_icon.png";
 import Books_icon from "../../images/Icons/Books_icon.png";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Location_icon from "../../images/Icons/Location_icon.png";
 
 class SingleResultCard extends Component {
 
@@ -41,7 +44,7 @@ class SingleResultCard extends Component {
                                 <span>&nbsp;</span>
                                 <span className="single-card__book-edition">Edition</span>
                                 <span>&nbsp;</span>
-                                <span className="single-card__book-edition-number">7</span>
+                                <span className="single-card__book-edition-number">{this.props.book.edition}</span>
                             </div>
 
                             <div className="single-card-column-section-2__row-2">
@@ -58,27 +61,32 @@ class SingleResultCard extends Component {
 
                             <div className="single-card-column-section-2__row-3">
                                 <span className="author-by">By</span>
-                                <span className="text-authors">Richard Fymann, Qing Yu</span>
+                                <span className="text-authors">{this.props.book.authors}</span>
                             </div>
 
                             <div className="single-card-column-section-2__row-4">
                                 <p>
-                                    The Tools. This was easily the best book I read in 2012. It's *packed* with
-                                    goodness. Stutz and Michels are two no-nonsense therapists who developed
-                                    powerful tools to transform our problems into courage, confidence, and
-                                    creativity
+                                    {this.props.book.description}
                                 </p>
                             </div>
 
-                            <CardFooter/>
+
+                            {/*Card footer*/}
+                            <div className="single-card-column-section-2__row-5">
+                                <img src={Location_icon} width="20px" alt="contact info card"/>
+                                <span>&nbsp;</span>
+                                <span className="location">{this.props.book.school}</span>
+                            </div>
                         </div>
                         {/* Column 2 - end   */}
+
+                        <div className="flex-grow-1">&nbsp;</div>
 
                         {/* Column 3 - start */}
                         <div className="single-card-column-section-3">
                             <div className="money">
                                 <span className="">$</span>
-                                <span className="">200</span>
+                                <span className="">{this.props.book.price}</span>
                             </div>
                             <div>
                                 <img alt="test" height="50px" src={Message_icon}/>
@@ -87,7 +95,7 @@ class SingleResultCard extends Component {
                                 <img src={Books_icon} height="50px" alt="test"/>
                             </div>
                             <div>
-                                July 15, 2019
+                                {this.props.book.datePublished}
                             </div>
                         </div>
                         {/* Column 3 - end */}

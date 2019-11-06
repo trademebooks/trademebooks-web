@@ -1,17 +1,14 @@
-// Variables
-
-
 /*****************************************************/
 /********************** Desktop **********************/
 /*****************************************************/
 
 .single-card {
-
   border: 1px solid #C4C4C4;
   box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 10px;
+
   &-container {
     display: flex;
     flex-wrap: nowrap;
@@ -20,26 +17,6 @@
   &-image {
     border-radius: 10px;
   }
-
-  //display: flex;
-  /*
-      &__image-section {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          //width: 100%;
-          text-align: center;
-          margin: 10% 0;
-          min-height: 200px;
-          background-color: rgba(33, 33, 33, .3);
-      }
-      */
-  /*    &--card-image {
-
-          width: 100%;
-
-      }*/
 
   &__book-title {
     font-size: 28px;
@@ -74,7 +51,6 @@
 
   // Section 2: Middle Section
   .single-card-column-section-2 {
-
     padding-right: 20px;
 
     .single-card-column-section-2__row-1 {
@@ -95,6 +71,10 @@
     }
 
     .single-card-column-section-2__row-4 {
+      padding: 5px;
+    }
+
+    .single-card-column-section-2__row-5 {
       padding: 5px;
     }
   }

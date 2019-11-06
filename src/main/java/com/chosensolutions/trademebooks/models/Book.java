@@ -45,7 +45,7 @@ public class Book {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "text")
     private String description;
 
     @Column(name = "school")

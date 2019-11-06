@@ -25,7 +25,7 @@ public class BookFactory {
         book.setEdition( faker.number().digit());
         book.setBookCondition("NEW");
         book.setPrice(faker.number().numberBetween(1, 500));
-        book.setDescription(faker.lorem().paragraph());
+        book.setDescription(faker.lorem().paragraph(faker.number().numberBetween(1, 10)));
         book.setSchool(faker.university().name());
         book.setBook_cover_image(faker.name().fullName());
 
