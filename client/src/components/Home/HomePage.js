@@ -29,22 +29,12 @@ class HomePage extends Component {
             name: search_query
         });
 
-        console.log(search_query);
-
         if (search_query.length > 2) {
             axios
                 .get(Constants.GET_ALL_PUBLIC_BOOKS_URL + "?title=" + search_query)
                 .then((response) => {
                     let data = response.data;
-                    let items = data;
-                    let books = items.map(book => {
-                        return {
-                            book_title: book["title"]
-                        };
-                    });
-                    console.log(books);
-
-                    this.setState({books: books});
+                    this.setState({books: data});
                 })
                 .catch(function (error) {
                     console.log(error);

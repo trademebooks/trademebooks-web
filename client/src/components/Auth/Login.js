@@ -8,9 +8,8 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            username: "",
-            password: "",
-            email: ""
+            email: "",
+            password: ""
         };
 
         this.onChange = this.onChange.bind(this);
@@ -66,7 +65,7 @@ class Login extends Component {
                                value={this.state.password}/>
 
 
-                        <input className="auth-submit" type="submit" value="Signup"/>
+                        <input className="auth-submit" type="submit" value="Register"/>
                     </form>
 
                     <div id="auth-other">
