@@ -3,7 +3,6 @@ import React, {Component} from "react";
 import * as Constants from "../../utilities/Constants";
 import axios from "axios";
 
-import SecondarySearchBar from "./SecondarySearchBar.js";
 import SingleResultCard from "./SingleResultCard.js";
 
 import './HomePage.scss';
@@ -15,10 +14,14 @@ class HomePage extends Component {
 
         this.state = {
             books: [],
-            name: ""
+            name: "",
+            priceSort: "arrow_downward",
+            dateSort: "arrow_downward"
         };
 
         this.onChangeSearchForItems = this.onChangeSearchForItems.bind(this);
+        this.onClickSortByPrice = this.onClickSortByPrice.bind(this);
+        this.onClickSortByDate = this.onClickSortByDate.bind(this);
     }
 
     onChangeSearchForItems(event) {
@@ -66,7 +69,69 @@ class HomePage extends Component {
             });
     }
 
+    onClickSortByPrice(event) {
+        if (this.state.priceSort === "arrow_downward") {
+            this.setState({priceSort: "arrow_upward"});
+
+            this.state.books.sort(function (a, b) {
+                if (a.price === b.price) {
+                    return 0;
+                } else if (a.price > b.price) {
+                    return 1;
+                } else {
+                    return -1
+                }
+            });
+        } else {
+            this.setState({priceSort: "arrow_downward"});
+
+            this.state.books.sort(function (a, b) {
+                if (a.price === b.price) {
+                    return 0;
+                } else if (a.price > b.price) {
+                    return -1;
+                } else {
+                    return 1
+                }
+            });
+        }
+    }
+
+    onClickSortByDate(event) {
+        if (this.state.dateSort === "arrow_downward") {
+            this.setState({dateSort: "arrow_upward"});
+            this.state.books.sort(function (a, b) {
+                var key1 = new Date(a.datePublished);
+                var key2 = new Date(b.datePublished);
+                if (key1 < key2) {
+                    return 1;
+                } else if (key1 === key2) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            });
+        } else {
+            this.setState({dateSort: "arrow_downward"});
+            this.state.books.sort(function (a, b) {
+                var key1 = new Date(a.datePublished);
+                var key2 = new Date(b.datePublished);
+                if (key1 < key2) {
+                    return -1;
+                } else if (key1 === key2) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            });
+        }
+    }
+
     render() {
+        var cursorPointerStyle = {
+            cursor: "pointer"
+        };
+
         return (
             <div className="home-page-container">
                 <div>
@@ -98,18 +163,21 @@ class HomePage extends Component {
 
                         <div className="home-page-main-section__container pt-3">
                             {/* ---------- Toolbar --- start ---------- */}
-{/*                            <div className="row">
+                            <div className="row">
                                 <div className="d-flex">
-                                    <div className="mr-2"><span>Date</span><i
-                                        className="material-icons md-18">arrow_upward</i></div>
+                                    <div className="mr-2 date-sort" onClick={this.onClickSortByDate}>
+                                        <span>Date</span>
+                                        <i className="material-icons md-18">{this.state.dateSort}</i>
+                                    </div>
 
-                                    <div className="mr-2"><span>Price</span><i
-                                        className="material-icons md-18">arrow_upward</i></div>
+                                    <div className="mr-2 price-sort" onClick={this.onClickSortByPrice}>
+                                        <span>Price</span>
+                                        <i className="material-icons md-18">{this.state.priceSort}</i>
+                                    </div>
 
-                                    <div className="mr-2"><span>Condition</span><i
-                                        className="material-icons md-18">arrow_drop_down</i></div>
+                                    {/*<div className="mr-2"><span>Condition</span><i className="material-icons md-18">arrow_drop_down</i></div>*/}
                                 </div>
-
+                                {/*
                                 <div className="d-flex">
                                     <SecondarySearchBar placeholder="School"/>
 
@@ -122,8 +190,8 @@ class HomePage extends Component {
                                     <div className="mr-4"><a href="/">All</a></div>
                                     <div className="mr-4"><a href="/">Single Books</a></div>
                                     <div className="mr-4"><a href="/">Bundles</a></div>
-                                </div>
-                            </div>*/}
+                                </div>*/}
+                            </div>
                             {/* ---------- Toolbar --- end ---------- */}
 
                             <div className="row mt-5">

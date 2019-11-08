@@ -54,7 +54,7 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
         Book book1 = new Book();
         book1.setTitle("calculus 1");
         book1.setAuthors("John Doe, Bobby Lee, Jane Doe");
-        book1.setDatePublished("December 25th, 2019");
+        book1.setDatePublished("Sun Jan 23 21:29:15 EST 2000");
         book1.setIsbnNumber10("1234567890");
         book1.setIsbnNumber13("1234567890123");
         book1.setPublisher("Manning Publishing 1");
@@ -68,7 +68,7 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
         Book book2 = new Book();
         book2.setTitle("Calculus 2");
         book2.setAuthors("Spivak");
-        book2.setDatePublished("December 26th, 2019");
+        book2.setDatePublished("Sun Jan 23 21:29:15 EST 2001");
         book2.setIsbnNumber10("1234567891");
         book2.setIsbnNumber13("1234567890124");
         book2.setPublisher("Manning Publishing 2");
@@ -82,7 +82,7 @@ public class DatabaseSeed implements ApplicationListener<ContextRefreshedEvent> 
         Book book3 = new Book();
         book3.setTitle("Calculus 3");
         book3.setAuthors("Spivak 3");
-        book3.setDatePublished("December 27th, 2019");
+        book3.setDatePublished("Sun Jan 23 21:29:15 EST 2002");
         book3.setIsbnNumber10("1234567892");
         book3.setIsbnNumber13("1234567890125");
         book3.setPublisher("Manning Publishing 3");
