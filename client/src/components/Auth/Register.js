@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from "prop-types";
+import {createNewUser} from "../../redux/actions/securityActions";
 
 import './Auth.scss';
 
@@ -8,9 +10,9 @@ class Register extends Component {
         super(props);
 
         this.state = {
-            username: "",
-            password: "",
-            email: ""
+            username: "yichenzhu",
+            email: "yichen123@yichen.com",
+            password: "password"
         };
 
         this.onChange = this.onChange.bind(this);
@@ -41,6 +43,11 @@ class Register extends Component {
         if (errors > 0) {
             console.log("we got errors bro");
         }
+        else {
+            let email = this.state.email;
+            let password = this.state.password;
+            this.props.createNewUser({ email, password}, this.props.history);
+        }
     }
 
     render() {
@@ -54,24 +61,25 @@ class Register extends Component {
                 <div id="auth-interactable">
                     <form id="auth-form" onSubmit={this.onSubmit}>
                         <input onChange={this.onChange}
-                                        name="username"
-                                        type="text"
-                                        placeholder="Username"
-                                        value={this.state.username}/>
-                                
-                        <input onChange={this.onChange}
-                                        name="email"
-                                        type="email"
-                                        placeholder="Email"
-                                        value={this.state.email}/>
+                               name="username"
+                               type="text"
+                               placeholder="Username"
+                               value={this.state.username}/>
 
                         <input onChange={this.onChange}
-                                        name="password"
-                                        type="password"
-                                        placeholder="Password"
-                                        value={this.state.password}/>
+                               name="email"
+                               type="email"
+                               placeholder="Email"
+                               value={this.state.email}/>
 
-                        <p className="auth-tc">By signing up, I agree to TMB’s <a href="/terms">Terms and Conditions</a></p>
+                        <input onChange={this.onChange}
+                               name="password"
+                               type="password"
+                               placeholder="Password"
+                               value={this.state.password}/>
+
+                        <p className="auth-tc">By signing up, I agree to TMB’s <a href="/terms">Terms and Conditions</a>
+                        </p>
 
                         <input className="auth-submit" type="submit" value="Signup"/>
                     </form>
@@ -91,10 +99,15 @@ class Register extends Component {
     }
 }
 
+Register.propTypes = {
+    createNewUser: PropTypes.func.isRequired
+};
+
 function mapStateToProps(state) {
     return {};
 }
 
 export default connect(
     mapStateToProps,
+    { createNewUser }
 )(Register);

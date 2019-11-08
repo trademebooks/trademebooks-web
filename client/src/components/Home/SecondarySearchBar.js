@@ -1,7 +1,7 @@
 
 import React from "react";
 import './SecondarySearchBar.scss';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+//import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const SecondarySearchBar = (props) => (
     <div className="ml-2">

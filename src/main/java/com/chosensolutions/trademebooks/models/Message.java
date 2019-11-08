@@ -1,10 +1,12 @@
 package com.chosensolutions.trademebooks.models;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "messages")
 public class Message {

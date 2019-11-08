@@ -1,8 +1,8 @@
 package com.chosensolutions.trademebooks.services.auth;
 
 import com.chosensolutions.trademebooks.config.security.JwtTokenProvider;
-import com.chosensolutions.trademebooks.dtos.request.LoginUserRequestDTO;
-import com.chosensolutions.trademebooks.dtos.request.RegisterUserRequestDTO;
+import com.chosensolutions.trademebooks.dtos.request.auth.LoginUserRequestDTO;
+import com.chosensolutions.trademebooks.dtos.request.auth.RegisterUserRequestDTO;
 import com.chosensolutions.trademebooks.dtos.response.LoginUserResponseDTO;
 import com.chosensolutions.trademebooks.exceptions.auth.UserEmailAlreadyExistsException;
 import com.chosensolutions.trademebooks.exceptions.auth.UserLoginInvalidCredentialsException;
@@ -16,7 +16,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

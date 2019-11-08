@@ -6,8 +6,6 @@ import axios from "axios";
 import SecondarySearchBar from "./SecondarySearchBar.js";
 import SingleResultCard from "./SingleResultCard.js";
 
-import sample_book_image from '../../images/assets/sample-book.png';
-
 import './HomePage.scss';
 
 class HomePage extends Component {
@@ -29,24 +27,36 @@ class HomePage extends Component {
             name: search_query
         });
 
-        if (search_query.length > 2) {
+        if (search_query.length === 0) {
             axios
-                .get(Constants.GET_ALL_PUBLIC_BOOKS_URL + "?title=" + search_query)
+                .get(Constants.GET_ALL_PUBLIC_BOOKS_URL)
                 .then((response) => {
-                    let data = response.data;
+                    let data = response.data.data;
                     this.setState({books: data});
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         }
-    };
+
+        if (search_query.length > 2) {
+            axios
+                .get(Constants.GET_ALL_PUBLIC_BOOKS_URL + "?title=" + search_query)
+                .then((response) => {
+                    let data = response.data.data;
+                    this.setState({books: data});
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
 
     componentDidMount() {
         axios
             .get(Constants.GET_ALL_PUBLIC_BOOKS_URL)
             .then((response) => {
-                let data = response.data;
+                let data = response.data.data;
                 console.log(data);
 
                 this.setState({books: data});
@@ -117,7 +127,7 @@ class HomePage extends Component {
                             {/* ---------- Toolbar --- end ---------- */}
 
                             <div className="row">
-                                <span className="number-of-results">Showing 47 Results</span>
+                                <span className="number-of-results">Showing {this.state.books.length} Results</span>
                             </div>
 
                             <div>

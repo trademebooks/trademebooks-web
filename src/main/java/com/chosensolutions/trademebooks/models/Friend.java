@@ -1,10 +1,13 @@
 package com.chosensolutions.trademebooks.models;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "friends")
 public class Friend {
 

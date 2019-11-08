@@ -14,15 +14,23 @@ public class BookService {
     private BookRepository bookRepository;
 
     public List<Book> getAllBooks(String title) {
-        List<Book> books = new ArrayList<>();
-
-        bookRepository.findByTitleContaining(title).iterator().forEachRemaining(books::add);
-
-        return books;
+        return bookRepository.findByTitleContaining(title);
     }
 
     public Book getBookById(Long id) {
         return bookRepository.getBookById(id);
+    }
+
+    public Book createBook(Book book) {
+        return bookRepository.save(book);
+    }
+
+    public Book updateBook(Book book) {
+        return bookRepository.save(book);
+    }
+
+    public void deleteBook(Long id) {
+        bookRepository.deleteById(id);
     }
 
 }

@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "schools")
 public class School {

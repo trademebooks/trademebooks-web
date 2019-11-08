@@ -7,8 +7,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "book_stores")
 public class BookStore {
@@ -34,10 +34,6 @@ public class BookStore {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private List<Book> books;
-
-    public BookStore() {
-
-    }
 
     public BookStore(String name) {
         this.name = name;

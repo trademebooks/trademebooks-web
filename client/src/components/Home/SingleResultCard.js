@@ -1,15 +1,11 @@
 import React, {Component} from "react";
 import './SingleResultCard.scss';
 
-import CardFooter from "./CardFooter.js";
-
 // Images
 import very_good_condition_green_image from "../../images/Icons/Verygood_condition.png";
 import sample_book_image from "../../images/assets/sample-book.png";
 import Message_icon from "../../images/Icons/Message_icon.png";
 import Books_icon from "../../images/Icons/Books_icon.png";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Location_icon from "../../images/Icons/Location_icon.png";
 
 class SingleResultCard extends Component {
@@ -32,7 +28,7 @@ class SingleResultCard extends Component {
                         {/* Column 1 - Image --- start */}
                         <div className="single-card-column-section-1">
                             <div className="single-card__image-section">
-                                <img className="single-card-image" src={sample_book_image} alt="single card book image"/>
+                                <img className="single-card-image" src={sample_book_image} alt="single card book"/>
                             </div>
                         </div>
                         {/* Column 1 - Image --- end   */}
@@ -53,9 +49,9 @@ class SingleResultCard extends Component {
                                 </div>
 
                                 <div className="single-card__tags">
-                                    <span><a href="#">MCMASTER UNIVERSITY</a></span>
-                                    <span><a href="#">CIV358</a></span>
-                                    <span><a href="#">CIV5481</a></span>
+                                    <span><a href="#tag">MCMASTER UNIVERSITY</a></span>
+                                    <span><a href="#tag">CIV358</a></span>
+                                    <span><a href="#tag">CIV5481</a></span>
                                 </div>
                             </div>
 

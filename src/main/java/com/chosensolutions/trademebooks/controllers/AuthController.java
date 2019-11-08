@@ -1,7 +1,7 @@
 package com.chosensolutions.trademebooks.controllers;
 
-import com.chosensolutions.trademebooks.dtos.request.RegisterUserRequestDTO;
-import com.chosensolutions.trademebooks.dtos.request.LoginUserRequestDTO;
+import com.chosensolutions.trademebooks.dtos.request.auth.RegisterUserRequestDTO;
+import com.chosensolutions.trademebooks.dtos.request.auth.LoginUserRequestDTO;
 import com.chosensolutions.trademebooks.dtos.response.LoginUserResponseDTO;
 import com.chosensolutions.trademebooks.models.User;
 import com.chosensolutions.trademebooks.services.auth.UserAuthenticationService;

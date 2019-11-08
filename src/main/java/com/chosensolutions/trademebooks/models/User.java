@@ -12,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "users")
 public class User implements UserDetails {
 

@@ -38,8 +38,8 @@ import jwt_decode from "jwt-decode";
 import setJWTToken from "./utilities/setJWTToken";
 import { SET_CURRENT_USER } from "./redux/actions/actionTypes";
 import { logout } from "./redux/actions/securityActions";
-import SecuredRoute from "./utilities/SecuredRoute";
 import store from "./redux/configureStore";
+//import SecuredRoute from "./utilities/SecuredRoute";
 
 const jwtToken = localStorage.jwtToken;
 if (jwtToken) {

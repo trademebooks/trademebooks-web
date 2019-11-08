@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from "prop-types";
+
+import {login} from "../../redux/actions/securityActions";
 
 import './Auth.scss';
 
@@ -65,7 +68,7 @@ class Login extends Component {
                                value={this.state.password}/>
 
 
-                        <input className="auth-submit" type="submit" value="Register"/>
+                        <input className="auth-submit" type="submit" value="Login"/>
                     </form>
 
                     <div id="auth-other">
@@ -82,10 +85,15 @@ class Login extends Component {
     }
 }
 
+Login.propTypes = {
+    login: PropTypes.func.isRequired
+};
+
 function mapStateToProps(state) {
     return {};
 }
 
 export default connect(
     mapStateToProps,
+    {login}
 )(Login);

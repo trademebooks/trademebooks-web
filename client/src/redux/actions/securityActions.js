@@ -2,11 +2,12 @@ import axios from "axios";
 import {GET_ERRORS, SET_CURRENT_USER} from "./actionTypes";
 import setJWTToken from "../../utilities/setJWTToken";
 import jwt_decode from "jwt-decode";
+import {REGISTER_URL, LOGIN_URL} from "../../utilities/Constants";
 
 export const createNewUser = (newUser, history) => async dispatch => {
     try {
-        await axios.post("/api/web/v1/auth/register", newUser);
-        history.push("/login");
+        await axios.post(REGISTER_URL, newUser);
+        //history.push("/login");
         dispatch({
             type: GET_ERRORS,
             payload: {}
@@ -14,7 +15,7 @@ export const createNewUser = (newUser, history) => async dispatch => {
     } catch (err) {
         dispatch({
             type: GET_ERRORS,
-            payload: err.response.data
+            //payload: err.response.data
         });
     }
 };
@@ -22,7 +23,7 @@ export const createNewUser = (newUser, history) => async dispatch => {
 export const login = LoginRequest => async dispatch => {
     try {
         // post => Login Request
-        const res = await axios.post("/api/web/v1/auth/login", LoginRequest);
+        const res = await axios.post(LOGIN_URL, LoginRequest);
         // extract token from res.data
         const {token} = res.data;
         // store the token in the localStorage

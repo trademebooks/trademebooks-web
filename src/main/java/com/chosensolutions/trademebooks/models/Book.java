@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "books")
 public class Book {
@@ -53,9 +54,6 @@ public class Book {
 
     @Column(name = "book_cover_image")
     private String book_cover_image;
-
-    public Book() {
-    }
 
     public Book(BookStore bookStore, String title, String authors, String datePublished, String isbnNumber10, String isbnNumber13, String publisher, String edition, String bookCondition, double price, String description, String school, String book_cover_image) {
         this.bookStore = bookStore;
