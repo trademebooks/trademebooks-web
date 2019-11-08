@@ -78,14 +78,14 @@ class HomePage extends Component {
 
                         <div className="home-page-top-section__small-caption mt-4">
                             Imagine buying and selling textbooks with ease and with minimal effort, using the latest in
-                            textbook technology - that is TMB
+                            textbook technology - that is TMB.
                         </div>
 
                         <div className="home-search-box">
                             <form>
                                 <div className="form-group">
                                     <input type="text" className="form-control"
-                                           placeholder="Search book titles, authors, ISPNs, etc..."
+                                           placeholder="Search book titles, authors, ISBNs, etc..."
                                            onChange={this.onChangeSearchForItems} value={this.state.name}/>
                                 </div>
                             </form>
@@ -98,7 +98,7 @@ class HomePage extends Component {
 
                         <div className="home-page-main-section__container pt-3">
                             {/* ---------- Toolbar --- start ---------- */}
-                            <div className="row">
+{/*                            <div className="row">
                                 <div className="d-flex">
                                     <div className="mr-2"><span>Date</span><i
                                         className="material-icons md-18">arrow_upward</i></div>
@@ -123,10 +123,10 @@ class HomePage extends Component {
                                     <div className="mr-4"><a href="/">Single Books</a></div>
                                     <div className="mr-4"><a href="/">Bundles</a></div>
                                 </div>
-                            </div>
+                            </div>*/}
                             {/* ---------- Toolbar --- end ---------- */}
 
-                            <div className="row">
+                            <div className="row mt-5">
                                 <span className="number-of-results">Showing {this.state.books.length} Results</span>
                             </div>
 
