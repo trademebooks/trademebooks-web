@@ -9,7 +9,6 @@ import Logo from "../../../../images/Icons/logo.png";
 import {logout} from "../../../../redux/actions/securityActions";
 import auth from '../../../../utilities/AuthUtil';
 import toastr from 'toastr/build/toastr.min';
-import 'toastr/build/toastr.min.css';
 import axios from 'axios';
 import * as Constants from "../../../../utilities/Constants";
 
