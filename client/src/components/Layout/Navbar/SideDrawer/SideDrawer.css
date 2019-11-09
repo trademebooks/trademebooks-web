@@ -10,6 +10,7 @@
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
+    padding-left: 10px;
 }
 
 .side-drawer.open {
@@ -29,7 +30,7 @@
 }
 
 .side-drawer a {
-    color: #521751;
+    //color: #521751;
     text-decoration: none;
     font-size: 1.2rem;
 }

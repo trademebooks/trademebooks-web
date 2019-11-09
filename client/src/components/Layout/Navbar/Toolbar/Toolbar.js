@@ -71,9 +71,7 @@ class Toolbar extends Component {
         return (
             <header className="toolbar">
                 <nav className="toolbar__navigation">
-                    <div className="toolbar__toggle-button">
-                        <DrawerToggleButton click={this.props.drawerClickHandler}/>
-                    </div>
+
 
                     <div className="toolbar__logo">
                         <a href="/">
@@ -85,6 +83,10 @@ class Toolbar extends Component {
 
                     <div className="toolbar_navigation-items">
                         {headerLinks}
+                    </div>
+
+                    <div className="toolbar__toggle-button">
+                        <DrawerToggleButton click={this.props.drawerClickHandler}/>
                     </div>
                 </nav>
             </header>
