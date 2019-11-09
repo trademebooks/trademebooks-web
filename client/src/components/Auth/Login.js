@@ -63,8 +63,12 @@ class Login extends Component {
 
                 })
                 .catch(function (error) {
-                    console.log(error);
-                    toastr.error(error);
+                    let data = error.response.data;
+                    let errors = data.errors;
+                    console.log(errors);
+                    errors.forEach( error => {
+                        toastr.error(error);
+                    });
                 });
         }
     }
