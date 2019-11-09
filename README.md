@@ -56,7 +56,7 @@ spring.datasource.password=**my-local-database-password**
 Note: **my-local-database-name, my-local-database-username, my-local-database-password** are your own local database settings.
 
 ## Server and Devops
-- Jenkins URL: http://chosensolutions.asuscomm.com:8081/
+- Jenkins URL: http://chosensolutions.myddns.rocks:8081/
 - https://wwww.trademebooks.com
 - https://api.trademebooks.com
 
