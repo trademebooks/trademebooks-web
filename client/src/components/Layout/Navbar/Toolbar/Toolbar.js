@@ -70,8 +70,6 @@ class Toolbar extends Component {
         return (
             <header className="toolbar">
                 <nav className="toolbar__navigation">
-
-
                     <div className="toolbar__logo">
                         <a href="/">
                             <img alt="Book Logo" src={Logo} width="40px" height="50px"/>
