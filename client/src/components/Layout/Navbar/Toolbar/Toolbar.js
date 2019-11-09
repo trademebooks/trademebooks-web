@@ -19,14 +19,7 @@ class Toolbar extends Component {
         super(props, context);
 
         this.logout.bind(this);
-
-        this.logout = this.logout.bind(this);
     }
-
-/*    logout() {
-        this.props.logout();
-        window.location.href = "/";
-    }*/
 
     logout() {
         auth.logout(function () {

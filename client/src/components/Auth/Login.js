@@ -58,7 +58,7 @@ class Login extends Component {
                     auth.login(function () {
                         setTimeout(function () {
                             window.location.href = "/";
-                        }, 2000)
+                        }, 1000 /*2000*/)
                     });
 
                 })
