@@ -120,7 +120,7 @@ class App extends Component {
                 {/* Main Body --- end */}
 
                 {/* Footer --- start */}
-                <Footer/>
+                {/*<Footer/>*/}
                 {/* Footer --- end */}
             </div>
         );
