@@ -29,5 +29,6 @@ yarn-error.log*
 *.lock
 *-lock.json
 
-
 client/build
+
+src/main/resources/application.properties
