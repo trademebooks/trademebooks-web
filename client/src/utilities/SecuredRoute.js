@@ -6,12 +6,13 @@ import PropTypes from "prop-types";
 const SecuredRoute = ({component: Component, security, ...otherProps}) => (
     <Route
         {...otherProps}
-        render={props =>
-            security.validToken === true ? (
-                <Component {...props} />
-            ) : (
-                <Redirect to="/login"/>
-            )
+        render={props => {
+            if (localStorage.getItem("tmb_jwt")/*security.validToken === true*/) {
+                return <Component {...props} />
+            } else {
+                return <Redirect to="/login"/>
+            }
+        }
         }
     />
 );

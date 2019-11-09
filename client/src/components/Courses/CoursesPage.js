@@ -67,7 +67,7 @@ class CoursesPage extends Component {
                         <CourseSingle username={this.state.course.title}/>
                     </div>
 
-                    <CourseList courses={this.props.courses} />
+                    {/*<CourseList courses={this.props.courses} />*/}
 {/*                    <div>
                         {this.props.courses.map(course => ( // why is it no this.state?
                             <div key={course.title}>{course.title}</div>
@@ -91,7 +91,7 @@ function mapStateToProps(state, ownProps) {
 
     // 4. debugger; -- test here
     return {
-        courses: state.courses
+        //courses: state.courses
     }
 }
 

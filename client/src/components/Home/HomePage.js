@@ -128,10 +128,6 @@ class HomePage extends Component {
     }
 
     render() {
-        var cursorPointerStyle = {
-            cursor: "pointer"
-        };
-
         return (
             <div className="home-page-container">
                 <div>
@@ -150,7 +146,7 @@ class HomePage extends Component {
                             <form>
                                 <div className="form-group">
                                     <input type="text" className="form-control"
-                                           placeholder="Search book titles, authors, ISBNs, etc..."
+                                           placeholder="Search book titles, authors, ISBN numbers, schools, and course codes."
                                            onChange={this.onChangeSearchForItems} value={this.state.name}/>
                                 </div>
                             </form>

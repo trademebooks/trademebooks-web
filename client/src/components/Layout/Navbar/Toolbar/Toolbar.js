@@ -1,39 +1,114 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import './Toolbar.css';
 import Logo from "../../../../images/Icons/logo.png";
+import {logout} from "../../../../redux/actions/securityActions";
+import auth from '../../../../utilities/AuthUtil';
+import toastr from 'toastr/build/toastr.min';
+import 'toastr/build/toastr.min.css';
+import axios from 'axios';
+import * as Constants from "../../../../utilities/Constants";
 
-const toolbar = (props) => (
-    <header className="toolbar">
-        <nav className="toolbar__navigation">
-            <div className="toolbar__toggle-button">
-                <DrawerToggleButton click={props.drawerClickHandler} />
-            </div>
+class Toolbar extends Component {
 
-            <div className="toolbar__logo">
-                <a href="/">
-                    <img alt="Book Logo" src={Logo} width="40px" height="50px" />
-                </a>
-            </div>
+    constructor(props, context) {
+        super(props, context);
 
-            <div className="spacer" />
+        this.logout.bind(this);
 
-            <div className="toolbar_navigation-items">
-                <ul>
-                    <li><a href="/courses">Courses</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/bookstore">My Bookstore</a></li>
-                    <li><a href="/sell-a-book">Sell a Book</a></li>
-                    <li><a href="/settings">Account - Settings</a></li>
+        this.logout = this.logout.bind(this);
+    }
 
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-);
+/*    logout() {
+        this.props.logout();
+        window.location.href = "/";
+    }*/
 
-export default toolbar;
+    logout() {
+        auth.logout(function () {
+            console.log("logging the user out");
+            setTimeout(function () {
+                toastr.success("Thanks for using TMB, come back again soon!");
+                window.location.href = "/";
+            }, 300);
+        })
+    }
+
+    render() {
+        let validToken = "";
+        let user = {};
+        // const {validToken, user} = this.props.security;
+
+        const userIsAuthenticated = (
+            <ul>
+                {/*<li><Link to="/courses">Courses</Link></li>*/}
+                {/*<li><Link to="/profile">Profile</Link></li>*/}
+                <li><Link to="/bookstore">My Bookstore</Link></li>
+                <li><Link to="/sell-a-book">Sell a Book</Link></li>
+                <li><Link to="/settings">Account</Link></li>
+                <li><Link to="#logout" onClick={this.logout}>Logout</Link></li>
+            </ul>
+        );
+
+        const userIsNotAuthenticated = (
+            <ul>
+                <li><Link to="/login">Login</Link></li>
+                <li className="navbar__register-button"><Link to="/register">Register</Link></li>
+            </ul>
+        );
+
+        let headerLinks;
+
+        const isLoggedIn = auth.isAuthenticated();
+        /*
+        if (validToken && user) {
+            headerLinks = userIsAuthenticated;
+        }*/
+        if (isLoggedIn) {
+            headerLinks = userIsAuthenticated;
+        }
+        else {
+            headerLinks = userIsNotAuthenticated;
+        }
+
+        return (
+            <header className="toolbar">
+                <nav className="toolbar__navigation">
+                    <div className="toolbar__toggle-button">
+                        <DrawerToggleButton click={this.props.drawerClickHandler}/>
+                    </div>
+
+                    <div className="toolbar__logo">
+                        <a href="/">
+                            <img alt="Book Logo" src={Logo} width="40px" height="50px"/>
+                        </a>
+                    </div>
+
+                    <div className="spacer"/>
+
+                    <div className="toolbar_navigation-items">
+                        {headerLinks}
+                    </div>
+                </nav>
+            </header>
+        )
+    }
+}
+
+Toolbar.propTypes = {
+    logout: PropTypes.func.isRequired,
+    //security: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    security: state.security
+});
+
+export default connect(
+    mapStateToProps,
+    {logout}
+)(Toolbar);

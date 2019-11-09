@@ -5,6 +5,10 @@ import PropTypes from "prop-types";
 import {login} from "../../redux/actions/securityActions";
 
 import './Auth.scss';
+import toastr from 'toastr/build/toastr.min';
+import axios from 'axios';
+import * as Constants from '../../utilities/Constants';
+import auth from "../../utilities/AuthUtil";
 
 class Login extends Component {
     constructor(props) {
@@ -17,6 +21,10 @@ class Login extends Component {
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
+        if (auth.isAuthenticated()) {
+            this.props.history.push("/");
+        }
     }
 
     onChange(e) {
@@ -36,14 +44,31 @@ class Login extends Component {
                 x = x.toLowerCase().replace(/\b[a-z]/g, function (letter) {
                     return letter.toUpperCase();
                 });
+                toastr.error(x + " is required.");
                 errors++;
             }
         }
 
-        if (errors > 0) {
-            console.log("we got errors bro");
+        if (errors <= 0) {
+            axios.post(Constants.LOGIN_URL, this.state)
+                .then(function (response) {
+                    console.log(response);
+                    toastr.success("You have successfully logged in. We are redirecting you to the homage page.");
+
+                    auth.login(function () {
+                        setTimeout(function () {
+                            window.location.href = "/";
+                        }, 2000)
+                    });
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    toastr.error(error);
+                });
         }
     }
+
 
     render() {
         return (
@@ -56,7 +81,7 @@ class Login extends Component {
                 <div id="auth-interactable">
                     <form id="auth-form" onSubmit={this.onSubmit}>
                         <input onChange={this.onChange}
-                               name="username"
+                               name="email"
                                type="text"
                                placeholder="Username/ Email"
                                value={this.state.username}/>

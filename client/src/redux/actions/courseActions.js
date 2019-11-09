@@ -10,7 +10,10 @@ export function createCourse(course) {
 }
 
 export function loadCourseSuccess(courses) {
-    return {type: types.LOAD_COURSES_SUCCESS, courses};
+    return {
+        type: types.LOAD_COURSES_SUCCESS,
+        courses
+    };
 }
 
 // Async in Redux - Add First Thunk - 1:25

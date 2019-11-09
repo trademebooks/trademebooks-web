@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+import toastr from 'toastr/build/toastr.min';
+
 import {createNewUser} from "../../redux/actions/securityActions";
 
 import './Auth.scss';
+
+import axios from 'axios';
+import * as Constants from '../../utilities/Constants';
+import auth from "../../utilities/AuthUtil";
 
 class Register extends Component {
     constructor(props) {
@@ -17,6 +24,10 @@ class Register extends Component {
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
+        if (auth.isAuthenticated()) {
+            this.props.history.push("/dashboard");
+        }
     }
 
     onChange(e) {
@@ -36,17 +47,26 @@ class Register extends Component {
                 x = x.toLowerCase().replace(/\b[a-z]/g, function (letter) {
                     return letter.toUpperCase();
                 });
+                toastr.error(x + " is required.");
                 errors++;
             }
         }
 
-        if (errors > 0) {
-            console.log("we got errors bro");
-        }
-        else {
-            let email = this.state.email;
-            let password = this.state.password;
-            this.props.createNewUser({ email, password}, this.props.history);
+        if (errors <= 0) {
+            axios.post(Constants.REGISTER_URL, this.state)
+                .then(function (response) {
+                    console.log(response);
+                    toastr.success("You have successfully registered for an account. We are redirecting you to the login page.");
+                    //this.props.history.push("/login");
+
+                    setTimeout(function () {
+                        window.location.href = "/login";
+                    }, 2000);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    toastr.error(error);
+                });
         }
     }
 
@@ -63,7 +83,7 @@ class Register extends Component {
                         <input onChange={this.onChange}
                                name="username"
                                type="text"
-                               placeholder="Username"
+                               placeholder="Full Name"
                                value={this.state.username}/>
 
                         <input onChange={this.onChange}
@@ -78,22 +98,20 @@ class Register extends Component {
                                placeholder="Password"
                                value={this.state.password}/>
 
-                        <p className="auth-tc">By signing up, I agree to TMB’s <a href="/terms">Terms and Conditions</a>
-                        </p>
+                        <p className="auth-tc">By registering, I agree to TMB’s <Link to="/terms">Terms and Conditions</Link>.</p>
 
-                        <input className="auth-submit" type="submit" value="Signup"/>
+                        <input className="auth-submit" type="submit" value="Register"/>
                     </form>
-
+{/*
                     <div id="auth-other">
                         <button className="auth-other facebook">SIGN UP WITH FACEBOOK</button>
                         <button className="auth-other google">SIGN UP WITH GOOGLE</button>
                         <button className="auth-other twitter">SIGN UP WITH TWITTER</button>
                         <button className="auth-other linkedin">SIGN UP WITH LINKEDIN</button>
-
-                    </div>
+                    </div>*/}
                 </div>
 
-                <p className="auth-options">Already have an account? <a href="/login">Login</a></p>
+                <p className="auth-options">Already have an account? <a href="/login">Login</a>.</p>
             </div>
         );
     }
@@ -109,5 +127,5 @@ function mapStateToProps(state) {
 
 export default connect(
     mapStateToProps,
-    { createNewUser }
+    {createNewUser}
 )(Register);

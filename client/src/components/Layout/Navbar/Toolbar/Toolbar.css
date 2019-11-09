@@ -38,12 +38,14 @@
 }
 
 .toolbar_navigation-items li {
-    padding: 0 0.5rem;
+    padding: 5px 20px 5px 20px;
+    margin: 0 10px 0;
 }
 
 .toolbar_navigation-items a {
     color: white;
     text-decoration: none;
+    font-size: 1.2rem;
 }
 
 .toolbar_navigation-items a:hover,
@@ -69,4 +71,14 @@
     .toolbar__logo {
         margin-left: 0;
     }
+}
+
+.navbar__register-button {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.navbar__register-button > a {
+    color: #109383;
+    font-weight: bold;
 }

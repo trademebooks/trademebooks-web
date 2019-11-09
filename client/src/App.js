@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Route, Switch} from "react-router-dom";
 
 import "./css/global/Main.scss";
+import 'toastr/build/toastr.min.css';
 
 /* Main Navigation Bar */
 import Toolbar from './components/Layout/Navbar/Toolbar/Toolbar';
@@ -39,7 +40,7 @@ import setJWTToken from "./utilities/setJWTToken";
 import { SET_CURRENT_USER } from "./redux/actions/actionTypes";
 import { logout } from "./redux/actions/securityActions";
 import store from "./redux/configureStore";
-//import SecuredRoute from "./utilities/SecuredRoute";
+import SecuredRoute from "./utilities/SecuredRoute";
 
 const jwtToken = localStorage.jwtToken;
 if (jwtToken) {
@@ -102,10 +103,13 @@ class App extends Component {
 
                         <Route path="/register" component={Register}/>
                         <Route path="/login" component={Login}/>
-                        <Route path="/sell-a-book" component={PostBook}/>
 
-                        <Route path="/settings" component={Settings}/>
-                        <Route path="/bookstore" component={Bookstore}/>
+                        {/* Private Pages - Requires Authentication/Login */}
+                        <SecuredRoute exact path="/sell-book" component={PostBook}/>
+                        <SecuredRoute exact path="/account" component={Settings}/>
+                        <SecuredRoute exact path="/bookstore" component={Bookstore}/>
+
+                        {/*---------------------------------------------------------------------------*/}
 
                         {/* Courses - learning purposes */}
                         <Route path="/courses" component={CoursesPage}/>
