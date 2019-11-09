@@ -48,8 +48,8 @@ class Toolbar extends Component {
                 {/*<li><Link to="/courses">Courses</Link></li>*/}
                 {/*<li><Link to="/profile">Profile</Link></li>*/}
                 <li><Link to="/bookstore">My Bookstore</Link></li>
-                <li><Link to="/sell-a-book">Sell a Book</Link></li>
-                <li><Link to="/settings">Account</Link></li>
+                <li><Link to="/sell-book">Sell a Book</Link></li>
+                <li><Link to="/account">Account</Link></li>
                 <li><Link to="#logout" onClick={this.logout}>Logout</Link></li>
             </ul>
         );
