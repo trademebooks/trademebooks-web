@@ -22,7 +22,7 @@ The key features are:
 1. Install NodeJS - https://nodejs.org/en/
 2. Install Java JDK 8 - https://www.oracle.com/technetwork/java/javase/downloads/index.html
 3. Install Maven - https://www.youtube.com/watch?v=6AVC3X88z6E
-4. Install MySQL - http://www.wampserver.com/en/
+4. Install MySQL - (I use WAMP) http://www.wampserver.com/en/
 5. (Highly recommended to install the IDE Intellij) - https://www.jetbrains.com/idea/download/
 
 ## Frontend Work Flow
