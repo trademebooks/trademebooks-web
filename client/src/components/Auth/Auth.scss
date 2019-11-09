@@ -1,5 +1,9 @@
+$main_color: #109383;
+
 #auth-page {
   padding: 2rem 4rem;
+
+  //height: 90vh;
 
   h1 {
     margin: 0rem 0rem 2rem 0rem;
@@ -26,7 +30,7 @@
 
       input {
         border: 1px solid #C4C4C4;
-        border-radius: 3px;
+        border-radius: 5px;
         margin: 0.5rem 0rem;
         padding: 0.8rem 1.5rem;
       }
@@ -45,22 +49,24 @@
 
       .auth-other {
         margin: 0.5rem 0rem;
-        border-radius: 3px;
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
 
         &.facebook {
-          background-color: #5D6ADB;
+          background-color: #3C5A99;
         }
 
         &.google {
-          background-color: #DC4468
+          background-color: #DB4437;
         }
 
         &.twitter {
-          background-color: #5DC4DB
+          background-color: #1DA1F2;
         }
 
         &.linkedin {
-          background-color: #312F3A
+          background-color: #000000
         }
       }
     }
@@ -69,5 +75,13 @@
   .auth-options {
     margin-top: 4rem;
   }
+
+  .auth-submit {
+    background: $main_color;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
 }
 

@@ -9,6 +9,7 @@ import toastr from 'toastr/build/toastr.min';
 import axios from 'axios';
 import * as Constants from '../../utilities/Constants';
 import auth from "../../utilities/AuthUtil";
+import {Link} from "react-router-dom";
 
 class Login extends Component {
     constructor(props) {
@@ -108,7 +109,7 @@ class Login extends Component {
                     </div>
                 </div>
 
-                <p className="auth-options">Don't have an account? <a href="/register">Register</a></p>
+                <p className="auth-options">Don't have an account? <Link to="/register" className="font-weight-bold">Register</Link>.</p>
             </div>
         );
     }

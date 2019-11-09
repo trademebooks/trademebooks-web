@@ -74,8 +74,8 @@ class Register extends Component {
         return (
             <div id="auth-page">
                 <div id="auth-header">
-                    <h1>Get Started</h1>
-                    <p>Creating an account lets you sell books, contact sellers and view other people’s bookstores</p>
+                    <h1>GET STARTED</h1>
+                    <p>Creating an account lets you sell books, contact sellers and view other people’s bookstores.</p>
                 </div>
 
                 <div id="auth-interactable">
@@ -98,20 +98,20 @@ class Register extends Component {
                                placeholder="Password"
                                value={this.state.password}/>
 
-                        <p className="auth-tc">By registering, I agree to TMB’s <Link to="/terms">Terms and Conditions</Link>.</p>
+                        <p className="auth-tc">By registering, I agree to TMB’s <Link to="/terms" className="font-weight-bold">Terms and Conditions</Link>.</p>
 
                         <input className="auth-submit" type="submit" value="Register"/>
                     </form>
-{/*
+
                     <div id="auth-other">
                         <button className="auth-other facebook">SIGN UP WITH FACEBOOK</button>
                         <button className="auth-other google">SIGN UP WITH GOOGLE</button>
                         <button className="auth-other twitter">SIGN UP WITH TWITTER</button>
                         <button className="auth-other linkedin">SIGN UP WITH LINKEDIN</button>
-                    </div>*/}
+                    </div>
                 </div>
 
-                <p className="auth-options">Already have an account? <a href="/login">Login</a>.</p>
+                <p className="auth-options">Already have an account? <Link to="/login" className="font-weight-bold">Login</Link>.</p>
             </div>
         );
     }
