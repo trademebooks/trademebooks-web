@@ -85,3 +85,20 @@ $main_color: #109383;
 
 }
 
+// Mobile
+@media (max-width: 768px) {
+  #auth-page {
+    #auth-interactable {
+      flex-direction: column;
+
+      #auth-form {
+        padding-right: 0;
+        border-right: none;
+      }
+
+      #auth-other {
+        padding-left: 0;
+      }
+    }
+  }
+}

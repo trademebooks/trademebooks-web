@@ -85,19 +85,8 @@ class Login extends Component {
 
                 <div id="auth-interactable">
                     <form id="auth-form" onSubmit={this.onSubmit}>
-                        <input onChange={this.onChange}
-                               name="email"
-                               type="text"
-                               placeholder="Username/ Email"
-                               value={this.state.username}/>
-
-                        <input onChange={this.onChange}
-                               name="password"
-                               type="password"
-                               placeholder="Password"
-                               value={this.state.password}/>
-
-
+                        <input onChange={this.onChange} name="email" type="text" placeholder="Username/ Email" value={this.state.username}/>
+                        <input onChange={this.onChange} name="password" type="password" placeholder="Password" value={this.state.password}/>
                         <input className="auth-submit" type="submit" value="Login"/>
                     </form>
 
