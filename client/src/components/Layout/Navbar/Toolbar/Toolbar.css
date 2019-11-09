@@ -73,12 +73,12 @@
     }
 }
 
-.navbar__register-button {
+.navbar__inverted-button {
     background-color: white;
     border-radius: 10px;
 }
 
-.navbar__register-button > a {
+.navbar__inverted-button > a {
     color: #109383;
     font-weight: bold;
 }

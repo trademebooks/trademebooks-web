@@ -41,7 +41,7 @@ class Toolbar extends Component {
                 {/*<li><Link to="/courses">Courses</Link></li>*/}
                 {/*<li><Link to="/profile">Profile</Link></li>*/}
                 <li><Link to="/bookstore">My Bookstore</Link></li>
-                <li><Link to="/sell-book">Sell a Book</Link></li>
+                <li className="navbar__inverted-button"><Link to="/sell-book">Sell Books</Link></li>
                 <li><Link to="/account">Account</Link></li>
                 <li><Link to="#logout" onClick={this.logout}>Logout</Link></li>
             </ul>
@@ -50,7 +50,7 @@ class Toolbar extends Component {
         const userIsNotAuthenticated = (
             <ul>
                 <li><Link to="/login">Login</Link></li>
-                <li className="navbar__register-button"><Link to="/register">Register</Link></li>
+                <li className="navbar__inverted-button"><Link to="/register">Register</Link></li>
             </ul>
         );
 
