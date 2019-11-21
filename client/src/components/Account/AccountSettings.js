@@ -42,8 +42,8 @@ class Settings extends Component {
                 <form id="settings-form">
                     <div id="settings-form-wrap">
 
-                        <div class="tcol">
-                            <p class="section-text">ACCOUNT</p>
+{/*                        <div className="tcol">
+                            <p className="section-text">ACCOUNT</p>
 
                             <p>Username</p>
                             <input name="username"
@@ -67,23 +67,23 @@ class Settings extends Component {
                                     />
                         </div>
 
-                        <div class="tcol">
-                            <p class="section-text">LOCATION</p>
+                        <div className="tcol">
+                            <p className="section-text">LOCATION</p>
 
                             <p>Where can people meet you?</p>
                             <input name="location"
                                     type="text"
                                     />
 
-                            <p class="section-text">SCHOOL</p>
+                            <p className="section-text">SCHOOL</p>
                             <p>Which school are you buying/selling from?</p>
                             <input name="school"
                                     type="text"
                                     />
-                        </div>
+                        </div>*/}
 
                     </div>
-                    <button class="btn" onClick={(e) => this.changeNotificationVis(e, true)}>
+                    <button className="btn" onClick={(e) => this.changeNotificationVis(e, true)}>
                         Save Changes
                     </button>
                 </form>

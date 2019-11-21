@@ -28,6 +28,7 @@ import HomePage from "./components/Home/HomePage";
 import PostBook from "./components/PostBook/PostBook"
 import Settings from "./components/Account/AccountSettings"
 import Bookstore from "./components/Bookstore/Bookstore"
+import Chat from "./components/Chat/Chat";
 
 // Learning
 import CoursesPage from "./components/Courses/CoursesPage";
@@ -113,6 +114,8 @@ class App extends Component {
 
                         {/* Courses - learning purposes */}
                         <Route path="/courses" component={CoursesPage}/>
+
+                        <Route exact path="/chat" component={Chat}/>
 
                         <Route component={NotFoundPage}/>
                     </Switch>
