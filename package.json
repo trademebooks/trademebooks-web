@@ -1,0 +1,32 @@
+{
+  "name": "ilovetennis2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "12.13.1",
+    "npm": "6.12.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "concurrently": "^3.5.0",
+    "cookie-session": "^2.0.0-beta.2",
+    "express": "^4.15.3",
+    "localtunnel": "^1.8.3",
+    "lodash": "^4.17.4",
+    "mongoose": "^5.8.2",
+    "nodemon": "^2.0.2",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^2.0.2",
+    "sendgrid": "^5.1.2",
+    "stripe": "^4.23.1"
+  }
+}
