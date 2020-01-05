@@ -1,8 +1,15 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.view {
+    background-image: url('https://mdbootstrap.com/img/Photos/Others/images/93.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 56px);
 }
