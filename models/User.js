@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
+    facebookId: String,
     googleId: String,
-    credits: {
-        type: Number,
-        default: 0
-    }
+    twitterId: String,
+    email: String,
+    password: String,
+    name: String,
+    picture: String,
+    profileName: String,
+    bookstoreName: String,
 });
 
 mongoose.model('user', userSchema);

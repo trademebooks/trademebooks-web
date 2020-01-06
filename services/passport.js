@@ -21,23 +21,51 @@ passport.use(new GoogleStrategy({
         callbackURL: "/auth/google/callback"
     },
     async (accessToken, refreshToken, profile, done) => {
-/*                User.findOrCreate({ googleId: profile.id }, function (err, user) {
-                    return cb(err, user);
-                });*/
-/*                console.log("accessToken:", accessToken);
-                console.log("refreshToken:", refreshToken);
-                console.log("profile:", profile);
-                console.log("cb:", done);*/
+        let google_user_details = profile._json;
+        let googleId = profile.id;
+        let name = google_user_details.name;
+        let picture = google_user_details.picture;
+        let email = google_user_details.email;
 
+        /**
+         {
+   id: '110603409234402153901',
+   displayName: 'Yi Chen Zhu',
+   name: { familyName: 'Zhu', givenName: 'Yi Chen' },
+   emails: [ { value: 'yichenzhu1337@gmail.com', verified: true } ],
+   photos: [
+     {
+       value: 'https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcklAbO227AZwxw1kMi4ZzWpoQ5-g/photo.j
+pg'
+     }
+   ],
+   provider: 'google',
+   _json: {
+     sub: '110603409234402153901',
+     name: 'Yi Chen Zhu',
+     given_name: 'Yi Chen',
+     family_name: 'Zhu',
+     picture: 'https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcklAbO227AZwxw1kMi4ZzWpoQ5-g/photo.j
+pg',
+     email: 'yichenzhu1337@gmail.com',
+     email_verified: true,
+     locale: 'en'
+   }
+ }
+         */
         const existingUser = await User.findOne({googleId: profile.id});
 
         console.log("existing user:", existingUser);
 
         if (existingUser) { // we already have a record of the given profile id
             done(null, existingUser);
-        }
-        else {
-            const user = await new User({googleId: profile.id}).save();
+        } else {
+            const user = await new User({
+                googleId,
+                name,
+                picture,
+                email
+            }).save();
 
             console.log("user:", user);
 

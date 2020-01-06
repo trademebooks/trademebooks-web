@@ -24,7 +24,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props.actions.fetchUser();
+        this.props.fetchUser();
     }
 
     render() {
@@ -54,11 +54,6 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
-    courses: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
-};
-
 function mapStateToProps(state) {
     return {
         //courses: state.courses
@@ -66,12 +61,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        actions: actions
-    };
+    return actions;
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    null,//mapStateToProps,
+    actions //mapDispatchToProps
 )(App);

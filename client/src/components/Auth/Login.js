@@ -50,7 +50,8 @@ class Login extends Component {
                                 <MDBBtn size="lg" tag="a" floating social="tw" color="info" rounded>
                                     <MDBIcon fab icon="twitter"/>
                                 </MDBBtn>
-                                <MDBBtn size="lg" tag="a" floating social="gplus" color="danger" rounded>
+                                <MDBBtn href="/auth/google" size="lg" tag="a" floating social="gplus" color="danger"
+                                        rounded>
                                     <MDBIcon fab icon="google"/>
                                 </MDBBtn>
                             </div>

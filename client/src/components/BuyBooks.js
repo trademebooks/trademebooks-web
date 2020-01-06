@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Autosuggest from 'react-autosuggest';
 import '../css/buybooks.css';
+import {MDBAnimation, MDBCol, MDBContainer, MDBMedia, MDBRow} from "mdbreact";
 
 // library: https://react-autosuggest.js.org/
 // CodePen examples:
@@ -130,6 +131,8 @@ class BuyBooks extends Component {
             isLoading: true
         });
 
+        console.log(getMatchingLanguages(value));
+
         // Fake request
         this.lastRequestId = setTimeout(() => {
             this.setState({
@@ -164,30 +167,66 @@ class BuyBooks extends Component {
         };
         const status = (isLoading ? 'Loading...' : 'Type to load suggestions');
 
-        return (
-            <div class="flex-center">
-                <div className="mt-4 justify-content-center">
-                    {/*                <div className="status">
-                    <strong>Status:</strong> {status}
-                </div>*/}
+        const items = [];
+        for (let i = 0; i < 10; i++) {
+            items.push(
+                <MDBAnimation type="fadeIn" duration="500ms">
+                    <MDBContainer className="mt-4">
+                        <MDBRow center={true}>
+                            <MDBCol md="12">
+                                <MDBMedia>
+                                    <MDBMedia left className="mr-3" href="#">
+                                        <MDBMedia object
+                                                  src="https://mdbootstrap.com/img/Photos/Others/placeholder1.jpg"
+                                                  alt=""/>
+                                    </MDBMedia>
+                                    <MDBMedia body>
+                                        <MDBMedia heading>
+                                            Media heading
+                                        </MDBMedia>
+                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                            ante
+                                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                                            viverra
+                                            turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+                                            lacinia congue
+                                            felis in faucibus.
+                                        </p>
+                                    </MDBMedia>
+                                </MDBMedia>
+                            </MDBCol>
+                        </MDBRow>
+                    </MDBContainer>
+                </MDBAnimation>
+            );
+        }
 
-                    <div className="text-center">
-                        <h1>Buy Books</h1>
-                        <div>
-                            <Autosuggest
-                                suggestions={suggestions}
-                                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                                getSuggestionValue={getSuggestionValue}
-                                renderSuggestion={renderSuggestion}
-                                inputProps={inputProps}/>
-                        </div>
-                    </div>
-                </div>
+        return (
+            <div className="mt-4">
+                <MDBContainer>
+                    <MDBRow center={true}>
+                        <MDBCol md="">
+                            <div className="text-center">
+                                <h1>Buy Books</h1>
+                            </div>
+                            <div>
+                                <Autosuggest
+                                    suggestions={suggestions}
+                                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                                    getSuggestionValue={getSuggestionValue}
+                                    renderSuggestion={renderSuggestion}
+                                    inputProps={inputProps}/>
+                            </div>
+                            <div>
+                                {items}
+                            </div>
+                        </MDBCol>
+                    </MDBRow>
+                </MDBContainer>
             </div>
         );
     }
-
 }
 
 export default BuyBooks;
