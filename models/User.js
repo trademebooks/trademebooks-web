@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const {Schema} = mongoose;
 
-const userSchema = new Schema({
-    facebookId: String,
-    googleId: String,
-    twitterId: String,
-    email: String,
-    password: String,
-    name: String,
-    picture: String,
-    profileName: String,
-    bookstoreName: String,
+const UserSchema = new Schema({
+    facebookId: {type: String, default: null},
+    googleId: {type: String, default: null},
+    twitterId: {type: String, default: null},
+    email: {type: String, default: null},
+    password: {type: String, default: null},
+    name: {type: String, default: null},
+    picture: {type: String, default: null},
+    profileName: {type: String, default: null},
+    bookstoreName: {type: String, default: null},
 });
 
-mongoose.model('user', userSchema);
+mongoose.model('user', UserSchema);

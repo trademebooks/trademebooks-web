@@ -1,8 +1,18 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const Settings = new Schema({
-    email: {type: Boolean, default: true}
+const SettingsSchema = new Schema({
+
+    /**
+     * Email Settings
+     * [] receive emails when someone
+     *
+     * SMS / Texting Settings
+     * []
+     */
+
+    receiveEmail_1: {type: Boolean, default: true},
+    receiveTexts_1: {type: Boolean, default: true}
 });
 
-module.exports = Settings;
+module.exports = mongoose.model('settings', SettingsSchema);
