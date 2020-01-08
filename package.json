@@ -12,7 +12,7 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/**/*Tests.js"
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +34,10 @@
     "sendgrid": "^5.1.2",
     "socket.io": "^2.3.0",
     "stripe": "^4.23.1",
-    "twilio": "^3.39.1"
+    "twilio": "^3.39.1",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "sinon": "^7.2.2",
+    "supertest": "^3.3.0"
   }
 }

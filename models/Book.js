@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const BookSchema = new Schema({
-    user_id: {type: Schema.Types.ObjectId, ref: 'user'},
+    user_id: {type: String, default: ""},//{type: Schema.Types.ObjectId, ref: 'user'},
     title: {type: String, default: ""},
     description: {type: String, default: ""},
     authors: {type: Array, default: []},

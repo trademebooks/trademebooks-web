@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Autosuggest from "react-autosuggest";
 import {MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon} from 'mdbreact';
 
-import defaultBookImage from '../images/defaultBook.jpg';
+import defaultBookImage from '../../images/defaultBook.jpg';
 
 class SellBooks extends Component {
 
@@ -33,7 +33,6 @@ class SellBooks extends Component {
         this.lastRequestId = null;
     }
 
-
     clearForm = event => {
       event.preventDefault();
 
@@ -57,23 +56,9 @@ class SellBooks extends Component {
     };
 
     loadSuggestions(value) {
-        // Cancel the previous request
-        /*        if (this.lastRequestId !== null) {
-                    clearTimeout(this.lastRequestId);
-                }*/
-
         this.setState({
             isLoading: true
         });
-
-        // Fake request
-        /*        this.lastRequestId = setTimeout(() => {
-                    this.setState({
-                        isLoading: false,
-                        suggestions: getMatchingLanguages(value)
-                    });
-                }, 1000);*/
-
 
         const thisRequest = this.latestRequest = fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&key=AIzaSyCpl497dKbKN-piJBJJ5zOf3sCPk7CKuJg`)
             .then(res => res.json())
@@ -125,11 +110,7 @@ class SellBooks extends Component {
         });
     };
 
-
     getSuggestionValue = (suggestion) => {
-        //console.log(suggestion);
-        //
-
         this.setState({
             ...suggestion
         });
@@ -326,103 +307,11 @@ class SellBooks extends Component {
 
 export default SellBooks;
 
-
-/* ---------- */
-/*    Data    */
-/* ---------- */
-var languages = [
-    {
-        name: 'C',
-        year: 1972
-    },
-    {
-        name: 'C#',
-        year: 2000
-    },
-    {
-        name: 'C++',
-        year: 1983
-    },
-    {
-        name: 'Clojure',
-        year: 2007
-    },
-    {
-        name: 'Elm',
-        year: 2012
-    },
-    {
-        name: 'Go',
-        year: 2009
-    },
-    {
-        name: 'Haskell',
-        year: 1990
-    },
-    {
-        name: 'Java',
-        year: 1995
-    },
-    {
-        name: 'Javascript',
-        year: 1995
-    },
-    {
-        name: 'Perl',
-        year: 1987
-    },
-    {
-        name: 'PHP',
-        year: 1995
-    },
-    {
-        name: 'Python',
-        year: 1991
-    },
-    {
-        name: 'Ruby',
-        year: 1995
-    },
-    {
-        name: 'Scala',
-        year: 2003
-    }
-];
-
-function getMatchingLanguages(value) {
-    const escapedValue = escapeRegexCharacters(value.trim());
-
-    if (escapedValue === '') {
-        return [];
-    }
-
-    const regex = new RegExp('^' + escapedValue, 'i');
-
-    return languages.filter(language => regex.test(language.name));
-}
-
-/* ----------- */
-/*    Utils    */
-/* ----------- */
-
-// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
-function escapeRegexCharacters(str) {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-/* --------------- */
-/*    Component    */
-
-/* --------------- */
-
-
 function renderSuggestion(suggestion) {
     let authors = "";
     if (suggestion.bookAuthors && suggestion.bookAuthors.length > 0) {
         authors = suggestion.bookAuthors.join(", ");
     }
-
-    //console.log(authors);
 
     return (
         <div className="d-flex">
@@ -438,3 +327,8 @@ function renderSuggestion(suggestion) {
         </div>
     );
 }
+
+// library: https://react-autosuggest.js.org/
+// CodePen examples:
+// 1. Get suggestions asynchronously https://codepen.io/moroshko/pen/EPZpev
+// 2. Custom render https://codepen.io/moroshko/pen/PZWbzK
