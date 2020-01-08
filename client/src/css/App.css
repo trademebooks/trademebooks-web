@@ -8,7 +8,7 @@
 }
 
 /*Home Page background image*/
-.view {
+.view.landing-page {
     background-image: url('https://mdbootstrap.com/img/Photos/Others/images/93.jpg');
     background-repeat: no-repeat;
     background-size: cover;

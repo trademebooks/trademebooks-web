@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 const Landing = () => {
     return (
         <div>
-            <div className="view">
+            <div className="view landing-page">
                 <div className="mask rgba-black-light d-flex justify-content-center align-items-center">
                     <div className="text-center white-text mx-5 wow fadeIn">
                         <h1 className="mb-4">
