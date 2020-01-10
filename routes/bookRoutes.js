@@ -35,19 +35,36 @@ module.exports = app => {
      * Add a new book listing
      */
     app.post('/api/books', async (req, res) => {
-        const {title, subject, body, recipients} = req.body;
+        const {
+            bookTitle,
+            bookAuthors,
+            bookImage,
+            bookPublishedDate,
+            bookPublisher,
+            bookPrice,
+            bookLocationForMeet,
+        } = req.body;
+
+        // req.user.id
+
+        console.log(req.user);
         const book = new Book({
-            title,
-            subject,
-            body,
-            recipients: recipients.split(',').map(email => ({email: email.trim()})),
             user_id: req.user.id,
-            dateSent: Date.now()
+            //user_id: "user_id_1",
+            title: bookTitle,
+            description: "",
+            authors: bookAuthors,
+            condition: "good",
+            location: bookLocationForMeet,
+            price: bookPrice,
+            image: bookImage,
+            date_posted: "Jan 1, 1970",
+            publisher_date: bookPublishedDate,
+            publisher: bookPublisher,
         });
 
         try {
             await book.save();
-            res.send(book);
             res.status(201).json(book);
         } catch (err) {
             res.status(422).send(err);

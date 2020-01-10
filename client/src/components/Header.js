@@ -5,6 +5,7 @@ import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
     MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBIcon
 } from "mdbreact";
+import logo from "../images/logo.png";
 
 class Header extends Component {
 
@@ -35,7 +36,10 @@ class Header extends Component {
                     <MDBNavbar color="info-color" dark expand="md" style={{marginTop: "0px"}}>
                         <MDBContainer>
                             <MDBNavbarBrand>
-                                <Link to="/"><strong className="white-text">TMB</strong></Link>
+                                <Link to="/">
+                                    {/*<strong className="white-text">TMB</strong>*/}
+                                    <img width="32px" height="44px" src={logo}/>
+                                </Link>
                             </MDBNavbarBrand>
                             <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")}/>
                             <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>

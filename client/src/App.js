@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import './css/App.css';
+import 'toastr/build/toastr.min.css';
 
 import * as actions from './redux/actions';
 import Header from './components/Header';
@@ -12,7 +13,7 @@ import BuyBooks from "./components/Books/BuyBooks";
 import SellBooks from "./components/Books/SellBooks";
 import Messages from "./components/Messages";
 import Settings from "./components/Settings";
-import BookStore from "./components/BookStore";
+import BookStore from "./components/Books/BookStore";
 import NotFound from "./components/NotFound";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Autosuggest from "react-autosuggest";
 import {MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon} from 'mdbreact';
 
+import toastr from 'toastr/build/toastr.min';
 import defaultBookImage from '../../images/defaultBook.jpg';
 
 class SellBooks extends Component {
@@ -34,21 +35,57 @@ class SellBooks extends Component {
     }
 
     clearForm = event => {
-      event.preventDefault();
+        event.preventDefault();
 
-      this.setState({
-          bookTitle: '',
-          bookAuthors: '',
-          bookImage: defaultBookImage,
-          bookPublishedDate: '',
-          bookPublisher: '',
-          bookLocationForMeet: '',
-          bookPrice: '',
-      })
+        this.setState({
+            bookTitle: '',
+            bookAuthors: '',
+            bookImage: defaultBookImage,
+            bookPublishedDate: '',
+            bookPublisher: '',
+            bookLocationForMeet: '',
+            bookPrice: '',
+        })
     };
-    submitHandler = event => {
+    submitHandler = async event => {
         event.preventDefault();
         event.target.className += ' was-validated';
+
+        const {
+            bookTitle,
+            bookAuthors,
+            bookImage,
+            bookPublishedDate,
+            bookPublisher,
+            bookLocationForMeet,
+            bookPrice,
+        } = this.state;
+
+        let data = {
+            bookTitle,
+            bookAuthors,
+            bookImage,
+            bookPublishedDate,
+            bookPublisher,
+            bookLocationForMeet,
+            bookPrice,
+        };
+        try {
+            await fetch("/api/books/", {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            toastr.success("You have successfully added a new book.");
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            console.log('We do cleanup here');
+        }
     };
 
     changeHandler = event => {
@@ -280,7 +317,8 @@ class SellBooks extends Component {
                         <MDBRow>
                             <MDBCol md='10'>
                                 <h3><MDBIcon icon="image" className="mr-1"/>Book Image</h3>
-                                <img src={this.state.bookImage} alt="thumbnail" className="img-thumbnail" style={{'width': '25%'}}/>
+                                <img src={this.state.bookImage} alt="thumbnail" className="img-thumbnail"
+                                     style={{'width': '25%'}}/>
                             </MDBCol>
                         </MDBRow>
 
