@@ -47,42 +47,74 @@ const server = app.listen(PORT, () => {
     console.log("backend server listening on PORT:", 5000);
 });
 
-const io = socketio(server);
 
-/////////////// Web Socket - socket.io setup
-io.on('connect', (socket) => {
-    console.log('made the connection');
+(function () {
+    const io = socketio(server);
+///////////////////////////
+    const users = [];
 
-    socket.on('join', ({ name, room }, callback) => {
-        const { error, user } = addUser({ id: socket.id, name, room });
+    const addUser = ({ id, name, room }) => {
+        name = name.trim().toLowerCase();
+        room = room.trim().toLowerCase();
 
-        if(error) return callback(error);
+        const existingUser = users.find((user) => user.room === room && user.name === name);
 
-        socket.join(user.room);
+        if(!name || !room) return { error: 'Username and room are required.' };
+        if(existingUser) return { error: 'Username is taken.' };
 
-        socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
-        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+        const user = { id, name, room };
 
-        io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+        users.push(user);
 
-        callback();
+        return { user };
+    };
+
+    const removeUser = (id) => {
+        const index = users.findIndex((user) => user.id === id);
+
+        if(index !== -1) return users.splice(index, 1)[0];
+    };
+
+    const getUser = (id) => users.find((user) => user.id === id);
+
+    const getUsersInRoom = (room) => users.filter((user) => user.room === room);
+
+    module.exports = { addUser, removeUser, getUser, getUsersInRoom };
+
+    /////////////// Web Socket - socket.io setup
+    io.on('connect', (socket) => {
+        console.log('made the connection');
+
+        socket.on('join', ({ name, room }, callback) => {
+            const { error, user } = addUser({ id: socket.id, name, room });
+
+            if(error) return callback(error);
+
+            socket.join(user.room);
+
+            socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
+            socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+
+            io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+
+            callback();
+        });
+
+        socket.on('sendMessage', (message, callback) => {
+            const user = getUser(socket.id);
+
+            io.to(user.room).emit('message', { user: user.name, text: message });
+
+            callback();
+        });
+
+        socket.on('disconnect', () => {
+            const user = removeUser(socket.id);
+
+            if(user) {
+                io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
+                io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
+            }
+        })
     });
-
-    socket.on('sendMessage', (message, callback) => {
-        const user = getUser(socket.id);
-
-        io.to(user.room).emit('message', { user: user.name, text: message });
-
-        callback();
-    });
-
-    socket.on('disconnect', () => {
-        const user = removeUser(socket.id);
-
-        if(user) {
-            io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
-            io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
-        }
-    })
-});
-///////////////
+})();

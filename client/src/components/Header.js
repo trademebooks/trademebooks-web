@@ -57,7 +57,7 @@ class Header extends Component {
                                         <MDBNavLink disabled={true} link={false} to="/">Hello, {this.props.auth.name}!</MDBNavLink>
                                     </MDBNavItem>
                                     <MDBNavItem>
-                                        <MDBNavLink className="waves-effect waves-light" to="/messages">
+                                        <MDBNavLink className="waves-effect waves-light" to={"/messages?name=" + this.props.auth.name + "&room=room1337"}>
                                             <MDBIcon icon="envelope" className="mr-1"/>
                                         </MDBNavLink>
                                     </MDBNavItem>

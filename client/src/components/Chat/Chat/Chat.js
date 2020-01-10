@@ -9,6 +9,8 @@ import TextContainer from '../TextContainer/TextContainer';
 
 import './Chat.css';
 
+// http://localhost:3000/messages?name=yichen&room=room1337
+
 let socket;
 
 const Chat = ({ location }) => {
@@ -61,7 +63,7 @@ const Chat = ({ location }) => {
 
   return (
     <div className="outerContainer">
-      <div className="container">
+      <div className="chat-container">
           <InfoBar room={room} />
           <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />

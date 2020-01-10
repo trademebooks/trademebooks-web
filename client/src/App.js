@@ -12,6 +12,7 @@ import Landing from './components/Landing';
 import BuyBooks from "./components/Books/BuyBooks";
 import SellBooks from "./components/Books/SellBooks";
 import Messages from "./components/Messages";
+import Chat from "./components/Chat/Chat/Chat";
 import Settings from "./components/Settings";
 import BookStore from "./components/Books/BookStore";
 import NotFound from "./components/NotFound";
@@ -42,7 +43,7 @@ class App extends Component {
                             <Route exact path="/login" component={Login}/>
                             <Route exact path="/buy-books" component={BuyBooks}/>
                             <Route exact path="/sell-books" component={SellBooks}/>
-                            <Route exact path="/messages" component={Messages}/>
+                            <Route exact path="/messages" component={Chat}/>
                             <Route exact path="/settings" component={Settings}/>
                             <Route exact path="/bookstore" component={BookStore}/>
                             <Route component={NotFound}/>
