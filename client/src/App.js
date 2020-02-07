@@ -13,7 +13,7 @@ import BuyBooks from "./components/Books/BuyBooks";
 import SellBooks from "./components/Books/SellBooks";
 import Messages from "./components/Messages";
 import Chat from "./components/Chat/Chat/Chat";
-import Settings from "./components/Settings";
+import Settings from "./components/Settings/Settings";
 import BookStore from "./components/Books/BookStore";
 import NotFound from "./components/NotFound";
 import Login from "./components/Auth/Login";
