@@ -10,11 +10,12 @@ module.exports = app => {
     );
     app.get(
         '/auth/google/callback',
-        passport.authenticate('google'),
-        (req, res) => {
-            res.redirect('/');
-        }
-    );
+        passport.authenticate('google', {
+                successRedirect: '/',
+                failureRedirect: '/'
+            }
+        ));
+    ;
 
     /**
      * Logs the user out of the current session
