@@ -28,8 +28,31 @@ passport.use(new GoogleStrategy({
         let picture = google_user_details.picture;
         let email = google_user_details.email;
 
-        /**
-         {
+        const existingUser = await User.findOne({googleId: profile.id});
+
+        if (existingUser) { // we already have a record of the given profile id
+            console.log("existing user:", existingUser);
+            
+            done(null, existingUser);
+        } else {
+            const user = await new User({
+                googleId,
+                name,
+                picture,
+                email
+            }).save();
+
+            console.log("user:", user);
+
+            done(null, user);
+        }
+    }
+));
+
+/**
+ * SAMPLE OUTPUT FORM: async (accessToken, refreshToken, profile, done) => {
+ *
+ {
    id: '110603409234402153901',
    displayName: 'Yi Chen Zhu',
    name: { familyName: 'Zhu', givenName: 'Yi Chen' },
@@ -53,24 +76,4 @@ pg',
      locale: 'en'
    }
  }
-         */
-        const existingUser = await User.findOne({googleId: profile.id});
-
-        console.log("existing user:", existingUser);
-
-        if (existingUser) { // we already have a record of the given profile id
-            done(null, existingUser);
-        } else {
-            const user = await new User({
-                googleId,
-                name,
-                picture,
-                email
-            }).save();
-
-            console.log("user:", user);
-
-            done(null, user);
-        }
-    }
-));
+ */
