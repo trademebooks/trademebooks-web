@@ -54,7 +54,13 @@ pg',
    }
  }
          */
-        const existingUser = await User.findOne({googleId: profile.id});
+
+        try {
+            const existingUser = await User.findOne({googleId: profile.id});
+        }
+        catch (e) {
+            console.log("Super error", e);
+        }
 
         console.log("existing user:", existingUser);
 
