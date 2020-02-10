@@ -47,10 +47,10 @@ const server = app.listen(PORT, () => {
     console.log("backend server listening on PORT:", 5000);
 });
 
-
+///////////////////////////////////////////////////////////////////////////////////
+// Sockets: gotta change this later...
 (function () {
     const io = socketio(server);
-///////////////////////////
     const users = [];
 
     const addUser = ({ id, name, room }) => {

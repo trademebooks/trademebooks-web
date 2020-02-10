@@ -13,7 +13,7 @@ module.exports = app => {
         });
     });
 
-    app.get('/register-user', async (request, response) => {
+    app.get('/api/register-user', async (request, response) => {
         const User = mongoose.model('user');
         let user = await new User({googleId: 12345}).save();
         console.log(user);
