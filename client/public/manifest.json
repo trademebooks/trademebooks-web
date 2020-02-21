@@ -1,6 +1,6 @@
 {
-  "short_name": "Trade Me Books",
-  "name": "Create React App Sample",
+  "short_name": "trademebooks",
+  "name": "trademebooks",
   "icons": [
     {
       "src": "favicon.ico",
