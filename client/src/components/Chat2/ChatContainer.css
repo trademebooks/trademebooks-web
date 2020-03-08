@@ -9,3 +9,7 @@
 .chat-right-panel {
     flex-grow: 3;
 }
+
+.chat-user {
+    display: flex;
+}

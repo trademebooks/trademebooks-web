@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
 import {Link} from 'react-router-dom';
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
     MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBIcon
 } from "mdbreact";
+
 import logo from "../images/logo.png";
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
-
 
         this.state = {
             collapseID: ""
@@ -24,11 +25,11 @@ class Header extends Component {
         }));
     };
 
-    renderContent() {
+    componentDidUpdate() {
+        console.log('auth', this.props.auth);
     }
 
     render() {
-        console.log(this.props.auth);
         // If the user is LOGGED IN
         if (this.props.auth && this.props.auth._id) {
             return (
