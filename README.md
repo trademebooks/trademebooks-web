@@ -1,4 +1,4 @@
-# trademebooks.com - TMB
+# trademebooks.com
 
 ## About
 trademebooks.com (TMB) is the place for university and college students to buy, sell, and exchange books.
