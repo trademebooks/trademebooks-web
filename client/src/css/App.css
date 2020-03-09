@@ -12,7 +12,7 @@
     background-image: url('https://mdbootstrap.com/img/Photos/Others/images/93.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 70px);
 }
 
 .single-book-image-size {

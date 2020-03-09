@@ -11,13 +11,12 @@ const Landing = () => {
                             <strong>Trade Me Books</strong>
                         </h1>
 
-                        <p><strong>Best & free guide of responsive web design</strong></p>
+                        <p><strong>The #1 place to buy and sell used textbooks in Ontario.</strong></p>
 
                         <p className="mb-4 d-none d-md-block">
                             <strong>
-                                The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users.
-                                Video and written versions available.
-                                Create your own, stunning website.
+                                Having trouble finding the course textbook? Tired of buying new textbooks for a premium price? Use Trade Me Books to buy and sell textbooks for
+                                all your classes!
                             </strong>
                         </p>
 

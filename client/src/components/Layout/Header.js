@@ -7,7 +7,7 @@ import {
     MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBIcon
 } from "mdbreact";
 
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 
 class Header extends Component {
 
@@ -25,10 +25,6 @@ class Header extends Component {
         }));
     };
 
-    componentDidUpdate() {
-        console.log('auth', this.props.auth);
-    }
-
     render() {
         // If the user is LOGGED IN
         if (this.props.auth && this.props.auth._id) {
@@ -38,8 +34,7 @@ class Header extends Component {
                         <MDBContainer>
                             <MDBNavbarBrand>
                                 <Link to="/">
-                                    {/*<strong className="white-text">TMB</strong>*/}
-                                    <img width="32px" height="44px" src={logo}/>
+                                    <img width="32px" height="44px" src={logo} alt="trademebooks logo"/>
                                 </Link>
                             </MDBNavbarBrand>
                             <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")}/>
@@ -92,7 +87,9 @@ class Header extends Component {
                     <MDBNavbar color="info-color" dark expand="md" style={{marginTop: "0px"}}>
                         <MDBContainer>
                             <MDBNavbarBrand>
-                                <Link to="/"><strong className="white-text">TMB</strong></Link>
+                                <Link to="/">
+                                    <img width="32px" height="44px" src={logo} alt="trademebooks logo"/>
+                                </Link>
                             </MDBNavbarBrand>
                             <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")}/>
                             <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
@@ -133,6 +130,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-    mapStateToProps,/*
-    mapDispatchToProps*/
+    mapStateToProps,
+    mapDispatchToProps
 )(Header);

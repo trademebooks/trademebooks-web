@@ -7,15 +7,14 @@ import './css/App.css';
 import 'toastr/build/toastr.min.css';
 
 import * as actions from './redux/actions';
-import Header from './components/Header';
-import Landing from './components/Landing';
+import Header from './components/Layout/Header';
+import Landing from './components/Pages/Landing';
 import BuyBooks from "./components/Books/BuyBooks";
 import SellBooks from "./components/Books/SellBooks";
-import Messages from "./components/Messages";
 import Chat from "./components/Chat/Chat/Chat";
 import Settings from "./components/Settings/Settings";
 import BookStore from "./components/Books/BookStore";
-import NotFound from "./components/NotFound";
+import NotFound from "./components/Pages/NotFound";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ChatContainer from "./components/Chat2/ChatContainer";
@@ -33,8 +32,6 @@ class App extends Component {
     render() {
         return (
             <div>
-                {/* <a className="App-link" href="/auth/google">Login with google</a> */}
-
                 <BrowserRouter>
                     <div>
                         <Header/>
