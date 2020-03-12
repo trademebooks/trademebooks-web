@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import './css/App.css';
@@ -66,6 +65,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-    null,//mapStateToProps,
-    actions //mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(App);
