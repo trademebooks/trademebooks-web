@@ -86,6 +86,9 @@ const server = app.listen(PORT, () => {
         console.log('made the connection');
 
         socket.on('join', ({ name, room }, callback) => {
+
+            console.log(`the user ${name} has joined room ${room}`);
+
             const { error, user } = addUser({ id: socket.id, name, room });
 
             if(error) return callback(error);

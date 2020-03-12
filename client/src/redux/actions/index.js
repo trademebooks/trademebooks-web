@@ -1,10 +1,17 @@
 import axios from 'axios';
-import {FETCH_USER, FETCH_SURVEYS} from './types';
+import {FETCH_USER, FETCH_SURVEYS, LOADING} from './types';
 
 export const fetchUser = () => async dispatch => {
+    dispatch({type: LOADING, payload: true});
+
     const res = await axios.get('/api/current_user');
 
     dispatch({type: FETCH_USER, payload: res.data});
+
+    setTimeout( () => {
+
+        dispatch({type: LOADING, payload: false});
+    }, 5000);
 };
 
 export const handleToken = token => async dispatch => {

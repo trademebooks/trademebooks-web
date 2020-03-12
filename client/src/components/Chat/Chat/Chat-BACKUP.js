@@ -24,27 +24,44 @@ const Chat = ({location, ...props}) => {
 
     const ENDPOINT = 'http://localhost:5000/';
 
-    useEffect(() => {
+/*    useEffect(() => {
+        console.log("props.auth");
+        if (props.auth !== null) {
+            console.log('props', props.auth.name);
+
+            const name = props.auth.name;
+            const room = "1337";
+
+            socket = io(ENDPOINT);
+
+            setRoom(room);
+            setName(name);
+
+            socket.emit('join', {name, room}, (error) => {
+                if (error) {
+                    alert(error);
+                }
+            });
+
+        }
+    }, [props.auth, ENDPOINT, location.search]);*/
+
+      useEffect(() => {
         console.log("props.auth", props.auth);
 
-        //let {name, room} = queryString.parse(location.search);
-        let name = 'user' + (Math.random() * 100).toFixed(0);
-        const room = "chat room 1337";
-        if (props.auth) {
-            name = props.auth.name;
-        }
+        const { name, room } = queryString.parse(location.search);
 
         socket = io(ENDPOINT);
 
         setRoom(room);
         setName(name);
 
-        socket.emit('join', {name, room}, (error) => {
-            if (error) {
-                alert(error);
-            }
+        socket.emit('join', { name, room }, (error) => {
+          if(error) {
+            alert(error);
+          }
         });
-    }, [ENDPOINT, location.search]);
+      }, [ENDPOINT, location.search]);
 
     useEffect(() => {
         socket.on('message', (message) => {

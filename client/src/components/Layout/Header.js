@@ -25,6 +25,11 @@ class Header extends Component {
         }));
     };
 
+    componentDidUpdate() {
+        console.log("props.auth", this.props.auth);
+        console.log("props.loading", this.props.loading);
+    }
+
     render() {
         // If the user is LOGGED IN
         if (this.props.auth && this.props.auth._id) {
@@ -53,7 +58,8 @@ class Header extends Component {
                                         <MDBNavLink disabled={true} link={false} to="/">Hello, {this.props.auth.name}!</MDBNavLink>
                                     </MDBNavItem>
                                     <MDBNavItem>
-                                        <MDBNavLink className="waves-effect waves-light" to={"/messages?name=" + this.props.auth.name + "&room=room1337"}>
+                                        {/*<MDBNavLink className="waves-effect waves-light" to={"/messages?name=" + this.props.auth.name + "&room=room1337"}>*/}
+                                        <MDBNavLink className="waves-effect waves-light" to={"/messages"}>
                                             <MDBIcon icon="envelope" className="mr-1"/>
                                         </MDBNavLink>
                                     </MDBNavItem>

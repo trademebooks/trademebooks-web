@@ -29,34 +29,68 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <BrowserRouter>
-                    <div>
-                        <Header/>
-                        <Switch>
-                            <Route exact path="/" component={Landing}/>
-                            <Route exact path="/register" component={Register}/>
-                            <Route exact path="/login" component={Login}/>
-                            <Route exact path="/buy-books" component={BuyBooks}/>
-                            <Route exact path="/sell-books" component={SellBooks}/>
-                            <Route exact path="/messages" component={Chat}/>
-                            <Route exact path="/chat2" component={ChatContainer}/>
-                            <Route exact path="/settings" component={Settings}/>
-                            <Route exact path="/bookstore" component={BookStore}/>
-                            <Route component={NotFound}/>
-                        </Switch>
-                    </div>
-                </BrowserRouter>
+/*        if (this.props.auth && this.props.loading === false) {
+            return (
+                <div>
+                    <BrowserRouter>
+                        <div>
+                            <Header/>
+                            <Switch>
+                                <Route exact path="/" component={Landing}/>
+                                <Route exact path="/register" component={Register}/>
+                                <Route exact path="/login" component={Login}/>
+                                <Route exact path="/buy-books" component={BuyBooks}/>
+                                <Route exact path="/sell-books" component={SellBooks}/>
+                                <Route exact path="/messages" component={Chat}/>
+                                <Route exact path="/chat2" component={ChatContainer}/>
+                                <Route exact path="/settings" component={Settings}/>
+                                <Route exact path="/bookstore" component={BookStore}/>
+                                <Route component={NotFound}/>
+                            </Switch>
+                        </div>
+                    </BrowserRouter>
+                </div>
+            );
+        }
+        else {
+            return <div> Hello World </div>;
+        }*/
 
-            </div>
-        );
+/*        if (this.props.loading === true) {
+            return <div> loading... </div>;
+        }
+        else {*/
+            return (
+                <div>
+                    <BrowserRouter>
+                        <div>
+                            <Header/>
+                            <Switch>
+                                <Route exact path="/" component={Landing}/>
+                                <Route exact path="/register" component={Register}/>
+                                <Route exact path="/login" component={Login}/>
+                                <Route exact path="/buy-books" component={BuyBooks}/>
+                                <Route exact path="/sell-books" component={SellBooks}/>
+                                <Route exact path="/messages" component={Chat}/>
+                                <Route exact path="/chat2" component={ChatContainer}/>
+                                <Route exact path="/settings" component={Settings}/>
+                                <Route exact path="/bookstore" component={BookStore}/>
+                                <Route component={NotFound}/>
+                            </Switch>
+                        </div>
+                    </BrowserRouter>
+                </div>
+            );
+       // }
+
+
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({auth, loading}) {
     return {
-        //courses: state.courses
+        auth,
+        loading
     };
 }
 
@@ -66,5 +100,5 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    actions//mapDispatchToProps
 )(App);
