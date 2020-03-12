@@ -22,7 +22,8 @@ const Chat = ({location, ...props}) => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
-    const ENDPOINT = 'http://localhost:5000/';
+    //const ENDPOINT = 'http://localhost:5000/';
+    const ENDPOINT = 'https://www.trademebooks.com/';
 
     useEffect(() => {
         console.log("props.auth", props.auth);
