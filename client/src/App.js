@@ -17,6 +17,7 @@ import NotFound from "./components/Pages/NotFound";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ChatContainer from "./components/Chat2/ChatContainer";
+import {ProtectedRoute} from "./components/Utilities/ProtectedRoute";
 
 class App extends Component {
 
@@ -73,7 +74,8 @@ class App extends Component {
                                 <Route exact path="/sell-books" component={SellBooks}/>
                                 <Route exact path="/messages" component={Chat}/>
                                 <Route exact path="/chat2" component={ChatContainer}/>
-                                <Route exact path="/settings" component={Settings}/>
+                                {/*<Route exact path="/settings" component={Settings}/>*/}
+                                <ProtectedRoute exact path="/settings" component={Settings}/>
                                 <Route exact path="/bookstore" component={BookStore}/>
                                 <Route component={NotFound}/>
                             </Switch>

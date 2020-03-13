@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import queryString from 'query-string';
+
 import io from "socket.io-client";
 
 import InfoBar from '../InfoBar/InfoBar';
@@ -11,8 +11,13 @@ import './Chat.css';
 import {connect} from "react-redux";
 
 // http://localhost:3000/messages?name=yichen&room=room1337
+let ENDPOINT = 'https://www.trademebooks.com/';
+if (window.location.href.includes("localhost")) {
+    ENDPOINT = 'http://localhost:5000/';
+}
 
 let socket;
+socket = io(ENDPOINT);
 
 const Chat = ({location, ...props}) => {
 
@@ -22,30 +27,22 @@ const Chat = ({location, ...props}) => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
-    //const ENDPOINT = 'http://localhost:5000/';
-    const ENDPOINT = 'https://www.trademebooks.com/';
-
     useEffect(() => {
         console.log("props.auth", props.auth);
-
-        //let {name, room} = queryString.parse(location.search);
-        let name = 'user' + (Math.random() * 100).toFixed(0);
         const room = "chat room 1337";
         if (props.auth) {
-            name = props.auth.name;
+            let name = props.auth.name;
+
+            setRoom(room);
+            setName(name);
+
+            socket.emit('join', {name, room}, (error) => {
+                if (error) {
+                    alert(error);
+                }
+            });
         }
-
-        socket = io(ENDPOINT);
-
-        setRoom(room);
-        setName(name);
-
-        socket.emit('join', {name, room}, (error) => {
-            if (error) {
-                alert(error);
-            }
-        });
-    }, [ENDPOINT, location.search]);
+    }, [props.auth]);
 
     useEffect(() => {
         socket.on('message', (message) => {
