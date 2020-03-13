@@ -59,7 +59,4 @@ npm start
 - production link: https://wwww.trademebooks.com
 - heroku link: https://trademebooks.herokuapp.com/
 
-Deploy to production with the following command:
-```bash
-sh bin\push.sh "your git commit message here."
-```
+*The application will automatically be deployed to production whenever a push is invoked on the master branch.
