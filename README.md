@@ -52,7 +52,7 @@ module.exports = {
 ## Work Flow on Local Machine
 Start the server locally on localhost:3000 with the following command in the root directory:
 ```bash
-npm start
+npm run dev
 ```
 
 ## Deploy to Production
