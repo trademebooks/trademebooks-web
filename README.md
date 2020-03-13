@@ -56,7 +56,7 @@ npm run dev
 ```
 
 ## Deploy to Production
-- production link: https://wwww.trademebooks.com
+- production link: https://www.trademebooks.com/
 - heroku link: https://trademebooks.herokuapp.com/
 
 *The application will automatically be deployed to production whenever a push is invoked on the master branch.
