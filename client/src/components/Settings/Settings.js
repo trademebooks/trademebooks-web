@@ -44,7 +44,7 @@ class Settings extends Component {
                     <MDBRow center={true}>
                         <MDBCol md="">
                             <div className="text-center">
-                                <h1>Account Settings</h1>
+                                <h1>Account Settings - March 13, 2020 at 4:50PM</h1>
                             </div>
                         </MDBCol>
                     </MDBRow>
