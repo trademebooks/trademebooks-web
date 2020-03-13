@@ -1,133 +1,106 @@
-import React, {Component} from "react";
-import {Route, Switch} from "react-router-dom";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import "./css/global/Main.scss";
+import './css/App.css';
 import 'toastr/build/toastr.min.css';
 
-/* Main Navigation Bar */
-import Toolbar from './components/Layout/Navbar/Toolbar/Toolbar';
-import SideDrawer from './components/Layout/Navbar/SideDrawer/SideDrawer';
-import Backdrop from './components/Layout/Navbar/Backdrop/Backdrop';
-
-/* Footer */
-import Footer from "./components/Layout/Footer/Footer";
-
-/* Static Pages */
-import AboutPage from "./components/Pages/About/AboutPage";
-import ContactPage from "./components/Pages/Contact/ContactPage";
-
-/* Auth - Login and Register  */
-import Login from "./components/Auth/Login"
-import Register from "./components/Auth/Register"
-
-/* 404 Not Found Page */
-import NotFoundPage from "./components/Pages/404Page/NotFoundPage";
-
-/* Main Dynamic Pages */
-import HomePage from "./components/Home/HomePage";
-import PostBook from "./components/PostBook/PostBook"
-import Settings from "./components/Account/AccountSettings"
-import Bookstore from "./components/Bookstore/Bookstore"
-import Chat from "./components/Chat/Chat";
-
-// Learning
-import CoursesPage from "./components/Courses/CoursesPage";
-
-////////////////////////////////////////////////////////////
-//////////////// Authentication with JWT ///////////////////
-////////////////////////////////////////////////////////////
-import jwt_decode from "jwt-decode";
-import setJWTToken from "./utilities/setJWTToken";
-import { SET_CURRENT_USER } from "./redux/actions/actionTypes";
-import { logout } from "./redux/actions/securityActions";
-import store from "./redux/configureStore";
-import SecuredRoute from "./utilities/SecuredRoute";
-
-const jwtToken = localStorage.jwtToken;
-if (jwtToken) {
-    setJWTToken(jwtToken);
-    const decoded_jwtToken = jwt_decode(jwtToken);
-
-    store.dispatch({
-        type: SET_CURRENT_USER,
-        payload: decoded_jwtToken
-    });
-
-    const currentTime = Date.now() / 1000;
-
-    if (decoded_jwtToken.exp < currentTime) {
-        store.dispatch(logout());
-        window.location.href = "/";
-    }
-}
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
+import * as actions from './redux/actions';
+import Header from './components/Layout/Header';
+import Landing from './components/Pages/Landing';
+import BuyBooks from "./components/Books/BuyBooks";
+import SellBooks from "./components/Books/SellBooks";
+import Chat from "./components/Chat/Chat/Chat";
+import Settings from "./components/Settings/Settings";
+import BookStore from "./components/Books/BookStore";
+import NotFound from "./components/Pages/NotFound";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
+import ChatContainer from "./components/Chat2/ChatContainer";
+import {ProtectedRoute} from "./components/Utilities/ProtectedRoute";
 
 class App extends Component {
 
-    state = {
-        sideDrawerOpen: false
-    };
+    constructor(props, context) {
+        super(props, context);
+    }
 
-    drawerToggleClickHandler = () => {
-        this.setState((prevState) => {
-            return {sideDrawerOpen: !prevState.sideDrawerOpen};
-        });
-    };
-
-    backdropClickHandler = () => {
-        this.setState({sideDrawerOpen: false});
-    };
+    componentDidMount() {
+        this.props.fetchUser();
+    }
 
     render() {
-        let backdrop;
-
-        if (this.state.sideDrawerOpen) {
-            backdrop = <Backdrop click={this.backdropClickHandler}/>
+/*        if (this.props.auth && this.props.loading === false) {
+            return (
+                <div>
+                    <BrowserRouter>
+                        <div>
+                            <Header/>
+                            <Switch>
+                                <Route exact path="/" component={Landing}/>
+                                <Route exact path="/register" component={Register}/>
+                                <Route exact path="/login" component={Login}/>
+                                <Route exact path="/buy-books" component={BuyBooks}/>
+                                <Route exact path="/sell-books" component={SellBooks}/>
+                                <Route exact path="/messages" component={Chat}/>
+                                <Route exact path="/chat2" component={ChatContainer}/>
+                                <Route exact path="/settings" component={Settings}/>
+                                <Route exact path="/bookstore" component={BookStore}/>
+                                <Route component={NotFound}/>
+                            </Switch>
+                        </div>
+                    </BrowserRouter>
+                </div>
+            );
         }
+        else {
+            return <div> Hello World </div>;
+        }*/
 
-        return (
-            <div className="App">
-                {/* Navigation Bar --- start */}
-                <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
-                <SideDrawer show={this.state.sideDrawerOpen}/>
-                {backdrop}
-                {/* Navigation Bar --- end */}
+/*        if (this.props.loading === true) {
+            return <div> loading... </div>;
+        }
+        else {*/
+            return (
+                <div>
+                    <BrowserRouter>
+                        <div>
+                            <Header/>
+                            <Switch>
+                                <Route exact path="/" component={Landing}/>
+                                <Route exact path="/register" component={Register}/>
+                                <Route exact path="/login" component={Login}/>
+                                <Route exact path="/buy-books" component={BuyBooks}/>
+                                <Route exact path="/sell-books" component={SellBooks}/>
+                                <Route exact path="/messages" component={Chat}/>
+                                <Route exact path="/chat2" component={ChatContainer}/>
+                                {/*<Route exact path="/settings" component={Settings}/>*/}
+                                <ProtectedRoute exact path="/settings" component={Settings}/>
+                                <Route exact path="/bookstore" component={BookStore}/>
+                                <Route component={NotFound}/>
+                            </Switch>
+                        </div>
+                    </BrowserRouter>
+                </div>
+            );
+       // }
 
-                {/* Main Body --- start */}
-                <main style={{marginTop: '70px', marginLeft: 'auto', marginRight: 'auto'}}>
-                    <Switch>
-                        <Route exact path="/" component={HomePage}/>
 
-                        <Route path="/about" component={AboutPage}/>
-                        <Route path="/contact" component={ContactPage}/>
-
-                        <Route path="/register" component={Register}/>
-                        <Route path="/login" component={Login}/>
-
-                        {/* Private Pages - Requires Authentication/Login */}
-                        <SecuredRoute exact path="/sell-book" component={PostBook}/>
-                        <SecuredRoute exact path="/account" component={Settings}/>
-                        <SecuredRoute exact path="/bookstore" component={Bookstore}/>
-
-                        {/*---------------------------------------------------------------------------*/}
-
-                        {/* Courses - learning purposes */}
-                        <Route path="/courses" component={CoursesPage}/>
-
-                        <Route exact path="/chat" component={Chat}/>
-
-                        <Route component={NotFoundPage}/>
-                    </Switch>
-                </main>
-                {/* Main Body --- end */}
-
-                {/* Footer --- start */}
-                {/*<Footer/>*/}
-                {/* Footer --- end */}
-            </div>
-        );
     }
 }
 
-export default App;
+function mapStateToProps({auth, loading}) {
+    return {
+        auth,
+        loading
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return actions;
+}
+
+export default connect(
+    mapStateToProps,
+    actions//mapDispatchToProps
+)(App);

@@ -1,0 +1,15 @@
+.chat2-container {
+    display: flex;
+}
+
+.chat-left-panel {
+    flex-grow: 1;
+}
+
+.chat-right-panel {
+    flex-grow: 3;
+}
+
+.chat-user {
+    display: flex;
+}

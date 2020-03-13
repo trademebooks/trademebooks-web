@@ -1,3 +1,0 @@
-NOTE: *This folder is mainly only for STATIC pages, meaning pages that are not as important to the main dynamic site.
-
-For example, pages like About, Careers, Terms and Conditions, etc...

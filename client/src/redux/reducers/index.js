@@ -1,8 +1,10 @@
-import { combineReducers } from "redux";
-import courses from "./courseReducer";
+import { combineReducers } from 'redux';
+import { reducer as reduxForm } from 'redux-form';
+import authReducer from './authReducer';
+import loadingReducer from "./loadingReducer";
 
-const rootReducer = combineReducers({
-  courses: courses
+export default combineReducers({
+  auth: authReducer,
+  loading: loadingReducer,
+  form: reduxForm
 });
-
-export default rootReducer;
