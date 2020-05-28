@@ -55,7 +55,7 @@ export const conversationDeleted = () => ({
   type: DELETE_CONVERSATION,
 });
 
-export const messagesRequeseted = (conversationId) => ({
+export const messagesRequested = (conversationId) => ({
   type: MESSAGES_REQUESTED,
   payload: {
     conversationId,

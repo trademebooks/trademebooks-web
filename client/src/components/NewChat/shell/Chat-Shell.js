@@ -22,6 +22,7 @@ const ChatShell = ({
   onDeleteConversation,
 }) => {
   console.log("Chat-Shell selectedConversation", selectedConversation);
+  console.log("Chat-Shell conversations: ", conversations);
   return (
     <div id="chat-container">
       <ConversationSearch />
