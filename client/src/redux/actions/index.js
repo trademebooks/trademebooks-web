@@ -6,6 +6,8 @@ import {
   SELECTED_CONVERSATION_CHANGED,
   NEW_MESSAGE_ADDED,
   DELETE_CONVERSATION,
+  MESSAGES_REQUESTED,
+  MESSAGES_LOADED,
 } from "./types";
 
 export const fetchUser = () => async (dispatch) => {
@@ -51,4 +53,19 @@ export const newMessageAdded = (textMessage) => ({
 
 export const conversationDeleted = () => ({
   type: DELETE_CONVERSATION,
+});
+
+export const messagesRequeseted = (conversationId) => ({
+  type: MESSAGES_REQUESTED,
+  payload: {
+    conversationId,
+  },
+});
+
+export const messagesLoaded = (conversationId, messages) => ({
+  type: MESSAGES_LOADED,
+  payload: {
+    conversationId,
+    messages,
+  },
 });
