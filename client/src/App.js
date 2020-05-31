@@ -26,11 +26,13 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser();
+        this
+            .props
+            .fetchUser();
     }
 
     render() {
-/*        if (this.props.auth && this.props.loading === false) {
+        /*        if (this.props.auth && this.props.loading === false) {
             return (
                 <div>
                     <BrowserRouter>
@@ -57,50 +59,43 @@ class App extends Component {
             return <div> Hello World </div>;
         }*/
 
-/*        if (this.props.loading === true) {
+        /*        if (this.props.loading === true) {
             return <div> loading... </div>;
         }
         else {*/
-            return (
-                <div>
-                    <BrowserRouter>
-                        <div>
-                            <Header/>
-                            <Switch>
-                                <Route exact path="/" component={Landing}/>
-                                <Route exact path="/register" component={Register}/>
-                                <Route exact path="/login" component={Login}/>
-                                <Route exact path="/buy-books" component={BuyBooks}/>
-                                <Route exact path="/sell-books" component={SellBooks}/>
-                                <Route exact path="/messages" component={Chat}/>
-                                <Route exact path="/chat2" component={ChatContainer}/>
-                                {/*<Route exact path="/settings" component={Settings}/>*/}
-                                <ProtectedRoute exact path="/settings" component={Settings}/>
-                                <Route exact path="/bookstore" component={BookStore}/>
-                                <Route component={NotFound}/>
-                            </Switch>
-                        </div>
-                    </BrowserRouter>
-                </div>
-            );
-       // }
-
+        return (
+            <div>
+                <BrowserRouter>
+                    <div>
+                        <Header/>
+                        <Switch>
+                            <Route exact path="/" component={Landing}/>
+                            <Route exact path="/register" component={Register}/>
+                            <Route exact path="/login" component={Login}/>
+                            <Route exact path="/buy-books" component={BuyBooks}/>
+                            <Route exact path="/sell-books" component={SellBooks}/>
+                            <Route exact path="/messages" component={Chat}/>
+                            <Route exact path="/chat2" component={ChatContainer}/>
+                            <Route exact path="/settings" component={Settings}/> {/* <ProtectedRoute exact path="/settings" component={Settings}/> */}
+                            <Route exact path="/bookstore" component={BookStore}/>
+                            <Route component={NotFound}/>
+                        </Switch>
+                    </div>
+                </BrowserRouter>
+            </div>
+        );
+        // }
 
     }
 }
 
 function mapStateToProps({auth, loading}) {
-    return {
-        auth,
-        loading
-    };
+    return {auth, loading};
 }
 
 function mapDispatchToProps(dispatch) {
     return actions;
 }
 
-export default connect(
-    mapStateToProps,
-    actions//mapDispatchToProps
+export default connect(mapStateToProps, actions //mapDispatchToProps
 )(App);
