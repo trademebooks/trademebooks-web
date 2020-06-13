@@ -10,9 +10,18 @@ const SettingsSchema = new Schema({
      * SMS / Texting Settings
      * []
      */
-
-    receiveEmail_1: {type: Boolean, default: true},
-    receiveTexts_1: {type: Boolean, default: true}
+    user_id: {
+        type: String,
+        default: ""
+    },
+    receiveEmail_1: {
+        type: Boolean,
+        default: true
+    },
+    receiveTexts_1: {
+        type: Boolean,
+        default: true
+    }
 });
 
 module.exports = mongoose.model('settings', SettingsSchema);

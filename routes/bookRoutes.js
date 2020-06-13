@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Book = mongoose.model('book');
+const Settings = mongoose.model("settings")
 
 module.exports = app => {
 
@@ -8,33 +9,41 @@ module.exports = app => {
      *
      *  GET /api/books?search=
      */
-    app.get('/api/books', async (req, res) => {
+    app.get('/api/books', async(req, res) => {
         console.log(req.query.search);
-        let books = await Book.find({title: new RegExp(req.query.search, "i")});
-        res.status(200).json(books);
+        let books = await Book.find({
+            title: new RegExp(req.query.search, "i")
+        });
+        res
+            .status(200)
+            .json(books);
     });
 
     /**
      * Get the currently authenticated user's books
      */
-    app.get('/api/books/auth', async (req, res) => {
+    app.get('/api/books/auth', async(req, res) => {
         console.log(req.user._id);
         let books = await Book.find({user_id: req.user.id});
-        res.status(200).json(books);
+        res
+            .status(200)
+            .json(books);
     });
 
     /**
      * Gets a book by id
      */
-    app.get('/api/books/:book_id', async (req, res) => {
+    app.get('/api/books/:book_id', async(req, res) => {
         let book = await Book.findOne(req.param.book_id);
-        res.status(200).json(book);
+        res
+            .status(200)
+            .json(book);
     });
 
     /**
      * Add a new book listing
      */
-    app.post('/api/books', async (req, res) => {
+    app.post('/api/books', async(req, res) => {
         const {
             bookTitle,
             bookAuthors,
@@ -42,7 +51,7 @@ module.exports = app => {
             bookPublishedDate,
             bookPublisher,
             bookPrice,
-            bookLocationForMeet,
+            bookLocationForMeet
         } = req.body;
 
         // req.user.id
@@ -60,29 +69,58 @@ module.exports = app => {
             image: bookImage,
             date_posted: "Jan 1, 1970",
             publisher_date: bookPublishedDate,
-            publisher: bookPublisher,
+            publisher: bookPublisher
         });
 
         try {
             await book.save();
-            res.status(201).json(book);
+            res
+                .status(201)
+                .json(book);
         } catch (err) {
-            res.status(422).send(err);
+            res
+                .status(422)
+                .send(err);
         }
     });
 
     /**
      * Update an existing book listing
      */
-    app.put('/api/books/:book_id', async (req, res) => {
-
-    });
+    app.put('/api/books/:book_id', async(req, res) => {});
 
     /**
      * Delete an existing book listing
      */
-    app.delete('/api/books/:book_id', async (req, res) => {
-
-    });
+    app.delete('/api/books/:book_id', async(req, res) => {});
+    /**
+     * update settings for current auth user
+     *
+    */
+    app.post('/api/settings', async(req, res) => {
+        const {receiveEmail, receiveTexts} = req.body;
+        try {
+            await Settings.updateOne({
+                user_id: req.user.id
+            }, {
+                receiveEmail_1: receiveEmail,
+                receiveTexts_1: receiveTexts
+            });
+        } catch (err) {
+            res
+                .status(422)
+                .send(err);
+        }
+    })
+    /**
+     * get settings for current auth user
+     *
+    */
+    app.get('/api/settings', async(req, res) => {
+        let settings = await Settings.find({user_id: req.user.id});
+        res
+            .status(200)
+            .json(settings);
+    })
 
 };

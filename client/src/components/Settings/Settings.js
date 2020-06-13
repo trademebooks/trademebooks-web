@@ -5,7 +5,6 @@ import "./Settings.css";
 class Settings extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.notify)
 
     }
     state = {
@@ -33,7 +32,7 @@ class Settings extends Component {
             value: "",
             valid: false
         },
-        isChecked: this.testUser
+        isChecked: false
     };
 
     changeHandler = event => {
@@ -50,6 +49,29 @@ class Settings extends Component {
         console.log(this.state.isChecked)
         this.setState({isChecked: event.target.checked});
     };
+    componentDidMount = () => {
+        fetch(`/api/settings`)
+            .then(res => res.json())
+            .then((response) => {
+                let settings = response;
+                console.log(settings)
+                this.setState({isChecked: settings[0].receiveEmail_1});
+                console.log(this.state)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    submitSettings = () => {
+        console.log("attempting to submit", this.state.isChecked)
+        fetch('api/settings', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({receiveEmail: this.state.isChecked, receiveTexts: false})
+        })
+    }
 
     render() {
         return (
@@ -68,7 +90,6 @@ class Settings extends Component {
                                 style={{
                                 marginTop: "15px"
                             }}
-                                checked={this.props.notify}
                                 className="check-input"
                                 type="checkbox"
                                 onChange={this.handleCheckboxChange}
@@ -89,7 +110,7 @@ class Settings extends Component {
                         style={{
                         marginTop: "20rem"
                     }}>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" onClick={this.submitSettings} class="btn btn-primary">Submit</button>
                     </MDBRow>
 
                 </MDBContainer>
