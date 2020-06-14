@@ -98,18 +98,33 @@ module.exports = app => {
      *
     */
     app.post('/api/settings', async(req, res) => {
-        const {receiveEmail, receiveTexts} = req.body;
-        try {
-            await Settings.updateOne({
-                user_id: req.user.id
-            }, {
-                receiveEmail_1: receiveEmail,
-                receiveTexts_1: receiveTexts
-            });
-        } catch (err) {
-            res
-                .status(422)
-                .send(err);
+        let settings = await Settings.find({user_id: req.user.id});
+        if (!settings) {
+            setting = new Settings({user_id: req.user.id, receiveEmail_1: false, receiveTexts_1: false});
+            try {
+                await Settings.save();
+                res
+                    .status(201)
+                    .json(book);
+            } catch (err) {
+                res
+                    .status(422)
+                    .send(err);
+            }
+        } else {
+            const {receiveEmail, receiveTexts} = req.body;
+            try {
+                await Settings.updateOne({
+                    user_id: req.user.id
+                }, {
+                    receiveEmail_1: receiveEmail,
+                    receiveTexts_1: receiveTexts
+                });
+            } catch (err) {
+                res
+                    .status(422)
+                    .send(err);
+            }
         }
     })
     /**
