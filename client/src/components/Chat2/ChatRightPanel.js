@@ -1,24 +1,22 @@
-import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+export const ChatRightPanel = ({username, userId, messages}) => {
 
-class ChatRightPanel extends Component {
+    return (
+        <div className="chat-right-panel">
+            right panel: user: {username}, user id: {userId}
 
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="chat-right-panel">
-                right panel: user: {this.props.username}, user id: {this.props.userId}
-
-                <div>
-                    {this.props.messages.map( (message, index) => {
-                        return <div key={message._id}>{message.message_body}</div>;
-                    })}
-                </div>
+            <div>
+                {messages.map((message, index) => {
+                    return <div key={message._id}>{message.message_body}</div>;
+                })}
             </div>
-        );
-    }
+        </div>
+    );
 }
-
+ChatRightPanel.propTypes = {
+    username: PropTypes.string,
+    userId: PropTypes.string,
+    messages: PropTypes.arrayOf(PropTypes.object)
+}
 export default ChatRightPanel;

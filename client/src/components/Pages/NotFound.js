@@ -1,18 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class NotFound extends Component {
+export const NotFound = () => {
 
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="text-center mt-4">
-                <h1>404 Not Found</h1>
-            </div>
-        );
-    }
+    return (
+        <div className="text-center mt-4">
+            <h1>404 Not Found</h1>
+        </div>
+    );
 }
 
 export default NotFound;

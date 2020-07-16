@@ -1,122 +1,78 @@
-import React, {Component} from 'react';
-import {MDBRow, MDBCol, MDBBtn, MDBContainer} from "mdbreact";
+import React, {useState, useEffect} from 'react';
+import {MDBRow, MDBCol, MDBContainer} from "mdbreact";
+import {useDispatch, useSelector} from 'react-redux';
+import toastr from 'toastr';
 import "./Settings.css";
+import {fetchSettings, updateSettings} from '../../actions/settings';
 
-class Settings extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-    state = {
-        fname: {
-            value: "Mark",
-            valid: true
-        },
-        lname: {
-            value: "Otto",
-            valid: true
-        },
-        email: {
-            value: "",
-            valid: false
-        },
-        city: {
-            value: "",
-            valid: false
-        },
-        state: {
-            value: "",
-            valid: false
-        },
-        zip: {
-            value: "",
-            valid: false
-        },
-        isChecked: false
-    };
-
-    changeHandler = event => {
-        console.log("checkbox changed!", event);
-        this.setState({
-            [event.target.name]: {
-                value: event.target.value,
-                valid: !!event.target.value
+export const Settings = () => {
+    const [isChecked,
+        setChecked] = useState(false);
+    const dispatch = useDispatch();
+    const checked = useSelector(state => state.settings.entities.receiveEmail_1);
+    const hasError = useSelector(state => state.settings.hasError);
+    useEffect(() => {
+        async function fetch() {
+            if (!hasError) {
+                const data = await dispatch(fetchSettings());
+                console.log(data)
+                setChecked(data[0].receiveEmail_1);
             }
-        });
+        }
+        fetch();
+    }, [dispatch])
+    const handleCheckboxChange = (event) => {
+        setChecked(event.target.checked);
     };
-    handleCheckboxChange = (event) => {
-        console.log("checkbox changed!", event);
-        console.log(this.state.isChecked)
-        this.setState({isChecked: event.target.checked});
-    };
-    componentDidMount = () => {
-        fetch(`/api/settings`)
-            .then(res => res.json())
-            .then((response) => {
-                let settings = response;
-                console.log(settings)
-                this.setState({isChecked: settings[0].receiveEmail_1});
-                console.log(this.state)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-    submitSettings = () => {
-        console.log("attempting to submit", this.state.isChecked)
-        fetch('api/settings', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({receiveEmail: this.state.isChecked, receiveTexts: false})
-        })
+    const submitSettings = () => {
+        console.log("attempting to submit", isChecked);
+        dispatch(updateSettings({receiveEmail_1: isChecked, recieveTexts_1: false}));
+        if (!hasError) {
+            toastr.success("updated settings");
+        }
     }
 
-    render() {
-        return (
-            <div className="mt-4">
-                <MDBContainer>
-                    <MDBRow center={true}>
-                        <MDBCol md="">
-                            <div className="text-center">
-                                <h1>Account Settings - March 13, 2020 at 5:34PM</h1>
-                            </div>
-                        </MDBCol>
-                    </MDBRow>
-                    <MDBRow >
-                        <MDBCol md="1">
-                            <input
-                                style={{
-                                marginTop: "15px"
-                            }}
-                                className="check-input"
-                                type="checkbox"
-                                onChange={this.handleCheckboxChange}
-                                checked={this.state.isChecked}
-                                id="checkbox1"/>
-                        </MDBCol>
-                        <MDBCol
-                            md="3"
+    return (
+        <div className="mt-4">
+            <MDBContainer>
+                <MDBRow center={true}>
+                    <MDBCol md="">
+                        <div className="text-center">
+                            <h1>Account Settings - March 13, 2020 at 5:34PM</h1>
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow >
+                    <MDBCol md="1">
+                        <input
                             style={{
-                            marginTop: "0.5rem"
-                        }}>
-                            <span className="input-text">
-                                Email Notifications
-                            </span>
-                        </MDBCol>
-                    </MDBRow>
-                    <MDBRow
+                            marginTop: "15px"
+                        }}
+                            className="check-input"
+                            type="checkbox"
+                            onChange={handleCheckboxChange}
+                            checked={isChecked}
+                            defaultChecked={checked}
+                            id="checkbox1"/>
+                    </MDBCol>
+                    <MDBCol
+                        md="3"
                         style={{
-                        marginTop: "20rem"
+                        marginTop: "0.5rem"
                     }}>
-                        <button type="button" onClick={this.submitSettings} class="btn btn-primary">Submit</button>
-                    </MDBRow>
+                        <span className="input-text">
+                            Email Notifications
+                        </span>
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow style={{
+                    marginTop: "20rem"
+                }}>
+                    <button type="button" onClick={submitSettings} className="btn btn-primary">Submit</button>
+                </MDBRow>
 
-                </MDBContainer>
-            </div>
-        );
-    }
+            </MDBContainer>
+        </div>
+    );
 }
-
 export default Settings;

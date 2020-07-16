@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import {connect, Provider} from 'react-redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import './css/App.css';
@@ -17,6 +17,7 @@ import NotFound from "./components/Pages/NotFound";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ChatContainer from "./components/Chat2/ChatContainer";
+import store from './store'
 import {ProtectedRoute} from "./components/Utilities/ProtectedRoute";
 
 class App extends Component {

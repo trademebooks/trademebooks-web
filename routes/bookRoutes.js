@@ -10,13 +10,15 @@ module.exports = app => {
      *  GET /api/books?search=
      */
     app.get('/api/books', async(req, res) => {
-        console.log(req.query.search);
-        let books = await Book.find({
-            title: new RegExp(req.query.search, "i")
-        });
-        res
-            .status(200)
-            .json(books);
+        if (req.query.search) {
+            let books = await Book.find({
+                title: new RegExp(req.query.search, "i")
+            });
+            console.log(books)
+            res
+                .status(200)
+                .json(books);
+        } else {}
     });
 
     /**
@@ -25,6 +27,7 @@ module.exports = app => {
     app.get('/api/books/auth', async(req, res) => {
         console.log(req.user._id);
         let books = await Book.find({user_id: req.user.id});
+        console.log(books)
         res
             .status(200)
             .json(books);
@@ -77,6 +80,7 @@ module.exports = app => {
             res
                 .status(201)
                 .json(book);
+            console.log("SAVED BOOKED", book)
         } catch (err) {
             res
                 .status(422)
@@ -99,6 +103,7 @@ module.exports = app => {
     */
     app.post('/api/settings', async(req, res) => {
         let settings = await Settings.find({user_id: req.user.id});
+        console.log(settings)
         if (!settings) {
             setting = new Settings({user_id: req.user.id, receiveEmail_1: false, receiveTexts_1: false});
             try {
@@ -112,14 +117,19 @@ module.exports = app => {
                     .send(err);
             }
         } else {
-            const {receiveEmail, receiveTexts} = req.body;
+            const {receiveEmail_1, receiveTexts_1} = req.body;
+            console.log(req.body)
+            console.log(req.user.id)
             try {
                 await Settings.updateOne({
                     user_id: req.user.id
                 }, {
-                    receiveEmail_1: receiveEmail,
-                    receiveTexts_1: receiveTexts
+                    receiveEmail_1: receiveEmail_1,
+                    receiveTexts_1: receiveTexts_1
                 });
+                res
+                    .status(200)
+                    .send(req.body)
             } catch (err) {
                 res
                     .status(422)
