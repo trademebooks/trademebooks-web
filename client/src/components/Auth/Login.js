@@ -1,66 +1,72 @@
-import React, {Component} from 'react';
-import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon} from 'mdbreact';
+import React, { Fragment, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../actions/auth';
 
-class Login extends Component {
+const Login = ({ login, isAuthenticated }) => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
 
-    constructor(props) {
-        super(props);
-    }
+  const { email, password } = formData;
 
-    render() {
-        return (
-            <div class="mt-4">
-                <MDBContainer>
-                    <MDBRow center={true}>
-                        <MDBCol md="10">
-                            <form>
-                                <h1 className="mb-4 text-center">Sign in</h1>
-                                <div className="grey-text">
-                                    <MDBInput
-                                        label="Type your email"
-                                        icon="envelope"
-                                        group
-                                        type="email"
-                                        validate
-                                        error="wrong"
-                                        success="right"
-                                    />
-                                    <MDBInput
-                                        label="Type your password"
-                                        icon="lock"
-                                        group
-                                        type="password"
-                                        validate
-                                    />
-                                </div>
-                                <div className="text-center">
-                                    <MDBBtn>Login</MDBBtn>
-                                </div>
-                            </form>
-                        </MDBCol>
-                    </MDBRow>
-                    <hr/>
-                    <MDBRow>
-                        <MDBCol md="12">
-                            <div className="text-center">
-                                <h3 className="mb-4 text-center">Social Sign</h3>
-                                <MDBBtn size="lg" tag="a" floating social="fb" color="primary" rounded>
-                                    <MDBIcon fab icon="facebook-f"/>
-                                </MDBBtn>
-                                <MDBBtn size="lg" tag="a" floating social="tw" color="info" rounded>
-                                    <MDBIcon fab icon="twitter"/>
-                                </MDBBtn>
-                                <MDBBtn href="/auth/google" size="lg" tag="a" floating social="gplus" color="danger"
-                                        rounded>
-                                    <MDBIcon fab icon="google"/>
-                                </MDBBtn>
-                            </div>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBContainer>
-            </div>
-        );
-    }
-}
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-export default Login;
+  const onSubmit = e => {
+    e.preventDefault();
+    login(email, password);
+  };
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
+
+  return (
+    <Fragment>
+      <h1 className="large text-primary">Sign In</h1>
+      <p className="lead">
+        <i className="fas fa-user" /> Sign Into Your Account
+      </p>
+      <form className="form" onSubmit={onSubmit}>
+        <div className="form-group">
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            value={email}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={onChange}
+            minLength="6"
+          />
+        </div>
+        <input type="submit" className="btn btn-primary" value="Login" />
+      </form>
+      <p className="my-1">
+        Don't have an account? <Link to="/register">Sign Up</Link>
+      </p>
+    </Fragment>
+  );
+};
+
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { login })(Login);
