@@ -1,7 +1,7 @@
 {
   "name": "trademebooks",
   "version": "1.0.0",
-  "description": "Classified for books",
+  "description": "A Classified Website for Books",
   "main": "server.js",
   "scripts": {
     "start": "node server",
