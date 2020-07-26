@@ -1,5 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://yichen:KEOYU2KsfsbzXdxZ@ilovetennis2-cluster-selho.mongodb.net/trademebooks?retryWrites=true&w=majority",
-  "jwtSecret": "secret",
-  "githubToken": "<yoursecrectaccesstoken>"
-}

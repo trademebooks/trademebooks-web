@@ -6,6 +6,7 @@ class Settings extends Component {
     constructor(props) {
         super(props);
     }
+    
     state = {
         fname: {
             value: "Mark",

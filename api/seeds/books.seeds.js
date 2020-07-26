@@ -1,17 +1,20 @@
 var mongoose = require('mongoose');
-const keys = require('../config/keys');
+const keys = require('../config');
 mongoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
-require('../models/Book');
-require('../models/User');
+require('../domain/models/book.model');
+require('../domain/models/user.model');
 const Book = mongoose.model('book');
 const User = mongoose.model('user');
 
 let user = {
     //_id: "5e11e9d8eded1d23742c1c6d",
     googleId: "110603409234402153901",
-    name: "Yi Chen Zhu",
-    picture: "https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcklAbO227AZwxw1kMi4ZzWpoQ5-g/photo.jpg",
-    email: "yichenzhu1337@gmail.com"
+    first_name: "Yi Chen",
+    last_name: "Zhu",
+    // picture: "https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcklAbO227AZwxw1kMi4ZzWpoQ5-g/photo.jpg",
+    email: "yichenzhu1337@gmail.com",
+    password: 'password',
+    username: 'yichen'
 };
 
 var books = [

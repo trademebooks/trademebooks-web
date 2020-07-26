@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: #109383;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -180,6 +180,10 @@ img {
   color: #fff;
 }
 
+.bg-primary {
+ background-color: #109383; 
+}
+
 .btn-danger,
 .bg-danger,
 .badge-danger,
@@ -303,7 +307,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 6rem;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -574,4 +578,9 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
+}
+
+.logo {
+  width: 38px;
+  height: 44px;
 }

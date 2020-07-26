@@ -13,7 +13,7 @@ import {
 // Load User
 export const loadUser = () => async dispatch => {
   try {
-    const res = await api.get('/auth');
+    const res = await api.get('/auth/user');
 
     dispatch({
       type: USER_LOADED,
@@ -29,7 +29,7 @@ export const loadUser = () => async dispatch => {
 // Register User
 export const register = formData => async dispatch => {
   try {
-    const res = await api.post('/users', formData);
+    const res = await api.post('/auth/register', formData);
 
     dispatch({
       type: REGISTER_SUCCESS,
@@ -54,7 +54,7 @@ export const login = (email, password) => async dispatch => {
   const body = { email, password };
 
   try {
-    const res = await api.post('/auth', body);
+    const res = await api.post('/auth/login', body);
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -76,4 +76,25 @@ export const login = (email, password) => async dispatch => {
 };
 
 // Logout
-export const logout = () => ({ type: LOGOUT });
+export const logout = () => async dispatch => {
+  try {
+    const res = await api.get('/auth/logout');
+
+    dispatch({ type: LOGOUT });
+
+    dispatch(loadUser());
+
+    console.log(res)
+  } catch (err) {
+    console.log('actions/auth.js', err)
+    // const errors = err.response.data.errors;
+
+    // if (errors) {
+    //   errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    // }
+
+    // dispatch({
+    //   type: LOGIN_FAIL
+    // });
+  }
+};

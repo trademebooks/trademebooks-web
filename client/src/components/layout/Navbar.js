@@ -1,13 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
+import logo from "../../img/logo.png";
+
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+
   const authLinks = (
     <ul>
-      <li>
+      {/* <li>
         <Link to='/profiles'>Developers</Link>
       </li>
       <li>
@@ -18,7 +21,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <i className='fas fa-user' />{' '}
           <span className='hide-sm'>Dashboard</span>
         </Link>
-      </li>
+      </li> */}
       <li>
         <a onClick={logout} href='#!'>
           <i className='fas fa-sign-out-alt' />{' '}
@@ -31,9 +34,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
-      </li>
-      <li>
         <Link to='/register'>Register</Link>
       </li>
       <li>
@@ -43,10 +43,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   return (
-    <nav className='navbar bg-dark'>
+    <nav className='navbar bg-primary'>
       <h1>
-        <Link to='/'>
-          <i className='fas fa-code' /> DevConnector
+        <Link to="/">
+          <img className="logo" width="32px" height="44px" src={logo} alt="trademebooks logo" />
         </Link>
       </h1>
       {!loading && (

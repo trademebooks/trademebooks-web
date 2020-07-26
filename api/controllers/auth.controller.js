@@ -81,7 +81,6 @@ const logUserIn = catchExceptions(async (req, res, next) => {
 
   // 7. response
   let userDTO = userResponseDTO(loggedInUser);
-  console.log(userDTO)
   return res.status(200).json(globalResponseDTO(
     status = 'success',
     code = 200,

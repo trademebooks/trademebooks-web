@@ -1,4 +1,16 @@
-app.use('/api/users', require('./users'));
-app.use('/api/auth', require('./auth'));
-app.use('/api/profile', require('./profile'));
-app.use('/api/posts', require('./posts'));
+const express = require('express');
+const router = express.Router();
+
+const authRoutes = require('./auth.route');
+const bookRoutes = require('./book.route');
+const appRoutes = require('./app.route');
+
+function getRouter() {
+  router.use('/auth', authRoutes);
+  router.use('/books', bookRoutes);
+  router.use('/app', appRoutes);
+
+  return router;
+}
+
+module.exports = getRouter;

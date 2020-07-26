@@ -4,9 +4,9 @@ const fields = [
   'first_name',
   'last_name',
   'email',
+  'username',
   'password',
-  'password_confirmation',
-  'phone_number'
+  'password_confirmation'
 ];
 
 /**
@@ -24,7 +24,7 @@ registerUserRequestDTO = (data) => {
     throw new ApiException(
       status = "failed",
       code = 422,
-      message = "Health Check Failed",
+      message = "Register User Request DTO failed.",
       data = errors
     );
   }
