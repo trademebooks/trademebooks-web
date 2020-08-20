@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {MDBRow, MDBCol, MDBBtn, MDBContainer} from "mdbreact";
+import React, { Component } from 'react';
+import { MDBRow, MDBCol, MDBBtn, MDBContainer } from "mdbreact";
 
 class Settings extends Component {
 
     constructor(props) {
         super(props);
     }
-    
+
     state = {
         fname: {
             value: "Mark",
@@ -40,17 +40,19 @@ class Settings extends Component {
 
     render() {
         return (
-            <div className="mt-4">
-                <MDBContainer>
-                    <MDBRow center={true}>
-                        <MDBCol md="">
-                            <div className="text-center">
-                                <h1>Account Settings - March 13, 2020 at 5:34PM</h1>
-                            </div>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBContainer>
-            </div>
+            <>
+                <div className="mt-4">
+                    <MDBContainer>
+                        <MDBRow center={true}>
+                            <MDBCol md="">
+                                <div className="text-center">
+                                    <h1>Account Settings - March 13, 2020 at 5:34PM</h1>
+                                </div>
+                            </MDBCol>
+                        </MDBRow>
+                    </MDBContainer>
+                </div>
+            </>
         );
     }
 }

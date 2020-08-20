@@ -12,17 +12,16 @@ const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Developer Connector</h1>
+          <h1 className='x-large'>Trade Me Books</h1>
           <p className='lead'>
-            Create a developer profile/portfolio, share posts and get help from
-            other developers
+            Having trouble finding the course textbook? Tired of buying new textbooks for a premium price? Use Trade Me Books to buy and sell textbooks for all your classes!
           </p>
           <div className='buttons'>
             <Link to='/register' className='btn btn-primary'>
-              Sign Up
+              Buy Books
             </Link>
             <Link to='/login' className='btn btn-light'>
-              Login
+              Sell Books
             </Link>
           </div>
         </div>

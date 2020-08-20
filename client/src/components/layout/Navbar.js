@@ -10,18 +10,24 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const authLinks = (
     <ul>
-      {/* <li>
-        <Link to='/profiles'>Developers</Link>
-      </li>
       <li>
-        <Link to='/posts'>Posts</Link>
-      </li>
-      <li>
-        <Link to='/dashboard'>
-          <i className='fas fa-user' />{' '}
-          <span className='hide-sm'>Dashboard</span>
+        <Link to='/bookstore'>
+          <i className='fas fa-store' />{' '}
+          <span className='hide-sm'>Bookstore</span>
         </Link>
-      </li> */}
+      </li>
+      <li>
+        <Link to='/messages'>
+          <i className='fas fa-envelope' />{' '}
+          <span className='hide-sm'>Messages</span>
+        </Link>
+      </li>
+      <li>
+        <Link to='/account'>
+          <i className='fas fa-user' />{' '}
+          <span className='hide-sm'>Settings</span>
+        </Link>
+      </li>
       <li>
         <a onClick={logout} href='#!'>
           <i className='fas fa-sign-out-alt' />{' '}
@@ -46,7 +52,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <nav className='navbar bg-primary'>
       <h1>
         <Link to="/">
-          <img className="logo" width="32px" height="44px" src={logo} alt="trademebooks logo" />
+          <img className="logo" src={logo} alt="trademebooks logo" />
         </Link>
       </h1>
       {!loading && (

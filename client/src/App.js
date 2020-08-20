@@ -8,13 +8,11 @@ import Routes from './components/routing/Routes';
 import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/auth';
-// import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
 
 const App = () => {
   useEffect(() => {
-    // setAuthToken(localStorage.token);
     store.dispatch(loadUser());
   }, []);
 
@@ -23,7 +21,6 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          {/* <Header /> */}
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route component={Routes} />
