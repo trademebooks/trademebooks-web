@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { logout } from '../../actions/auth';
 
-import logo from "../../img/logo.png";
+import logo from '../../img/logo.png';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
@@ -56,7 +57,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </h1>
       {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+        <>{isAuthenticated ? authLinks : guestLinks}</>
       )}
     </nav>
   );
