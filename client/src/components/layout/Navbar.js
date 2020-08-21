@@ -8,7 +8,6 @@ import { logout } from '../../actions/auth';
 import logo from '../../img/logo.png';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
-
   const authLinks = (
     <ul>
       <li>

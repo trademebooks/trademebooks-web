@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import '../../css/buybooks.css';
-import {MDBAnimation, MDBCol, MDBContainer, MDBMedia, MDBRow} from "mdbreact";
-import SingleBook from "./SingleBook";
+import './buybooks.css';
+import {MDBCol, MDBContainer, MDBRow} from "mdbreact";
+import SingleBook from "../SingleBook";
 
 class BuyBooks extends Component {
 

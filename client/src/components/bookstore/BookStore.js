@@ -1,92 +1,97 @@
-import React, {Component} from 'react';
-import {
-    MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText,
-    MDBAnimation, MDBCol, MDBContainer, MDBMedia, MDBRow
-} from 'mdbreact';
+import React, { Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Spinner from '../layout/Spinner';
+import ProfileTop from './ProfileTop';
+import ProfileAbout from './ProfileAbout';
+import ProfileExperience from './ProfileExperience';
+import ProfileEducation from './ProfileEducation';
+import ProfileGithub from './ProfileGithub';
+import { getProfileById } from '../../actions/profile';
 
-class BookStore extends Component {
+const BookStore = ({ 
+    getProfileById, 
+    profile: { 
+        profile 
+    }, 
+    auth, 
+    match 
+}) => {
+  useEffect(() => {
+    getProfileById(match.params.id);
+  }, [getProfileById, match.params.id]);
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            books: []
-        }
-    }
-
-    componentWillMount() {
-        fetch('/api/books/auth')
-            .then(res => res)
-            .then(res => res.json())
-            .then(res => {
-                let books = res;
-
-                this.setState({
-                    books
-                });
-            })
-    }
-
-    render() {
-        const items = [];
-        for (let i = 0; i < 10; i++) {
-            items.push(
-                <MDBCol md="2" className="mt-3 text-center">
-                    <MDBCard>
-                        <div className="mt-2">
-                            <img className="img-fluid"
-                                 src="https://image.invaluable.com/housePhotos/Antikbar/83/626483/H20672-L145122845.jpg"/>
-                        </div>
-                        <MDBCardBody>
-                            <MDBCardTitle className="font-small">Harry Potter And The Order Of Phoenix</MDBCardTitle>
-                            <MDBCardText>
-                                Price: $100
-                            </MDBCardText>
-                            <MDBBtn href="#" size="sm">Edit</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard>
-                </MDBCol>
-            );
-        }
-
-        return (
-            <div className="mt-4">
-                <MDBContainer>
-                    <MDBRow center={true}>
-                        <MDBCol md="">
-                            <div className="text-center">
-                                <h1>My Bookstore</h1>
-                            </div>
-                            <hr/>
-                        </MDBCol>
-                    </MDBRow>
-
-                    <MDBRow>
-                        {/*{items}*/}
-                        {this.state.books.map(book => {
-                            return (
-                                <MDBCol md="2" className="mt-3 text-center">
-                                    <MDBCard>
-                                        <div className="mt-2">
-                                            <img className="img-fluid"
-                                                 src={book.image}/>
-                                        </div>
-                                        <MDBCardBody>
-                                            <MDBCardTitle className="font-small">{book.title}</MDBCardTitle>
-                                            <MDBCardText>
-                                                Price: {book.price}
-                                            </MDBCardText>
-                                            <MDBBtn href="#" size="sm">Edit</MDBBtn>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                </MDBCol>
-                            )
-                        })}
-                    </MDBRow>
-                </MDBContainer>
+  return (
+    <Fragment>
+      {profile === null ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <Link to="/profiles" className="btn btn-light">
+            Back To Profiles
+          </Link>
+          {auth.isAuthenticated &&
+            auth.loading === false &&
+            auth.user._id === profile.user._id && (
+              <Link to="/edit-profile" className="btn btn-dark">
+                Edit Profile
+              </Link>
+            )}
+          <div className="profile-grid my-1">
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+            <div className="profile-exp bg-white p-2">
+              <h2 className="text-primary">Experience</h2>
+              {profile.experience.length > 0 ? (
+                <Fragment>
+                  {profile.experience.map((experience) => (
+                    <ProfileExperience
+                      key={experience._id}
+                      experience={experience}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No experience credentials</h4>
+              )}
             </div>
-        );
-    }
-}
 
-export default BookStore;
+            <div className="profile-edu bg-white p-2">
+              <h2 className="text-primary">Education</h2>
+              {profile.education.length > 0 ? (
+                <Fragment>
+                  {profile.education.map((education) => (
+                    <ProfileEducation
+                      key={education._id}
+                      education={education}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No education credentials</h4>
+              )}
+            </div>
+
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername} />
+            )}
+          </div>
+        </Fragment>
+      )}
+    </Fragment>
+  );
+};
+
+BookStore.propTypes = {
+  getProfileById: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { getProfileById })(BookStore);
