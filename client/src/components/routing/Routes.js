@@ -8,7 +8,7 @@ import NotFound from '../pages/NotFound';
 import Register from '../auth/Register';
 import Login from '../auth/Login';
 import Dashboard from '../dashboard/Dashboard';
-import BuyBooks from '../books/search/BuyBooks';
+import Home from '../books/Home/HomePage';
 
 const Routes = (props) => {
   return (
@@ -19,7 +19,7 @@ const Routes = (props) => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
 
-        <Route exact path="/buy-books" component={BuyBooks} />
+        <Route exact path="/buy-books" component={Home} />
         {/* <Route exact path="/bookstores/:id" component={BookStore} /> */}
 
         {/* Protected Routes */}
