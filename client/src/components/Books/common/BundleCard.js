@@ -17,7 +17,7 @@ const BundleCard = () => (
             <Row>
                 <Col xs={10}>
                     <Card.Body>
-                        <CardHeader/>
+                        <CardHeader />
                         <Row className="text text-meta">
                             <span>MCMASTER UNIVERSITY</span>
                             <span>CIV358
@@ -27,14 +27,14 @@ const BundleCard = () => (
                         <Row>
                             <span className="expand-all">expand all</span>
                         </Row>
-                        <BundleListItem condition={Fair_condition}/>
-                        <BundleListItem condition={Likenew}/>
-                        <BundleListItem condition={Verygood_condition}/>
-                        <BundleListItem condition={Good_condition}/>
+                        <BundleListItem condition={Fair_condition} />
+                        <BundleListItem condition={Likenew} />
+                        <BundleListItem condition={Verygood_condition} />
+                        <BundleListItem condition={Good_condition} />
                         <Row>
                             <p className="user-review">The Tools. This was easily the best book I read in
-                                2012. It's *packed* with goodness. Stutz and Michels are two no-nonsense
-                                therapists who developed powerful tools to transform our problems into courage,
+                            2012. It's *packed* with goodness. Stutz and Michels are two no-nonsense
+                            therapists who developed powerful tools to transform our problems into courage,
                                 confidence, and creativity</p>
                         </Row>
 
@@ -44,7 +44,7 @@ const BundleCard = () => (
 
                 </Col>
             </Row>
-            <CardFooter/>
+            <CardFooter />
         </Card>
     </div>
 );

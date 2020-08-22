@@ -13,7 +13,7 @@ let user = {
     last_name: "Zhu",
     // picture: "https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcklAbO227AZwxw1kMi4ZzWpoQ5-g/photo.jpg",
     email: "yichenzhu1337@gmail.com",
-    password: 'password',
+    password: 'yichen',
     username: 'yichen'
 };
 
