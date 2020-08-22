@@ -1,15 +1,20 @@
-import React, { Component } from "react";
-import './SingleResultCard.scss';
+import React from 'react';
 
-// Images
-import very_good_condition_green_image from "./icons/Verygood_condition.png";
-import sample_book_image from "./icons/sample-book.png";
-import Message_icon from "./icons/Message_icon.png";
-import Books_icon from "./icons/Books_icon.png";
-import Location_icon from "./icons/Location_icon.png";
+import './SingleBook.scss';
 
-const SingleResultCard = (props) => {
+import very_good_condition_green_image from './icons/Verygood_condition.png';
+import sample_book_image from './icons/sample-book.png';
+import Message_icon from './icons/Message_user.png';
 
+import Location_icon from './icons/Location_icon.png';
+import bookstoreIcon from './icons/bookstoreIcon.png';
+
+const SingleBook = (props) => {
+
+    const { book } = props;
+
+    const date = new Date(book.createdAt);
+    const datePosted = date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
 
     return (
         <div className="single-card mt-3">
@@ -25,11 +30,11 @@ const SingleResultCard = (props) => {
                 {/* Column 2 - start */}
                 <div className="single-card-column-section-2">
                     <div className="single-card-column-section-2__row-1">
-                        <span className="single-card__book-title">{props.book.title}</span>
+                        <span className="single-card__book-title">{book.title}</span>
                         <span>&nbsp;</span>
                         <span className="single-card__book-edition">Edition</span>
                         <span>&nbsp;</span>
-                        <span className="single-card__book-edition-number">{props.book.edition}</span>
+                        <span className="single-card__book-edition-number">{book.edition}</span>
                     </div>
 
                     <div className="single-card-column-section-2__row-2">
@@ -46,18 +51,21 @@ const SingleResultCard = (props) => {
 
                     <div className="single-card-column-section-2__row-3">
                         <span className="author-by">By</span>
-                        <span className="text-authors"> {props.book.authors.join(', ')}</span>
+                        <span className="text-authors"> {book.authors.join(', ')}</span>
                     </div>
 
                     <div className="single-card-column-section-2__row-4">
-                        <p>{props.book.description}</p>
+                        <p>{book.description}</p>
                     </div>
 
                     {/*Card footer*/}
                     <div className="single-card-column-section-2__row-5">
                         <img src={Location_icon} width="20px" alt="contact info card" />
                         <span>&nbsp;</span>
-                        <span className="location"> {props.book.location}</span>
+                        <span className="location"> {book.location}</span>
+
+                        <span>&nbsp;</span>
+                        <span className="location"> {datePosted}</span>
                     </div>
                 </div>
                 {/* Column 2 - end   */}
@@ -67,17 +75,17 @@ const SingleResultCard = (props) => {
                 {/* Column 3 - start */}
                 <div className="single-card-column-section-3">
                     <div className="money">
-                        <span className="">$</span>
-                        <span className="">{props.book.price}</span>
+                        <small>$</small>
+                        <span className="">{book.price}</span>
                     </div>
                     <div>
-                        <img alt="test" height="50px" src={Message_icon} />
+                        <img src={Message_icon} alt="test" height="50px" />
                     </div>
                     <div>
-                        <img src={Books_icon} height="50px" alt="test" />
+                        <img src={bookstoreIcon} height="50px" alt="test" />
                     </div>
                     <div>
-                        {props.book.datePublished}
+                        {book.datePublished}
                     </div>
                 </div>
                 {/* Column 3 - end */}
@@ -87,4 +95,4 @@ const SingleResultCard = (props) => {
 
 }
 
-export default SingleResultCard;
+export default SingleBook;
