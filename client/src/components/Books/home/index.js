@@ -12,8 +12,7 @@ class HomePage extends Component {
         super(props);
 
         this.state = {
-            books: [],
-            name: ""
+            books: []
         };
 
         this.onChangeSearchForItems = this.onChangeSearchForItems.bind(this);
@@ -21,11 +20,6 @@ class HomePage extends Component {
 
     onChangeSearchForItems(event) {
         let search_query = event.target.value;
-
-        this.setState({
-            name: search_query
-        });
-
         if (search_query.length > 2) {
             console.log(search_query)
             axios
@@ -56,41 +50,43 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div className="home-page-container">
-                <div>
-                    {/* ---------- home page top section --- start ---------- */}
-                    <section className="home-page-top-section">
-                        <div className="home-page-top-section__main-text">
-                            <span>Buy & Sell Textbooks from Canada’s <b>35+</b> Universities and Colleges</span>
+            <>
+                <div className="home-page-container">
+                    <div>
+                        {/* ---------- home page top section --- start ---------- */}
+                        <section className="home-page-top-section">
+                            <div className="home-page-top-section__main-text">
+                                <span>Buy & Sell Textbooks from Canada’s <b>35+</b> Universities and Colleges</span>
+                            </div>
+
+                            <div className="home-page-top-section__small-caption mt-4">
+                                Buying and sell textbooks with ease and with minimal effort using the latest technology!
                         </div>
 
-                        <div className="home-page-top-section__small-caption mt-4">
-                            Buying and sell textbooks with ease and with minimal effort using the latest technology!
-                        </div>
+                            <div className="home-search-box">
+                                <form>
+                                    <div className="form-group">
+                                        <input type="text" className="form-control"
+                                            placeholder="Search book titles, authors, ISBN numbers, schools, and course codes."
+                                            onChange={this.onChangeSearchForItems} value={this.state.name} />
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        {/* ---------- home page top section --- end ---------- */}
 
-                        <div className="home-search-box">
-                            <form>
-                                <div className="form-group">
-                                    <input type="text" className="form-control"
-                                        placeholder="Search book titles, authors, ISBN numbers, schools, and course codes."
-                                        onChange={this.onChangeSearchForItems} value={this.state.name} />
-                                </div>
-                            </form>
-                        </div>
-                    </section>
-                    {/* ---------- home page top section --- end ---------- */}
-
-                    {/* ---------- main section --- start ---------- */}
-                    <section className="home-page-main-section">
-                        <div>
-                            {this.state.books.map((book, index) => {
-                                return <SingleResultCard key={book._id} book={book} />
-                            })}
-                        </div>
-                    </section>
-                    {/* ---------- main section --- end ------------ */}
+                        {/* ---------- main section --- start ---------- */}
+                        <section className="home-page-main-section">
+                            <div>
+                                {this.state.books.map((book, index) => {
+                                    return <SingleResultCard key={book._id} book={book} />
+                                })}
+                            </div>
+                        </section>
+                        {/* ---------- main section --- end ------------ */}
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 }

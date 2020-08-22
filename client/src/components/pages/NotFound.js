@@ -1,13 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const NotFound = () => {
   return (
-    <Fragment>
-      <h1 className='x-large text-primary'>
-        <i className='fas fa-exclamation-triangle' /> Page Not Found
-      </h1>
-      <p className='large'>Sorry, this page does not exist</p>
-    </Fragment>
+    <>
+      <div className="d-flex justify-content-center mt-4">
+        <div className='text-center'>
+          <h1 className=''><i className='fas fa-exclamation-triangle' /> Page Not Found</h1>
+          <p className=''>Sorry, this page does not exist.</p>
+        </div>
+      </div>
+    </>
   );
 };
 

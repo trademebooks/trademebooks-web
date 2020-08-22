@@ -1,5 +1,6 @@
 :root {
-  --primary-color: #109383;
+  // --primary-color: #109383; // old from figma - cedric
+  --primary-color: #2bbbad; // new from yichen
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -23,4 +24,8 @@ body {
 a {
   color: var(--primary-color);
   text-decoration: none;
+}
+
+.h2 {
+  color: var(--primary-color);
 }

@@ -9,7 +9,7 @@ import Register from '../auth/Register';
 import Login from '../auth/Login';
 import HomePage from '../books/home';
 
-const Routes = (props) => {
+const Routes = () => {
   return (
     <section className="container">
       <Alert />
@@ -22,10 +22,8 @@ const Routes = (props) => {
         {/* <Route exact path="/bookstores/:id" component={BookStore} /> */}
 
         {/* Protected Routes */}
-        {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
-
-        {/* <PrivateRoute exact path="/add-book" component={ProfileForm} />
-        <PrivateRoute exact path="/books/:id" component={ProfileForm} /> */}
+        {/* <PrivateRoute exact path="/add-book" component={ProfileForm} /> */}
+        {/* <PrivateRoute exact path="/books/:id" component={ProfileForm} />  */}
         
         <Route component={NotFound} />
       </Switch>

@@ -1,21 +1,32 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
+
   const [formData, setFormData] = useState({
-    first_name: 'yichen',
-    last_name: 'zhu',
-    username: 'yichen',
-    email: 'yichenzhu1337@gmail.com',
-    password: 'yichen',
-    password_confirmation: 'yichen'
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    username: ''
   });
 
-  const { first_name, last_name, username, email, password, password_confirmation } = formData;
+  // const [formData, setFormData] = useState({
+  //   first_name: 'yichen',
+  //   last_name: 'zhu',
+  //   email: 'yichenzhu1337@gmail.com',
+  //   password: 'yichen',
+  //   password_confirmation: 'yichen',
+  //   username: 'yichen'
+  // });
+
+  const { first_name, last_name, email, password, password_confirmation, username } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,7 +37,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     if (password !== password_confirmation) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      register({ first_name, last_name, username, email, password, password_confirmation });
+      register({ first_name, last_name, username, email, password, password_confirmation, username });
     }
   };
 
@@ -35,90 +46,30 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
-      <div className="col-sm-6">
-        <h1 className="large text-primary">Sign Up</h1>
-        <p className="lead">
-          <i className="fas fa-user" /> Create Your Account
-      </p>
-        <form className="form" onSubmit={onSubmit}>
+    <>
+      <MDBContainer className="mt-4">
+        <MDBRow className='justify-content-center'>
+          <MDBCol md="6">
+            <form>
+              <p className="h2 text-center mb-4">Register</p>
 
-          {/* First Name */}
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="First Name"
-              name="first_name"
-              value={first_name}
-              onChange={onChange}
-            />
-          </div>
+              <div className="grey-text">
+                <MDBInput label="First Name" icon="user" group type="text" onChange={onChange} name="first_name" value={first_name} />
+                <MDBInput label="Last Name" icon="user" group type="text" onChange={onChange} name="last_name" value={last_name} />
+                <MDBInput label="Your Email" icon="envelope" group type="email" onChange={onChange} name="email" value={email} />
+                <MDBInput label="Your Password" icon="lock" group type="password" onChange={onChange} name="password" value={password} />
+                <MDBInput label="Confirm Your Password" icon="lock" group type="password" onChange={onChange} name="password_confirmation" value={password_confirmation} />
+                <MDBInput label="Desired Username" icon="user-circle" group type="text" onChange={onChange} name="username" value={username} />
+              </div>
 
-          {/* Last Name */}
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="last_name"
-              value={last_name}
-              onChange={onChange}
-            />
-          </div>
-
-          {/* Username */}
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="Username"
-              name="username"
-              value={username}
-              onChange={onChange}
-            />
-            <small className="form-text">
-              This will be your bookstore profile name, you can change it any time you want.
-          </small>
-          </div>
-
-          {/* Email */}
-          <div className="form-group">
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              value={email}
-              onChange={onChange}
-            />
-          </div>
-
-          {/* Password */}
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={onChange}
-            />
-          </div>
-
-          {/* Password Confirmation */}
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              name="password_confirmation"
-              value={password_confirmation}
-              onChange={onChange}
-            />
-          </div>
-
-          <input type="submit" className="btn btn-primary" value="Register" />
-        </form>
-        <p className="my-1">
-          Already have an account? <Link to="/login">Sign In</Link>
-        </p>
-      </div>
-    </Fragment>
+              <div className="text-center">
+                <MDBBtn onClick={onSubmit}>Register</MDBBtn>
+              </div>
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </>
   );
 };
 

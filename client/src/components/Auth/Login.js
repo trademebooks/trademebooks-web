@@ -1,8 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -25,38 +27,45 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">Sign In</h1>
-      <p className="lead">
-        <i className="fas fa-user" /> Sign Into Your Account
-      </p>
-      <form className="form" onSubmit={onSubmit}>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            minLength="6"
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
-      </form>
-      <p className="my-1">
-        Don't have an account? <Link to="/register">Sign Up</Link>
-      </p>
-    </Fragment>
+    <>
+      <MDBContainer className="mt-4">
+        <MDBRow className='justify-content-center'>
+          <MDBCol md="6">
+            <form onSubmit={onSubmit}>
+              <p className="h2 text-center mb-5">Login</p>
+
+              <div className="grey-text">
+                <MDBInput
+                  label="Type your email"
+                  icon="envelope"
+                  group
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={onChange}
+                  required
+                />
+
+                <MDBInput
+                  label="Type your password"
+                  icon="lock"
+                  group
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={onChange}
+                  minLength="6"
+                />
+              </div>
+
+              <div className="text-center">
+                <MDBBtn type="submit">Login</MDBBtn>
+              </div>
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </>
   );
 };
 
