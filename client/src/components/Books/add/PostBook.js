@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './PostBook.scss';
-import '../../css/global/Main.scss'
 
-import SearchBook from '../Bookstore/SearchBook/SearchBook';
-import PostBookForm from './PostBookForm/PostBookForm';
+// import SearchBook from '../Bookstore/SearchBook/SearchBook';
+import PostBookForm from './PostBookForm';
 
 class PostBook extends Component {
     constructor(props) {
@@ -52,22 +51,22 @@ class PostBook extends Component {
         });
     }
     onChangeCourse(i, event) {
-        let courses = this.state.courses.slice(); 
+        let courses = this.state.courses.slice();
         courses[i] = event.target.value;
-        this.setState({courses: courses}); 
+        this.setState({ courses: courses });
     }
 
     render() {
         let courses = this.state.courses.map((course, i) => {
             let currBtn = i !== 0 ?
-                <button type="button" className="manip-course-btn" onClick={() =>this.removeCourse(i)}>X</button> :
+                <button type="button" className="manip-course-btn" onClick={() => this.removeCourse(i)}>X</button> :
                 <button type="button" className="manip-course-btn" onClick={this.addCourse}>Add Another Course</button>
 
             return <tr>
-                <td >{i !== 0 ? '' :'Course(s):'}</td>
+                <td >{i !== 0 ? '' : 'Course(s):'}</td>
                 <td >
                     <input type="text" name="course" value={course} onChange={(e) => this.onChangeCourse(i, e)} />
-                    
+
                     {currBtn}
                 </td>
             </tr>
@@ -76,8 +75,8 @@ class PostBook extends Component {
         let addBookBtn;
 
         if (this.state.quantity === "GROUP") {
-            addBookBtn = <button type="button" onClick={() =>this.addBook()}>Add Another Book</button>
-            
+            addBookBtn = <button type="button" onClick={() => this.addBook()}>Add Another Book</button>
+
         }
         let postBookForms = this.state.books.map((book, i) => {
             return <PostBookForm key={i}></PostBookForm>
@@ -92,16 +91,16 @@ class PostBook extends Component {
                 <div id="select-quantity" className="section">
                     <p className="section-header">SELECT A QUANITITY</p>
                     <div id="select-quantity-options">
-                        <button name="quantity" value="IND" onClick={this.onClick} className={this.state.quantity === 'IND' ? 'selected'  : ''}>Individual Book</button>
+                        <button name="quantity" value="IND" onClick={this.onClick} className={this.state.quantity === 'IND' ? 'selected' : ''}>Individual Book</button>
                         <button name="quantity" value="GROUP" onClick={this.onClick} className={this.state.quantity === 'GROUP' ? 'selected' : ''}>Group of Books</button>
                     </div>
                 </div>
 
                 <div id="search-book-container" className="section">
                     <p className="section-header">SEARCH FROM OVER 25 MILLION BOOKS</p>
-                    
+
                     <div id="search-box">
-                        <SearchBook></SearchBook>
+                        {/* <SearchBook /> */}
                     </div>
                     <p id="create-new-listing">Can't find your book? <a href="/">Create Listing Manually</a></p>
                 </div>

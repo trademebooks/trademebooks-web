@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './PostBookForm.scss';
-import '../../../css/global/Main.scss'
 
 class PostBookForm extends Component {
     constructor(props) {
@@ -30,7 +29,6 @@ class PostBookForm extends Component {
     }
 
     onChangeBook(e) {
-        console.log("asdasd");
         this.setState({
             [e.target.name]: e.target.value
         });
@@ -66,7 +64,7 @@ class PostBookForm extends Component {
     onChangeAuthor(i, event) {
         let authors = this.state.authors.slice();
         authors[i] = event.target.value;
-        this.setState({authors: authors});
+        this.setState({ authors: authors });
     }
 
 
@@ -79,7 +77,7 @@ class PostBookForm extends Component {
             return <tr>
                 <td>{i !== 0 ? '' : 'Author(s):'}</td>
                 <td>
-                    <input type="text" name="author" value={author} onChange={(e) => this.onChangeAuthor(i, e)}/>
+                    <input type="text" name="author" value={author} onChange={(e) => this.onChangeAuthor(i, e)} />
 
                     {currBtn}
                 </td>
@@ -91,54 +89,54 @@ class PostBookForm extends Component {
             form =
                 <table>
                     <tbody>
-                    <tr>
-                        <td>Title:</td>
-                        <td><input type="text" name="title" onChange={this.onChangeBook} value={this.state.title}
-                                   className="full-width"/></td>
-                    </tr>
-                    {authors}
+                        <tr>
+                            <td>Title:</td>
+                            <td><input type="text" name="title" onChange={this.onChangeBook} value={this.state.title}
+                                className="full-width" /></td>
+                        </tr>
+                        {authors}
 
-                    <tr>
-                        <td>ISBN-10:</td>
-                        <td><input type="text" name="isbn10" onChange={this.onChangeBook} value={this.state.isbn10}
-                                   className="full-width"/></td>
-                    </tr>
-                    <tr>
-                        <td>ISBN-13:</td>
-                        <td><input type="text" name="isbn13" onChange={this.onChangeBook} value={this.state.isbn13}
-                                   className="full-width"/></td>
-                    </tr>
-                    <tr>
-                        <td>Edition:</td>
-                        <td><input type="text" name="edition" onChange={this.onChangeBook} value={this.state.edition}
-                                   className="full-width"/></td>
-                    </tr>
+                        <tr>
+                            <td>ISBN-10:</td>
+                            <td><input type="text" name="isbn10" onChange={this.onChangeBook} value={this.state.isbn10}
+                                className="full-width" /></td>
+                        </tr>
+                        <tr>
+                            <td>ISBN-13:</td>
+                            <td><input type="text" name="isbn13" onChange={this.onChangeBook} value={this.state.isbn13}
+                                className="full-width" /></td>
+                        </tr>
+                        <tr>
+                            <td>Edition:</td>
+                            <td><input type="text" name="edition" onChange={this.onChangeBook} value={this.state.edition}
+                                className="full-width" /></td>
+                        </tr>
                     </tbody>
                 </table>
         } else {
             form =
                 <table>
                     <tbody>
-                    <tr>
-                        <td>Title:</td>
-                        <td><p type="text" className="book-title" name="title">{this.state.title}</p></td>
-                    </tr>
-                    <tr>
-                        <td>Author(s):</td>
-                        <td><p type="text" className="book-author" name="author">{this.state.authors}</p></td>
-                    </tr>
-                    <tr>
-                        <td>ISBN-10:</td>
-                        <td><p type="text" className="isbn10" name="isbn10">{this.state.isbn10}</p></td>
-                    </tr>
-                    <tr>
-                        <td>ISBN-13:</td>
-                        <td><p type="text" className="isbn13" name="isbn13">{this.state.isbn13}</p></td>
-                    </tr>
-                    <tr>
-                        <td>Edition:</td>
-                        <td><p type="text" className="edition" name="edition">{this.state.edition}</p></td>
-                    </tr>
+                        <tr>
+                            <td>Title:</td>
+                            <td><p type="text" className="book-title" name="title">{this.state.title}</p></td>
+                        </tr>
+                        <tr>
+                            <td>Author(s):</td>
+                            <td><p type="text" className="book-author" name="author">{this.state.authors}</p></td>
+                        </tr>
+                        <tr>
+                            <td>ISBN-10:</td>
+                            <td><p type="text" className="isbn10" name="isbn10">{this.state.isbn10}</p></td>
+                        </tr>
+                        <tr>
+                            <td>ISBN-13:</td>
+                            <td><p type="text" className="isbn13" name="isbn13">{this.state.isbn13}</p></td>
+                        </tr>
+                        <tr>
+                            <td>Edition:</td>
+                            <td><p type="text" className="edition" name="edition">{this.state.edition}</p></td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -148,50 +146,48 @@ class PostBookForm extends Component {
             <p>Information does not look correct? <span onClick={this.toggleEditable}>Manually Edit</span></p> :
             <span></span>
 
-        let conds = [
+        let conditions = [
             {
                 name: "Poor",
-                img: require("../../../images/assets/Poor_condition_default.png"),
+                img: require('../../../img/condition_icons/Poor_condition_default.png'),
                 desc: "No damage, lightly used, no markings",
-                imgSelected: require("../../../images/assets/Poor_condition.png")
+                imgSelected: require("../../../img/condition_icons/Poor_condition.png")
             },
             {
                 name: "Fair",
-                img: require("../../../images/assets/Fair_condition_default.png"),
+                img: require("../../../img/condition_icons/Fair_condition_default.png"),
                 desc: "No damage, lightly used, no markings",
-                imgSelected: require("../../../images/assets/Fair_condition.png")
+                imgSelected: require("../../../img/condition_icons/Fair_condition.png")
             },
             {
                 name: "Good",
-                img: require("../../../images/assets/Good_condition_default.png"),
+                img: require("../../../img/condition_icons/Good_condition_default.png"),
                 desc: "No damage, lightly used, no markings",
-                imgSelected: require("../../../images/assets/Good_condition.png")
+                imgSelected: require("../../../img/condition_icons/Good_condition.png")
             },
             {
                 name: "Very Good",
-                img: require("../../../images/assets/Verygood_condition_default.png"),
+                img: require("../../../img/condition_icons/Verygood_condition_default.png"),
                 desc: "No damage, lightly used, no markings",
-                imgSelected: require("../../../images/assets/Verygood_condition.png")
+                imgSelected: require("../../../img/condition_icons/Verygood_condition.png")
             },
             {
                 name: "Like New",
-                img: require("../../../images/assets/Likenew_condition_default.png"),
+                img: require("../../../img/condition_icons/Likenew_condition_default.png"),
                 desc: "No damage, lightly used, no markings",
-                imgSelected: require("../../../images/assets/Likenew_condition.png")
+                imgSelected: require("../../../img/condition_icons/Likenew_condition.png")
             },
         ];
 
-
         let condEl = [];
-        // eslint-disable-next-line
-        conds.map((cond, i) => {
+        conditions.map((cond, i) => {
             condEl.push(
                 <div key={i} className="condition">
                     <p className="condition-title">{cond.name}</p>
                     <img className="condition-img"
-                         src={this.state.condition === cond.name ? cond.imgSelected : cond.img}
-                         alt={cond.name} name="condition" cond={cond.name}
-                         onClick={() => this.selectCondition(cond.name)}/>
+                        src={this.state.condition === cond.name ? cond.imgSelected : cond.img}
+                        alt={cond.name} name="condition" cond={cond.name}
+                        onClick={() => this.selectCondition(cond.name)} />
                     <p className="condition-desc">{cond.desc}</p>
                 </div>
             )
@@ -201,22 +197,20 @@ class PostBookForm extends Component {
             <div className="post-book-form">
                 <div className="main-form">
                     <div className="post-book-img">
-                        <img className="book-img" src="" alt=""/>
+                        <img className="book-img" src="" alt="" />
                         <label htmlFor="upload-img" id="upload-btn">Upload Image</label>
-                        <input id="upload-img" type="file"/>
+                        <input id="upload-img" type="file" />
                     </div>
 
                     <form className="post-book-form-fields">
                         {form}
                     </form>
-
-
                 </div>
+
                 {editOpt}
 
                 <div id="book-condition">
                     <p>Condition</p>
-
                     {condEl}
                 </div>
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBContainer, MDBIcon } from 'mdbreact';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBContainer, MDBIcon, MDBBtn } from 'mdbreact';
 import logo from '../../img/logo.png';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
@@ -37,6 +37,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           </MDBNavbarNav>
 
           <MDBNavbarNav right>
+              <MDBNavItem>
+              <MDBNavLink to="/add-book">
+              <MDBIcon icon="book" />{' '}<span>Sell Books</span>
+              </MDBNavLink>
+            </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/bookstores">
                 <MDBIcon icon="store" />{' '}<span>Bookstore</span>
