@@ -46,21 +46,18 @@ const SingleResultCard = (props) => {
 
                     <div className="single-card-column-section-2__row-3">
                         <span className="author-by">By</span>
-                        <span className="text-authors">{props.book.authors}</span>
+                        <span className="text-authors"> {props.book.authors.join(', ')}</span>
                     </div>
 
                     <div className="single-card-column-section-2__row-4">
-                        <p>
-                            {props.book.description}
-                        </p>
+                        <p>{props.book.description}</p>
                     </div>
-
 
                     {/*Card footer*/}
                     <div className="single-card-column-section-2__row-5">
                         <img src={Location_icon} width="20px" alt="contact info card" />
                         <span>&nbsp;</span>
-                        <span className="location">{props.book.location}</span>
+                        <span className="location"> {props.book.location}</span>
                     </div>
                 </div>
                 {/* Column 2 - end   */}

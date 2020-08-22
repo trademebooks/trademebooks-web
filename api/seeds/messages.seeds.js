@@ -1,7 +1,15 @@
 var mongoose = require('mongoose');
 const keys = require('../config');
-mongoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
+
+mongoose.connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+});
+
 require('../models/Message');
+
 const Message = mongoose.model('message');
 
 let messages = [

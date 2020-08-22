@@ -20,8 +20,11 @@ const BookSchema = new mongoose.Schema({
   edition: {
     type: Number
   },
-  author: {
+  location: {
     type: String
+  },
+  authors: {
+    type: Array
   },
   datePublished: {
     type: String
