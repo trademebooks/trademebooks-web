@@ -8,6 +8,8 @@ const appRoutes = require('./app.route');
 function getRouter() {
   router.use('/auth', authRoutes);
   router.use('/books', bookRoutes);
+  router.use('/bookstores', bookRoutes);
+  
   router.use('/app', appRoutes);
 
   return router;

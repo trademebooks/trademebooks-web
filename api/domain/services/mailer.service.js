@@ -16,4 +16,6 @@ const sendMail = (message) => {
     sendGridMail.send(message);
 }
 
-module.exports = sendMail;
+module.exports = {
+    sendMail
+};

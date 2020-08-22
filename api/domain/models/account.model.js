@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const accountsSchema = new Schema({
+const AccountSchema = new Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     receiveEmail: {
         type: Boolean,
         default: true
@@ -12,4 +16,4 @@ const accountsSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('accounts', accountsSchema);
+module.exports = mongoose.model('account', AccountSchema);
