@@ -5,3 +5,5 @@ node_modules
 config/dev.js
 
 yarn.lock
+
+client/build
