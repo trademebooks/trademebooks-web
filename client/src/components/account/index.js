@@ -1,10 +1,10 @@
 import React from 'react';
-import { MDBRow, MDBCol, MDBBtn, MDBContainer } from 'mdbreact';
+import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
 
 const Account = (props) => {
-    const changeHandler = event => {
-        this.setState({ [event.target.name]: { value: event.target.value, valid: !!event.target.value } });
-    };
+    // const changeHandler = event => {
+    //     this.setState({ [event.target.name]: { value: event.target.value, valid: !!event.target.value } });
+    // };
 
     return (
         <>

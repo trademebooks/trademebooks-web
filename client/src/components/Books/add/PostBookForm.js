@@ -180,6 +180,7 @@ class PostBookForm extends Component {
         ];
 
         let condEl = [];
+        // eslint-disable-next-line
         conditions.map((cond, i) => {
             condEl.push(
                 <div key={i} className="condition">
