@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 
-
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',

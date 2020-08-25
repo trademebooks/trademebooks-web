@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Classified Website for Books",
   "engines": {
-    "node": ">=12"
+    "node": "=12"
   },
   "main": "server.js",
   "scripts": {
