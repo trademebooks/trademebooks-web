@@ -1,15 +1,15 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Alert from '../layout/Alert';
-import PrivateRoute from '../routing/PrivateRoute';
-import NotFound from '../pages/NotFound';
+import Alert from "../layout/Alert";
+import PrivateRoute from "../routing/PrivateRoute";
+import NotFound from "../pages/NotFound";
 
-import Register from '../auth/Register';
-import Login from '../auth/Login';
-import Home from '../books/home';
-import Account from '../account';
-import BookAdd from '../books/add/PostBook';
+import Register from "../Auth/Register";
+import Login from "../Auth/Login";
+import Home from "../Books/home";
+import Account from "../account";
+import BookAdd from "../Books/add/PostBook";
 
 const Routes = () => {
   return (
@@ -25,8 +25,8 @@ const Routes = () => {
 
         {/* Protected Routes */}
         <PrivateRoute exact path="/add-book" component={BookAdd} />
-        <PrivateRoute exact path="/account" component={Account} /> 
-        
+        <PrivateRoute exact path="/account" component={Account} />
+
         <Route component={NotFound} />
       </Switch>
     </section>
