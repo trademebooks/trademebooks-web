@@ -1,24 +1,39 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBContainer, MDBIcon } from 'mdbreact';
-import logo from '../../img/logo.png';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBContainer,
+  MDBIcon,
+} from "mdbreact";
+import logo from "../../img/logo.png";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   const auth = (
     <MDBNavbar color="default-color" dark expand="md">
       <MDBContainer>
         <MDBNavbarBrand>
           <Link to="/">
-            <img width="32px" height="44px" src={logo} alt="trademebooks logo" />
+            <img
+              width="32px"
+              height="44px"
+              src={logo}
+              alt="trademebooks logo"
+            />
           </Link>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={toggleCollapse} />
@@ -37,29 +52,33 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           </MDBNavbarNav>
 
           <MDBNavbarNav right>
-              <MDBNavItem>
+            <MDBNavItem>
               <MDBNavLink to="/add-book">
-              <MDBIcon icon="book" />{' '}<span>Sell Books</span>
+                <MDBIcon icon="book" /> <span>Sell Books</span>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/bookstores">
-                <MDBIcon icon="store" />{' '}<span>Bookstore</span>
+                <MDBIcon icon="store" /> <span>Bookstore</span>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/messages">
-                <MDBIcon icon="envelope" />{' '}<span>Messages</span>
+                <MDBIcon icon="envelope" /> <span>Messages</span>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/account">
-                <MDBIcon icon="user" />{' '}<span>Account</span>
+                <MDBIcon icon="user" /> <span>Account</span>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="/buy-books" onClick={logout}>
-                <MDBIcon icon="sign-out-alt" />{' '}<span>Logout</span>
+              <MDBNavLink
+                className="waves-effect waves-light"
+                to="/buy-books"
+                onClick={logout}
+              >
+                <MDBIcon icon="sign-out-alt" /> <span>Logout</span>
               </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
@@ -73,17 +92,26 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <MDBContainer>
         <MDBNavbarBrand>
           <Link to="/">
-            <img width="32px" height="44px" src={logo} alt="trademebooks logo" />
+            <img
+              width="32px"
+              height="44px"
+              src={logo}
+              alt="trademebooks logo"
+            />
           </Link>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse isOpen={isOpen} navbar>
           <MDBNavbarNav right>
             <MDBNavItem>
-              <MDBNavLink to="/register"><strong>Register</strong></MDBNavLink>
+              <MDBNavLink to="/register">
+                <strong>Register</strong>
+              </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/login"><strong>Login</strong></MDBNavLink>
+              <MDBNavLink to="/login">
+                <strong>Login</strong>
+              </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
@@ -91,25 +119,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     </MDBNavbar>
   );
 
-  return (
-    <div>
-      {!loading && (
-        <>{isAuthenticated ? auth : guestLinks}</>
-      )}
-    </div>
-  );
+  return <div>{!loading && <>{isAuthenticated ? auth : guestLinks}</>}</div>;
 };
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);
