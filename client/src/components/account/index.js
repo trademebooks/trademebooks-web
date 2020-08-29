@@ -21,25 +21,9 @@ const Account = ({ login, isAuthenticated }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onclick = (e) => {
-    // console.log(e.target.name);
-    switch (e.target.name) {
-      case "auth":
-        setAuth(true);
-        setBookstore(false);
-        setNotifications(false);
-      //   case "bookstore":
-      //     setAuth(false);
-      //     setBookstore(true);
-      //     setNotifications(false);
-      //   case "notif":
-      //     setAuth(false);
-      //     setBookstore(false);
-      //     setNotifications(true);
-    }
-    console.log(e.target.name);
-    console.log(e.target.value);
-  };
+  console.log("auth: ", auth);
+  console.log("bookstore: ", bookstore);
+  console.log("notifications: ", notifications);
 
   return (
     <>
@@ -59,21 +43,45 @@ const Account = ({ login, isAuthenticated }) => {
           <MDBCol md>
             <MDBRow>
               <div className="w-100">
-                <MDBBtn onClick={onclick} name="auth">
+                <MDBBtn
+                  onClick={() => {
+                    setAuth(true);
+                    setBookstore(false);
+                    setNotifications(false);
+                    console.log(auth);
+                  }}
+                  name="auth"
+                >
                   Authentication
                 </MDBBtn>
               </div>
             </MDBRow>
             <MDBRow>
               <div className="w-100">
-                <MDBBtn onClick={onclick} name="bookstore">
+                <MDBBtn
+                  onClick={() => {
+                    setAuth(false);
+                    setBookstore(true);
+                    setNotifications(false);
+                    console.log(bookstore);
+                  }}
+                  name="bookstore"
+                >
                   BookStore
                 </MDBBtn>
               </div>
             </MDBRow>
             <MDBRow>
               <div className="w-100">
-                <MDBBtn onClick={onclick} name="notif">
+                <MDBBtn
+                  onClick={() => {
+                    setAuth(false);
+                    setBookstore(false);
+                    setNotifications(true);
+                    console.log(notifications);
+                  }}
+                  name="notif"
+                >
                   Notifications
                 </MDBBtn>
               </div>
@@ -82,9 +90,13 @@ const Account = ({ login, isAuthenticated }) => {
         </MDBContainer>
       </div>
 
-      {/* <Authentication email={email} password={password} onChange={onChange} /> */}
-      {/* <BookStore username="A" location="B" school="C" onChange={onChange} /> */}
-      {/* <Notifications /> */}
+      {auth ? (
+        <Authentication email={email} password={password} onChange={onChange} />
+      ) : null}
+      {bookstore ? (
+        <BookStore username="A" location="B" school="C" onChange={onChange} />
+      ) : null}
+      {notifications ? <Notifications /> : null}
     </>
   );
 };
