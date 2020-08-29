@@ -21,10 +21,6 @@ const Account = ({ login, isAuthenticated }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  console.log("auth: ", auth);
-  console.log("bookstore: ", bookstore);
-  console.log("notifications: ", notifications);
-
   return (
     <>
       <div className="mt-4">
@@ -48,7 +44,6 @@ const Account = ({ login, isAuthenticated }) => {
                     setAuth(true);
                     setBookstore(false);
                     setNotifications(false);
-                    console.log(auth);
                   }}
                   name="auth"
                 >
@@ -63,7 +58,6 @@ const Account = ({ login, isAuthenticated }) => {
                     setAuth(false);
                     setBookstore(true);
                     setNotifications(false);
-                    console.log(bookstore);
                   }}
                   name="bookstore"
                 >
@@ -78,7 +72,6 @@ const Account = ({ login, isAuthenticated }) => {
                     setAuth(false);
                     setBookstore(false);
                     setNotifications(true);
-                    console.log(notifications);
                   }}
                   name="notif"
                 >
@@ -93,9 +86,7 @@ const Account = ({ login, isAuthenticated }) => {
       {auth ? (
         <Authentication email={email} password={password} onChange={onChange} />
       ) : null}
-      {bookstore ? (
-        <BookStore username="A" location="B" school="C" onChange={onChange} />
-      ) : null}
+      {bookstore ? <BookStore onChange={onChange} /> : null}
       {notifications ? <Notifications /> : null}
     </>
   );
