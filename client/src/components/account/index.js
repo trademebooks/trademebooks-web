@@ -83,11 +83,11 @@ const Account = ({ login, isAuthenticated }) => {
         </MDBContainer>
       </div>
 
-      {auth ? (
+      {auth && (
         <Authentication email={email} password={password} onChange={onChange} />
-      ) : null}
-      {bookstore ? <BookStore onChange={onChange} /> : null}
-      {notifications ? <Notifications /> : null}
+      )}
+      {bookstore && <BookStore onChange={onChange} />}
+      {notifications && <Notifications />}
     </>
   );
 };
