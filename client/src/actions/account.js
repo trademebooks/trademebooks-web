@@ -1,5 +1,4 @@
 import api from "../utils/api";
-import { setAlert } from "./alert";
 import {
   UPDATE_EMAIL,
   UPDATE_PASSWORD,

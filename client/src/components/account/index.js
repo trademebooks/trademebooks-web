@@ -16,7 +16,7 @@ const Account = ({ login, isAuthenticated }) => {
   const [bookstore, setBookstore] = useState(false);
   const [notifications, setNotifications] = useState(false);
 
-  const { email, password, username, location, school } = formData;
+  const { email, password } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
