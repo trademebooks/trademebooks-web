@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
-import { updateEmail } from "../../actions/account";
+// import { updateEmail } from "../../actions/account";
 
-const Authentication = ({ email, password, onChange }) => {
+const Authentication = ({ myemail, password, onChange }) => {
+  const [email, setEmail] = useState("");
+  const updateEmail = (e) => {
+    console.log("Updating email");
+    setEmail("HI");
+    console.log(email);
+  };
+
   return (
     <div>
       <div>
@@ -12,7 +19,7 @@ const Authentication = ({ email, password, onChange }) => {
           group
           type="email"
           name="email"
-          value={email}
+          //   value={email}
           onChange={onChange}
           required
         />
@@ -30,7 +37,7 @@ const Authentication = ({ email, password, onChange }) => {
           group
           type="password"
           name="password"
-          value={password}
+          //   value={password}
           onChange={onChange}
           minLength="6"
           validate
