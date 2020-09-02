@@ -8,13 +8,14 @@ const Account = (props) => {
 
     return (
         <>
+            <div className="header-container text-center">
+                <h3 className="font-weight-bold">Account Settings</h3>
+            </div>
             <div className="mt-4">
                 <MDBContainer>
                     <MDBRow center={true}>
-                        <MDBCol md="">
-                            <div className="text-center">
-                                <h2>Account Settings</h2>
-                            </div>
+                        <MDBCol>
+                            <p>Account settings here</p>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>

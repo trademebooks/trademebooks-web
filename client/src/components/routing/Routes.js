@@ -9,12 +9,15 @@ import Register from '../auth/Register';
 import Login from '../auth/Login';
 import Home from '../books/home';
 import Account from '../account';
-import BookAdd from '../books/add/PostBook';
+import BookAdd from '../books/add';
+// import BookAdd from '../books/add/PostBook';
 
 const Routes = () => {
   return (
-    <section className="container">
-      <Alert />
+    <>
+      <div className="container">
+        <Alert />
+      </div>
       <Switch>
         {/* Public Routes */}
         <Route exact path="/register" component={Register} />
@@ -25,11 +28,11 @@ const Routes = () => {
 
         {/* Protected Routes */}
         <PrivateRoute exact path="/add-book" component={BookAdd} />
-        <PrivateRoute exact path="/account" component={Account} /> 
-        
+        <PrivateRoute exact path="/account" component={Account} />
+
         <Route component={NotFound} />
       </Switch>
-    </section>
+    </>
   );
 };
 
