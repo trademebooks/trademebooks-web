@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
+import { updateEmail } from "../../actions/account";
 
 const Authentication = ({ email, password, onChange }) => {
   return (
@@ -15,7 +16,9 @@ const Authentication = ({ email, password, onChange }) => {
           onChange={onChange}
           required
         />
-        <MDBBtn type="submit">Save Changes</MDBBtn>
+        <MDBBtn type="submit" onClick={updateEmail}>
+          Save Changes
+        </MDBBtn>
       </div>
       <br />
       <div>
