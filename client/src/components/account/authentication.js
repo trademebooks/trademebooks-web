@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 // import { updateEmail } from "../../actions/account";
 
-const Authentication = ({ myemail, password, onChange }) => {
-  const [email, setEmail] = useState("");
+const Authentication = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const updateEmail = (e) => {
+    e.preventDefault();
     console.log("Updating email");
-    setEmail("HI");
-    console.log(email);
+    setFormData({ ...formData, email });
+    console.log(formData);
   };
 
   return (
