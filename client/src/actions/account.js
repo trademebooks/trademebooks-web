@@ -7,19 +7,21 @@ import {
   UPDATE_ERROR,
 } from "./types";
 
-export const updateEmail = (userId, email) => async (dispatch) => {
+export const updateEmail = (email) => async (dispatch) => {
   console.log("Got to update email action");
-  try {
-    const res = await api.get(`/profile/user/${userId}`);
-
-    dispatch({
-      type: UPDATE_EMAIL,
-      payload: res,
-    });
-  } catch (err) {
-    dispatch({
-      type: UPDATE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
+  return dispatch({
+    type: UPDATE_EMAIL,
+    payload: email,
+  });
+  //   try {
+  //     dispatch({
+  //       type: UPDATE_EMAIL,
+  //       payload: email,
+  //     });
+  //   } catch (err) {
+  //     dispatch({
+  //       type: UPDATE_ERROR,
+  //       payload: { msg: err.response.statusText, status: err.response.status },
+  //     });
+  //   }
 };

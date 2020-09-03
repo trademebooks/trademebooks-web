@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
-// import { updateEmail } from "../../actions/account";
+import { updateEmail } from "../../actions/account";
 
 const Authentication = () => {
   const [formData, setFormData] = useState({
@@ -13,11 +13,12 @@ const Authentication = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const updateEmail = (e) => {
+  const changeEmail = (e) => {
     e.preventDefault();
     console.log("Updating email");
     setFormData({ ...formData, email });
     console.log(formData);
+    updateEmail(formData);
   };
 
   return (
@@ -29,11 +30,10 @@ const Authentication = () => {
           group
           type="email"
           name="email"
-          //   value={email}
           onChange={onChange}
           required
         />
-        <MDBBtn type="submit" onClick={updateEmail}>
+        <MDBBtn type="submit" onClick={changeEmail}>
           Save Changes
         </MDBBtn>
       </div>
@@ -47,7 +47,6 @@ const Authentication = () => {
           group
           type="password"
           name="password"
-          //   value={password}
           onChange={onChange}
           minLength="6"
           validate
@@ -58,7 +57,6 @@ const Authentication = () => {
           group
           type="password"
           name="password"
-          value={password}
           onChange={onChange}
           minLength="6"
           validate
