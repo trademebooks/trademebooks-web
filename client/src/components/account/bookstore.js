@@ -50,7 +50,14 @@ const BookStore = (props) => {
         minLength="6"
         validate
       />
-      <MDBBtn type="submit" onClick={() => props.updateUsername(username)}>
+      <MDBBtn
+        type="submit"
+        onClick={() => {
+          props.updateUsername(username);
+          props.updateLocation(location);
+          props.updateSchool(school);
+        }}
+      >
         Save Changes
       </MDBBtn>
     </div>
