@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 import { updateEmail } from "../../actions/account";
+import { connect } from "react-redux";
 
-const Authentication = () => {
+const Authentication = (props) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -13,6 +14,7 @@ const Authentication = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  /*
   const changeEmail = (e) => {
     e.preventDefault();
     // console.log("Updating email");
@@ -20,6 +22,7 @@ const Authentication = () => {
     console.log(formData);
     updateEmail(formData);
   };
+  */
 
   return (
     <div>
@@ -33,7 +36,7 @@ const Authentication = () => {
           onChange={onChange}
           required
         />
-        <MDBBtn type="submit" onClick={changeEmail}>
+        <MDBBtn type="submit" onClick={props.updateEmail}>
           Save Changes
         </MDBBtn>
       </div>
@@ -67,4 +70,16 @@ const Authentication = () => {
   );
 };
 
-export default Authentication;
+const mapStateToProps = (state) => {
+  return {
+    email: state.email,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateEmail: () => dispatch(updateEmail()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
