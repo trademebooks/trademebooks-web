@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
+import { connect } from "react-redux";
+import {
+  updateUsername,
+  updateLocation,
+  updateSchool,
+} from "../../actions/bookstore";
 
-const BookStore = ({ onChange }) => {
+const BookStore = (props) => {
+  const [formData, setFormData] = useState({
+    username: "",
+    location: "",
+    school: "",
+  });
+
+  const { username, location, school } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <div>
       <p className="h2 mb-5">Username</p>
@@ -33,9 +50,25 @@ const BookStore = ({ onChange }) => {
         minLength="6"
         validate
       />
-      <MDBBtn type="submit">Save Changes</MDBBtn>
+      <MDBBtn type="submit" onClick={() => props.updateUsername(username)}>
+        Save Changes
+      </MDBBtn>
     </div>
   );
 };
 
-export default BookStore;
+const mapStateToProps = (state) => {
+  return {
+    username: state.username,
+    location: state.location,
+    school: state.school,
+  };
+};
+
+const mapDispatchToProps = {
+  updateUsername,
+  updateLocation,
+  updateSchool,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookStore);

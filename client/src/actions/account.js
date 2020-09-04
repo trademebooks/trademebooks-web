@@ -1,4 +1,3 @@
-import api from "../utils/api";
 import {
   UPDATE_EMAIL,
   UPDATE_PASSWORD,

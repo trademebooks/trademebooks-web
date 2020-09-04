@@ -1,32 +1,35 @@
 import {
-  UPDATE_EMAIL,
-  UPDATE_PASSWORD,
-  UPDATE_NOTIFICATIONS,
+  UPDATE_USERNAME,
+  UPDATE_SCHOOL,
+  UPDATE_LOCATION,
   UPDATE_ERROR,
 } from "../actions/types";
 
 const initialState = {
   loading: true,
-  email: null,
-  password: null,
+  username: null,
+  location: null,
+  school: null,
 };
 
 export default function (state = initialState, action) {
-  console.log("Got to account reducer, action: ", action);
+  console.log("Got to bookstore reducer, action: ", action);
   const { type, payload } = action;
-
   switch (type) {
-    case UPDATE_EMAIL:
+    case UPDATE_USERNAME:
       return {
         ...state,
-        loading: false,
-        email: payload,
+        username: payload,
       };
-    case UPDATE_PASSWORD:
+    case UPDATE_LOCATION:
       return {
         ...state,
-        loading: false,
-        password: payload,
+        location: payload,
+      };
+    case UPDATE_SCHOOL:
+      return {
+        ...state,
+        school: payload,
       };
     case UPDATE_ERROR:
       return {

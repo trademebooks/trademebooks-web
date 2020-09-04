@@ -14,16 +14,6 @@ const Authentication = (props) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  /*
-  const changeEmail = (e) => {
-    e.preventDefault();
-    // console.log("Updating email");
-    setFormData({ ...formData, email });
-    console.log(formData);
-    updateEmail(formData);
-  };
-  */
-
   return (
     <div>
       <div>
