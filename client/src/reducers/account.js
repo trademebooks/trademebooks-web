@@ -23,6 +23,12 @@ export default function (state = initialState, action) {
         loading: false,
         email: payload,
       };
+    case UPDATE_PASSWORD:
+      return {
+        ...state,
+        loading: false,
+        password: payload,
+      };
     case UPDATE_ERROR:
       return {
         ...state,

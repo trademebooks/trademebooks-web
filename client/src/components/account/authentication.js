@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
-import { updateEmail } from "../../actions/account";
+import { updateEmail, updatePassword } from "../../actions/account";
 import { connect } from "react-redux";
 
 const Authentication = (props) => {
@@ -64,7 +64,9 @@ const Authentication = (props) => {
           minLength="6"
           validate
         />
-        <MDBBtn type="submit">Save Changes</MDBBtn>
+        <MDBBtn type="submit" onClick={() => props.updatePassword(password)}>
+          Save Changes
+        </MDBBtn>
       </div>
     </div>
   );
@@ -73,12 +75,14 @@ const Authentication = (props) => {
 const mapStateToProps = (state) => {
   return {
     email: state.email,
+    password: state.password,
   };
 };
 
 // can do a manual dispatch
 const mapDispatchToProps = {
   updateEmail,
+  updatePassword,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
