@@ -15,7 +15,7 @@ const Authentication = () => {
 
   const changeEmail = (e) => {
     e.preventDefault();
-    console.log("Updating email");
+    // console.log("Updating email");
     setFormData({ ...formData, email });
     console.log(formData);
     updateEmail(formData);

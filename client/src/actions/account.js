@@ -7,21 +7,21 @@ import {
   UPDATE_ERROR,
 } from "./types";
 
-export const updateEmail = (email) => async (dispatch) => {
+export const updateEmail = (formData) => (dispatch) => {
   console.log("Got to update email action");
-  return dispatch({
-    type: UPDATE_EMAIL,
-    payload: email,
-  });
-  //   try {
-  //     dispatch({
-  //       type: UPDATE_EMAIL,
-  //       payload: email,
-  //     });
-  //   } catch (err) {
-  //     dispatch({
-  //       type: UPDATE_ERROR,
-  //       payload: { msg: err.response.statusText, status: err.response.status },
-  //     });
-  //   }
+  //   return {
+  //     type: UPDATE_EMAIL,
+  //     payload: email,
+  //   };
+  try {
+    dispatch({
+      type: UPDATE_EMAIL,
+      payload: formData.email,
+    });
+  } catch (err) {
+    dispatch({
+      type: UPDATE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
 };
