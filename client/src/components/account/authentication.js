@@ -72,14 +72,12 @@ const Authentication = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    email: state.email,
+    email: state.email
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateEmail: () => dispatch(updateEmail()),
-  };
+const mapDispatchToProps = {
+  updateEmail
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
