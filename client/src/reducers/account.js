@@ -13,7 +13,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  console.log("Got to account reducer");
+  console.log("Got to account reducer, action: ", action);
   const { type, payload } = action;
 
   switch (type) {

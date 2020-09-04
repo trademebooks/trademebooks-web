@@ -36,7 +36,7 @@ const Authentication = (props) => {
           onChange={onChange}
           required
         />
-        <MDBBtn type="submit" onClick={props.updateEmail}>
+        <MDBBtn type="submit" onClick={() => props.updateEmail(email)}>
           Save Changes
         </MDBBtn>
       </div>
@@ -72,12 +72,13 @@ const Authentication = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    email: state.email
+    email: state.email,
   };
 };
 
+// can do a manual dispatch
 const mapDispatchToProps = {
-  updateEmail
+  updateEmail,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authentication);

@@ -7,8 +7,8 @@ import {
   UPDATE_ERROR,
 } from "./types";
 
-export const updateEmail = (formData) => (dispatch) => {
-  console.log("Got to update email action");
+export const updateEmail = (email) => async (dispatch) => {
+  console.log("Got to update email action, formData: ", email);
   //   return {
   //     type: UPDATE_EMAIL,
   //     payload: email,
@@ -16,7 +16,7 @@ export const updateEmail = (formData) => (dispatch) => {
   try {
     dispatch({
       type: UPDATE_EMAIL,
-      payload: formData.email,
+      payload: email,
     });
   } catch (err) {
     dispatch({
