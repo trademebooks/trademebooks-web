@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Alert from '../layout/Alert';
-import PrivateRoute from '../routing/PrivateRoute';
-import NotFound from '../pages/NotFound';
+import Alert from "../layout/Alert";
+import PrivateRoute from "../routing/PrivateRoute";
+import NotFound from "../pages/NotFound";
 
 import Register from '../auth/Register';
 import Login from '../auth/Login';
