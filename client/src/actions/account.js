@@ -1,10 +1,4 @@
-import {
-  UPDATE_EMAIL,
-  UPDATE_PASSWORD,
-  UPDATE_BOOKSTORE,
-  UPDATE_NOTIFICATIONS,
-  UPDATE_ERROR,
-} from "./types";
+import { UPDATE_EMAIL, UPDATE_PASSWORD, UPDATE_ERROR } from "./types";
 
 export const updateEmail = (email) => async (dispatch) => {
   console.log("Got to update email action, email: ", email);
