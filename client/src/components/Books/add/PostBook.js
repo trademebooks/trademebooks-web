@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './PostBook.scss';
 
-// import SearchBook from '../Bookstore/SearchBook/SearchBook';
+import SearchBook from './SearchBook';
 import PostBookForm from './PostBookForm';
 
 class PostBook extends Component {
@@ -73,7 +73,6 @@ class PostBook extends Component {
         });
 
         let addBookBtn;
-
         if (this.state.quantity === "GROUP") {
             addBookBtn = <button type="button" onClick={() => this.addBook()}>Add Another Book</button>
 
@@ -83,35 +82,37 @@ class PostBook extends Component {
         });
 
         return (
-            <div id="post-book">
+            <div className="post-book">
                 <div id="header-container">
                     <h1>Post Your Book</h1>
                 </div>
 
-                <div id="select-quantity" className="section">
+                {/* <div className="section select-quantity">
                     <p className="section-header">SELECT A QUANITITY</p>
                     <div id="select-quantity-options">
                         <button name="quantity" value="IND" onClick={this.onClick} className={this.state.quantity === 'IND' ? 'selected' : ''}>Individual Book</button>
                         <button name="quantity" value="GROUP" onClick={this.onClick} className={this.state.quantity === 'GROUP' ? 'selected' : ''}>Group of Books</button>
                     </div>
-                </div>
+                </div> */}
 
-                <div id="search-book-container" className="section">
-                    <p className="section-header">SEARCH FROM OVER 25 MILLION BOOKS</p>
-
-                    <div id="search-box">
-                        {/* <SearchBook /> */}
+                <div className="section search-book-container">
+                    <div className="section-header">
+                        <p>SEARCH FROM OVER 10,000 BOOKS</p>
                     </div>
-                    <p id="create-new-listing">Can't find your book? <a href="/">Create Listing Manually</a></p>
+                    <div className="search-box">
+                        <SearchBook></SearchBook>
+                    </div>
+                    <div className="create-new-listing">
+                        <p>Can't find your book? <a href="/">Create Listing Manually</a></p>
+                    </div>
                 </div>
 
-                <div id="post-book-form-container" >
+                <div className="post-book-form-container">
                     {postBookForms}
                     {addBookBtn}
                 </div>
 
-                <form id="university-form-container" className="section">
-
+                {/* <form className="section university-form-container">
                     <table>
                         <tbody>
                             <tr>
@@ -134,7 +135,7 @@ class PostBook extends Component {
                             </tr>
                         </tbody>
                     </table>
-                </form>
+                </form> */}
             </div>
         );
     }
