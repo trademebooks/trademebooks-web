@@ -5,11 +5,11 @@ import Alert from "../layout/Alert";
 import PrivateRoute from "../routing/PrivateRoute";
 import NotFound from "../pages/NotFound";
 
-import Register from '../auth/Register';
-import Login from '../auth/Login';
-import Home from '../books/home';
-import Account from '../account';
-import BookAdd from '../books/add';
+import Register from "../Auth/Register";
+import Login from "../Auth/Login";
+import Home from "../Books/home";
+import Account from "../account";
+import BookAdd from "../Books/add";
 // import BookAdd from '../books/add/PostBook';
 
 const Routes = () => {

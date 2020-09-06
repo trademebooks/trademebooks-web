@@ -1,3 +1,4 @@
+import api from "../utils/api";
 import {
   UPDATE_USERNAME,
   UPDATE_SCHOOL,
@@ -8,9 +9,11 @@ import {
 export const updateUsername = (username) => async (dispatch) => {
   console.log("Got to update username action, username: ", username);
   try {
+    const res = api.put("/bookstore/", username);
+
     dispatch({
       type: UPDATE_USERNAME,
-      payload: username,
+      payload: res,
     });
   } catch (err) {
     dispatch({
@@ -23,9 +26,11 @@ export const updateUsername = (username) => async (dispatch) => {
 export const updateSchool = (school) => async (dispatch) => {
   console.log("Got to update school action, school: ", school);
   try {
+    const res = api.put("/bookstore/", school);
+
     dispatch({
       type: UPDATE_SCHOOL,
-      payload: school,
+      payload: res,
     });
   } catch (err) {
     dispatch({
@@ -38,9 +43,11 @@ export const updateSchool = (school) => async (dispatch) => {
 export const updateLocation = (location) => async (dispatch) => {
   console.log("Got to update location action, location: ", location);
   try {
+    const res = api.put("/bookstore/", location);
+
     dispatch({
       type: UPDATE_LOCATION,
-      payload: location,
+      payload: res,
     });
   } catch (err) {
     dispatch({
