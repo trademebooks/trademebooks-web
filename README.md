@@ -17,6 +17,7 @@ The key features:
 - Frontend: JavaScript and ReactJS
 - Backend: Node.js, Express, and MongoDB
 - Server (DevOps): Heroku
+- Tools: Visual Studio Code (with plugins: Prettier), and MongoDB Atlas
 
 ## Required Software
 1. Install NodeJS - https://nodejs.org/en/
@@ -34,8 +35,8 @@ Make sure to be in the root directory, then:
 npm install
 ```
 
-### Backend Setup - add the local config file
-Create a file called *dev.js* under the config directory
+### Backend Setup - Add the local config file
+Create a file called *dev.js* under the config directory.
 ```
 module.exports = {
     googleClientID: "secret-key-here",
@@ -47,6 +48,12 @@ module.exports = {
     sendGridKey: "secret-key-here",
     redirectDomain: "secret-key-here"
 };
+```
+
+### Backend Setup - Running the tests
+Go to the root directory of the project and run the following command to see if all tests pass.
+```
+npm run test
 ```
 
 ## Work Flow on Local Machine
