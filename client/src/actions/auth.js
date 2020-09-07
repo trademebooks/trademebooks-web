@@ -37,10 +37,13 @@ export const register = formData => async dispatch => {
     });
     dispatch(loadUser());
   } catch (err) {
-    const errors = err.response.data.errors;
+    const data = err.response.data;
+    const errors = data.errors;
 
     if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(errorMessage => {
+        dispatch(setAlert(errorMessage, 'danger'))
+      });
     }
 
     dispatch({
@@ -55,7 +58,6 @@ export const login = (email, password) => async dispatch => {
 
   try {
     const res = await api.post('/auth/login', body);
-
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
@@ -63,10 +65,13 @@ export const login = (email, password) => async dispatch => {
 
     dispatch(loadUser());
   } catch (err) {
-    const errors = err.response.data.errors;
+    const data = err.response.data;
+    const errors = data.errors;
 
     if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(errorMessage => {
+        dispatch(setAlert(errorMessage, 'danger'))
+      });
     }
 
     dispatch({
@@ -87,14 +92,5 @@ export const logout = () => async dispatch => {
     console.log(res)
   } catch (err) {
     console.log('actions/auth.js', err)
-    // const errors = err.response.data.errors;
-
-    // if (errors) {
-    //   errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    // }
-
-    // dispatch({
-    //   type: LOGIN_FAIL
-    // });
   }
 };

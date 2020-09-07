@@ -58,7 +58,7 @@ app.use((err, req, res, next) => {
     console.error('ApiException', err);
 
     return res
-      .status(err.status)
+      .status(err.code)
       .json(globalResponseDTO(
         status = err.status,
         code = err.code,
@@ -88,7 +88,5 @@ app.use((err, req, res, next) => {
     console.error('Other Error', err);
   }
 });
-
-
 
 module.exports = http.createServer(app);
