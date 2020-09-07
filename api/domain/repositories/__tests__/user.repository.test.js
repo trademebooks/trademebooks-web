@@ -1,6 +1,6 @@
 const db = require('../../../utils/db');
 let dbConnection;
-const dbTestUtils = require('../../../tests/testUtils/dbTestUtil');
+const dbTestUtils = require('../../../../tests/testUtils/dbTestUtil');
 
 const userRepository = require('../user.repository');
 const UserModel = require('../../models/user.model');
@@ -30,7 +30,7 @@ describe('Test Suite: User Repository', () => {
     phone_number: '1234567890'
   };
 
-  xit('User Repository - createUser', async () => {
+  it('User Repository - createUser', async () => {
     let user = await userRepository.createUser(testUser);
     const expected = 'Yichen';
     const actual = user.first_name;

@@ -13,6 +13,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  console.log("Got to bookstore reducer, action: ", action);
   const { type, payload } = action;
   switch (type) {
     case UPDATE_USERNAME:

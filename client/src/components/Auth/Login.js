@@ -7,8 +7,8 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const { email, password } = formData;
@@ -44,6 +44,7 @@ const Login = ({ login, isAuthenticated }) => {
                   onChange={onChange}
                   required
                 />
+
                 <MDBInput
                   label="Type your password"
                   icon="lock"
@@ -76,8 +77,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-const mapDispatchToProps = {
-  login
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, { login })(Login);

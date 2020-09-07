@@ -1,6 +1,6 @@
 const db = require('../../../utils/db');
 let dbConnection;
-const dbTestUtils = require('../../../tests/testUtils/dbTestUtil');
+const dbTestUtils = require('../../../../tests/testUtils/dbTestUtil');
 
 const bookRepository = require('../book.repository');
 const BookModel = require('../../models/book.model');
@@ -23,19 +23,19 @@ afterAll(async () => {
 
 describe('Test Suite: Book Repository', () => {
 
-  xit('Book Repository - getAll', async () => {
+  it('Book Repository - getAll', async () => {
     let books = await bookRepository.getAll();
 
     expect(books.length).toBe(15);
   });
 
-  xit('Book Repository - getById', async () => {
+  it('Book Repository - getById', async () => {
     let book = await bookRepository.getById('56e6dd2eb4494ed008d595bd');
 
     expect(book).toBe(null);
   });
 
-  xit('Book Repository - createBook', async () => {
+  it('Book Repository - createBook', async () => {
     let newBook = {
       title: 'Harry Potter and the Awesome Book of Nothing',
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
@@ -50,7 +50,7 @@ describe('Test Suite: Book Repository', () => {
     expect(book.id).toBe(mostRecentlyInsertedBook.id);
   });
 
-  xit('Book Repository - updateBookById', async () => {
+  it('Book Repository - updateBookById', async () => {
     let books = await dbTestUtils.getAllTableData(BookModel);
     let bookToUpdate = books[0];
 
@@ -68,7 +68,7 @@ describe('Test Suite: Book Repository', () => {
     expect(updatedBooks[0].title).toBe(newBook.title);
   });
 
-  xit('Book Repository - deleteBookById', async () => {
+  it('Book Repository - deleteBookById', async () => {
     let books = await dbTestUtils.getAllTableData(BookModel);
     let bookToDelete = books[0];
     
