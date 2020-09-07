@@ -1,9 +1,9 @@
 const fetch = require('node-fetch');
-const api = require('../../../src/server');
+const api = require('../../../../');
 
 const apiPort = Math.round(Math.random() * 65535);
 
-const db = require('../../../src/utils/db');
+const db = require('../../../../utils/db');
 let dbConnection;
 
 beforeAll(async () => {
@@ -29,5 +29,4 @@ describe('App - General API', () => {
 
 afterAll(async () => {
   await api.close();
-  await dbConnection.disconnect();
 });

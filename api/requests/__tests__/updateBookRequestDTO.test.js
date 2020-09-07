@@ -33,7 +33,7 @@ describe('Test Suite: Request', () => {
 
   });
 
-  it('Correct request 3 - happy path', () => {
+  xit('Correct request 3 - happy path', () => {
     // 1. Arrange
     let apiInputRequest = {
       first_name: 'Yichen',

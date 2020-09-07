@@ -17,15 +17,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     username: ''
   });
 
-  // const [formData, setFormData] = useState({
-  //   first_name: 'yichen',
-  //   last_name: 'zhu',
-  //   email: 'yichenzhu1337@gmail.com',
-  //   password: 'yichen',
-  //   password_confirmation: 'yichen',
-  //   username: 'yichen'
-  // });
-
   const { first_name, last_name, email, password, password_confirmation, username } = formData;
 
   const onChange = (e) => {
