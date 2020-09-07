@@ -34,13 +34,15 @@ const registerUser = catchExceptions(async (req, res, next) => {
   eventEmitter.emit('userHasRegistered', user);
 
   // 7. response /
-  return res.json(globalResponseDTO(
-    status = "success",
-    code = 200,
-    message = `The email: ${registerUserRequest.email} has successfully registered.`,
-    data = userResponseDTO(user),
-    errors = null
-  ));
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `The email: ${registerUserRequest.email} has successfully registered.`),
+      (data = userResponseDTO(user)),
+      (errors = null)
+    )
+  );
 });
 
 /**
@@ -62,18 +64,21 @@ const logUserIn = catchExceptions(async (req, res, next) => {
   let loggedInUser = await authService.loginUser(loginUserRequest);
   if (loggedInUser) {
     req.session.user = loggedInUser;
-  }
-  else {
+  } else {
     // if the user does not login successfully
-    return res.status(400).json(globalResponseDTO(
-      status = 'failed',
-      code = 400,
-      message = `Invalid credentials, please try a different email and password combination.`,
-      data = null,
-      errors = [
-        `Invalid credentials, please try a different email and password combination.`
-      ]
-    ));
+    return res
+      .status(400)
+      .json(
+        globalResponseDTO(
+          (status = 'failed'),
+          (code = 400),
+          (message = `Invalid credentials, please try a different email and password combination.`),
+          (data = null),
+          (errors = [
+            `Invalid credentials, please try a different email and password combination.`,
+          ])
+        )
+      );
   }
 
   // 6. event
@@ -81,13 +86,17 @@ const logUserIn = catchExceptions(async (req, res, next) => {
 
   // 7. response
   let userDTO = userResponseDTO(loggedInUser);
-  return res.status(200).json(globalResponseDTO(
-    status = 'success',
-    code = 200,
-    message = `The user has successfully logged in.`,
-    userDTO,
-    errors = null
-  ));
+  return res
+    .status(200)
+    .json(
+      globalResponseDTO(
+        (status = 'success'),
+        (code = 200),
+        (message = `The user has successfully logged in.`),
+        userDTO,
+        (errors = null)
+      )
+    );
 });
 
 /**
@@ -108,13 +117,15 @@ const logUserOut = catchExceptions((req, res, next) => {
   // 6. event
 
   // 7. response
-  return res.json(globalResponseDTO(
-    status = "success",
-    code = 200,
-    message = `The user has successfully logged out.`,
-    data = {},
-    errors = null
-  ));
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `The user has successfully logged out.`),
+      (data = {}),
+      (errors = null)
+    )
+  );
 });
 
 /**
@@ -135,18 +146,22 @@ const getAuthUser = catchExceptions((req, res, next) => {
   // 6. event: none
 
   // 7. response
-  return res.status(200).json(globalResponseDTO(
-    status = 'success',
-    code = 200,
-    message = `The currently authenticated user's information.`,
-    data = userResponseDTO(user),
-    errors = null
-  ));
+  return res
+    .status(200)
+    .json(
+      globalResponseDTO(
+        (status = 'success'),
+        (code = 200),
+        (message = `The currently authenticated user's information.`),
+        (data = userResponseDTO(user)),
+        (errors = null)
+      )
+    );
 });
 
 module.exports = {
   registerUser,
   logUserIn,
   logUserOut,
-  getAuthUser
+  getAuthUser,
 };
