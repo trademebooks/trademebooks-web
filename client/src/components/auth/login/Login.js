@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { login } from "../../actions/auth";
+
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 
 const Login = ({ login, isAuthenticated }) => {
@@ -27,7 +26,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <>
-      <MDBContainer className="mt-4">
+      <MDBContainer className="mt-4 login-form">
         <MDBRow className="justify-content-center">
           <MDBCol md="6">
             <form onSubmit={onSubmit}>
@@ -72,12 +71,4 @@ Login.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-const mapDispatchToProps = {
-  login
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

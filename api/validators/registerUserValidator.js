@@ -16,7 +16,7 @@ const registerUserValidator = (data) => {
     password: 'required|min:6',
     password_confirmation: 'required|min:6|same:password'
   };
-   
+
   let validator = new Validator(data, rules);
 
   if (validator.fails()) {
@@ -24,13 +24,13 @@ const registerUserValidator = (data) => {
     for (const field in validator.errors.errors) {
       errors = errors.concat(validator.errors.errors[field])
     }
-    
+
     throw new ApiException(
       'There were errors with the validation',
       'failed',
       400,
       null,
-      validator.errors.errors
+      errors
     );
   }
 

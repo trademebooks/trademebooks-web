@@ -5,8 +5,8 @@ import Alert from "../layout/Alert";
 import PrivateRoute from "../routing/PrivateRoute";
 import NotFound from "../pages/NotFound";
 
-import Register from '../auth/Register';
-import Login from '../auth/Login';
+import Register from '../auth/register';
+import Login from '../auth/login';
 import Home from '../books/home';
 import Account from '../account';
 import BookAdd from '../books/add';

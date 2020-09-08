@@ -29,4 +29,5 @@ describe('App - General API', () => {
 
 afterAll(async () => {
   await api.close();
+  await dbConnection.disconnect();
 });
