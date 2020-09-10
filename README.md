@@ -60,7 +60,7 @@ module.exports = {
 };
 ```
 
-### Backend Setup - Running the tests
+### Backend Setup - Seeding the databse with data
 ```bash
 cd api/seeds
 node <seed_file>.js
