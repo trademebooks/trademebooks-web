@@ -2,16 +2,15 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const BookstoreSchema = new Schema({
-  user: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
-  description: {
+  location: {
     type: String
   },
-  date: {
-    type: Date,
-    default: Date.now
+  school: {
+    type: String
   }
 });
 

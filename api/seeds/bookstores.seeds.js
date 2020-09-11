@@ -1,0 +1,65 @@
+let mongoose = require("mongoose");
+const keys = require("../config");
+
+mongoose.connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+});
+
+require('../domain/models/bookstore.model');
+require('../domain/models/user.model');
+
+const Bookstore = mongoose.model('bookstore');
+const User = mongoose.model('user');
+
+let user = {
+    _id: "5e11e9d8eded1d23742c1c6d",
+    googleId: "110603409234402153901",
+    first_name: "Yi Chen",
+    last_name: "Zhu",
+    email: "yichenzhu1337@gmail.com",
+    password: 'yichen',
+    username: 'yichen'
+};
+
+let bookstores = [
+    new Bookstore({
+        user: "1",
+        location: "19 Prince Edward Way, PEI, Canada",
+        school: "UPEI"
+    })
+]
+
+(async function () {
+    await Bookstore.deleteMany({});
+    await User.deleteMany({});
+    console.log("truncated the bookstore, users table");
+
+    let user1 = await new User(user).save();
+
+    let new_bookstore = bookstores.map((bookstore) => {
+        bookstore.user_id = user1._id;
+        return bookstore;
+    });
+
+    let done = 0;
+    for (let i = 0; i < new_bookstore.length; i++) {
+        new_bookstore[i].save(function (err, result) {
+            if (err) {
+                console.log(err);
+            }
+            done++;
+            if (done === books.length) {
+                exit();
+            }
+        });
+    }
+})();
+
+
+function exit() {
+    mongoose.disconnect();
+    console.log("Seeding Books Done!");
+}
