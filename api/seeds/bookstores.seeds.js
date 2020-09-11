@@ -51,7 +51,7 @@ let bookstores = [
                 console.log(err);
             }
             done++;
-            if (done === books.length) {
+            if (done === bookstores.length) {
                 exit();
             }
         });
@@ -61,5 +61,5 @@ let bookstores = [
 
 function exit() {
     mongoose.disconnect();
-    console.log("Seeding Books Done!");
+    console.log("Seeding Bookstores Done!");
 }
