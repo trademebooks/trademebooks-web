@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact';
+import { MDBRow, MDBCol } from 'mdbreact';
 
 import './Conditions.scss';
 

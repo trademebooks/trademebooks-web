@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   UPDATE_EMAIL,
   UPDATE_PASSWORD,

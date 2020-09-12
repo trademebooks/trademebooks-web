@@ -10,7 +10,6 @@ import Login from '../auth/login';
 import Home from '../books/home';
 import Account from '../account';
 import BookAdd from '../books/add';
-// import BookAdd from '../books/add/PostBook';
 
 const Routes = () => {
   return (
