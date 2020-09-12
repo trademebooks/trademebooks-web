@@ -6,7 +6,6 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('Component: Login', () => {
-
   const props = {
     isAuthenticated: false,
     login: jest.fn()
@@ -19,14 +18,14 @@ describe('Component: Login', () => {
     expect(loginComponent.length).toBe(2);
   });
 
-  it('should see Login component text like the header to be correct.', () => {
+  it('should see the Login component text like the header correctly.', () => {
     const loginComponent = container.find('.login-form');
     expect(loginComponent.find('.h2').first().text()).toBe('Login');
   });
 
-  // it('should trigger a the login action/function when clicking on the login button', () => {
-  //   const loginComponent = container.find('.login-form');
-  //   loginComponent.find('button[type="submit"]').first().simulate('click');
-  //   expect(props.login).toHaveBeenCalled();
-  // });
+  it('should trigger a the login action/function when clicking on the login button, in this case submitting the form.', () => {
+    const loginComponent = container.find('.login-form');
+    loginComponent.find('form').first().simulate('submit');
+    expect(props.login).toHaveBeenCalled();
+  });
 })
