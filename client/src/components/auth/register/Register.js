@@ -51,7 +51,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               </div>
 
               <div className="text-center">
-                <MDBBtn>Register</MDBBtn>
+                <MDBBtn type="submit">Register</MDBBtn>
               </div>
             </form>
           </MDBCol>
