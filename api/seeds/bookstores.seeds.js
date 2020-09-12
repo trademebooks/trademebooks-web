@@ -26,11 +26,11 @@ let user = {
 
 let bookstores = [
     new Bookstore({
-        user: "1",
+        user: "5e11e9d8eded1d23742c1c6d",
         location: "19 Prince Edward Way, PEI, Canada",
         school: "UPEI"
     })
-]
+];
 
 (async function () {
     await Bookstore.deleteMany({});
@@ -38,11 +38,13 @@ let bookstores = [
     console.log("truncated the bookstore, users table");
 
     let user1 = await new User(user).save();
+    console.log("user1: ", user1);
 
     let new_bookstore = bookstores.map((bookstore) => {
         bookstore.user_id = user1._id;
         return bookstore;
     });
+    console.log(new_bookstore);
 
     let done = 0;
     for (let i = 0; i < new_bookstore.length; i++) {
