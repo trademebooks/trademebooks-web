@@ -66,6 +66,11 @@ cd api/seeds
 node <seed_file>.js
 ```
 
+or
+```bash
+npm run db:seed
+```
+
 ### Backend Setup - Running the tests
 Go to the root directory of the project and run the following command to see if all tests pass.
 ```bash
