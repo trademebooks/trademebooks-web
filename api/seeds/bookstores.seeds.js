@@ -26,6 +26,7 @@ let user = {
 
 let bookstores = [
     new Bookstore({
+        userId: "5e11e9d8eded1d23742c1c6d",
         username: "yichen",
         location: "19 Prince Edward Way, PEI, Canada",
         school: "UPEI"
@@ -40,15 +41,15 @@ let bookstores = [
     let user1 = await new User(user).save();
     console.log("user1: ", user1);
 
-    let new_bookstore = bookstores.map((bookstore) => {
+    let new_bookstores = bookstores.map((bookstore) => {
         bookstore.user_id = user1._id;
         return bookstore;
     });
-    console.log(new_bookstore);
+    console.log(new_bookstores);
 
     let done = 0;
-    for (let i = 0; i < new_bookstore.length; i++) {
-        new_bookstore[i].save(function (err, result) {
+    for (let i = 0; i < new_bookstores.length; i++) {
+        new_bookstores[i].save(function (err, result) {
             if (err) {
                 console.log(err);
             }
