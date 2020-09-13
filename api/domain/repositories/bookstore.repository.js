@@ -7,6 +7,7 @@ const getByUsername = async (username) => {
 
 // Update
 const updateBookstoreById = async (id) => {
+  console.log("bookstore repo: ", id);
   return await Model.findByIdAndUpdate(id);
 };
 

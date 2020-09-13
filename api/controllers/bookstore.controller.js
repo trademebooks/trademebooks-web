@@ -44,12 +44,14 @@ const updateBookstore = catchException(async (req, res, next) => {
   // const createBookValidation = createBookRequestDTO(createBookRequest);
 
   // 5. business logic
-  console.log("req.params.id: ", req.params.id);
+  console.log("req.params", req.params);
+  console.log("req.params.id: ", req.params.bookstoreId);
   console.log("req.body: ", req.body);
-  const book = await bookstoreService.updateBookstoreById(
-    req.params.id,
+  const updatedBookstore = await bookstoreService.updateBookstoreById(
+    req.params.bookstoreId,
     req.body
   );
+  console.log("updated bookstore: ", updatedBookstore);
 
   // 7. response
   return res
@@ -59,7 +61,7 @@ const updateBookstore = catchException(async (req, res, next) => {
         (status = "success"),
         (code = 200),
         (message = `Bookstore has successfully been updated.`),
-        (data = book),
+        (data = updatedBookstore),
         (errors = null)
       )
     );
