@@ -32,7 +32,7 @@ const getBookstoreByUsername = async (bookId) => {
   return bookstore;
 };
 
-const updateBookstoreById = async (bookstoreId) => {
+const updateBookstoreById = async (bookstoreId, body) => {
   /*
   if (!mongoose.Types.ObjectId.isValid(bookstoreId)) {
     // the id is invalid
@@ -46,9 +46,11 @@ const updateBookstoreById = async (bookstoreId) => {
   }
   */
 
+  ///
   console.log("bookstoreId: ", bookstoreId);
-  let bookstore = await bookstoreRepository.updateBookstoreById(bookstoreId);
+  let bookstore = await bookstoreRepository.updateBookstoreById(bookstoreId, body);
   console.log("bookstore: ", bookstore);
+  ///
 
   if (!bookstore) {
     throw new ApiException(

@@ -6,9 +6,10 @@ const getByUsername = async (username) => {
 };
 
 // Update
-const updateBookstoreById = async (id) => {
+const updateBookstoreById = async (id, body) => {
   console.log("bookstore repo: ", id);
-  return await Model.findByIdAndUpdate(id);
+  // var updatedObj = {username: "", location: "", school: ""};
+  return await Model.findByIdAndUpdate(id, body, {new:true});
 };
 
 module.exports = {
