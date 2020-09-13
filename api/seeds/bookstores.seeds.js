@@ -26,7 +26,7 @@ let user = {
 
 let bookstores = [
     new Bookstore({
-        user: "5e11e9d8eded1d23742c1c6d",
+        username: "yichen",
         location: "19 Prince Edward Way, PEI, Canada",
         school: "UPEI"
     })

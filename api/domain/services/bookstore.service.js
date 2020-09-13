@@ -46,6 +46,7 @@ const updateBookstoreById = async (bookstoreId) => {
   }
   */
 
+  console.log("bookstoreId: ", bookstoreId);
   let bookstore = await bookstoreRepository.updateBookstoreById(bookstoreId);
   console.log("bookstore: ", bookstore);
 

@@ -44,6 +44,8 @@ const updateBookstore = catchException(async (req, res, next) => {
   // const createBookValidation = createBookRequestDTO(createBookRequest);
 
   // 5. business logic
+  console.log("req.params.id: ", req.params.id);
+  console.log("req.body: ", req.body);
   const book = await bookstoreService.updateBookstoreById(
     req.params.id,
     req.body
