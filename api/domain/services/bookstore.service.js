@@ -33,7 +33,6 @@ const getBookstoreByUsername = async (bookId) => {
 };
 
 const updateBookstoreById = async (bookstoreId, body) => {
-  /*
   if (!mongoose.Types.ObjectId.isValid(bookstoreId)) {
     // the id is invalid
     throw new ApiException(
@@ -44,13 +43,10 @@ const updateBookstoreById = async (bookstoreId, body) => {
       (errors = [`the bookstore with that id: ${bookstoreId} does not exist.`])
     );
   }
-  */
 
-  ///
   console.log("bookstoreId: ", bookstoreId);
   let bookstore = await bookstoreRepository.updateBookstoreById(bookstoreId, body);
   console.log("bookstore: ", bookstore);
-  ///
 
   if (!bookstore) {
     throw new ApiException(
