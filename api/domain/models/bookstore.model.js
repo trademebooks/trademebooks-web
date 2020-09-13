@@ -6,9 +6,6 @@ const BookstoreSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
-  username: {
-    type: String
-  },
   location: {
     type: String
   },
