@@ -13,7 +13,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "mongo:start": "docker run --rm -d -p 27017:27017 mongo",
-    "test": "NODE_ENV=testing jest --config=api/config/jest.config.js --runInBand"
+    "test": "NODE_ENV=testing jest --config=api/config/jest.config.js --runInBand",
+    "db:seed": "node ./api/seeds"
   },
   "author": "Yichen Zhu",
   "license": "MIT",
