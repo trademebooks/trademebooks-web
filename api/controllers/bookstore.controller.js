@@ -45,7 +45,7 @@ const updateBookstore = catchException(async (req, res, next) => {
 
   // 5. business logic
   console.log("req.params", req.params);
-  console.log("req.params.id: ", req.params.bookstoreId);
+  console.log("req.params.bookstoreId: ", req.params.bookstoreId);
   console.log("req.body: ", req.body);
   const updatedBookstore = await bookstoreService.updateBookstoreById(
     req.params.bookstoreId,

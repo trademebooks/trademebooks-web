@@ -53,8 +53,8 @@ const BookStore = (props) => {
       <MDBBtn
         type="submit"
         onClick={() => {
-          props.updateUsername(username);
-          props.updateLocation(location);
+          // props.updateUsername(username);
+          // props.updateLocation(location);
           props.updateSchool(school);
         }}
       >

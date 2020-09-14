@@ -9,7 +9,7 @@ import {
 export const updateUsername = (username) => async (dispatch) => {
   console.log("Got to update username action, username: ", username);
   try {
-    const res = api.put("/bookstore/", username);
+    const res = await api.put("/bookstore/", {username});
 
     dispatch({
       type: UPDATE_USERNAME,
@@ -26,7 +26,7 @@ export const updateUsername = (username) => async (dispatch) => {
 export const updateSchool = (school) => async (dispatch) => {
   console.log("Got to update school action, school: ", school);
   try {
-    const res = api.put("/bookstore/", school);
+    const res = await api.put("/bookstores/", {school});
 
     dispatch({
       type: UPDATE_SCHOOL,
@@ -41,9 +41,9 @@ export const updateSchool = (school) => async (dispatch) => {
 };
 
 export const updateLocation = (location) => async (dispatch) => {
-  console.log("Got to update location action, location: ", location);
+  console.log("Got to update location action, location: ", {location});
   try {
-    const res = api.put("/bookstore/", location);
+    const res = await api.put("/bookstore/", location);
 
     dispatch({
       type: UPDATE_LOCATION,
