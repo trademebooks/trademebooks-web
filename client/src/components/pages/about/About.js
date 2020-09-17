@@ -45,8 +45,13 @@ function About() {
 
                 Ever since that moment, Cedric and Yichen vowed to create musbe 2.0.
               </p>
+
               <p>
-                http://tusbe.com/
+                The next was to expand musbe to other diferent sschools, and hence trademebooks was created.
+              </p>
+
+              <p>
+                -Cedric used the platform to sell his calculus book for 100 bucks
               </p>
             </MDBCol>
           </MDBRow>
