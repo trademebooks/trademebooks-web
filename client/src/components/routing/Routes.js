@@ -7,6 +7,7 @@ import NotFound from "../pages/NotFound";
 
 import Register from '../auth/register';
 import Login from '../auth/login';
+import Contact from '../pages/contact';
 import Home from '../books/home';
 import Account from '../account';
 import BookAdd from '../books/add';
@@ -21,6 +22,7 @@ const Routes = () => {
         {/* Public Routes */}
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/contact" component={Contact} />
 
         <Route exact path="/buy-books" component={Home} />
         {/* <Route exact path="/bookstores/:id" component={BookStore} /> */}
