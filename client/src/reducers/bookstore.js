@@ -1,39 +1,61 @@
 import {
-  UPDATE_USERNAME,
-  UPDATE_SCHOOL,
-  UPDATE_LOCATION,
-  UPDATE_ERROR,
-} from "../actions/types";
+  GET_PROFILE,
+  PROFILE_ERROR,
+  CLEAR_PROFILE,
+  UPDATE_PROFILE,
+  GET_PROFILES,
+  GET_REPOS,
+  NO_REPOS
+} from '../actions/types';
 
 const initialState = {
+  profile: null,
+  profiles: [],
+  repos: [],
   loading: true,
-  username: null,
-  location: null,
-  school: null,
+  error: {}
 };
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
+
   switch (type) {
-    case UPDATE_USERNAME:
+    case GET_PROFILE:
+    case UPDATE_PROFILE:
       return {
         ...state,
-        username: payload,
+        profile: payload,
+        loading: false
       };
-    case UPDATE_LOCATION:
+    case GET_PROFILES:
       return {
         ...state,
-        location: payload,
+        profiles: payload,
+        loading: false
       };
-    case UPDATE_SCHOOL:
+    case PROFILE_ERROR:
       return {
         ...state,
-        school: payload,
-      };
-    case UPDATE_ERROR:
-      return {
-        ...state,
+        error: payload,
         loading: false,
+        profile: null
+      };
+    case CLEAR_PROFILE:
+      return {
+        ...state,
+        profile: null,
+        repos: []
+      };
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: payload,
+        loading: false
+      };
+    case NO_REPOS:
+      return {
+        ...state,
+        repos: []
       };
     default:
       return state;
