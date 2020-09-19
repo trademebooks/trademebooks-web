@@ -16,7 +16,6 @@ const User = mongoose.model('user');
 
 let user = {
     _id: "5e11e9d8eded1d23742c1c6d",
-    googleId: "110603409234402153901",
     first_name: "Yi Chen",
     last_name: "Zhu",
     email: "yichenzhu1337@gmail.com",
