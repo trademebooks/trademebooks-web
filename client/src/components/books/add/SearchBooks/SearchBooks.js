@@ -29,7 +29,7 @@ const SearchBooks = ({ addBook, book }) => {
         let books = data.items.map((book) => {
           let bookVolumeInfo = book['volumeInfo'];
           return {
-            name: bookVolumeInfo['title'],
+            title: bookVolumeInfo['title'],
             authors: bookVolumeInfo['authors'],
             publisher: bookVolumeInfo['publisher'],
             description: bookVolumeInfo['description'],
@@ -77,8 +77,8 @@ const SearchBooks = ({ addBook, book }) => {
             onClose={() => {
               setOpen(false);
             }}
-            getOptionSelected={(option, value) => option.name === value.name}
-            getOptionLabel={(option) => option.name}
+            getOptionSelected={(option, value) => option.title === value.title}
+            getOptionLabel={(option) => option.title}
             options={options}
             loading={loading}
             value={value}
@@ -117,13 +117,13 @@ const SearchBooks = ({ addBook, book }) => {
                     <span>
                       <img src={option.book_image.smallThumbnail} />
                     </span>{' '}
-                    {option.name}
+                    {option.title}
                   </div>
                 );
               } else {
                 return (
                   <div>
-                    <span></span> {option.name}
+                    <span></span> {option.title}
                   </div>
                 );
               }

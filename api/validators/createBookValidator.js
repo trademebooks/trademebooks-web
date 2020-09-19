@@ -15,8 +15,7 @@ const createBookValidator = (data) => {
     title: 'required',
     description: 'required',
     price: 'required|numeric|min:1',
-    author: 'required',
-    datePublished: 'required'
+    // authors: 'required'
   };
 
   let validator = new Validator(data, rules);

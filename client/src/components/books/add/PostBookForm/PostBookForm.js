@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact';
 
 import Conditions from './Conditions';
@@ -6,6 +6,10 @@ import Conditions from './Conditions';
 import './PostBookForm.scss';
 
 const PostBookForm = ({ book }) => {
+  useEffect(() => {
+    console.log('BookFields', { book });
+  }, [book]);
+
   return (
     <>
       <div className="post-book-form-container">
@@ -40,7 +44,7 @@ const PostBookForm = ({ book }) => {
               <div>
                 <form className="post-book-form-fields">
                   <div className="form-group">
-                    <MDBInput label="Title" size="lg" value={book.name}/>
+                    <MDBInput label="Title" size="lg" value={book.title} />
                   </div>
                   <div className="form-group">
                     <MDBInput label="ISBN-10" size="lg" />

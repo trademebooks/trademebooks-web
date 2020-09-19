@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getBook } from '../../../../actions/book';
+import { addBook, createBook } from '../../../../actions/book';
 import BookFields from './BookFields';
 
 const mapStateToProps = (state) => ({
@@ -7,7 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    getBook
+  addBook,
+  createBook
 }
 
 export default connect(

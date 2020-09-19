@@ -2,38 +2,11 @@ import api from '../utils/api';
 import { setAlert } from './alert';
 import {
   ADD_BOOK,
-  GET_BOOK,
-  GET_BOOKS,
-  DELETE_BOOK,
+  CREATE_BOOK,
   POST_ERROR
 } from './types';
 
-// Get posts
-export const getPosts = () => async (dispatch) => {
-  try {
-    const res = await api.get('/posts');
-
-    dispatch({
-      type: GET_BOOKS,
-      payload: res.data,
-    });
-  } catch (err) {
-    dispatch({
-      type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
-
-// Get post
-export const getBook = () => async (dispatch) => {
-  // dispatch({
-  //   type: GET_BOOK,
-  //   payload: res.data,
-  // });
-};
-
-// Add post
+// Add book
 export const addBook = (formData) => async (dispatch) => {
   dispatch({
     type: ADD_BOOK,
@@ -41,21 +14,29 @@ export const addBook = (formData) => async (dispatch) => {
   });
 };
 
-// Delete post
-export const deleteBook = (id) => async (dispatch) => {
+// Create post
+export const createBook = (book) => async (dispatch) => {
   try {
-    await api.delete(`/posts/${id}`);
+    await api.post(`/books`, book);
 
     dispatch({
-      type: DELETE_BOOK,
-      payload: id,
+      type: CREATE_BOOK,
+      payload: book
     });
 
-    dispatch(setAlert('Post Removed', 'success'));
+    dispatch(setAlert('Book listing created successful', 'success'));
   } catch (err) {
+    const data = err.response.data;
+    const errors = data.errors;
+
+    if (errors) {
+      errors.forEach(errorMessage => {
+        dispatch(setAlert(errorMessage, 'danger'))
+      });
+    }
+
     dispatch({
-      type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      type: POST_ERROR
     });
   }
 };

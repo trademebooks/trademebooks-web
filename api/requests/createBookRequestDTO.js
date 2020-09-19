@@ -1,13 +1,11 @@
 const ApiException = require('../utils/ApiException');
 
 const fields = [
-  'userId',
   'title',
   'description',
   'price',
-  'edition',
   'location',
-  'authors'
+  // 'authors'
 ];
 
 const createBookRequestDTO = (data) => {
@@ -22,7 +20,7 @@ const createBookRequestDTO = (data) => {
     throw new ApiException(
       status = "failed",
       code = 422,
-      message = "Register User Request DTO failed.",
+      message = "Createa a Book listing Request DTO failed.",
       data = errors
     );
   }

@@ -7,7 +7,11 @@ import {
 const initialState = {
   books: [],
   book: {
-    name: ''
+    title: 'title',
+    school: 'school',
+    price: 111,
+    description: 'description',
+    location: 'DT Uoft'
   },
   loading: true,
   error: {}
