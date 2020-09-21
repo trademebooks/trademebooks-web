@@ -5,6 +5,7 @@ import {
   CREATE_BOOK,
   POST_ERROR
 } from './types';
+import { toastr } from 'react-redux-toastr';
 
 // Add book
 export const addBook = (formData) => async (dispatch) => {
@@ -25,13 +26,20 @@ export const createBook = (book) => async (dispatch) => {
     });
 
     dispatch(setAlert('Book listing created successful', 'success'));
+
+
+    toastr.success('Book listing created successful')
+    setTimeout(() => {
+
+      window.location.href = '/';
+    }, 2000)
   } catch (err) {
     const data = err.response.data;
     const errors = data.errors;
 
     if (errors) {
       errors.forEach(errorMessage => {
-        dispatch(setAlert(errorMessage, 'danger'))
+        toastr.error(errorMessage)
       });
     }
 

@@ -2,13 +2,11 @@ import { combineReducers } from "redux";
 import alert from "./alert";
 import auth from "./auth";
 import book from "./book";
-import account from "./account";
-import bookstore from "./bookstore";
+import { reducer as toastrReducer } from 'react-redux-toastr';
 
 export default combineReducers({
   alert,
+  toastr: toastrReducer,
   auth,
-  account,
   book,
-  bookstore
 });

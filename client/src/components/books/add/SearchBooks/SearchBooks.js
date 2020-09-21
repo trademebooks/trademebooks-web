@@ -83,13 +83,11 @@ const SearchBooks = ({ addBook, book }) => {
             loading={loading}
             value={value}
             onChange={(event, newValue) => {
-              //console.log({ newValue });
               setOptions(newValue ? [newValue, ...options] : options);
               setValue(newValue);
               addBook(newValue);
             }}
             onInputChange={(event, newInputValue) => {
-              //console.log({ newInputValue });
               setInputValue(newInputValue);
             }}
             renderInput={(params) => (
@@ -115,7 +113,7 @@ const SearchBooks = ({ addBook, book }) => {
                 return (
                   <div>
                     <span>
-                      <img src={option.book_image.smallThumbnail} />
+                      <img src={option.book_image.smallThumbnail} alt={option.title}/>
                     </span>{' '}
                     {option.title}
                   </div>

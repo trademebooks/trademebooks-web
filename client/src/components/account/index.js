@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { MDBRow, MDBCol, MDBContainer, MDBBtn } from "mdbreact";
+
 import Authentication from "./authentication";
 import BookStore from "./bookstore";
 import Notifications from "./notifications";
 
-const Account = ({ login, isAuthenticated }) => {
-  // const changeHandler = event => {
-  //     this.setState({ [event.target.name]: { value: event.target.value, valid: !!event.target.value } });
-  // };
-
+const Account = () => {
   const [auth, setAuth] = useState(false);
   const [bookstore, setBookstore] = useState(false);
   const [notifications, setNotifications] = useState(false);

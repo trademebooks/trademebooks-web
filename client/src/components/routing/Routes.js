@@ -11,6 +11,7 @@ import Contact from '../pages/contact';
 import Home from '../books/home';
 import Account from '../account';
 import BookAdd from '../books/add';
+import Bookstore from '../bookstore';
 
 const Routes = () => {
   return (
@@ -25,7 +26,7 @@ const Routes = () => {
         <Route exact path="/contact" component={Contact} />
 
         <Route exact path="/buy-books" component={Home} />
-        {/* <Route exact path="/bookstores/:id" component={BookStore} /> */}
+        <Route exact path="/bookstore/:username" component={Bookstore} />
 
         {/* Protected Routes */}
         <PrivateRoute exact path="/add-book" component={BookAdd} />

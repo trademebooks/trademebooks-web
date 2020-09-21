@@ -1,10 +1,6 @@
 import React from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 import { connect } from "react-redux";
-import {
-  updateReceiveEmails,
-  updateReceiveTexts,
-} from "../../actions/notifications";
 
 const Notifications = (props) => {
   return (
@@ -20,14 +16,7 @@ const Notifications = (props) => {
       <div>
         <MDBBtn
           type="submit"
-          onClick={() => {
-            props.updateReceiveEmails(
-              document.getElementById("receiveEmails").checked
-            );
-            props.updateReceiveTexts(
-              document.getElementById("receiveTexts").checked
-            );
-          }}
+          onClick={() => { }}
         >
           Save Changes
         </MDBBtn>
@@ -45,8 +34,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  updateReceiveEmails,
-  updateReceiveTexts,
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifications);
