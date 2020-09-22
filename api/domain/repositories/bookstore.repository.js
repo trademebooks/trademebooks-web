@@ -1,8 +1,10 @@
-const Model = require('../models/bookstore.model');
+const bookstoreModel = require('../models/bookstore.model');
+const userModel = require('../models/user.model');
 
-// Retrieve - one
 const getByUsername = async (username) => {
-  return await Model.findByUsername;
+  const user = await userModel.findOne({ username }).exec();
+  const bookstore = await bookstoreModel.findOne({ userId: user.id }).exec();
+  return bookstore;
 }
 
 module.exports = {

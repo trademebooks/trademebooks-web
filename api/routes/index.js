@@ -3,12 +3,14 @@ const router = express.Router();
 
 const authRoutes = require('./auth.route');
 const bookRoutes = require('./book.route');
+const bookstoreRoutes = require('./bookstore.route');
+
 const appRoutes = require('./app.route');
 
 function getRouter() {
   router.use('/auth', authRoutes);
   router.use('/books', bookRoutes);
-  router.use('/bookstores', bookRoutes);
+  router.use('/bookstores', bookstoreRoutes);
   
   router.use('/app', appRoutes);
 
