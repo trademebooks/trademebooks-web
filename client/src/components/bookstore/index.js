@@ -1,9 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
+import axios from 'axios';
+
+import Books from '../books/common/Books';
 
 const BookStore = ({ match }) => {
+  const [books, setBooks] = useState([]);
+
   useEffect(() => {
     console.log(match.params.username)
+    axios
+      .get(`/api/v1/bookstores/${match.params.username}`)
+      .then((response) => {
+        setBooks(response.data.data.books);
+        console.log(books)
+      })
+      .catch(function (error) {
+        console.log({ error });
+      });
   }, [])
 
   return (
@@ -15,7 +29,11 @@ const BookStore = ({ match }) => {
         <MDBContainer>
           <MDBRow center={true}>
             <MDBCol>
-              <div>here is the list of books...</div>
+              {/* ---------- main section --- start ---------- */}
+              <section className="home-page-main-section__container">
+                <Books books={books} />
+              </section>
+              {/* ---------- main section --- end ------------ */}
             </MDBCol>
           </MDBRow>
         </MDBContainer>
