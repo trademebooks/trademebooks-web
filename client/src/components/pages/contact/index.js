@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {MDBAlert, MDBBtn, MDBCol, MDBContainer, MDBRow} from "mdbreact";
+import {contactUs} from '../../../actions/contactus';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -15,12 +16,7 @@ const ContactPage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    let payload = {
-      'name': name,
-      'email': email,
-      'body': body,
-    }
-    alert(JSON.stringify(payload));
+    contactUs(name, email, body);
   };
 
   return (
