@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import {MDBAlert, MDBBtn, MDBCol, MDBContainer, MDBRow} from "mdbreact";
-import {contactUs} from '../../../actions/contactus';
+import {MDBBtn, MDBCol, MDBContainer, MDBRow} from "mdbreact";
+import {setAlert} from "../../../actions/alert";
+import api from "../../../utils/api";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -14,17 +15,21 @@ const ContactPage = () => {
   const onChange = (e) =>
     setFormData({...formData, [e.target.name]: e.target.value});
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    contactUs(name, email, body);
+    await api.post('/utilities/contact', {name, email, body});
+    // fixme alert is not working
+    // setAlert('Message sent! Thank you for contacting us.', 'success');
+    setFormData({
+      name: '',
+      email: '',
+      body: '',
+    });
   };
 
   return (
     <>
       <MDBContainer className="mt-4 contact-form">
-        <MDBAlert color="success" dismiss>
-          Message sent! Thank you for contacting us.
-        </MDBAlert>
         <MDBRow className="justify-content-center">
           <MDBCol md="6">
             <form onSubmit={onSubmit}>
