@@ -93,7 +93,6 @@ var books = [
         date_posted: "Jan 7, 2020",
     }),
     new Book({
-        userId: "5e11e9d8eded1d23742c1c6d",
         title: "Book #5 - Legend of Korra",
         description: "This is a great description fo the book.",
         authors: [

@@ -11,7 +11,6 @@ function getRouter() {
   router.use('/auth', authRoutes);
   router.use('/books', bookRoutes);
   router.use('/bookstores', bookstoreRoutes);
-  
   router.use('/app', appRoutes);
 
   return router;

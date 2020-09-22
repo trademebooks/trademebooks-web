@@ -1,8 +1,19 @@
 const bookstoreRepository = require('../repositories/bookstore.repository');
+const bookRepository = require('../repositories/book.repository');
+
+const mongoose = require('mongoose');
 
 const getBookstoreByUsername = async (username) => {
-  let book = await bookstoreRepository.getByUsername(username);
-  return book;
+  const bookstore = await bookstoreRepository.getByUsername(username);
+
+  const books = await bookRepository.getAllByUserId(bookstore.userId);
+
+  const bookstoreAndBooks = {
+    ...bookstore.toObject(),
+    books
+  };
+
+  return bookstoreAndBooks;
 }
 
 module.exports = {
