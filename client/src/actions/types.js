@@ -24,6 +24,8 @@ export const DELETE_BOOK = "DELETE_BOOK";
 export const ADD_BOOK = "ADD_BOOK";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const CONTACT_US = "CONTACT_US";
+export const CONTACT_US_FAIL = "CONTACT_US_FAIL";
 
 export const UPDATE_EMAIL = "UPDATE_EMAIL";
 export const UPDATE_PASSWORD = "UPDATE_PASSWORD";
