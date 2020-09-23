@@ -8,12 +8,10 @@ const BookStore = ({ match }) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    console.log(match.params.username)
     axios
       .get(`/api/v1/bookstores/${match.params.username}`)
       .then((response) => {
         setBooks(response.data.data.books);
-        console.log(books)
       })
       .catch(function (error) {
         console.log({ error });
