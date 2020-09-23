@@ -15,7 +15,7 @@ export const addBook = (formData) => async (dispatch) => {
   });
 };
 
-// Create post
+// Create a book Listing
 export const createBook = (book) => async (dispatch) => {
   try {
     await api.post(`/books`, book);

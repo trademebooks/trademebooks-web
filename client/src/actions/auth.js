@@ -10,7 +10,6 @@ import {
   LOGOUT
 } from './types';
 
-// Load User
 export const loadUser = () => async dispatch => {
   try {
     const res = await api.get('/auth/user');
@@ -26,7 +25,6 @@ export const loadUser = () => async dispatch => {
   }
 };
 
-// Register User
 export const register = formData => async dispatch => {
   try {
     const res = await api.post('/auth/register', formData);
@@ -52,7 +50,6 @@ export const register = formData => async dispatch => {
   }
 };
 
-// Login User
 export const login = (email, password) => async dispatch => {
   const body = { email, password };
 
@@ -80,7 +77,6 @@ export const login = (email, password) => async dispatch => {
   }
 };
 
-// Logout
 export const logout = () => async dispatch => {
   try {
     const res = await api.get('/auth/logout');

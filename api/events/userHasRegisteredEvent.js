@@ -1,4 +1,4 @@
-const mailer = require('../utils/mailer');
+const mailer = require('../domain/services/mail.service');
 
 /**
  * 
@@ -6,9 +6,9 @@ const mailer = require('../utils/mailer');
  * 
  * @returns boolean
  */
-const userHasRegisteredEvent = (user) => {
-  let bodyText = `Hello ${user.firstName}. Thanks for registering!`
-  return mailer.sendEmailToUser(user.email, 'Welcome aboard!', bodyText);
+const userHasRegisteredEvent = ({ email, body, name }) => {
+  let bodyText = `Hello ${name}. Thanks for registering!`
+  return mailer.sendEmail(email, 'Welcome aboard!', bodyText);
 }
 
 module.exports = userHasRegisteredEvent;
