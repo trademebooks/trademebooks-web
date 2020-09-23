@@ -27,7 +27,6 @@ export const createBook = (book) => async (dispatch) => {
 
     dispatch(setAlert('Book listing created successful', 'success'));
 
-
     toastr.success('Book listing created successful');
     setTimeout(() => {
 
