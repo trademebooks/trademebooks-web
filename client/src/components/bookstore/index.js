@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
-import axios from 'axios';
+import api from '../../utils/api';
 
 import Books from '../books/common/Books';
 
@@ -8,14 +8,17 @@ const BookStore = ({ match }) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`/api/v1/bookstores/${match.params.username}`)
-      .then((response) => {
-        setBooks(response.data.data.books);
-      })
-      .catch(function (error) {
+    (async () => {
+      try {
+        const response = await api.get(`/bookstores/${match.params.username}`);
+        const books = response.data.data.books;
+        console.log({ response })
+        setBooks(books);
+      }
+      catch (error) {
         console.log({ error });
-      });
+      }
+    })();
   }, [])
 
   return (

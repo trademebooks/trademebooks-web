@@ -1,175 +1,164 @@
-var mongoose = require('mongoose');
-const keys = require('../config');
-
-mongoose.connect(keys.mongoURI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
-});
-
-require('../domain/models/bookstore.model');
+const faker = require('faker');
+const db = require('../utils/db');
 require('../domain/models/book.model');
-require('../domain/models/user.model');
 
-const Bookstore = mongoose.model('bookstore');
-const Book = mongoose.model('book');
-const User = mongoose.model('user');
+const numberOfBooksPerUser = 10;
+let books = [];
 
-let user = {
-    _id: "5e11e9d8eded1d23742c1c6d",
-    first_name: "Yi Chen",
-    last_name: "Zhu",
-    email: "yichenzhu1337@gmail.com",
-    password: 'yichen',
-    username: 'yichen'
+module.exports = async (users) => {
+	const dbConnection = await db();
+	const Book = dbConnection.model('book');
+
+	await Book.deleteMany({});
+
+	books = [...[new Book({
+		userId: '5e11e9d8eded1d23742c1c6d',
+		title: "Book #1 - Air",
+		description: "This is a great description fo the book.",
+		authors: [
+			"John Doe",
+			"Jane Doe",
+			"Henry The 3rd"
+		],
+		condition: "Good",
+		location: "UofT",
+		price: 100,
+		edition: 1,
+		image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+		date_posted: "Jan 7, 2020",
+	}),
+	new Book({
+		userId: '5e11e9d8eded1d23742c1c6d',
+		title: "Book #2 - Water",
+		description: "This is a great description fo the book.",
+		authors: [
+			"John Doe",
+			"Jane Doe",
+			"Henry The 3rd"
+		],
+		condition: "Good",
+		location: "UofT",
+		price: 100,
+		edition: 1,
+		image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+		date_posted: "Jan 7, 2020",
+	}),
+	new Book({
+		userId: '5e11e9d8eded1d23742c1c6d',
+		title: "Book #3 - Earth",
+		description: "This is a great description fo the book.",
+		authors: [
+			"John Doe",
+			"Jane Doe",
+			"Henry The 3rd"
+		],
+		condition: "Good",
+		location: "UofT",
+		price: 100,
+		edition: 1,
+		image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+		date_posted: "Jan 7, 2020",
+	}),
+	new Book({
+		userId: '5e11e9d8eded1d23742c1c6d',
+		title: "Book #4 - Fire",
+		description: "This is a great description fo the book.",
+		authors: [
+			"John Doe",
+			"Jane Doe",
+			"Henry The 3rd"
+		],
+		condition: "Good",
+		location: "UofT",
+		price: 100,
+		edition: 1,
+		image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+		date_posted: "Jan 7, 2020",
+	}),
+	new Book({
+		userId: '5e11e9d8eded1d23742c1c6d',
+		title: "Book #5 - Legend of Korra",
+		description: "This is a great description fo the book.",
+		authors: [
+			"John Doe",
+			"Jane Doe",
+			"Henry The 3rd"
+		],
+		condition: "Good",
+		location: "UofT",
+		price: 100,
+		edition: 1,
+		image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+		date_posted: "Jan 7, 2020",
+	}),
+	new Book({
+		userId: '5e11e9d8eded1d23742c1c6d',
+		title: "Book #6- Air",
+		description: "This is a great description fo the book.",
+		authors: [
+			"John Doe",
+			"Jane Doe",
+			"Henry The 3rd"
+		],
+		condition: "Good",
+		location: "UofT",
+		price: 100,
+		edition: 1,
+		image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+		date_posted: "Jan 7, 2020",
+	}),
+	new Book({
+		userId: '5e11e9d8eded1d23742c1c6d',
+		title: "Book #7 - Air",
+		description: "This is a great description fo the book.",
+		authors: [
+			"John Doe",
+			"Jane Doe",
+			"Henry The 3rd"
+		],
+		condition: "Good",
+		location: "UofT",
+		price: 100,
+		edition: 1,
+		image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+		date_posted: "Jan 7, 2020",
+	})]];
+	for (const book of books) {
+		await new Book(book).save();;
+	}
+
+	for (const user of users) {
+		for (let i = 1; i <= numberOfBooksPerUser; i++) {
+			const book = {
+				userId: user.id,
+				title: faker.lorem.words(),
+				description: faker.lorem.sentences(),
+				authors: [
+					faker.lorem.words(),
+					faker.lorem.words(),
+					faker.lorem.words()
+				],
+				condition: [
+					'Poor',
+					'Fair',
+					'Good',
+					'Very Good',
+					'Like New'
+				][(Math.round(Math.random(0, 4)) + 1)],
+				location: "UofT",
+				price: faker.random.number(500),
+				edition: (Math.round(Math.random(0, 10)) + 1),
+				image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
+				date_posted: new Date,
+			};
+
+			books.push(book);
+
+			await new Book(book).save();;
+		}
+	}
+
+	await dbConnection.disconnect();
+
+	return users;
 };
-
-let bookstore = {
-    userId: "5e11e9d8eded1d23742c1c6d",
-    description: "welcome to my bookstore! - Yichen"
-};
-
-var books = [
-    new Book({
-        title: "Book #1 - Air",
-        description: "This is a great description fo the book.",
-        authors: [
-            "John Doe",
-            "Jane Doe",
-            "Henry The 3rd"
-        ],
-        condition: "Good",
-        location: "UofT",
-        price: 100,
-        edition: 1,
-        image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
-        date_posted: "Jan 7, 2020",
-    }),
-    new Book({
-        userId: "5e11e9d8eded1d23742c1c6d",
-        title: "Book #2 - Water",
-        description: "This is a great description fo the book.",
-        authors: [
-            "John Doe",
-            "Jane Doe",
-            "Henry The 3rd"
-        ],
-        condition: "Good",
-        location: "UofT",
-        price: 100,
-        edition: 1,
-        image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
-        date_posted: "Jan 7, 2020",
-    }),
-    new Book({
-        title: "Book #3 - Earth",
-        description: "This is a great description fo the book.",
-        authors: [
-            "John Doe",
-            "Jane Doe",
-            "Henry The 3rd"
-        ],
-        condition: "Good",
-        location: "UofT",
-        price: 100,
-        edition: 1,
-        image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
-        date_posted: "Jan 7, 2020",
-    }),
-    new Book({
-        title: "Book #4 - Fire",
-        description: "This is a great description fo the book.",
-        authors: [
-            "John Doe",
-            "Jane Doe",
-            "Henry The 3rd"
-        ],
-        condition: "Good",
-        location: "UofT",
-        price: 100,
-        edition: 1,
-        image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
-        date_posted: "Jan 7, 2020",
-    }),
-    new Book({
-        title: "Book #5 - Legend of Korra",
-        description: "This is a great description fo the book.",
-        authors: [
-            "John Doe",
-            "Jane Doe",
-            "Henry The 3rd"
-        ],
-        condition: "Good",
-        location: "UofT",
-        price: 100,
-        edition: 1,
-        image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
-        date_posted: "Jan 7, 2020",
-    }),
-    new Book({
-        title: "Book #1 - Air",
-        description: "This is a great description fo the book.",
-        authors: [
-            "John Doe",
-            "Jane Doe",
-            "Henry The 3rd"
-        ],
-        condition: "Good",
-        location: "UofT",
-        price: 100,
-        edition: 1,
-        image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
-        date_posted: "Jan 7, 2020",
-    }),
-    new Book({
-        title: "Book #1 - Air",
-        description: "This is a great description fo the book.",
-        authors: [
-            "John Doe",
-            "Jane Doe",
-            "Henry The 3rd"
-        ],
-        condition: "Good",
-        location: "UofT",
-        price: 100,
-        edition: 1,
-        image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
-        date_posted: "Jan 7, 2020",
-    }),
-];
-
-(async function () {
-    await Bookstore.deleteMany({});
-    await Book.deleteMany({});
-    await User.deleteMany({});
-    console.log("truncated the books, users, bookstores table");
-
-    let user1 = await new User(user).save();
-
-    let bookstore1 = await new Bookstore(bookstore).save();
-
-    let new_books = books.map((book) => {
-        book.userId = user1._id;
-        return book;
-    });
-
-    let done = 0;
-    for (let i = 0; i < new_books.length; i++) {
-        new_books[i].save(function (err, result) {
-            if (err) {
-                console.log(err);
-            }
-            done++;
-            if (done === books.length) {
-                exit();
-            }
-        });
-    }
-})();
-
-
-function exit() {
-    mongoose.disconnect();
-    console.log("Seeding Books Done!");
-}

@@ -5,7 +5,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './SearchBook.scss';
 
-// async example: https://material-ui.com/components/autocomplete/#asynchronous-requests
+import config from '../../../../config';
+
 const SearchBooks = ({ addBook, book }) => {
   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState('');
@@ -23,7 +24,7 @@ const SearchBooks = ({ addBook, book }) => {
 
     (async () => {
       if (inputValue.length > 2) {
-        let url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCpl497dKbKN-piJBJJ5zOf3sCPk7CKuJg&q=${inputValue}`;
+        let url = `https://www.googleapis.com/books/v1/volumes?key=${config.google.ApiKey}&q=${inputValue}`;
         const response = await fetch(url);
         const data = await response.json();
         let books = data.items.map((book) => {
@@ -33,15 +34,11 @@ const SearchBooks = ({ addBook, book }) => {
             authors: bookVolumeInfo['authors'],
             publisher: bookVolumeInfo['publisher'],
             description: bookVolumeInfo['description'],
-            // image_url: bookVolumeInfo["imageLinks"]['smallThumbnail'],
-
             //image_url: bookVolumeInfo["imageLinks"]['smallThumbnail'],
             //isbn_10: bookVolumeInfo['industryIdentifiers'][0]['identifier'],
-            // isbn_13: bookVolumeInfo['industryIdentifiers'][1]['identifier']
+            //isbn_13: bookVolumeInfo['industryIdentifiers'][1]['identifier']
           };
         });
-
-        //console.log({ books });
 
         if (active) {
           setOptions(books);

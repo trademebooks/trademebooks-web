@@ -5,9 +5,9 @@ const bookFactory = require('./bookFactory');
 const factory = async (numberOfSeeds) => {
   for (let i = 1; i <= numberOfSeeds; i++) {
     let entityFields = {
-      
       first_name: faker.name.firstName(),
       last_name: faker.name.lastName(),
+      username: faker.internet.userName(),
       email: faker.internet.email(),
       password: faker.internet.password(),
       phone_number: faker.phone.phoneNumber()
