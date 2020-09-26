@@ -12,7 +12,7 @@ const HomePage = () => {
     let searchQuery = event.target.value;
     if (searchQuery.length > 2) {
       try {
-        const response = await api.get('/books?title=' + searchQuery)
+        const response = await api.get('/books?q=' + searchQuery)
         const books = response.data.data;
         setBooks(books);
       }

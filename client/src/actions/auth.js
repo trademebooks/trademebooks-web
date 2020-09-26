@@ -85,7 +85,7 @@ export const login = (email, password) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    const res = await api.get('/auth/logout');
+    await api.get('/auth/logout');
 
     dispatch({ type: LOGOUT });
 

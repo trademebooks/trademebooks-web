@@ -14,7 +14,7 @@ module.exports = async (users) => {
 	books = [...[new Book({
 		userId: '5e11e9d8eded1d23742c1c6d',
 		title: "Book #1 - Air",
-		description: "This is a great description fo the book.",
+		description: "This is a great description fo the book. test. search. query. air here.",
 		authors: [
 			"John Doe",
 			"Jane Doe",
@@ -30,7 +30,7 @@ module.exports = async (users) => {
 	new Book({
 		userId: '5e11e9d8eded1d23742c1c6d',
 		title: "Book #2 - Water",
-		description: "This is a great description fo the book.",
+		description: "This is a great description fo the book. air here as well.",
 		authors: [
 			"John Doe",
 			"Jane Doe",
@@ -132,7 +132,7 @@ module.exports = async (users) => {
 			const book = {
 				userId: user.id,
 				title: faker.lorem.words(),
-				description: faker.lorem.sentences(),
+				description: faker.lorem.sentences(10),
 				authors: [
 					faker.lorem.words(),
 					faker.lorem.words(),

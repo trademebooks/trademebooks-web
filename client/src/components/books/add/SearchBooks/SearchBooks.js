@@ -29,9 +29,11 @@ const SearchBooks = ({ addBook, book }) => {
         const data = await response.json();
         let books = data.items.map((book) => {
           let bookVolumeInfo = book['volumeInfo'];
+
+          console.log(bookVolumeInfo['authors'])
           return {
             title: bookVolumeInfo['title'],
-            authors: bookVolumeInfo['authors'],
+            authors: bookVolumeInfo['authors'] || [],
             publisher: bookVolumeInfo['publisher'],
             description: bookVolumeInfo['description'],
             //image_url: bookVolumeInfo["imageLinks"]['smallThumbnail'],
@@ -60,12 +62,11 @@ const SearchBooks = ({ addBook, book }) => {
   return (
     <>
       <div className="search-books-container">
-        <div className="section-header">
-          <p>SEARCH FROM OVER 10,000 BOOKS</p>
+        <div>
+          <p>Search millions of books!</p>
         </div>
-        <div className="search-box">
+        <div>
           <Autocomplete
-            id="asynchronous-demo"
             style={{ width: '100%' }}
             open={open}
             onOpen={() => {
@@ -106,29 +107,13 @@ const SearchBooks = ({ addBook, book }) => {
               />
             )}
             renderOption={(option) => {
-              if (option.book_image && option.book_image.smallThumbnail) {
-                return (
-                  <div>
-                    <span>
-                      <img src={option.book_image.smallThumbnail} alt={option.title}/>
-                    </span>{' '}
-                    {option.title}
-                  </div>
-                );
-              } else {
-                return (
-                  <div>
-                    <span></span> {option.title}
-                  </div>
-                );
-              }
+              return (
+                <div>
+                  <span><strong>{option.title}</strong></span> - <span><i>{option.authors.join(', ')}</i></span>
+                </div>
+              );
             }}
           />
-        </div>
-        <div className="create-new-listing">
-          <p>
-            Can't find your book? <a href="/">Create Listing Manually</a>
-          </p>
         </div>
       </div>
     </>

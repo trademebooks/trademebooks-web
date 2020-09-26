@@ -59,7 +59,7 @@ const Conditions = () => {
   return (
     <>
       <div className="mt-5">
-        <MDBRow>
+        <MDBRow className="justify-content-center">
           {conditionsElement}
         </MDBRow>
       </div>

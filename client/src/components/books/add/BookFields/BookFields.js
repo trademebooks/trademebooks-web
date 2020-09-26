@@ -27,7 +27,7 @@ const BookFields = ({
     <>
       <div className="book-fields-container">
         <MDBContainer>
-          <MDBRow>
+          <MDBRow className="justify-content-center">
             <MDBCol md="8" sm="12">
               <form>
                 <div className="form-group">
@@ -48,11 +48,11 @@ const BookFields = ({
           <MDBRow>
             <MDBCol md="4" sm="12">
               <MDBBtn outline className="w-100">
-                Preview
+                Save and Add Another Book
               </MDBBtn>
             </MDBCol>
             <MDBCol md="8" sm="12">
-              <MDBBtn className="w-100" onClick={postBook}>Post Book</MDBBtn>
+              <MDBBtn className="w-100" onClick={postBook}>Save and Preview in Bookstore</MDBBtn>
             </MDBCol>
           </MDBRow>
         </MDBContainer>

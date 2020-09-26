@@ -38,11 +38,11 @@ const Book = ({ book }) => {
                             <span className="single-card__book-condition"><img height="25px" src={very_good_condition_green_image} alt="condition=good" /></span>
                         </div>
 
-                        <div className="single-card__tags">
+                        {/* <div className="single-card__tags">
                             <span><a href="#tag">MCMASTER UNIVERSITY</a></span>
                             <span><a href="#tag">CIV358</a></span>
                             <span><a href="#tag">CIV5481</a></span>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="single-card-column-section-2__row-3">

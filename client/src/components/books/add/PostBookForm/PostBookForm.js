@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact';
+import { MDBRow, MDBCol, MDBContainer, MDBInput } from 'mdbreact';
 
 import Conditions from './Conditions';
 
@@ -25,17 +25,6 @@ const PostBookForm = ({ book }) => {
                     alt="thumbnail"
                     className="img-thumbnail book-image-size"
                   />
-                </div>
-                <div className="custom-file">
-                  <input
-                    type="file"
-                    className="custom-file-input"
-                    id="inputGroupFile01"
-                    aria-describedby="inputGroupFileAddon01"
-                  />
-                  <label className="custom-file-label" htmlFor="inputGroupFile01">
-                    Choose file
-                  </label>
                 </div>
               </div>
             </MDBCol>

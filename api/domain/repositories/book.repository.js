@@ -1,9 +1,15 @@
 const Model = require('../models/book.model');
-const mongoose = require('mongoose');
 
 // Retrieve - all
-const getAll = async () => {
-  return await Model.find({});
+const getAll = async (searchQuery = '') => {
+  const books = await Model.find({
+    $or: [
+      { title: new RegExp(`.*${searchQuery}.*`, 'i') },
+      { description: new RegExp(`.*${searchQuery}.*`, 'i') },
+    ]
+  }).sort({ createdAt: 'desc' });
+
+  return books;
 }
 
 // Retrieve - all by userId field
