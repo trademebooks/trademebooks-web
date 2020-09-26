@@ -5,6 +5,8 @@ import Conditions from './Conditions';
 
 import './PostBookForm.scss';
 
+import bookImage from '../../common/icons/sample-book.png';
+
 const PostBookForm = ({ book }) => {
   useEffect(() => {
     console.log('BookFields', { book });
@@ -17,11 +19,11 @@ const PostBookForm = ({ book }) => {
           <MDBRow>
             <MDBCol md="4" sm="12">
               <div>
-                <div className="my-5">
+                <div className="py-3">
                   <img
-                    src="https://mdbootstrap.com/img/Others/documentation/img%20(75)-mini.jpg"
+                    src={bookImage}
                     alt="thumbnail"
-                    className="img-thumbnail"
+                    className="img-thumbnail book-image-size"
                   />
                 </div>
                 <div className="custom-file">
@@ -31,10 +33,7 @@ const PostBookForm = ({ book }) => {
                     id="inputGroupFile01"
                     aria-describedby="inputGroupFileAddon01"
                   />
-                  <label
-                    className="custom-file-label"
-                    htmlFor="inputGroupFile01"
-                  >
+                  <label className="custom-file-label" htmlFor="inputGroupFile01">
                     Choose file
                   </label>
                 </div>
@@ -56,10 +55,6 @@ const PostBookForm = ({ book }) => {
                     <MDBInput label="Edition" size="lg" />
                   </div>
                 </form>
-              </div>
-
-              <div>
-                <MDBBtn>Save Changes</MDBBtn>
               </div>
             </MDBCol>
           </MDBRow>
