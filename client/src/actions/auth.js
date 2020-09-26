@@ -1,3 +1,4 @@
+import { toastr } from 'react-redux-toastr';
 import api from '../utils/api';
 import { setAlert } from './alert';
 import {
@@ -33,7 +34,10 @@ export const register = formData => async dispatch => {
       type: REGISTER_SUCCESS,
       payload: res.data
     });
+
     dispatch(loadUser());
+
+    toastr.success('You have successfully registered! Try logging in now!');
   } catch (err) {
     const data = err.response.data;
     const errors = data.errors;
@@ -61,6 +65,8 @@ export const login = (email, password) => async dispatch => {
     });
 
     dispatch(loadUser());
+
+    toastr.success('Welcome. You have logged in!')
   } catch (err) {
     const data = err.response.data;
     const errors = data.errors;
@@ -84,6 +90,8 @@ export const logout = () => async dispatch => {
     dispatch({ type: LOGOUT });
 
     dispatch(loadUser());
+
+    toastr.success('You have logged out.')
   } catch (err) {
     console.log('actions/auth.js', err)
   }

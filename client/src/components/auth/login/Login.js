@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
-
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({

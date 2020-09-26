@@ -17,9 +17,7 @@ const addBooks = () => {
           <MDBRow center={true}>
             <MDBCol>
               <SearchBooks />
-
               <PostBookForm />
-              
               <BookFields />
             </MDBCol>
           </MDBRow>

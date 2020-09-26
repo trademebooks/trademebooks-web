@@ -36,14 +36,13 @@ const App = () => {
             <Route component={Routes} />
           </Switch>
           <ReduxToastr
-            timeOut={4000}
+            timeOut={3000}
             newestOnTop={false}
             preventDuplicates
             position="top-right"
-            getState={(state) => state.toastr} // This is the default
+            getState={(state) => state.toastr}
             transitionIn="fadeIn"
             transitionOut="fadeOut"
-            progressBar
             closeOnToastrClick />
         </>
       </Router>
