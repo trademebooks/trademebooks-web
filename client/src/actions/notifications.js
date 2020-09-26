@@ -1,3 +1,4 @@
+import api from "../utils/api";
 import {
   UPDATE_RECEIVE_EMAILS,
   UPDATE_RECEIVE_TEXTS,
@@ -6,9 +7,11 @@ import {
 
 export const updateReceiveEmails = (receive) => async (dispatch) => {
   try {
+    const res = await api.put("/notifications/", {receiveEmails: receive});
+
     dispatch({
       type: UPDATE_RECEIVE_EMAILS,
-      payload: receive,
+      payload: res,
     });
   } catch (err) {
     dispatch({
@@ -20,6 +23,8 @@ export const updateReceiveEmails = (receive) => async (dispatch) => {
 
 export const updateReceiveTexts = (receive) => async (dispatch) => {
   try {
+    const res = await api.put("/notifications/", {receiveTexts: receive});
+
     dispatch({
       type: UPDATE_RECEIVE_TEXTS,
       payload: receive,
