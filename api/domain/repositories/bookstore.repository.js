@@ -1,16 +1,11 @@
-const Model = require("../models/bookstore.model");
+const bookstoreModel = require('../models/bookstore.model');
+const userModel = require('../models/user.model');
 
-// Retrieve - one
 const getByUsername = async (username) => {
-  return await Model.findByUsername;
-};
-
-// Update
-const updateBookstoreById = async (id, body) => {
-  console.log("bookstore repo: ", id);
-  // var updatedObj = {username: "", location: "", school: ""};
-  return await Model.findByIdAndUpdate(id, body, {new:true});
-};
+  const user = await userModel.findOne({ username }).exec();
+  const bookstore = await bookstoreModel.findOne({ userId: user.id }).exec();
+  return bookstore;
+}
 
 module.exports = {
   getByUsername,

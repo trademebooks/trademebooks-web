@@ -2,6 +2,7 @@ const globalResponseDTO = require('../responses/globalResponseDTO');
 const createBookRequestDTO = require('../requests/createBookRequestDTO');
 const bookService = require('../domain/services/book.service');
 const bookResponseDTO = require('../responses/bookResponseDTO');
+const createBookValidator = require('../validators/createBookValidator');
 
 const catchException = require('../utils/catchExceptions');
 
@@ -48,10 +49,10 @@ const createABook = catchException(async (req, res, next) => {
   // 2. middleware: auth
 
   // 3. request
-  const createBookRequest = createBookRequestDTO({ id: req.session.user.id, ...req.body});
+  const createBookRequest = createBookRequestDTO({ userId: req.session.user.id, ...req.body});
 
   // 4. validation
-  const createBookValidation = createBookRequestDTO(createBookRequest);
+  const createBookValidation = createBookValidator(createBookRequest);
 
   // 5. business logic
   const book = await bookService.createBook(req.body);

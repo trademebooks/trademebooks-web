@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 import { connect } from "react-redux";
-import {
-  updateUsername,
-  updateLocation,
-  updateSchool,
-} from "../../actions/bookstore";
 
 const BookStore = (props) => {
   const [formData, setFormData] = useState({
@@ -18,6 +13,10 @@ const BookStore = (props) => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const updateUsername = (e) => { }
+  const updateLocation = (e) => { }
+  const updateSchool = (e) => { }
 
   return (
     <div>
@@ -73,9 +72,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  updateUsername,
-  updateLocation,
-  updateSchool,
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookStore);
