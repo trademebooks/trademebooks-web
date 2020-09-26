@@ -2,9 +2,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const BookstoreSchema = new Schema({
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'user'
+  // userId: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'user'
+  // },
+  username: {
+    type: String
   },
   location: {
     type: String

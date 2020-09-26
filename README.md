@@ -17,7 +17,6 @@ The key features:
 - Frontend: JavaScript and ReactJS
 - Backend: Node.js, Express, and MongoDB
 - Server (DevOps): Heroku
-- Tools: Visual Studio Code (with plugins: Prettier), and MongoDB Atlas
 
 ## Required Software
 1. Install NodeJS - https://nodejs.org/en/
@@ -29,52 +28,25 @@ cd client
 npm install
 ```
 
-### Frontend Setup - Run the tests
-```bash
-cd client
-npm run test
-```
-
 ## Backend Setup
 Make sure to be in the root directory, then:
 ```bash
 npm install
 ```
 
-### Backend Setup - Add the local config file
-Create a file called *dev.js* under the config directory.
+### Backend Setup - add the local config file
+Create a file called *dev.js* under the config directory
 ```
 module.exports = {
-    baseUrl: 'http://localhost:',
-    port: 5000,
-    apiPrefix: 'api',
-    apiVersion: 'v1',
-    baseUrl: `${this.baseUrl}${this.port}/${this.apiPrefix}/${this.apiVersion}`,
-    mongoURI: 'mongodb://localhost:27017/trademebooks_dev_db',
-    sessionSecret: 'my-secret-session-dev',
-    sendGridKey: 'my-sendgrid-key',
-    twilioKeys: {
-        accountSid: 'my-twilio-account-sid',
-        authToken: 'my-twili-auth-token'
-    }
+    googleClientID: "secret-key-here",
+    googleClientSecret: "secret-key-here",
+    mongoURI: "secret-key-here",
+    cookieKey: "secret-key-here",
+    stripePublishableKey: "secret-key-here",
+    stripeSecretKey: "secret-key-here",
+    sendGridKey: "secret-key-here",
+    redirectDomain: "secret-key-here"
 };
-```
-
-### Backend Setup - Seeding the databse with data
-```bash
-cd api/seeds
-node <seed_file>.js
-```
-
-or
-```bash
-npm run db:seed
-```
-
-### Backend Setup - Running the tests
-Go to the root directory of the project and run the following command to see if all tests pass.
-```bash
-npm run test
 ```
 
 ## Work Flow on Local Machine

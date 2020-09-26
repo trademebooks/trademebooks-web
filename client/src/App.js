@@ -13,11 +13,6 @@ import { loadUser } from './actions/auth';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-
-// toastr
-import ReduxToastr from 'react-redux-toastr'
-import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
-
 // global CSS
 import './css/global.scss';
 
@@ -35,16 +30,6 @@ const App = () => {
             <Route exact path="/" component={Landing} />
             <Route component={Routes} />
           </Switch>
-          <ReduxToastr
-            timeOut={4000}
-            newestOnTop={false}
-            preventDuplicates
-            position="top-right"
-            getState={(state) => state.toastr} // This is the default
-            transitionIn="fadeIn"
-            transitionOut="fadeOut"
-            progressBar
-            closeOnToastrClick />
         </>
       </Router>
     </Provider>

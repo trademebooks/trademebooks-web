@@ -67,21 +67,21 @@ module.exports = {
     /*********************************/
 
     // App
-    '<rootDir>/tests/integration/api/app/**.test.js',
+    '<rootDir>/tests/api/app/**.test.js',
 
     // Auth
-    // '<rootDir>/tests/integration/api/auth/**.test.js',
-    // '<rootDir>/tests/integration/api/auth/authUser.test.js',
-    //'<rootDir>/tests/integration/api/auth/login.test.js',
-    //'<rootDir>/tests/integration/api/auth/logout.test.js',
-    '<rootDir>/tests/integration/api/auth/register.test.js',
+    '<rootDir>/tests/api/auth/**.test.js',
+    // '<rootDir>/tests/api/auth/authUser.test.js',
+    // '<rootDir>/tests/api/auth/login.test.js',
+    // '<rootDir>/tests/api/auth/logout.test.js',
+    // '<rootDir>/tests/api/auth/register.test.js',
 
     // Book
-    // '<rootDir>/tests/integration/api/book/**.test.js',
-    // '<rootDir>/tests/integration/api/book/create.test.js',
-    // '<rootDir>/tests/integration/api/book/delete.test.js',
-    // '<rootDir>/tests/integration/api/book/get.test.js',
-    // '<rootDir>/tests/integration/api/book/update.test.js',
+    '<rootDir>/tests/api/book/**.test.js',
+    // '<rootDir>/tests/api/book/create.test.js',
+    // '<rootDir>/tests/api/book/delete.test.js',
+    // '<rootDir>/tests/api/book/get.test.js',
+    // '<rootDir>/tests/api/book/update.test.js',
 
 
     /*******************************************************************************/

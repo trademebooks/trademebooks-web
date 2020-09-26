@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -16,21 +16,14 @@ import {
 } from "mdbreact";
 import logo from "../../img/logo.png";
 
-const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [bookstoreUrl, setBookstoreUrl] = useState('/bookstore/');
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    if (user) {
-      setBookstoreUrl(bookstoreUrl + user.username);
-    }
-  }, [user]);
-
-  const authNavbar = (
+  const auth = (
     <MDBNavbar color="default-color" dark expand="md">
       <MDBContainer>
         <MDBNavbarBrand>
@@ -45,6 +38,19 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse isOpen={isOpen} navbar>
+          <MDBNavbarNav left>
+            {/* <MDBNavItem>
+              <MDBNavLink to="/buy-books">
+                <MDBBtn color='danger'><strong>Buy</strong></MDBBtn>
+              </MDBNavLink>
+            </MDBNavItem> */}
+            {/* <MDBNavItem>
+              <MDBNavLink to="/buy-books">
+                <MDBBtn color='info'><strong>Sell</strong></MDBBtn>
+              </MDBNavLink>
+            </MDBNavItem> */}
+          </MDBNavbarNav>
+
           <MDBNavbarNav right>
             <MDBNavItem>
               <MDBNavLink to="/add-book">
@@ -52,7 +58,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to={bookstoreUrl}>
+              <MDBNavLink className="waves-effect waves-light" to="/bookstores">
                 <MDBIcon icon="store" /> <span>Bookstore</span>
               </MDBNavLink>
             </MDBNavItem>
@@ -81,7 +87,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     </MDBNavbar>
   );
 
-  const guestNavbar = (
+  const guestLinks = (
     <MDBNavbar color="default-color" dark expand="md">
       <MDBContainer>
         <MDBNavbarBrand>
@@ -113,13 +119,12 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     </MDBNavbar>
   );
 
-  return (
-    !loading && <>{isAuthenticated ? authNavbar : guestNavbar}</>
-  );
+  return <div>{!loading && <>{isAuthenticated ? auth : guestLinks}</>}</div>;
 };
 
 Navbar.propTypes = {
-  auth: PropTypes.object.isRequired
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

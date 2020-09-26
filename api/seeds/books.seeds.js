@@ -8,16 +8,15 @@ mongoose.connect(keys.mongoURI, {
     useUnifiedTopology: true
 });
 
-require('../domain/models/bookstore.model');
 require('../domain/models/book.model');
 require('../domain/models/user.model');
 
-const Bookstore = mongoose.model('bookstore');
 const Book = mongoose.model('book');
 const User = mongoose.model('user');
 
 let user = {
     _id: "5e11e9d8eded1d23742c1c6d",
+    googleId: "110603409234402153901",
     first_name: "Yi Chen",
     last_name: "Zhu",
     email: "yichenzhu1337@gmail.com",
@@ -25,13 +24,9 @@ let user = {
     username: 'yichen'
 };
 
-let bookstore = {
-    userId: "5e11e9d8eded1d23742c1c6d",
-    description: "welcome to my bookstore! - Yichen"
-};
-
 var books = [
     new Book({
+        user_id: "1",
         title: "Book #1 - Air",
         description: "This is a great description fo the book.",
         authors: [
@@ -47,7 +42,7 @@ var books = [
         date_posted: "Jan 7, 2020",
     }),
     new Book({
-        userId: "5e11e9d8eded1d23742c1c6d",
+        user_id: "1",
         title: "Book #2 - Water",
         description: "This is a great description fo the book.",
         authors: [
@@ -63,6 +58,7 @@ var books = [
         date_posted: "Jan 7, 2020",
     }),
     new Book({
+        user_id: "1",
         title: "Book #3 - Earth",
         description: "This is a great description fo the book.",
         authors: [
@@ -78,6 +74,7 @@ var books = [
         date_posted: "Jan 7, 2020",
     }),
     new Book({
+        user_id: "1",
         title: "Book #4 - Fire",
         description: "This is a great description fo the book.",
         authors: [
@@ -93,6 +90,7 @@ var books = [
         date_posted: "Jan 7, 2020",
     }),
     new Book({
+        user_id: "1",
         title: "Book #5 - Legend of Korra",
         description: "This is a great description fo the book.",
         authors: [
@@ -108,6 +106,7 @@ var books = [
         date_posted: "Jan 7, 2020",
     }),
     new Book({
+        user_id: "1",
         title: "Book #1 - Air",
         description: "This is a great description fo the book.",
         authors: [
@@ -123,6 +122,7 @@ var books = [
         date_posted: "Jan 7, 2020",
     }),
     new Book({
+        user_id: "1",
         title: "Book #1 - Air",
         description: "This is a great description fo the book.",
         authors: [
@@ -140,17 +140,14 @@ var books = [
 ];
 
 (async function () {
-    await Bookstore.deleteMany({});
     await Book.deleteMany({});
     await User.deleteMany({});
-    console.log("truncated the books, users, bookstores table");
+    console.log("truncated the books, users table");
 
     let user1 = await new User(user).save();
 
-    let bookstore1 = await new Bookstore(bookstore).save();
-
     let new_books = books.map((book) => {
-        book.userId = user1._id;
+        book.user_id = user1._id;
         return book;
     });
 

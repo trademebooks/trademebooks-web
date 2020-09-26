@@ -1,4 +1,3 @@
-/* eslint-disable */
 export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -16,16 +15,14 @@ export const UPDATE_PROFILE = "UPDATE_PROFILE";
 export const CLEAR_PROFILE = "CLEAR_PROFILE";
 export const PROFILE_ERROR = "PROFILE_ERROR";
 export const ACCOUNT_DELETED = "ACCOUNT_DELETED";
-export const GET_BOOKS = "GET_BOOKS";
-export const GET_BOOK = "GET_BOOK";
+export const GET_POSTS = "GET_POSTS";
+export const GET_POST = "GET_POST";
 export const POST_ERROR = "POST_ERROR";
 export const UPDATE_LIKES = "UPDATE_LIKES";
-export const DELETE_BOOK = "DELETE_BOOK";
-export const ADD_BOOK = "ADD_BOOK";
+export const DELETE_POST = "DELETE_POST";
+export const ADD_POST = "ADD_POST";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
-export const CONTACT_US = "CONTACT_US";
-export const CONTACT_US_FAIL = "CONTACT_US_FAIL";
 
 export const UPDATE_EMAIL = "UPDATE_EMAIL";
 export const UPDATE_PASSWORD = "UPDATE_PASSWORD";
@@ -35,5 +32,3 @@ export const UPDATE_LOCATION = "UPDATE_LOCATION";
 export const UPDATE_RECEIVE_EMAILS = "UPDATE_RECEIVE_EMAILS";
 export const UPDATE_RECEIVE_TEXTS = "UPDATE_RECEIVE_TEXTS";
 export const UPDATE_ERROR = "UPDATE_ERROR";
-
-export const CREATE_BOOK = 'CREATE_BOOK';

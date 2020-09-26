@@ -1,14 +1,8 @@
 const Model = require('../models/book.model');
-const mongoose = require('mongoose');
 
 // Retrieve - all
 const getAll = async () => {
   return await Model.find({});
-}
-
-// Retrieve - all by userId field
-const getAllByUserId = async (userId) => {
-  return await Model.find({ userId: userId }).lean().exec();
 }
 
 // Retrieve - one
@@ -34,7 +28,6 @@ const deleteById = async (id) => {
 
 module.exports = {
   getAll,
-  getAllByUserId,
   getById,
   create,
   updateById,

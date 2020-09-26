@@ -83,6 +83,8 @@ export const logout = () => async dispatch => {
     dispatch({ type: LOGOUT });
 
     dispatch(loadUser());
+
+    console.log(res)
   } catch (err) {
     console.log('actions/auth.js', err)
     // const errors = err.response.data.errors;

@@ -15,23 +15,19 @@ const createBookValidator = (data) => {
     title: 'required',
     description: 'required',
     price: 'required|numeric|min:1',
-    // authors: 'required'
+    author: 'required',
+    datePublished: 'required'
   };
 
   let validator = new Validator(data, rules);
 
   if (validator.fails()) {
-    let errors = [];
-    for (const field in validator.errors.errors) {
-      errors = errors.concat(validator.errors.errors[field])
-    }
-
     throw new ApiException(
       'There were errors with the validation',
       'failed',
       400,
       null,
-      errors
+      validator.errors.errors
     );
   }
 

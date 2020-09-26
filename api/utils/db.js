@@ -7,13 +7,9 @@ const db = async (url = config.mongoURI, opts = {}) => {
     mongoose.set('useFindAndModify', false);
     mongoose.set('useCreateIndex', true);
     mongoose.set('useUnifiedTopology', true);
-
-    let connection = mongoose.connect(url, { ...opts, useNewUrlParser: true })
-
-    if (connection) {
-      console.log('MongoDB Connected...');
-      return connection;
-    }
+    mongoose.connect(url, { ...opts, useNewUrlParser: true })
+    
+    console.log('MongoDB Connected...');
   } catch (err) {
     console.error(err.message);
     // Exit process with failure
