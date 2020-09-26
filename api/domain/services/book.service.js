@@ -3,8 +3,9 @@ const ApiException = require('../../utils/ApiException');
 const mongoose = require('mongoose');
 
 // Retrieve - all books
-const getAllBooks = async (searchQuery) => {
-  const books = bookRepository.getAll(searchQuery);
+const getAllBooks = async (searchQuery, limit) => {
+  limit = limit || 10;
+  const books = bookRepository.getAll(searchQuery, limit);
   return books;
 }
 

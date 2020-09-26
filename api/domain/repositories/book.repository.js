@@ -1,13 +1,13 @@
 const Model = require('../models/book.model');
 
 // Retrieve - all
-const getAll = async (searchQuery = '') => {
+const getAll = async (searchQuery = '', limit = 10) => {
   const books = await Model.find({
     $or: [
       { title: new RegExp(`.*${searchQuery}.*`, 'i') },
       { description: new RegExp(`.*${searchQuery}.*`, 'i') },
     ]
-  }).sort({ createdAt: 'desc' });
+  }).sort({ createdAt: 'desc' }).limit(parseInt(limit));
 
   return books;
 }

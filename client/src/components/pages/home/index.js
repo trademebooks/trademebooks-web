@@ -10,9 +10,9 @@ const HomePage = () => {
 
   const onChangeSearchBooks = async (event) => {
     let searchQuery = event.target.value;
-    if (searchQuery.length > 2) {
+    if (searchQuery.length >= 0) {
       try {
-        const response = await api.get('/books?q=' + searchQuery)
+        const response = await api.get(`/books?q=${searchQuery}&limit=5`)
         const books = response.data.data;
         setBooks(books);
       }
@@ -25,7 +25,7 @@ const HomePage = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await api.get('/books');
+        const response = await api.get(`/books`);
         const books = response.data.data;
         setBooks(books);
       }

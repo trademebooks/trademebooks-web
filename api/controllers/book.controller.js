@@ -11,7 +11,7 @@ const catchException = require('../utils/catchExceptions');
  */
 const getAllbooks = catchException(async (req, res, next) => {
   // 5. business logic
-  const books = await bookService.getAllBooks(req.query.q);
+  const books = await bookService.getAllBooks(req.query.q, req.query.limit || 10);
 
   // 7. response
   return res.json(globalResponseDTO(
