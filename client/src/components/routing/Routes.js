@@ -8,7 +8,7 @@ import NotFound from "../pages/NotFound";
 import Register from '../auth/register';
 import Login from '../auth/login';
 import Contact from '../pages/contact';
-import Home from '../books/home';
+import Home from '../pages/home';
 import Account from '../account';
 import BookAdd from '../books/add';
 import Bookstore from '../bookstore';

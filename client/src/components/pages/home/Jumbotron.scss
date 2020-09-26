@@ -1,0 +1,22 @@
+.home-page-top-section {
+  text-align: center;
+  margin: 30px 0 0 0;
+
+  &__main-text {
+    font-size: 2rem;
+    color: #109383;
+  }
+
+  &__small-caption {
+    margin: 0 10px 0 10px;
+  }
+}
+
+.home-search-box {
+  padding: 25px 0 10px 0;
+
+  input {
+    width: 75%;
+    margin: 0 auto;
+  }
+}

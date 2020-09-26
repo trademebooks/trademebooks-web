@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
 
 import api from '../../../utils/api';
-import Books from '../common/Books';
-
-import './home.scss';
+import Books from '../../books/common/Books';
 import Jumbotron from './Jumbotron';
 
 const HomePage = () => {
@@ -38,16 +37,14 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="home-page-container">
-        <div>
-          <section className="home-page-top-section">
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol sm="12">
             <Jumbotron onChangeSearchBooks={onChangeSearchBooks} />
-          </section>
-          <section className="home-page-main-section__container">
             <Books books={books} />
-          </section>
-        </div>
-      </div>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     </>
   );
 };

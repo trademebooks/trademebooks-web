@@ -29,12 +29,8 @@ const BookStore = ({ match }) => {
       <div className="mt-4">
         <MDBContainer>
           <MDBRow center={true}>
-            <MDBCol>
-              {/* ---------- main section --- start ---------- */}
-              <section className="home-page-main-section__container">
-                <Books books={books} />
-              </section>
-              {/* ---------- main section --- end ------------ */}
+            <MDBCol sm="12">
+              <Books books={books} />
             </MDBCol>
           </MDBRow>
         </MDBContainer>

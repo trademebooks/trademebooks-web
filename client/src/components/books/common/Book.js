@@ -5,14 +5,10 @@ import './Book.scss';
 import very_good_condition_green_image from './icons/Verygood_condition.png';
 import sample_book_image from './icons/sample-book.png';
 import Message_icon from './icons/Message_user.png';
-
 import Location_icon from './icons/Location_icon.png';
 import bookstoreIcon from './icons/bookstoreIcon.png';
 
-const Book = (props) => {
-
-    const { book } = props;
-
+const Book = ({ book }) => {
     const date = new Date(book.createdAt);
     const datePosted = date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
 
