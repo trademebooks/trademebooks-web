@@ -1,0 +1,26 @@
+.closeDiv {
+  width: '200px';
+  border: '1px solid black';
+}
+
+.closeP {
+  line-height: 2.2;
+  margin: -10px 0 -10px 0;
+}
+
+.centeredPlusSpace {
+  height: 25vh; /* Magic here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.gray {
+  background-color: #ecebeb;
+}
+
+.centerTexts {
+  margin-left: 400px;
+  margin-right: 400px;
+}

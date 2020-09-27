@@ -6,9 +6,11 @@ import Story from './story';
 const About = () => {
   return (
     <div>
-      <h1>About</h1>
-      <Person />
-      <Story />
+      <h1 className="centeredPlusSpace">About TMB</h1>
+      <div className="gray">
+        <Person />
+        <Story />
+      </div>
     </div>
   );
 };
