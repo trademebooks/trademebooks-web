@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './story.css';
+
 const Story = () => {
   return (
     <div>
@@ -24,24 +26,39 @@ const Story = () => {
         pong, when Cedric realized that Yichen went to UofT - so he told him
         about the problem.
       </p>
-      <p>
-        Cedric: "I've been trying to buy used textbooks and could never find the
-        best one with the cheapest price, even when I do find it, the quality of
-        the book is way below what the person listed"
-      </p>
-      <p>Yichen: "Yeah, that's why you should just use tubse.com!"</p>
-      <p>Cedric: "I would, but I go to McMaster!"</p>
-      <p>Yichen: "Oh, right... well... sucks to be you I guess"</p>
-      <p>
-        Cedric: "I know! Why don't we get create our own version of tusbe, let's
-        call it musbe!"
-      </p>
-      <p>Yichen: "What's in it for me?"</p>
-      <p>
-        Cedric: "You can put it on your resume, and I'll teach you how to play
-        ping pong"
-      </p>
-      <p>Yichen: "Deal!"</p>
+      <div className="closeDiv">
+        <p className="closeP">
+          <strong>Cedric: </strong>"I've been trying to buy used textbooks and
+          could never find the best one with the cheapest price, even when I do
+          find it, the quality of the book is way below what the person listed"
+        </p>
+        <p className="closeP">
+          <strong>Yichen: </strong>"Yeah, that's why you should just use
+          tubse.com!"
+        </p>
+        <p className="closeP">
+          <strong>Cedric: </strong>"I would, but I go to McMaster!"
+        </p>
+        <p className="closeP">
+          <strong>Yichen: </strong>"Oh, right... well... sucks to be you I
+          guess"
+        </p>
+        <p className="closeP">
+          <strong>Cedric: </strong>"I know! Why don't we get create our own
+          version of tusbe, let's call it musbe!"
+        </p>
+        <p className="closeP">
+          <strong>Yichen: </strong>"What's in it for me?"
+        </p>
+        <p className="closeP">
+          <strong>Cedric: </strong>"You can put it on your resume, and I'll
+          teach you how to play ping pong"
+        </p>
+        <p className="closeP">
+          <strong>Yichen: </strong>"Deal!"
+        </p>
+      </div>
+      <br />
       <p>And so began the long journey of creating musbe.ca. </p>
       <p>
         On August 23rd, 2014, on the day of Yichen's birthday, Cedric and Yichen
