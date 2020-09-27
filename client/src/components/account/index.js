@@ -19,7 +19,7 @@ const Account = () => {
       <div className="header-container text-center">
         <h3 className="font-weight-bold">Account Settings</h3>
       </div>
-      <div className="mt-4">
+      <div className="mt-4 mb-4">
         <MDBContainer>
           <MDBNav tabs className="border-bottom" color='indigo'>
             <MDBNavItem>
