@@ -1,82 +1,65 @@
-import React, { useState } from "react";
-import { MDBRow, MDBCol, MDBContainer, MDBBtn } from "mdbreact";
+import React, { useState } from 'react';
+import { MDBContainer, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
 
 import Authentication from "./authentication";
 import BookStore from "./bookstore";
 import Notifications from "./notifications";
 
 const Account = () => {
-  const [auth, setAuth] = useState(false);
-  const [bookstore, setBookstore] = useState(false);
-  const [notifications, setNotifications] = useState(false);
+  const [activeItemJustified, setActiveItemJustified] = useState('1')
+
+  const toggleJustified = tab => e => {
+    if (activeItemJustified !== tab) {
+      setActiveItemJustified(tab);
+    }
+  };
 
   return (
     <>
+      <div className="header-container text-center">
+        <h3 className="font-weight-bold">Account Settings</h3>
+      </div>
       <div className="mt-4">
         <MDBContainer>
-          <MDBRow center={true}>
-            <MDBCol md="">
-              <div className="text-center">
-                <h2>Account Settings</h2>
-              </div>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </div>
-      <div>
-        <MDBContainer>
-          <MDBCol md>
-            <MDBRow>
-              <div className="w-100">
-                <MDBBtn
-                  onClick={() => {
-                    setAuth(true);
-                    setBookstore(false);
-                    setNotifications(false);
-                  }}
-                  name="auth"
-                >
-                  Authentication
-                </MDBBtn>
-              </div>
-            </MDBRow>
-            <MDBRow>
-              <div className="w-100">
-                <MDBBtn
-                  onClick={() => {
-                    setAuth(false);
-                    setBookstore(true);
-                    setNotifications(false);
-                  }}
-                  name="bookstore"
-                >
-                  BookStore
-                </MDBBtn>
-              </div>
-            </MDBRow>
-            <MDBRow>
-              <div className="w-100">
-                <MDBBtn
-                  onClick={() => {
-                    setAuth(false);
-                    setBookstore(false);
-                    setNotifications(true);
-                  }}
-                  name="notif"
-                >
-                  Notifications
-                </MDBBtn>
-              </div>
-            </MDBRow>
-          </MDBCol>
-        </MDBContainer>
-      </div>
+          <MDBNav tabs className="border-bottom" color='indigo'>
+            <MDBNavItem>
+              <MDBNavLink link to="#" active={activeItemJustified === "1"} onClick={toggleJustified("1")} role="tab" >
+                <MDBIcon icon="user" /> Authentication
+            </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink link to="#" active={activeItemJustified === "2"} onClick={toggleJustified("2")} role="tab" >
+                <MDBIcon icon="store" /> Bookstore
+            </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink link to="#" active={activeItemJustified === "3"} onClick={toggleJustified("3")} role="tab" >
+                <MDBIcon icon="envelope" /> Notifications
+            </MDBNavLink>
+            </MDBNavItem>
+          </MDBNav>
+          <MDBTabContent
+            className="mt-4"
+            activeItem={activeItemJustified}
+          >
+            <MDBTabPane tabId="1" role="tabpanel">
+              <Authentication />
+            </MDBTabPane>
 
-      {auth && <Authentication />}
-      {bookstore && <BookStore />}
-      {notifications && <Notifications />}
+            <MDBTabPane tabId="2" role="tabpanel">
+              <BookStore />
+            </MDBTabPane>
+
+            <MDBTabPane tabId="3" role="tabpanel">
+              <Notifications />
+            </MDBTabPane>
+          </MDBTabContent>
+        </MDBContainer>
+      </div>
     </>
   );
 };
 
 export default Account;
+
+

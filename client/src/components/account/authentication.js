@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import { MDBInput, MDBBtn } from "mdbreact";
-import { connect } from "react-redux";
+import React, { useState } from 'react';
+import { MDBInput, MDBBtn } from 'mdbreact';
+import { connect } from 'react-redux';
 
 const Authentication = (props) => {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: ''
   });
 
   const { email, password } = formData;
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
 
-  const updateEmail = () => { }
+  const updateEmail = (e) => { }
 
-  const updatePassword = () => { }
+  const updatePassword = (e) => { }
 
   return (
-    <div>
+    <>
+      <h3 className="mb-4 font-weight-bold">Authentication Settings</h3>
       <div>
-        <p className="h2 mb-5">Change Email</p>
+        <h4>Change Email</h4>
         <MDBInput
+          label="Current Email"
           icon="envelope"
           group
           type="email"
@@ -33,47 +36,56 @@ const Authentication = (props) => {
           Save Changes
         </MDBBtn>
       </div>
-      <br />
-      <div>
-        <p className="h2 mb-5">Change Password</p>
-        <MDBInput label="Current password" icon="lock" group disabled />
+
+      <div className="mt-5">
+        <h4>Change Password</h4>
         <MDBInput
-          label={"Type your new password"}
+          label="Current Password"
           icon="lock"
           group
           type="password"
-          name="password"
+          name="currentPassword"
+          onChange={onChange}
+          minLength="6"
+          validate
+        />
+
+        <MDBInput
+          label="New Password"
+          icon="lock"
+          group
+          type="password"
+          name="newPassword"
           onChange={onChange}
           minLength="6"
           validate
         />
         <MDBInput
-          label="Re-enter new password"
+          label="Re-enter New Password"
           icon="lock"
           group
           type="password"
-          name="password"
+          name="newPasswordConfirmation"
           onChange={onChange}
           minLength="6"
           validate
         />
-        <MDBBtn type="submit" onClick={() => props.updatePassword(password)}>
+        <MDBBtn>
           Save Changes
         </MDBBtn>
       </div>
-    </div>
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    email: state.email,
-    password: state.password,
+
   };
 };
 
-// can do a manual dispatch
 const mapDispatchToProps = {
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authentication);

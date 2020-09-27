@@ -1,35 +1,34 @@
-import React from "react";
-import { MDBInput, MDBBtn } from "mdbreact";
-import { connect } from "react-redux";
+import React from 'react';
+import { MDBBtn } from 'mdbreact';
+import { connect } from 'react-redux';
 
-const Notifications = (props) => {
+const Notifications = ({ }) => {
   return (
-    <div>
-      <div>
-        <MDBInput label="Receive Emails" type="checkbox" id="receiveEmails" />
+    <>
+      <h3 className="mb-4 font-weight-bold">Notifications Settings</h3>
+
+      <div class="custom-control custom-checkbox my-3">
+        <input type="checkbox" class="custom-control-input" id="defaultInline1" />
+        <label class="custom-control-label" for="defaultInline1">Receive Emails</label>
       </div>
-      <br />
-      <div>
-        <MDBInput label="Receive Texts" type="checkbox" id="receiveTexts" />
+
+      <div class="custom-control custom-checkbox my-3">
+        <input type="checkbox" class="custom-control-input" id="defaultInline2" />
+        <label class="custom-control-label" for="defaultInline2">Receive Text Messages</label>
       </div>
-      <br />
+
       <div>
-        <MDBBtn
-          type="submit"
-          onClick={() => { }}
-        >
+        <MDBBtn>
           Save Changes
         </MDBBtn>
       </div>
-      <br />
-    </div>
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    receiveEmails: state.receiveEmails,
-    receiveTexts: state.receiveTexts,
+
   };
 };
 

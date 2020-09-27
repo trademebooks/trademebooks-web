@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { MDBInput, MDBBtn } from "mdbreact";
-import { connect } from "react-redux";
+import React, { useState } from 'react';
+import { MDBInput, MDBBtn } from 'mdbreact';
+import { connect } from 'react-redux';
 
-const BookStore = (props) => {
+const BookStore = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    location: "",
-    school: "",
+    username: '',
+    location: '',
+    school: ''
   });
 
   const { username, location, school } = formData;
@@ -14,60 +14,63 @@ const BookStore = (props) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const updateUsername = (e) => { }
-  const updateLocation = (e) => { }
-  const updateSchool = (e) => { }
-
   return (
-    <div>
-      <p className="h2 mb-5">Username</p>
-      <MDBInput
-        label="Type your new password"
-        group
-        type="username"
-        name="username"
-        onChange={onChange}
-        required
-      />
-      <p className="h2 mb-5">Location</p>
-      <MDBInput
-        label="Type your new location"
-        group
-        type="location"
-        name="location"
-        onChange={onChange}
-        minLength="6"
-        validate
-      />
-      <p className="h2 mb-5">School</p>
-      <MDBInput
-        label="Type your new school"
-        group
-        type="school"
-        name="school"
-        onChange={onChange}
-        minLength="6"
-        validate
-      />
-      <MDBBtn
-        type="submit"
-        onClick={() => {
-          props.updateUsername(username);
-          props.updateLocation(location);
-          props.updateSchool(school);
-        }}
-      >
-        Save Changes
-      </MDBBtn>
-    </div>
+    <>
+      <h3 className="mb-4 font-weight-bold">Bookstore Settings</h3>
+
+      <div>
+        <h4>Username</h4>
+        <MDBInput
+          label="Current Username"
+          icon="user"
+          group
+          type="text"
+          name="username"
+          onChange={onChange}
+          required
+        />
+      </div>
+
+      <div>
+        <h4>Location</h4>
+        <MDBInput
+          label="Current Location"
+          icon="map"
+          group
+          type="text"
+          name="location"
+          onChange={onChange}
+          minLength="6"
+          validate
+        />
+      </div>
+
+      <div>
+        <h4>School</h4>
+        <MDBInput
+          label="Current School"
+          icon="school"
+          group
+          type="text"
+          name="school"
+          onChange={onChange}
+          minLength="6"
+          validate
+        />
+      </div>
+
+      <div>
+        <MDBBtn>
+          Save Changes
+        </MDBBtn>
+      </div>
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    username: state.username,
-    location: state.location,
-    school: state.school,
+
   };
 };
 
