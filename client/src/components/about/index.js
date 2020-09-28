@@ -5,31 +5,32 @@ import Story from './story';
 import PersonBlock from './personBlock';
 
 const About = () => {
-  const names = [
-    'Yi Chen Zhu',
-    'Cedric Mosdell',
-    'Charles Petchsy',
-    'Harrison Fok',
-    'Allan C',
-    'Avi Patel',
-    'Bo Dan',
-    'David Tan',
-    'Hassan Azmi',
-    'Alex',
-    'Shuyi',
-  ];
-  //   const names = ['a', 'b', 'c'];
+  const names = {
+    'Yi Chen Zhu': 'I am a genius',
+    'Cedric Mosdell': 'Me too',
+    'Charles Petchsy': 'Me too',
+    'Harrison Fok': 'Not sure',
+    'Allan C': 'Me too',
+    'Avi Patel': 'Me too',
+    'Bo Dan': 'Me too',
+    'David Tan': 'Me too',
+    'Hassan Azmi': 'Me too',
+    'Alex': 'Me too',
+    'Shuyi': 'Me too',
+  };
+  const blocks = Object.keys(names).map(function (key) {
+    return (
+      <div>
+        <p>{key}</p>
+        <p>{names[key]}</p>
+      </div>
+    );
+    // return <PersonBlock name={key} description={names[key]}/>
+  });
   return (
     <div>
       <h1 className="centeredPlusSpace">About TMB</h1>
-      <ul>
-        {names.map((name) => {
-          return <li key={name}>{name}</li>;
-        })}
-      </ul>
-      {/* <div className="gray">
-        <PersonBlock name={'Man'} description={'Lee'} />
-      </div> */}
+      {blocks}
       <div className="gray">
         <Story />
       </div>
