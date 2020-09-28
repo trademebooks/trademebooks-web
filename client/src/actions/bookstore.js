@@ -13,6 +13,6 @@ export const getBookstoreByUsername = (username) => async dispatch => {
       payload: res.data
     });
   } catch (error) {
-    console.log({ erro })
+    console.log({ error })
   }
 };

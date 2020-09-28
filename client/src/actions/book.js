@@ -1,11 +1,9 @@
 import api from '../utils/api';
-import { setAlert } from './alert';
+import { toastr } from 'react-redux-toastr';
 import {
   ADD_BOOK,
-  CREATE_BOOK,
-  POST_ERROR
+  CREATE_BOOK
 } from './types';
-import { toastr } from 'react-redux-toastr';
 
 // Add book
 export const addBook = (formData) => async (dispatch) => {
@@ -25,13 +23,16 @@ export const createBook = (book) => async (dispatch) => {
       payload: book
     });
 
-    dispatch(setAlert('Book listing created successful', 'success'));
-
     toastr.success('Book listing created successful');
-    setTimeout(() => {
 
-      window.location.href = '/';
-    }, 2000)
+    dispatch({
+      type: ADD_BOOK,
+      payload: {
+        title: '',
+        price: '',
+        description: ''
+      }
+    })
   } catch (err) {
     const data = err.response.data;
     const errors = data.errors;
@@ -41,9 +42,5 @@ export const createBook = (book) => async (dispatch) => {
         toastr.error(errorMessage)
       });
     }
-
-    dispatch({
-      type: POST_ERROR
-    });
   }
 };

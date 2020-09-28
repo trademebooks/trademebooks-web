@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MDBRow, MDBCol, MDBContainer, MDBInput } from 'mdbreact';
 
 import Conditions from './Conditions';
@@ -7,10 +7,13 @@ import './PostBookForm.scss';
 
 import bookImage from '../../common/icons/sample-book.png';
 
-const PostBookForm = ({ book }) => {
-  useEffect(() => {
-    console.log('BookFields', { book });
-  }, [book]);
+const PostBookForm = ({
+  book,
+  addBook
+}) => {
+  const onChange = (e) => {
+    addBook({ ...book, [e.target.name]: e.target.value });
+  }
 
   return (
     <>
@@ -21,7 +24,7 @@ const PostBookForm = ({ book }) => {
               <div>
                 <div className="py-3">
                   <img
-                    src={bookImage}
+                    src={book.image_url || bookImage}
                     alt="thumbnail"
                     className="img-thumbnail book-image-size"
                   />
@@ -32,13 +35,13 @@ const PostBookForm = ({ book }) => {
               <div>
                 <form className="post-book-form-fields">
                   <div className="form-group">
-                    <MDBInput label="Title" size="lg" value={book.title} />
+                    <MDBInput label="Title" size="lg" value={book.title} name="title" onChange={onChange} />
                   </div>
                   <div className="form-group">
-                    <MDBInput label="ISBN-10" size="lg" />
+                    <MDBInput label="ISBN-10" size="lg" value={book.isbn_10} />
                   </div>
                   <div className="form-group">
-                    <MDBInput label="ISBN-13" size="lg" />
+                    <MDBInput label="ISBN-13" size="lg" value={book.isbn_13} />
                   </div>
                   <div className="form-group">
                     <MDBInput label="Edition" size="lg" />

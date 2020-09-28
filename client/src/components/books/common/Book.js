@@ -47,7 +47,8 @@ const Book = ({ book }) => {
 
                     <div className="single-card-column-section-2__row-3">
                         <span className="author-by">By</span>
-                        <span className="text-authors"> {book.authors.join(', ')}</span>
+                        &nbsp;
+                        <span className="text-authors"><i>{book.authors.join(', ')}</i></span>
                     </div>
 
                     <div className="single-card-column-section-2__row-4">
@@ -55,14 +56,11 @@ const Book = ({ book }) => {
                     </div>
 
                     {/*Card footer*/}
-                    <div className="single-card-column-section-2__row-5">
+                    {/* <div className="single-card-column-section-2__row-5">
                         <img src={Location_icon} width="20px" alt="contact info card" />
                         <span>&nbsp;</span>
                         <span className="location"> {book.location}</span>
-
-                        <span>&nbsp;</span>
-                        <span className="location"> {datePosted}</span>
-                    </div>
+                    </div> */}
                 </div>
                 {/* Column 2 - end   */}
 
@@ -81,7 +79,7 @@ const Book = ({ book }) => {
                         <img src={bookstoreIcon} height="50px" alt="test" />
                     </div>
                     <div>
-                        {book.datePublished}
+                        {datePosted}
                     </div>
                 </div>
                 {/* Column 3 - end */}
