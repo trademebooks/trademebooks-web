@@ -49,13 +49,13 @@ const createABook = catchException(async (req, res, next) => {
   // 2. middleware: auth
 
   // 3. request
-  const createBookRequest = createBookRequestDTO({ userId: req.session.user.id, ...req.body});
+  const createBookRequest = createBookRequestDTO({ userId: req.session.user._id, ...req.body});
 
   // 4. validation
   const createBookValidation = createBookValidator(createBookRequest);
 
   // 5. business logic
-  const book = await bookService.createBook(req.body);
+  const book = await bookService.createBook({ userId: req.session.user._id, ...req.body});
 
   // 7. response
   return res.status(200).json(globalResponseDTO(
