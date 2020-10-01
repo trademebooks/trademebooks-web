@@ -23,11 +23,11 @@ const About = () => {
   const imagePaths = ["./yi_chen.jpg", "./cedric.jpg"]
 
   const blocks = Object.keys(names).map(function (key, i) {
-    // console.log(imagePaths[i])
+    console.log(imagePaths[i])
     return (
       <div className="centerTexts" key={i}>
         <p>{key}</p>
-        <img src={require("./yi_chen.jpg")} width="300" height="300"/>
+        <img src={require(`${imagePaths[i]}`)} width="300" height="300" />
         <p>{names[key]}</p>
       </div>
     );
