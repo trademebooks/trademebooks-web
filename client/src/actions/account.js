@@ -9,3 +9,15 @@ export const getAccountSettings = async () => {
     console.log({ error })
   }
 };
+
+export const saveAccountSettings = async (data) => {
+  try {
+    const response = await api.put(`/account`, data);
+    const responseJson = response.data.data;
+    return responseJson;
+  } catch (error) {
+    console.log({ error })
+  }
+};
+
+

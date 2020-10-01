@@ -1,7 +1,7 @@
 import api from '../utils/api';
 
 import {
-  GET_PROFILE
+  GET_BOOKSTORE
 } from './types';
 
 export const getBookstoreByUsername = (username) => async dispatch => {
@@ -9,7 +9,7 @@ export const getBookstoreByUsername = (username) => async dispatch => {
     const res = await api.get(`/bookstores/${username}`);
 
     dispatch({
-      type: GET_PROFILE,
+      type: GET_BOOKSTORE,
       payload: res.data
     });
   } catch (error) {
