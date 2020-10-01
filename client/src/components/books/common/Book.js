@@ -10,12 +10,12 @@ import bookstoreIcon from './icons/bookstoreIcon.png';
 
 const Book = ({ book }) => {
     const date = new Date(book.createdAt);
-    const datePosted = date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+    const datePosted = date.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' });
 
     return (
         <div className="single-card mt-3">
             <div className="single-card-container">
-                {/* Column 1 - Image --- start */}
+                {/* Column 1 - Image --- start */} 
                 <div className="single-card-column-section-1">
                     <div className="single-card__image-section">
                         <img className="single-card-image" src={sample_book_image} alt="single card book" />
