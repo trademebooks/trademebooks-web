@@ -18,10 +18,10 @@ const BookStore = () => {
     <>
       <h3 className="mb-4 font-weight-bold">Bookstore Settings</h3>
 
-      <div>
-        <h4>Username</h4>
+      <div className="mt-5">
+        <h4>Change Username</h4>
         <MDBInput
-          label="Current Username"
+          label="Username"
           icon="user"
           group
           type="text"
@@ -29,9 +29,12 @@ const BookStore = () => {
           onChange={onChange}
           required
         />
+        <MDBBtn type="submit">
+          Save Changes
+        </MDBBtn>
       </div>
 
-      <div>
+      <div className="mt-5">
         <h4>Location</h4>
         <MDBInput
           label="Current Location"

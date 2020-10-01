@@ -4,35 +4,42 @@ import { connect } from 'react-redux';
 
 const Authentication = (props) => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    username: ''
   });
 
-  const { email, password } = formData;
+  const { username } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  const updateEmail = (e) => { }
-
-  const updatePassword = (e) => { }
+  const updateUsername = (e) => { }
 
   return (
     <>
-      <h3 className="mb-4 font-weight-bold">Authentication Settings</h3>
-      <div>
-        <h4>Change Email</h4>
+      <h3 className="mb-4 font-weight-bold">User Settings</h3>
+
+      <div className="mt-5">
+        <h4>Change Name</h4>
         <MDBInput
-          label="Current Email"
-          icon="envelope"
+          label="First Name"
+          icon="user"
           group
-          type="email"
-          name="email"
+          type="text"
+          name="first_anem"
           onChange={onChange}
           required
         />
-        <MDBBtn type="submit" onClick={() => props.updateEmail(email)}>
+        <MDBInput
+          label="Last Name"
+          icon="user"
+          group
+          type="text"
+          name="last_name"
+          onChange={onChange}
+          required
+        />
+        <MDBBtn type="submit" onClick={updateUsername}>
           Save Changes
         </MDBBtn>
       </div>

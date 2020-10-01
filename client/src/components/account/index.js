@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MDBContainer, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
 
-import Authentication from "./authentication";
+import User from "./user";
 import BookStore from "./bookstore";
 import Notifications from "./notifications";
 
@@ -24,7 +24,7 @@ const Account = () => {
           <MDBNav tabs className="border-bottom" color='indigo'>
             <MDBNavItem>
               <MDBNavLink link to="#" active={activeItemJustified === "1"} onClick={toggleJustified("1")} role="tab" >
-                <MDBIcon icon="user" /> Authentication
+                <MDBIcon icon="user" /> User
             </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
@@ -43,7 +43,7 @@ const Account = () => {
             activeItem={activeItemJustified}
           >
             <MDBTabPane tabId="1" role="tabpanel">
-              <Authentication />
+              <User />
             </MDBTabPane>
 
             <MDBTabPane tabId="2" role="tabpanel">

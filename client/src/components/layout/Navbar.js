@@ -19,6 +19,7 @@ import logo from "../../img/logo.png";
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [bookstoreUrl, setBookstoreUrl] = useState('/bookstore/');
+  const [fullname, setFullname] = useState('');
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
@@ -27,6 +28,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   useEffect(() => {
     if (user) {
       setBookstoreUrl(bookstoreUrl + user.username);
+      setFullname(`${user.first_name} ${user.last_name}`)
     }
   }, [user]);
 
@@ -45,6 +47,11 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse isOpen={isOpen} navbar>
+          <MDBNavbarNav left>
+            <MDBNavItem>
+              <span className="color-white">{`Hello ${fullname}!`}</span>
+            </MDBNavItem>
+          </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
               <MDBNavLink to="/add-book">

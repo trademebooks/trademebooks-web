@@ -14,7 +14,7 @@ const getAll = async (searchQuery = '', limit = 10) => {
 
 // Retrieve - all by userId field
 const getAllByUserId = async (userId) => {
-  return await Model.find({ userId: userId }).lean().exec();
+  return await Model.find({ userId: userId }).sort({ createdAt: 'desc' });
 }
 
 // Retrieve - one

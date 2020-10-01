@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const AccountSchema = new Schema({
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
@@ -13,6 +13,14 @@ const AccountSchema = new Schema({
     receiveSms: {
         type: Boolean,
         default: true
+    },
+    school: {
+        type: String,
+        default: ''
+    },
+    location: {
+        type: String,
+        default: ''
     }
 });
 
