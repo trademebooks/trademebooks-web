@@ -28,9 +28,13 @@ const Book = ({ book }) => {
                     <div className="single-card-column-section-2__row-1">
                         <span className="single-card__book-title">{book.title}</span>
                         <span>&nbsp;</span>
-                        <span className="single-card__book-edition">Edition</span>
-                        <span>&nbsp;</span>
-                        <span className="single-card__book-edition-number">{book.edition}</span>
+                        {book.edition &&
+                            <span>
+                                <span className="single-card__book-edition">Edition</span>
+                                <span>&nbsp;</span>
+                                <span className="single-card__book-edition-number">{book.edition}</span>
+                            </span>
+                        }
                     </div>
 
                     <div className="single-card-column-section-2__row-2">
@@ -46,9 +50,7 @@ const Book = ({ book }) => {
                     </div>
 
                     <div className="single-card-column-section-2__row-3">
-                        <span className="author-by">By</span>
-                        &nbsp;
-                        <span className="text-authors"><i>{book.authors.join(', ')}</i></span>
+                        {book.authors.length > 0 && <span className="author-by">By <i>{book.authors.join(', ')}</i></span>}
                     </div>
 
                     <div className="single-card-column-section-2__row-4">
@@ -56,11 +58,15 @@ const Book = ({ book }) => {
                     </div>
 
                     {/*Card footer*/}
-                    {/* <div className="single-card-column-section-2__row-5">
-                        <img src={Location_icon} width="20px" alt="contact info card" />
-                        <span>&nbsp;</span>
-                        <span className="location"> {book.location}</span>
-                    </div> */}
+                    <div className="single-card-column-section-2__row-5">
+                        {book.location &&
+                            <span>
+                                <img src={Location_icon} width="20px" alt="contact info card" />
+                                <span>&nbsp;</span>
+                                <span className="location"> {book.location}</span>
+                            </span>
+                        }
+                    </div>
                 </div>
                 {/* Column 2 - end   */}
 
@@ -76,7 +82,9 @@ const Book = ({ book }) => {
                         <img src={Message_icon} alt="test" height="50px" />
                     </div>
                     <div>
-                        <img src={bookstoreIcon} height="50px" alt="test" />
+                        <a href={`/bookstore/yichen`}>
+                            <img src={bookstoreIcon} height="50px" alt="test" />
+                        </a>
                     </div>
                     <div>
                         {datePosted}

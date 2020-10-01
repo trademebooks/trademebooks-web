@@ -132,12 +132,12 @@ module.exports = async (users) => {
 			const book = {
 				userId: user.id,
 				title: faker.lorem.words(),
-				description: faker.lorem.sentences(10),
+				description: faker.lorem.sentences(Math.round(Math.random(0, 5) * 5)),
 				authors: [
 					faker.lorem.words(),
 					faker.lorem.words(),
 					faker.lorem.words()
-				],
+				].slice(0, Math.round(Math.random(0, 3) * 3)),
 				condition: [
 					'Poor',
 					'Fair',
@@ -145,9 +145,9 @@ module.exports = async (users) => {
 					'Very Good',
 					'Like New'
 				][(Math.round(Math.random(0, 4)) + 1)],
-				location: "UofT",
+				location: `${faker.address.city()}, ${faker.address.county()}`,
 				price: faker.random.number(500),
-				edition: (Math.round(Math.random(0, 10)) + 1),
+				edition: (Math.round(Math.random(0, 5) * 5)),
 				image: "https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg",
 				date_posted: new Date,
 			};

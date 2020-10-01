@@ -89,9 +89,7 @@ export const logout = () => async dispatch => {
 
     dispatch({ type: LOGOUT });
 
-    dispatch(loadUser());
-
-    toastr.success('You have logged out.')
+    toastr.success('You have logged out.');
   } catch (err) {
     console.log('actions/auth.js', err)
   }
