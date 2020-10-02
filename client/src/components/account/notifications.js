@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { MDBBtn } from 'mdbreact';
-import { connect } from 'react-redux';
-
-import { setAlert } from '../../actions/account';
+import { toastr } from 'react-redux-toastr';
 
 import { getAccountSettings, saveAccountSettings } from '../../actions/account';
 
-const Notifications = ({ }) => {
+const Notifications = () => {
   const [formData, setFormData] = useState({
     receiveEmail: null,
     receiveSms: null
@@ -20,14 +18,13 @@ const Notifications = ({ }) => {
 
   const saveNotificationSettings = async (e) => {
     e.preventDefault();
-    const res = await saveAccountSettings(formData);
-    console.log({ res })
+    await saveAccountSettings(formData);
+    toastr.success('Your settings have been updated.')
   }
 
   useEffect(() => {
     (async () => {
       const account = await getAccountSettings();
-      console.log(account);
       setFormData(account);
     })();
   }, [])
@@ -55,14 +52,4 @@ const Notifications = ({ }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-
-  };
-};
-
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Notifications);
+export default Notifications;
