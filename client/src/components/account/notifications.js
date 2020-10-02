@@ -16,7 +16,7 @@ const Notifications = () => {
     setFormData({ ...formData, [e.target.name]: e.target.checked });
   }
 
-  const saveNotificationSettings = async (e) => {
+  const saveSettings = async (e) => {
     e.preventDefault();
     await saveAccountSettings(formData);
     toastr.success('Your settings have been updated.')
@@ -44,7 +44,7 @@ const Notifications = () => {
       </div>
 
       <div>
-        <MDBBtn onClick={saveNotificationSettings}>
+        <MDBBtn onClick={saveSettings}>
           Save Changes
         </MDBBtn>
       </div>

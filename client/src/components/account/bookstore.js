@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MDBInput, MDBBtn } from 'mdbreact';
+import { toastr } from 'react-redux-toastr';
 import { connect } from 'react-redux';
 
-const BookStore = () => {
+import { getAccountSettings, saveAccountSettings } from '../../actions/account';
+import { updateAuthUser } from '../../actions/user';
+
+const BookStore = ({ auth: { user } }) => {
   const [formData, setFormData] = useState({
     username: '',
     location: '',
@@ -11,8 +15,35 @@ const BookStore = () => {
 
   const { username, location, school } = formData;
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  const saveUsername = async (e) => {
+    e.preventDefault();
+    await updateAuthUser({ username });
+    toastr.success(
+      'Your username has been changed.',
+      'To see your username change be taken into effect, logout then log back in.',
+      { timeOut: 0 }
+    );
+  }
+
+  const saveSettings = async (e) => {
+    e.preventDefault();
+    await saveAccountSettings({ location, school });
+    toastr.success('Your settings have been updated.')
+  }
+
+  useEffect(() => {
+    (async () => {
+      const account = await getAccountSettings();
+      setFormData({
+        ...account,
+        ...user
+      });
+    })();
+  }, [])
 
   return (
     <>
@@ -28,8 +59,9 @@ const BookStore = () => {
           name="username"
           onChange={onChange}
           required
+          value={username}
         />
-        <MDBBtn type="submit">
+        <MDBBtn onClick={saveUsername}>
           Save Changes
         </MDBBtn>
       </div>
@@ -45,6 +77,7 @@ const BookStore = () => {
           onChange={onChange}
           minLength="6"
           validate
+          value={location}
         />
       </div>
 
@@ -59,11 +92,12 @@ const BookStore = () => {
           onChange={onChange}
           minLength="6"
           validate
+          value={school}
         />
       </div>
 
       <div>
-        <MDBBtn>
+        <MDBBtn onClick={saveSettings}>
           Save Changes
         </MDBBtn>
       </div>
@@ -71,11 +105,9 @@ const BookStore = () => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-
-  };
-};
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
 
 const mapDispatchToProps = {
 

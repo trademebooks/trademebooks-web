@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
 import { MDBInput, MDBBtn } from 'mdbreact';
+import { toastr } from 'react-redux-toastr';
 import { connect } from 'react-redux';
 
-const Authentication = (props) => {
+import { updateAuthUser } from '../../actions/user';
+
+const User = ({ auth: { user } }) => {
   const [formData, setFormData] = useState({
-    username: ''
+    first_name: user.first_name,
+    last_name: user.last_name
   });
 
-  const { username } = formData;
+  const { first_name, last_name } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  const updateUsername = (e) => { }
+  const updateUser = async (e) => {
+    e.preventDefault();
+    await updateAuthUser({ first_name, last_name });
+    toastr.success(
+      'Your name has been changed.',
+      'To see your name change be taken into effect, logout then log back in.',
+      { timeOut: 0 }
+    );
+  }
 
   return (
     <>
@@ -26,9 +38,10 @@ const Authentication = (props) => {
           icon="user"
           group
           type="text"
-          name="first_anem"
+          name="first_name"
           onChange={onChange}
           required
+          value={first_name}
         />
         <MDBInput
           label="Last Name"
@@ -38,13 +51,14 @@ const Authentication = (props) => {
           name="last_name"
           onChange={onChange}
           required
+          value={last_name}
         />
-        <MDBBtn type="submit" onClick={updateUsername}>
+        <MDBBtn onClick={updateUser}>
           Save Changes
         </MDBBtn>
       </div>
 
-      <div className="mt-5">
+      {/* <div className="mt-5">
         <h4>Change Password</h4>
         <MDBInput
           label="Current Password"
@@ -80,19 +94,17 @@ const Authentication = (props) => {
         <MDBBtn>
           Save Changes
         </MDBBtn>
-      </div>
+      </div> */}
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-
-  };
-};
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
 
 const mapDispatchToProps = {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
+export default connect(mapStateToProps, mapDispatchToProps)(User);

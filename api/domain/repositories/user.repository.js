@@ -34,6 +34,21 @@ const findUserByEmailAndPassword = async (userData) => {
 
 /**
  * 
+ * @param {*} user {
+ *  - name
+ *  - email
+ *  - password
+ * }
+ * 
+ * @returns user
+ */
+const updateById = async (userId, data) => {
+  const user = await UserModel.updateOne({ _id: userId }, data);
+  const updatedUser = await UserModel.findOne({ _id: userId });
+  return updatedUser;
+}
+/**
+ * 
  * @param {*} id
  * 
  * @returns user
@@ -46,5 +61,6 @@ const getUserById = async (id) => {
 module.exports = {
   createUser,
   findUserByEmailAndPassword,
-  getUserById
+  getUserById,
+  updateById
 }
