@@ -9,7 +9,7 @@
 }
 
 .centeredPlusSpace {
-  height: 25vh; /* Magic here */
+  height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +21,6 @@
 }
 
 .centerTexts {
-  margin-left: 400px;
-  margin-right: 400px;
+  margin-left: 350px;
+  margin-right: 350px;
 }

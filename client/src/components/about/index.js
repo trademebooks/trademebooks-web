@@ -1,8 +1,6 @@
 import React from 'react';
-import { MDBRow, MDBCol, MDBContainer, MDBBtn } from 'mdbreact';
-import Person from './person';
+import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
 import Story from './story';
-import PersonBlock from './personBlock';
 
 import './story.css';
 
@@ -25,7 +23,6 @@ const About = () => {
   const imagePaths = ['./yi_chen.jpg', './cedric.jpg', './harrison.jpg'];
 
   const blocks = Object.keys(names).map(function (key, i) {
-    // console.log(imagePaths[i]);
     return (
       <MDBCol sm={3}>
         <div key={i}>
@@ -42,7 +39,8 @@ const About = () => {
     <div>
       <h1 className="centeredPlusSpace">About TMB</h1>
       <div className="gray">
-        <div style={{ marginLeft: '350px' }}>
+        <h3 className="centerTexts">WHO WE ARE</h3>
+        <div style={{ marginLeft: '340px' }}>
           <MDBContainer>
             <MDBRow>{blocks}</MDBRow>
           </MDBContainer>
