@@ -1,58 +1,72 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBContainer,
-  MDBIcon,
-} from 'mdbreact';
-import logo from '../../img/logo.png';
+import React from 'react';
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 
 const Footer = () => {
-  /*
-  const [isOpen, setIsOpen] = useState(false);
-  const [bookstoreUrl, setBookstoreUrl] = useState('');
-  const [fullname, setFullname] = useState('');
-
-  const toggleCollapse = () => {
-    setIsOpen(!isOpen);
-  };
-
-  useEffect(() => {
-    if (user) {
-      setBookstoreUrl(`/bookstore/${user.username}`);
-      setFullname(`${user.first_name} ${user.last_name}`);
-    }
-  }, [user]);
-  */
-
-  const footer = () => {
-    return (
-      <div>
-        <h1>HI</h1>
+  return (
+    <MDBFooter color="green" className="font-small pt-4 mt-4">
+      <MDBContainer fluid className="text-center text-md-left">
+        <MDBRow>
+          <MDBCol md="6">
+            <h5 className="title">TRADEMEBOOKS</h5>
+          </MDBCol>
+          <MDBCol md="2">
+            <h5 className="title">Explore</h5>
+            <ul>
+              <li className="list-unstyled">
+                <a href="/about">About</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Contact Us</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Careers</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Post a Book</a>
+              </li>
+            </ul>
+          </MDBCol>
+          <MDBCol md="2">
+            <h5 className="title">Connect</h5>
+            <ul>
+              <li className="list-unstyled">
+                <a href="#!">Facebook</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Twitter</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Instagram</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Tiktok</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">WhatsApp</a>
+              </li>
+            </ul>
+          </MDBCol>
+          <MDBCol md="2">
+            <h5 className="title">Legal</h5>
+            <ul>
+              <li className="list-unstyled">
+                <a href="">Terms</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Privacy</a>
+              </li>
+            </ul>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      <div className="footer-copyright py-3">
+        <MDBContainer fluid>
+          &copy; {new Date().getFullYear()} Chosen Solutions. All rights
+          reserved.
+        </MDBContainer>
       </div>
-    );
-  };
-
-  return footer;
+    </MDBFooter>
+  );
 };
-
-// Footer.propTypes = {
-//   auth: PropTypes.object.isRequired,
-// };
-
-// const mapStateToProps = (state) => ({
-//   auth: state.auth,
-// });
-
-// export default connect(mapStateToProps, { logout })(Footer);
 
 export default Footer;
