@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { logout } from "../../actions/auth";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../../actions/auth';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -13,8 +13,8 @@ import {
   MDBCollapse,
   MDBContainer,
   MDBIcon,
-} from "mdbreact";
-import logo from "../../img/logo.png";
+} from 'mdbreact';
+import logo from '../../img/logo.png';
 
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,12 +47,20 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         <MDBCollapse isOpen={isOpen} navbar>
           <MDBNavbarNav right>
             <MDBNavItem>
+              <MDBNavLink to="/about">
+                <MDBIcon icon="book" /> <span>About Us</span>
+              </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
               <MDBNavLink to="/add-book">
                 <MDBIcon icon="book" /> <span>Sell Books</span>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to={bookstoreUrl}>
+              <MDBNavLink
+                className="waves-effect waves-light"
+                to={bookstoreUrl}
+              >
                 <MDBIcon icon="store" /> <span>Bookstore</span>
               </MDBNavLink>
             </MDBNavItem>
@@ -113,13 +121,11 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     </MDBNavbar>
   );
 
-  return (
-    !loading && <>{isAuthenticated ? authNavbar : guestNavbar}</>
-  );
+  return !loading && <>{isAuthenticated ? authNavbar : guestNavbar}</>;
 };
 
 Navbar.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
