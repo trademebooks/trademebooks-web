@@ -7,17 +7,15 @@ import {
 const initialState = {
   books: [],
   book: {
-    title: 'title',
-    school: 'school',
-    price: 111,
-    description: 'description',
-    location: 'DT Uoft'
+    title: '',
+    price: '',
+    description: ''
   },
   loading: true,
   error: {}
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {

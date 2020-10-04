@@ -32,13 +32,16 @@ const ContactPage = () => {
     }
     catch (error) {
       toastr.error('There was something wrong with your submission');
-      
+
       console.log({ error });
     }
   };
 
   return (
     <>
+      <div className="header-container text-center">
+        <h3 className="font-weight-bold">Contact Us</h3>
+      </div>
       <MDBContainer className="mt-4 contact-form">
         <MDBRow className="justify-content-center">
           <MDBCol md="6">
@@ -49,7 +52,7 @@ const ContactPage = () => {
               <label htmlFor="contact__email" className="grey-text mt-4">Email address</label>
               <input type="email" id="contact__email" className="form-control" name="email" value={email} onChange={onChange} required />
               <label htmlFor="contact__body" className="grey-text mt-4">What is in your mind?</label>
-              <textarea id="contact__body" className="form-control" rows="3" name="body" value={body} onChange={onChange} required />
+              <textarea id="contact__body" className="form-control" rows="10" name="body" value={body} onChange={onChange} required />
               <div className="text-center my-4">
                 <MDBBtn type="submit" className="btn-block">Send</MDBBtn>
               </div>

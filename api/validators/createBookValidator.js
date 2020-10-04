@@ -13,9 +13,7 @@ const ApiException = require('../utils/ApiException');
 const createBookValidator = (data) => {
   const rules = {
     title: 'required',
-    description: 'required',
-    price: 'required|numeric|min:1',
-    // authors: 'required'
+    price: 'required|numeric|min:1|max:999',
   };
 
   let validator = new Validator(data, rules);

@@ -26,7 +26,10 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, .h2 {
+h1,
+h2,
+h3,
+.h2 {
   color: var(--primary-color);
 }
 
@@ -36,8 +39,12 @@ h1, h2, h3, .h2 {
 
 .header-container {
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 1.5rem;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.color-white {
+  color: #ffffff;
 }

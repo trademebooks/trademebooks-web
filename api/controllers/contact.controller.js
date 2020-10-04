@@ -15,8 +15,8 @@ const contactUs = catchExceptions(async (req, res, next) => {
     globalResponseDTO(
       (status = 'success'),
       (code = 200),
-      (message = `Email successfully sent.`),
-      (data = {}),
+      (`Email successfully sent.`),
+      (data = message),
       (errors = null)
     )
   );

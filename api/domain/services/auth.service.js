@@ -26,13 +26,13 @@ const logoutUser = async (req) => {
 /**
  * @returns User
  */
-const getCurrentUser = async (req) => {
-  return;
+const getAuthUser = async (req) => {
+  return req.session.user;
 }
 
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
-  getCurrentUser
+  getAuthUser
 }

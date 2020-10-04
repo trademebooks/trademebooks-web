@@ -1,40 +1,55 @@
-import React from "react";
-import { MDBInput, MDBBtn } from "mdbreact";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { MDBBtn } from 'mdbreact';
+import { toastr } from 'react-redux-toastr';
 
-const Notifications = (props) => {
+import { getAccountSettings, saveAccountSettings } from '../../actions/account';
+
+const Notifications = () => {
+  const [formData, setFormData] = useState({
+    receiveEmail: null,
+    receiveSms: null
+  });
+
+  const { receiveEmail, receiveSms } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.checked });
+  }
+
+  const saveSettings = async (e) => {
+    e.preventDefault();
+    await saveAccountSettings(formData);
+    toastr.success('Your settings have been updated.')
+  }
+
+  useEffect(() => {
+    (async () => {
+      const account = await getAccountSettings();
+      setFormData(account);
+    })();
+  }, [])
+
   return (
-    <div>
-      <div>
-        <MDBInput label="Receive Emails" type="checkbox" id="receiveEmails" />
+    <>
+      <h3 className="mb-4 font-weight-bold">Notifications Settings</h3>
+
+      <div class="custom-control custom-checkbox my-3">
+        <input type="checkbox" name="receiveEmail" class="custom-control-input" id="defaultInline1" checked={receiveEmail} onChange={onChange} />
+        <label class="custom-control-label" for="defaultInline1">Receive Emails</label>
       </div>
-      <br />
-      <div>
-        <MDBInput label="Receive Texts" type="checkbox" id="receiveTexts" />
+
+      <div class="custom-control custom-checkbox my-3">
+        <input type="checkbox" name="receiveSms" class="custom-control-input" id="defaultInline2" checked={receiveSms} onChange={onChange} />
+        <label class="custom-control-label" for="defaultInline2">Receive Text Messages</label>
       </div>
-      <br />
+
       <div>
-        <MDBBtn
-          type="submit"
-          onClick={() => { }}
-        >
+        <MDBBtn onClick={saveSettings}>
           Save Changes
         </MDBBtn>
       </div>
-      <br />
-    </div>
+    </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    receiveEmails: state.receiveEmails,
-    receiveTexts: state.receiveTexts,
-  };
-};
-
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Notifications);
+export default Notifications;

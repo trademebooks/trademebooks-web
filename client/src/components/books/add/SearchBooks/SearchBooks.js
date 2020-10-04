@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import debounce from 'lodash/debounce';
 
 import './SearchBook.scss';
 
-import config from '../../../../config';
-
-const SearchBooks = ({ addBook, book }) => {
+const SearchBooks = ({
+  addBook
+}) => {
   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState('');
 
@@ -15,49 +16,47 @@ const SearchBooks = ({ addBook, book }) => {
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
 
-  useEffect(() => {
-    let active = true;
-
-    if (!loading) {
-      return undefined;
-    }
-
-    (async () => {
-      if (inputValue.length > 2) {
-        let url = `https://www.googleapis.com/books/v1/volumes?key=${config.google.ApiKey}&q=${inputValue}`;
-        const response = await fetch(url);
-        const data = await response.json();
-        let books = data.items.map((book) => {
-          let bookVolumeInfo = book['volumeInfo'];
-
-          console.log(bookVolumeInfo['authors'])
-          return {
-            title: bookVolumeInfo['title'],
-            authors: bookVolumeInfo['authors'] || [],
-            publisher: bookVolumeInfo['publisher'],
-            description: bookVolumeInfo['description'],
-            //image_url: bookVolumeInfo["imageLinks"]['smallThumbnail'],
-            //isbn_10: bookVolumeInfo['industryIdentifiers'][0]['identifier'],
-            //isbn_13: bookVolumeInfo['industryIdentifiers'][1]['identifier']
+  const handleInputChange = debounce(async (e, inputValue) => {
+    if (inputValue.length > 2) {
+      const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCpl497dKbKN-piJBJJ5zOf3sCPk7CKuJg&q=${inputValue}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data && data.items) {
+        const books = data.items.map((book) => {
+          const bookVolumeInfo = book["volumeInfo"];
+          const bookPrettified = {
+            title: bookVolumeInfo["title"],
+            authors: bookVolumeInfo["authors"] || [],
+            publisher: bookVolumeInfo["publisher"],
+            image_url:
+              bookVolumeInfo["imageLinks"] &&
+              bookVolumeInfo["imageLinks"]["smallThumbnail"]
+                ? bookVolumeInfo["imageLinks"]["smallThumbnail"]
+                : "",
+            isbn_10:
+              bookVolumeInfo["industryIdentifiers"] &&
+              bookVolumeInfo["industryIdentifiers"][0] &&
+              bookVolumeInfo["industryIdentifiers"][0]["identifier"]
+                ? bookVolumeInfo["industryIdentifiers"][0]["identifier"]
+                : "",
+            isbn_13:
+              bookVolumeInfo["industryIdentifiers"] &&
+              bookVolumeInfo["industryIdentifiers"][1] &&
+              bookVolumeInfo["industryIdentifiers"][1]["identifier"]
+                ? bookVolumeInfo["industryIdentifiers"][1]["identifier"]
+                : ""
           };
+          return bookPrettified;
         });
-
-        if (active) {
-          setOptions(books);
-        }
+        console.log('inputValue:', inputValue)
+        console.log(books.map(book => book.title).join('\n'))
+        setOptions(books);
+        console.log({ options })
       }
-    })();
-
-    return () => {
-      active = false;
-    };
-  }, [inputValue]);
-
-  useEffect(() => {
-    if (!open) {
+    } else {
       setOptions([]);
     }
-  }, [open]);
+  }, 1250);
 
   return (
     <>
@@ -67,7 +66,8 @@ const SearchBooks = ({ addBook, book }) => {
         </div>
         <div>
           <Autocomplete
-            style={{ width: '100%' }}
+            getOptionLabel={(option) => option.title}
+            getOptionSelected={(option, value) => option.title === value.title}
             open={open}
             onOpen={() => {
               setOpen(true);
@@ -75,19 +75,16 @@ const SearchBooks = ({ addBook, book }) => {
             onClose={() => {
               setOpen(false);
             }}
-            getOptionSelected={(option, value) => option.title === value.title}
-            getOptionLabel={(option) => option.title}
             options={options}
             loading={loading}
             value={value}
             onChange={(event, newValue) => {
+              console.log({ newValue })
               setOptions(newValue ? [newValue, ...options] : options);
               setValue(newValue);
               addBook(newValue);
             }}
-            onInputChange={(event, newInputValue) => {
-              setInputValue(newInputValue);
-            }}
+            onInputChange={handleInputChange}
             renderInput={(params) => (
               <TextField
                 {...params}

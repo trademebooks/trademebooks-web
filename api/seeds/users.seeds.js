@@ -54,9 +54,9 @@ module.exports = async () => {
       phone_number: faker.phone.phoneNumber()
     }
 
-    users.push(user);
+    const userReturnValue = await new User(user).save();
 
-    await new User(user).save();;
+    users.push(userReturnValue);
   }
   await dbConnection.disconnect();
 

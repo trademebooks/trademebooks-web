@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { addBook } from '../../../../actions/book';
 import PostBookForm from './PostBookForm';
 
 const mapStateToProps = (state) => ({
@@ -6,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-
+  addBook
 }
 
 export default connect(

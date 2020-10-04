@@ -5,7 +5,7 @@ import './Conditions.scss';
 
 const Conditions = () => {
 
-  const [condition, setCondition] = useState('');
+  const [condition, setCondition] = useState('Good');
 
   let conditions = [
     {

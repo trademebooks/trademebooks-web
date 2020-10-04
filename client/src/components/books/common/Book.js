@@ -10,12 +10,12 @@ import bookstoreIcon from './icons/bookstoreIcon.png';
 
 const Book = ({ book }) => {
     const date = new Date(book.createdAt);
-    const datePosted = date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+    const datePosted = date.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' });
 
     return (
         <div className="single-card mt-3">
             <div className="single-card-container">
-                {/* Column 1 - Image --- start */}
+                {/* Column 1 - Image --- start */} 
                 <div className="single-card-column-section-1">
                     <div className="single-card__image-section">
                         <img className="single-card-image" src={sample_book_image} alt="single card book" />
@@ -28,9 +28,13 @@ const Book = ({ book }) => {
                     <div className="single-card-column-section-2__row-1">
                         <span className="single-card__book-title">{book.title}</span>
                         <span>&nbsp;</span>
-                        <span className="single-card__book-edition">Edition</span>
-                        <span>&nbsp;</span>
-                        <span className="single-card__book-edition-number">{book.edition}</span>
+                        {book.edition &&
+                            <span>
+                                <span className="single-card__book-edition">Edition</span>
+                                <span>&nbsp;</span>
+                                <span className="single-card__book-edition-number">{book.edition}</span>
+                            </span>
+                        }
                     </div>
 
                     <div className="single-card-column-section-2__row-2">
@@ -46,8 +50,7 @@ const Book = ({ book }) => {
                     </div>
 
                     <div className="single-card-column-section-2__row-3">
-                        <span className="author-by">By</span>
-                        <span className="text-authors"> {book.authors.join(', ')}</span>
+                        {book.authors.length > 0 && <span className="author-by">By <i>{book.authors.join(', ')}</i></span>}
                     </div>
 
                     <div className="single-card-column-section-2__row-4">
@@ -56,12 +59,13 @@ const Book = ({ book }) => {
 
                     {/*Card footer*/}
                     <div className="single-card-column-section-2__row-5">
-                        <img src={Location_icon} width="20px" alt="contact info card" />
-                        <span>&nbsp;</span>
-                        <span className="location"> {book.location}</span>
-
-                        <span>&nbsp;</span>
-                        <span className="location"> {datePosted}</span>
+                        {book.location &&
+                            <span>
+                                <img src={Location_icon} width="20px" alt="contact info card" />
+                                <span>&nbsp;</span>
+                                <span className="location"> {book.location}</span>
+                            </span>
+                        }
                     </div>
                 </div>
                 {/* Column 2 - end   */}
@@ -78,10 +82,12 @@ const Book = ({ book }) => {
                         <img src={Message_icon} alt="test" height="50px" />
                     </div>
                     <div>
-                        <img src={bookstoreIcon} height="50px" alt="test" />
+                        <a href={`/bookstore/yichen`}>
+                            <img src={bookstoreIcon} height="50px" alt="test" />
+                        </a>
                     </div>
                     <div>
-                        {book.datePublished}
+                        {datePosted}
                     </div>
                 </div>
                 {/* Column 3 - end */}

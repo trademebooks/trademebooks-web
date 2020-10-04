@@ -1,6 +1,8 @@
 import { toastr } from 'react-redux-toastr';
-import api from '../utils/api';
 import { setAlert } from './alert';
+
+import api from '../utils/api';
+
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -89,9 +91,7 @@ export const logout = () => async dispatch => {
 
     dispatch({ type: LOGOUT });
 
-    dispatch(loadUser());
-
-    toastr.success('You have logged out.')
+    toastr.success('You have logged out.');
   } catch (err) {
     console.log('actions/auth.js', err)
   }
