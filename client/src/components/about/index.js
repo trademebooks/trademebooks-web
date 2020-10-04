@@ -28,7 +28,7 @@ const About = () => {
 
   const blocks = Object.keys(names).map(function (key, i) {
     return (
-      <MDBCol sm={3}>
+      <MDBCol md="4">
         <div key={i}>
           <strong>
             <p>{key}</p>
@@ -39,15 +39,18 @@ const About = () => {
       </MDBCol>
     );
   });
+
   return (
     <div>
       <h1 className="centeredPlusSpace">About TMB</h1>
       <div className="gray">
-        <h3 className="centerTexts">WHO WE ARE</h3>
-        <div style={{ marginLeft: '340px' }}>
-          <MDBContainer>
-            <MDBRow>{blocks}</MDBRow>
-          </MDBContainer>
+        <div className="centerTexts">
+          <h3>WHO WE ARE</h3>
+          <div>
+            <MDBContainer>
+              <MDBRow>{blocks}</MDBRow>
+            </MDBContainer>
+          </div>
         </div>
         <Story />
       </div>
