@@ -20,7 +20,11 @@ const About = () => {
     // 'Alex': 'Me too',
     // 'Shuyi': 'Me too',
   };
-  const imagePaths = ['./yi_chen.jpg', './cedric.jpg', './harrison.jpg'];
+  const imagePaths = [
+    './Images/yi_chen.jpg',
+    './Images/cedric.jpg',
+    './Images/harrison.jpg',
+  ];
 
   const blocks = Object.keys(names).map(function (key, i) {
     return (
