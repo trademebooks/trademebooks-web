@@ -3,15 +3,12 @@ import { addBook, createBook } from '../../../../actions/book';
 import BookFields from './BookFields';
 
 const mapStateToProps = (state) => ({
-  book: state.book.book
+  book: state.book.book,
 });
 
 const mapDispatchToProps = {
   addBook,
-  createBook
-}
+  createBook,
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BookFields);
+export default connect(mapStateToProps, mapDispatchToProps)(BookFields);

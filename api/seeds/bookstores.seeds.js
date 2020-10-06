@@ -13,8 +13,8 @@ module.exports = async (users) => {
   for (const user of users) {
     const bookstore = {
       userId: user._id,
-      description: `Welcome to ${user.username}'s awesome store!`
-    }
+      description: `Welcome to ${user.username}'s awesome store!`,
+    };
     const bookstoreReturnValue = await new Bookstore(bookstore).save();
     bookstores.push(bookstoreReturnValue);
   }

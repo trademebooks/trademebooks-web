@@ -8,7 +8,7 @@ const db = async (url = config.mongoURI, opts = {}) => {
     mongoose.set('useCreateIndex', true);
     mongoose.set('useUnifiedTopology', true);
 
-    let connection = mongoose.connect(url, { ...opts, useNewUrlParser: true })
+    let connection = mongoose.connect(url, { ...opts, useNewUrlParser: true });
 
     if (connection) {
       console.log('MongoDB Connected...');
@@ -19,6 +19,6 @@ const db = async (url = config.mongoURI, opts = {}) => {
     // Exit process with failure
     process.exit(1);
   }
-}
+};
 
 module.exports = db;

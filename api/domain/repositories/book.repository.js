@@ -6,37 +6,39 @@ const getAll = async (searchQuery = '', limit = 10) => {
     $or: [
       { title: new RegExp(`.*${searchQuery}.*`, 'i') },
       { description: new RegExp(`.*${searchQuery}.*`, 'i') },
-    ]
-  }).sort({ createdAt: 'desc' }).limit(parseInt(limit));
+    ],
+  })
+    .sort({ createdAt: 'desc' })
+    .limit(parseInt(limit));
 
   return books;
-}
+};
 
 // Retrieve - all by userId field
 const getAllByUserId = async (userId) => {
   return await Model.find({ userId: userId }).sort({ createdAt: 'desc' });
-}
+};
 
 // Retrieve - one
 const getById = async (id) => {
   return await Model.findById(id);
-}
+};
 
 // Create
 const create = async (newBook) => {
   const book = new Model(newBook);
   return await book.save();
-}
+};
 
 // Update
 const updateById = async (id, book) => {
   return await Model.findByIdAndUpdate(id, book);
-}
+};
 
 // Delete
 const deleteById = async (id) => {
   return await Model.deleteOne({ _id: id });
-}
+};
 
 module.exports = {
   getAll,
@@ -44,5 +46,5 @@ module.exports = {
   getById,
   create,
   updateById,
-  deleteById
+  deleteById,
 };

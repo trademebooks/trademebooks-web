@@ -6,4 +6,4 @@ const userHasRegistered = require('./userHasRegisteredEvent');
 
 eventEmitter.on('userHasRegistered', userHasRegistered);
 
-module.exports = {}
+module.exports = {};

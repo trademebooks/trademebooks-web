@@ -1,5 +1,5 @@
-import React from 'react'
-import { configure, mount } from 'enzyme'
+import React from 'react';
+import { configure, mount } from 'enzyme';
 import Register from '../Register';
 
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,10 +9,10 @@ describe('Component: Register', () => {
   const props = {
     isAuthenticated: false,
     register: jest.fn(),
-    setAlert: jest.fn()
-  }
+    setAlert: jest.fn(),
+  };
 
-  const container = mount(<Register {...props} />)
+  const container = mount(<Register {...props} />);
 
   it('should render the Register component.', () => {
     const registerComponent = container.find('.register-form');
@@ -29,4 +29,4 @@ describe('Component: Register', () => {
     registerComponent.find('form').first().simulate('submit');
     expect(props.register).toHaveBeenCalled();
   });
-})
+});

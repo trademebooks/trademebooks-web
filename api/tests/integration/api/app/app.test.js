@@ -9,22 +9,22 @@ let dbConnection;
 beforeAll(async () => {
   await api.listen(apiPort);
   dbConnection = await db(); // start the database
-})
+});
 
 describe('App - General API', () => {
-
   it('GET /health', async () => {
-    const response = await fetch(`http://localhost:${apiPort}/api/v1/app/health`);
+    const response = await fetch(
+      `http://localhost:${apiPort}/api/v1/app/health`
+    );
     const json = await response.json();
     expect(json).toEqual({
       status: 'success',
       code: 200,
       message: `The application is up and running!`,
       data: {},
-      errors: null
+      errors: null,
     });
   });
-
 });
 
 afterAll(async () => {

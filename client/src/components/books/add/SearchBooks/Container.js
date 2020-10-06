@@ -3,14 +3,11 @@ import { addBook } from '../../../../actions/book';
 import SearchBooks from './SearchBooks';
 
 const mapStateToProps = (state) => ({
-  book: state.book.book
+  book: state.book.book,
 });
 
 const mapDispatchToProps = {
-  addBook
-}
+  addBook,
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchBooks);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBooks);

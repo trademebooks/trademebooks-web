@@ -10,8 +10,8 @@ const factory = async (numberOfSeeds) => {
       username: faker.internet.userName(),
       email: faker.internet.email(),
       password: faker.internet.password(),
-      phone_number: faker.phone.phoneNumber()
-    }
+      phone_number: faker.phone.phoneNumber(),
+    };
 
     const entity = new Model(entityFields);
 
@@ -19,6 +19,6 @@ const factory = async (numberOfSeeds) => {
 
     await bookFactory(3, user.id);
   }
-}
+};
 
 module.exports = factory;

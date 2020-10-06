@@ -28,7 +28,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   useEffect(() => {
     if (user) {
       setBookstoreUrl(`/bookstore/${user.username}`);
-      setFullname(`${user.first_name} ${user.last_name}`)
+      setFullname(`${user.first_name} ${user.last_name}`);
     }
   }, [user]);
 

@@ -7,14 +7,14 @@ const ApiException = require('../utils/ApiException');
  *  - password
  *  - password_confirm:
  * }
- * 
+ *
  * @returns Validator
  */
 const registerUserValidator = (data) => {
   const rules = {
     email: 'required|email',
     password: 'required|min:6',
-    password_confirmation: 'required|min:6|same:password'
+    password_confirmation: 'required|min:6|same:password',
   };
 
   let validator = new Validator(data, rules);
@@ -22,7 +22,7 @@ const registerUserValidator = (data) => {
   if (validator.fails()) {
     let errors = [];
     for (const field in validator.errors.errors) {
-      errors = errors.concat(validator.errors.errors[field])
+      errors = errors.concat(validator.errors.errors[field]);
     }
 
     throw new ApiException(
@@ -35,6 +35,6 @@ const registerUserValidator = (data) => {
   }
 
   return validator;
-}
+};
 
 module.exports = registerUserValidator;

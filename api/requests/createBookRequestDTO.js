@@ -1,12 +1,6 @@
 const ApiException = require('../utils/ApiException');
 
-const fields = [
-  'title',
-  'description',
-  'price',
-  'location',
-  'authors'
-];
+const fields = ['title', 'description', 'price', 'location', 'authors'];
 
 const createBookRequestDTO = (data) => {
   // const errors = [];

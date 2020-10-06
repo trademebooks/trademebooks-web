@@ -6,7 +6,7 @@ export const getAccountSettings = async () => {
     const responseJson = response.data.data;
     return responseJson;
   } catch (error) {
-    console.log({ error })
+    console.log({ error });
   }
 };
 
@@ -16,8 +16,6 @@ export const saveAccountSettings = async (data) => {
     const responseJson = response.data.data;
     return responseJson;
   } catch (error) {
-    console.log({ error })
+    console.log({ error });
   }
 };
-
-

@@ -15,8 +15,8 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 // toastr
-import ReduxToastr from 'react-redux-toastr'
-import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
+import ReduxToastr from 'react-redux-toastr';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 // global CSS
 import './css/global.scss';
@@ -43,7 +43,8 @@ const App = () => {
             getState={(state) => state.toastr}
             transitionIn="fadeIn"
             transitionOut="fadeOut"
-            closeOnToastrClick />
+            closeOnToastrClick
+          />
         </>
       </Router>
     </Provider>

@@ -1,6 +1,6 @@
 /**
  * Description: ...
- * 
+ *
  * @param {*} status Number
  * @param {*} code Number
  * @param {*} message String
@@ -12,8 +12,8 @@ function globalResponseDTO(status, code, message, data, errors) {
     code,
     message,
     data,
-    errors
-  }
+    errors,
+  };
 }
 
 module.exports = globalResponseDTO;

@@ -9,25 +9,25 @@ const setUpDatabase = async () => {
   await UserModel.deleteMany({});
 
   await userFactory(5);
-}
+};
 
 const clearDatabase = async () => {
   await BookModel.deleteMany({});
   await UserModel.deleteMany({});
-}
+};
 
 const seeInDatabase = async (Model, item) => {
   let findItem = await Model.findById(item.id);
   return findItem;
-}
+};
 
 const getAllTableData = async (Model) => {
   return await Model.find({});
-}
+};
 
 module.exports = {
   setUpDatabase,
   clearDatabase,
   getAllTableData,
-  seeInDatabase
-}
+  seeInDatabase,
+};

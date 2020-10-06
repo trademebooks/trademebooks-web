@@ -3,14 +3,11 @@ import { login } from '../../../actions/auth';
 import Login from './Login';
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 const mapDispatchToProps = {
-  login
-}
+  login,
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

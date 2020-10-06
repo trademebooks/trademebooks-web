@@ -1,9 +1,6 @@
 import api from '../utils/api';
 import { toastr } from 'react-redux-toastr';
-import {
-  ADD_BOOK,
-  CREATE_BOOK
-} from './types';
+import { ADD_BOOK, CREATE_BOOK } from './types';
 
 // Add book
 export const addBook = (formData) => async (dispatch) => {
@@ -20,7 +17,7 @@ export const createBook = (book) => async (dispatch) => {
 
     dispatch({
       type: CREATE_BOOK,
-      payload: book
+      payload: book,
     });
 
     toastr.success('Book listing created successful');
@@ -30,16 +27,16 @@ export const createBook = (book) => async (dispatch) => {
       payload: {
         title: '',
         price: '',
-        description: ''
-      }
-    })
+        description: '',
+      },
+    });
   } catch (err) {
     const data = err.response.data;
     const errors = data.errors;
 
     if (errors) {
-      errors.forEach(errorMessage => {
-        toastr.error(errorMessage)
+      errors.forEach((errorMessage) => {
+        toastr.error(errorMessage);
       });
     }
   }

@@ -6,9 +6,7 @@ import debounce from 'lodash/debounce';
 
 import './SearchBook.scss';
 
-const SearchBooks = ({
-  addBook
-}) => {
+const SearchBooks = ({ addBook }) => {
   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState('');
 
@@ -23,35 +21,35 @@ const SearchBooks = ({
       const data = await response.json();
       if (data && data.items) {
         const books = data.items.map((book) => {
-          const bookVolumeInfo = book["volumeInfo"];
+          const bookVolumeInfo = book['volumeInfo'];
           const bookPrettified = {
-            title: bookVolumeInfo["title"],
-            authors: bookVolumeInfo["authors"] || [],
-            publisher: bookVolumeInfo["publisher"],
+            title: bookVolumeInfo['title'],
+            authors: bookVolumeInfo['authors'] || [],
+            publisher: bookVolumeInfo['publisher'],
             image_url:
-              bookVolumeInfo["imageLinks"] &&
-              bookVolumeInfo["imageLinks"]["smallThumbnail"]
-                ? bookVolumeInfo["imageLinks"]["smallThumbnail"]
-                : "",
+              bookVolumeInfo['imageLinks'] &&
+              bookVolumeInfo['imageLinks']['smallThumbnail']
+                ? bookVolumeInfo['imageLinks']['smallThumbnail']
+                : '',
             isbn_10:
-              bookVolumeInfo["industryIdentifiers"] &&
-              bookVolumeInfo["industryIdentifiers"][0] &&
-              bookVolumeInfo["industryIdentifiers"][0]["identifier"]
-                ? bookVolumeInfo["industryIdentifiers"][0]["identifier"]
-                : "",
+              bookVolumeInfo['industryIdentifiers'] &&
+              bookVolumeInfo['industryIdentifiers'][0] &&
+              bookVolumeInfo['industryIdentifiers'][0]['identifier']
+                ? bookVolumeInfo['industryIdentifiers'][0]['identifier']
+                : '',
             isbn_13:
-              bookVolumeInfo["industryIdentifiers"] &&
-              bookVolumeInfo["industryIdentifiers"][1] &&
-              bookVolumeInfo["industryIdentifiers"][1]["identifier"]
-                ? bookVolumeInfo["industryIdentifiers"][1]["identifier"]
-                : ""
+              bookVolumeInfo['industryIdentifiers'] &&
+              bookVolumeInfo['industryIdentifiers'][1] &&
+              bookVolumeInfo['industryIdentifiers'][1]['identifier']
+                ? bookVolumeInfo['industryIdentifiers'][1]['identifier']
+                : '',
           };
           return bookPrettified;
         });
-        console.log('inputValue:', inputValue)
-        console.log(books.map(book => book.title).join('\n'))
+        console.log('inputValue:', inputValue);
+        console.log(books.map((book) => book.title).join('\n'));
         setOptions(books);
-        console.log({ options })
+        console.log({ options });
       }
     } else {
       setOptions([]);
@@ -79,7 +77,7 @@ const SearchBooks = ({
             loading={loading}
             value={value}
             onChange={(event, newValue) => {
-              console.log({ newValue })
+              console.log({ newValue });
               setOptions(newValue ? [newValue, ...options] : options);
               setValue(newValue);
               addBook(newValue);
@@ -106,7 +104,13 @@ const SearchBooks = ({
             renderOption={(option) => {
               return (
                 <div>
-                  <span><strong>{option.title}</strong></span> - <span><i>{option.authors.join(', ')}</i></span>
+                  <span>
+                    <strong>{option.title}</strong>
+                  </span>{' '}
+                  -{' '}
+                  <span>
+                    <i>{option.authors.join(', ')}</i>
+                  </span>
                 </div>
               );
             }}

@@ -27,7 +27,7 @@ describe('Test Suite: User Repository', () => {
     last_name: 'Zhu',
     email: 'yichen@yichen.com',
     password: 'password123',
-    phone_number: '1234567890'
+    phone_number: '1234567890',
   };
 
   xit('User Repository - createUser', async () => {
@@ -40,10 +40,10 @@ describe('Test Suite: User Repository', () => {
   xit('user Repository - findUserByEmailAndPassword', async () => {
     // 1. Arrange
     let user = await userRepository.createUser(testUser);
-  
+
     // 2. Act
-    const foundUser = await userRepository.findUserByEmailAndPassword(user)
-  
+    const foundUser = await userRepository.findUserByEmailAndPassword(user);
+
     // 3. Assert
     const expected = 'Yichen';
     const actual = foundUser.first_name;
@@ -52,16 +52,12 @@ describe('Test Suite: User Repository', () => {
 
   xit('user Repository - getUserById', () => {
     //let user = userRepository.getUserById(testUser);
-
     //console.log(user);
-
     // const user = new User({ name: "foo", birthday: "1987-01-02" });
     // await user.save();
-
     // const foundUser = await User.findOne({ id: asdasdasda });
     // const expected = "foo";
     // const actual = foundUser.name;
     // expect(actual).toEqual(expected);
   });
-
 });

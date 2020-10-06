@@ -6,7 +6,7 @@ const fields = [
   'email',
   'username',
   'password',
-  'password_confirmation'
+  'password_confirmation',
 ];
 
 /**
@@ -14,7 +14,7 @@ const fields = [
  */
 registerUserRequestDTO = (data) => {
   const errors = [];
-  fields.forEach(field => {
+  fields.forEach((field) => {
     if (!(field in data)) {
       errors.push(`This DTO's property is required: ${field}.`);
     }
@@ -22,14 +22,14 @@ registerUserRequestDTO = (data) => {
 
   if (errors.length > 0) {
     throw new ApiException(
-      status = "failed",
-      code = 422,
-      message = "Register User Request DTO failed.",
-      data = errors
+      (status = 'failed'),
+      (code = 422),
+      (message = 'Register User Request DTO failed.'),
+      (data = errors)
     );
   }
 
   return data;
-}
+};
 
 module.exports = registerUserRequestDTO;

@@ -8,14 +8,14 @@ import { updateAuthUser } from '../../actions/user';
 const User = ({ auth: { user } }) => {
   const [formData, setFormData] = useState({
     first_name: user.first_name,
-    last_name: user.last_name
+    last_name: user.last_name,
   });
 
   const { first_name, last_name } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
   const updateUser = async (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const User = ({ auth: { user } }) => {
       'To see your name change be taken into effect, logout then log back in.',
       { timeOut: 0 }
     );
-  }
+  };
 
   return (
     <>
@@ -53,9 +53,7 @@ const User = ({ auth: { user } }) => {
           required
           value={last_name}
         />
-        <MDBBtn onClick={updateUser}>
-          Save Changes
-        </MDBBtn>
+        <MDBBtn onClick={updateUser}>Save Changes</MDBBtn>
       </div>
 
       {/* <div className="mt-5">
@@ -103,8 +101,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-const mapDispatchToProps = {
-
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(User);

@@ -11,19 +11,18 @@ const ApiException = require('../../../src/utils/ApiException');
 beforeAll(async () => {
   await api.listen(apiPort);
   dbConnection = await db(); // start the database
-})
+});
 
 describe('Books API', () => {
-
   it('Get /api/v1/books', async () => {
     let response = await (await fetch(`${baseURL}/books`)).json();
 
     expect(response).toEqual({
       status: 'success',
       code: 200,
-      message: "List of all books in the database.",
+      message: 'List of all books in the database.',
       data: [],
-      errors: null
+      errors: null,
     });
   });
 
@@ -36,12 +35,11 @@ describe('Books API', () => {
         id: 1,
         user_id: 1,
         title: 'Harry Potter and the Order of the Phoenix',
-        description: 'Buy my book! It\'s awesome!',
+        description: "Buy my book! It's awesome!",
         price: 100,
-      }
+      },
     });
   });
-
 });
 
 afterAll(async () => {

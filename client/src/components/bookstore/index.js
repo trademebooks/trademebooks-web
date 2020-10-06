@@ -12,19 +12,20 @@ const BookStore = ({ match }) => {
       try {
         const response = await api.get(`/bookstores/${match.params.username}`);
         const books = response.data.data.books;
-        console.log({ response })
+        console.log({ response });
         setBooks(books);
-      }
-      catch (error) {
+      } catch (error) {
         console.log({ error });
       }
     })();
-  }, [])
+  }, []);
 
   return (
     <>
       <div className="header-container text-center">
-        <h3 className="font-weight-bold">Welcome to {match.params.username}'s Bookstore</h3>
+        <h3 className="font-weight-bold">
+          Welcome to {match.params.username}'s Bookstore
+        </h3>
       </div>
       <div className="mt-4">
         <MDBContainer>

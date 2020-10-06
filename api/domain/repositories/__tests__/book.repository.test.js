@@ -22,7 +22,6 @@ afterAll(async () => {
 });
 
 describe('Test Suite: Book Repository', () => {
-
   xit('Book Repository - getAll', async () => {
     let books = await bookRepository.getAll();
 
@@ -41,8 +40,8 @@ describe('Test Suite: Book Repository', () => {
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
       price: 100,
       author: 'J.K. Rowling',
-      datePublished: Date.now()
-    }
+      datePublished: Date.now(),
+    };
 
     let book = await bookRepository.create(newBook);
     let books = await dbTestUtils.getAllTableData(BookModel);
@@ -59,8 +58,8 @@ describe('Test Suite: Book Repository', () => {
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
       price: 100,
       author: 'J.K. Rowling',
-      datePublished: Date.now()
-    }
+      datePublished: Date.now(),
+    };
     let book = await bookRepository.updateById(bookToUpdate.id, newBook);
 
     let updatedBooks = await dbTestUtils.getAllTableData(BookModel);
@@ -71,11 +70,14 @@ describe('Test Suite: Book Repository', () => {
   xit('Book Repository - deleteBookById', async () => {
     let books = await dbTestUtils.getAllTableData(BookModel);
     let bookToDelete = books[0];
-    
+
     await bookRepository.deleteById(bookToDelete.id);
-    
+
     let updatedBooks = await dbTestUtils.getAllTableData(BookModel);
-    expect(updatedBooks.find(book => { return book.id === bookToDelete.id})).toBe(undefined);
+    expect(
+      updatedBooks.find((book) => {
+        return book.id === bookToDelete.id;
+      })
+    ).toBe(undefined);
   });
 });
-

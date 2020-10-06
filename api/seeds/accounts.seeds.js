@@ -17,7 +17,7 @@ module.exports = async (users) => {
       receiveSms: true,
       school: faker.address.streetName(),
       location: faker.address.county(),
-    }
+    };
     const accountReturnValue = await new Account(account).save();
     accounts.push(accountReturnValue);
   }

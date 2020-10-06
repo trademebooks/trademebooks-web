@@ -10,14 +10,14 @@ const BookStore = ({ auth: { user } }) => {
   const [formData, setFormData] = useState({
     username: '',
     location: '',
-    school: ''
+    school: '',
   });
 
   const { username, location, school } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
   const saveUsername = async (e) => {
     e.preventDefault();
@@ -27,23 +27,23 @@ const BookStore = ({ auth: { user } }) => {
       'To see your username change be taken into effect, logout then log back in.',
       { timeOut: 0 }
     );
-  }
+  };
 
   const saveSettings = async (e) => {
     e.preventDefault();
     await saveAccountSettings({ location, school });
-    toastr.success('Your settings have been updated.')
-  }
+    toastr.success('Your settings have been updated.');
+  };
 
   useEffect(() => {
     (async () => {
       const account = await getAccountSettings();
       setFormData({
         ...account,
-        ...user
+        ...user,
       });
     })();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -61,9 +61,7 @@ const BookStore = ({ auth: { user } }) => {
           required
           value={username}
         />
-        <MDBBtn onClick={saveUsername}>
-          Save Changes
-        </MDBBtn>
+        <MDBBtn onClick={saveUsername}>Save Changes</MDBBtn>
       </div>
 
       <div className="mt-5">
@@ -97,9 +95,7 @@ const BookStore = ({ auth: { user } }) => {
       </div>
 
       <div>
-        <MDBBtn onClick={saveSettings}>
-          Save Changes
-        </MDBBtn>
+        <MDBBtn onClick={saveSettings}>Save Changes</MDBBtn>
       </div>
     </>
   );
@@ -109,8 +105,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-const mapDispatchToProps = {
-
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookStore);

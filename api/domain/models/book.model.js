@@ -4,35 +4,35 @@ const { Schema } = mongoose;
 const BookSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'user',
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
-    type: String
+    type: String,
   },
   price: {
     type: Number,
-    required: true
+    required: true,
   },
   edition: {
-    type: Number
+    type: Number,
   },
   location: {
-    type: String
+    type: String,
   },
   authors: {
-    type: Array
+    type: Array,
   },
   datePublished: {
-    type: String
+    type: String,
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model('book', BookSchema);

@@ -6,7 +6,6 @@ export const updateAuthUser = async (data) => {
     const responseJson = response.data.data;
     return responseJson;
   } catch (error) {
-    console.log({ error })
+    console.log({ error });
   }
 };
-

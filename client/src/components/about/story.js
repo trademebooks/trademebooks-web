@@ -34,7 +34,7 @@ const Story = () => {
             <strong>Cedric: </strong>"I've been trying to buy used textbooks and
             could never find the best one with the cheapest
           </p>
-          <p className="closeP" style={{marginLeft: "60px"}}>
+          <p className="closeP" style={{ marginLeft: '60px' }}>
             price, even when I do find it, the quality of the book is way below
             what the person listed"
           </p>

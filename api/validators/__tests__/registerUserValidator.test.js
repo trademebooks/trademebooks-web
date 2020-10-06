@@ -1,13 +1,12 @@
 const registerUserValidator = require('../registerUserValidator');
 
 describe('Test Suite: registerUserValidator.test.js', () => {
-
   it('The happy path - everything works', () => {
     // 1. Arrange
     const data = {
       email: 'johndoe@gmail.com',
       password: 'superduperpassword',
-      password_confirmation: 'superduperpassword'
+      password_confirmation: 'superduperpassword',
     };
 
     // 2. Act
@@ -22,7 +21,7 @@ describe('Test Suite: registerUserValidator.test.js', () => {
     const data = {
       email: 'johndoe@gmail.com',
       password: 'superduperpassword',
-      password_confirmation: 'superduperpassword1'
+      password_confirmation: 'superduperpassword1',
     };
 
     // 2. + 3. Act and Assert

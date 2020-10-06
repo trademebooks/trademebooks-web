@@ -1,7 +1,7 @@
-const fetch = require('node-fetch')
-const api = require('../../../../')
+const fetch = require('node-fetch');
+const api = require('../../../../');
 
-const apiPort = Math.round(Math.random() * 65535)
+const apiPort = Math.round(Math.random() * 65535);
 const baseURL = `http://localhost:${apiPort}/api/v1`;
 
 const db = require('../../../../utils/db');
@@ -11,7 +11,7 @@ const dbTestUtils = require('../../../testUtils/dbTestUtil');
 beforeAll(async () => {
   await api.listen(apiPort);
   dbConnection = await db(); // start the database
-})
+});
 
 beforeEach(async () => {
   await dbTestUtils.setUpDatabase();
@@ -35,7 +35,6 @@ afterAll(async () => {
  *  - response check
  */
 describe('API Test - Register User', () => {
-
   it('POST /api/v1/auth/register - happy path', async () => {
     let user = {
       first_name: 'Yichen',
@@ -43,23 +42,24 @@ describe('API Test - Register User', () => {
       username: 'yichen1337',
       email: 'yichen1337@yichen1337.com',
       password: 'password123',
-      password_confirmation: 'password123'
+      password_confirmation: 'password123',
     };
 
-    let response = await (await fetch(`${baseURL}/auth/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user)
-    })).json();
+    let response = await (
+      await fetch(`${baseURL}/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user),
+      })
+    ).json();
 
     delete user.password_confirmation;
 
     expect(response).toMatchObject({
-      status: "success",
+      status: 'success',
       code: 200,
       message: `The email: ${user.email} has successfully registered.`,
-      data: user
+      data: user,
     });
   });
-
 });

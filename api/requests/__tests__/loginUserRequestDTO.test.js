@@ -2,17 +2,15 @@ const registerUserRequestDTO = require('../registerUserRequestDTO');
 const ApiException = require('../../utils/ApiException');
 
 describe('Test Suite: Request', () => {
-
   it('Correct request 1 - empty parameters', () => {
     // 1. Arrange
-    let apiInputRequest = {}
+    let apiInputRequest = {};
 
     // 2. Act
     // 3. Assert
     expect(() => {
       let registerUserRequest = registerUserRequestDTO(apiInputRequest);
     }).toThrow(Error);
-
   });
 
   it('Correct request 2 - extra useless parameters', () => {
@@ -22,15 +20,14 @@ describe('Test Suite: Request', () => {
       password: 'undefined',
       extraParam1: null,
       extraParam2: 'whatzup',
-      body: 'John Doe is cool'
-    }
+      body: 'John Doe is cool',
+    };
 
     // 2. Act
     // 3. Assert
     expect(() => {
       let registerUserRequest = registerUserRequestDTO(apiInputRequest);
     }).toThrow(Error);
-
   });
 
   xit('Correct request 3 - happy path', () => {
@@ -41,8 +38,8 @@ describe('Test Suite: Request', () => {
       email: 'yichen@yichen.com',
       password: 'yichen-and-his-awesome-password',
       password_confirmation: 'yichen-and-his-awesome-password',
-      phone_number: '1234567890'
-    }
+      phone_number: '1234567890',
+    };
 
     // 2. Act
     let registerUserRequest = registerUserRequestDTO(apiInputRequest);
@@ -54,7 +51,7 @@ describe('Test Suite: Request', () => {
       email: 'yichen@yichen.com',
       password: 'yichen-and-his-awesome-password',
       password_confirmation: 'yichen-and-his-awesome-password',
-      phone_number: '1234567890'
+      phone_number: '1234567890',
     });
   });
 

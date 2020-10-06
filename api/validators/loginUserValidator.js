@@ -6,7 +6,7 @@ const ApiException = require('../utils/ApiException');
  *  - email
  *  - password
  * }
- * 
+ *
  * @returns Validator
  */
 const loginUserValidator = (data) => {
@@ -14,15 +14,15 @@ const loginUserValidator = (data) => {
     email: 'required|email',
     password: 'required',
   };
-   
+
   let validator = new Validator(data, rules);
 
   if (validator.fails()) {
     let errors = [];
     for (const field in validator.errors.errors) {
-      errors = errors.concat(validator.errors.errors[field])
+      errors = errors.concat(validator.errors.errors[field]);
     }
-  
+
     throw new ApiException(
       'There were errors with the validation',
       'failed',
@@ -33,6 +33,6 @@ const loginUserValidator = (data) => {
   }
 
   return validator;
-}
+};
 
 module.exports = loginUserValidator;

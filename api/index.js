@@ -1,8 +1,8 @@
-const http = require('http')
+const http = require('http');
 const express = require('express');
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 const app = express();
-const session = require("express-session");
+const session = require('express-session');
 
 const config = require('./config');
 const globalResponseDTO = require('./responses/globalResponseDTO');
@@ -18,7 +18,10 @@ app.use(
     secret: config.sessionSecret,
     resave: true,
     saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection, collection: 'sessions' })
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      collection: 'sessions',
+    }),
   })
 );
 
@@ -59,43 +62,43 @@ app.use((err, req, res, next) => {
 
     return res
       .status(err.code)
-      .json(globalResponseDTO(
-        status = err.status,
-        code = err.code,
-        message = err.message,
-        data = err.data,
-        errors = err.errors
-      ));
-  }
-  else if (err.name === 'MongoError') {
+      .json(
+        globalResponseDTO(
+          (status = err.status),
+          (code = err.code),
+          (message = err.message),
+          (data = err.data),
+          (errors = err.errors)
+        )
+      );
+  } else if (err.name === 'MongoError') {
     console.error('MongoError', err);
 
     if (err.errmsg.includes('E11000 duplicate key error')) {
       return res
         .status(400)
-        .json(globalResponseDTO(
-          status = 'failed',
-          code = 400,
-          message = err.errmsg,
-          data = null,
-          errors = [
-            'This email is already taken.'
-          ]
-        ));
+        .json(
+          globalResponseDTO(
+            (status = 'failed'),
+            (code = 400),
+            (message = err.errmsg),
+            (data = null),
+            (errors = ['This email is already taken.'])
+          )
+        );
     }
-  }
-  else {
+  } else {
     console.error('Other Error', err);
   }
 });
 
 // Frontend - Serve static assets in production
 //if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'));
-  });
+app.use(express.static('client/build'));
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'));
+});
 //}
 
 module.exports = http.createServer(app);

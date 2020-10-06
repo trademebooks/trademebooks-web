@@ -13,7 +13,7 @@ const contactUsValidator = (data) => {
   if (validator.fails()) {
     let errors = [];
     for (const field in validator.errors.errors) {
-      errors = errors.concat(validator.errors.errors[field])
+      errors = errors.concat(validator.errors.errors[field]);
     }
 
     throw new ApiException(
@@ -26,6 +26,6 @@ const contactUsValidator = (data) => {
   }
 
   return validator;
-}
+};
 
 module.exports = contactUsValidator;

@@ -8,4 +8,3 @@ console.log('Database seeds started...');
 
   console.log('Database seeds completed..');
 })();
-

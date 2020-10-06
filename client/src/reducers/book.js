@@ -1,18 +1,14 @@
-import {
-  GET_BOOKS,
-  GET_BOOK,
-  ADD_BOOK
-} from '../actions/types';
+import { GET_BOOKS, GET_BOOK, ADD_BOOK } from '../actions/types';
 
 const initialState = {
   books: [],
   book: {
     title: '',
     price: '',
-    description: ''
+    description: '',
   },
   loading: true,
-  error: {}
+  error: {},
 };
 
 export default function (state = initialState, action) {
@@ -23,19 +19,19 @@ export default function (state = initialState, action) {
       return {
         ...state,
         posts: payload,
-        loading: false
+        loading: false,
       };
     case GET_BOOK:
       return {
         ...state,
         book: payload,
-        loading: false
+        loading: false,
       };
     case ADD_BOOK:
       return {
         ...state,
         book: payload,
-        loading: false
+        loading: false,
       };
     default:
       return state;

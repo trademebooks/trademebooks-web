@@ -8,12 +8,12 @@ const getBookstoreByUsername = async (username) => {
 
   const bookstoreWithBooks = {
     ...bookstore.toObject(),
-    books
+    books,
   };
 
   return bookstoreWithBooks;
-}
+};
 
 module.exports = {
-  getBookstoreByUsername
+  getBookstoreByUsername,
 };

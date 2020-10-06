@@ -10,28 +10,28 @@ const users = [
     first_name: 'Yi Chen',
     last_name: 'Zhu',
     username: 'yichen',
-    email: "yichenzhu1337@gmail.com",
+    email: 'yichenzhu1337@gmail.com',
     password: 'yichen',
-    phone_number: '4162932500'
+    phone_number: '4162932500',
   },
   {
     _id: '5e11e9d8eded1d23742c1c6e',
     first_name: 'Wesley',
     last_name: 'Michaels',
     username: 'wes123',
-    email: "shadowkinhawk@hotmail.com",
+    email: 'shadowkinhawk@hotmail.com',
     password: 'wes123',
-    phone_number: '4162932501'
+    phone_number: '4162932501',
   },
   {
     _id: '5e11e9d8eded1d23742c1c6f',
     first_name: 'Cedric',
     last_name: 'Mosdell',
     username: 'cedric',
-    email: "cedric@cedric.com",
+    email: 'cedric@cedric.com',
     password: 'cedric',
-    phone_number: '4162932502'
-  }
+    phone_number: '4162932502',
+  },
 ];
 
 module.exports = async () => {
@@ -41,7 +41,7 @@ module.exports = async () => {
   await User.deleteMany({});
 
   for (const user of users) {
-    await (new User(user).save());
+    await new User(user).save();
   }
 
   for (let i = 1; i <= numberOfSeeds; i++) {
@@ -51,8 +51,8 @@ module.exports = async () => {
       username: faker.internet.userName(),
       email: faker.internet.email(),
       password: faker.internet.password(),
-      phone_number: faker.phone.phoneNumber()
-    }
+      phone_number: faker.phone.phoneNumber(),
+    };
 
     const userReturnValue = await new User(user).save();
 

@@ -7,18 +7,22 @@ const catchException = require('../utils/catchExceptions');
  */
 const getBookstoreByUsername = catchException(async (req, res, next) => {
   // 5. business logic
-  let bookstore = await bookstoreService.getBookstoreByUsername(req.params.username);
+  let bookstore = await bookstoreService.getBookstoreByUsername(
+    req.params.username
+  );
 
   // 7. response
-  return res.json(globalResponseDTO(
-    status = 'success',
-    code = 200,
-    message = `Bookstore with the specified username.`,
-    data = bookstore,
-    errors = null
-  ));
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `Bookstore with the specified username.`),
+      (data = bookstore),
+      (errors = null)
+    )
+  );
 });
 
 module.exports = {
-  getBookstoreByUsername
+  getBookstoreByUsername,
 };

@@ -7,7 +7,7 @@ const ApiException = require('../utils/ApiException');
  *  - password
  *  - password_confirm:
  * }
- * 
+ *
  * @returns Validator
  */
 const createBookValidator = (data) => {
@@ -21,7 +21,7 @@ const createBookValidator = (data) => {
   if (validator.fails()) {
     let errors = [];
     for (const field in validator.errors.errors) {
-      errors = errors.concat(validator.errors.errors[field])
+      errors = errors.concat(validator.errors.errors[field]);
     }
 
     throw new ApiException(
@@ -34,6 +34,6 @@ const createBookValidator = (data) => {
   }
 
   return validator;
-}
+};
 
 module.exports = createBookValidator;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { configure, mount } from 'enzyme'
+import React from 'react';
+import { configure, mount } from 'enzyme';
 import Login from '../Login';
 
 import Adapter from 'enzyme-adapter-react-16';
@@ -8,10 +8,10 @@ configure({ adapter: new Adapter() });
 describe('Component: Login', () => {
   const props = {
     isAuthenticated: false,
-    login: jest.fn()
-  }
+    login: jest.fn(),
+  };
 
-  const container = mount(<Login {...props} />)
+  const container = mount(<Login {...props} />);
 
   it('should render the Login component.', () => {
     const loginComponent = container.find('.login-form');
@@ -28,4 +28,4 @@ describe('Component: Login', () => {
     loginComponent.find('form').first().simulate('submit');
     expect(props.login).toHaveBeenCalled();
   });
-})
+});
