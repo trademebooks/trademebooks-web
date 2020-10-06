@@ -1,14 +1,14 @@
-const ApiException = require('../utils/ApiException');
+const ApiException = require('../utils/ApiException')
 
-const fields = ['email', 'password'];
+const fields = ['email', 'password']
 
 const loginUserRequestDTO = (data) => {
-  const errors = [];
+  const errors = []
   fields.forEach((field) => {
     if (!(field in data)) {
-      errors.push(`This DTO's property is required: ${field}.`);
+      errors.push(`This DTO's property is required: ${field}.`)
     }
-  });
+  })
 
   if (errors.length > 0) {
     throw new ApiException(
@@ -17,10 +17,10 @@ const loginUserRequestDTO = (data) => {
       (message = 'loginUserRequestDTO failed.'),
       (data = null),
       errors
-    );
+    )
   }
 
-  return data;
-};
+  return data
+}
 
-module.exports = loginUserRequestDTO;
+module.exports = loginUserRequestDTO

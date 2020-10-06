@@ -1,5 +1,5 @@
-import React from 'react';
-import spinner from './spinner.gif';
+import React from 'react'
+import spinner from './spinner.gif'
 
 export default () => (
   <>
@@ -9,4 +9,4 @@ export default () => (
       alt="Loading..."
     />
   </>
-);
+)

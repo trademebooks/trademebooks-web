@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../responses/globalResponseDTO');
+const globalResponseDTO = require('../responses/globalResponseDTO')
 
 const isAuthenticated = (req, res, next) => {
   if (!req.session.user) {
@@ -13,10 +13,10 @@ const isAuthenticated = (req, res, next) => {
           (data = {}),
           (errors = ['You must be logged in.'])
         )
-      );
+      )
   }
 
-  next();
-};
+  next()
+}
 
-module.exports = isAuthenticated;
+module.exports = isAuthenticated

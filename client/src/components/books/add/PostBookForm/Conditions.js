@@ -1,45 +1,45 @@
-import React, { useState } from 'react';
-import { MDBRow, MDBCol } from 'mdbreact';
+import React, { useState } from 'react'
+import { MDBRow, MDBCol } from 'mdbreact'
 
-import './Conditions.scss';
+import './Conditions.scss'
 
 const Conditions = () => {
-  const [condition, setCondition] = useState('Good');
+  const [condition, setCondition] = useState('Good')
 
   let conditions = [
     {
       name: 'Poor',
       img: require('../../../../img/condition_icons/Poor_condition_default.png'),
       desc: 'No damage, lightly used, no markings',
-      imgSelected: require('../../../../img/condition_icons/Poor_condition.png'),
+      imgSelected: require('../../../../img/condition_icons/Poor_condition.png')
     },
     {
       name: 'Fair',
       img: require('../../../../img/condition_icons/Fair_condition_default.png'),
       desc: 'No damage, lightly used, no markings',
-      imgSelected: require('../../../../img/condition_icons/Fair_condition.png'),
+      imgSelected: require('../../../../img/condition_icons/Fair_condition.png')
     },
     {
       name: 'Good',
       img: require('../../../../img/condition_icons/Good_condition_default.png'),
       desc: 'No damage, lightly used, no markings',
-      imgSelected: require('../../../../img/condition_icons/Good_condition.png'),
+      imgSelected: require('../../../../img/condition_icons/Good_condition.png')
     },
     {
       name: 'Very Good',
       img: require('../../../../img/condition_icons/Verygood_condition_default.png'),
       desc: 'No damage, lightly used, no markings',
-      imgSelected: require('../../../../img/condition_icons/Verygood_condition.png'),
+      imgSelected: require('../../../../img/condition_icons/Verygood_condition.png')
     },
     {
       name: 'Like New',
       img: require('../../../../img/condition_icons/Likenew_condition_default.png'),
       desc: 'No damage, lightly used, no markings',
-      imgSelected: require('../../../../img/condition_icons/Likenew_condition.png'),
-    },
-  ];
+      imgSelected: require('../../../../img/condition_icons/Likenew_condition.png')
+    }
+  ]
 
-  let conditionsElement = [];
+  let conditionsElement = []
 
   // eslint-disable-next-line
   conditions.map((cond, i) => {
@@ -56,8 +56,8 @@ const Conditions = () => {
         />
         <p className="condition-desc">{cond.desc}</p>
       </MDBCol>
-    );
-  });
+    )
+  })
 
   return (
     <>
@@ -65,7 +65,7 @@ const Conditions = () => {
         <MDBRow className="justify-content-center">{conditionsElement}</MDBRow>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Conditions;
+export default Conditions

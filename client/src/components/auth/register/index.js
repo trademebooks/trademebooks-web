@@ -1,5 +1,5 @@
-import Container from './Container';
+import Container from './Container'
 
-const RegisterPage = Container;
+const RegisterPage = Container
 
-export default RegisterPage;
+export default RegisterPage

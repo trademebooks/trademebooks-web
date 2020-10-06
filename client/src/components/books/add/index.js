@@ -1,9 +1,9 @@
-import React from 'react';
-import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
+import React from 'react'
+import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 
-import SearchBooks from './SearchBooks';
-import PostBookForm from './PostBookForm';
-import BookFields from './BookFields';
+import SearchBooks from './SearchBooks'
+import PostBookForm from './PostBookForm'
+import BookFields from './BookFields'
 
 const addBooks = () => {
   return (
@@ -23,7 +23,7 @@ const addBooks = () => {
         </MDBContainer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default addBooks;
+export default addBooks

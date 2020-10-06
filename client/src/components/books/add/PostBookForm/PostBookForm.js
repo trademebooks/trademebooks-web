@@ -1,16 +1,16 @@
-import React from 'react';
-import { MDBRow, MDBCol, MDBContainer, MDBInput } from 'mdbreact';
+import React from 'react'
+import { MDBRow, MDBCol, MDBContainer, MDBInput } from 'mdbreact'
 
-import Conditions from './Conditions';
+import Conditions from './Conditions'
 
-import './PostBookForm.scss';
+import './PostBookForm.scss'
 
-import bookImage from '../../common/icons/sample-book.png';
+import bookImage from '../../common/icons/sample-book.png'
 
 const PostBookForm = ({ book, addBook }) => {
   const onChange = (e) => {
-    addBook({ ...book, [e.target.name]: e.target.value });
-  };
+    addBook({ ...book, [e.target.name]: e.target.value })
+  }
 
   return (
     <>
@@ -61,7 +61,7 @@ const PostBookForm = ({ book, addBook }) => {
         </MDBContainer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default PostBookForm;
+export default PostBookForm

@@ -1,19 +1,19 @@
-const Validator = require('validatorjs');
-const ApiException = require('../utils/ApiException');
+const Validator = require('validatorjs')
+const ApiException = require('../utils/ApiException')
 
 const contactUsValidator = (data) => {
   const rules = {
     name: 'required|max:128',
     email: 'required|email',
-    body: 'required|max:10000',
-  };
+    body: 'required|max:10000'
+  }
 
-  let validator = new Validator(data, rules);
+  let validator = new Validator(data, rules)
 
   if (validator.fails()) {
-    let errors = [];
+    let errors = []
     for (const field in validator.errors.errors) {
-      errors = errors.concat(validator.errors.errors[field]);
+      errors = errors.concat(validator.errors.errors[field])
     }
 
     throw new ApiException(
@@ -22,10 +22,10 @@ const contactUsValidator = (data) => {
       400,
       null,
       errors
-    );
+    )
   }
 
-  return validator;
-};
+  return validator
+}
 
-module.exports = contactUsValidator;
+module.exports = contactUsValidator

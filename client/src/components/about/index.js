@@ -1,8 +1,8 @@
-import React from 'react';
-import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
-import Story from './story';
+import React from 'react'
+import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
+import Story from './story'
 
-import './story.css';
+import './story.css'
 
 const About = () => {
   const names = {
@@ -11,7 +11,7 @@ const About = () => {
     'Cedric Mosdell':
       'Cedric is a 3rd year Civil Engineering student at McMaster and loves eating hamburgers. He experienced the hassles of finding his textbooks when he was in first year, so he provided the necessary insight for making MUSBE an online tool tailored to students. Cedric has a background of doing art which had led him to becoming a part-time graphics designer and creating what MUSBE looks like right now. MUSBE was also his first site he has ever designed in his life! Woot!',
     // 'Charles Petchsy': 'Me too',
-    'Harrison Fok': 'Harrison is a tennis pro.',
+    'Harrison Fok': 'Harrison is a tennis pro.'
     // 'Allan C': 'Me too',
     // 'Avi Patel': 'Me too',
     // 'Bo Dan': 'Me too',
@@ -19,12 +19,12 @@ const About = () => {
     // 'Hassan Azmi': 'Me too',
     // 'Alex': 'Me too',
     // 'Shuyi': 'Me too',
-  };
+  }
   const imagePaths = [
     './Images/yi_chen.jpg',
     './Images/cedric.jpg',
-    './Images/harrison.jpg',
-  ];
+    './Images/harrison.jpg'
+  ]
 
   const blocks = Object.keys(names).map(function (key, i) {
     return (
@@ -37,8 +37,8 @@ const About = () => {
           <p style={{ width: '200px' }}>{names[key]}</p>
         </div>
       </MDBCol>
-    );
-  });
+    )
+  })
 
   return (
     <div>
@@ -55,7 +55,7 @@ const About = () => {
         <Story />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

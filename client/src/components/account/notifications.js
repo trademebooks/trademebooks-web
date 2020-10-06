@@ -1,33 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { MDBBtn } from 'mdbreact';
-import { toastr } from 'react-redux-toastr';
+import React, { useState, useEffect } from 'react'
+import { MDBBtn } from 'mdbreact'
+import { toastr } from 'react-redux-toastr'
 
-import { getAccountSettings, saveAccountSettings } from '../../actions/account';
+import { getAccountSettings, saveAccountSettings } from '../../actions/account'
 
 const Notifications = () => {
   const [formData, setFormData] = useState({
     receiveEmail: null,
-    receiveSms: null,
-  });
+    receiveSms: null
+  })
 
-  const { receiveEmail, receiveSms } = formData;
+  const { receiveEmail, receiveSms } = formData
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.checked });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.checked })
+  }
 
   const saveSettings = async (e) => {
-    e.preventDefault();
-    await saveAccountSettings(formData);
-    toastr.success('Your settings have been updated.');
-  };
+    e.preventDefault()
+    await saveAccountSettings(formData)
+    toastr.success('Your settings have been updated.')
+  }
 
   useEffect(() => {
-    (async () => {
-      const account = await getAccountSettings();
-      setFormData(account);
-    })();
-  }, []);
+    ;(async () => {
+      const account = await getAccountSettings()
+      setFormData(account)
+    })()
+  }, [])
 
   return (
     <>
@@ -65,7 +65,7 @@ const Notifications = () => {
         <MDBBtn onClick={saveSettings}>Save Changes</MDBBtn>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Notifications;
+export default Notifications

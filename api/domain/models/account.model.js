@@ -1,27 +1,27 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 const AccountSchema = new Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
+    ref: 'user'
   },
   receiveEmail: {
     type: Boolean,
-    default: true,
+    default: true
   },
   receiveSms: {
     type: Boolean,
-    default: true,
+    default: true
   },
   school: {
     type: String,
-    default: '',
+    default: ''
   },
   location: {
     type: String,
-    default: '',
-  },
-});
+    default: ''
+  }
+})
 
-module.exports = mongoose.model('account', AccountSchema);
+module.exports = mongoose.model('account', AccountSchema)

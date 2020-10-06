@@ -1,43 +1,43 @@
-import api from '../utils/api';
-import { toastr } from 'react-redux-toastr';
-import { ADD_BOOK, CREATE_BOOK } from './types';
+import api from '../utils/api'
+import { toastr } from 'react-redux-toastr'
+import { ADD_BOOK, CREATE_BOOK } from './types'
 
 // Add book
 export const addBook = (formData) => async (dispatch) => {
   dispatch({
     type: ADD_BOOK,
-    payload: formData,
-  });
-};
+    payload: formData
+  })
+}
 
 // Create a book Listing
 export const createBook = (book) => async (dispatch) => {
   try {
-    await api.post(`/books`, book);
+    await api.post(`/books`, book)
 
     dispatch({
       type: CREATE_BOOK,
-      payload: book,
-    });
+      payload: book
+    })
 
-    toastr.success('Book listing created successful');
+    toastr.success('Book listing created successful')
 
     dispatch({
       type: ADD_BOOK,
       payload: {
         title: '',
         price: '',
-        description: '',
-      },
-    });
+        description: ''
+      }
+    })
   } catch (err) {
-    const data = err.response.data;
-    const errors = data.errors;
+    const data = err.response.data
+    const errors = data.errors
 
     if (errors) {
       errors.forEach((errorMessage) => {
-        toastr.error(errorMessage);
-      });
+        toastr.error(errorMessage)
+      })
     }
   }
-};
+}

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import './Jumbotron.scss';
+import './Jumbotron.scss'
 
 function Jumbotron({ onChangeSearchBooks }) {
   return (
@@ -32,7 +32,7 @@ function Jumbotron({ onChangeSearchBooks }) {
         </div>
       </section>
     </>
-  );
+  )
 }
 
-export default Jumbotron;
+export default Jumbotron

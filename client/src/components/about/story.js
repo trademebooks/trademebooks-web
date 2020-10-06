@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import './story.css';
+import './story.css'
 
 const Story = () => {
   return (
@@ -91,7 +91,7 @@ const Story = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Story;
+export default Story

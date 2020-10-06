@@ -1,18 +1,18 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 const BookstoreSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    ref: 'user',
+    ref: 'user'
   },
   description: {
-    type: String,
+    type: String
   },
   date: {
     type: Date,
-    default: Date.now,
-  },
-});
+    default: Date.now
+  }
+})
 
-module.exports = mongoose.model('bookstore', BookstoreSchema);
+module.exports = mongoose.model('bookstore', BookstoreSchema)

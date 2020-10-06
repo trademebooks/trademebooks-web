@@ -1,5 +1,5 @@
-import React from 'react';
-import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
+import React from 'react'
+import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 
 function About() {
   return (
@@ -65,7 +65,7 @@ function About() {
         </MDBContainer>
       </div>
     </>
-  );
+  )
 }
 
-export default About;
+export default About

@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
-import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdbreact';
-import { toastr } from 'react-redux-toastr';
+import React, { useState } from 'react'
+import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdbreact'
+import { toastr } from 'react-redux-toastr'
 
-import api from '../../../utils/api';
+import api from '../../../utils/api'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    body: '',
-  });
+    body: ''
+  })
 
-  const { name, email, body } = formData;
+  const { name, email, body } = formData
 
   const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value })
 
   const onSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
-      await api.post('/utilities/contact', { name, email, body });
+      await api.post('/utilities/contact', { name, email, body })
 
-      toastr.success('Message sent! Thank you for contacting us.');
+      toastr.success('Message sent! Thank you for contacting us.')
 
       setFormData({
         name: '',
         email: '',
-        body: '',
-      });
+        body: ''
+      })
     } catch (error) {
-      toastr.error('There was something wrong with your submission');
+      toastr.error('There was something wrong with your submission')
 
-      console.log({ error });
+      console.log({ error })
     }
-  };
+  }
 
   return (
     <>
@@ -94,7 +94,7 @@ const ContactPage = () => {
         </MDBRow>
       </MDBContainer>
     </>
-  );
-};
+  )
+}
 
-export default ContactPage;
+export default ContactPage

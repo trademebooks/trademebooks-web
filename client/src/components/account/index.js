@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   MDBContainer,
   MDBTabPane,
@@ -6,21 +6,21 @@ import {
   MDBNav,
   MDBNavItem,
   MDBNavLink,
-  MDBIcon,
-} from 'mdbreact';
+  MDBIcon
+} from 'mdbreact'
 
-import User from './user';
-import BookStore from './bookstore';
-import Notifications from './notifications';
+import User from './user'
+import BookStore from './bookstore'
+import Notifications from './notifications'
 
 const Account = () => {
-  const [activeItemJustified, setActiveItemJustified] = useState('1');
+  const [activeItemJustified, setActiveItemJustified] = useState('1')
 
   const toggleJustified = (tab) => (e) => {
     if (activeItemJustified !== tab) {
-      setActiveItemJustified(tab);
+      setActiveItemJustified(tab)
     }
-  };
+  }
 
   return (
     <>
@@ -80,7 +80,7 @@ const Account = () => {
         </MDBContainer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Account;
+export default Account

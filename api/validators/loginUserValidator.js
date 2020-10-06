@@ -1,5 +1,5 @@
-const Validator = require('validatorjs');
-const ApiException = require('../utils/ApiException');
+const Validator = require('validatorjs')
+const ApiException = require('../utils/ApiException')
 
 /**
  * @param {*} data {
@@ -12,15 +12,15 @@ const ApiException = require('../utils/ApiException');
 const loginUserValidator = (data) => {
   const rules = {
     email: 'required|email',
-    password: 'required',
-  };
+    password: 'required'
+  }
 
-  let validator = new Validator(data, rules);
+  let validator = new Validator(data, rules)
 
   if (validator.fails()) {
-    let errors = [];
+    let errors = []
     for (const field in validator.errors.errors) {
-      errors = errors.concat(validator.errors.errors[field]);
+      errors = errors.concat(validator.errors.errors[field])
     }
 
     throw new ApiException(
@@ -29,10 +29,10 @@ const loginUserValidator = (data) => {
       400,
       null,
       errors
-    );
+    )
   }
 
-  return validator;
-};
+  return validator
+}
 
-module.exports = loginUserValidator;
+module.exports = loginUserValidator

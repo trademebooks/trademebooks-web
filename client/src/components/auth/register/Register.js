@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -10,8 +10,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     email: '',
     password: '',
     password_confirmation: '',
-    username: '',
-  });
+    username: ''
+  })
 
   const {
     first_name,
@@ -19,17 +19,17 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     email,
     password,
     password_confirmation,
-    username,
-  } = formData;
+    username
+  } = formData
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const onSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (password !== password_confirmation) {
-      setAlert('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'danger')
     } else {
       register({
         first_name,
@@ -37,13 +37,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         username,
         email,
         password,
-        password_confirmation,
-      });
+        password_confirmation
+      })
     }
-  };
+  }
 
   if (isAuthenticated) {
-    return <Redirect to="/buy-books" />;
+    return <Redirect to="/buy-books" />
   }
 
   return (
@@ -119,13 +119,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         </MDBRow>
       </MDBContainer>
     </>
-  );
-};
+  )
+}
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-};
+  isAuthenticated: PropTypes.bool
+}
 
-export default Register;
+export default Register

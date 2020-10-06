@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact';
+import React, { useEffect } from 'react'
+import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact'
 
-import './BookFields.scss';
+import './BookFields.scss'
 
 const BookFields = ({ book, addBook, createBook }) => {
   const onChange = (e) => {
-    addBook({ ...book, [e.target.name]: e.target.value });
-  };
+    addBook({ ...book, [e.target.name]: e.target.value })
+  }
 
   const postBook = (e) => {
-    e.preventDefault();
-    createBook(book);
-  };
+    e.preventDefault()
+    createBook(book)
+  }
 
   return (
     <>
@@ -51,7 +51,7 @@ const BookFields = ({ book, addBook, createBook }) => {
         </MDBContainer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default BookFields;
+export default BookFields

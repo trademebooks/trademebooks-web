@@ -12,8 +12,8 @@ function globalResponseDTO(status, code, message, data, errors) {
     code,
     message,
     data,
-    errors,
-  };
+    errors
+  }
 }
 
-module.exports = globalResponseDTO;
+module.exports = globalResponseDTO

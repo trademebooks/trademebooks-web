@@ -1,20 +1,20 @@
-const fetch = require('node-fetch');
-const api = require('../../../src/server');
+const fetch = require('node-fetch')
+const api = require('../../../src/server')
 
-const apiPort = Math.round(Math.random() * 65535);
-const baseURL = `http://localhost:${apiPort}/api/v1`;
+const apiPort = Math.round(Math.random() * 65535)
+const baseURL = `http://localhost:${apiPort}/api/v1`
 
 beforeAll(async () => {
-  await api.listen(apiPort);
-});
+  await api.listen(apiPort)
+})
 
 beforeEach(() => {
   //initializeCityDatabase();
-});
+})
 
 afterEach(() => {
   //clearCityDatabase();
-});
+})
 
 /**
  * 1. Arrange
@@ -29,23 +29,23 @@ describe('test suite', () => {
   xit('POST /auth/login', async () => {
     let user = {
       email: 'yichen@yichen.com',
-      password: 'password',
-    };
+      password: 'password'
+    }
 
     let response = await (
       await fetch(`${baseURL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user),
+        body: JSON.stringify(user)
       })
-    ).json();
+    ).json()
 
     expect(response).toEqual({
-      message: `The email: ${user.email} has successfully logged in.`,
-    });
-  });
-});
+      message: `The email: ${user.email} has successfully logged in.`
+    })
+  })
+})
 
 afterAll(async () => {
-  await api.close();
-});
+  await api.close()
+})

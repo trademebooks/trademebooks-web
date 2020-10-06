@@ -1,10 +1,10 @@
-const globalResponseDTO = require('../responses/globalResponseDTO');
-const createBookRequestDTO = require('../requests/createBookRequestDTO');
-const bookService = require('../domain/services/book.service');
-const bookResponseDTO = require('../responses/bookResponseDTO');
-const createBookValidator = require('../validators/createBookValidator');
+const globalResponseDTO = require('../responses/globalResponseDTO')
+const createBookRequestDTO = require('../requests/createBookRequestDTO')
+const bookService = require('../domain/services/book.service')
+const bookResponseDTO = require('../responses/bookResponseDTO')
+const createBookValidator = require('../validators/createBookValidator')
 
-const catchException = require('../utils/catchExceptions');
+const catchException = require('../utils/catchExceptions')
 
 /**
  * Description:
@@ -14,7 +14,7 @@ const getAllbooks = catchException(async (req, res, next) => {
   const books = await bookService.getAllBooks(
     req.query.q,
     req.query.limit || 10
-  );
+  )
 
   // 7. response
   return res.json(
@@ -25,15 +25,15 @@ const getAllbooks = catchException(async (req, res, next) => {
       (data = books),
       (errors = null)
     )
-  );
-});
+  )
+})
 
 /**
  * Description:
  */
 const getBookById = catchException(async (req, res, next) => {
   // 5. business logic
-  let book = await bookService.getBookById(req.params.id);
+  let book = await bookService.getBookById(req.params.id)
 
   // 7. response
   return res.json(
@@ -44,8 +44,8 @@ const getBookById = catchException(async (req, res, next) => {
       (data = book),
       (errors = null)
     )
-  );
-});
+  )
+})
 
 /**
  * Description:
@@ -58,17 +58,17 @@ const createABook = catchException(async (req, res, next) => {
   // 3. request
   const createBookRequest = createBookRequestDTO({
     userId: req.session.user._id,
-    ...req.body,
-  });
+    ...req.body
+  })
 
   // 4. validation
-  const createBookValidation = createBookValidator(createBookRequest);
+  const createBookValidation = createBookValidator(createBookRequest)
 
   // 5. business logic
   const book = await bookService.createBook({
     userId: req.session.user._id,
-    ...req.body,
-  });
+    ...req.body
+  })
 
   // 7. response
   return res
@@ -81,15 +81,15 @@ const createABook = catchException(async (req, res, next) => {
         (data = book),
         (errors = null)
       )
-    );
-});
+    )
+})
 
 /**
  * Description:
  */
 const updateABook = catchException(async (req, res, next) => {
   // 5. business logic
-  const book = await bookService.updateBookById(req.params.id, req.body);
+  const book = await bookService.updateBookById(req.params.id, req.body)
 
   // 7. response
   return res.json(
@@ -100,15 +100,15 @@ const updateABook = catchException(async (req, res, next) => {
       (data = book),
       (errors = null)
     )
-  );
-});
+  )
+})
 
 /**
  * Deletes a book in the database by the specified book's id
  */
 const deleteABook = catchException(async (req, res, next) => {
   // 5. business logic
-  const book = await bookService.deleteBookById(req.params.id);
+  const book = await bookService.deleteBookById(req.params.id)
 
   // 7. response
   return res.json(
@@ -119,13 +119,13 @@ const deleteABook = catchException(async (req, res, next) => {
       (data = null),
       (errors = null)
     )
-  );
-});
+  )
+})
 
 module.exports = {
   getAllbooks,
   getBookById,
   createABook,
   updateABook,
-  deleteABook,
-};
+  deleteABook
+}
