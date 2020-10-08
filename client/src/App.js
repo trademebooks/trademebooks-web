@@ -45,6 +45,7 @@ const App = () => {
             transitionOut="fadeOut"
             closeOnToastrClick
           />
+          <Footer />
         </>
       </Router>
     </Provider>
