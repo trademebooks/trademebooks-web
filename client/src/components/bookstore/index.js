@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { MDBRow, MDBCol, MDBContainer } from 'mdbreact';
-import api from '../../utils/api';
+import React, { useEffect, useState } from 'react'
+import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
+import api from '../../utils/api'
 
-import Books from '../books/common/Books';
+import Books from '../books/common/Books'
 
 const BookStore = ({ match }) => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([])
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       try {
-        const response = await api.get(`/bookstores/${match.params.username}`);
-        const books = response.data.data.books;
+        const response = await api.get(`/bookstores/${match.params.username}`)
+        const books = response.data.data.books
         console.log({ response })
-        setBooks(books);
+        setBooks(books)
+      } catch (error) {
+        console.log({ error })
       }
-      catch (error) {
-        console.log({ error });
-      }
-    })();
+    })()
   }, [])
 
   return (
     <>
       <div className="header-container text-center">
-        <h3 className="font-weight-bold">Welcome to {match.params.username}'s Bookstore</h3>
+        <h3 className="font-weight-bold">
+          Welcome to {match.params.username}'s Bookstore
+        </h3>
       </div>
       <div className="mt-4">
         <MDBContainer>
@@ -36,7 +37,7 @@ const BookStore = ({ match }) => {
         </MDBContainer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default BookStore;
+export default BookStore

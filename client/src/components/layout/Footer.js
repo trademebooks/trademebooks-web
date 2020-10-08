@@ -1,5 +1,5 @@
-import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
+import React from 'react'
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact'
 
 const Footer = () => {
   return (
@@ -66,7 +66,7 @@ const Footer = () => {
         </MDBContainer>
       </div>
     </MDBFooter>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

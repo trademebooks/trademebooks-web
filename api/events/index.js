@@ -1,9 +1,9 @@
-const events = require('events');
+const events = require('events')
 
-const eventEmitter = new events.EventEmitter();
+const eventEmitter = new events.EventEmitter()
 
-const userHasRegistered = require('./userHasRegisteredEvent');
+const userHasRegistered = require('./userHasRegisteredEvent')
 
-eventEmitter.on('userHasRegistered', userHasRegistered);
+eventEmitter.on('userHasRegistered', userHasRegistered)
 
 module.exports = {}

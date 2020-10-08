@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
-  });
+    password: ''
+  })
 
-  const { email, password } = formData;
+  const { email, password } = formData
 
   const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value })
 
   const onSubmit = (e) => {
-    e.preventDefault();
-    login(email, password);
-  };
+    e.preventDefault()
+    login(email, password)
+  }
 
   if (isAuthenticated) {
-    return <Redirect to="/buy-books" />;
+    return <Redirect to="/buy-books" />
   }
 
   return (
@@ -62,12 +62,12 @@ const Login = ({ login, isAuthenticated }) => {
         </MDBRow>
       </MDBContainer>
     </>
-  );
-};
+  )
+}
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-};
+  isAuthenticated: PropTypes.bool
+}
 
-export default Login;
+export default Login

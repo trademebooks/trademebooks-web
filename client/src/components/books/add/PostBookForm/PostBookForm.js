@@ -1,18 +1,15 @@
-import React from 'react';
-import { MDBRow, MDBCol, MDBContainer, MDBInput } from 'mdbreact';
+import React from 'react'
+import { MDBRow, MDBCol, MDBContainer, MDBInput } from 'mdbreact'
 
-import Conditions from './Conditions';
+import Conditions from './Conditions'
 
-import './PostBookForm.scss';
+import './PostBookForm.scss'
 
-import bookImage from '../../common/icons/sample-book.png';
+import bookImage from '../../common/icons/sample-book.png'
 
-const PostBookForm = ({
-  book,
-  addBook
-}) => {
+const PostBookForm = ({ book, addBook }) => {
   const onChange = (e) => {
-    addBook({ ...book, [e.target.name]: e.target.value });
+    addBook({ ...book, [e.target.name]: e.target.value })
   }
 
   return (
@@ -35,7 +32,13 @@ const PostBookForm = ({
               <div>
                 <form className="post-book-form-fields">
                   <div className="form-group">
-                    <MDBInput label="Title" size="lg" value={book.title} name="title" onChange={onChange} />
+                    <MDBInput
+                      label="Title"
+                      size="lg"
+                      value={book.title}
+                      name="title"
+                      onChange={onChange}
+                    />
                   </div>
                   <div className="form-group">
                     <MDBInput label="ISBN-10" size="lg" value={book.isbn_10} />
@@ -58,7 +61,7 @@ const PostBookForm = ({
         </MDBContainer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default PostBookForm;
+export default PostBookForm

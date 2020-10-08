@@ -1,14 +1,14 @@
-const faker = require('faker');
-const db = require('../utils/db');
-require('../domain/models/account.model');
+const faker = require('faker')
+const db = require('../utils/db')
+require('../domain/models/account.model')
 
-let accounts = [];
+let accounts = []
 
 module.exports = async (users) => {
-  const dbConnection = await db();
-  const Account = dbConnection.model('account');
+  const dbConnection = await db()
+  const Account = dbConnection.model('account')
 
-  await Account.deleteMany({});
+  await Account.deleteMany({})
 
   for (const user of users) {
     const account = {
@@ -16,13 +16,13 @@ module.exports = async (users) => {
       receiveEmail: true,
       receiveSms: true,
       school: faker.address.streetName(),
-      location: faker.address.county(),
+      location: faker.address.county()
     }
-    const accountReturnValue = await new Account(account).save();
-    accounts.push(accountReturnValue);
+    const accountReturnValue = await new Account(account).save()
+    accounts.push(accountReturnValue)
   }
 
-  await dbConnection.disconnect();
+  await dbConnection.disconnect()
 
-  return accounts;
-};
+  return accounts
+}

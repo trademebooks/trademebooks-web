@@ -1,5 +1,5 @@
 function bookResponseDTO(book) {
-  return book;
+  return book
 }
 
-module.exports = bookResponseDTO;
+module.exports = bookResponseDTO

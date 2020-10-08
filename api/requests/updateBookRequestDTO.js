@@ -1,11 +1,9 @@
-const ApiException = require('../utils/ApiException');
+const ApiException = require('../utils/ApiException')
 
-const fields = [
-
-];
+const fields = []
 
 const updateBookRequestDTO = (data) => {
-  return data;
+  return data
 }
 
-module.exports = updateBookRequestDTO;
+module.exports = updateBookRequestDTO

@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { MDBInput, MDBBtn } from 'mdbreact';
-import { toastr } from 'react-redux-toastr';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react'
+import { MDBInput, MDBBtn } from 'mdbreact'
+import { toastr } from 'react-redux-toastr'
+import { connect } from 'react-redux'
 
-import { getAccountSettings, saveAccountSettings } from '../../actions/account';
-import { updateAuthUser } from '../../actions/user';
+import { getAccountSettings, saveAccountSettings } from '../../actions/account'
+import { updateAuthUser } from '../../actions/user'
 
 const BookStore = ({ auth: { user } }) => {
   const [formData, setFormData] = useState({
     username: '',
     location: '',
     school: ''
-  });
+  })
 
-  const { username, location, school } = formData;
+  const { username, location, school } = formData
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const saveUsername = async (e) => {
-    e.preventDefault();
-    await updateAuthUser({ username });
+    e.preventDefault()
+    await updateAuthUser({ username })
     toastr.success(
       'Your username has been changed.',
       'To see your username change be taken into effect, logout then log back in.',
       { timeOut: 0 }
-    );
+    )
   }
 
   const saveSettings = async (e) => {
-    e.preventDefault();
-    await saveAccountSettings({ location, school });
+    e.preventDefault()
+    await saveAccountSettings({ location, school })
     toastr.success('Your settings have been updated.')
   }
 
   useEffect(() => {
-    (async () => {
-      const account = await getAccountSettings();
+    ;(async () => {
+      const account = await getAccountSettings()
       setFormData({
         ...account,
         ...user
-      });
-    })();
+      })
+    })()
   }, [])
 
   return (
@@ -61,9 +61,7 @@ const BookStore = ({ auth: { user } }) => {
           required
           value={username}
         />
-        <MDBBtn onClick={saveUsername}>
-          Save Changes
-        </MDBBtn>
+        <MDBBtn onClick={saveUsername}>Save Changes</MDBBtn>
       </div>
 
       <div className="mt-5">
@@ -97,20 +95,16 @@ const BookStore = ({ auth: { user } }) => {
       </div>
 
       <div>
-        <MDBBtn onClick={saveSettings}>
-          Save Changes
-        </MDBBtn>
+        <MDBBtn onClick={saveSettings}>Save Changes</MDBBtn>
       </div>
     </>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
+  auth: state.auth
+})
 
-const mapDispatchToProps = {
+const mapDispatchToProps = {}
 
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookStore);
+export default connect(mapStateToProps, mapDispatchToProps)(BookStore)

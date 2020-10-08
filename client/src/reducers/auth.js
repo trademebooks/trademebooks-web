@@ -5,17 +5,17 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   //LOGIN_FAIL,
-  LOGOUT,
-} from '../actions/types';
+  LOGOUT
+} from '../actions/types'
 
 const initialState = {
   isAuthenticated: null,
   loading: true,
   user: null
-};
+}
 
 export default function (state = initialState, action) {
-  const { type, payload } = action;
+  const { type, payload } = action
 
   switch (type) {
     case USER_LOADED:
@@ -24,21 +24,21 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
         user: payload.data
-      };
+      }
     case REGISTER_SUCCESS:
       return {
         ...state,
         ...payload,
         isAuthenticated: true,
         loading: false
-      };
+      }
     case LOGIN_SUCCESS:
       return {
         ...state,
         ...payload,
         isAuthenticated: true,
         loading: false
-      };
+      }
     case AUTH_ERROR:
     case LOGOUT:
       return {
@@ -47,8 +47,8 @@ export default function (state = initialState, action) {
         isAuthenticated: false,
         loading: false,
         user: null
-      };
+      }
     default:
-      return state;
+      return state
   }
 }

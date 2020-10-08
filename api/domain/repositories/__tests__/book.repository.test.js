@@ -1,39 +1,38 @@
-const db = require('../../../utils/db');
-let dbConnection;
-const dbTestUtils = require('../../../tests/testUtils/dbTestUtil');
+const db = require('../../../utils/db')
+let dbConnection
+const dbTestUtils = require('../../../tests/testUtils/dbTestUtil')
 
-const bookRepository = require('../book.repository');
-const BookModel = require('../../models/book.model');
+const bookRepository = require('../book.repository')
+const BookModel = require('../../models/book.model')
 
 beforeAll(async () => {
-  dbConnection = await db();
-});
+  dbConnection = await db()
+})
 
 beforeEach(async () => {
-  await dbTestUtils.setUpDatabase();
-});
+  await dbTestUtils.setUpDatabase()
+})
 
 afterEach(async () => {
-  await dbTestUtils.clearDatabase();
-});
+  await dbTestUtils.clearDatabase()
+})
 
 afterAll(async () => {
-  await dbConnection.disconnect();
-});
+  await dbConnection.disconnect()
+})
 
 describe('Test Suite: Book Repository', () => {
-
   xit('Book Repository - getAll', async () => {
-    let books = await bookRepository.getAll();
+    let books = await bookRepository.getAll()
 
-    expect(books.length).toBe(15);
-  });
+    expect(books.length).toBe(15)
+  })
 
   xit('Book Repository - getById', async () => {
-    let book = await bookRepository.getById('56e6dd2eb4494ed008d595bd');
+    let book = await bookRepository.getById('56e6dd2eb4494ed008d595bd')
 
-    expect(book).toBe(null);
-  });
+    expect(book).toBe(null)
+  })
 
   xit('Book Repository - createBook', async () => {
     let newBook = {
@@ -44,15 +43,15 @@ describe('Test Suite: Book Repository', () => {
       datePublished: Date.now()
     }
 
-    let book = await bookRepository.create(newBook);
-    let books = await dbTestUtils.getAllTableData(BookModel);
-    let mostRecentlyInsertedBook = books[books.length - 1];
-    expect(book.id).toBe(mostRecentlyInsertedBook.id);
-  });
+    let book = await bookRepository.create(newBook)
+    let books = await dbTestUtils.getAllTableData(BookModel)
+    let mostRecentlyInsertedBook = books[books.length - 1]
+    expect(book.id).toBe(mostRecentlyInsertedBook.id)
+  })
 
   xit('Book Repository - updateBookById', async () => {
-    let books = await dbTestUtils.getAllTableData(BookModel);
-    let bookToUpdate = books[0];
+    let books = await dbTestUtils.getAllTableData(BookModel)
+    let bookToUpdate = books[0]
 
     let newBook = {
       title: 'Harry Potter and the Awesome Book of Nothing',
@@ -61,21 +60,24 @@ describe('Test Suite: Book Repository', () => {
       author: 'J.K. Rowling',
       datePublished: Date.now()
     }
-    let book = await bookRepository.updateById(bookToUpdate.id, newBook);
+    let book = await bookRepository.updateById(bookToUpdate.id, newBook)
 
-    let updatedBooks = await dbTestUtils.getAllTableData(BookModel);
+    let updatedBooks = await dbTestUtils.getAllTableData(BookModel)
 
-    expect(updatedBooks[0].title).toBe(newBook.title);
-  });
+    expect(updatedBooks[0].title).toBe(newBook.title)
+  })
 
   xit('Book Repository - deleteBookById', async () => {
-    let books = await dbTestUtils.getAllTableData(BookModel);
-    let bookToDelete = books[0];
-    
-    await bookRepository.deleteById(bookToDelete.id);
-    
-    let updatedBooks = await dbTestUtils.getAllTableData(BookModel);
-    expect(updatedBooks.find(book => { return book.id === bookToDelete.id})).toBe(undefined);
-  });
-});
+    let books = await dbTestUtils.getAllTableData(BookModel)
+    let bookToDelete = books[0]
 
+    await bookRepository.deleteById(bookToDelete.id)
+
+    let updatedBooks = await dbTestUtils.getAllTableData(BookModel)
+    expect(
+      updatedBooks.find((book) => {
+        return book.id === bookToDelete.id
+      })
+    ).toBe(undefined)
+  })
+})

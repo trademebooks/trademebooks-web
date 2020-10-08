@@ -1,17 +1,21 @@
-import React from 'react';
+import React from 'react'
 
-import './Jumbotron.scss';
+import './Jumbotron.scss'
 
 function Jumbotron({ onChangeSearchBooks }) {
   return (
     <>
       <section className="home-page-top-section">
         <div className="home-page-top-section__main-text">
-          <span>Buy & Sell Textbooks from Canada’s <b>35+</b> Universities and Colleges</span>
+          <span>
+            Buy & Sell Textbooks from Canada’s <b>35+</b> Universities and
+            Colleges
+          </span>
         </div>
 
         <div className="home-page-top-section__small-caption mt-4">
-          Buying and sell textbooks with ease and with minimal effort using the latest technology!
+          Buying and sell textbooks with ease and with minimal effort using the
+          latest technology!
         </div>
 
         <div className="home-search-box">

@@ -1,9 +1,5 @@
-const bookPermission = require('../bookPermission.middleware');
+const bookPermission = require('../bookPermission.middleware')
 
-test('Middleware - access denied', () => {
+test('Middleware - access denied', () => {})
 
-});
-
-test('Middleware - access not denied', () => {
-
-});
+test('Middleware - access not denied', () => {})

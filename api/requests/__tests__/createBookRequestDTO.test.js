@@ -1,8 +1,7 @@
-const registerUserRequestDTO = require('../registerUserRequestDTO');
-const ApiException = require('../../utils/ApiException');
+const registerUserRequestDTO = require('../registerUserRequestDTO')
+const ApiException = require('../../utils/ApiException')
 
 describe('Test Suite: Request', () => {
-
   it('Correct request 1 - empty parameters', () => {
     // 1. Arrange
     let apiInputRequest = {}
@@ -10,10 +9,9 @@ describe('Test Suite: Request', () => {
     // 2. Act
     // 3. Assert
     expect(() => {
-      let registerUserRequest = registerUserRequestDTO(apiInputRequest);
-    }).toThrow(Error);
-
-  });
+      let registerUserRequest = registerUserRequestDTO(apiInputRequest)
+    }).toThrow(Error)
+  })
 
   it('Correct request 2 - extra useless parameters', () => {
     // 1. Arrange
@@ -28,10 +26,9 @@ describe('Test Suite: Request', () => {
     // 2. Act
     // 3. Assert
     expect(() => {
-      let registerUserRequest = registerUserRequestDTO(apiInputRequest);
-    }).toThrow(Error);
-
-  });
+      let registerUserRequest = registerUserRequestDTO(apiInputRequest)
+    }).toThrow(Error)
+  })
 
   xit('Correct request 3 - happy path', () => {
     // 1. Arrange
@@ -45,7 +42,7 @@ describe('Test Suite: Request', () => {
     }
 
     // 2. Act
-    let registerUserRequest = registerUserRequestDTO(apiInputRequest);
+    let registerUserRequest = registerUserRequestDTO(apiInputRequest)
 
     // 3. Assert
     expect(registerUserRequest).toEqual({
@@ -55,16 +52,16 @@ describe('Test Suite: Request', () => {
       password: 'yichen-and-his-awesome-password',
       password_confirmation: 'yichen-and-his-awesome-password',
       phone_number: '1234567890'
-    });
-  });
+    })
+  })
 
   it('Correct request 4 - we input in the wrong fields, some random string', () => {
     // 1. Arrange
-    let apiInputRequest = { message: 'this is awesome!' };
+    let apiInputRequest = { message: 'this is awesome!' }
 
     // 2. + 3. Act and Assert
     expect(() => {
-      let registerUserRequest = registerUserRequestDTO(apiInputRequest);
-    }).toThrow(ApiException);
-  });
-});
+      let registerUserRequest = registerUserRequestDTO(apiInputRequest)
+    }).toThrow(ApiException)
+  })
+})

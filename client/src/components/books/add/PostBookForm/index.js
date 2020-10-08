@@ -1,5 +1,5 @@
-import Container from './Container'; 
+import Container from './Container'
 
-const PostBookForm = Container;
+const PostBookForm = Container
 
-export default PostBookForm;
+export default PostBookForm

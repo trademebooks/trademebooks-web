@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 const BookSchema = new Schema({
   userId: {
@@ -33,6 +33,6 @@ const BookSchema = new Schema({
     type: Date,
     default: Date.now
   }
-});
+})
 
-module.exports = mongoose.model('book', BookSchema);
+module.exports = mongoose.model('book', BookSchema)

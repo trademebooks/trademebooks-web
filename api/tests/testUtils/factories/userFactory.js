@@ -1,6 +1,6 @@
-const faker = require('faker');
-const Model = require('../../../domain/models/user.model');
-const bookFactory = require('./bookFactory');
+const faker = require('faker')
+const Model = require('../../../domain/models/user.model')
+const bookFactory = require('./bookFactory')
 
 const factory = async (numberOfSeeds) => {
   for (let i = 1; i <= numberOfSeeds; i++) {
@@ -13,12 +13,12 @@ const factory = async (numberOfSeeds) => {
       phone_number: faker.phone.phoneNumber()
     }
 
-    const entity = new Model(entityFields);
+    const entity = new Model(entityFields)
 
-    const user = await entity.save();
+    const user = await entity.save()
 
-    await bookFactory(3, user.id);
+    await bookFactory(3, user.id)
   }
 }
 
-module.exports = factory;
+module.exports = factory
