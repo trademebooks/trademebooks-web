@@ -32,10 +32,13 @@ const App = () => {
       <Router>
         <>
           <Navbar />
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route component={Routes} />
-          </Switch>
+
+          <main>
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              <Route component={Routes} />
+            </Switch>
+          </main>
           <ReduxToastr
             timeOut={3000}
             newestOnTop={false}
@@ -46,6 +49,7 @@ const App = () => {
             transitionOut="fadeOut"
             closeOnToastrClick
           />
+
           <Footer />
         </>
       </Router>

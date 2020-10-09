@@ -6,8 +6,8 @@ import { getAccountSettings, saveAccountSettings } from '../../actions/account'
 
 const Notifications = () => {
   const [formData, setFormData] = useState({
-    receiveEmail: null,
-    receiveSms: null
+    receiveEmail: false,
+    receiveSms: false
   })
 
   const { receiveEmail, receiveSms } = formData
