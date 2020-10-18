@@ -27,10 +27,6 @@
   &__book-edition {
     color: #898989;
     margin-left: 5px;
-
-    &-container {
-      display: none;
-    }
   }
 
   &__book-edition-number {
@@ -92,6 +88,14 @@
     justify-content: space-between;
     padding: 10px;
     align-items: center;
+
+    .chat-image {
+      width: 40px;
+    }
+
+    .bookstore-image {
+      width: 40px;
+    }
   }
 }
 
@@ -101,6 +105,12 @@
 
 @media all and (max-width: 766px) {
   .single-card {
+    &__book-edition {
+      &-container {
+        display: none;
+      }
+    }
+
     &-container {
       display: flex;
       flex-wrap: wrap;
