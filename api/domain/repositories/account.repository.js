@@ -1,4 +1,5 @@
 const AccountModel = require('../models/account.model')
+const BookstoreModel = require('../models/bookstore.model')
 
 const getById = async (userId) => {
   const account = await AccountModel.findOne({ userId })
@@ -11,7 +12,14 @@ const updateById = async (userId, data) => {
   return updatedAccount
 }
 
+const createByUserId = async (userId) => {
+  const userBookstoreData = new AccountModel({ userId })
+  const newBookstore = await userBookstoreData.save({ userId })
+  return newBookstore
+}
+
 module.exports = {
   getById,
-  updateById
+  updateById,
+  createByUserId
 }

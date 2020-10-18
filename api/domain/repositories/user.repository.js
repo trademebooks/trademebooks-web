@@ -53,8 +53,8 @@ const updateById = async (userId, data) => {
  *
  * @returns user
  */
-const getUserById = async (id) => {
-  const foundUser = await User.findOne({ id })
+const getUserById = async (_id) => {
+  const foundUser = await UserModel.findOne({ _id })
   return foundUser
 }
 

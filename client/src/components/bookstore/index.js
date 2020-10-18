@@ -31,7 +31,11 @@ const BookStore = ({ match }) => {
         <MDBContainer>
           <MDBRow center={true}>
             <MDBCol sm="12">
-              <Books books={books} />
+              {books.length < 1 ? (
+                <div>There are no books in this bookstore...</div>
+              ) : (
+                <Books books={books} />
+              )}
             </MDBCol>
           </MDBRow>
         </MDBContainer>

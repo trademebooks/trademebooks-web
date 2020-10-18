@@ -102,7 +102,7 @@ const Book = ({ book }) => {
             <img src={Message_icon} alt="test" className="chat-image" />
           </div>
           <div>
-            <a href={`/bookstore/yichen`}>
+            <a href={`/bookstore/${book.username}`}>
               <img src={bookstoreIcon} alt="test" className="bookstore-image" />
             </a>
           </div>
