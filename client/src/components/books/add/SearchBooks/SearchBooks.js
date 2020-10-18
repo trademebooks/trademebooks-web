@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -8,7 +8,7 @@ import './SearchBook.scss'
 
 const SearchBooks = ({ addBook }) => {
   const [value, setValue] = useState(null)
-  const [inputValue, setInputValue] = useState('')
+  // const [inputValue, setInputValue] = useState('')
 
   const [open, setOpen] = useState(false)
   const [options, setOptions] = useState([])

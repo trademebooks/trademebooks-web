@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact'
 
 import './BookFields.scss'
