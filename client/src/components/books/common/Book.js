@@ -37,7 +37,7 @@ const Book = ({ book }) => {
             <span className="single-card__book-title">{book.title}</span>
             <span>&nbsp;</span>
             {book.edition && (
-              <span>
+              <span className="single-card__book-edition-container">
                 <span className="single-card__book-edition">Edition</span>
                 <span>&nbsp;</span>
                 <span className="single-card__book-edition-number">
@@ -99,11 +99,11 @@ const Book = ({ book }) => {
             <span className="">{book.price}</span>
           </div>
           <div>
-            <img src={Message_icon} alt="test" height="50px" />
+            <img src={Message_icon} alt="test" className="chat-image" />
           </div>
           <div>
             <a href={`/bookstore/yichen`}>
-              <img src={bookstoreIcon} height="50px" alt="test" />
+              <img src={bookstoreIcon} alt="test" className="bookstore-image" />
             </a>
           </div>
           <div>{datePosted}</div>

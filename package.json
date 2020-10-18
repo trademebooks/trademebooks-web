@@ -15,7 +15,9 @@
     "mongo:start": "docker run --rm -d -p 27017:27017 mongo",
     "test": "NODE_ENV=testing jest --config=api/config/jest.config.js --runInBand",
     "db:seed": "node ./api/seeds",
-    "db:seed:prod": "NODE_ENV=production node ./api/seeds"
+    "db:seed:prod": "NODE_ENV=production node ./api/seeds",
+    "prettier:write": "npx prettier --write .",
+    "prettier:check": "npx prettier --check ."
   },
   "author": "Yichen Zhu",
   "license": "MIT",
