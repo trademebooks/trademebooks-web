@@ -9,6 +9,7 @@ import Message_icon from './icons/Message_user.png'
 import Location_icon from './icons/Location_icon.png'
 import bookstoreIcon from './icons/bookstoreIcon.png'
 import edit_icon from './icons/edit_icon.png'
+import delete_icon from './icons/delete_icon.png'
 
 const Book = ({ book, editFlag }) => {
   const date = new Date(book.createdAt)
@@ -122,7 +123,9 @@ const Book = ({ book, editFlag }) => {
           <div>
             {editFlag ? (
               <span onClick={deleteBook}>
-                <img src={edit_icon} alt="test" className="bookstore-image" />
+                <a href="#">
+                <img src={delete_icon} alt="test" className="bookstore-image" />
+                </a>
               </span>
             ) : (
               <a href={`/bookstore/${book.username}`}>
