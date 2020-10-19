@@ -1,12 +1,21 @@
 import api from '../utils/api'
 import { toastr } from 'react-redux-toastr'
-import { ADD_BOOK, CREATE_BOOK } from './types'
+import { ADD_BOOK, CREATE_BOOK, GET_BOOK } from './types'
 
 // Add book
 export const addBook = (formData) => async (dispatch) => {
   dispatch({
     type: ADD_BOOK,
     payload: formData
+  })
+}
+
+// Get a book
+export const getBook = (bookId) => async (dispatch) => {
+  const book = await api.get(`/books/${bookId}`)
+  dispatch({
+    type: GET_BOOK,
+    payload: book.data.data
   })
 }
 

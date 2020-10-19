@@ -11,6 +11,7 @@ import Contact from '../pages/contact'
 import Home from '../pages/home'
 import Account from '../account'
 import BookAdd from '../books/add'
+import BookEdit from '../books/edit'
 import Bookstore from '../bookstore'
 import MyBookstore from '../bookstore/myBookstore'
 import About from '../about'
@@ -33,6 +34,7 @@ const Routes = () => {
 
         {/* Protected Routes */}
         <PrivateRoute exact path="/add-book" component={BookAdd} />
+        <PrivateRoute exact path="/books/edit/:bookId" component={BookEdit} />
         <PrivateRoute exact path="/account" component={Account} />
         <PrivateRoute exact path="/my-bookstore" component={MyBookstore} />
 
