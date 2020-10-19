@@ -39,6 +39,7 @@ const App = () => {
               <Route component={Routes} />
             </Switch>
           </main>
+
           <ReduxToastr
             timeOut={3000}
             newestOnTop={false}

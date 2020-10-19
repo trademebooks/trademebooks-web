@@ -12,6 +12,7 @@ import Home from '../pages/home'
 import Account from '../account'
 import BookAdd from '../books/add'
 import Bookstore from '../bookstore'
+import MyBookstore from '../bookstore/myBookstore'
 import About from '../about'
 
 const Routes = () => {
@@ -33,6 +34,7 @@ const Routes = () => {
         {/* Protected Routes */}
         <PrivateRoute exact path="/add-book" component={BookAdd} />
         <PrivateRoute exact path="/account" component={Account} />
+        <PrivateRoute exact path="/my-bookstore" component={MyBookstore} />
 
         <Route component={NotFound} />
       </Switch>

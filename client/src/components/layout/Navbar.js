@@ -66,7 +66,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             <MDBNavItem>
               <MDBNavLink
                 className="waves-effect waves-light"
-                to={bookstoreUrl}
+                to="/my-bookstore"
               >
                 <MDBIcon icon="store" /> <span>Bookstore</span>
               </MDBNavLink>
