@@ -1,4 +1,5 @@
 import React from 'react'
+import { toastr } from 'react-redux-toastr'
 
 import './Book.scss'
 
@@ -7,14 +8,25 @@ import sample_book_image from './icons/sample-book.png'
 import Message_icon from './icons/Message_user.png'
 import Location_icon from './icons/Location_icon.png'
 import bookstoreIcon from './icons/bookstoreIcon.png'
+import edit_icon from './icons/edit_icon.png'
 
-const Book = ({ book }) => {
+const Book = ({ book, editFlag }) => {
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
   })
+
+  const deleteBook = () => {
+    const toastrConfirmOptions = {
+      onOk: () => console.log('OK: clicked'),
+      onCancel: () => console.log('CANCEL: clicked'),
+      okText: 'Yes',
+      cancelText: 'No'
+    }
+    toastr.confirm('Are you sure about that?', toastrConfirmOptions)
+  }
 
   return (
     <div className="single-card mt-3">
@@ -99,12 +111,28 @@ const Book = ({ book }) => {
             <span className="">{book.price}</span>
           </div>
           <div>
-            <img src={Message_icon} alt="test" className="chat-image" />
+            {editFlag ? (
+              <a href={`/books/edit/${book._id}`}>
+                <img src={edit_icon} alt="test" className="chat-image" />
+              </a>
+            ) : (
+              <img src={Message_icon} alt="test" className="chat-image" />
+            )}
           </div>
           <div>
-            <a href={`/bookstore/${book.username}`}>
-              <img src={bookstoreIcon} alt="test" className="bookstore-image" />
-            </a>
+            {editFlag ? (
+              <span onClick={deleteBook}>
+                <img src={edit_icon} alt="test" className="bookstore-image" />
+              </span>
+            ) : (
+              <a href={`/bookstore/${book.username}`}>
+                <img
+                  src={bookstoreIcon}
+                  alt="test"
+                  className="bookstore-image"
+                />
+              </a>
+            )}
           </div>
           <div>{datePosted}</div>
         </div>

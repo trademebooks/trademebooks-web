@@ -31,7 +31,7 @@ const BookStore = () => {
               {books.length < 1 ? (
                 <div>There are no books in this bookstore...</div>
               ) : (
-                <Books books={books} />
+                <Books books={books} editFlag={true} />
               )}
             </MDBCol>
           </MDBRow>
