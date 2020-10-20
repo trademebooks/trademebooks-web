@@ -38,9 +38,10 @@ const ForgotPasswordForm = ({ resetPassword }) => {
               </div>
 
               <div className="text-center">
-                <MDBBtn type="submit" className="w-100">Send Email</MDBBtn>
+                <MDBBtn type="submit" className="w-100">
+                  Send Email
+                </MDBBtn>
               </div>
-
             </form>
           </MDBCol>
         </MDBRow>

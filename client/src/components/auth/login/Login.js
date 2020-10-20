@@ -56,10 +56,14 @@ const Login = ({ login, isAuthenticated }) => {
 
               <div>
                 <div className="text-right">
-                  <Link to="/forgot-password"><strong>Forgot Password?</strong></Link>
+                  <Link to="/forgot-password">
+                    <strong>Forgot Password?</strong>
+                  </Link>
                 </div>
                 <div className="text-center">
-                  <MDBBtn type="submit" className="w-100">Login</MDBBtn>
+                  <MDBBtn type="submit" className="w-100">
+                    Login
+                  </MDBBtn>
                 </div>
               </div>
             </form>

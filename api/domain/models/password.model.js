@@ -17,7 +17,7 @@ const PasswordSchema = Schema({
   alreadyReset: {
     type: Boolean,
     default: false
-  },
+  }
 })
 
 module.exports = mongoose.model('password', PasswordSchema)
