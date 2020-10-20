@@ -11,7 +11,6 @@ const BookStore = () => {
       try {
         const response = await api.get(`/bookstores/auth`)
         const books = response.data.data
-        console.log({ response })
         setBooks(books)
       } catch (error) {
         console.log({ error })

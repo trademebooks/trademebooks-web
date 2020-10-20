@@ -1,6 +1,19 @@
 import api from '../utils/api'
 import { toastr } from 'react-redux-toastr'
-import { ADD_BOOK, CREATE_BOOK, GET_BOOK } from './types'
+import {
+  GET_BOOKS,
+  GET_BOOK,
+  ADD_BOOK,
+  CREATE_BOOK,
+  DELETE_BOOK
+} from './types'
+
+export const getBooks = (formData) => async (dispatch) => {
+  dispatch({
+    type: ADD_BOOK,
+    payload: formData
+  })
+}
 
 // Add book
 export const addBook = (formData) => async (dispatch) => {
@@ -49,4 +62,11 @@ export const createBook = (book) => async (dispatch) => {
       })
     }
   }
+}
+
+// Get a book
+export const deleteBookById = async (bookId) => {
+  const book = await api.delete(`/books/${bookId}`)
+
+  toastr.success('Book listing deleted.')
 }

@@ -11,6 +11,8 @@ import bookstoreIcon from './icons/bookstoreIcon.png'
 import edit_icon from './icons/edit_icon.png'
 import delete_icon from './icons/delete_icon.png'
 
+import { deleteBookById } from '../../../actions/book'
+
 const Book = ({ book, editFlag }) => {
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
@@ -21,7 +23,10 @@ const Book = ({ book, editFlag }) => {
 
   const deleteBook = () => {
     const toastrConfirmOptions = {
-      onOk: () => console.log('OK: clicked'),
+      onOk: async () => {
+        console.log('OK: clicked')
+        deleteBookById(book._id)
+      },
       onCancel: () => console.log('CANCEL: clicked'),
       okText: 'Yes',
       cancelText: 'No'
@@ -124,7 +129,11 @@ const Book = ({ book, editFlag }) => {
             {editFlag ? (
               <span onClick={deleteBook}>
                 <a href="#">
-                <img src={delete_icon} alt="test" className="bookstore-image" />
+                  <img
+                    src={delete_icon}
+                    alt="test"
+                    className="bookstore-image"
+                  />
                 </a>
               </span>
             ) : (

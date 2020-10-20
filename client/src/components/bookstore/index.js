@@ -12,7 +12,6 @@ const BookStore = ({ match }) => {
       try {
         const response = await api.get(`/bookstores/${match.params.username}`)
         const books = response.data.data.books
-        console.log({ response })
         setBooks(books)
       } catch (error) {
         console.log({ error })
