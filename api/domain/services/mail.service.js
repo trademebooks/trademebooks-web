@@ -3,11 +3,11 @@ const config = require('../../config')
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(config.sendGridKey)
 
-const sendMail = async ({ email, body }) => {
+const sendMail = async ({ fromEmail, toEmail, body, subject }) => {
   return await sgMail.send({
-    to: config.contactUsEmail,
-    from: email,
-    subject: 'trademebooks.com Contact Us Form!',
+    from: 'no-reply@trademebooks.com',
+    to: toEmail,
+    subject,
     text: body
   })
 }

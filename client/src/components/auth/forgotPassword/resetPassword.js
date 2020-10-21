@@ -3,11 +3,12 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 
 const ForgotPasswordForm = ({ resetPassword }) => {
   const [formData, setFormData] = useState({
+    email: '',
     password: '',
     password_confirmation: ''
   })
 
-  const { password, password_confirmation } = formData
+  const { email, password, password_confirmation } = formData
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -24,6 +25,19 @@ const ForgotPasswordForm = ({ resetPassword }) => {
           <MDBCol md="6">
             <form onSubmit={onSubmit}>
               <p className="h2 text-center mb-5">Reset Your Password</p>
+
+              <div className="grey-text">
+                <MDBInput
+                  label="Your Email"
+                  icon="envelope"
+                  group
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={onChange}
+                  required
+                />
+              </div>
 
               <div className="grey-text">
                 <MDBInput

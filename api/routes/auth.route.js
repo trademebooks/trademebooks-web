@@ -11,5 +11,6 @@ router.get('/user', isAuthenticated, authController.getAuthUser)
 
 const passwordController = require('../controllers/password.controller')
 router.post('/password/send-email', passwordController.sendPasswordResetEmail)
+router.post('/password/reset', passwordController.resetPassword)
 
 module.exports = router

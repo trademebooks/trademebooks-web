@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const PasswordSchema = Schema({
-  userId: {
+  email: {
     type: String,
     required: true
   },
