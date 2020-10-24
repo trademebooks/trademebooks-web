@@ -33,30 +33,30 @@ const Notifications = () => {
     <>
       <h3 className="mb-4 font-weight-bold">Notifications Settings</h3>
 
-      <div class="custom-control custom-checkbox my-3">
+      <div className="custom-control custom-checkbox my-3">
         <input
           type="checkbox"
           name="receiveEmail"
-          class="custom-control-input"
+          className="custom-control-input"
           id="defaultInline1"
           checked={receiveEmail}
           onChange={onChange}
         />
-        <label class="custom-control-label" for="defaultInline1">
+        <label className="custom-control-label" htmlFor="defaultInline1">
           Receive Emails
         </label>
       </div>
 
-      <div class="custom-control custom-checkbox my-3">
+      <div className="custom-control custom-checkbox my-3">
         <input
           type="checkbox"
           name="receiveSms"
-          class="custom-control-input"
+          className="custom-control-input"
           id="defaultInline2"
           checked={receiveSms}
           onChange={onChange}
         />
-        <label class="custom-control-label" for="defaultInline2">
+        <label className="custom-control-label" htmlFor="defaultInline2">
           Receive Text Messages
         </label>
       </div>

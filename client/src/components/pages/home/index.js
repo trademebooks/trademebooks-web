@@ -12,7 +12,7 @@ const HomePage = () => {
     let searchQuery = event.target.value
     if (searchQuery.length >= 0) {
       try {
-        const response = await api.get(`/books?q=${searchQuery}&limit=10`)
+        const response = await api.get(`/books?q=${searchQuery}&limit=30`)
         const books = response.data.data
         setBooks(books)
       } catch (error) {
@@ -24,7 +24,7 @@ const HomePage = () => {
   useEffect(() => {
     ;(async () => {
       try {
-        const response = await api.get(`/books`)
+        const response = await api.get(`/books?limit=50`)
         const books = response.data.data
         setBooks(books)
       } catch (error) {
@@ -39,7 +39,7 @@ const HomePage = () => {
         <MDBRow>
           <MDBCol sm="12">
             <Jumbotron onChangeSearchBooks={onChangeSearchBooks} />
-            <Books books={books} />
+            <Books books={books} editFlag={false} />
           </MDBCol>
         </MDBRow>
       </MDBContainer>

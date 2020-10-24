@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 
-const ForgotPasswordForm = ({ resetPassword }) => {
+import { sendPasswordResetEmail } from '../../../actions/password'
+
+const ForgotPasswordForm = () => {
   const [formData, setFormData] = useState({
     email: ''
   })
@@ -13,7 +15,7 @@ const ForgotPasswordForm = ({ resetPassword }) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    // resetPassword(email)
+    sendPasswordResetEmail({ email })
   }
 
   return (
@@ -26,7 +28,7 @@ const ForgotPasswordForm = ({ resetPassword }) => {
 
               <div className="grey-text">
                 <MDBInput
-                  label="Type your email"
+                  label="Type in your email"
                   icon="envelope"
                   group
                   type="email"

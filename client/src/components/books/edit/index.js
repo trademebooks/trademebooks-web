@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 import { connect } from 'react-redux'
 
@@ -8,7 +8,7 @@ import SearchBooks from '../add/SearchBooks'
 import PostBookForm from '../add/PostBookForm'
 import BookFields from '../add/BookFields'
 
-const addBooks = ({ match, getBook }) => {
+const EditBookForm = ({ match, getBook }) => {
   getBook(match.params.bookId)
 
   return (
@@ -22,7 +22,7 @@ const addBooks = ({ match, getBook }) => {
             <MDBCol>
               <SearchBooks />
               <PostBookForm />
-              <BookFields />
+              <BookFields editBook={true} />
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -37,4 +37,4 @@ const mapDispatchToProps = {
   getBook
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(addBooks)
+export default connect(mapStateToProps, mapDispatchToProps)(EditBookForm)

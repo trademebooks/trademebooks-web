@@ -57,7 +57,7 @@ const Login = ({ login, isAuthenticated }) => {
               <div>
                 <div className="text-right">
                   <Link to="/forgot-password">
-                    <strong>Forgot Password?</strong>
+                    <strong>Forgot Your Password?</strong>
                   </Link>
                 </div>
                 <div className="text-center">

@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 import { toastr } from 'react-redux-toastr'
 
 import './Book.scss'
@@ -11,9 +13,13 @@ import bookstoreIcon from './icons/bookstoreIcon.png'
 import edit_icon from './icons/edit_icon.png'
 import delete_icon from './icons/delete_icon.png'
 
-import { deleteBookById } from '../../../actions/book'
+import { deleteBookById } from '../../../actions/bookstore'
 
-const Book = ({ book, editFlag }) => {
+const Book = ({
+  book,
+  editFlag,
+  deleteBookById
+}) => {
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
     year: 'numeric',
@@ -23,7 +29,7 @@ const Book = ({ book, editFlag }) => {
 
   const deleteBook = () => {
     const toastrConfirmOptions = {
-      onOk: async () => {
+      onOk: () => {
         console.log('OK: clicked')
         deleteBookById(book._id)
       },
@@ -122,8 +128,8 @@ const Book = ({ book, editFlag }) => {
                 <img src={edit_icon} alt="test" className="chat-image" />
               </a>
             ) : (
-              <img src={Message_icon} alt="test" className="chat-image" />
-            )}
+                <img src={Message_icon} alt="test" className="chat-image" />
+              )}
           </div>
           <div>
             {editFlag ? (
@@ -137,14 +143,14 @@ const Book = ({ book, editFlag }) => {
                 </a>
               </span>
             ) : (
-              <a href={`/bookstore/${book.username}`}>
-                <img
-                  src={bookstoreIcon}
-                  alt="test"
-                  className="bookstore-image"
-                />
-              </a>
-            )}
+                <a href={`/bookstore/${book.username}`}>
+                  <img
+                    src={bookstoreIcon}
+                    alt="test"
+                    className="bookstore-image"
+                  />
+                </a>
+              )}
           </div>
           <div>{datePosted}</div>
         </div>
@@ -154,4 +160,18 @@ const Book = ({ book, editFlag }) => {
   )
 }
 
-export default Book
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  editFlag: PropTypes.bool.isRequired,
+  deleteBookById: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = {
+  deleteBookById
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Book)

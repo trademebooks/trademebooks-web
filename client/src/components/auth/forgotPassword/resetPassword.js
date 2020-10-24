@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 
-const ForgotPasswordForm = ({ resetPassword }) => {
+import { resetPassword } from '../../../actions/password'
+
+const ForgotPasswordForm = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -15,7 +17,7 @@ const ForgotPasswordForm = ({ resetPassword }) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    // resetPassword(email)
+    resetPassword(formData)
   }
 
   return (

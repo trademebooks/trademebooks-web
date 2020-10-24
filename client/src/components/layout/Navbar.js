@@ -18,7 +18,6 @@ import logo from '../../img/logo.png'
 
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [bookstoreUrl, setBookstoreUrl] = useState('')
   const [fullname, setFullname] = useState('')
 
   const toggleCollapse = () => {
@@ -27,7 +26,6 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
   useEffect(() => {
     if (user) {
-      setBookstoreUrl(`/bookstore/${user.username}`)
       setFullname(`${user.first_name} ${user.last_name}`)
     }
   }, [user])
