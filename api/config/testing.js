@@ -10,5 +10,6 @@ module.exports = {
   twilioKeys: {
     accountSid: 'ACaf602a3c1207efe0343de5c9130a3340',
     authToken: 'b20ac9f89c3a16bc8699274e06ea5c8a'
-  }
+  },
+  contactUsEmail: 'yichenzhu1337@gmail.com'
 }
