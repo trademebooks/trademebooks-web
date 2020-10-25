@@ -2,7 +2,7 @@ node_modules
 .idea
 .vscode
 
-config/dev.js
+api/config/dev.js
 
 yarn.lock
 
