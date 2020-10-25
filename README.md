@@ -70,7 +70,7 @@ module.exports = {
 };
 ```
 
-Use This: https://drive.google.com/file/d/1o8WwjnuLpu13pKYMjJ8x2gTKKWUPr0V8/view?usp=sharing
+Use this file: https://drive.google.com/file/d/1o8WwjnuLpu13pKYMjJ8x2gTKKWUPr0V8/view?usp=sharing
 
 ### Backend Setup - Seeding the databse with data
 
