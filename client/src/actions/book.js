@@ -84,7 +84,6 @@ export const updateBook = (bookId, book) => async (dispatch) => {
       type: UPDATE_BOOK,
       payload: book
     })
-
   } catch (err) {
     const data = err.response.data
     const errors = data.errors

@@ -1,16 +1,12 @@
-
 import React, { useEffect } from 'react'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 import Books from '../../books/common/Books'
 
-const MyBookStore = ({
-  books,
-  getBookstoreByUsername
-}) => {
+const MyBookStore = ({ books, getBookstoreByUsername }) => {
   useEffect(() => {
     getBookstoreByUsername('auth')
   }, [])
-  
+
   return (
     <>
       <div className="header-container text-center">
@@ -23,8 +19,8 @@ const MyBookStore = ({
               {books.length < 1 ? (
                 <div>There are no books in this bookstore...</div>
               ) : (
-                  <Books books={books} editFlag={true} />
-                )}
+                <Books books={books} editFlag={true} />
+              )}
             </MDBCol>
           </MDBRow>
         </MDBContainer>

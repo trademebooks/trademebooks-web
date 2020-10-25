@@ -13,8 +13,7 @@ const BookFields = ({ book, addBook, createBook, editBook, updateBook }) => {
 
     if (editBook) {
       updateBook(book._id, book)
-    }
-    else {
+    } else {
       createBook(book)
     }
   }
@@ -50,7 +49,7 @@ const BookFields = ({ book, addBook, createBook, editBook, updateBook }) => {
           <MDBRow>
             <MDBCol md="12" sm="12">
               <MDBBtn className="w-100" onClick={postBook}>
-                {(editBook) ? 'Update Book Listing' : 'Save and Add Another Book'}
+                {editBook ? 'Update Book Listing' : 'Save and Add Another Book'}
               </MDBBtn>
             </MDBCol>
           </MDBRow>

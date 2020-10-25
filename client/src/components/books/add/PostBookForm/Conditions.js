@@ -17,7 +17,9 @@ const Conditions = ({ book, addBook }) => {
 
   console.log('Conditions', { book })
 
-  const [currentConditionType, setCurrentConditionType] = useState(CONDITION_TYPES.GOOD)
+  const [currentConditionType, setCurrentConditionType] = useState(
+    CONDITION_TYPES.GOOD
+  )
 
   const conditions = [
     {
@@ -65,7 +67,11 @@ const Conditions = ({ book, addBook }) => {
         <p className="condition-title">{cond.text}</p>
         <img
           className="condition-img"
-          src={currentConditionType === cond.type ? cond.imgSelected : cond.imageUrl}
+          src={
+            currentConditionType === cond.type
+              ? cond.imgSelected
+              : cond.imageUrl
+          }
           alt={cond.text}
           name="condition"
           cond={cond.name}

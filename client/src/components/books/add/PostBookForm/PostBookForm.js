@@ -18,7 +18,7 @@ const PostBookForm = ({ book, addBook }) => {
         <MDBContainer>
           <MDBRow>
             <MDBCol md="4" sm="12">
-              <div className='text-center'>
+              <div className="text-center">
                 <div className="py-5">
                   <img
                     src={book.imageUrl || bookImage}

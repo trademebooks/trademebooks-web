@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+const crypto = require('crypto')
 const globalResponseDTO = require('../responses/globalResponseDTO')
 const catchExceptions = require('../utils/catchExceptions')
 const mailer = require('../domain/services/mail.service')
@@ -6,18 +6,18 @@ const PasswordModel = require('../domain/models/password.model')
 const UserModel = require('../domain/models/user.model')
 
 const sendPasswordResetEmail = catchExceptions(async (req, res, next) => {
-
   console.log('req.headers', req.headers)
 
   const { email } = req.body
 
-  const token = crypto.createHash('md5').update(email).digest("hex");
+  const token = crypto.createHash('md5').update(email).digest('hex')
 
   const password = await PasswordModel.findOneAndUpdate(
     { email, token }, // find a document with that filter
     { email, token }, // document to insert when nothing was found
     { upsert: true, new: true, runValidators: true }, // options
-    function (err, doc) { // callback
+    function (err, doc) {
+      // callback
       if (err) {
         // handle error
         console.log('error:', err)
@@ -53,7 +53,10 @@ const resetPassword = catchExceptions(async (req, res, next) => {
 
   if (password) {
     // userRepository.updateByEmail(email, new_password)
-    const user = await UserModel.updateOne({ email }, { password: new_password })
+    const user = await UserModel.updateOne(
+      { email },
+      { password: new_password }
+    )
 
     return res.json(
       globalResponseDTO(
@@ -64,8 +67,7 @@ const resetPassword = catchExceptions(async (req, res, next) => {
         (errors = null)
       )
     )
-  }
-  else {
+  } else {
     return res.json(
       globalResponseDTO(
         (status = 'failed'),

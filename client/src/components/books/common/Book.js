@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { toastr } from 'react-redux-toastr'
 
@@ -16,11 +16,7 @@ import delete_icon from './icons/delete_icon.png'
 
 import { deleteBookById } from '../../../actions/bookstore'
 
-const Book = ({
-  book,
-  editFlag,
-  deleteBookById
-}) => {
+const Book = ({ book, editFlag, deleteBookById }) => {
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
     year: 'numeric',
@@ -84,7 +80,9 @@ const Book = ({
                   {book.edition}
                 </span>
               </span>
-            ) : ''}
+            ) : (
+              ''
+            )}
           </div>
 
           <div className="single-card-column-section-2__row-2">
@@ -144,19 +142,15 @@ const Book = ({
                 <img src={edit_icon} alt="test" className="chat-image" />
               </a>
             ) : (
-                <MDBTooltip
-                  domElement
-                  tag="span"
-                  placement="left"
-                >
-                  <span>
-                    <a href={`/messages/${book.username}`}>
-                      <img src={Message_icon} alt="test" className="chat-image" />
-                    </a>
-                  </span>
-                  <span>{`Message ${book.username}`}</span>
-                </MDBTooltip>
-              )}
+              <MDBTooltip domElement tag="span" placement="left">
+                <span>
+                  <a href={`/messages/${book.username}`}>
+                    <img src={Message_icon} alt="test" className="chat-image" />
+                  </a>
+                </span>
+                <span>{`Message ${book.username}`}</span>
+              </MDBTooltip>
+            )}
           </div>
           <div>
             {editFlag ? (
@@ -170,25 +164,21 @@ const Book = ({
                 </a>
               </span>
             ) : (
-                <div className="bookstore-username">
-                  <MDBTooltip
-                    domElement
-                    tag="span"
-                    placement="left"
-                  >
-                    <span>
-                      <a href={`/bookstore/${book.username}`}>
-                        <img
-                          src={bookstoreIcon}
-                          alt={`/bookstore/${book.username}`}
-                          className="bookstore-image"
-                        />
-                      </a>
-                    </span>
-                    <span>{`${book.username}'s Bookstore`}</span>
-                  </MDBTooltip>
-                </div>
-              )}
+              <div className="bookstore-username">
+                <MDBTooltip domElement tag="span" placement="left">
+                  <span>
+                    <a href={`/bookstore/${book.username}`}>
+                      <img
+                        src={bookstoreIcon}
+                        alt={`/bookstore/${book.username}`}
+                        className="bookstore-image"
+                      />
+                    </a>
+                  </span>
+                  <span>{`${book.username}'s Bookstore`}</span>
+                </MDBTooltip>
+              </div>
+            )}
           </div>
           <div>{datePosted}</div>
         </div>
@@ -202,11 +192,9 @@ Book.propTypes = {
   book: PropTypes.object.isRequired,
   editFlag: PropTypes.bool.isRequired,
   deleteBookById: PropTypes.func.isRequired
-};
+}
 
-const mapStateToProps = (state) => ({
-
-})
+const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = {
   deleteBookById

@@ -25,13 +25,9 @@ module.exports = async (users) => {
         edition: 1,
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
@@ -46,13 +42,9 @@ module.exports = async (users) => {
         edition: 1,
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
@@ -66,13 +58,9 @@ module.exports = async (users) => {
         edition: 1,
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
@@ -86,13 +74,9 @@ module.exports = async (users) => {
         edition: 1,
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
@@ -106,13 +90,9 @@ module.exports = async (users) => {
         edition: 1,
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
@@ -126,13 +106,9 @@ module.exports = async (users) => {
         edition: 1,
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
@@ -146,13 +122,9 @@ module.exports = async (users) => {
         edition: 1,
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: 'Jan 7, 2020'
       })
     ]
@@ -180,13 +152,9 @@ module.exports = async (users) => {
         edition: Math.round(Math.random(0, 5) * 5),
         imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: [
-          'POOR',
-          'FAIR',
-          'GOOD',
-          'VERY_GOOD',
-          'LIKE_NEW'
-        ][Math.round(Math.random() * 4)],
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: new Date()
       }
 
