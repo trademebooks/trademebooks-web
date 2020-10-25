@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { toastr } from 'react-redux-toastr'
 
+import { MDBTooltip } from 'mdbreact'
+
 import './Book.scss'
 
 import very_good_condition_green_image from './icons/Verygood_condition.png'
-import sample_book_image from './icons/sample-book.png'
 import Message_icon from './icons/Message_user.png'
 import Location_icon from './icons/Location_icon.png'
 import bookstoreIcon from './icons/bookstoreIcon.png'
@@ -40,6 +41,21 @@ const Book = ({
     toastr.confirm('Are you sure about that?', toastrConfirmOptions)
   }
 
+  const conditions = {
+    POOR: require('../../../img/condition_icons/Poor_condition.png'),
+    FAIR: require('../../../img/condition_icons/Fair_condition.png'),
+    GOOD: require('../../../img/condition_icons/Good_condition.png'),
+    VERY_GOOD: require('../../../img/condition_icons/Verygood_condition.png'),
+    LIKE_NEW: require('../../../img/condition_icons/Likenew_condition.png')
+  }
+
+  console.log()
+
+  // console.log(
+  //   conditions.find(condition => {
+  //     return condition.type === [book.condition]
+  //   })
+  // )
   return (
     <div className="single-card mt-3">
       <div className="single-card-container">
@@ -48,7 +64,7 @@ const Book = ({
           <div className="single-card__image-section">
             <img
               className="single-card-image"
-              src={sample_book_image}
+              src={book.imageUrl}
               alt="single card book"
             />
           </div>
@@ -60,7 +76,7 @@ const Book = ({
           <div className="single-card-column-section-2__row-1">
             <span className="single-card__book-title">{book.title}</span>
             <span>&nbsp;</span>
-            {book.edition && (
+            {book.edition ? (
               <span className="single-card__book-edition-container">
                 <span className="single-card__book-edition">Edition</span>
                 <span>&nbsp;</span>
@@ -68,7 +84,7 @@ const Book = ({
                   {book.edition}
                 </span>
               </span>
-            )}
+            ) : ''}
           </div>
 
           <div className="single-card-column-section-2__row-2">
@@ -76,8 +92,8 @@ const Book = ({
               <span className="single-card__book-condition">
                 <img
                   height="25px"
-                  src={very_good_condition_green_image}
-                  alt="condition=good"
+                  src={conditions[book.condition]}
+                  alt={conditions[book.condition]}
                 />
               </span>
             </div>
@@ -128,7 +144,18 @@ const Book = ({
                 <img src={edit_icon} alt="test" className="chat-image" />
               </a>
             ) : (
-                <img src={Message_icon} alt="test" className="chat-image" />
+                <MDBTooltip
+                  domElement
+                  tag="span"
+                  placement="left"
+                >
+                  <span>
+                    <a href={`/messages/${book.username}`}>
+                      <img src={Message_icon} alt="test" className="chat-image" />
+                    </a>
+                  </span>
+                  <span>{`Message ${book.username}`}</span>
+                </MDBTooltip>
               )}
           </div>
           <div>
@@ -143,13 +170,24 @@ const Book = ({
                 </a>
               </span>
             ) : (
-                <a href={`/bookstore/${book.username}`}>
-                  <img
-                    src={bookstoreIcon}
-                    alt="test"
-                    className="bookstore-image"
-                  />
-                </a>
+                <div className="bookstore-username">
+                  <MDBTooltip
+                    domElement
+                    tag="span"
+                    placement="left"
+                  >
+                    <span>
+                      <a href={`/bookstore/${book.username}`}>
+                        <img
+                          src={bookstoreIcon}
+                          alt={`/bookstore/${book.username}`}
+                          className="bookstore-image"
+                        />
+                      </a>
+                    </span>
+                    <span>{`${book.username}'s Bookstore`}</span>
+                  </MDBTooltip>
+                </div>
               )}
           </div>
           <div>{datePosted}</div>

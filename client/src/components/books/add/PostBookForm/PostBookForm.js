@@ -18,10 +18,10 @@ const PostBookForm = ({ book, addBook }) => {
         <MDBContainer>
           <MDBRow>
             <MDBCol md="4" sm="12">
-              <div>
-                <div className="py-3">
+              <div className='text-center'>
+                <div className="py-5">
                   <img
-                    src={book.image_url || bookImage}
+                    src={book.imageUrl || bookImage}
                     alt="thumbnail"
                     className="img-thumbnail book-image-size"
                   />
@@ -47,7 +47,7 @@ const PostBookForm = ({ book, addBook }) => {
                     <MDBInput label="ISBN-13" size="lg" value={book.isbn_13} />
                   </div>
                   <div className="form-group">
-                    <MDBInput label="Edition" size="lg" />
+                    <MDBInput label="Edition" size="lg" value={book.edition} />
                   </div>
                 </form>
               </div>

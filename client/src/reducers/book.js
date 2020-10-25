@@ -5,7 +5,13 @@ const initialState = {
   book: {
     title: '',
     price: '',
-    description: ''
+    description: '',
+    authors: [],
+    isbn_10: '',
+    isbn_13: '',
+    condition: 'GOOD',
+    imageUrl: '',
+    edition: ''
   },
   loading: true,
   error: {}

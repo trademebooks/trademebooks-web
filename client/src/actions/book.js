@@ -51,7 +51,13 @@ export const createBook = (book) => async (dispatch) => {
       payload: {
         title: '',
         price: '',
-        description: ''
+        description: '',
+        authors: [],
+        isbn_10: '',
+        isbn_13: '',
+        condition: 'GOOD',
+        imageUrl: '',
+        edition: ''
       }
     })
   } catch (err) {

@@ -22,14 +22,15 @@ const SearchBooks = ({ addBook }) => {
       if (data && data.items) {
         const books = data.items.map((book) => {
           const bookVolumeInfo = book['volumeInfo']
+
           const bookPrettified = {
             title: bookVolumeInfo['title'],
             authors: bookVolumeInfo['authors'] || [],
             publisher: bookVolumeInfo['publisher'],
-            image_url:
+            imageUrl:
               bookVolumeInfo['imageLinks'] &&
-              bookVolumeInfo['imageLinks']['smallThumbnail']
-                ? bookVolumeInfo['imageLinks']['smallThumbnail']
+              bookVolumeInfo['imageLinks']['thumbnail']
+                ? bookVolumeInfo['imageLinks']['thumbnail']
                 : '',
             isbn_10:
               bookVolumeInfo['industryIdentifiers'] &&
@@ -59,8 +60,8 @@ const SearchBooks = ({ addBook }) => {
   return (
     <>
       <div className="search-books-container">
-        <div>
-          <p>Search millions of books!</p>
+        <div className="m-2 text-center">
+          <p className="search-books-header">Search over millions of books!</p>
         </div>
         <div>
           <Autocomplete
