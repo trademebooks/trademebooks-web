@@ -2,7 +2,7 @@ import React from 'react'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 import { connect } from 'react-redux'
 
-import { getBook } from '../../../actions/book'
+import { getBook } from '../../../actions/bookstore'
 
 import SearchBooks from '../add/SearchBooks'
 import PostBookForm from '../add/PostBookForm'

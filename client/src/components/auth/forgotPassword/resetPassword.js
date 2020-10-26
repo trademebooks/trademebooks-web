@@ -17,7 +17,10 @@ const ForgotPasswordForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+
     resetPassword(formData)
+
+    setFormData({ email: '' })
   }
 
   return (

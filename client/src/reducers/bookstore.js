@@ -1,7 +1,17 @@
-import { GET_BOOKSTORE } from '../actions/types'
+import { GET_BOOKSTORE, GET_BOOK, UPDATE_BOOK } from '../actions/types'
 
 const initialState = {
-  bookstore: {},
+  book: {
+    title: '',
+    price: '',
+    description: '',
+    authors: [],
+    isbn_10: '',
+    isbn_13: '',
+    condition: 'GOOD',
+    imageUrl: '',
+    edition: ''
+  },
   books: []
 }
 
@@ -13,6 +23,22 @@ export default function (state = initialState, action) {
       return {
         ...state,
         books: payload,
+        loading: false
+      }
+    case GET_BOOK:
+      return {
+        book: {
+          ...state.book,
+          ...payload
+        },
+        loading: false
+      }
+    case UPDATE_BOOK:
+      return {
+        book: {
+          ...state.book,
+          ...payload
+        },
         loading: false
       }
     default:

@@ -7,6 +7,8 @@ import { MDBTooltip } from 'mdbreact'
 
 import './Book.scss'
 
+import defaultBookImage from '../common/icons/sample-book.png'
+
 import very_good_condition_green_image from './icons/Verygood_condition.png'
 import Message_icon from './icons/Message_user.png'
 import Location_icon from './icons/Location_icon.png'
@@ -60,7 +62,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
           <div className="single-card__image-section">
             <img
               className="single-card-image"
-              src={book.imageUrl}
+              src={book.imageUrl ? book.imageUrl : defaultBookImage}
               alt="single card book"
             />
           </div>

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { addBook, createBook, updateBook } from '../../../../actions/book'
+import { addBook, createBook } from '../../../../actions/book'
+import { updateBook } from '../../../../actions/bookstore'
 import BookFields from './BookFields'
 
 const mapStateToProps = (state) => ({
