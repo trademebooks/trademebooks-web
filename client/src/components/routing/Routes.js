@@ -10,7 +10,7 @@ import Login from '../auth/login'
 import ForgotPassword from '../auth/forgotPassword'
 import ResetPassword from '../auth/forgotPassword/resetPassword'
 
-import About from '../about'
+import About from '../pages/about'
 import Contact from '../pages/contact'
 import Home from '../pages/home'
 
