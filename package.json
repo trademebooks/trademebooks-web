@@ -35,7 +35,6 @@
     "faker": "^4.1.0",
     "mongoose": "^5.9.5",
     "node-fetch": "^2.6.1",
-    "normalize-url": "^5.0.0",
     "validatorjs": "^3.18.1"
   },
   "devDependencies": {
