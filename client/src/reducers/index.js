@@ -5,11 +5,13 @@ import { reducer as toastrReducer } from 'react-redux-toastr'
 import auth from './auth'
 import book from './book'
 import bookstore from './bookstore'
+import chatUser from './chatUser/reducer'
 
 export default combineReducers({
   alert,
   toastr: toastrReducer,
   auth,
   book,
-  bookstore
+  bookstore,
+  chatUser
 })
