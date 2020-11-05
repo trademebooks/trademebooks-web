@@ -35,6 +35,7 @@
     "faker": "^4.1.0",
     "mongoose": "^5.9.5",
     "node-fetch": "^2.6.1",
+    "socket.io": "^2.1.1",
     "validatorjs": "^3.18.1"
   },
   "devDependencies": {

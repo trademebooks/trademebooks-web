@@ -19,6 +19,7 @@ import BookAdd from '../books/add'
 import BookEdit from '../books/edit'
 import Bookstore from '../bookstore'
 import MyBookstore from '../bookstore/myBookstore'
+import ChatWrapper from '../chat/containers/Chat/Wrapper';
 
 const Routes = () => {
   return (
@@ -44,6 +45,7 @@ const Routes = () => {
         <PrivateRoute exact path="/books/edit/:bookId" component={BookEdit} />
         <PrivateRoute exact path="/account" component={Account} />
         <PrivateRoute exact path="/my-bookstore" component={MyBookstore} />
+        <PrivateRoute exact path="/chat/:id?" component={ChatWrapper} />
 
         <Route component={NotFound} />
       </Switch>
