@@ -70,7 +70,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="/messages">
+              <MDBNavLink className="waves-effect waves-light" to="/chat/123">
                 <MDBIcon icon="envelope" /> <span>Messages</span>
               </MDBNavLink>
             </MDBNavItem>

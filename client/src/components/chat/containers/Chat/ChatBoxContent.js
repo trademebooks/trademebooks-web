@@ -6,8 +6,8 @@ import { withRouter, } from 'react-router-dom';
 import withChat from './Context/withChat';
 
 // components
-import Chatbox from '../../components/DataDisplay/Chatbox';
-import ChatInput from '../../components/DataEntry/ChatInput';
+import Chatbox from '../../DataDisplay/Chatbox';
+import ChatInput from '../../DataEntry/ChatInput';
 
 const INITIAL_STATE = {
 	inputValue: '',

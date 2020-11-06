@@ -2,7 +2,7 @@ import React from 'react';
 import update from 'immutability-helper';
 
 import { connect } from 'react-redux';
-import { NEW_ONLINE_USER, } from '../../../redux/auth/types';
+import { NEW_ONLINE_USER, } from '../../../../../reducers/chatUser/types';
 
 import { ChatContext, } from './ChatContext';
 import socket from '../../../utils/socket';

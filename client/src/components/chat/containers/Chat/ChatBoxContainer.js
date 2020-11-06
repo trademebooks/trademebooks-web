@@ -13,9 +13,9 @@ import styled from 'styled-components';
 import { Flex, Text, Button, } from 'rebass';
 
 // components
-import Chatbox from '../../components/DataDisplay/Chatbox';
+import Chatbox from '../../DataDisplay/Chatbox';
 import ChatBoxContent from './ChatBoxContent';
-import Icon from '../../components/DataDisplay/Icon';
+import Icon from '../../DataDisplay/Icon';
 
 // intern components
 const Wrapper = styled(Flex)`

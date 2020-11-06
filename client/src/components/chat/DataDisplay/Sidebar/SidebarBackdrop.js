@@ -11,7 +11,7 @@ const Backdrop = styled.div`
     background-color: #000000a3;
 `;
 
-const SidebarBackdrop = ({ show, ...rest, }) => {
+const SidebarBackdrop = ({ show, ...rest }) => {
 	return show ? <Backdrop {...rest} /> : null;
 }
 

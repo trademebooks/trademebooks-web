@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connect, } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter, } from 'react-router-dom';
-import { REMOVE_ONLINE_USER, } from '../../redux/auth/types';
+import { REMOVE_ONLINE_USER, } from '../../../../reducers/chatUser/types';
 
 import withChat from './Context/withChat';
 import socket from '../../utils/socket';
@@ -12,9 +12,9 @@ import styled from 'styled-components';
 import { Flex, Input, } from 'rebass';
 
 // components
-import Avatar from '../../components/DataDisplay/Avatar';
-import MessageCounter from '../../components/DataDisplay/MessageCounter';
-import Sidebar from '../../components/DataDisplay/Sidebar';
+import Avatar from '../../DataDisplay/Avatar';
+import MessageCounter from '../../DataDisplay/MessageCounter';
+import Sidebar from '../../DataDisplay/Sidebar';
 
 const Header = styled.div`
 		display: flex;
