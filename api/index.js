@@ -32,15 +32,15 @@ app.use('/api/v1', router)
 /**
  * SOCKETs for chat app
  */
-const server = http.Server(app);
-const io = require('socket.io')(server);
+const server = http.Server(app)
+const io = require('socket.io')(server)
 io.on('connection', async (socket) => {
-	require('./sockets/chat/joinedUser')(io, socket);
-	require('./sockets/chat/chatMessage')(io, socket);
-	require('./sockets/chat/disconnect')(io, socket);
-	require('./sockets/chat/privateMessage')(io, socket);
-	require('./sockets/chat/joinPrivateRoom')(io, socket);
-});
+  require('./sockets/chat/joinedUser')(io, socket)
+  require('./sockets/chat/chatMessage')(io, socket)
+  require('./sockets/chat/disconnect')(io, socket)
+  require('./sockets/chat/privateMessage')(io, socket)
+  require('./sockets/chat/joinPrivateRoom')(io, socket)
+})
 
 // Event listeners
 require('./events')

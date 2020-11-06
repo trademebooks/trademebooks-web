@@ -1,21 +1,23 @@
-const User = require('../../domain/models/user.model');
+const User = require('../../domain/models/user.model')
 
 module.exports = (io, socket) => {
-	socket.on('join user', async (user) => {
-		// add user to db
-		const onlineUser = new User({ socketId: socket.id, nickname: user.nickname });
-		await onlineUser.save();
+  socket.on('join user', async (user) => {
+    // add user to db
+    const onlineUser = new User({
+      socketId: socket.id,
+      nickname: user.nickname
+    })
+    await onlineUser.save()
 
-		// get online users
-		const onlineUsers = await User.find({})
-			.where('_id').ne(onlineUser._id);
+    // get online users
+    const onlineUsers = await User.find({}).where('_id').ne(onlineUser._id)
 
-		// send to current request socket client
-		socket.emit('user joined', {
-			onlineUsers,
-		});
+    // send to current request socket client
+    socket.emit('user joined', {
+      onlineUsers
+    })
 
-		// sending to all clients except sender
-		socket.broadcast.emit('new online user', onlineUser);
-	});
+    // sending to all clients except sender
+    socket.broadcast.emit('new online user', onlineUser)
+  })
 }

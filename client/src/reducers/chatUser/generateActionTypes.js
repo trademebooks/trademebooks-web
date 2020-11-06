@@ -1,19 +1,13 @@
-const TYPES = [
-	'REQUEST',
-	'SUCCESS',
-	'FAILURE',
-	'CANCEL',
-	'RESET',
-]
+const TYPES = ['REQUEST', 'SUCCESS', 'FAILURE', 'CANCEL', 'RESET']
 
-const generateActionTypes = base => {
-	const ref = {}
+const generateActionTypes = (base) => {
+  const ref = {}
 
-	TYPES.forEach((type) => {
-			ref[type] = `${base}_${type}`
-	});
+  TYPES.forEach((type) => {
+    ref[type] = `${base}_${type}`
+  })
 
-	return ref;
+  return ref
 }
 
-export default generateActionTypes;
+export default generateActionTypes

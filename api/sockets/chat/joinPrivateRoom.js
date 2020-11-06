@@ -1,29 +1,29 @@
-const User = require('../../domain/models/user.model');
-const Room = require('../../domain/models/room.model');
+const User = require('../../domain/models/user.model')
+const Room = require('../../domain/models/room.model')
 
 module.exports = (io, socket) => {
-	socket.on('join private room', async (data) => {
-		const emitterUser = await User.findOne({ socketId: socket.id });
-		const receiverUser = await User.findById(data.receiverId);
+  socket.on('join private room', async (data) => {
+    const emitterUser = await User.findOne({ socketId: socket.id })
+    const receiverUser = await User.findById(data.receiverId)
 
-		const alreadyInRoom = await Room.find({
-			users: {
-				$all: [emitterUser._id, receiverUser._id]
-			}
-		});
+    const alreadyInRoom = await Room.find({
+      users: {
+        $all: [emitterUser._id, receiverUser._id]
+      }
+    })
 
-		if (alreadyInRoom.length) {
-			io.in(alreadyInRoom[0]._id).clients((error, clients) => {
-				// if user is not inside the room yet
-				if (clients.every(x => String(x) !== String(socket.id))) {
-					socket.join(alreadyInRoom[0]._id);
-				}
-			});
-		} else {
-			const newRoom = new Room({ users: [emitterUser._id, receiverUser._id] });
-			await newRoom.save();
+    if (alreadyInRoom.length) {
+      io.in(alreadyInRoom[0]._id).clients((error, clients) => {
+        // if user is not inside the room yet
+        if (clients.every((x) => String(x) !== String(socket.id))) {
+          socket.join(alreadyInRoom[0]._id)
+        }
+      })
+    } else {
+      const newRoom = new Room({ users: [emitterUser._id, receiverUser._id] })
+      await newRoom.save()
 
-			socket.join(newRoom._id);
-		}
-	});
+      socket.join(newRoom._id)
+    }
+  })
 }

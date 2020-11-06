@@ -19,7 +19,7 @@ import BookAdd from '../books/add'
 import BookEdit from '../books/edit'
 import Bookstore from '../bookstore'
 import MyBookstore from '../bookstore/myBookstore'
-import ChatWrapper from '../chat/containers/Chat/Wrapper';
+import ChatWrapper from '../chat/containers/Chat/Wrapper'
 
 const Routes = () => {
   return (

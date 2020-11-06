@@ -1,42 +1,42 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class SidebarManager extends React.Component {
-	state = {
-		show: false,
-	}
+  state = {
+    show: false
+  }
 
-	componentDidMount() {
-		this.showOrHide();
-	}
+  componentDidMount() {
+    this.showOrHide()
+  }
 
-	static getDerivedStateFromProps(props, state) {
-		if (props.show !== state.show) {
-			return {
-				show: props.show,
-			}
-		}
+  static getDerivedStateFromProps(props, state) {
+    if (props.show !== state.show) {
+      return {
+        show: props.show
+      }
+    }
 
-		return null;
-	}
+    return null
+  }
 
-	showOrHide() {
-		const { show, } = this.props;
+  showOrHide() {
+    const { show } = this.props
 
-		this.setState({ show });
-	}
+    this.setState({ show })
+  }
 
-	render() {
-		return this.props.children(this.state);
-	}
+  render() {
+    return this.props.children(this.state)
+  }
 }
 
 SidebarManager.defaultProps = {
-	show: false,
+  show: false
 }
 
 SidebarManager.propTypes = {
-	show: PropTypes.bool,
+  show: PropTypes.bool
 }
 
-export default SidebarManager;
+export default SidebarManager

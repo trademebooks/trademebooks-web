@@ -1,10 +1,10 @@
-const User = require('../../domain/models/user.model');
+const User = require('../../domain/models/user.model')
 
 module.exports = (io, socket) => {
-    socket.on('disconnect', async () => {
-				const userToRemove = await User.findOne({ socketId: socket.id });
-        await User.findOneAndRemove({ socketId: socket.id });
+  socket.on('disconnect', async () => {
+    const userToRemove = await User.findOne({ socketId: socket.id })
+    await User.findOneAndRemove({ socketId: socket.id })
 
-        io.emit('disconnected user', { userId: userToRemove._id });
-    });
+    io.emit('disconnected user', { userId: userToRemove._id })
+  })
 }
