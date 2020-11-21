@@ -1,10 +1,19 @@
 import React from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact'
 
+let phantom = {
+  // display: 'block',
+  // padding: '20px',
+  // height: '60px',
+  // width: '100%',
+};
+
 const Footer = () => {
   return (
     <div>
-      <div style={{"position": "absolute", "bottom": 0, "width": "100%"}}>
+      <div style={{"position": "fixed", "left": 0, "bottom": 0, "width": "100%"}}> 
+      {/* style={{"height": "50px", "marginTop": "-50px"}} */}
+      {/* <div> */}
         <MDBFooter className="font-small pt-4 mt-4 teal">
           <MDBContainer fluid className="text-center text-md-left">
             <MDBRow>
