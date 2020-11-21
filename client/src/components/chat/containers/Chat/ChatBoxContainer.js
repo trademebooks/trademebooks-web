@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 // context
 import withChat from './Context/withChat'
 
-// redux
-import { connect } from 'react-redux'
-
 // styled components
 import styled from 'styled-components'
-
 // rebass
 import { Flex, Text, Button } from 'rebass'
 
@@ -49,6 +46,7 @@ const IconSidebarButton = styled(Icon)`
 `
 
 class ChatBoxContainer extends Component {
+
   state = {
     chatsTitle: '',
     showChat: false,
@@ -58,16 +56,28 @@ class ChatBoxContainer extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+
     const {
       match: { params },
-      authReducer
+      onlineUsers
     } = nextProps
+
     if (params.id && params.id !== prevState.caching.id) {
+      console.log({ onlineUsers })
+
+      let chatsTitle = 'Chat Title'
+      let personToChatWith = onlineUsers.find(
+        (x) => x._id === params.id
+      )
+
+      if (personToChatWith) {
+        personToChatWith = personToChatWith
+        chatsTitle = personToChatWith.username
+      }
+
       return {
         showChat: !!params.id,
-        chatsTitle: authReducer.onlineUsers.filter(
-          (x) => x._id === params.id
-        )[0].nickname,
+        chatsTitle,
         caching: {
           ...prevState.caching,
           id: params.id
@@ -120,7 +130,7 @@ class ChatBoxContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  authReducer: state.auth
+  chatReducer: state.chatUser
 })
 
 export default withChat(connect(mapStateToProps)(ChatBoxContainer))

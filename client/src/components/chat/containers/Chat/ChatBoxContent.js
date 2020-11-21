@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
 
-// context
 import withChat from './Context/withChat'
 
-// components
 import Chatbox from '../../DataDisplay/Chatbox'
 import ChatInput from '../../DataEntry/ChatInput'
 

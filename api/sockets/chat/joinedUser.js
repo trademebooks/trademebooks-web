@@ -2,20 +2,16 @@ const User = require('../../domain/models/user.model')
 
 module.exports = (io, socket) => {
   socket.on('join user', async (user) => {
-    // add user to db
-    const onlineUser = new User({
-      socketId: socket.id,
-      nickname: user.nickname
-    })
-    await onlineUser.save()
+    // get the currently authenticated user
+    const onlineUser = await User.findById(socket.request.session.user._id)
 
     // get online users
     const onlineUsers = await User.find({}).where('_id').ne(onlineUser._id)
 
+    // console.log({ onlineUser, onlineUsers })
+
     // send to current request socket client
-    socket.emit('user joined', {
-      onlineUsers
-    })
+    socket.emit('user joined', onlineUsers)
 
     // sending to all clients except sender
     socket.broadcast.emit('new online user', onlineUser)

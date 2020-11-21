@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { REMOVE_ONLINE_USER } from '../../../../reducers/chatUser/types'
+import { REMOVE_ONLINE_USER } from '../../../../actions/types'
 
 import withChat from './Context/withChat'
 import socket from '../../utils/socket'
@@ -118,7 +118,7 @@ class SidebarContainer extends Component {
     const {
       chatContext,
       onlineUsers,
-      nickname,
+      username,
       match: { params }
     } = this.props
 
@@ -152,11 +152,11 @@ class SidebarContainer extends Component {
                   </InputWrapper>
                 </Header>
                 <Body flexDirection="column">
-                  {!onlineUsers.length && (
+                  {onlineUsers && !onlineUsers.length && (
                     <SidebarText>Nobody is online :(</SidebarText>
                   )}
 
-                  {onlineUsers.map((val, index) => (
+                  {onlineUsers && onlineUsers.map((val, index) => (
                     <Sidebar.Button
                       key={index}
                       to={`/chat/${val._id}`}
@@ -165,14 +165,14 @@ class SidebarContainer extends Component {
                     >
                       <React.Fragment>
                         <Avatar width="30px" height="30px" m="0 .75rem 0 0" />
-                        <span>{val.nickname}</span>
+                        <span>{val.username}</span>
                         <MessageCounter userId={val._id} />
                       </React.Fragment>
                     </Sidebar.Button>
                   ))}
                 </Body>
                 <Footer>
-                  <span>{nickname}</span>
+                  <span>{username}</span>
                 </Footer>
               </Sidebar>
             </React.Fragment>
@@ -186,7 +186,6 @@ class SidebarContainer extends Component {
 const enhance = compose(withRouter, withChat, connect())
 
 SidebarContainer.propTypes = {
-  nickname: PropTypes.string.isRequired,
   onlineUsers: PropTypes.array.isRequired
 }
 

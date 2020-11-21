@@ -1,44 +1,58 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-
-import ChatProvider from './Context/ChatProvider'
-
 import styled from 'styled-components'
 import { Flex } from 'rebass'
 
-// components
-import PrivateRoute from '../../Routing/PrivateRoute'
+import ChatProvider from './Context/ChatProvider'
 import SidebarContainer from './SidebarContainer'
 import ChatBoxContainer from './ChatBoxContainer'
+
+import socket from '../../utils/socket'
+
+import { joinUser } from '../../../../actions/chatUser'
 
 const FlexWrapper = styled(Flex)`
   flex: 1;
 `
 
-class Wrapper extends Component {
-  state = {}
+const Wrapper = ({ match, authUser, joinUser, onlineUsers }) => {
 
-  render() {
-    const {
-      authReducer: { onlineUsers, user }
-    } = this.props
+  useEffect(() => {
+    socket.emit('join user')
 
-    return (
-      <ChatProvider>
-        <FlexWrapper mx={0}>
-          <SidebarContainer
-            nickname={user.data.nickname}
-            onlineUsers={onlineUsers}
-          />
-          <PrivateRoute exact path="/chat/:id?" component={ChatBoxContainer} />
-        </FlexWrapper>
-      </ChatProvider>
-    )
-  }
+    socket.on('user joined', (onlineUsers) => {
+      console.log('user joined', onlineUsers)
+  
+      joinUser({
+        authUser,
+        onlineUsers
+      })
+    })  
+  }, [])
+
+  return (
+    <ChatProvider>
+      <FlexWrapper mx={0}>
+        <SidebarContainer
+          username={authUser.username}
+          onlineUsers={onlineUsers}
+        />
+        <ChatBoxContainer
+          match={match}
+          onlineUsers={onlineUsers}
+        />
+      </FlexWrapper>
+    </ChatProvider>
+  )
 }
 
 const mapStateToProps = (state) => ({
-  authReducer: state.auth
+  authUser: state.auth.user,
+  onlineUsers: state.chatUser.onlineUsers
 })
 
-export default connect(mapStateToProps)(Wrapper)
+const mapDispatchToProps = {
+  joinUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wrapper)

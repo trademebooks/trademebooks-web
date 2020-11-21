@@ -13,17 +13,16 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const MongoStore = require('connect-mongo')(session)
 const mongoose = require('mongoose')
 
-app.use(
-  session({
-    secret: config.sessionSecret,
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      collection: 'sessions'
-    })
+const sessionMiddleware = session({
+  secret: config.sessionSecret,
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    collection: 'sessions'
   })
-)
+})
+app.use(sessionMiddleware)
 
 const getRouter = require('./routes')
 const router = getRouter()
@@ -32,9 +31,25 @@ app.use('/api/v1', router)
 /**
  * SOCKETs for chat app
  */
-const server = http.Server(app)
+app.use(function (req, res) {
+  req.session.name = "THE NAME";
+})
+const server = http.createServer(app)
 const io = require('socket.io')(server)
-io.on('connection', async (socket) => {
+io.use(function (socket, next) {
+  sessionMiddleware(socket.request, socket.request.res || {}, next);
+})
+io.on('connection', (socket) => {
+  console.log('socket connected!')
+
+  console.log(socket.request.session)
+
+  socket.emit('message', 'Welcome to ChatCord');
+
+  socket.broadcast.emit('message', 'A user has joined the chat');
+
+  io.emit('message', 'hello everyone');
+
   require('./sockets/chat/joinedUser')(io, socket)
   require('./sockets/chat/chatMessage')(io, socket)
   require('./sockets/chat/disconnect')(io, socket)
@@ -92,4 +107,4 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'))
 })
 
-module.exports = http.createServer(app)
+module.exports = server

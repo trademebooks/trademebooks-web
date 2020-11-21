@@ -2,7 +2,7 @@ import React from 'react'
 import update from 'immutability-helper'
 
 import { connect } from 'react-redux'
-import { NEW_ONLINE_USER } from '../../../../../reducers/chatUser/types'
+import { NEW_ONLINE_USER } from '../../../../../actions/types'
 
 import { ChatContext } from './ChatContext'
 import socket from '../../../utils/socket'
@@ -23,8 +23,8 @@ class ChatProvider extends React.Component {
   receiveNewOnlineUser() {
     socket.on('new online user', (newOnlineUser) => {
       this.props.dispatch({
-        type: NEW_ONLINE_USER.SUCCESS,
-        newOnlineUser
+        type: NEW_ONLINE_USER,
+        payload: { newOnlineUser }
       })
     })
   }

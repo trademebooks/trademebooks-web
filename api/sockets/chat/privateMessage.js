@@ -3,7 +3,7 @@ const Room = require('../../domain/models/room.model')
 
 module.exports = (io, socket) => {
   socket.on('send private message', async (msg) => {
-    const emitterUser = await User.findOne({ socketId: socket.id })
+    const emitterUser = await User.findById(socket.request.session.user._id)
     const receiverUser = await User.findById(msg.receiverId)
 
     const messageToReceiver = {
