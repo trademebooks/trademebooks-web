@@ -11,7 +11,7 @@ let phantom = {
 const Footer = () => {
   return (
     <div>
-      <div style={{"position": "fixed", "left": 0, "bottom": 0, "width": "100%"}}> 
+      <div style={{"position": "absolute", "left": 0, "top": "2775px", "bottom": 0, "width": "100%", "boxShadow": "0px 4px 4px rgba(0, 0, 0, 0.25)"}}> 
       {/* style={{"height": "50px", "marginTop": "-50px"}} */}
       {/* <div> */}
         <MDBFooter className="font-small pt-4 mt-4 teal">
