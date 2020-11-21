@@ -1,7 +1,7 @@
-import { toastr } from 'react-redux-toastr';
-import { setAlert } from './alert';
+import { toastr } from 'react-redux-toastr'
+import { setAlert } from './alert'
 
-import api from '../utils/api';
+import api from '../utils/api'
 
 import {
   REGISTER_SUCCESS,
@@ -11,88 +11,88 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT
-} from './types';
+} from './types'
 
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch) => {
   try {
-    const res = await api.get('/auth/user');
+    const res = await api.get('/auth/user')
 
     dispatch({
       type: USER_LOADED,
       payload: res.data
-    });
+    })
   } catch (err) {
     dispatch({
       type: AUTH_ERROR
-    });
+    })
   }
-};
+}
 
-export const register = formData => async dispatch => {
+export const register = (formData) => async (dispatch) => {
   try {
-    const res = await api.post('/auth/register', formData);
+    const res = await api.post('/auth/register', formData)
 
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
-    });
+    })
 
-    dispatch(loadUser());
+    dispatch(loadUser())
 
-    toastr.success('You have successfully registered! Try logging in now!');
+    toastr.success('You have successfully registered! Try logging in now!')
   } catch (err) {
-    const data = err.response.data;
-    const errors = data.errors;
+    const data = err.response.data
+    const errors = data.errors
 
     if (errors) {
-      errors.forEach(errorMessage => {
+      errors.forEach((errorMessage) => {
         dispatch(setAlert(errorMessage, 'danger'))
-      });
+      })
     }
 
     dispatch({
       type: REGISTER_FAIL
-    });
+    })
   }
-};
+}
 
-export const login = (email, password) => async dispatch => {
-  const body = { email, password };
+export const login = (email, password) => async (dispatch) => {
+  const body = { email, password }
 
   try {
-    const res = await api.post('/auth/login', body);
+    const res = await api.post('/auth/login', body)
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
-    });
+    })
 
-    dispatch(loadUser());
+    dispatch(loadUser())
 
     toastr.success('Welcome. You have logged in!')
   } catch (err) {
-    const data = err.response.data;
-    const errors = data.errors;
+    const data = err.response.data
+    const errors = data.errors
 
     if (errors) {
-      errors.forEach(errorMessage => {
+      errors.forEach((errorMessage) => {
         dispatch(setAlert(errorMessage, 'danger'))
-      });
+      })
     }
 
     dispatch({
       type: LOGIN_FAIL
-    });
+    })
   }
-};
+}
 
-export const logout = () => async dispatch => {
+export const logout = () => async (dispatch) => {
   try {
-    await api.get('/auth/logout');
+    await api.get('/auth/logout')
 
-    dispatch({ type: LOGOUT });
+    dispatch({ type: LOGOUT })
 
-    toastr.success('You have logged out.');
+    toastr.success('You have logged out.')
   } catch (err) {
     console.log('actions/auth.js', err)
   }
-};
+}

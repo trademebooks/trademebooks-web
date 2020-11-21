@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import Book from './Book';
+import Book from './Book'
 
 function Books({ books }) {
   return (
     <>
       <div>
         {books.map((book, index) => {
-          return <Book key={book._id} book={book} />;
+          return <Book key={book._id} book={book} />
         })}
       </div>
     </>
-  );
+  )
 }
 
-export default Books;
+export default Books

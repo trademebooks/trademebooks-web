@@ -1,20 +1,20 @@
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#ES6_Custom_Error_Class
 function ApiException(message, status, code, data = null, errors = null) {
-  var instance = new Error(message);
+  var instance = new Error(message)
 
-  instance.name = 'ApiException';
-  instance.status = status;
-  instance.code = code;
-  instance.data = data;
-  instance.errors = errors;
+  instance.name = 'ApiException'
+  instance.status = status
+  instance.code = code
+  instance.data = data
+  instance.errors = errors
 
-  Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
+  Object.setPrototypeOf(instance, Object.getPrototypeOf(this))
 
   if (Error.captureStackTrace) {
-    Error.captureStackTrace(instance, ApiException);
+    Error.captureStackTrace(instance, ApiException)
   }
 
-  return instance;
+  return instance
 }
 
 ApiException.prototype = Object.create(Error.prototype, {
@@ -24,12 +24,12 @@ ApiException.prototype = Object.create(Error.prototype, {
     writable: true,
     configurable: true
   }
-});
+})
 
 if (Object.setPrototypeOf) {
-  Object.setPrototypeOf(ApiException, Error);
+  Object.setPrototypeOf(ApiException, Error)
 } else {
-  ApiException.__proto__ = Error;
+  ApiException.__proto__ = Error
 }
 
-module.exports = ApiException;
+module.exports = ApiException

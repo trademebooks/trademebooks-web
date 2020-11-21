@@ -1,44 +1,51 @@
-const globalResponseDTO = require('../responses/globalResponseDTO');
-const createBookRequestDTO = require('../requests/createBookRequestDTO');
-const bookService = require('../domain/services/book.service');
-const bookResponseDTO = require('../responses/bookResponseDTO');
-const createBookValidator = require('../validators/createBookValidator');
+const globalResponseDTO = require('../responses/globalResponseDTO')
+const createBookRequestDTO = require('../requests/createBookRequestDTO')
+const bookService = require('../domain/services/book.service')
+const bookResponseDTO = require('../responses/bookResponseDTO')
+const createBookValidator = require('../validators/createBookValidator')
 
-const catchException = require('../utils/catchExceptions');
+const catchException = require('../utils/catchExceptions')
 
 /**
  * Description:
  */
 const getAllbooks = catchException(async (req, res, next) => {
   // 5. business logic
-  const books = await bookService.getAllBooks(req.query.q, req.query.limit || 10);
+  const books = await bookService.getAllBooks(
+    req.query.q,
+    req.query.limit || 10
+  )
 
   // 7. response
-  return res.json(globalResponseDTO(
-    status = 'success',
-    code = 200,
-    message = `List of all books in the database.`,
-    data = books,
-    errors = null
-  ));
-});
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `List of all books in the database.`),
+      (data = books),
+      (errors = null)
+    )
+  )
+})
 
 /**
  * Description:
  */
 const getBookById = catchException(async (req, res, next) => {
   // 5. business logic
-  let book = await bookService.getBookById(req.params.id);
+  let book = await bookService.getBookById(req.params.id)
 
   // 7. response
-  return res.json(globalResponseDTO(
-    status = 'success',
-    code = 200,
-    message = `Book with the specified id.`,
-    data = book,
-    errors = null
-  ));
-});
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `Book with the specified id.`),
+      (data = book),
+      (errors = null)
+    )
+  )
+})
 
 /**
  * Description:
@@ -49,57 +56,71 @@ const createABook = catchException(async (req, res, next) => {
   // 2. middleware: auth
 
   // 3. request
-  const createBookRequest = createBookRequestDTO({ userId: req.session.user._id, ...req.body});
+  const createBookRequest = createBookRequestDTO({
+    userId: req.session.user._id,
+    ...req.body
+  })
 
   // 4. validation
-  const createBookValidation = createBookValidator(createBookRequest);
+  const createBookValidation = createBookValidator(createBookRequest)
 
   // 5. business logic
-  const book = await bookService.createBook({ userId: req.session.user._id, ...req.body});
+  const book = await bookService.createBook({
+    userId: req.session.user._id,
+    ...req.body
+  })
 
   // 7. response
-  return res.status(200).json(globalResponseDTO(
-    status = "success",
-    code = 200,
-    message = `Book has successfully been added to the database.`,
-    data = book,
-    errors = null
-  ));
-});
+  return res
+    .status(200)
+    .json(
+      globalResponseDTO(
+        (status = 'success'),
+        (code = 200),
+        (message = `Book has successfully been added to the database.`),
+        (data = book),
+        (errors = null)
+      )
+    )
+})
 
 /**
  * Description:
  */
 const updateABook = catchException(async (req, res, next) => {
   // 5. business logic
-  const book = await bookService.updateBookById(req.params.id, req.body);
+  const book = await bookService.updateBookById(req.params.id, req.body)
 
   // 7. response
-  return res.json(globalResponseDTO(
-    status = 'success',
-    code = 200,
-    message = `The book has successfully been updated.`,
-    data = book,
-    errors = null
-  ));
-});
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `The book has successfully been updated.`),
+      (data = book),
+      (errors = null)
+    )
+  )
+})
 
 /**
  * Deletes a book in the database by the specified book's id
  */
 const deleteABook = catchException(async (req, res, next) => {
   // 5. business logic
-  const book = await bookService.deleteBookById(req.params.id);
+  const book = await bookService.deleteBookById(req.params.id)
 
   // 7. response
-  return res.json(globalResponseDTO(
-    status = 'success',
-    code = 200,
-    message = `The book with the id: ${book.id} was successfully deleted.`,
-    data = null,
-    errors = null
-  ));
-});
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `The book with the id: ${book.id} was successfully deleted.`),
+      (data = null),
+      (errors = null)
+    )
+  )
+})
 
 module.exports = {
   getAllbooks,
@@ -107,4 +128,4 @@ module.exports = {
   createABook,
   updateABook,
   deleteABook
-};
+}

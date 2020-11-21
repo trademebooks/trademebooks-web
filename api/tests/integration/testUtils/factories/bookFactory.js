@@ -1,6 +1,5 @@
-const faker = require('faker');
-const Model = require('../../../src/domain/models/book.model');
-
+const faker = require('faker')
+const Model = require('../../../src/domain/models/book.model')
 
 const factory = async (numberOfSeeds, userId = '5ea6514bbbc6151da28ddbbe') => {
   for (let i = 1; i <= numberOfSeeds; i++) {
@@ -13,10 +12,10 @@ const factory = async (numberOfSeeds, userId = '5ea6514bbbc6151da28ddbbe') => {
       datePublished: faker.date.past()
     }
 
-    const entity = new Model(entityFields);
+    const entity = new Model(entityFields)
 
-    await entity.save();
+    await entity.save()
   }
 }
 
-module.exports = factory;
+module.exports = factory

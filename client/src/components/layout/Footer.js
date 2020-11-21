@@ -1,5 +1,5 @@
-import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
+import React from 'react'
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact'
 
 let phantom = {
   display: 'block',
@@ -81,4 +81,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer

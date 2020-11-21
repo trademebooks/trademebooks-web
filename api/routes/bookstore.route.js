@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const bookstoreController = require('../controllers/bookstore.controller');
+const bookstoreController = require('../controllers/bookstore.controller')
 
-router.get('/:username', bookstoreController.getBookstoreByUsername);
+router.get('/:username', bookstoreController.getBookstoreByUsername)
 
-module.exports = router;
+module.exports = router

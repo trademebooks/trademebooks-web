@@ -1,41 +1,43 @@
-const Model = require('../models/book.model');
+const Model = require('../models/book.model')
 
 // Retrieve - all
 const getAll = async (searchQuery = '', limit = 10) => {
   const books = await Model.find({
     $or: [
       { title: new RegExp(`.*${searchQuery}.*`, 'i') },
-      { description: new RegExp(`.*${searchQuery}.*`, 'i') },
+      { description: new RegExp(`.*${searchQuery}.*`, 'i') }
     ]
-  }).sort({ createdAt: 'desc' }).limit(parseInt(limit));
+  })
+    .sort({ createdAt: 'desc' })
+    .limit(parseInt(limit))
 
-  return books;
+  return books
 }
 
 // Retrieve - all by userId field
 const getAllByUserId = async (userId) => {
-  return await Model.find({ userId: userId }).sort({ createdAt: 'desc' });
+  return await Model.find({ userId: userId }).sort({ createdAt: 'desc' })
 }
 
 // Retrieve - one
 const getById = async (id) => {
-  return await Model.findById(id);
+  return await Model.findById(id)
 }
 
 // Create
 const create = async (newBook) => {
-  const book = new Model(newBook);
-  return await book.save();
+  const book = new Model(newBook)
+  return await book.save()
 }
 
 // Update
 const updateById = async (id, book) => {
-  return await Model.findByIdAndUpdate(id, book);
+  return await Model.findByIdAndUpdate(id, book)
 }
 
 // Delete
 const deleteById = async (id) => {
-  return await Model.deleteOne({ _id: id });
+  return await Model.deleteOne({ _id: id })
 }
 
 module.exports = {
@@ -45,4 +47,4 @@ module.exports = {
   create,
   updateById,
   deleteById
-};
+}

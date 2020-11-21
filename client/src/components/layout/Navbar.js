@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { logout } from '../../actions/auth'
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -12,25 +12,25 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
   MDBContainer,
-  MDBIcon,
-} from 'mdbreact';
-import logo from '../../img/logo.png';
+  MDBIcon
+} from 'mdbreact'
+import logo from '../../img/logo.png'
 
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [bookstoreUrl, setBookstoreUrl] = useState('');
-  const [fullname, setFullname] = useState('');
+  const [isOpen, setIsOpen] = useState(false)
+  const [bookstoreUrl, setBookstoreUrl] = useState('')
+  const [fullname, setFullname] = useState('')
 
   const toggleCollapse = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   useEffect(() => {
     if (user) {
-      setBookstoreUrl(`/bookstore/${user.username}`);
+      setBookstoreUrl(`/bookstore/${user.username}`)
       setFullname(`${user.first_name} ${user.last_name}`)
     }
-  }, [user]);
+  }, [user])
 
   const authNavbar = (
     <MDBNavbar color="default-color" dark expand="md">
@@ -94,7 +94,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
-  );
+  )
 
   const guestNavbar = (
     <MDBNavbar color="default-color" dark expand="md">
@@ -126,17 +126,17 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
-  );
+  )
 
-  return !loading && <>{isAuthenticated ? authNavbar : guestNavbar}</>;
-};
+  return !loading && <>{isAuthenticated ? authNavbar : guestNavbar}</>
+}
 
 Navbar.propTypes = {
-  auth: PropTypes.object.isRequired,
-};
+  auth: PropTypes.object.isRequired
+}
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
+  auth: state.auth
+})
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar)
