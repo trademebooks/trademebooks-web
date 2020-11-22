@@ -46,7 +46,6 @@ const IconSidebarButton = styled(Icon)`
 `
 
 class ChatBoxContainer extends Component {
-
   state = {
     chatsTitle: '',
     showChat: false,
@@ -56,7 +55,6 @@ class ChatBoxContainer extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-
     const {
       match: { params },
       onlineUsers

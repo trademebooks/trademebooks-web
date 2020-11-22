@@ -40,19 +40,7 @@ io.use(function (socket, next) {
   sessionMiddleware(socket.request, socket.request.res || {}, next);
 })
 io.on('connection', (socket) => {
-  console.log('socket connected!')
-
-  console.log(socket.request.session)
-
-  socket.emit('message', 'Welcome to ChatCord');
-
-  socket.broadcast.emit('message', 'A user has joined the chat');
-
-  io.emit('message', 'hello everyone');
-
-  require('./sockets/chat/joinedUser')(io, socket)
-  require('./sockets/chat/chatMessage')(io, socket)
-  require('./sockets/chat/disconnect')(io, socket)
+  // require('./sockets/chat/disconnect')(io, socket)
   require('./sockets/chat/privateMessage')(io, socket)
   require('./sockets/chat/joinPrivateRoom')(io, socket)
 })

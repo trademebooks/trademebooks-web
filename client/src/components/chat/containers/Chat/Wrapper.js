@@ -8,26 +8,27 @@ import SidebarContainer from './SidebarContainer'
 import ChatBoxContainer from './ChatBoxContainer'
 
 import socket from '../../utils/socket'
+import api from '../../../../utils/api'
 
-import { joinUser } from '../../../../actions/chatUser'
 
 const FlexWrapper = styled(Flex)`
   flex: 1;
 `
 
-const Wrapper = ({ match, authUser, joinUser, onlineUsers }) => {
+const Wrapper = ({ match, authUser }) => {
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
-    socket.emit('join user')
-
-    socket.on('user joined', (onlineUsers) => {
-      console.log('user joined', onlineUsers)
-  
-      joinUser({
-        authUser,
-        onlineUsers
-      })
-    })  
+    (async () => {
+      try {
+        const response = await api.get(`/utilities/users`)
+        const responseJson = response.data.data
+        const users = responseJson
+        setUsers(users)
+      } catch (error) {
+        console.log({ error })
+      }
+    })();
   }, [])
 
   return (
@@ -35,11 +36,11 @@ const Wrapper = ({ match, authUser, joinUser, onlineUsers }) => {
       <FlexWrapper mx={0}>
         <SidebarContainer
           username={authUser.username}
-          onlineUsers={onlineUsers}
+          onlineUsers={users}
         />
         <ChatBoxContainer
           match={match}
-          onlineUsers={onlineUsers}
+          onlineUsers={users}
         />
       </FlexWrapper>
     </ChatProvider>
@@ -47,12 +48,9 @@ const Wrapper = ({ match, authUser, joinUser, onlineUsers }) => {
 }
 
 const mapStateToProps = (state) => ({
-  authUser: state.auth.user,
-  onlineUsers: state.chatUser.onlineUsers
+  authUser: state.auth.user
 })
 
-const mapDispatchToProps = {
-  joinUser
-}
+const mapDispatchToProps = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wrapper)

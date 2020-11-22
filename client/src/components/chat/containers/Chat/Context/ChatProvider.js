@@ -2,7 +2,6 @@ import React from 'react'
 import update from 'immutability-helper'
 
 import { connect } from 'react-redux'
-import { NEW_ONLINE_USER } from '../../../../../actions/types'
 
 import { ChatContext } from './ChatContext'
 import socket from '../../../utils/socket'
@@ -17,16 +16,6 @@ class ChatProvider extends React.Component {
 
   componentDidMount() {
     this.receiveMessage()
-    this.receiveNewOnlineUser()
-  }
-
-  receiveNewOnlineUser() {
-    socket.on('new online user', (newOnlineUser) => {
-      this.props.dispatch({
-        type: NEW_ONLINE_USER,
-        payload: { newOnlineUser }
-      })
-    })
   }
 
   sendMessage = ({ message, receiverId }) => {
@@ -41,6 +30,7 @@ class ChatProvider extends React.Component {
 
   receiveMessage() {
     socket.on('receive private message', (msg) => {
+      console.log('receive private message', {msg})
       const { usersMessages } = this.state
       const isOwnMessage = msg.emmiterSocketId === socket.id
 

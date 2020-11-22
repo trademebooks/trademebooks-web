@@ -3,11 +3,12 @@ const Room = require('../../domain/models/room.model')
 
 module.exports = (io, socket) => {
   socket.on('send private message', async (msg) => {
+    console.log({ msg })
     const emitterUser = await User.findById(socket.request.session.user._id)
     const receiverUser = await User.findById(msg.receiverId)
 
     const messageToReceiver = {
-      emmiterSocketId: socket.id,
+      emmiterSocketId: socket.request.session.user._id,
       emmiterId: emitterUser._id,
       receiverId: receiverUser._id,
       nickname: emitterUser.nickname,
@@ -23,9 +24,9 @@ module.exports = (io, socket) => {
     if (alreadyInRoom.length) {
       io.in(alreadyInRoom[0]._id).clients((error, clients) => {
         // if user is not inside the room yet
-        if (clients.every((x) => String(x) !== String(receiverUser.socketId))) {
+        if (clients.every((x) => String(x) !== String(receiverUser._id))) {
           // sending to individual socketid (private message)
-          io.to(receiverUser.socketId).emit(
+          io.to(receiverUser._id).emit(
             'receive private message',
             messageToReceiver
           )

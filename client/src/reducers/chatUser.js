@@ -17,21 +17,12 @@ const chatUser = (state = INITIAL_STATE, action) => {
       }
 
     case NEW_ONLINE_USER:
-      const onlineUsers = payload.onlineUsers
+      const newOnlineUsers = payload.newOnlineUsers
       return {
         ...state,
-        onlineUsers
-      }
-
-    case REMOVE_ONLINE_USER:
-      const userIndex = state.onlineUsers.findIndex(
-        (x) => x._id === payload.userId
-      )
-      onlineUsers.splice(userIndex, 1)
-
-      return {
-        ...state,
-        onlineUsers
+        onlineUsers: [
+          ...newOnlineUsers
+        ]
       }
 
     default:

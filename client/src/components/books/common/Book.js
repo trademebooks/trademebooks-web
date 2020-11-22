@@ -29,7 +29,6 @@ const Book = ({ book, editFlag, deleteBookById }) => {
   const deleteBook = () => {
     const toastrConfirmOptions = {
       onOk: () => {
-        console.log('OK: clicked')
         deleteBookById(book._id)
       },
       onCancel: () => console.log('CANCEL: clicked'),

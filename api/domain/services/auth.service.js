@@ -7,7 +7,6 @@ const accountRepository = require('../repositories/account.repository')
  */
 const registerUser = async (user) => {
   const createdUser = await userRepository.createUser(user)
-  console.log(createdUser)
   const bookstore = await bookstoreRepository.createByUserId(createdUser._id)
   const account = await accountRepository.createByUserId(createdUser._id)
   return { createdUser, bookstore, account }

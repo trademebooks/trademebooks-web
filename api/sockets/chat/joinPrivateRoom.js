@@ -5,6 +5,10 @@ module.exports = (io, socket) => {
   socket.on('join private room', async (data) => {
     const emitterUser = await User.findById(socket.request.session.user._id)
     const receiverUser = await User.findById(data.receiverId)
+    console.log('--- join private room --- start')
+    console.log('currently auth emitting user:', emitterUser)
+    console.log('sending to the receiver user:', receiverUser)
+    console.log('--- join private room --- end')
 
     const alreadyInRoom = await Room.find({
       users: {
@@ -15,7 +19,7 @@ module.exports = (io, socket) => {
     if (alreadyInRoom.length) {
       io.in(alreadyInRoom[0]._id).clients((error, clients) => {
         // if user is not inside the room yet
-        if (clients.every((x) => String(x) !== String(socket.id))) {
+        if (clients.every((x) => String(x) !== String(emitterUser._id))) {
           socket.join(alreadyInRoom[0]._id)
         }
       })

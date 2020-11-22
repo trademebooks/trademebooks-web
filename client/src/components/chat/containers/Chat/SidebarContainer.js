@@ -100,12 +100,12 @@ class SidebarContainer extends Component {
   }
 
   getDisconnectedUser() {
-    socket.on('disconnected user', ({ userId }) => {
-      this.props.dispatch({
-        type: REMOVE_ONLINE_USER.SUCCESS,
-        userId
-      })
-    })
+    // socket.on('disconnected user', ({ userId }) => {
+    //   this.props.dispatch({
+    //     type: REMOVE_ONLINE_USER.SUCCESS,
+    //     userId
+    //   })
+    // })
   }
 
   showSidebar = (isOpen) => {
@@ -152,10 +152,6 @@ class SidebarContainer extends Component {
                   </InputWrapper>
                 </Header>
                 <Body flexDirection="column">
-                  {onlineUsers && !onlineUsers.length && (
-                    <SidebarText>Nobody is online :(</SidebarText>
-                  )}
-
                   {onlineUsers && onlineUsers.map((val, index) => (
                     <Sidebar.Button
                       key={index}
