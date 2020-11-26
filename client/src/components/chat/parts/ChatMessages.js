@@ -1,18 +1,12 @@
 import React from 'react'
 
-const ChatMessages = ({
-  messages
-}) => {
+const ChatMessages = ({ messages }) => {
   return (
     <>
       <div>
-        {
-          messages.map((message, i) => {
-            return (
-              <p key={i}>{message.messageBody}</p>
-            )
-          })
-        }
+        {messages.map((message, i) => {
+          return <p key={i}>{message.messageBody}</p>
+        })}
       </div>
     </>
   )

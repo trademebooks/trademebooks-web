@@ -34,7 +34,7 @@ app.use('/api/v1', router)
 const server = http.createServer(app)
 const io = require('socket.io')(server)
 io.use(function (socket, next) {
-  sessionMiddleware(socket.request, socket.request.res || {}, next);
+  sessionMiddleware(socket.request, socket.request.res || {}, next)
 })
 io.on('connection', (socket) => {
   require('./sockets/chat/privateMessage')(io, socket)

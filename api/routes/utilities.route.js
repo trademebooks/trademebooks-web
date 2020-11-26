@@ -3,7 +3,7 @@ const router = express.Router()
 
 const contactController = require('../controllers/contact.controller')
 
-const User = require('../domain/models/user.model');
+const User = require('../domain/models/user.model')
 const globalResponseDTO = require('../responses/globalResponseDTO')
 
 router.post('/contact', contactController.contactUs)
