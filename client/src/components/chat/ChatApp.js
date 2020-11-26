@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
+import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
 
 import ChatMainContent from './parts/ChatMainContent'
 import ChatSideBar from './parts/ChatSidebar'
