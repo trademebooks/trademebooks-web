@@ -13,45 +13,38 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const MongoStore = require('connect-mongo')(session)
 const mongoose = require('mongoose')
 
-app.use(
-  session({
-    secret: config.sessionSecret,
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      collection: 'sessions'
-    })
+const sessionMiddleware = session({
+  secret: config.sessionSecret,
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    collection: 'sessions'
   })
-)
+})
+app.use(sessionMiddleware)
 
 const getRouter = require('./routes')
 const router = getRouter()
 app.use('/api/v1', router)
 
+/**
+ * SOCKETs for chat app
+ */
+const server = http.createServer(app)
+const io = require('socket.io')(server)
+io.use(function (socket, next) {
+  sessionMiddleware(socket.request, socket.request.res || {}, next)
+})
+io.on('connection', (socket) => {
+  require('./sockets/chat/privateMessage')(io, socket)
+  require('./sockets/chat/joinPrivateRoom')(io, socket)
+})
+
 // Event listeners
-const events = require('./events')
+require('./events')
 
-/////////////////////////////////////////////////////////////////////////
-// 404 API Endpoint Not Found
-// router.get('*', (req, res, next) => {
-//   return res
-//     .status(404)
-//     .json(globalResponseDTO(
-//       status = "failed",
-//       code = 404,
-//       message = `Test message: your shit failed!`,
-//       data = {
-//         message: err.message,
-//         err: err.status
-//       },
-//     ));
-// });
-// // catch 404 and forward to error handler
-// app.use((req, res, next) => {
-//   next(createError(404));
-// });
-
+// Global Exception Handler
 app.use((err, req, res, next) => {
   // log it out into the conosle
   console.log('===============================')
@@ -92,13 +85,10 @@ app.use((err, req, res, next) => {
   }
 })
 
-// Frontend - Serve static assets in production
-//if (process.env.NODE_ENV === 'production') {
 app.use(express.static('client/build'))
 const path = require('path')
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'))
 })
-//}
 
-module.exports = http.createServer(app)
+module.exports = server

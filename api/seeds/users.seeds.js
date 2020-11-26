@@ -12,7 +12,8 @@ const users = [
     username: 'yichen',
     email: 'yichenzhu1337@gmail.com',
     password: 'yichen',
-    phone_number: '4162932500'
+    phone_number: '4162932500',
+    socket: '5e11e9d8eded1d23742c1c6d'
   },
   {
     _id: '5e11e9d8eded1d23742c1c6e',
@@ -30,7 +31,8 @@ const users = [
     username: 'cedric',
     email: 'cedric@cedric.com',
     password: 'cedric',
-    phone_number: '4162932502'
+    phone_number: '4162932502',
+    socket: '5e11e9d8eded1d23742c1c6d'
   }
 ]
 
