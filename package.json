@@ -18,10 +18,11 @@
     "db:seed": "node ./api/seeds",
     "db:seed:prod": "NODE_ENV=production node ./api/seeds",
     "prettier:write": "npx prettier --write .",
-    "prettier:check": "npx prettier --check ."
+    "prettier:check": "npx prettier --check .",
+    "lint:check": "eslint ./",
+    "lint:fix": "eslint ./ --fix"
   },
   "author": "Yichen Zhu",
-  "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^7.2.6",
     "axios": "^0.19.2",
@@ -39,6 +40,14 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
+    "eslint": "^7.12.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.2",
     "prettier": "2.1.2"
   }
