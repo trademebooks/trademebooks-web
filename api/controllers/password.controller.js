@@ -6,8 +6,6 @@ const PasswordModel = require('../domain/models/password.model')
 const UserModel = require('../domain/models/user.model')
 
 const sendPasswordResetEmail = catchExceptions(async (req, res, next) => {
-  console.log('req.headers', req.headers)
-
   const { email } = req.body
 
   const token = crypto.createHash('md5').update(email).digest('hex')
@@ -31,7 +29,7 @@ const sendPasswordResetEmail = catchExceptions(async (req, res, next) => {
   // send email with hmac
   const message = await mailer.sendMail({
     toEmail: email,
-    body: `Here is the URL to reset your password: ${req.headers}/reset-password/${token}`,
+    body: `Here is the URL to reset your password: ${req.headers.host}/reset-password/${token}`,
     subject: 'trademebooks.com forgot password'
   })
 
