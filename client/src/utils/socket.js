@@ -3,7 +3,7 @@ import io from 'socket.io-client'
 const BASE_URL =
   process.env.NODE_ENV === 'development'
     ? 'localhost:5000'
-    : 'https://react-chat-express.herokuapp.com/'
+    : 'https://www.trademebooks.com/'
 const socket = io(BASE_URL)
 
 socket.on('connect', (e) => {

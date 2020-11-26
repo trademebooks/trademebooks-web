@@ -2,42 +2,30 @@ const User = require('../../domain/models/user.model')
 const Room = require('../../domain/models/room.model')
 
 module.exports = (io, socket) => {
-  socket.on('send private message', async (msg) => {
-    console.log({ msg })
-    const emitterUser = await User.findById(socket.request.session.user._id)
-    const receiverUser = await User.findById(msg.receiverId)
+  socket.on('send_private_message', async (sentMessgage) => {
+    const { messageBody, chattingWithUser } = sentMessgage
+
+    const authUser = await User.findById(socket.request.session.user._id)
+    const targetUser = await User.findById(chattingWithUser._id)
 
     const messageToReceiver = {
-      emmiterSocketId: socket.request.session.user._id,
-      emmiterId: emitterUser._id,
-      receiverId: receiverUser._id,
-      nickname: emitterUser.nickname,
-      message: msg.message
+      _id: Math.random(),
+      emmiterId: authUser._id,
+      receiverId: targetUser._id,
+      messageBody
     }
 
     const alreadyInRoom = await Room.find({
       users: {
-        $all: [emitterUser._id, receiverUser._id]
+        $all: [authUser._id, targetUser._id]
       }
     })
 
     if (alreadyInRoom.length) {
-      io.in(alreadyInRoom[0]._id).clients((error, clients) => {
-        // if user is not inside the room yet
-        if (clients.every((x) => String(x) !== String(receiverUser._id))) {
-          // sending to individual socketid (private message)
-          io.to(receiverUser._id).emit(
-            'receive private message',
-            messageToReceiver
-          )
-        }
-
-        // sending to all clients inside the room, including sender
-        io.in(alreadyInRoom[0]._id).emit(
-          'receive private message',
-          messageToReceiver
-        )
-      })
+      io.in(alreadyInRoom[0]._id).emit(
+        'receive_private_message',
+        messageToReceiver
+      )
     }
   })
 }
