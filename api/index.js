@@ -31,16 +31,12 @@ app.use('/api/v1', router)
 /**
  * SOCKETs for chat app
  */
-app.use(function (req, res) {
-  req.session.name = "THE NAME";
-})
 const server = http.createServer(app)
 const io = require('socket.io')(server)
 io.use(function (socket, next) {
   sessionMiddleware(socket.request, socket.request.res || {}, next);
 })
 io.on('connection', (socket) => {
-  // require('./sockets/chat/disconnect')(io, socket)
   require('./sockets/chat/privateMessage')(io, socket)
   require('./sockets/chat/joinPrivateRoom')(io, socket)
 })

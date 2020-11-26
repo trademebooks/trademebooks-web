@@ -17,8 +17,3 @@ export const CREATE_BOOK = 'CREATE_BOOK'
 export const GET_BOOKSTORE = 'GET_BOOKSTORE'
 export const GET_BOOK = 'GET_BOOK'
 export const UPDATE_BOOK = 'UPDATE_BOOK'
-
-// Chat
-export const JOIN_NEW_USER = 'JOIN_NEW_USER'
-export const NEW_ONLINE_USER = 'NEW_ONLINE_USER'
-export const REMOVE_ONLINE_USER = 'REMOVE_ONLINE_USER'

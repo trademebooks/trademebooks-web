@@ -54,7 +54,7 @@ const App = () => {
           <Footer />
         </>
       </Router>
-    </Provider >
+    </Provider>
   )
 }
 

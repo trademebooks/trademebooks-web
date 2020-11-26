@@ -43,5 +43,5 @@ git pull origin master
 
 git add -A
 git commit -m "${new_quote[$index]}"
-git push origin master
+git push
 #git push heroku master # https://git.heroku.com/trademebooks.git

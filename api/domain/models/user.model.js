@@ -28,13 +28,6 @@ const UserSchema = Schema({
     type: String,
     required: false
   },
-  socketId: {
-    type: String
-  },
-  nickname: { 
-    type: String,
-    default: ''
-  },
   createdAt: {
     type: Date,
     default: Date.now

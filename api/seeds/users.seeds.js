@@ -13,7 +13,6 @@ const users = [
     email: 'yichenzhu1337@gmail.com',
     password: 'yichen',
     phone_number: '4162932500',
-    nick: 'yichen-nickname',
     socket: '5e11e9d8eded1d23742c1c6d'
   },
   {
@@ -33,7 +32,6 @@ const users = [
     email: 'cedric@cedric.com',
     password: 'cedric',
     phone_number: '4162932502',
-    nick: 'cedric-nickname',
     socket: '5e11e9d8eded1d23742c1c6d'
   }
 ]
