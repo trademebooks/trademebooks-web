@@ -1,4 +1,5 @@
 const Model = require('../models/book.model')
+const userRepository = require('./user.repository')
 
 // Retrieve - all
 const getAll = async (searchQuery = '', limit = 10) => {
@@ -11,7 +12,22 @@ const getAll = async (searchQuery = '', limit = 10) => {
     .sort({ createdAt: 'desc' })
     .limit(parseInt(limit))
 
-  return books
+  const getData = async () => {
+    const bookWithUsernames = books.map(async (book) => {
+      const user = await userRepository.getUserById(book.userId)
+      const username = user.username
+      return {
+        ...book.toJSON(),
+        username
+      }
+    })
+
+    return Promise.all(bookWithUsernames)
+  }
+
+  const data = await getData()
+
+  return data
 }
 
 // Retrieve - all by userId field

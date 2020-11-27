@@ -12,13 +12,12 @@ const BookStore = ({ match }) => {
       try {
         const response = await api.get(`/bookstores/${match.params.username}`)
         const books = response.data.data.books
-        console.log({ response })
         setBooks(books)
       } catch (error) {
         console.log({ error })
       }
     })()
-  }, [])
+  }, [match.params.username])
 
   return (
     <>
@@ -31,7 +30,11 @@ const BookStore = ({ match }) => {
         <MDBContainer>
           <MDBRow center={true}>
             <MDBCol sm="12">
-              <Books books={books} />
+              {books.length < 1 ? (
+                <div>There are no books in this bookstore...</div>
+              ) : (
+                <Books books={books} />
+              )}
             </MDBCol>
           </MDBRow>
         </MDBContainer>

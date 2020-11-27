@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -8,7 +8,7 @@ import './SearchBook.scss'
 
 const SearchBooks = ({ addBook }) => {
   const [value, setValue] = useState(null)
-  const [inputValue, setInputValue] = useState('')
+  // const [inputValue, setInputValue] = useState('')
 
   const [open, setOpen] = useState(false)
   const [options, setOptions] = useState([])
@@ -22,14 +22,15 @@ const SearchBooks = ({ addBook }) => {
       if (data && data.items) {
         const books = data.items.map((book) => {
           const bookVolumeInfo = book['volumeInfo']
+
           const bookPrettified = {
             title: bookVolumeInfo['title'],
             authors: bookVolumeInfo['authors'] || [],
             publisher: bookVolumeInfo['publisher'],
-            image_url:
+            imageUrl:
               bookVolumeInfo['imageLinks'] &&
-              bookVolumeInfo['imageLinks']['smallThumbnail']
-                ? bookVolumeInfo['imageLinks']['smallThumbnail']
+              bookVolumeInfo['imageLinks']['thumbnail']
+                ? bookVolumeInfo['imageLinks']['thumbnail']
                 : '',
             isbn_10:
               bookVolumeInfo['industryIdentifiers'] &&
@@ -59,8 +60,8 @@ const SearchBooks = ({ addBook }) => {
   return (
     <>
       <div className="search-books-container">
-        <div>
-          <p>Search millions of books!</p>
+        <div className="m-2 text-center">
+          <p className="search-books-header">Search over millions of books!</p>
         </div>
         <div>
           <Autocomplete

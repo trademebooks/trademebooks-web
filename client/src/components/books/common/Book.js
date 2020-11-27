@@ -1,14 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { toastr } from 'react-redux-toastr'
+
+import { MDBTooltip } from 'mdbreact'
 
 import './Book.scss'
 
-import very_good_condition_green_image from './icons/Verygood_condition.png'
-import sample_book_image from './icons/sample-book.png'
+import defaultBookImage from '../common/icons/sample-book.png'
+
+// import very_good_condition_green_image from './icons/Verygood_condition.png'
 import Message_icon from './icons/Message_user.png'
 import Location_icon from './icons/Location_icon.png'
 import bookstoreIcon from './icons/bookstoreIcon.png'
+import edit_icon from './icons/edit_icon.png'
+import delete_icon from './icons/delete_icon.png'
 
-const Book = ({ book }) => {
+import { deleteBookById } from '../../../actions/bookstore'
+
+const Book = ({ book, editFlag, deleteBookById }) => {
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
     year: 'numeric',
@@ -16,6 +26,33 @@ const Book = ({ book }) => {
     day: 'numeric'
   })
 
+  const deleteBook = () => {
+    const toastrConfirmOptions = {
+      onOk: () => {
+        deleteBookById(book._id)
+      },
+      onCancel: () => console.log('CANCEL: clicked'),
+      okText: 'Yes',
+      cancelText: 'No'
+    }
+    toastr.confirm('Are you sure about that?', toastrConfirmOptions)
+  }
+
+  const conditions = {
+    POOR: require('../../../img/condition_icons/Poor_condition.png'),
+    FAIR: require('../../../img/condition_icons/Fair_condition.png'),
+    GOOD: require('../../../img/condition_icons/Good_condition.png'),
+    VERY_GOOD: require('../../../img/condition_icons/Verygood_condition.png'),
+    LIKE_NEW: require('../../../img/condition_icons/Likenew_condition.png')
+  }
+
+  console.log()
+
+  // console.log(
+  //   conditions.find(condition => {
+  //     return condition.type === [book.condition]
+  //   })
+  // )
   return (
     <div className="single-card mt-3">
       <div className="single-card-container">
@@ -24,7 +61,7 @@ const Book = ({ book }) => {
           <div className="single-card__image-section">
             <img
               className="single-card-image"
-              src={sample_book_image}
+              src={book.imageUrl ? book.imageUrl : defaultBookImage}
               alt="single card book"
             />
           </div>
@@ -36,15 +73,17 @@ const Book = ({ book }) => {
           <div className="single-card-column-section-2__row-1">
             <span className="single-card__book-title">{book.title}</span>
             <span>&nbsp;</span>
-            {book.edition && (
-              <span>
+            {book.edition ? (
+              <span className="single-card__book-edition-container">
                 <span className="single-card__book-edition">Edition</span>
                 <span>&nbsp;</span>
                 <span className="single-card__book-edition-number">
                   {book.edition}
                 </span>
               </span>
-            )}
+            ) : (
+                ''
+              )}
           </div>
 
           <div className="single-card-column-section-2__row-2">
@@ -52,8 +91,8 @@ const Book = ({ book }) => {
               <span className="single-card__book-condition">
                 <img
                   height="25px"
-                  src={very_good_condition_green_image}
-                  alt="condition=good"
+                  src={conditions[book.condition]}
+                  alt={conditions[book.condition]}
                 />
               </span>
             </div>
@@ -99,12 +138,46 @@ const Book = ({ book }) => {
             <span className="">{book.price}</span>
           </div>
           <div>
-            <img src={Message_icon} alt="test" height="50px" />
+            {editFlag ? (
+              <a href={`/books/edit/${book._id}`}>
+                <img src={edit_icon} alt="test" className="chat-image" />
+              </a>
+            ) : (
+                <MDBTooltip domElement tag="span" placement="left">
+                  <span>
+                    <a href={`/messages/${book.username}`}>
+                      <img src={Message_icon} alt="test" className="chat-image" />
+                    </a>
+                  </span>
+                  <span>{`Message ${book.username}`}</span>
+                </MDBTooltip>
+              )}
           </div>
           <div>
-            <a href={`/bookstore/yichen`}>
-              <img src={bookstoreIcon} height="50px" alt="test" />
-            </a>
+            {editFlag ? (
+              <span onClick={deleteBook}>
+                <img
+                  src={delete_icon}
+                  alt="test"
+                  className="bookstore-image"
+                />
+              </span>
+            ) : (
+                <div className="bookstore-username">
+                  <MDBTooltip domElement tag="span" placement="left">
+                    <span>
+                      <a href={`/bookstore/${book.username}`}>
+                        <img
+                          src={bookstoreIcon}
+                          alt={`/bookstore/${book.username}`}
+                          className="bookstore-image"
+                        />
+                      </a>
+                    </span>
+                    <span>{`${book.username}'s Bookstore`}</span>
+                  </MDBTooltip>
+                </div>
+              )}
           </div>
           <div>{datePosted}</div>
         </div>
@@ -114,4 +187,16 @@ const Book = ({ book }) => {
   )
 }
 
-export default Book
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  editFlag: PropTypes.bool.isRequired,
+  deleteBookById: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = {
+  deleteBookById
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Book)

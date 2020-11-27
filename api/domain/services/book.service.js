@@ -9,6 +9,12 @@ const getAllBooks = async (searchQuery, limit) => {
   return books
 }
 
+// Retrieve - all books
+const getAllByUserId = async (userId) => {
+  const books = await bookRepository.getAllByUserId(userId)
+  return books
+}
+
 // Retrieve - one
 const getBookById = async (bookId) => {
   if (!mongoose.Types.ObjectId.isValid(bookId)) {
@@ -57,6 +63,7 @@ const deleteBookById = async (bookId) => {
 module.exports = {
   getAllBooks,
   getBookById,
+  getAllByUserId,
   createBook,
   updateBookById,
   deleteBookById

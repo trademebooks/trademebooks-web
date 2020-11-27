@@ -1,36 +1,38 @@
-import { GET_BOOKS, GET_BOOK, ADD_BOOK } from '../actions/types'
+import { ADD_BOOK, CREATE_BOOK } from '../actions/types'
 
 const initialState = {
-  books: [],
   book: {
     title: '',
     price: '',
-    description: ''
+    description: '',
+    authors: [],
+    isbn_10: '',
+    isbn_13: '',
+    condition: 'GOOD',
+    imageUrl: '',
+    edition: ''
   },
-  loading: true,
-  error: {}
+  loading: true
 }
 
 export default function (state = initialState, action) {
   const { type, payload } = action
 
   switch (type) {
-    case GET_BOOKS:
-      return {
-        ...state,
-        posts: payload,
-        loading: false
-      }
-    case GET_BOOK:
-      return {
-        ...state,
-        book: payload,
-        loading: false
-      }
     case ADD_BOOK:
       return {
-        ...state,
-        book: payload,
+        book: {
+          ...state.book,
+          ...payload
+        },
+        loading: false
+      }
+    case CREATE_BOOK:
+      return {
+        book: {
+          ...state,
+          ...payload
+        },
         loading: false
       }
     default:
