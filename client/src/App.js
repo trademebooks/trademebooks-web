@@ -32,8 +32,10 @@ const App = () => {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route component={Routes} />
+          <main>
+            <Route exact path="/" component={Landing} />
+            <Route component={Routes} />
+          </main>
         </Switch>
         <ReduxToastr
           timeOut={3000}
