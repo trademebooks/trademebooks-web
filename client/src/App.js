@@ -31,12 +31,12 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Navbar />
-        <Switch>
-          <main>
+        <main>
+          <Switch>
             <Route exact path="/" component={Landing} />
             <Route component={Routes} />
-          </main>
-        </Switch>
+          </Switch>
+        </main>
         <ReduxToastr
           timeOut={3000}
           newestOnTop={false}
