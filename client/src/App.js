@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Landing from './components/layout/Landing'
 import Routes from './components/routing/Routes'
+import Footer from "./components/layout/Footer"
 
 // Redux
 import { Provider } from 'react-redux'
@@ -30,29 +31,24 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <>
+        <div style={{"paddingBottom": "400px"}}>
           <Navbar />
-
-          <main>
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route component={Routes} />
             </Switch>
-          </main>
-
-          <ReduxToastr
-            timeOut={3000}
-            newestOnTop={false}
-            preventDuplicates
-            position="top-right"
-            getState={(state) => state.toastr}
-            transitionIn="fadeIn"
-            transitionOut="fadeOut"
-            closeOnToastrClick
-          />
-
-          <Footer />
-        </>
+            <ReduxToastr
+              timeOut={3000}
+              newestOnTop={false}
+              preventDuplicates
+              position="top-right"
+              getState={(state) => state.toastr}
+              transitionIn="fadeIn"
+              transitionOut="fadeOut"
+              closeOnToastrClick
+            />
+          </div>
+        <Footer />
       </Router>
     </Provider>
   )
