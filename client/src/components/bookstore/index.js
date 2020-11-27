@@ -17,7 +17,7 @@ const BookStore = ({ match }) => {
         console.log({ error })
       }
     })()
-  }, [])
+  }, [match.params.username])
 
   return (
     <>

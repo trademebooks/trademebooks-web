@@ -50,7 +50,7 @@ const Footer = () => {
             <h5 className="title">Legal</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="">Terms</a>
+                <a href="#!">Terms</a>
               </li>
               <li className="list-unstyled">
                 <a href="#!">Privacy</a>

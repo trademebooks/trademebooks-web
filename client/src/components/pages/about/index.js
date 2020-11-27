@@ -33,7 +33,7 @@ const About = () => {
           <strong>
             <p>{key}</p>
           </strong>
-          <img src={require(`${imagePaths[i]}`)} width="200" height="200" />
+          <img src={require(`${imagePaths[i]}`)} width="200" height="200" alt="about us" />
           <p style={{ width: '200px' }}>{names[key]}</p>
         </div>
       </MDBCol>

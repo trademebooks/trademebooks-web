@@ -9,7 +9,7 @@ import './Book.scss'
 
 import defaultBookImage from '../common/icons/sample-book.png'
 
-import very_good_condition_green_image from './icons/Verygood_condition.png'
+// import very_good_condition_green_image from './icons/Verygood_condition.png'
 import Message_icon from './icons/Message_user.png'
 import Location_icon from './icons/Location_icon.png'
 import bookstoreIcon from './icons/bookstoreIcon.png'
@@ -82,8 +82,8 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                 </span>
               </span>
             ) : (
-              ''
-            )}
+                ''
+              )}
           </div>
 
           <div className="single-card-column-section-2__row-2">
@@ -143,43 +143,41 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                 <img src={edit_icon} alt="test" className="chat-image" />
               </a>
             ) : (
-              <MDBTooltip domElement tag="span" placement="left">
-                <span>
-                  <a href={`/messages/${book.username}`}>
-                    <img src={Message_icon} alt="test" className="chat-image" />
-                  </a>
-                </span>
-                <span>{`Message ${book.username}`}</span>
-              </MDBTooltip>
-            )}
+                <MDBTooltip domElement tag="span" placement="left">
+                  <span>
+                    <a href={`/messages/${book.username}`}>
+                      <img src={Message_icon} alt="test" className="chat-image" />
+                    </a>
+                  </span>
+                  <span>{`Message ${book.username}`}</span>
+                </MDBTooltip>
+              )}
           </div>
           <div>
             {editFlag ? (
               <span onClick={deleteBook}>
-                <a href="#">
-                  <img
-                    src={delete_icon}
-                    alt="test"
-                    className="bookstore-image"
-                  />
-                </a>
+                <img
+                  src={delete_icon}
+                  alt="test"
+                  className="bookstore-image"
+                />
               </span>
             ) : (
-              <div className="bookstore-username">
-                <MDBTooltip domElement tag="span" placement="left">
-                  <span>
-                    <a href={`/bookstore/${book.username}`}>
-                      <img
-                        src={bookstoreIcon}
-                        alt={`/bookstore/${book.username}`}
-                        className="bookstore-image"
-                      />
-                    </a>
-                  </span>
-                  <span>{`${book.username}'s Bookstore`}</span>
-                </MDBTooltip>
-              </div>
-            )}
+                <div className="bookstore-username">
+                  <MDBTooltip domElement tag="span" placement="left">
+                    <span>
+                      <a href={`/bookstore/${book.username}`}>
+                        <img
+                          src={bookstoreIcon}
+                          alt={`/bookstore/${book.username}`}
+                          className="bookstore-image"
+                        />
+                      </a>
+                    </span>
+                    <span>{`${book.username}'s Bookstore`}</span>
+                  </MDBTooltip>
+                </div>
+              )}
           </div>
           <div>{datePosted}</div>
         </div>

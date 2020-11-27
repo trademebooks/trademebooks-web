@@ -15,10 +15,10 @@ const ChatApp = () => {
     last_name: ''
   })
 
-  const [message, setMessage] = useState({
-    messageBody: '',
-    chattingWithUser: undefined
-  })
+  // const [message, setMessage] = useState({
+  //   messageBody: '',
+  //   chattingWithUser: undefined
+  // })
 
   const [messages, setMessages] = useState([])
 
@@ -56,7 +56,7 @@ const ChatApp = () => {
         chattingWithUser
       }
 
-      setMessage(messageToSend)
+      // setMessage(messageToSend)
 
       socket.emit('send_private_message', messageToSend)
 

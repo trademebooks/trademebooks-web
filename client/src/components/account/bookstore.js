@@ -43,7 +43,7 @@ const BookStore = ({ auth: { user } }) => {
         ...user
       })
     })()
-  }, [])
+  }, [user])
 
   return (
     <>
