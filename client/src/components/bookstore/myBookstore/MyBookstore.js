@@ -19,8 +19,8 @@ const MyBookStore = ({ books, getBookstoreByUsername }) => {
               {books.length < 1 ? (
                 <div>There are no books in this bookstore...</div>
               ) : (
-                  <Books books={books} editFlag={true} />
-                )}
+                <Books books={books} editFlag={true} />
+              )}
             </MDBCol>
           </MDBRow>
         </MDBContainer>

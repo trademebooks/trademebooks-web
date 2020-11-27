@@ -3,11 +3,9 @@ let config = undefined
 
 if (env === 'testing') {
   config = require('./testing')
-}
-else if (env === 'production') {
+} else if (env === 'production') {
   config = require('./production')
-}
-else {
+} else {
   config = require('./dev')
 }
 
