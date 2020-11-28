@@ -2,7 +2,7 @@ import api from '../utils/api'
 import { toastr } from 'react-redux-toastr'
 import { ADD_BOOK, CREATE_BOOK } from './types'
 
-// Add book
+// Util: Add book
 export const addBook = (formData) => async (dispatch) => {
   dispatch({
     type: ADD_BOOK,
@@ -10,7 +10,7 @@ export const addBook = (formData) => async (dispatch) => {
   })
 }
 
-// Create a book Listing
+// API: Create a book Listing
 export const createBook = (book) => async (dispatch) => {
   try {
     await api.post(`/books`, book)
@@ -27,7 +27,13 @@ export const createBook = (book) => async (dispatch) => {
       payload: {
         title: '',
         price: '',
-        description: ''
+        description: '',
+        authors: [],
+        isbn_10: '',
+        isbn_13: '',
+        condition: 'GOOD',
+        imageUrl: '',
+        edition: ''
       }
     })
   } catch (err) {

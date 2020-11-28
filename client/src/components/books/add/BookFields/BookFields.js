@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact'
 
 import './BookFields.scss'
 
-const BookFields = ({ book, addBook, createBook }) => {
+const BookFields = ({ book, addBook, createBook, editBook, updateBook }) => {
   const onChange = (e) => {
     addBook({ ...book, [e.target.name]: e.target.value })
   }
 
   const postBook = (e) => {
     e.preventDefault()
-    createBook(book)
+
+    if (editBook) {
+      updateBook(book._id, book)
+    } else {
+      createBook(book)
+    }
   }
 
   return (
@@ -44,7 +49,7 @@ const BookFields = ({ book, addBook, createBook }) => {
           <MDBRow>
             <MDBCol md="12" sm="12">
               <MDBBtn className="w-100" onClick={postBook}>
-                Save and Add Another Book
+                {editBook ? 'Update Book Listing' : 'Save and Add Another Book'}
               </MDBBtn>
             </MDBCol>
           </MDBRow>

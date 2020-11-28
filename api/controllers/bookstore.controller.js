@@ -1,17 +1,13 @@
 const globalResponseDTO = require('../responses/globalResponseDTO')
 const bookstoreService = require('../domain/services/bookstore.service')
+const bookService = require('../domain/services/book.service')
 const catchException = require('../utils/catchExceptions')
 
-/**
- * Description: Get a bookstore by username
- */
 const getBookstoreByUsername = catchException(async (req, res, next) => {
-  // 5. business logic
   let bookstore = await bookstoreService.getBookstoreByUsername(
     req.params.username
   )
 
-  // 7. response
   return res.json(
     globalResponseDTO(
       (status = 'success'),
@@ -23,6 +19,21 @@ const getBookstoreByUsername = catchException(async (req, res, next) => {
   )
 })
 
+const getAuthBookstore = catchException(async (req, res, next) => {
+  const books = await bookService.getAllByUserId(req.session.user._id)
+
+  return res.json(
+    globalResponseDTO(
+      (status = 'success'),
+      (code = 200),
+      (message = `Bookstore with all its books.`),
+      (data = books),
+      (errors = null)
+    )
+  )
+})
+
 module.exports = {
-  getBookstoreByUsername
+  getBookstoreByUsername,
+  getAuthBookstore
 }

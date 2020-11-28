@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, Link } from 'mdbreact'
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -54,8 +54,17 @@ const Login = ({ login, isAuthenticated }) => {
                 />
               </div>
 
-              <div className="text-center">
-                <MDBBtn type="submit">Login</MDBBtn>
+              <div>
+                <div className="text-right">
+                  <Link to="/forgot-password">
+                    <strong>Forgot Your Password?</strong>
+                  </Link>
+                </div>
+                <div className="text-center">
+                  <MDBBtn type="submit" className="w-100">
+                    Login
+                  </MDBBtn>
+                </div>
               </div>
             </form>
           </MDBCol>

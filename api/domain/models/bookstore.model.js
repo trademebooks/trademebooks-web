@@ -7,7 +7,8 @@ const BookstoreSchema = new Schema({
     ref: 'user'
   },
   description: {
-    type: String
+    type: String,
+    default: ''
   },
   date: {
     type: Date,

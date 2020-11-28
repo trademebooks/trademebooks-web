@@ -29,6 +29,12 @@ const BookSchema = new Schema({
   datePublished: {
     type: String
   },
+  imageUrl: {
+    type: String
+  },
+  condition: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now

@@ -1,19 +1,12 @@
 import React from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact'
 
-let phantom = {
-  // display: 'block',
-  // padding: '20px',
-  // height: '60px',
-  // width: '100%',
-};
-
 const Footer = () => {
   return (
     <div>
-      <div style={{"alignSelf": "flex-end"}}> 
-      {/* style={{"height": "50px", "marginTop": "-50px"}} */}
-      {/* <div> */}
+      <div style={{ alignSelf: 'flex-end' }}>
+        {/* style={{"height": "50px", "marginTop": "-50px"}} */}
+        {/* <div> */}
         <MDBFooter className="font-small pt-4 mt-4 teal">
           <MDBContainer fluid className="text-center text-md-left">
             <MDBRow>
@@ -61,7 +54,7 @@ const Footer = () => {
                 <h5 className="title">Legal</h5>
                 <ul>
                   <li className="list-unstyled">
-                    <a href="">Terms</a>
+                    <a href="#!">Terms</a>
                   </li>
                   <li className="list-unstyled">
                     <a href="#!">Privacy</a>
@@ -79,7 +72,7 @@ const Footer = () => {
         </MDBFooter>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Footer

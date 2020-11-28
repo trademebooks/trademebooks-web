@@ -48,3 +48,7 @@ h3,
 .color-white {
   color: #ffffff;
 }
+
+main {
+  min-height: calc(100vh - 335px);
+}
