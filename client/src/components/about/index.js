@@ -31,10 +31,10 @@ const About = () => {
       <MDBCol md="4">
         <div key={i}>
           <strong>
-            <p>{key}</p>
+            <p style={{fontSize: "20px"}}>{key}</p>
           </strong>
           <img src={require(`${imagePaths[i]}`)} width="200" height="200" />
-          <p style={{ width: '200px' }}>{names[key]}</p>
+          <p style={{ width: '200px', color: "#898989" }}>{names[key]}</p>
         </div>
       </MDBCol>
     )
@@ -42,10 +42,10 @@ const About = () => {
 
   return (
     <div>
-      <h1 className="centeredPlusSpace">About TMB</h1>
+      <strong><h1 className="centeredPlusSpace" style={{fontSize: "28px"}}>About TMB</h1></strong>
       <div className="gray">
         <div className="centerTexts">
-          <h3>WHO WE ARE</h3>
+          <strong><h3>WHO WE ARE</h3></strong>
           <div>
             <MDBContainer>
               <MDBRow>{blocks}</MDBRow>
