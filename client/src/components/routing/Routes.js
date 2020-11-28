@@ -19,7 +19,7 @@ import BookAdd from '../books/add'
 import BookEdit from '../books/edit'
 import Bookstore from '../bookstore'
 import MyBookstore from '../bookstore/myBookstore'
-import ChatApp from '../Chat'
+import ChatApp from '../chat'
 
 const Routes = () => {
   return (
