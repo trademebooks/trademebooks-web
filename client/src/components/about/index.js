@@ -42,16 +42,16 @@ const About = () => {
 
   return (
     <div>
-      <strong><h1 className="centeredPlusSpace" style={{fontSize: "28px"}}>About TMB</h1></strong>
+      <strong><h1 className="justify-content-center" style={{fontSize: "28px"}}>About TMB</h1></strong>
       <div className="gray">
-        <div className="centerTexts">
+        {/* <div className="centerTexts"> */}
           <strong><h3>WHO WE ARE</h3></strong>
           <div>
             <MDBContainer>
-              <MDBRow>{blocks}</MDBRow>
+              <MDBRow className="justify-content-centre">{blocks}</MDBRow>
             </MDBContainer>
           </div>
-        </div>
+        {/* </div> */}
         <Story />
       </div>
     </div>
