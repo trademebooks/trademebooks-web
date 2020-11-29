@@ -15,11 +15,6 @@ const ChatApp = () => {
     last_name: ''
   })
 
-  // const [message, setMessage] = useState({
-  //   messageBody: '',
-  //   chattingWithUser: undefined
-  // })
-
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
@@ -56,8 +51,6 @@ const ChatApp = () => {
         chattingWithUser
       }
 
-      // setMessage(messageToSend)
-
       socket.emit('send_private_message', messageToSend)
 
       event.target.value = ''
@@ -68,10 +61,10 @@ const ChatApp = () => {
     <>
       <MDBContainer className="mt-4 chat-app">
         <MDBRow className="justify-content-center">
-          <MDBCol md="3">
+          <MDBCol sm="12" md="4">
             <ChatSideBar users={users} chatWithUser={chatWithUser} />
           </MDBCol>
-          <MDBCol md="9">
+          <MDBCol sm="12" md="8">
             <ChatMainContent
               chattingWithUser={chattingWithUser}
               enterMessage={enterMessage}
