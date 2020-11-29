@@ -1,7 +1,14 @@
+// Video tutorial/codealong here: https://youtu.be/fCpw5i_2IYU
+$blue: #74b9ff;
+
 .chat-app-container {
   input {
     padding: 0.5rem;
     width: 100%;
+  }
+
+  .user-selected {
+    background: $blue;
   }
 }
 
@@ -10,17 +17,10 @@
   overflow: scroll;
 }
 
-.chat-main-content {
-
-}
-
 .chat-messages {
   height: calc(70vh);
   overflow: scroll;
 }
-
-// Video tutorial/codealong here: https://youtu.be/fCpw5i_2IYU
-$blue: #74b9ff;
 
 .profile-image {
   width: 50px;

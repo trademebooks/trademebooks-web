@@ -60,8 +60,6 @@ const ChatApp = ({ match }) => {
       socket.emit('send_private_message', messageToSend)
 
       event.target.value = ''
-
-
     }
   }
 
