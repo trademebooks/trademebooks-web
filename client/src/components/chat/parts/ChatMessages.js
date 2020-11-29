@@ -3,7 +3,7 @@ import React from 'react'
 const ChatMessages = ({ messages }) => {
   return (
     <>
-      <div>
+      <div className="chat-messages">
         {messages.map((message, i) => {
           return (
             <div key={i} className="row no-gutters">

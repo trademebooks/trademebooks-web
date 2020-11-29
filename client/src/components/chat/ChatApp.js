@@ -7,7 +7,7 @@ import ChatSideBar from './parts/ChatSidebar'
 import api from '../../utils/api'
 import socket from '../../utils/socket'
 
-const ChatApp = () => {
+const ChatApp = ({ match }) => {
   const [users, setUsers] = useState([])
 
   const [chattingWithUser, setChattingWithUser] = useState({
@@ -18,12 +18,16 @@ const ChatApp = () => {
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       try {
         const response = await api.get(`/utilities/users`)
         const responseJson = response.data.data
         const users = responseJson
         setUsers(users)
+
+        if (!match.params.userId) {
+          setChattingWithUser(users[0])
+        }
       } catch (error) {
         console.log({ error })
       }
@@ -35,6 +39,8 @@ const ChatApp = () => {
         JSON.stringify(messageSent, null, '\t')
       )
       setMessages((messages) => [...messages, messageSent])
+
+      document.querySelector('.chat-messages').scrollBy(0, 99999);
     })
   }, [])
 
@@ -54,15 +60,20 @@ const ChatApp = () => {
       socket.emit('send_private_message', messageToSend)
 
       event.target.value = ''
+
+
     }
   }
 
   return (
     <>
-      <MDBContainer className="mt-4 chat-app">
+      <MDBContainer className="mt-4 chat-app-container">
         <MDBRow className="justify-content-center">
           <MDBCol sm="12" md="4">
-            <ChatSideBar users={users} chatWithUser={chatWithUser} />
+            <ChatSideBar
+              users={users}
+              chatWithUser={chatWithUser}
+            />
           </MDBCol>
           <MDBCol sm="12" md="8">
             <ChatMainContent

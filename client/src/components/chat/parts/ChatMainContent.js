@@ -7,12 +7,14 @@ import ChatWithUser from './ChatWithUser'
 const ChatMainContent = ({ chattingWithUser, enterMessage, messages }) => {
   return (
     <>
-      <ChatWithUser chattingWithUser={chattingWithUser} />
-      
-      <div className="chat-panel">
-        <ChatMessages messages={messages} />
+      <div className="chat-main-content">
+        <ChatWithUser chattingWithUser={chattingWithUser} />
 
-        <ChatInput enterMessage={enterMessage} />
+        <div className="chat-panel">
+          <ChatMessages messages={messages} />
+
+          <ChatInput enterMessage={enterMessage} />
+        </div>
       </div>
     </>
   )

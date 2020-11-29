@@ -1,11 +1,23 @@
-// .chat-app {
-//   input {
-//     padding: 0.5rem;
-//     width: 100%;
-//     height: 5rem;
-//   }
-// }
+.chat-app-container {
+  input {
+    padding: 0.5rem;
+    width: 100%;
+  }
+}
 
+.chat-sidebar-container {
+  height: calc(85vh);
+  overflow: scroll;
+}
+
+.chat-main-content {
+
+}
+
+.chat-messages {
+  height: calc(70vh);
+  overflow: scroll;
+}
 
 // Video tutorial/codealong here: https://youtu.be/fCpw5i_2IYU
 $blue: #74b9ff;
@@ -20,21 +32,21 @@ $blue: #74b9ff;
   background: #eee;
   padding: 10px 15px;
   border-radius: 7px;
-  
+
   .no-gutters {
     padding: 0;
   }
-  
+
   &--right {
     float: right;
-    
+
     i {
       margin-top: 10px;
       font-size: 25px;
       color: grey;
       margin-left: 14px;
-      transition: .3s;
-      
+      transition: 0.3s;
+
       &:hover {
         color: $blue;
         cursor: pointer;
@@ -46,14 +58,14 @@ $blue: #74b9ff;
 .search-box {
   background: #fafafa;
   padding: 10px 13px;
-  
+
   .input-wrapper {
     background: #fff;
     border-radius: 40px;
-    
+
     i {
       color: grey;
-      margin-left: 7px; 
+      margin-left: 7px;
       vertical-align: middle;
     }
   }
@@ -80,34 +92,34 @@ input {
   display: flex;
   vertical-align: baseline;
   background: #fff;
-  transition: .3s ease;
-  
+  transition: 0.3s ease;
+
   &--grey {
     background: #eee;
   }
-  
+
   .text {
     margin-left: 12px;
     width: 70%;
-    
+
     h6 {
       margin-top: 6px;
       margin-bottom: 0;
     }
-    
+
     p {
       margin: 0;
     }
   }
-  
+
   .time {
     color: grey;
   }
-  
+
   &--onhover:hover {
     background: $blue;
     cursor: pointer;
-    
+
     p,
     h6,
     .time {
@@ -128,7 +140,7 @@ hr {
   border-radius: 9px;
   position: relative;
   animation: fadeIn 1s ease-in;
-  
+
   &:after {
     content: '';
     position: absolute;
@@ -139,35 +151,34 @@ hr {
     border-bottom: 0;
     margin-top: -10px;
   }
-  
+
   &--left {
-     &:after {
+    &:after {
       left: 0;
       border-right-color: #eee;
-	    border-left: 0;
+      border-left: 0;
       margin-left: -20px;
     }
   }
-  
+
   &--right {
     &:after {
       right: 0;
       border-left-color: $blue;
-	    border-right: 0;
+      border-right: 0;
       margin-right: -20px;
     }
   }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 
 .offset-md-9 {
   .chat-bubble {
@@ -184,17 +195,17 @@ hr {
   align-items: center;
   margin-top: 19px;
   bottom: 0;
-  
+
   input {
     margin: 0 10px;
     padding: 6px 2px;
   }
-  
+
   i {
     color: grey;
     font-size: 30px;
     vertical-align: middle;
-    
+
     &:last-of-type {
       margin-left: 25px;
     }
