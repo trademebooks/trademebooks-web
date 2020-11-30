@@ -6,7 +6,7 @@ const messageSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  userId: {
+  roomId: {
     type: Schema.Types.ObjectId,
     ref: 'Room'
   },

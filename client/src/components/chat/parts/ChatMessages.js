@@ -9,7 +9,7 @@ const ChatMessages = ({ messages }) => {
             <div key={i} className="row no-gutters">
               <div className="col-md-3">
                 <div className="chat-bubble chat-bubble--left">
-                {/* <div className="chat-bubble chat-bubble--right">Hello dude!</div> */}
+                  {/* <div className="chat-bubble chat-bubble--right">Hello dude!</div> */}
                   {message.messageBody}
                 </div>
               </div>
