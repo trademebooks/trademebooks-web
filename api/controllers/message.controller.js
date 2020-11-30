@@ -5,7 +5,7 @@ const catchException = require('../utils/catchExceptions')
 
 const getAllConversations = catchException(async (req, res, next) => {
   const converations = await messageService.getAllConversations(
-    req.session.user._id
+    req.user._id
   )
 
   return res

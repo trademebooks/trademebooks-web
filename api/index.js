@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const session = require('express-session')
+const passport = require('passport')
 
 const config = require('./config')
 const globalResponseDTO = require('./responses/globalResponseDTO')
@@ -15,7 +16,7 @@ const mongoose = require('mongoose')
 
 const sessionMiddleware = session({
   secret: config.sessionSecret,
-  resave: true,
+  resave: false,
   saveUninitialized: false,
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
@@ -23,6 +24,11 @@ const sessionMiddleware = session({
   })
 })
 app.use(sessionMiddleware)
+
+// Passport Settings
+app.use(passport.initialize())
+app.use(passport.session())
+require('./config/passport.confg')
 
 const getRouter = require('./routes')
 const router = getRouter()

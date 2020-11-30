@@ -5,7 +5,7 @@ module.exports = (io, socket) => {
   socket.on('send_private_message', async (sentMessgage) => {
     const { messageBody, chattingWithUser } = sentMessgage
 
-    const authUser = await User.findById(socket.request.session.user._id)
+    const authUser = await User.findById(socket.request.user._id)
     const targetUser = await User.findById(chattingWithUser._id)
 
     const messageToReceiver = {

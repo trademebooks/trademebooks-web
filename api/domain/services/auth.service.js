@@ -31,7 +31,7 @@ const logoutUser = async (req) => {
  * @returns User
  */
 const getAuthUser = async (req) => {
-  return req.session.user
+  return req.user
 }
 
 module.exports = {

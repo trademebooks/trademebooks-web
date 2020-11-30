@@ -12,7 +12,7 @@ const getHealthCheck = catchExceptions(async (req, res, next) => {
         (status = 'success'),
         (code = 200),
         (message = `The application is up and running!`),
-        (data = {}),
+        (data = Object.keys(req)),
         (errors = null)
       )
     )

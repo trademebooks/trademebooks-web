@@ -4,7 +4,7 @@ const accountService = require('../domain/services/account.service')
 const userService = require('../domain/services/user.service')
 
 const getAccountById = catchException(async (req, res, next) => {
-  const account = await accountService.getById(req.session.user._id)
+  const account = await accountService.getById(req.user._id)
 
   return res.json(
     globalResponseDTO(
@@ -19,7 +19,7 @@ const getAccountById = catchException(async (req, res, next) => {
 
 const updateAccountById = catchException(async (req, res, next) => {
   const account = await accountService.updateById(
-    req.session.user._id,
+    req.user._id,
     req.body
   )
 
@@ -35,7 +35,7 @@ const updateAccountById = catchException(async (req, res, next) => {
 })
 
 const updateUserById = catchException(async (req, res, next) => {
-  const user = await userService.updateById(req.session.user._id, req.body)
+  const user = await userService.updateById(req.user._id, req.body)
 
   return res.json(
     globalResponseDTO(

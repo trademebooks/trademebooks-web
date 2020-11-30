@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, Link } from 'mdbreact'
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, Link } from 'mdbreact'
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -66,6 +66,23 @@ const Login = ({ login, isAuthenticated }) => {
                   </MDBBtn>
                 </div>
               </div>
+
+              <MDBRow>
+                <MDBCol md="12">
+                  <div className="text-center mt-4">
+                    <MDBBtn size="lg" tag="a" floating social="fb" color="primary" rounded>
+                      <MDBIcon fab icon="facebook-f" />
+                    </MDBBtn>
+                    <MDBBtn size="lg" tag="a" floating social="tw" color="info" rounded>
+                      <MDBIcon fab icon="twitter" />
+                    </MDBBtn>
+                    <MDBBtn href="/api/v1/passport/auth/google" size="lg" tag="a" floating social="gplus" color="danger"
+                      rounded>
+                      <MDBIcon fab icon="google" />
+                    </MDBBtn>
+                  </div>
+                </MDBCol>
+              </MDBRow>
             </form>
           </MDBCol>
         </MDBRow>

@@ -9,6 +9,7 @@ const messageRoutes = require('./message.route')
 
 const appRoutes = require('./app.route')
 const utilityRoutes = require('./utilities.route')
+const passportRoutes = require('./passport.route')
 
 function getRouter() {
   router.use('/auth', authRoutes)
@@ -19,6 +20,9 @@ function getRouter() {
 
   router.use('/app', appRoutes)
   router.use('/utilities', utilityRoutes)
+
+  // temp passport url with configs
+  router.use('/passport', passportRoutes)
 
   return router
 }
