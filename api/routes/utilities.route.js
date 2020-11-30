@@ -7,6 +7,7 @@ const User = require('../domain/models/user.model')
 const globalResponseDTO = require('../responses/globalResponseDTO')
 
 router.post('/contact', contactController.contactUs)
+
 router.get('/users', async (req, res) => {
   const users = await User.find({}).where('_id').ne(req.session.user._id)
   return res
