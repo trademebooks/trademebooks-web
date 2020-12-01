@@ -63,7 +63,12 @@ const logUserIn = catchExceptions(async (req, res, next) => {
   // if the user's email and password match in our database then set the current session to that user
   let loggedInUser = await authService.loginUser(loginUserRequest)
   if (loggedInUser) {
-    req.session.user = loggedInUser
+    req.login(loggedInUser, function (err) {
+      if (err) {
+        return next(err)
+      }
+      return res.redirect('/')
+    })
   } else {
     // if the user does not login successfully
     return res
@@ -112,7 +117,7 @@ const logUserOut = catchExceptions((req, res, next) => {
   // 4. validation: none
 
   // 5. business logic
-  req.session.destroy()
+  req.logout()
 
   // 6. event
 
@@ -141,7 +146,7 @@ const getAuthUser = catchExceptions((req, res, next) => {
   // 4. validation: none
 
   // 5. business logic
-  let user = req.session.user
+  let user = req.user
 
   // 6. event: none
 

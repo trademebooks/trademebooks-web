@@ -3,7 +3,7 @@ const Room = require('../../domain/models/room.model')
 
 module.exports = (io, socket) => {
   socket.on('join_private_room', async (chattingWithUser) => {
-    const authUser = await User.findById(socket.request.session.user._id)
+    const authUser = await User.findById(socket.request.user._id)
     const targetUser = await User.findById(chattingWithUser._id)
 
     const alreadyInRoom = await Room.find({

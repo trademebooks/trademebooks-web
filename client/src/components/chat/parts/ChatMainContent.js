@@ -2,17 +2,19 @@ import React from 'react'
 
 import ChatMessages from './ChatMessages'
 import ChatInput from './ChatInput'
+import ChatWithUser from './ChatWithUser'
 
 const ChatMainContent = ({ chattingWithUser, enterMessage, messages }) => {
   return (
     <>
-      <div>
-        <h3>
-          Chatting with User:{' '}
-          {chattingWithUser.first_name + ' ' + chattingWithUser.last_name}
-        </h3>
-        <ChatMessages messages={messages} />
-        <ChatInput enterMessage={enterMessage} />
+      <div className="chat-main-content">
+        <ChatWithUser chattingWithUser={chattingWithUser} />
+
+        <div className="chat-panel">
+          <ChatMessages messages={messages} />
+
+          <ChatInput enterMessage={enterMessage} />
+        </div>
       </div>
     </>
   )

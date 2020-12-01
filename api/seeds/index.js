@@ -6,5 +6,9 @@
   const bookstores = await require('./bookstores.seeds')(users)
   const books = await require('./books.seeds')(users)
 
-  console.log('Database seeds completed..')
+  // Chat Application Seeds
+  const rooms = await require('./rooms.seeds')()
+  const messages = await require('./messages.seeds')()
+
+  console.log('Database seeds completed...')
 })()

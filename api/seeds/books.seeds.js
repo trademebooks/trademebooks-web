@@ -14,7 +14,7 @@ module.exports = async (users) => {
   books = [
     ...[
       new Book({
-        userId: '5e11e9d8eded1d23742c1c6d',
+        userId: '5e11e9d8eded1d23742c1c6a',
         title: 'Book #1 - Air',
         description:
           'This is a great description fo the book. test. search. query. air here.',
@@ -31,7 +31,7 @@ module.exports = async (users) => {
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
-        userId: '5e11e9d8eded1d23742c1c6d',
+        userId: '5e11e9d8eded1d23742c1c6a',
         title: 'Book #2 - Water',
         description:
           'This is a great description fo the book. air here as well.',
@@ -48,7 +48,7 @@ module.exports = async (users) => {
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
-        userId: '5e11e9d8eded1d23742c1c6d',
+        userId: '5e11e9d8eded1d23742c1c6a',
         title: 'Book #3 - Earth',
         description: 'This is a great description fo the book.',
         authors: ['John Doe', 'Jane Doe', 'Henry The 3rd'],
@@ -64,7 +64,7 @@ module.exports = async (users) => {
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
-        userId: '5e11e9d8eded1d23742c1c6d',
+        userId: '5e11e9d8eded1d23742c1c6a',
         title: 'Book #4 - Fire',
         description: 'This is a great description fo the book.',
         authors: ['John Doe', 'Jane Doe', 'Henry The 3rd'],
@@ -80,7 +80,7 @@ module.exports = async (users) => {
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
-        userId: '5e11e9d8eded1d23742c1c6d',
+        userId: '5e11e9d8eded1d23742c1c6a',
         title: 'Book #5 - Legend of Korra',
         description: 'This is a great description fo the book.',
         authors: ['John Doe', 'Jane Doe', 'Henry The 3rd'],
@@ -96,7 +96,7 @@ module.exports = async (users) => {
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
-        userId: '5e11e9d8eded1d23742c1c6d',
+        userId: '5e11e9d8eded1d23742c1c6a',
         title: 'Book #6- Air',
         description: 'This is a great description fo the book.',
         authors: ['John Doe', 'Jane Doe', 'Henry The 3rd'],
@@ -112,7 +112,7 @@ module.exports = async (users) => {
         date_posted: 'Jan 7, 2020'
       }),
       new Book({
-        userId: '5e11e9d8eded1d23742c1c6d',
+        userId: '5e11e9d8eded1d23742c1c6a',
         title: 'Book #7 - Air',
         description: 'This is a great description fo the book.',
         authors: ['John Doe', 'Jane Doe', 'Henry The 3rd'],

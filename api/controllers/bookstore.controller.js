@@ -20,7 +20,7 @@ const getBookstoreByUsername = catchException(async (req, res, next) => {
 })
 
 const getAuthBookstore = catchException(async (req, res, next) => {
-  const books = await bookService.getAllByUserId(req.session.user._id)
+  const books = await bookService.getAllByUserId(req.user._id)
 
   return res.json(
     globalResponseDTO(
