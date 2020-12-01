@@ -12,6 +12,24 @@ module.exports = {
     authToken: process.env.TWILIO_AUTH_TOKEN
   },
   contactUsEmail: process.env.CONTACT_US_EMAIL,
-  googleClientID: '',
-  googleClientSecret: ''
+  GOOGLE: {
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET
+  },
+  FACEBOOK: {
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+  },
+  TWITTER: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  GITHUB: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  LINKEDIN: {
+    clientID: 'x',
+    clientSecret: 'x'
+  }
 }
