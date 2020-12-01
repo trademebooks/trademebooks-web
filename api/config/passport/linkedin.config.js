@@ -10,12 +10,20 @@ const linkedinStrategyConfig = {
   proxy: true
 }
 
-const linkedinStrategyLogin = async (accessToken, refreshToken, profile, cb) => {
-  console.log(JSON.stringify(profile, null, '\t'));
-  user = { ...profile };
-  return cb(null, profile);
+const linkedinStrategyLogin = async (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  console.log(JSON.stringify(profile, null, '\t'))
+  user = { ...profile }
+  return cb(null, profile)
 }
 
-const linkedinStrategy = new LinkedInStrategy(linkedinStrategyConfig, linkedinStrategyLogin)
+const linkedinStrategy = new LinkedInStrategy(
+  linkedinStrategyConfig,
+  linkedinStrategyLogin
+)
 
 passport.use(linkedinStrategy)

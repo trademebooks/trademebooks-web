@@ -24,7 +24,12 @@ const googleStrategyConfig = {
   proxy: true
 }
 
-const googleStrategyLogin = async (accessToken, refreshToken, profile, done) => {
+const googleStrategyLogin = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) => {
   const profileJson = profile._json
   const { sub, email } = profileJson
 
@@ -38,7 +43,7 @@ const googleStrategyLogin = async (accessToken, refreshToken, profile, done) => 
 
     // scenario 2: if the user does not exist in the databaase, then create it inou
     const user = await new User({
-      googleId: sub,
+      google_id: sub,
       username: sub
     }).save()
 
@@ -48,6 +53,9 @@ const googleStrategyLogin = async (accessToken, refreshToken, profile, done) => 
   }
 }
 
-const googleStrategy = new GoogleStrategy(googleStrategyConfig, googleStrategyLogin)
+const googleStrategy = new GoogleStrategy(
+  googleStrategyConfig,
+  googleStrategyLogin
+)
 
 passport.use(googleStrategy)

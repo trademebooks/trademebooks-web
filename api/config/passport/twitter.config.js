@@ -11,11 +11,14 @@ const twitterStrategyConfig = {
 }
 
 const twitterStrategyLogin = async (accessToken, refreshToken, profile, cb) => {
-  console.log(JSON.stringify(profile, null, '\t'));
-  user = { ...profile };
-  return cb(null, profile);
+  console.log(JSON.stringify(profile, null, '\t'))
+  user = { ...profile }
+  return cb(null, profile)
 }
 
-const twitterStrategy = new TwitterStrategy(twitterStrategyConfig, twitterStrategyLogin)
+const twitterStrategy = new TwitterStrategy(
+  twitterStrategyConfig,
+  twitterStrategyLogin
+)
 
 passport.use(twitterStrategy)

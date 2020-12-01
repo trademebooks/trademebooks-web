@@ -1,7 +1,15 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, Link } from 'mdbreact'
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBIcon,
+  Link
+} from 'mdbreact'
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -70,14 +78,36 @@ const Login = ({ login, isAuthenticated }) => {
               <MDBRow>
                 <MDBCol md="12">
                   <div className="text-center mt-4">
-                    <MDBBtn href="/api/v1/passport/auth/google" size="lg" tag="a" floating social="gplus" color="danger"
-                      rounded>
+                    <MDBBtn
+                      href="/api/v1/passport/auth/google"
+                      size="lg"
+                      tag="a"
+                      floating
+                      social="gplus"
+                      color="danger"
+                      rounded
+                    >
                       <MDBIcon fab icon="google" />
                     </MDBBtn>
-                    <MDBBtn href="/api/v1/passport/auth/facebook" size="lg" tag="a" floating social="fb" color="primary" rounded>
+                    <MDBBtn
+                      href="/api/v1/passport/auth/facebook"
+                      size="lg"
+                      tag="a"
+                      floating
+                      social="fb"
+                      color="primary"
+                      rounded
+                    >
                       <MDBIcon fab icon="facebook-f" />
                     </MDBBtn>
-                    <MDBBtn size="lg" tag="a" floating social="tw" color="info" rounded>
+                    <MDBBtn
+                      size="lg"
+                      tag="a"
+                      floating
+                      social="tw"
+                      color="info"
+                      rounded
+                    >
                       <MDBIcon fab icon="twitter" />
                     </MDBBtn>
                   </div>

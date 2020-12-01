@@ -21,7 +21,6 @@ function getRouter() {
   router.use('/app', appRoutes)
   router.use('/utilities', utilityRoutes)
 
-  // temp passport url with configs
   router.use('/passport', passportRoutes)
 
   return router

@@ -11,11 +11,14 @@ const githubStrategyConfig = {
 }
 
 const githubStrategyLogin = async (accessToken, refreshToken, profile, cb) => {
-  console.log(JSON.stringify(profile, null, '\t'));
-  user = { ...profile };
-  return cb(null, profile);
+  console.log(JSON.stringify(profile, null, '\t'))
+  user = { ...profile }
+  return cb(null, profile)
 }
 
-const githubStrategy = new GithubStrategy(githubStrategyConfig, githubStrategyLogin)
+const githubStrategy = new GithubStrategy(
+  githubStrategyConfig,
+  githubStrategyLogin
+)
 
 passport.use(githubStrategy)

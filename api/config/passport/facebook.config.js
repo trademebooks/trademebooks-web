@@ -20,11 +20,16 @@ const facebookStrategyConfig = {
   proxy: true
 }
 
-const facebookStrategyLogin = async (accessToken, refreshToken, profile, done) => {
+const facebookStrategyLogin = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) => {
   const profileJson = profile._json
   const { id, displayName } = profileJson
-  
-  console.log(JSON.stringify(profileJson, null, '\t'));
+
+  console.log(JSON.stringify(profileJson, null, '\t'))
 
   const email = profileJson.email[0].value
 
@@ -48,6 +53,9 @@ const facebookStrategyLogin = async (accessToken, refreshToken, profile, done) =
   }
 }
 
-const facebookStrategy = new FacebookStrategy(facebookStrategyConfig, facebookStrategyLogin)
+const facebookStrategy = new FacebookStrategy(
+  facebookStrategyConfig,
+  facebookStrategyLogin
+)
 
 passport.use(facebookStrategy)

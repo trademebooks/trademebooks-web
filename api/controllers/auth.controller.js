@@ -64,9 +64,11 @@ const logUserIn = catchExceptions(async (req, res, next) => {
   let loggedInUser = await authService.loginUser(loginUserRequest)
   if (loggedInUser) {
     req.login(loggedInUser, function (err) {
-      if (err) { return next(err) }
+      if (err) {
+        return next(err)
+      }
       return res.redirect('/')
-    });
+    })
   } else {
     // if the user does not login successfully
     return res
