@@ -145,6 +145,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                       <MDBIcon fab icon="facebook-f" />
                     </MDBBtn>
                     <MDBBtn
+                      href="/api/v1/passport/auth/twitter"
                       size="lg"
                       tag="a"
                       floating
