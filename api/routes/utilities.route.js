@@ -9,7 +9,7 @@ const globalResponseDTO = require('../responses/globalResponseDTO')
 router.post('/contact', contactController.contactUs)
 
 router.get('/users', async (req, res) => {
-  const users = await User.find({}).where('_id').ne(req.session.user._id)
+  const users = await User.find({}).where('_id').ne(req.user._id)
   return res
     .status(200)
     .json(

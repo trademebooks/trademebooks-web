@@ -6,7 +6,7 @@ const bookPermission = async (req, res, next) => {
   let bookId = req.params.id
   let book = await bookService.getBookById(bookId)
 
-  if (req.session.user._id.toString() === book.userId.toString()) {
+  if (req.user._id.toString() === book.userId.toString()) {
     next()
   } else {
     res

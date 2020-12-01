@@ -4,9 +4,7 @@ const messageService = require('../domain/services/message.service')
 const catchException = require('../utils/catchExceptions')
 
 const getAllConversations = catchException(async (req, res, next) => {
-  const converations = await messageService.getAllConversations(
-    req.session.user._id
-  )
+  const converations = await messageService.getAllConversations(req.user._id)
 
   return res
     .status(200)

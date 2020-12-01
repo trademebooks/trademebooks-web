@@ -12,7 +12,8 @@ const users = [
     username: 'yichen',
     email: 'yichenzhu1337@gmail.com',
     password: 'yichen',
-    phone_number: '4162932500'
+    phone_number: '4162932500',
+    google_id: '110603409234402153901'
   },
   {
     _id: '5e11e9d8eded1d23742c1c6b',

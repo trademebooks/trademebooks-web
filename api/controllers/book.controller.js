@@ -57,7 +57,7 @@ const createABook = catchException(async (req, res, next) => {
 
   // 3. request
   const createBookRequest = createBookRequestDTO({
-    userId: req.session.user._id,
+    userId: req.user._id,
     ...req.body
   })
 
@@ -66,7 +66,7 @@ const createABook = catchException(async (req, res, next) => {
 
   // 5. business logic
   const book = await bookService.createBook({
-    userId: req.session.user._id,
+    userId: req.user._id,
     ...req.body
   })
 
