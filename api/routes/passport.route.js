@@ -24,9 +24,7 @@ router.get(
 // Facebook
 router.get(
   '/auth/facebook',
-  passport.authenticate('facebook', {
-    scope: ['profile', 'email']
-  })
+  passport.authenticate('facebook')
 )
 
 router.get(

@@ -4,6 +4,19 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 const config = require('../../config')
 const User = require('../../domain/models/user.model')
 
+/*
+{
+  sub: '110603409234402153901',
+  name: 'Yichen Zhu',
+  given_name: 'Yichen',
+  family_name: 'Zhu',
+  picture: 'https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmXEVJckXyw8RWTd5SZoFWJ5JwvDg/s96-c/photo.jpg',
+  email: 'yichenzhu1337@gmail.com',
+  email_verified: true,
+  locale: 'en'
+}
+*/
+
 const googleStrategyConfig = {
   clientID: config.GOOGLE.clientID,
   clientSecret: config.GOOGLE.clientSecret,
@@ -12,18 +25,6 @@ const googleStrategyConfig = {
 }
 
 const googleStrategyLogin = async (accessToken, refreshToken, profile, done) => {
-  // {
-  //   profile._json: {
-  //     sub: '110603409234402153901',
-  //     name: 'Yichen Zhu',
-  //     given_name: 'Yichen',
-  //     family_name: 'Zhu',
-  //     picture: 'https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmXEVJckXyw8RWTd5SZoFWJ5JwvDg/s96-c/photo.jpg',
-  //     email: 'yichenzhu1337@gmail.com',
-  //     email_verified: true,
-  //     locale: 'en'
-  //   }
-  // }
   const profileJson = profile._json
   const { sub, email } = profileJson
 
