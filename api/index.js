@@ -28,7 +28,7 @@ app.use(sessionMiddleware)
 // Passport Settings
 app.use(passport.initialize())
 app.use(passport.session())
-require('./config/passport.confg')
+require('./config/passport')
 
 const getRouter = require('./routes')
 const router = getRouter()

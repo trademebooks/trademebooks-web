@@ -42,7 +42,7 @@ const ChatApp = ({ match }) => {
 
       document.querySelector('.chat-messages').scrollBy(0, 99999)
     })
-  }, [])
+  }, [match.params.userId])
 
   const chatWithUser = (user) => {
     setChattingWithUser(user)
