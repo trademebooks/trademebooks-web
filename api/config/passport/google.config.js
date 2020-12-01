@@ -31,7 +31,13 @@ const googleStrategyLogin = async (
   done
 ) => {
   const profileJson = profile._json
-  const { sub, email } = profileJson
+  const {
+    sub,
+    email,
+    given_name,
+    family_name,
+    picture
+  } = profileJson
 
   try {
     // scenario 1: if the user is already in our database, then proceed to setting the session with that user
@@ -43,8 +49,11 @@ const googleStrategyLogin = async (
 
     // scenario 2: if the user does not exist in the databaase, then create it inou
     const user = await new User({
-      google_id: sub,
-      username: sub
+      email,
+      username: sub,
+      first_name: given_name,
+      last_name: family_name,
+      google_id: sub
     }).save()
 
     done(null, user)
