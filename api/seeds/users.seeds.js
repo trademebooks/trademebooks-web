@@ -12,24 +12,25 @@ const users = [
     username: 'yichen',
     email: 'yichenzhu1337@gmail.com',
     password: 'yichen',
-    phone_number: '4162932500'
+    phone_number: '4162932500',
+    google_id: '110603409234402153901'
   },
   {
     _id: '5e11e9d8eded1d23742c1c6b',
-    first_name: 'Wesley',
-    last_name: 'Michaels',
-    username: 'wes123',
-    email: 'shadowkinhawk@hotmail.com',
-    password: 'wes123'
-  },
-  {
-    _id: '5e11e9d8eded1d23742c1c6c',
     first_name: 'Cedric',
     last_name: 'Mosdell',
     username: 'cedric',
     email: 'cedric@cedric.com',
     password: 'cedric',
     phone_number: '4162932502'
+  },
+  {
+    _id: '5e11e9d8eded1d23742c1c6c',
+    first_name: 'Wesley',
+    last_name: 'Michaels',
+    username: 'wes123',
+    email: 'shadowkinhawk@hotmail.com',
+    password: 'wes123'
   }
 ]
 

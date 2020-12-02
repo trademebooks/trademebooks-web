@@ -1,30 +1,22 @@
-const User = require('../../domain/models/user.model')
+const Message = require('../../domain/models/message.model')
 const Room = require('../../domain/models/room.model')
 
 module.exports = (io, socket) => {
-  socket.on('send_private_message', async (sentMessgage) => {
-    const { messageBody, chattingWithUser } = sentMessgage
+  socket.on('send_private_message', async (messageData) => {
+    const { userId, roomId, messageBody } = messageData
 
-    const authUser = await User.findById(socket.request.session.user._id)
-    const targetUser = await User.findById(chattingWithUser._id)
+    const room = await Room.findById(roomId)
 
-    const messageToReceiver = {
-      _id: Math.random(),
-      emmiterId: authUser._id,
-      receiverId: targetUser._id,
-      messageBody
-    }
+    if (room) {
+      io.in(room._id).clients((error, clients) => {
+        console.log('send_private_message clients: ', { clients })
+      })
 
-    const alreadyInRoom = await Room.find({
-      users: {
-        $all: [authUser._id, targetUser._id]
-      }
-    })
+      await new Message(messageData).save()
 
-    if (alreadyInRoom.length) {
-      io.in(alreadyInRoom[0]._id).emit(
+      io.in(room._id).emit(
         'receive_private_message',
-        messageToReceiver
+        messageData
       )
     }
   })

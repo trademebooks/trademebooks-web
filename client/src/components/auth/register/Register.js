@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon } from 'mdbreact'
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -116,6 +116,48 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                   Register
                 </MDBBtn>
               </div>
+
+              <p className="h2 text-center mt-5">Register With Social</p>
+
+              <MDBRow>
+                <MDBCol md="12">
+                  <div className="text-center my-2">
+                    <MDBBtn
+                      href="/api/v1/passport/auth/google"
+                      size="lg"
+                      tag="a"
+                      floating
+                      social="gplus"
+                      color="danger"
+                      rounded
+                    >
+                      <MDBIcon fab icon="google" />
+                    </MDBBtn>
+                    <MDBBtn
+                      href="/api/v1/passport/auth/facebook"
+                      size="lg"
+                      tag="a"
+                      floating
+                      social="fb"
+                      color="primary"
+                      rounded
+                    >
+                      <MDBIcon fab icon="facebook-f" />
+                    </MDBBtn>
+                    <MDBBtn
+                      href="/api/v1/passport/auth/twitter"
+                      size="lg"
+                      tag="a"
+                      floating
+                      social="tw"
+                      color="info"
+                      rounded
+                    >
+                      <MDBIcon fab icon="twitter" />
+                    </MDBBtn>
+                  </div>
+                </MDBCol>
+              </MDBRow>
             </form>
           </MDBCol>
         </MDBRow>

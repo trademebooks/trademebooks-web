@@ -1,7 +1,7 @@
 import Container from './Container'
 
-import './ChatApp.scss'
+import './ChatShell.scss'
 
-const ChatApp = Container
+const ChatShell = Container
 
-export default ChatApp
+export default ChatShell

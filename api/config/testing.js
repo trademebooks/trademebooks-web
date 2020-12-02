@@ -11,5 +11,25 @@ module.exports = {
     accountSid: 'test_twilio_account_sid',
     authToken: 'test_twilio_auth_token'
   },
-  contactUsEmail: 'yichen@chosensolutions.ca'
+  contactUsEmail: 'yichen@chosensolutions.ca',
+  GOOGLE: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  FACEBOOK: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  TWITTER: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  GITHUB: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  LINKEDIN: {
+    clientID: 'x',
+    clientSecret: 'x'
+  }
 }
