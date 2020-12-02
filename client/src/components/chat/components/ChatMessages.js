@@ -1,18 +1,26 @@
 import React from 'react'
 
-const ChatMessages = ({ messages }) => {
+const ChatMessages = ({
+  messages
+}) => {
   return (
     <>
       <div className="chat-messages">
         {messages.map((message, i) => {
           return (
             <div key={i} className="row no-gutters">
-              <div className="col-md-3">
+              <div className="col-md-6">
                 <div className="chat-bubble chat-bubble--left">
-                  {/* <div className="chat-bubble chat-bubble--right">Hello dude!</div> */}
-                  {message.messageBody}
+                  {message?.messageBody}
                 </div>
               </div>
+
+              <div className="col-md-6 offset-md-6">
+                <div className="chat-bubble chat-bubble--right">
+                  {message?.messageBody}
+                </div>
+              </div>
+
             </div>
           )
         })}

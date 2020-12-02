@@ -22,8 +22,6 @@ const getAllConversations = catchException(async (req, res, next) => {
 const getAllMessagesInRoom = catchException(async (req, res, next) => {
   const messages = await messageService.getAllMessagesInRoom(req.params)
 
-  console.log('messages')
-
   return res
     .status(200)
     .json(

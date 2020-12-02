@@ -1,6 +1,8 @@
 import React from 'react'
 
-const ChatInput = ({ enterMessage }) => {
+const ChatInput = ({
+  enterMessage
+}) => {
   return (
     <>
       <div className="row">
@@ -9,7 +11,7 @@ const ChatInput = ({ enterMessage }) => {
             <input
               type="text"
               placeholder="Type your message here..."
-              onKeyPress={enterMessage}
+              // onKeyPress={enterMessage}
             />
           </div>
         </div>
