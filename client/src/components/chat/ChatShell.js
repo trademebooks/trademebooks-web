@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
 
 import ChatSideBar from './components/ChatSidebar'
@@ -6,12 +6,49 @@ import ChatTitle from './components/ChatTitle'
 import ChatMessages from './components/ChatMessages'
 import ChatInput from './components/ChatInput'
 
-const ChatApp = ({
+import {
+  getAllConversations,
+  getAllMessagesInRoom
+} from '../../actions/chat'
 
+import socket from '../../utils/socket'
+
+const ChatApp = ({
+  auth: {
+    user
+  },
 }) => {
   const [chatUsers, setChatUsers] = useState([])
 
-  const [messages, setMessages] = useState([])
+  const [currentChatMessages, setCurrentChatMessages] = useState([])
+
+  const [currentChatUser, setCurrentChatUser] = useState({})
+
+  useEffect(() => {
+    (async () => {
+      const conversations = await getAllConversations()
+
+      setChatUsers(conversations)
+
+      if (conversations.length > 0) {
+        const { room_id, user } = conversations[0]
+
+        const messages = await getAllMessagesInRoom(room_id)
+
+        setCurrentChatMessages(messages)
+
+        setCurrentChatUser({ room_id, ...user })
+
+        socket.emit('join_private_room', conversations[0])
+      }
+    })()
+
+    socket.on('receive_private_message', (messageSent) => {
+      setCurrentChatMessages((messages) => [...messages, messageSent])
+
+      document.querySelector('.chat-messages').scrollBy(0, Math.max() * -1)
+    })
+  }, [])
 
   return (
     <>
@@ -21,18 +58,22 @@ const ChatApp = ({
             <ChatSideBar
               chatUsers={chatUsers}
               setChatUsers={setChatUsers}
-              messages={messages}
-              setMessages={setMessages}
+              currentChatMessages={currentChatMessages}
+              setCurrentChatMessages={setCurrentChatMessages}
+              setCurrentChatUser={setCurrentChatUser}
             />
           </MDBCol>
           <MDBCol sm="12" md="8">
             <div className="chat-main-content">
-              <ChatTitle chatUsers={chatUsers} setMessages={setMessages} />
+              <ChatTitle currentChatUser={currentChatUser} />
 
               <div className="chat-panel">
-                <ChatMessages messages={messages} />
+                <ChatMessages
+                  authUser={user}
+                  currentChatMessages={currentChatMessages}
+                />
 
-                <ChatInput />
+                <ChatInput currentChatUser={currentChatUser} />
               </div>
             </div>
           </MDBCol>

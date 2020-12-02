@@ -1,49 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-import api from '../../../utils/api'
+import {
+  getAllMessagesInRoom
+} from '../../../actions/chat'
+
 import socket from '../../../utils/socket'
 
 const ChatSidebar = ({
   chatUsers,
-  setChatUsers,
-  messages,
-  setMessages
+  setCurrentChatMessages,
+  setCurrentChatUser
 }) => {
-
-  useEffect(() => {
-    ; (async () => {
-      try {
-        const response = await api.get(`/messages/conversations`)
-        const responseJson = response.data.data
-        const conversations = responseJson
-
-        setChatUsers(conversations)
-      }
-      catch (error) {
-        console.log({ error })
-      }
-    })()
-
-    // socket.on('receive_private_message', (messageSent) => {
-    //   document.querySelector('.chat-messages').scrollBy(0, 99999)
-    // })
-  }, [])
-
-  const chatWithUser = async (chatUser) => {
+  const chatWithUserHandler = async (chatUser) => {
     const { room_id, user } = chatUser
 
-    try {
-      const response = await api.get(`/messages/${room_id}`)
-      const responseJson = response.data.data
-      const messages = responseJson
+    const messages = await getAllMessagesInRoom(room_id)
 
-      setMessages(messages)
-    }
-    catch (error) {
-      console.log({ error })
-    }
+    setCurrentChatMessages(messages)
 
-    // socket.emit('join_private_room', user)
+    setCurrentChatUser({room_id, ...user})
+
+    socket.emit('join_private_room', chatUser)
   }
 
   return (
@@ -60,7 +37,7 @@ const ChatSidebar = ({
 
             return (
               <div key={room_id}>
-                <div className="friend-drawer friend-drawer--onhover" onClick={() => chatWithUser(chatUser)}>
+                <div className="friend-drawer friend-drawer--onhover" onClick={() => chatWithUserHandler(chatUser)}>
                   <img
                     className="profile-image"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png"

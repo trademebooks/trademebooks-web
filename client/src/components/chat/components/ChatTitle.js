@@ -1,41 +1,14 @@
-import React, { useState, useEffect } from 'react'
-
-import api from '../../../utils/api'
+import React from 'react'
 
 const ChatWithUser = ({
-  chatUsers,
-  setMessages
+  currentChatUser
 }) => {
-  const [chatUser, setChatUser] = useState({
-    first_name: '',
-    last_name: ''
-  })
-
-  useEffect(() => {
-    const user = chatUsers[0]?.user
-    const room_id = chatUsers[0]?.room_id
-
-    if (user) {
-      setChatUser(user)
-    }
-
-    (async () => {
-      try {
-        const messages = (await api.get(`/messages/${room_id}`)).data.data
-        setMessages(messages)
-      }
-      catch (error) {
-        console.log({ error })
-      }
-    })()
-  }, [chatUsers])
-
   return (
     <>
       <div className="settings-tray">
         <div className="friend-drawer no-gutters friend-drawer--grey">
           {
-            (chatUser.first_name && chatUser.last_name)
+            (currentChatUser?.first_name && currentChatUser?.last_name)
               ?
               <>
                 <img
@@ -45,7 +18,7 @@ const ChatWithUser = ({
                 />
                 <div className="text">
                   <h6>
-                    {chatUser?.first_name + ' ' + chatUser?.last_name}
+                    {currentChatUser?.first_name + ' ' + currentChatUser?.last_name}
                   </h6>
                 </div>
               </>

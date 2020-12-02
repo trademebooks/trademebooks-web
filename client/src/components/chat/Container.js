@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import ChatShell from './ChatShell'
 
 const mapStateToProps = (state) => ({
-  authUser: state.auth
+  auth: state.auth
 })
 
 const mapDispatchToProps = {}
