@@ -12,7 +12,7 @@ const getAllConversations = async (authId) => {
   const conversations = await Promise.all(
     rooms.map(async (room) => {
       const userId = room.users.find((user) => {
-        return user.toString() !== authId
+        return user.toString() !== authId.toString()
       })
 
       const user = await User.findById(userId)

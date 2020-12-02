@@ -1,3 +1,4 @@
+const faker = require('faker')
 const db = require('../utils/db')
 require('../domain/models/message.model')
 
@@ -39,6 +40,26 @@ module.exports = async () => {
   await Message.deleteMany({})
 
   for (const message of messages) {
+    await new Message(message).save()
+  }
+
+  for (let i = 1; i <= 200; i++) {
+    const message = {
+      roomId: '5fc36879a0d3010d607eaade',
+      userId: ['5e11e9d8eded1d23742c1c6a', '5e11e9d8eded1d23742c1c6b'][Math.round(Math.random(0, 1))],
+      messageBody: faker.lorem.sentences(Math.ceil(Math.random(1, 5) * 5))
+    }
+    
+    await new Message(message).save()
+  }
+
+  for (let i = 1; i <= 20; i++) {
+    const message = {
+      roomId: '5fc40064c17e1f1e88dc806d',
+      userId: ['5e11e9d8eded1d23742c1c6a', '5e11e9d8eded1d23742c1c6c'][Math.round(Math.random(0, 1))],
+      messageBody: faker.lorem.sentences(Math.ceil(Math.random(1, 5) * 5))
+    }
+    
     await new Message(message).save()
   }
 

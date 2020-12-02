@@ -13,7 +13,7 @@ passport.deserializeUser((id, done) => {
 })
 
 require('./google.config')
-// require('./facebook.config')
-// require('./twitter.config')
+require('./facebook.config')
+require('./twitter.config')
 // require('./github.config')
 // require('./linkedin.config')

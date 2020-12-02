@@ -18,7 +18,22 @@ import delete_icon from './icons/delete_icon.png'
 
 import { deleteBookById } from '../../../actions/bookstore'
 
+import socket from '../../../utils/socket'
+
 const Book = ({ book, editFlag, deleteBookById }) => {
+  const chatWithUser = (book) => {
+    console.log({ book })
+
+    socket.emit('join_private_room', {
+      room: undefined,
+      user: {
+        _id: book.userId
+      }
+    })
+
+    window.location.href = '/chat'
+  }
+
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
     year: 'numeric',
@@ -46,13 +61,6 @@ const Book = ({ book, editFlag, deleteBookById }) => {
     LIKE_NEW: require('../../../img/condition_icons/Likenew_condition.png')
   }
 
-  console.log()
-
-  // console.log(
-  //   conditions.find(condition => {
-  //     return condition.type === [book.condition]
-  //   })
-  // )
   return (
     <div className="single-card mt-3">
       <div className="single-card-container">
@@ -145,7 +153,10 @@ const Book = ({ book, editFlag, deleteBookById }) => {
             ) : (
               <MDBTooltip domElement tag="span" placement="left">
                 <span>
-                  <a href={`/messages/${book.username}`}>
+                  <a onClick={(event) => {
+                    event.preventDefault()
+                    chatWithUser(book)
+                  }}>
                     <img src={Message_icon} alt="test" className="chat-image" />
                   </a>
                 </span>

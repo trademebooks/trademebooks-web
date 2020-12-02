@@ -12,6 +12,24 @@ module.exports = {
     authToken: 'test_twilio_auth_token'
   },
   contactUsEmail: 'yichen@chosensolutions.ca',
-  googleClientID: 'my-google-client-id',
-  googleClientSecret: 'my-google-client-secret'
+  GOOGLE: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  FACEBOOK: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  TWITTER: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  GITHUB: {
+    clientID: 'x',
+    clientSecret: 'x'
+  },
+  LINKEDIN: {
+    clientID: 'x',
+    clientSecret: 'x'
+  }
 }

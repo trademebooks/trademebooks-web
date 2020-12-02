@@ -6,14 +6,13 @@ trademebooks.com (TMB) is a platform for university students to buy, sell, and e
 
 The key features:
 
-1. <strike>Simple single sign on with platforms such as FaceBook, Google, Linkedin, Twitter, and many more.</strike>
-2. Users have their own profile (bookstore) which allow them to advertise and sell their textbooks.
-3. Adding/Updating Books.
-   - Having the auto-complete feature when adding/updating a new or existing book.
-   - <strike>A mobile image recognition (OCR - Optical character recognition) feature that can add/update books with the snap of a photo.</strike>
-4. A middle man payment system;  
-   Suppose person A wants to buy from person B a pdf file, person A and person B both pay trademebooks.com and/or upload the file, then TMB pays and reveals the uploaded files if only both of the two parties have successfully submitted what they wanted from each other. That way, trademebooks.com acts as a trusted middle man.
-5. Have a good chat/messaging system in place in order to facilitate communication between buyers and sellers.
+- [x] Simple single sign on with platforms such as FaceBook, Google, Linkedin, Twitter, and many more.
+- [x] Users have their own profile (bookstore) which allow them to advertise and sell their textbooks.
+- [x] Adding/Updating Books: Having the auto-complete feature when adding/updating a new or existing book.
+- [x] <strike>Adding/Updating Books: A mobile image recognition (OCR - Optical character recognition) feature that can add/update books with the snap of a photo.</strike>
+- [x] Have a good chat/messaging system in place in order to facilitate communication between buyers and sellers.
+- [x] <strike>A middle man payment system;  
+       Suppose person A wants to buy from person B a pdf file, person A and person B both pay trademebooks.com and/or upload the file, then TMB pays and reveals the uploaded files if only both of the two parties have successfully submitted what they wanted from each other. That way, trademebooks.com acts as a trusted middle man.</strike>
 
 ## Tech Stack
 

@@ -2,28 +2,34 @@ const User = require('../../domain/models/user.model')
 const Room = require('../../domain/models/room.model')
 
 module.exports = (io, socket) => {
-  socket.on('join_private_room', async (chattingWithUser) => {
-    const authUser = await User.findById(socket.request.user._id)
-    const targetUser = await User.findById(chattingWithUser._id)
+  socket.on('join_private_room', async (chatUser) => {
+    const { room_id, user } = chatUser
 
-    const alreadyInRoom = await Room.find({
-      users: {
-        $all: [authUser._id, targetUser._id]
-      }
-    })
+    const authUser = await User.findById(socket.request.session.passport.user)
+    const targetUser = await User.findById(user._id)
 
-    if (alreadyInRoom.length) {
-      io.in(alreadyInRoom[0]._id).clients((error, clients) => {
-        // if user is not inside the room yet, then join that room
-        if (clients.every((x) => String(x) !== String(authUser._id))) {
-          socket.join(alreadyInRoom[0]._id)
-        }
+    const room = await Room.findById(room_id)
+
+    if (room) {
+      // before clients:  { clients: [] }
+      // after clients:  { clients: [ 'yQh24Yzm-ViVY7TkAAAB' ] }
+      io.in(room._id).clients((error, clients) => {
+        console.log('before clients: ', { clients })
+        socket.join(room._id)
+
+        io.in(room._id).clients((error, clients) => {
+          console.log('after clients: ', { clients })
+        })
       })
     } else {
       const newRoom = new Room({ users: [authUser._id, targetUser._id] })
       await newRoom.save()
 
       socket.join(newRoom._id)
+
+      io.in(newRoom._id).clients((error, clients) => {
+        console.log('after creating new room - clients: ', { clients })
+      })
     }
   })
 }
