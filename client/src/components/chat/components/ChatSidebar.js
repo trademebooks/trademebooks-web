@@ -1,6 +1,28 @@
 import React from 'react'
 
-const ChatSidebar = ({ users, chatWithUser, setMessages }) => {
+import {
+  getAllMessagesInRoom
+} from '../../../actions/chat'
+
+import socket from '../../../utils/socket'
+
+const ChatSidebar = ({
+  chatUsers,
+  setCurrentChatMessages,
+  setCurrentChatUser
+}) => {
+  const chatWithUserHandler = async (chatUser) => {
+    const { room_id, user } = chatUser
+
+    const messages = await getAllMessagesInRoom(room_id)
+
+    setCurrentChatMessages(messages)
+
+    setCurrentChatUser({room_id, ...user})
+
+    socket.emit('join_private_room', chatUser)
+  }
+
   return (
     <>
       <div className="chat-sidebar-container">
@@ -10,16 +32,12 @@ const ChatSidebar = ({ users, chatWithUser, setMessages }) => {
           </div>
         </div>
         <div>
-          {users.map((user) => {
+          {chatUsers.map((chatUser) => {
+            const { room_id, user } = chatUser
+
             return (
-              <div key={user._id}>
-                <div
-                  className="friend-drawer friend-drawer--onhover"
-                  onClick={() => {
-                    chatWithUser(user)
-                    //setMessages([])
-                  }}
-                >
+              <div key={room_id}>
+                <div className="friend-drawer friend-drawer--onhover" onClick={() => chatWithUserHandler(chatUser)}>
                   <img
                     className="profile-image"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png"
@@ -27,7 +45,7 @@ const ChatSidebar = ({ users, chatWithUser, setMessages }) => {
                   />
                   <div className="text">
                     <h6> {user.first_name + ' ' + user.last_name}</h6>
-                    <p className="text-muted">Hey, you're arrested!</p>
+                    <p className="text-muted">Hey, what is going!</p>
                   </div>
                   <span className="time text-muted small">13:21</span>
                 </div>
