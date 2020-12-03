@@ -5,7 +5,9 @@ module.exports = (io, socket) => {
   socket.on('join_private_room', async (chatUser) => {
     const { room_id, user } = chatUser
 
-    const authUser = await User.findById(socket.request.session.passport.user)
+    const authUserId = socket.request.session.passport.user || socket.request.session.user._id
+
+    const authUser = await User.findById(authUserId)
     const targetUser = await User.findById(user._id)
 
     const room = await Room.findOne({
