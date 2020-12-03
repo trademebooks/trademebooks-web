@@ -8,7 +8,11 @@ module.exports = (io, socket) => {
     const authUser = await User.findById(socket.request.session.passport.user)
     const targetUser = await User.findById(user._id)
 
-    const room = await Room.findById(room_id)
+    const room = await Room.findOne({
+      users: {
+        $all: [authUser._id, targetUser._id]
+      }
+    })
 
     if (room) {
       // before clients:  { clients: [] }
