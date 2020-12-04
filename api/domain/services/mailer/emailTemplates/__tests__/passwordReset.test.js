@@ -8,7 +8,7 @@ const template = ({ link }) => {
         </div>
       </body>
     </html>
-  `;
-};
+  `
+}
 
 module.exports = template

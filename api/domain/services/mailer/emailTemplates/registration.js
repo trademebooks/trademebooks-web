@@ -11,7 +11,7 @@ const template = (user) => {
         </div>
       </body>
     </html>
-  `;
-};
+  `
+}
 
 module.exports = template

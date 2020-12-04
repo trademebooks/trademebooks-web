@@ -88,7 +88,7 @@ module.exports = {
   // ],
   testMatch: [
     // '<rootDir>/domain/services/mailer/__tests__/mailer.test.js',
-    '<rootDir>/tests/integration/api/utils/contact.test.js',
+    '<rootDir>/tests/integration/api/utils/contact.test.js'
   ],
   testTimeout: 3000,
   testEnvironment: 'node'

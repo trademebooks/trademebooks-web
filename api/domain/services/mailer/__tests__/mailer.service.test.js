@@ -1,12 +1,12 @@
 const mailerService = require('../mailer.service')
 
-beforeAll(async () => { })
+beforeAll(async () => {})
 
-beforeEach(() => { })
+beforeEach(() => {})
 
-afterEach(async () => { })
+afterEach(async () => {})
 
-afterAll(async () => { })
+afterAll(async () => {})
 
 describe('Test Suite: Mailer Service', () => {
   test('mailerService - sendMail', async () => {
@@ -15,6 +15,5 @@ describe('Test Suite: Mailer Service', () => {
       body: `Here is the URL to reset your password`,
       subject: 'trademebooks.com forgot password'
     })
-
   })
 })
