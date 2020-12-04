@@ -1,4 +1,4 @@
-const ApiException = require('../utils/ApiException')
+const ApiGeneralError = require('../utils/ApiGeneralError')
 
 const fields = [
   'first_name',
@@ -21,7 +21,7 @@ registerUserRequestDTO = (data) => {
   })
 
   if (errors.length > 0) {
-    throw new ApiException(
+    throw new ApiGeneralError(
       (status = 'failed'),
       (code = 422),
       (message = 'Register User Request DTO failed.'),

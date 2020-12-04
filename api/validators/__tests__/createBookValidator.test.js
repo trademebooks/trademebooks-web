@@ -1,6 +1,6 @@
 const createBookValidator = require('../createBookValidator')
 
-const ApiException = require('../../utils/ApiException')
+const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 describe('Test Suite: createBookValidator.test.js', () => {
   it('The happy path - everything works', () => {
@@ -32,6 +32,6 @@ describe('Test Suite: createBookValidator.test.js', () => {
     // 2. Act + 3. Assert
     expect(() => {
       let validator = createBookValidator(data)
-    }).toThrow(ApiException)
+    }).toThrow(ApiGeneralError)
   })
 })

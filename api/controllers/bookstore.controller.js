@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const bookstoreService = require('../domain/services/bookstore.service')
 const bookService = require('../domain/services/book.service')
 const catchException = require('../utils/catchExceptions')

@@ -5,8 +5,8 @@ const globalExceptionHandler = async (err, req, res, next) => {
   console.log('===============================')
   console.log('Global Error Catcher:', err.name)
   console.log('===============================')
-  if (err.name === 'ApiException') {
-    console.error('ApiException', err)
+  if (err.name === 'ApiGeneralError') {
+    console.error('ApiGeneralError', err)
 
     res.status(err.code).json(
       globalResponseDTO({

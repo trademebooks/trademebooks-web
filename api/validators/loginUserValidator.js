@@ -1,14 +1,6 @@
 const Validator = require('validatorjs')
-const ApiException = require('../utils/ApiException')
+const ApiGeneralError = require('../utils/ApiGeneralError')
 
-/**
- * @param {*} data {
- *  - email
- *  - password
- * }
- *
- * @returns Validator
- */
 const loginUserValidator = (data) => {
   const rules = {
     email: 'required|email',
@@ -23,7 +15,7 @@ const loginUserValidator = (data) => {
       errors = errors.concat(validator.errors.errors[field])
     }
 
-    throw new ApiException(
+    throw new ApiGeneralError(
       'There were errors with the validation',
       'failed',
       400,

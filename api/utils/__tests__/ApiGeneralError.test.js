@@ -1,9 +1,9 @@
-const ApiException = require('../ApiException')
+const ApiGeneralError = require('../ApiGeneralError')
 
-test('ApiException', () => {
+test('ApiGeneralError', () => {
   try {
-    throw new ApiException(
-      (message = 'Oops, something went wrong.'),
+    throw new ApiGeneralError(
+      'Oops, something went wrong.',
       (status = 'failed'),
       (code = 400),
       (data = {
@@ -11,7 +11,7 @@ test('ApiException', () => {
       })
     )
   } catch (err) {
-    expect(err.name).toBe('ApiException')
+    expect(err.name).toBe('ApiGeneralError')
     expect(err.message).toBe('Oops, something went wrong.')
     expect(err.status).toBe('failed')
     expect(err.code).toBe(400)

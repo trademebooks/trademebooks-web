@@ -1,12 +1,10 @@
-let env = process.env.NODE_ENV || 'development'
-let config = undefined
+const env = process.env.NODE_ENV || 'development'
+let config = require('./dev')
 
 if (env === 'testing') {
   config = require('./testing')
 } else if (env === 'production') {
   config = require('./production')
-} else {
-  config = require('./dev')
 }
 
 module.exports = config

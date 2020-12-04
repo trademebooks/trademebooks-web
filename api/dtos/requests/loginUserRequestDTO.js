@@ -1,4 +1,4 @@
-const ApiException = require('../utils/ApiException')
+const ApiGeneralError = require('../utils/ApiGeneralError')
 
 const fields = ['email', 'password']
 
@@ -11,7 +11,7 @@ const loginUserRequestDTO = (data) => {
   })
 
   if (errors.length > 0) {
-    throw new ApiException(
+    throw new ApiGeneralError(
       (status = 'failed'),
       (code = 422),
       (message = 'loginUserRequestDTO failed.'),

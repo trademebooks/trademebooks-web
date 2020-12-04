@@ -10,7 +10,7 @@ const dbTestUtils = require('../../../testUtils/dbTestUtil')
 
 beforeAll(async () => {
   await api.listen(apiPort)
-  dbConnection = await db() // start the database
+  dbConnection = await db()
 })
 
 beforeEach(async () => {
@@ -35,8 +35,8 @@ afterAll(async () => {
  *  - response check
  */
 describe('API Test - Register User', () => {
-  it('POST /api/v1/auth/register - happy path', async () => {
-    let user = {
+  test('POST /api/v1/auth/register - happy path', async () => {
+    const user = {
       first_name: 'Yichen',
       last_name: 'Zhu',
       username: 'yichen1337',
@@ -45,7 +45,7 @@ describe('API Test - Register User', () => {
       password_confirmation: 'password123'
     }
 
-    let response = await (
+    const response = await (
       await fetch(`${baseURL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

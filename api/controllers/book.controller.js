@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const createBookRequestDTO = require('../requests/createBookRequestDTO')
 const bookService = require('../domain/services/book.service')
 const bookResponseDTO = require('../responses/bookResponseDTO')

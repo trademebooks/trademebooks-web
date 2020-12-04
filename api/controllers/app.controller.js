@@ -1,9 +1,6 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const catchExceptions = require('../utils/catchExceptions')
 
-/**
- * A health check is just to see if the application is available and working
- */
 const getHealthCheck = catchExceptions(async (req, res, next) => {
   res.status(200).json(
     globalResponseDTO({

@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const messageService = require('../domain/services/message.service')
 
 const catchException = require('../utils/catchExceptions')

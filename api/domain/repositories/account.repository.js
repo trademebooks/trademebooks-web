@@ -7,7 +7,7 @@ const getById = async (userId) => {
 }
 
 const updateById = async (userId, data) => {
-  const account = await AccountModel.updateOne({ userId }, data)
+  await AccountModel.updateOne({ userId }, data)
   const updatedAccount = await AccountModel.find({ userId })
   return updatedAccount
 }

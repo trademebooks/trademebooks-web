@@ -84,7 +84,7 @@ module.exports = {
     /*******************************************************************************/
 
     // Others
-    '<rootDir>/utils/__tests__/ApiException.test.js'
+    '<rootDir>/utils/__tests__/ApiGeneralError.test.js'
   ],
   testTimeout: 3000,
   testEnvironment: 'node'

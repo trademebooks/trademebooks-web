@@ -6,7 +6,7 @@ const baseURL = `http://localhost:${apiPort}/api/v1`
 
 const db = require('../../../src/utils/db')
 let dbConnection
-const ApiException = require('../../../src/utils/ApiException')
+const ApiGeneralError = require('../../../src/utils/ApiGeneralError')
 
 beforeAll(async () => {
   await api.listen(apiPort)

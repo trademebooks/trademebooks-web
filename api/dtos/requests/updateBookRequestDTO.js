@@ -1,4 +1,4 @@
-const ApiException = require('../utils/ApiException')
+const ApiGeneralError = require('../utils/ApiGeneralError')
 
 const fields = []
 

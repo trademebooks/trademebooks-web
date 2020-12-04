@@ -1,5 +1,5 @@
 const Validator = require('validatorjs')
-const ApiException = require('../utils/ApiException')
+const ApiGeneralError = require('../utils/ApiGeneralError')
 
 const contactUsValidator = (data) => {
   const rules = {
@@ -16,7 +16,7 @@ const contactUsValidator = (data) => {
       errors = errors.concat(validator.errors.errors[field])
     }
 
-    throw new ApiException(
+    throw new ApiGeneralError(
       'There were errors with the validation',
       'failed',
       400,

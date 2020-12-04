@@ -1,5 +1,5 @@
 const userResponseDTO = require('../userResponseDTO')
-const ApiException = require('../../utils/ApiException')
+const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 describe('Test Suite: Response', () => {
   it('Correct request 1 - empty parameters', () => {

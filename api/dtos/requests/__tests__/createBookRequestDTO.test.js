@@ -1,5 +1,5 @@
 const registerUserRequestDTO = require('../registerUserRequestDTO')
-const ApiException = require('../../utils/ApiException')
+const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 describe('Test Suite: Request', () => {
   it('Correct request 1 - empty parameters', () => {
@@ -62,6 +62,6 @@ describe('Test Suite: Request', () => {
     // 2. + 3. Act and Assert
     expect(() => {
       let registerUserRequest = registerUserRequestDTO(apiInputRequest)
-    }).toThrow(ApiException)
+    }).toThrow(ApiGeneralError)
   })
 })

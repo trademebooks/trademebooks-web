@@ -1,42 +1,48 @@
 const userRepository = require('../repositories/user.repository')
 const bookstoreRepository = require('../repositories/bookstore.repository')
 const accountRepository = require('../repositories/account.repository')
+const ApiGeneralError = require('../../utils/ApiGeneralError')
 
-/**
- * @returns User
- */
 const registerUser = async (user) => {
-  const createdUser = await userRepository.createUser(user)
+  const user = await userRepository.createUser(user)
   const bookstore = await bookstoreRepository.createByUserId(createdUser._id)
   const account = await accountRepository.createByUserId(createdUser._id)
-  return { createdUser, bookstore, account }
+
+  return { user, account, bookstore }
 }
 
 /**
+ * if the user's email and password match in our database then set the current session to that user
+ * 
  * @returns user
  */
-const loginUser = async (user) => {
-  let loginUser = await userRepository.findUserByEmailAndPassword(user)
-  return loginUser
-}
+const loginUser = async (user, req, res) => {
+  const loginUser = await userRepository.findUserByEmailAndPassword(user)
 
-/**
- * @returns boolean
- */
-const logoutUser = async (req) => {
-  return
-}
+  // if the user does not login successfully
+  if (!loginUser) {
+    throw new ApiGeneralError({
+      status: 'failed',
+      code: 400,
+      message:
+        'Invalid credentials, please try a different email and password combination.',
+      data: null,
+      errors: [
+        'Invalid credentials, please try a different email and password combination.'
+      ]
+    })
+  }
 
-/**
- * @returns User
- */
-const getAuthUser = async (req) => {
-  return req.user
+  req.login(loggedInUser, function (err) {
+    if (err) {
+      return next(err)
+    }
+
+    res.redirect('/')
+  })
 }
 
 module.exports = {
   registerUser,
-  loginUser,
-  logoutUser,
-  getAuthUser
+  loginUser
 }

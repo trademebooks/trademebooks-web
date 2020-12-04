@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const catchExceptions = require('../utils/catchExceptions')
 const contactUsRequestDTO = require('../requests/contactUsRequestDTO')
 const contactUsValidator = require('../validators/contactUsValidator')
