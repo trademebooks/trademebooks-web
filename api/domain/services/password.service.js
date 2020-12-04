@@ -1,9 +1,9 @@
 const crypto = require('crypto')
 
 const userRepository = require('../repositories/user.repository')
-const mailer = require('../domain/services/mail.service')
-const PasswordModel = require('../domain/models/password.model')
-const UserModel = require('../domain/models/user.model')
+const mailer = require('../../domain/services/mail.service')
+const PasswordModel = require('../../domain/models/password.model')
+const UserModel = require('../../domain/models/user.model')
 
 const sendEmailResetPassword = async (email) => {
   const token = crypto.createHash('md5').update(email).digest('hex')
@@ -65,5 +65,6 @@ const resetPassword = async (email) => {
 }
 
 module.exports = {
-  updateById
+  sendEmailResetPassword,
+  resetPassword
 }

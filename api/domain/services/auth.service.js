@@ -4,16 +4,16 @@ const accountRepository = require('../repositories/account.repository')
 const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 const registerUser = async (user) => {
-  const user = await userRepository.createUser(user)
+  const createdUser = await userRepository.createUser(user)
   const bookstore = await bookstoreRepository.createByUserId(createdUser._id)
   const account = await accountRepository.createByUserId(createdUser._id)
 
-  return { user, account, bookstore }
+  return { createdUser, account, bookstore }
 }
 
 /**
  * if the user's email and password match in our database then set the current session to that user
- * 
+ *
  * @returns user
  */
 const loginUser = async (user, req, res) => {

@@ -1,4 +1,4 @@
-const ApiGeneralError = require('../utils/ApiGeneralError')
+const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 const fields = ['email', 'password']
 

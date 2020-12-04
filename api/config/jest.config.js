@@ -30,18 +30,18 @@ module.exports = {
     //'<rootDir>/middleware/__tests__/bookPermission.middleware.test.js',
 
     // Requests
-    '<rootDir>/requests/__tests__/**.test.js',
-    // '<rootDir>/requests/__tests__/createBookRequestDTO.test.js',
-    // '<rootDir>/requests/__tests__/loginUserRequestDTO.test.js',
-    // '<rootDir>/requests/__tests__/registerUserRequestDTO.test.js',
-    // '<rootDir>/requests/__tests__/updateBookRequestDTO.test.js',
+    '<rootDir>/dtos/requests/__tests__/**.test.js',
+    // '<rootDir>/dtos/requests/__tests__/createBookRequestDTO.test.js',
+    // '<rootDir>/dtos/requests/__tests__/loginUserRequestDTO.test.js',
+    // '<rootDir>/dtos/requests/__tests__/registerUserRequestDTO.test.js',
+    // '<rootDir>/dtos/requests/__tests__/updateBookRequestDTO.test.js',
 
     // Responses
-    '<rootDir>/responses/__tests__/**.test.js',
-    // '<rootDir>/responses/__tests__/bookResponseDTO.test.js',
-    // '<rootDir>/responses/__tests__/booksResponseDTO.test.js',
-    // '<rootDir>/responses/__tests__/globalResponseDTO.test.js',
-    // '<rootDir>/responses/__tests__/userResponseDTO.test.js',
+    '<rootDir>/dtos/responses/__tests__/**.test.js',
+    // '<rootDir>/dtos/responses/__tests__/bookResponseDTO.test.js',
+    // '<rootDir>/dtos/responses/__tests__/booksResponseDTO.test.js',
+    // '<rootDir>/dtos/responses/__tests__/globalResponseDTO.test.js',
+    // '<rootDir>/dtos/responses/__tests__/userResponseDTO.test.js',
 
     // Validators
     '<rootDir>/validators/__tests__/**.test.js',

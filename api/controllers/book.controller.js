@@ -1,6 +1,6 @@
 const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const catchException = require('../utils/catchExceptions')
-const createBookRequestDTO = require('../requests/createBookRequestDTO')
+const createBookRequestDTO = require('../dtos/requests/createBookRequestDTO')
 const bookService = require('../domain/services/book.service')
 const createBookValidator = require('../validators/createBookValidator')
 

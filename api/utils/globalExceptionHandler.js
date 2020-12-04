@@ -1,4 +1,4 @@
-const globalResponseDTO = require('./responses/globalResponseDTO')
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 
 const globalExceptionHandler = async (err, req, res, next) => {
   // log it out into the conosle
@@ -35,3 +35,5 @@ const globalExceptionHandler = async (err, req, res, next) => {
     console.error('Other Error', err)
   }
 }
+
+module.exports = globalExceptionHandler

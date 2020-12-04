@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-const api = require('../../../../')
+const api = require('../../../..')
 
 const apiPort = Math.round(Math.random() * 65535)
 
@@ -11,10 +11,10 @@ beforeAll(async () => {
   dbConnection = await db() // start the database
 })
 
-describe('App - General API', () => {
+describe('Utils - General API', () => {
   it('GET /health', async () => {
     const response = await fetch(
-      `http://localhost:${apiPort}/api/v1/app/health`
+      `http://localhost:${apiPort}/api/v1/utils/health`
     )
     const json = await response.json()
     expect(json).toEqual({

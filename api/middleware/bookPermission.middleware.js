@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const bookService = require('../domain/services/book.service')
 
 const bookPermission = async (req, res, next) => {
