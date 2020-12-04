@@ -16,31 +16,22 @@ const catchExceptions = require('../utils/catchExceptions')
 /**
  * Inserts the user into the database and fires off an email notification to that user's email if successful.
  */
-const registerUser = catchExceptions(async (req, res, next) => {
-  // 1. POST /api/v1/auth/register /
-
-  // 2. middleware: none /
-
-  // 3. request /
+const registerUser = catchExceptions(async (req, res) => {
   const registerUserRequest = registerUserRequestDTO(req.body)
 
-  // 4. validation /
-  const registerUserValidation = registerUserValidator(registerUserRequest)
+  registerUserValidator(registerUserRequest)
 
-  // 5. business logic /
-  let user = await authService.registerUser(registerUserRequest)
+  const user = await authService.registerUser(registerUserRequest)
 
-  // 6. event /
   eventEmitter.emit('userHasRegistered', user)
 
-  // 7. response /
-  return res.json(
+  res.status(200).json(
     globalResponseDTO({
       status: 'success',
       code: 200,
       message: `The email: ${registerUserRequest.email} has successfully registered.`,
       data: userResponseDTO(user),
-      errors: null,
+      errors: null
     })
   )
 })
@@ -49,68 +40,54 @@ const registerUser = catchExceptions(async (req, res, next) => {
  * Logs the user in and set a session for it.
  */
 const logUserIn = catchExceptions(async (req, res, next) => {
-  // 1. POST /api/v1/auth/login /
-
-  // 2. middleware: none /
-
-  // 3. request /
   const loginUserRequest = loginUserRequestDTO(req.body)
 
-  // 4. validation /
   const loginUserValidation = loginUserValidator(loginUserRequest)
 
-  // 5. business logic
   // if the user's email and password match in our database then set the current session to that user
-  let loggedInUser = await authService.loginUser(loginUserRequest)
+  const loggedInUser = await authService.loginUser(loginUserRequest)
+
   if (loggedInUser) {
     req.login(loggedInUser, function (err) {
       if (err) {
         return next(err)
       }
-      return res.redirect('/')
+
+      res.redirect('/')
     })
   } else {
     // if the user does not login successfully
-    return res
-      .status(400)
-      .json(
-        globalResponseDTO({
-          status: 'failed',
-          code: 400,
-          message: `Invalid credentials, please try a different email and password combination.`,
-          data: null,
-          errors: [
-            `Invalid credentials, please try a different email and password combination.`
-          ]
-        })
-      )
-  }
-
-  // 6. event
-  // eventEmitter.emit('userHasLoggedIn', user);
-
-  // 7. response
-  let userDTO = userResponseDTO(loggedInUser)
-  return res
-    .status(200)
-    .json(
+    res.status(400).json(
       globalResponseDTO({
-        status: 'success',
-        code: 200,
-        message: `The user has successfully logged in.`,
-        data: userDTO,
-        errors: null
+        status: 'failed',
+        code: 400,
+        message: `Invalid credentials, please try a different email and password combination.`,
+        data: null,
+        errors: [
+          `Invalid credentials, please try a different email and password combination.`
+        ]
       })
     )
+  }
+
+  res.status(200).json(
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `The user has successfully logged in.`,
+      data: userResponseDTO(loggedInUser),
+      errors: null
+    })
+  )
 })
 
 /**
  * Logs the currently authenticated user out of the current session.
  */
-const logUserOut = catchExceptions((req, res, next) => {
+const logUserOut = catchExceptions((req, res) => {
   req.logout()
 
-  return res.json(
+  res.status(200).json(
     globalResponseDTO({
       status: 'success',
       code: 200,
@@ -124,20 +101,18 @@ const logUserOut = catchExceptions((req, res, next) => {
 /**
  * Gets the currently authenticated user in the current session.
  */
-const getAuthUser = catchExceptions((req, res, next) => {
-  let user = req.user
+const getAuthUser = catchExceptions((req, res) => {
+  const user = req.user
 
-  return res
-    .status(200)
-    .json(
-      globalResponseDTO({
-        status: 'success',
-        code: 200,
-        message: `The currently authenticated user's information.`,
-        data: userResponseDTO(user),
-        errors: null,
-      })
-    )
+  res.status(200).json(
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `The currently authenticated user's information.`,
+      data: userResponseDTO(user),
+      errors: null
+    })
+  )
 })
 
 module.exports = {

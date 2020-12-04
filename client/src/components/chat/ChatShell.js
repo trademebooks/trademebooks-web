@@ -6,18 +6,11 @@ import ChatTitle from './components/ChatTitle'
 import ChatMessages from './components/ChatMessages'
 import ChatInput from './components/ChatInput'
 
-import {
-  getAllConversations,
-  getAllMessagesInRoom
-} from '../../actions/chat'
+import { getAllConversations, getAllMessagesInRoom } from '../../actions/chat'
 
 import socket from '../../utils/socket'
 
-const ChatApp = ({
-  auth: {
-    user
-  },
-}) => {
+const ChatApp = ({ auth: { user } }) => {
   const [chatUsers, setChatUsers] = useState([])
 
   const [currentChatMessages, setCurrentChatMessages] = useState([])
@@ -25,7 +18,7 @@ const ChatApp = ({
   const [currentChatUser, setCurrentChatUser] = useState({})
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const conversations = await getAllConversations()
 
       setChatUsers(conversations)

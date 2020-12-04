@@ -18,7 +18,7 @@ const getAllbooks = catchException(async (req, res) => {
       code: 200,
       message: `List of all books in the database.`,
       data: books,
-      errors: null,
+      errors: null
     })
   )
 })
@@ -56,7 +56,7 @@ const createABook = catchException(async (req, res) => {
       code: 200,
       message: `Book has successfully been added to the database.`,
       data: book,
-      errors: null,
+      errors: null
     })
   )
 })
@@ -70,7 +70,7 @@ const updateABook = catchException(async (req, res) => {
       code: 200,
       message: `The book has successfully been updated.`,
       data: book,
-      errors: null,
+      errors: null
     })
   )
 })
@@ -84,7 +84,7 @@ const deleteABook = catchException(async (req, res) => {
       code: 200,
       message: `The book with the id: ${book.id} was successfully deleted.`,
       data: null,
-      errors: null,
+      errors: null
     })
   )
 })

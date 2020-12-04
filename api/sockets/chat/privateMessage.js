@@ -14,10 +14,7 @@ module.exports = (io, socket) => {
 
       await new Message(messageData).save()
 
-      io.in(room._id).emit(
-        'receive_private_message',
-        messageData
-      )
+      io.in(room._id).emit('receive_private_message', messageData)
     }
   })
 }

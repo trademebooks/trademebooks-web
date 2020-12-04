@@ -14,7 +14,8 @@ const bookPermission = async (req, res, next) => {
     globalResponseDTO({
       status: 'failed',
       code: 401,
-      message: 'Access denied: you must be the owner of this book when updating or deleting it.',
+      message:
+        'Access denied: you must be the owner of this book when updating or deleting it.',
       data: null,
       errors: [
         'Access denied: you must be the owner of this book when updating or deleting it.'

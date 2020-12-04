@@ -2,10 +2,7 @@ import React from 'react'
 
 import socket from '../../../utils/socket'
 
-const ChatInput = ({
-  currentChatUser
-}) => {
-
+const ChatInput = ({ currentChatUser }) => {
   const enterMessage = (event) => {
     if (event.key === 'Enter') {
       const messageToSend = {

@@ -31,13 +31,7 @@ const googleStrategyLogin = async (
   done
 ) => {
   const profileJson = profile._json
-  const {
-    sub,
-    email,
-    given_name,
-    family_name,
-    picture
-  } = profileJson
+  const { sub, email, given_name, family_name, picture } = profileJson
 
   try {
     // scenario 1: if the user is already in our database, then proceed to setting the session with that user

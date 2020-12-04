@@ -1,81 +1,42 @@
-const crypto = require('crypto')
 const globalResponseDTO = require('../responses/globalResponseDTO')
 const catchExceptions = require('../utils/catchExceptions')
-const mailer = require('../domain/services/mail.service')
-const PasswordModel = require('../domain/models/password.model')
-const UserModel = require('../domain/models/user.model')
 
-const sendPasswordResetEmail = catchExceptions(async (req, res, next) => {
+const passwordService = require('../domain/services/password.service')
+
+const sendPasswordResetEmail = catchExceptions(async (req, res) => {
   const { email } = req.body
 
-  const token = crypto.createHash('md5').update(email).digest('hex')
+  const message = passwordService.sendEmailResetPassword(email)
 
-  const password = await PasswordModel.findOneAndUpdate(
-    { email, token }, // find a document with that filter
-    { email, token }, // document to insert when nothing was found
-    { upsert: true, new: true, runValidators: true }, // options
-    function (err, doc) {
-      // callback
-      if (err) {
-        // handle error
-        console.log('error:', err)
-      } else {
-        // handle document
-        console.log('success:', err)
-      }
-    }
-  )
-
-  // send email with hmac
-  const message = await mailer.sendMail({
-    toEmail: email,
-    body: `Here is the URL to reset your password: ${req.headers.host}/reset-password/${token}`,
-    subject: 'trademebooks.com forgot password'
-  })
-
-  return res.json(
+  res.status(200).json(
     globalResponseDTO({
       status: 'success',
       code: 200,
       message: `Email successfully sent.`,
-      data: { message, password },
+      data: message,
       errors: null
     })
   )
 })
 
-const resetPassword = catchExceptions(async (req, res, next) => {
+const resetPassword = catchExceptions(async (req, res) => {
   const { email, token, new_password } = req.body
 
-  const password = await PasswordModel.findOne({ email, token })
+  const newPassword = passwordService.resetPassword({
+    email,
+    token,
+    new_password
+  })
 
-  if (password) {
-    // userRepository.updateByEmail(email, new_password)
-    const user = await UserModel.updateOne(
-      { email },
-      { password: new_password }
-    )
-
-    res.status(200).json(
-      globalResponseDTO({
-        status: 'success',
-        code: 200,
-        message: `Password Reset complete`,
-        data: user,
-        errors: null,
-      })
-    )
-  } else {
-    return res.json(
-      globalResponseDTO({
-        status: 'failed',
-        code: 200,
-        message: `Password Reset incomplete`,
-        data: password,
-        errors: ['Invalid token and/or email combination']
-      })
-    )
-  }
+  res.status(200).json(
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: 'Password Reset complete',
+      data: newPassword,
+      errors: null
+    })
+  )
 })
 
 module.exports = {

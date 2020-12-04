@@ -153,10 +153,12 @@ const Book = ({ book, editFlag, deleteBookById }) => {
             ) : (
               <MDBTooltip domElement tag="span" placement="left">
                 <span>
-                  <a onClick={(event) => {
-                    event.preventDefault()
-                    chatWithUser(book)
-                  }}>
+                  <a
+                    onClick={(event) => {
+                      event.preventDefault()
+                      chatWithUser(book)
+                    }}
+                  >
                     <img src={Message_icon} alt="test" className="chat-image" />
                   </a>
                 </span>

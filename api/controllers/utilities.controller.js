@@ -7,7 +7,7 @@ const mailer = require('../domain/services/mail.service')
 const contactUs = catchExceptions(async (req, res, next) => {
   const contactUsRequest = contactUsRequestDTO(req.body)
 
-  const contactUsValidation = contactUsValidator(contactUsRequest)
+  contactUsValidator(contactUsRequest)
 
   const message = mailer.sendMail(contactUsRequest)
 

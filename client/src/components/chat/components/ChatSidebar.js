@@ -1,8 +1,6 @@
 import React from 'react'
 
-import {
-  getAllMessagesInRoom
-} from '../../../actions/chat'
+import { getAllMessagesInRoom } from '../../../actions/chat'
 
 import socket from '../../../utils/socket'
 
@@ -18,7 +16,7 @@ const ChatSidebar = ({
 
     setCurrentChatMessages(messages)
 
-    setCurrentChatUser({room_id, ...user})
+    setCurrentChatUser({ room_id, ...user })
 
     socket.emit('join_private_room', chatUser)
   }
@@ -37,7 +35,10 @@ const ChatSidebar = ({
 
             return (
               <div key={room_id}>
-                <div className="friend-drawer friend-drawer--onhover" onClick={() => chatWithUserHandler(chatUser)}>
+                <div
+                  className="friend-drawer friend-drawer--onhover"
+                  onClick={() => chatWithUserHandler(chatUser)}
+                >
                   <img
                     className="profile-image"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png"

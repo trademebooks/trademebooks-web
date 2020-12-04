@@ -5,7 +5,8 @@ module.exports = (io, socket) => {
   socket.on('join_private_room', async (chatUser) => {
     const { room_id, user } = chatUser
 
-    const authUserId = socket.request.session.passport.user || socket.request.session.user._id
+    const authUserId =
+      socket.request.session.passport.user || socket.request.session.user._id
 
     const authUser = await User.findById(authUserId)
     const targetUser = await User.findById(user._id)
@@ -17,8 +18,6 @@ module.exports = (io, socket) => {
     })
 
     if (room) {
-      // before clients:  { clients: [] }
-      // after clients:  { clients: [ 'yQh24Yzm-ViVY7TkAAAB' ] }
       io.in(room._id).clients((error, clients) => {
         console.log('before clients: ', { clients })
         socket.join(room._id)

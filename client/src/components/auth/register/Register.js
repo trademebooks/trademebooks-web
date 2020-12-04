@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon } from 'mdbreact'
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBIcon
+} from 'mdbreact'
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
