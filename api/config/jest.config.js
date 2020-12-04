@@ -70,7 +70,7 @@ module.exports = {
 
     // Book
     // '<rootDir>/tests/integration/api/book/**.test.js',
-    '<rootDir>/tests/integration/api/book/create.test.js',
+    // '<rootDir>/tests/integration/api/book/create.test.js',
     // '<rootDir>/tests/integration/api/book/delete.test.js',
     // '<rootDir>/tests/integration/api/book/get.test.js',
     // '<rootDir>/tests/integration/api/book/update.test.js',
