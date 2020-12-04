@@ -8,11 +8,16 @@ let dbConnection
 
 beforeAll(async () => {
   await api.listen(apiPort)
-  dbConnection = await db() // start the database
+  dbConnection = await db()
 })
 
-describe('Utils - General API', () => {
-  it('GET /health', async () => {
+afterAll(async () => {
+  await api.close()
+  await dbConnection.disconnect()
+})
+
+describe('Utils Health Test', () => {
+  test('GET /health', async () => {
     const response = await fetch(
       `http://localhost:${apiPort}/api/v1/utils/health`
     )
@@ -25,9 +30,4 @@ describe('Utils - General API', () => {
       errors: null
     })
   })
-})
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
 })

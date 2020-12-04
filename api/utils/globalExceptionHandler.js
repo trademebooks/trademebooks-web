@@ -1,10 +1,10 @@
 const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 
 const globalExceptionHandler = async (err, req, res, next) => {
-  // log it out into the conosle
   console.log('===============================')
   console.log('Global Error Catcher:', err.name)
   console.log('===============================')
+
   if (err.name === 'ApiGeneralError') {
     console.error('ApiGeneralError', err)
 
@@ -33,6 +33,15 @@ const globalExceptionHandler = async (err, req, res, next) => {
     }
   } else {
     console.error('Other Error', err)
+    res.status(err.code).json(
+      globalResponseDTO({
+        status: err.status,
+        code: err.code,
+        message: err.message,
+        data: err.data,
+        errors: err.errors
+      })
+    )
   }
 }
 

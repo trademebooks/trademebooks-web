@@ -27,8 +27,8 @@ afterAll(async () => {
 })
 
 describe('Books API - Create', () => {
-  xit('POST /api/v1/books', async () => {
-    let response = await (
+  test('POST /api/v1/books', async () => {
+    const response = await (
       await fetch(`${baseURL}/books`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -31,7 +31,12 @@ const logUserIn = catchExceptions(async (req, res, next) => {
 
   loginUserValidator(loginUserRequest)
 
-  const loggedInUser = await authService.loginUser(loginUserRequest, req)
+  const loggedInUser = await authService.loginUser(
+    loginUserRequest,
+    req,
+    res,
+    req
+  )
 
   res.status(200).json(
     globalResponseDTO({

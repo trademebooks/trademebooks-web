@@ -1,38 +1,39 @@
 const fetch = require('node-fetch')
-const api = require('../../../src/server')
+const api = require('../../../../')
 
 const apiPort = Math.round(Math.random() * 65535)
 const baseURL = `http://localhost:${apiPort}/api/v1`
 
+const db = require('../../../../utils/db')
+let dbConnection
+const dbTestUtils = require('../../../testUtils/dbTestUtil')
+
 beforeAll(async () => {
   await api.listen(apiPort)
+  dbConnection = await db()
 })
 
-beforeEach(() => {
-  //initializeCityDatabase();
+beforeEach(async () => {
+  await dbTestUtils.setUpDatabase()
 })
 
-afterEach(() => {
-  //clearCityDatabase();
+afterEach(async () => {
+  await dbTestUtils.clearDatabase()
 })
 
-/**
- * 1. Arrange
- *  - setup the world
- * 2. Act
- *  - making the http call
- * 3. Assert
- *  1. database check
- *  2. response check
- */
-describe('test suite', () => {
-  xit('POST /auth/login', async () => {
-    let user = {
+afterAll(async () => {
+  await api.close()
+  await dbConnection.disconnect()
+})
+
+describe('API Test - Login', () => {
+  test('POST /auth/login - Incorrect credentials', async () => {
+    const user = {
       email: 'yichen@yichen.com',
       password: 'password'
     }
 
-    let response = await (
+    const response = await (
       await fetch(`${baseURL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -40,12 +41,14 @@ describe('test suite', () => {
       })
     ).json()
 
-    expect(response).toEqual({
-      message: `The email: ${user.email} has successfully logged in.`
+    expect(response).toMatchObject({
+      status: 'failed',
+      code: 472,
+      message: 'Something went wrong...',
+      data: {},
+      errors: [
+        'Invalid credentials, please try a different email and password combination.'
+      ]
     })
   })
-})
-
-afterAll(async () => {
-  await api.close()
 })

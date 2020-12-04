@@ -7,7 +7,7 @@ const isAuthenticated = (req, res, next) => {
         status: 'failed',
         code: 401,
         message:
-          'Acces denied: you must be logged in to access this API endpoint.',
+          'Access denied: you must be logged in to access this API endpoint.',
         data: null,
         errors: ['You must be logged in.']
       })

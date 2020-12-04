@@ -6,12 +6,12 @@ const User = require('../../domain/models/user.model')
 
 /*
 {
-  sub: '110603409234402153901',
+  sub: '123'
   name: 'Yichen Zhu',
   given_name: 'Yichen',
   family_name: 'Zhu',
   picture: 'https://lh3.googleusercontent.com/-Y0wV1lZ8eno/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmXEVJckXyw8RWTd5SZoFWJ5JwvDg/s96-c/photo.jpg',
-  email: 'yichenzhu1337@gmail.com',
+  email: 'yichen@yichen.com',
   email_verified: true,
   locale: 'en'
 }

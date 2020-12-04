@@ -1,12 +1,14 @@
 class ApiGeneralError extends Error {
-  constructor(message, status, code, data = null, errors = null) {
+  constructor({ status, message, code, data, errors }) {
     super()
+
     this.name = 'ApiGeneralError'
-    this.status = status
-    this.code = code
-    this.message = message
-    this.data = data
-    this.errors = errors
+
+    this.status = status || 'failed'
+    this.code = code || 400
+    this.message = message || 'Something went wrong...'
+    this.data = data || null
+    this.errors = errors || []
   }
 }
 

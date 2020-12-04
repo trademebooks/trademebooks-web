@@ -1,4 +1,4 @@
-;(async () => {
+const init = (async () => {
   console.log('Database seeds started...')
 
   const users = await require('./users.seeds')()
@@ -10,3 +10,5 @@
 
   console.log('Database seeds completed...')
 })()
+
+module.exports = init

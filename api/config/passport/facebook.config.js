@@ -6,10 +6,10 @@ const User = require('../../domain/models/user.model')
 
 /*
 {
-  "id": "2646566148737062",
-  "email": "yichenzhu1337@gmail.com",
-  "last_name": "Zhu",
-  "first_name": "Yi Chen"
+  "id"
+  "email"
+  "last_name"
+  "first_name"
 }
 */
 

@@ -59,7 +59,11 @@ describe('API Test - Register User', () => {
       status: 'success',
       code: 200,
       message: `The email: ${user.email} has successfully registered.`,
-      data: user
+      data: {
+        account: {},
+        bookstore: {},
+        createdUser: user
+      }
     })
   })
 })

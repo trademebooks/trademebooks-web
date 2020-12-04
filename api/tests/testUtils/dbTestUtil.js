@@ -9,6 +9,8 @@ const setUpDatabase = async () => {
   await UserModel.deleteMany({})
 
   await userFactory(5)
+
+  
 }
 
 const clearDatabase = async () => {

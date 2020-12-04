@@ -11,7 +11,7 @@ beforeAll(async () => {
   dbConnection = await db() // start the database
 })
 
-describe('Utils - General API', () => {
+describe('Utils Contact Test', () => {
   test('POST /contact', async () => {
     const formData = {
       name: 'John Doe',
