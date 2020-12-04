@@ -7,13 +7,13 @@ const getAccountById = catchException(async (req, res, next) => {
   const account = await accountService.getById(req.user._id)
 
   return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      (message = `The current auth user's account settings.`),
-      (data = account),
-      (errors = null)
-    )
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `The current auth user's account settings.`,
+      data: account,
+      errors: null
+    })
   )
 })
 
@@ -21,13 +21,13 @@ const updateAccountById = catchException(async (req, res, next) => {
   const account = await accountService.updateById(req.user._id, req.body)
 
   return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      (message = `Updated the current auth user's account settings.`),
-      (data = account),
-      (errors = null)
-    )
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `Updated the current auth user's account settings.`,
+      data: account,
+      errors: null,
+    })
   )
 })
 
@@ -35,13 +35,13 @@ const updateUserById = catchException(async (req, res, next) => {
   const user = await userService.updateById(req.user._id, req.body)
 
   return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      (message = `Updated the current auth user's settings.`),
-      (data = user),
-      (errors = null)
-    )
+    globalResponseDTO({
+      status = 'success',
+      code = 200,
+      message = `Updated the current auth user's settings.`,
+      data = user,
+      errors = null
+    })
   )
 })
 

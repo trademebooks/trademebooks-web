@@ -34,13 +34,13 @@ const sendPasswordResetEmail = catchExceptions(async (req, res, next) => {
   })
 
   return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      `Email successfully sent.`,
-      (data = { message, password }),
-      (errors = null)
-    )
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `Email successfully sent.`,
+      data: { message, password },
+      errors: null
+    })
   )
 })
 
@@ -56,24 +56,24 @@ const resetPassword = catchExceptions(async (req, res, next) => {
       { password: new_password }
     )
 
-    return res.json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        `Password Reset complete`,
-        (data = user),
-        (errors = null)
-      )
+    res.status(200).json(
+      globalResponseDTO({
+        status: 'success',
+        code: 200,
+        message: `Password Reset complete`,
+        data: user,
+        errors: null,
+      })
     )
   } else {
     return res.json(
-      globalResponseDTO(
-        (status = 'failed'),
-        (code = 200),
-        `Password Reset incomplete`,
-        (data = password),
-        (errors = ['Invalid token and/or email combination'])
-      )
+      globalResponseDTO({
+        status: 'failed',
+        code: 200,
+        message: `Password Reset incomplete`,
+        data: password,
+        errors: ['Invalid token and/or email combination']
+      })
     )
   }
 })

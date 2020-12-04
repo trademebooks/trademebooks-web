@@ -11,14 +11,14 @@ const contactUs = catchExceptions(async (req, res, next) => {
 
   const message = mailer.sendMail(contactUsRequest)
 
-  return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      `Email successfully sent.`,
-      (data = message),
-      (errors = null)
-    )
+  res.status(200).json(
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `Email successfully sent.`,
+      data: message,
+      errors: null
+    })
   )
 })
 

@@ -9,46 +9,42 @@ const getAllConversations = catchException(async (req, res, next) => {
   return res
     .status(200)
     .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `List of all messages.`),
-        (data = converations),
-        (errors = null)
-      )
+      globalResponseDTO({
+        status: 'success',
+        code: 200,
+        message: `List of all messages.`,
+        data: converations,
+        errors: null,
+      })
     )
 })
 
 const getAllMessagesInRoom = catchException(async (req, res, next) => {
   const messages = await messageService.getAllMessagesInRoom(req.params)
 
-  return res
-    .status(200)
-    .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `List of all messages.`),
-        (data = messages),
-        (errors = null)
-      )
-    )
+  res.status(200).json(
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `List of all messages.`,
+      data: messages,
+      errors: null,
+    })
+  )
 })
 
 const sendAMessageToRoom = catchException(async (req, res, next) => {
   const messageCreated = await messageService.sendMessagesToRoomId(req.body)
 
-  return res
-    .status(200)
-    .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `The message has successfully been sent.`),
-        (data = messageCreated),
-        (errors = null)
-      )
-    )
+  res.status(200).json(
+    globalResponseDTO({
+      status: 'success',
+      code: 200,
+      message: `The message has successfully been sent.`,
+      data: messageCreated,
+      errors: null,
+    })
+  )
 })
 
 module.exports = {

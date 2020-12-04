@@ -62,13 +62,13 @@ app.use((err, req, res, next) => {
     return res
       .status(err.code)
       .json(
-        globalResponseDTO(
-          (status = err.status),
-          (code = err.code),
-          (message = err.message),
-          (data = err.data),
-          (errors = err.errors)
-        )
+        globalResponseDTO({
+          status: err?.status,
+          code: err?.code,
+          message: err?.message,
+          data: err?.data,
+          errors: err?.errors
+        })
       )
   } else if (err.name === 'MongoError') {
     console.error('MongoError', err)
@@ -77,13 +77,13 @@ app.use((err, req, res, next) => {
       return res
         .status(400)
         .json(
-          globalResponseDTO(
-            (status = 'failed'),
-            (code = 400),
-            (message = err.errmsg),
-            (data = null),
-            (errors = ['This email is already taken.'])
-          )
+          globalResponseDTO({
+            status: 'failed',
+            code: 400,
+            message: err.errmsg,
+            data: null,
+            errors: ['This email is already taken.'],
+          })
         )
     }
   } else {

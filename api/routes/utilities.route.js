@@ -13,13 +13,13 @@ router.get('/users', async (req, res) => {
   return res
     .status(200)
     .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `List of all users.`),
-        (data = users),
-        (errors = null)
-      )
+      globalResponseDTO({
+        status: 'success',
+        code: 200,
+        message: `List of all users.`,
+        data: users,
+        errors: null
+      })
     )
 })
 

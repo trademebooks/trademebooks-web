@@ -8,13 +8,13 @@ const getHealthCheck = catchExceptions(async (req, res, next) => {
   return res
     .status(200)
     .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `The application is up and running!`),
-        (data = Object.keys(req)),
-        (errors = null)
-      )
+      globalResponseDTO({
+        status = 'success',
+        code = 200,
+        message = `The application is up and running!`,
+        data = {},
+        errors = null,
+      })
     )
 })
 
