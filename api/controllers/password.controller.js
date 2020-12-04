@@ -1,6 +1,5 @@
 const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const catchExceptions = require('../utils/catchExceptions')
-
 const passwordService = require('../domain/services/password.service')
 
 const sendPasswordResetEmail = catchExceptions(async (req, res) => {
@@ -10,31 +9,19 @@ const sendPasswordResetEmail = catchExceptions(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `Email successfully sent.`,
-      data: message,
-      errors: null
+      data: message
     })
   )
 })
 
 const resetPassword = catchExceptions(async (req, res) => {
-  const { email, token, new_password } = req.body
-
-  const newPassword = passwordService.resetPassword({
-    email,
-    token,
-    new_password
-  })
+  const newPassword = passwordService.resetPassword(req.body)
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: 'Password Reset complete',
-      data: newPassword,
-      errors: null
+      data: newPassword
     })
   )
 })

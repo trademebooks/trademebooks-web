@@ -1,10 +1,8 @@
 const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const catchException = require('../utils/catchExceptions')
 const createBookRequestDTO = require('../requests/createBookRequestDTO')
 const bookService = require('../domain/services/book.service')
-const bookResponseDTO = require('../responses/bookResponseDTO')
 const createBookValidator = require('../validators/createBookValidator')
-
-const catchException = require('../utils/catchExceptions')
 
 const getAllbooks = catchException(async (req, res) => {
   const books = await bookService.getAllBooks(

@@ -1,7 +1,6 @@
 const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
-const messageService = require('../domain/services/message.service')
-
 const catchException = require('../utils/catchExceptions')
+const messageService = require('../domain/services/message.service')
 
 const getAllConversations = catchException(async (req, res, next) => {
   const converations = await messageService.getAllConversations(req.user._id)

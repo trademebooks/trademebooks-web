@@ -1,7 +1,7 @@
 const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const catchException = require('../utils/catchExceptions')
 const bookstoreService = require('../domain/services/bookstore.service')
 const bookService = require('../domain/services/book.service')
-const catchException = require('../utils/catchExceptions')
 
 const getBookstoreByUsername = catchException(async (req, res, next) => {
   const bookstore = await bookstoreService.getBookstoreByUsername(
