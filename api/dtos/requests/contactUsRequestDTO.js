@@ -1,6 +1,6 @@
 const ApiGeneralError = require('../../utils/ApiGeneralError')
 
-const fields = ['name', 'email', 'body']
+const fields = ['name', 'toEmail', 'body']
 
 contactUsRequestDTO = (data) => {
   const errors = []
@@ -12,10 +12,11 @@ contactUsRequestDTO = (data) => {
 
   if (errors.length > 0) {
     throw new ApiGeneralError(
-      (status = 'failed'),
-      (code = 422),
-      (message = 'Contact Us Request DTO failed.'),
-      (data = errors)
+      'Contact Us Request DTO failed.',
+      'failed',
+      422,
+      null,
+      errors
     )
   }
 

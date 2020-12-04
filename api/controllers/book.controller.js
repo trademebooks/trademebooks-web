@@ -12,11 +12,8 @@ const getAllbooks = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `List of all books in the database.`,
-      data: books,
-      errors: null
+      data: books
     })
   )
 })
@@ -26,11 +23,8 @@ const getBookById = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      statusL: 'success',
-      code: 200,
       message: `Book with the specified id.`,
-      data: book,
-      errors: null
+      data: book
     })
   )
 })
@@ -50,11 +44,8 @@ const createABook = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `Book has successfully been added to the database.`,
-      data: book,
-      errors: null
+      data: book
     })
   )
 })
@@ -64,11 +55,8 @@ const updateABook = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `The book has successfully been updated.`,
-      data: book,
-      errors: null
+      data: book
     })
   )
 })
@@ -78,11 +66,8 @@ const deleteABook = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `The book with the id: ${book.id} was successfully deleted.`,
-      data: null,
-      errors: null
+      data: book
     })
   )
 })

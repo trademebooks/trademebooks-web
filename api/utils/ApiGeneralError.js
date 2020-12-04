@@ -1,5 +1,6 @@
 class ApiGeneralError extends Error {
   constructor(message, status, code, data = null, errors = null) {
+    super()
     this.name = 'ApiGeneralError'
     this.status = status
     this.code = code

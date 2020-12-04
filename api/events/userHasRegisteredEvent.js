@@ -1,4 +1,4 @@
-const mailer = require('../domain/services/mail.service')
+const mailer = require('../domain/services/mailer/mailer.service')
 
 /**
  *

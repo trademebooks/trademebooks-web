@@ -4,7 +4,7 @@ const ApiGeneralError = require('../utils/ApiGeneralError')
 const contactUsValidator = (data) => {
   const rules = {
     name: 'required|max:128',
-    email: 'required|email',
+    toEmail: 'required|email',
     body: 'required|max:10000'
   }
 

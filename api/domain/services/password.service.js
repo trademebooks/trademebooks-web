@@ -1,7 +1,7 @@
 const crypto = require('crypto')
 
 const userRepository = require('../repositories/user.repository')
-const mailer = require('../../domain/services/mail.service')
+const mailer = require('./mailer/mailer.service')
 const PasswordModel = require('../../domain/models/password.model')
 const UserModel = require('../../domain/models/user.model')
 

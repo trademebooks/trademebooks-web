@@ -10,11 +10,8 @@ const getBookstoreByUsername = catchException(async (req, res, next) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `Bookstore with the specified username.`,
-      data: bookstore,
-      errors: null
+      data: bookstore
     })
   )
 })
@@ -24,11 +21,8 @@ const getAuthBookstore = catchException(async (req, res, next) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `Bookstore with all its books.`,
-      data: books,
-      errors: null
+      data: books
     })
   )
 })

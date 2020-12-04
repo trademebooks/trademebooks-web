@@ -7,11 +7,8 @@ const getAllConversations = catchException(async (req, res, next) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `List of all messages.`,
-      data: converations,
-      errors: null
+      data: converations
     })
   )
 })
@@ -21,11 +18,8 @@ const getAllMessagesInRoom = catchException(async (req, res, next) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `List of all messages.`,
-      data: messages,
-      errors: null
+      data: messages
     })
   )
 })
@@ -35,11 +29,8 @@ const sendAMessageToRoom = catchException(async (req, res, next) => {
 
   res.status(200).json(
     globalResponseDTO({
-      status: 'success',
-      code: 200,
       message: `The message has successfully been sent.`,
-      data: messageCreated,
-      errors: null
+      data: messageCreated
     })
   )
 })
