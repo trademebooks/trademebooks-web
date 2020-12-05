@@ -21,8 +21,11 @@ const bookFactory = async (users, numberOfBooks) => {
         location: `${faker.address.city()}, ${faker.address.county()}`,
         price: faker.random.number(500),
         edition: Math.round(Math.random(0, 5) * 5),
-        imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
-        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][Math.round(Math.random() * 4)],
+        imageUrl:
+          'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg',
+        condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
+          Math.round(Math.random() * 4)
+        ],
         date_posted: new Date()
       }
 

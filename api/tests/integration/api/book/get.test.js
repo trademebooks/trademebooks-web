@@ -28,7 +28,9 @@ afterAll(async () => {
 
 describe('Books API', () => {
   test('Get /api/v1/books/:id - book with id is found', async () => {
-    const response = await (await fetch(`${baseURL}/books/5fcb3a0b2090b488b562669a`)).json()
+    const response = await (
+      await fetch(`${baseURL}/books/5fcb3a0b2090b488b562669a`)
+    ).json()
 
     expect(response).toMatchObject({
       status: 'success',
@@ -44,7 +46,8 @@ describe('Books API', () => {
         location: 'UofT',
         price: 100,
         edition: 1,
-        imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg'
+        imageUrl:
+          'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg'
       },
       errors: null
     })

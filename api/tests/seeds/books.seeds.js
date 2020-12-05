@@ -24,8 +24,7 @@ const customBooks = [
   {
     userId: '5e11e9d8eded1d23742c1c6a',
     title: 'Book #2 - Water',
-    description:
-      'This is a great description fo the book. air here as well.',
+    description: 'This is a great description fo the book. air here as well.',
     authors: ['John Doe', 'Jane Doe', 'Henry The 3rd'],
     location: 'UofT',
     price: 100,

@@ -44,18 +44,6 @@ describe('API Test - Login', () => {
     expect(response).toMatchObject({
       status: 'success'
     })
-
-    // const authUser = await (
-    //   await fetch(`${baseURL}/auth/user`, {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     withCredentials: true
-    //   })
-    // ).json()
-
-    // console.log({
-    //   authUser
-    // })
   })
 
   test('POST /auth/login - Incorrect credentials', async () => {
@@ -74,7 +62,6 @@ describe('API Test - Login', () => {
 
     expect(response).toMatchObject({
       status: 'failed',
-      code: 472,
       message: 'Something went wrong...',
       data: {},
       errors: [

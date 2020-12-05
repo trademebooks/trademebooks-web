@@ -118,6 +118,10 @@ module.exports = {
 
     '<rootDir>/utils/__tests__/ApiGeneralError.test.js'
   ],
+
+  // testMatch: [
+  //   '<rootDir>/tests/integration/api/auth/login.test.js',
+  // ],
   testTimeout: 30000,
   testEnvironment: 'node'
 }
