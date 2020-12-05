@@ -1,5 +1,4 @@
-const db = require('../utils/db')
-require('../domain/models/room.model')
+const Room = require('../../domain/models/room.model')
 
 const rooms = [
   // Yichen chats with Cedric
@@ -15,17 +14,7 @@ const rooms = [
 ]
 
 module.exports = async () => {
-  const dbConnection = await db()
-
-  const Room = dbConnection.model('room')
-
-  await Room.deleteMany({})
-
   for (const room of rooms) {
     await new Room(room).save()
   }
-
-  await dbConnection.disconnect()
-
-  return []
 }

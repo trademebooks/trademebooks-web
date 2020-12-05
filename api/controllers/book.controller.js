@@ -23,7 +23,7 @@ const getBookById = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      message: `Book with the specified id.`,
+      message: 'Book with the specified id.',
       data: book
     })
   )

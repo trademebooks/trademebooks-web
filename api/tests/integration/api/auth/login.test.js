@@ -6,7 +6,7 @@ const baseURL = `http://localhost:${apiPort}/api/v1`
 
 const db = require('../../../../utils/db')
 let dbConnection
-const dbTestUtils = require('../../../testUtils/dbTestUtil')
+const dbTestUtils = require('../../../utils')
 
 beforeAll(async () => {
   await api.listen(apiPort)
@@ -27,6 +27,37 @@ afterAll(async () => {
 })
 
 describe('API Test - Login', () => {
+  test('POST /auth/login - Correct credentials', async () => {
+    const user = {
+      email: 'yichenzhu1337@gmail.com',
+      password: 'yichen'
+    }
+
+    const response = await (
+      await fetch(`${baseURL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+      })
+    ).json()
+
+    expect(response).toMatchObject({
+      status: 'success'
+    })
+
+    // const authUser = await (
+    //   await fetch(`${baseURL}/auth/user`, {
+    //     method: 'GET',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     withCredentials: true
+    //   })
+    // ).json()
+
+    // console.log({
+    //   authUser
+    // })
+  })
+
   test('POST /auth/login - Incorrect credentials', async () => {
     const user = {
       email: 'yichen@yichen.com',

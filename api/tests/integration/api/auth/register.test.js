@@ -6,7 +6,7 @@ const baseURL = `http://localhost:${apiPort}/api/v1`
 
 const db = require('../../../../utils/db')
 let dbConnection
-const dbTestUtils = require('../../../testUtils/dbTestUtil')
+const dbTestUtils = require('../../../utils')
 
 beforeAll(async () => {
   await api.listen(apiPort)

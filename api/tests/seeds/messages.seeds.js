@@ -1,6 +1,6 @@
 const faker = require('faker')
-const db = require('../utils/db')
-require('../domain/models/message.model')
+
+const Message = require('../../domain/models/message.model')
 
 const messages = [
   // Yichen Speaks
@@ -33,16 +33,12 @@ const messages = [
 ]
 
 module.exports = async () => {
-  const dbConnection = await db()
-
-  const Message = dbConnection.model('message')
-
-  await Message.deleteMany({})
-
+  // Custom messages
   for (const message of messages) {
     await new Message(message).save()
   }
 
+  // Messages for room: 5fc36879a0d3010d607eaade
   for (let i = 1; i <= 200; i++) {
     const message = {
       roomId: '5fc36879a0d3010d607eaade',
@@ -55,6 +51,7 @@ module.exports = async () => {
     await new Message(message).save()
   }
 
+  // Messages for room: 5fc40064c17e1f1e88dc806d
   for (let i = 1; i <= 20; i++) {
     const message = {
       roomId: '5fc40064c17e1f1e88dc806d',
@@ -66,8 +63,4 @@ module.exports = async () => {
 
     await new Message(message).save()
   }
-
-  await dbConnection.disconnect()
-
-  return []
 }
