@@ -90,7 +90,6 @@ module.exports = {
     '<rootDir>/tests/integration/api/book/get.test.js',
     // '<rootDir>/tests/integration/api/book/create.test.js',
     // '<rootDir>/tests/integration/api/book/delete.test.js',
-
     // '<rootDir>/tests/integration/api/book/update.test.js',
 
     // Bookstore
@@ -100,8 +99,9 @@ module.exports = {
 
     // Message
     // '<rootDir>/tests/integration/api/bookstore/**.test.js',
-    // '<rootDir>/tests/integration/api/bookstore/get.test.js',
-    // '<rootDir>/tests/integration/api/bookstore/getAuth.test.js',
+    // '<rootDir>/tests/integration/api/bookstore/getAllConversations.test.js',
+    // '<rootDir>/tests/integration/api/bookstore/getAllMessagesInRoom.test.js',
+    // '<rootDir>/tests/integration/api/bookstore/send.test.js',
 
     // Utils
     // '<rootDir>/tests/integration/api/utils/**.test.js',
@@ -112,7 +112,10 @@ module.exports = {
     /*******************************************************************************/
     /*******************************************************************************/
 
-    // Others
+    /*********************************/
+    /***** Others Tests **************/
+    /*********************************/
+
     '<rootDir>/utils/__tests__/ApiGeneralError.test.js'
   ],
   testTimeout: 30000,
