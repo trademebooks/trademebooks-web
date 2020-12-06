@@ -62,7 +62,12 @@ describe('API Test - Register User', () => {
       data: {
         account: {},
         bookstore: {},
-        createdUser: user
+        createdUser: {
+          first_name: 'Yichen',
+          last_name: 'Zhu',
+          username: 'yichen1337',
+          email: 'yichen1337@yichen1337.com'
+        }
       }
     })
   })

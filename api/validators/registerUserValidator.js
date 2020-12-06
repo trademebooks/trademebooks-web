@@ -3,6 +3,9 @@ const ApiGeneralError = require('../utils/ApiGeneralError')
 
 const registerUserValidator = (data) => {
   const rules = {
+    first_name: 'required',
+    last_name: 'required',
+    username: 'required',
     email: 'required|email',
     password: 'required|min:6',
     password_confirmation: 'required|min:6|same:password'

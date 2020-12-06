@@ -1,7 +1,5 @@
 const createBookValidator = require('../createBookValidator')
 
-const ApiGeneralError = require('../../utils/ApiGeneralError')
-
 describe('Test Suite: createBookValidator.test.js', () => {
   test('The happy path - everything works', () => {
     // 1. Arrange

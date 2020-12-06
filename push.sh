@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # List of cool quotes: 32 of them. The last one is especially good.
 new_quote=(

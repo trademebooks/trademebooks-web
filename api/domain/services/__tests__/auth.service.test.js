@@ -8,6 +8,9 @@ beforeEach(() => {
   userRepository.createUser = jest.fn((user) => {
     return {}
   })
+  userRepository.findUserByEmailAndPassword = jest.fn((user) => {
+    return {}
+  })
 
   bookstoreRepository.createByUserId = jest.fn((userId) => {
     return {}
@@ -18,14 +21,14 @@ beforeEach(() => {
   })
 })
 
-describe('Test Suite: Auth Service', () => {
-  test('Auth Service - registerUser', async () => {
+describe('Auth Service', () => {
+  test('registerUser', async () => {
     const testUser = {
       first_name: 'john',
       last_name: 'doe',
       email: 'john@john.com',
       password: 'password',
-      phone_number: '4168561988'
+      phone_number: '4168561989'
     }
 
     await authService.registerUser(testUser)
@@ -33,5 +36,25 @@ describe('Test Suite: Auth Service', () => {
     expect(userRepository.createUser).toHaveBeenCalledWith(testUser)
     expect(userRepository.createUser).toHaveBeenCalledTimes(1)
     expect(userRepository.createUser).toHaveReturnedWith({})
+  })
+
+  test('loginUser', async () => {
+    const testUser = {
+      email: 'john@john.com',
+      password: 'password'
+    }
+
+    await authService.loginUser(
+      testUser,
+      { login: jest.fn((param) => {}) },
+      {},
+      () => {}
+    )
+
+    expect(userRepository.findUserByEmailAndPassword).toHaveBeenCalledWith(
+      testUser
+    )
+    expect(userRepository.findUserByEmailAndPassword).toHaveBeenCalledTimes(1)
+    expect(userRepository.findUserByEmailAndPassword).toHaveReturnedWith({})
   })
 })

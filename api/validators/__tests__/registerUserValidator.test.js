@@ -1,9 +1,14 @@
 const registerUserValidator = require('../registerUserValidator')
 
+const ApiGeneralError = require('../../utils/ApiGeneralError')
+
 describe('Test Suite: registerUserValidator.test.js', () => {
   test('The happy path - everything works', () => {
     // 1. Arrange
     const data = {
+      first_name: 'johnny',
+      last_name: 'boi',
+      username: 'johnnyboi',
       email: 'johndoe@gmail.com',
       password: 'superduperpassword',
       password_confirmation: 'superduperpassword'
@@ -27,6 +32,6 @@ describe('Test Suite: registerUserValidator.test.js', () => {
     // 2. + 3. Act and Assert
     expect(() => {
       registerUserValidator(data)
-    }).toThrow(Error)
+    }).toThrow(ApiGeneralError)
   })
 })
