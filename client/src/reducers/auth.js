@@ -1,7 +1,4 @@
-import {
-  USER_LOADED,
-  AUTH_ERROR
-} from '../actions/types'
+import { USER_LOADED, AUTH_ERROR } from '../actions/types'
 
 const initialState = {
   isAuthenticated: null,

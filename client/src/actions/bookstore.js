@@ -7,7 +7,7 @@ import { GET_BOOKSTORE, GET_BOOK, UPDATE_BOOK } from './types'
 export const getBookstoreByUsername = (username) => async (dispatch) => {
   try {
     const books = (await api.get(`/bookstores/${username}`)).data.data
-    
+
     dispatch({
       type: GET_BOOKSTORE,
       payload: books

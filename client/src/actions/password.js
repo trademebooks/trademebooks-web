@@ -5,7 +5,8 @@ import { toastr } from 'react-redux-toastr'
 
 export const sendPasswordResetEmail = async (data) => {
   try {
-    const response = (await api.post(`/auth/password/send-email`, data)).data.data
+    const response = (await api.post(`/auth/password/send-email`, data)).data
+      .data
 
     toastr.success(`A password reset email has been sent.`)
 
