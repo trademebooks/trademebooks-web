@@ -1,4 +1,4 @@
-const UserModel = require('../models/user.model')
+const User = require('../models/user.model')
 
 /**
  *
@@ -11,10 +11,8 @@ const UserModel = require('../models/user.model')
  * @returns user
  */
 const createUser = async (userData) => {
-  let user = new UserModel(userData)
-  let userReturn = await user.save(userData)
-
-  return userReturn
+  const user = await new User(userData).save(userData)
+  return user
 }
 
 /**
@@ -28,8 +26,8 @@ const createUser = async (userData) => {
  * @returns user
  */
 const findUserByEmailAndPassword = async (userData) => {
-  const foundUser = await UserModel.findOne(userData)
-  return foundUser
+  const user = await User.findOne(userData)
+  return user
 }
 
 /**
@@ -43,8 +41,8 @@ const findUserByEmailAndPassword = async (userData) => {
  * @returns user
  */
 const updateById = async (userId, data) => {
-  const user = await UserModel.updateOne({ _id: userId }, data)
-  const updatedUser = await UserModel.findOne({ _id: userId })
+  const user = await User.updateOne({ _id: userId }, data)
+  const updatedUser = await User.findOne({ _id: userId })
   return updatedUser
 }
 /**
@@ -54,7 +52,7 @@ const updateById = async (userId, data) => {
  * @returns user
  */
 const getUserById = async (_id) => {
-  const foundUser = await UserModel.findOne({ _id })
+  const foundUser = await User.findOne({ _id })
   return foundUser
 }
 

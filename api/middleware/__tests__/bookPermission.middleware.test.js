@@ -1,5 +1,13 @@
 const bookPermission = require('../bookPermission.middleware')
 
-test('Middleware - access denied', () => {})
+describe('Book Middleware', () => {
+  test('Middleware - access denied', () => {
+    // isAuthenticated({}, {}, () => {});
+    // throws an exception
+  })
 
-test('Middleware - access not denied', () => {})
+  test('Middleware - access not denied', () => {
+    // isAuthenticated({}, {}, function callback() { });
+    // does not throws an exception and the callback get's called
+  })
+})

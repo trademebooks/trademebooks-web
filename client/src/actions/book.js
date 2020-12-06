@@ -1,6 +1,9 @@
-import api from '../utils/api'
 import { toastr } from 'react-redux-toastr'
+
 import { ADD_BOOK, CREATE_BOOK } from './types'
+
+import api from '../utils/api'
+import displayErrors from '../utils/displayErrors'
 
 // Util: Add book
 export const addBook = (formData) => async (dispatch) => {
@@ -36,14 +39,7 @@ export const createBook = (book) => async (dispatch) => {
         edition: ''
       }
     })
-  } catch (err) {
-    const data = err.response.data
-    const errors = data.errors
-
-    if (errors) {
-      errors.forEach((errorMessage) => {
-        toastr.error(errorMessage)
-      })
-    }
+  } catch (error) {
+    displayErrors(error)
   }
 }

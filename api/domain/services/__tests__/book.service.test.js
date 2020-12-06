@@ -1,55 +1,31 @@
 const bookRepository = require('../../repositories/book.repository')
 const bookService = require('../book.service')
 
-beforeAll(async () => {})
-
 beforeEach(() => {
   bookRepository.getAll = jest.fn(() => [])
   bookRepository.getById = jest.fn((id) => {})
+  bookRepository.create = jest.fn((book) => {})
 })
-
-afterEach(async () => {})
-
-afterAll(async () => {})
 
 describe('Book Service Test Suite', () => {
   test('Book Service - getAllBooks', async () => {
-    await bookService.getAllBooks()
+    await bookService.getAllBooks('some string', 10)
 
-    expect(bookRepository.getAll).toHaveBeenCalledWith()
+    expect(bookRepository.getAll).toHaveBeenCalledWith('some string', 10)
     expect(bookRepository.getAll).toHaveBeenCalledTimes(1)
-    expect(bookRepository.getAll).toHaveReturnedWith([])
   })
 
-  xtest('Book Service - getAllBookById', () => {
+  test('Book Service - getBookById', () => {
     bookService.getBookById(1)
 
     expect(bookRepository.getById).toHaveBeenCalledWith(1)
     expect(bookRepository.getById).toHaveBeenCalledTimes(1)
-    //expect(bookRepository.getById).toHaveReturnedWith({});
   })
 
-  xtest('Book Service - createBook', () => {
-    bookService.getAllBooks()
+  test('Book Service - createBook', () => {
+    bookService.createBook({})
 
-    expect(bookRepository.getAll).toHaveBeenCalledWith()
-    expect(bookRepository.getAll).toHaveBeenCalledTimes(1)
-    expect(bookRepository.getAll).toHaveReturnedWith([])
-  })
-
-  xtest('Book Service - updateBookById', () => {
-    bookService.getAllBooks()
-
-    expect(bookRepository.getAll).toHaveBeenCalledWith()
-    expect(bookRepository.getAll).toHaveBeenCalledTimes(1)
-    expect(bookRepository.getAll).toHaveReturnedWith([])
-  })
-
-  xtest('Book Service - deleteBookById', () => {
-    bookService.getAllBooks()
-
-    expect(bookRepository.getAll).toHaveBeenCalledWith()
-    expect(bookRepository.getAll).toHaveBeenCalledTimes(1)
-    expect(bookRepository.getAll).toHaveReturnedWith([])
+    expect(bookRepository.create).toHaveBeenCalledWith({})
+    expect(bookRepository.create).toHaveBeenCalledTimes(1)
   })
 })

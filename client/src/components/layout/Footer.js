@@ -5,8 +5,6 @@ const Footer = () => {
   return (
     <div>
       <div style={{ alignSelf: 'flex-end' }}>
-        {/* style={{"height": "50px", "marginTop": "-50px"}} */}
-        {/* <div> */}
         <MDBFooter className="font-small pt-4 mt-4 teal">
           <MDBContainer fluid className="text-center text-md-left">
             <MDBRow>
@@ -20,13 +18,13 @@ const Footer = () => {
                     <a href="/about">About</a>
                   </li>
                   <li className="list-unstyled">
-                    <a href="#!">Contact Us</a>
+                    <a href="/contact">Contact Us</a>
                   </li>
                   <li className="list-unstyled">
-                    <a href="#!">Careers</a>
+                    <a href="/careers">Careers</a>
                   </li>
                   <li className="list-unstyled">
-                    <a href="#!">Post a Book</a>
+                    <a href="/add-book">Post a Book</a>
                   </li>
                 </ul>
               </MDBCol>
@@ -54,10 +52,10 @@ const Footer = () => {
                 <h5 className="title">Legal</h5>
                 <ul>
                   <li className="list-unstyled">
-                    <a href="#!">Terms</a>
+                    <a href="/terms">Terms</a>
                   </li>
                   <li className="list-unstyled">
-                    <a href="#!">Privacy</a>
+                    <a href="/privacy">Privacy</a>
                   </li>
                 </ul>
               </MDBCol>
@@ -65,8 +63,7 @@ const Footer = () => {
           </MDBContainer>
           <div className="footer-copyright py-3">
             <MDBContainer fluid>
-              &copy; {new Date().getFullYear()} Chosen Solutions. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} Chosen Solutions. All rights reserved.
             </MDBContainer>
           </div>
         </MDBFooter>

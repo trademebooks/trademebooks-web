@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
-const User = require('../domain/models/user.model')
-
 // Google
 router.get(
   '/auth/google',
@@ -16,7 +14,6 @@ router.get(
   '/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   async (req, res) => {
-    console.log('Successful authentication, redirect home.')
     res.redirect('/')
   }
 )
@@ -28,7 +25,6 @@ router.get(
   '/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   async (req, res) => {
-    console.log('Successful authentication, redirect home.')
     res.redirect('/')
   }
 )
@@ -40,7 +36,6 @@ router.get(
   '/auth/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   async (req, res) => {
-    console.log('Successful authentication, redirect home.')
     res.redirect('/')
   }
 )
@@ -57,7 +52,6 @@ router.get(
   '/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   async (req, res) => {
-    console.log('Successful authentication, redirect home.')
     res.redirect('/')
   }
 )
@@ -74,7 +68,6 @@ router.get(
   '/auth/linkedin/callback',
   passport.authenticate('linkedin', { failureRedirect: '/login' }),
   async (req, res) => {
-    console.log('Successful authentication, redirect home.')
     res.redirect('/')
   }
 )

@@ -1,10 +1,6 @@
 import React from 'react'
 
-const ChatMessages = ({
-  authUser,
-  currentChatMessages
-}) => {
-
+const ChatMessages = ({ authUser, currentChatMessages }) => {
   React.useEffect(() => {
     document.querySelector('.chat-messages').scrollBy(0, 99999999999999999)
   }, [currentChatMessages])
@@ -23,8 +19,7 @@ const ChatMessages = ({
                 </div>
               </div>
             )
-          }
-          else {
+          } else {
             return (
               <div key={i} className="row no-gutters">
                 <div className="col-md-6 offset-md-6">

@@ -6,10 +6,10 @@ const User = require('../../domain/models/user.model')
 
 /*
 {
-  "id": "2646566148737062",
-  "email": "yichenzhu1337@gmail.com",
-  "last_name": "Zhu",
-  "first_name": "Yi Chen"
+  "id"
+  "email"
+  "last_name"
+  "first_name"
 }
 */
 
@@ -28,12 +28,7 @@ const facebookStrategyLogin = async (
   done
 ) => {
   const profileJson = profile._json
-  const {
-    id,
-    email,
-    last_name,
-    first_name
-  } = profileJson
+  const { id, email, last_name, first_name } = profileJson
 
   try {
     // scenario 1: if the user is already in our database, then proceed to setting the session with that user

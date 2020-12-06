@@ -29,18 +29,9 @@ const twitterStrategyConfig = {
   proxy: true
 }
 
-const twitterStrategyLogin = async (
-  token,
-  tokenSecret,
-  profile,
-  done
-) => {
+const twitterStrategyLogin = async (token, tokenSecret, profile, done) => {
   const profileJson = profile._json
-  const {
-    id,
-    email,
-    name,
-  } = profileJson
+  const { id, email, name } = profileJson
 
   try {
     // scenario 1: if the user is already in our database, then proceed to setting the session with that user
@@ -65,6 +56,9 @@ const twitterStrategyLogin = async (
   }
 }
 
-const twitterStrategy = new TwitterStrategy(twitterStrategyConfig, twitterStrategyLogin)
+const twitterStrategy = new TwitterStrategy(
+  twitterStrategyConfig,
+  twitterStrategyLogin
+)
 
 passport.use(twitterStrategy)

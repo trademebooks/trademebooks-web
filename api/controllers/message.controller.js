@@ -1,54 +1,38 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
-const messageService = require('../domain/services/message.service')
-
+const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const catchException = require('../utils/catchExceptions')
+const messageService = require('../domain/services/message.service')
 
 const getAllConversations = catchException(async (req, res, next) => {
   const converations = await messageService.getAllConversations(req.user._id)
 
-  return res
-    .status(200)
-    .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `List of all messages.`),
-        (data = converations),
-        (errors = null)
-      )
-    )
+  res.status(200).json(
+    globalResponseDTO({
+      message: `List of all messages.`,
+      data: converations
+    })
+  )
 })
 
 const getAllMessagesInRoom = catchException(async (req, res, next) => {
   const messages = await messageService.getAllMessagesInRoom(req.params)
 
-  return res
-    .status(200)
-    .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `List of all messages.`),
-        (data = messages),
-        (errors = null)
-      )
-    )
+  res.status(200).json(
+    globalResponseDTO({
+      message: `List of all messages.`,
+      data: messages
+    })
+  )
 })
 
 const sendAMessageToRoom = catchException(async (req, res, next) => {
   const messageCreated = await messageService.sendMessagesToRoomId(req.body)
 
-  return res
-    .status(200)
-    .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `The message has successfully been sent.`),
-        (data = messageCreated),
-        (errors = null)
-      )
-    )
+  res.status(200).json(
+    globalResponseDTO({
+      message: `The message has successfully been sent.`,
+      data: messageCreated
+    })
+  )
 })
 
 module.exports = {
