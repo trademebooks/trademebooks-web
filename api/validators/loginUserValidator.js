@@ -7,21 +7,18 @@ const loginUserValidator = (data) => {
     password: 'required'
   }
 
-  let validator = new Validator(data, rules)
+  const validator = new Validator(data, rules)
 
   if (validator.fails()) {
-    let errors = []
+    const errors = []
     for (const field in validator.errors.errors) {
       errors = errors.concat(validator.errors.errors[field])
     }
 
-    throw new ApiGeneralError(
-      'There were errors with the validation',
-      'failed',
-      400,
-      null,
+    throw new ApiGeneralError({
+      message: 'There were errors with the validation',
       errors
-    )
+    })
   }
 
   return validator

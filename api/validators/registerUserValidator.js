@@ -16,13 +16,10 @@ const registerUserValidator = (data) => {
       errors = errors.concat(validator.errors.errors[field])
     }
 
-    throw new ApiGeneralError(
-      'There were errors with the validation',
-      'failed',
-      400,
-      null,
+    throw new ApiGeneralError({
+      message: 'There were errors with the validation',
       errors
-    )
+    })
   }
 
   return validator

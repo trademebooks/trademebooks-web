@@ -1,4 +1,4 @@
-const isAuthenticated = require('../auth.middleware')
+const authMiddleware = require('../auth.middleware')
 
 test('Middleware - access denied', () => {
   // isAuthenticated({}, {}, () => {});

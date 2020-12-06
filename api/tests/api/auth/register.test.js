@@ -1,12 +1,12 @@
 const fetch = require('node-fetch')
-const api = require('../../../../')
+const api = require('../../../')
 
 const apiPort = Math.round(Math.random() * 65535)
 const baseURL = `http://localhost:${apiPort}/api/v1`
 
-const db = require('../../../../utils/db')
+const db = require('../../../utils/db')
 let dbConnection
-const dbTestUtils = require('../../../utils')
+const dbTestUtils = require('../../utils')
 
 beforeAll(async () => {
   await api.listen(apiPort)

@@ -21,12 +21,12 @@ registerUserRequestDTO = (data) => {
   })
 
   if (errors.length > 0) {
-    throw new ApiGeneralError(
-      (status = 'failed'),
-      (code = 422),
-      (message = 'Register User Request DTO failed.'),
-      (data = errors)
-    )
+    throw new ApiGeneralError({
+      status: 'failed',
+      code: 422,
+      message: 'Register User Request DTO failed.',
+      errors
+    })
   }
 
   return data

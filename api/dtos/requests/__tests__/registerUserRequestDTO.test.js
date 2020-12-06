@@ -1,21 +1,21 @@
 const registerUserRequestDTO = require('../registerUserRequestDTO')
-const ApiGeneralError = require('../../utils/ApiGeneralError')
+const ApiGeneralError = require('../../../utils/ApiGeneralError')
 
 describe('Test Suite: Request', () => {
-  it('Correct request 1 - empty parameters', () => {
+  test('Correct request 1 - empty parameters', () => {
     // 1. Arrange
-    let apiInputRequest = {}
+    const apiInputRequest = {}
 
     // 2. Act
     // 3. Assert
     expect(() => {
-      let registerUserRequest = registerUserRequestDTO(apiInputRequest)
+      registerUserRequestDTO(apiInputRequest)
     }).toThrow(Error)
   })
 
-  it('Correct request 2 - extra useless parameters', () => {
+  test('Correct request 2 - extra useless parameters', () => {
     // 1. Arrange
-    let apiInputRequest = {
+    const apiInputRequest = {
       email: 'undefined',
       password: 'undefined',
       extraParam1: null,
@@ -26,29 +26,31 @@ describe('Test Suite: Request', () => {
     // 2. Act
     // 3. Assert
     expect(() => {
-      let registerUserRequest = registerUserRequestDTO(apiInputRequest)
+      registerUserRequestDTO(apiInputRequest)
     }).toThrow(Error)
   })
 
-  xit('Correct request 3 - happy path', () => {
+  test('Correct request 3 - happy path', () => {
     // 1. Arrange
-    let apiInputRequest = {
+    const apiInputRequest = {
       first_name: 'Yichen',
       last_name: 'Zhu',
       email: 'yichen@yichen.com',
+      username: 'yichen12',
       password: 'yichen-and-his-awesome-password',
       password_confirmation: 'yichen-and-his-awesome-password',
       phone_number: '1234567890'
     }
 
     // 2. Act
-    let registerUserRequest = registerUserRequestDTO(apiInputRequest)
+    const registerUserRequest = registerUserRequestDTO(apiInputRequest)
 
     // 3. Assert
-    expect(registerUserRequest).toEqual({
+    expect(registerUserRequest).toMatchObject({
       first_name: 'Yichen',
       last_name: 'Zhu',
       email: 'yichen@yichen.com',
+      username: 'yichen12',
       password: 'yichen-and-his-awesome-password',
       password_confirmation: 'yichen-and-his-awesome-password',
       phone_number: '1234567890'
@@ -57,11 +59,11 @@ describe('Test Suite: Request', () => {
 
   it('Correct request 4 - we input in the wrong fields, some random string', () => {
     // 1. Arrange
-    let apiInputRequest = { message: 'this is awesome!' }
+    const apiInputRequest = { message: 'this is awesome!' }
 
     // 2. + 3. Act and Assert
     expect(() => {
-      let registerUserRequest = registerUserRequestDTO(apiInputRequest)
+      registerUserRequestDTO(apiInputRequest)
     }).toThrow(ApiGeneralError)
   })
 })

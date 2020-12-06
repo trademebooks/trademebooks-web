@@ -1,12 +1,12 @@
 const fetch = require('node-fetch')
-const api = require('../../../../')
+const api = require('../../../')
 
 const apiPort = Math.round(Math.random() * 65535)
 const baseURL = `http://localhost:${apiPort}/api/v1`
 
-const db = require('../../../../utils/db')
+const db = require('../../../utils/db')
 let dbConnection
-const dbTestUtils = require('../../../utils')
+const dbTestUtils = require('../../utils')
 
 beforeAll(async () => {
   await api.listen(apiPort)
@@ -26,18 +26,22 @@ afterAll(async () => {
   await dbConnection.disconnect()
 })
 
-describe('Utils Health Test', () => {
-  test('GET /health', async () => {
-    const response = await fetch(
-      `http://localhost:${apiPort}/api/v1/utils/health`
-    )
-    const json = await response.json()
-    expect(json).toEqual({
+describe('Books API', () => {
+  test('Get /api/v1/books', async () => {
+    const response = await (await fetch(`${baseURL}/books`)).json()
+
+    expect(response).toMatchObject({
       status: 'success',
       code: 200,
-      message: `The application is up and running!`,
-      data: {},
+      message: 'List of all books in the database.',
       errors: null
     })
+
+    expect(Array.isArray(response.data)).toBe(true)
   })
+})
+
+afterAll(async () => {
+  await api.close()
+  await dbConnection.disconnect()
 })
