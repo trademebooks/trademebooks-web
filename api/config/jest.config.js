@@ -52,7 +52,7 @@ module.exports = {
     // '<rootDir>/dtos/responses/__tests__/bookResponseDTO.test.js',
     // '<rootDir>/dtos/responses/__tests__/booksResponseDTO.test.js',
     // '<rootDir>/dtos/responses/__tests__/globalResponseDTO.test.js',
-    // '<rootDir>/dtos/responses/__tests__/userResponseDTO.test.js',
+    '<rootDir>/dtos/responses/__tests__/userResponseDTO.test.js',
 
     // Validators
     // '<rootDir>/validators/__tests__/**.test.js',
