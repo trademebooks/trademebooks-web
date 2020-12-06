@@ -1,21 +1,20 @@
 import api from '../utils/api'
+import displayErrors from '../utils/displayErrors'
 
 export const getAccountSettings = async () => {
   try {
-    const response = await api.get(`/account`)
-    const responseJson = response.data.data
-    return responseJson
+    return (await api.get(`/account`)).data.data
   } catch (error) {
-    console.log({ error })
+    const errors = error.response.data.errors
+    displayErrors(errors)
   }
 }
 
 export const saveAccountSettings = async (data) => {
   try {
-    const response = await api.put(`/account`, data)
-    const responseJson = response.data.data
-    return responseJson
+    return (await api.put(`/account`, data)).data.data
   } catch (error) {
-    console.log({ error })
+    const errors = error.response.data.errors
+    displayErrors(errors)
   }
 }

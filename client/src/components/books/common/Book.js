@@ -54,11 +54,11 @@ const Book = ({ book, editFlag, deleteBookById }) => {
   }
 
   const conditions = {
-    POOR: require('../../../img/condition_icons/Poor_condition.png'),
-    FAIR: require('../../../img/condition_icons/Fair_condition.png'),
-    GOOD: require('../../../img/condition_icons/Good_condition.png'),
-    VERY_GOOD: require('../../../img/condition_icons/Verygood_condition.png'),
-    LIKE_NEW: require('../../../img/condition_icons/Likenew_condition.png')
+    POOR: require('../../../images/Poor_condition.png'),
+    FAIR: require('../../../images/Fair_condition.png'),
+    GOOD: require('../../../images/Good_condition.png'),
+    VERY_GOOD: require('../../../images/Verygood_condition.png'),
+    LIKE_NEW: require('../../../images/Likenew_condition.png')
   }
 
   return (

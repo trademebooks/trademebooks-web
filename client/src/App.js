@@ -16,11 +16,11 @@ import 'bootstrap-css-only/css/bootstrap.min.css'
 import 'mdbreact/dist/css/mdb.css'
 
 // toastr
-import ReduxToastr from 'react-redux-toastr'
+import Alert from './components/layout/Alert'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
 // global CSS
-import './css/global.scss'
+import './css/main.scss'
 
 const App = () => {
   useEffect(() => {
@@ -37,17 +37,8 @@ const App = () => {
             <Route component={Routes} />
           </Switch>
         </main>
-        <ReduxToastr
-          timeOut={3000}
-          newestOnTop={false}
-          preventDuplicates
-          position="top-right"
-          getState={(state) => state.toastr}
-          transitionIn="fadeIn"
-          transitionOut="fadeOut"
-          closeOnToastrClick
-        />
         <Footer />
+        <Alert />
       </Router>
     </Provider>
   )

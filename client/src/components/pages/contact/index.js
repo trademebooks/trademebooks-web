@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdbreact'
+import { toastr } from 'react-redux-toastr'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,8 @@ const ContactPage = () => {
       email: '',
       body: ''
     })
+
+    toastr.success('Message sent! Thank you for contacting us.')
   }
 
   return (

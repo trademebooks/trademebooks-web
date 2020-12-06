@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Alert from '../layout/Alert'
 import PrivateRoute from '../routing/PrivateRoute'
 import NotFound from '../pages/NotFound'
 
@@ -24,9 +23,6 @@ import ChatShell from '../chat'
 const Routes = () => {
   return (
     <>
-      <div className="container">
-        <Alert />
-      </div>
       <Switch>
         {/* Public Routes */}
         <Route exact path="/register" component={Register} />

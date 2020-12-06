@@ -26,36 +26,36 @@ const Conditions = ({ book, addBook }) => {
       text: 'POOR',
       type: CONDITION_TYPES.POOR,
       description: 'Heavily worn, all text are still legible',
-      imageUrl: require('../../../../img/condition_icons/Poor_condition_default.png'),
-      imgSelected: require('../../../../img/condition_icons/Poor_condition.png')
+      imageUrl: require('../../../../images/Poor_condition_default.png'),
+      imgSelected: require('../../../../images/Poor_condition.png')
     },
     {
       text: 'FAIR',
       type: CONDITION_TYPES.FAIR,
       description: 'Lots of wear and tear',
-      imageUrl: require('../../../../img/condition_icons/Fair_condition_default.png'),
-      imgSelected: require('../../../../img/condition_icons/Fair_condition.png')
+      imageUrl: require('../../../../images/Fair_condition_default.png'),
+      imgSelected: require('../../../../images/Fair_condition.png')
     },
     {
       text: 'GOOD',
       type: CONDITION_TYPES.GOOD,
       description: 'Some signs of wear, includes markings',
-      imageUrl: require('../../../../img/condition_icons/Good_condition_default.png'),
-      imgSelected: require('../../../../img/condition_icons/Good_condition.png')
+      imageUrl: require('../../../../images/Good_condition_default.png'),
+      imgSelected: require('../../../../images/Good_condition.png')
     },
     {
       text: 'VERY GOOD',
       type: CONDITION_TYPES.VERY_GOOD,
       description: 'Minimal signs of wear, no markings',
-      imageUrl: require('../../../../img/condition_icons/Verygood_condition_default.png'),
-      imgSelected: require('../../../../img/condition_icons/Verygood_condition.png')
+      imageUrl: require('../../../../images/Verygood_condition_default.png'),
+      imgSelected: require('../../../../images/Verygood_condition.png')
     },
     {
       text: 'LIKE NEW',
       type: CONDITION_TYPES.LIKE_NEW,
       description: 'No damage, lightly used, no markings',
-      imageUrl: require('../../../../img/condition_icons/Likenew_condition_default.png'),
-      imgSelected: require('../../../../img/condition_icons/Likenew_condition.png')
+      imageUrl: require('../../../../images/Likenew_condition_default.png'),
+      imgSelected: require('../../../../images/Likenew_condition.png')
     }
   ]
 

@@ -14,7 +14,7 @@ import {
   MDBContainer,
   MDBIcon
 } from 'mdbreact'
-import logo from '../../img/logo.png'
+import logo from './logo.png'
 
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [isOpen, setIsOpen] = useState(false)
