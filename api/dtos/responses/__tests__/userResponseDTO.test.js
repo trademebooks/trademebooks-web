@@ -1,7 +1,7 @@
 const userResponseDTO = require('../userResponseDTO')
 
 describe('Test Suite: Response', () => {
-  it('Correct request 1 - empty parameters', () => {
+  test('Correct request 1 - empty parameters', () => {
     // 1. Arrange
     const user = {}
 

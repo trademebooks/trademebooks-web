@@ -3,7 +3,7 @@ const createBookValidator = require('../createBookValidator')
 const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 describe('Test Suite: createBookValidator.test.js', () => {
-  it('The happy path - everything works', () => {
+  test('The happy path - everything works', () => {
     // 1. Arrange
     const data = {
       title: 'Harry Potter and the Awesome Book of Nothing',

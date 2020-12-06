@@ -1,7 +1,7 @@
 const loginUserValidator = require('../loginUserValidator')
 
 describe('Test Suite: loginUserValidator.test.js', () => {
-  it('The happy path - everything works', () => {
+  test('The happy path - everything works', () => {
     // 1. Arrange
     const data = {
       email: 'yichen@yichen.com',
