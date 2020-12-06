@@ -51,11 +51,6 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
-            {/* <MDBNavItem>
-              <MDBNavLink to="/about">
-                <MDBIcon icon="home" /> <span>About Us</span>
-              </MDBNavLink>
-            </MDBNavItem> */}
             <MDBNavItem>
               <MDBNavLink to="/add-book">
                 <MDBIcon icon="book" /> <span>Sell Books</span>

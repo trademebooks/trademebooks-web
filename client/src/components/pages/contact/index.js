@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdbreact'
-import { toastr } from 'react-redux-toastr'
-
-import api from '../../../utils/api'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -13,27 +10,18 @@ const ContactPage = () => {
 
   const { name, email, body } = formData
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
-  const onSubmit = async (e) => {
-    e.preventDefault()
+  const onSubmit = async (event) => {
+    event.preventDefault()
 
-    try {
-      await api.post('/utilities/contact', { name, email, body })
-
-      toastr.success('Message sent! Thank you for contacting us.')
-
-      setFormData({
-        name: '',
-        email: '',
-        body: ''
-      })
-    } catch (error) {
-      toastr.error('There was something wrong with your submission')
-
-      console.log({ error })
-    }
+    setFormData({
+      name: '',
+      email: '',
+      body: ''
+    })
   }
 
   return (
