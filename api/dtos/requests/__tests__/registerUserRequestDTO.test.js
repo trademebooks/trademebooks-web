@@ -57,7 +57,7 @@ describe('Test Suite: Request', () => {
     })
   })
 
-  it('Correct request 4 - we input in the wrong fields, some random string', () => {
+  test('Correct request 4 - we input in the wrong fields, some random string', () => {
     // 1. Arrange
     const apiInputRequest = { message: 'this is awesome!' }
 
