@@ -49,10 +49,10 @@ module.exports = {
 
     // Responses
     // '<rootDir>/dtos/responses/__tests__/**.test.js',
-    // '<rootDir>/dtos/responses/__tests__/bookResponseDTO.test.js',
     // '<rootDir>/dtos/responses/__tests__/booksResponseDTO.test.js',
     // '<rootDir>/dtos/responses/__tests__/globalResponseDTO.test.js',
-    '<rootDir>/dtos/responses/__tests__/userResponseDTO.test.js',
+    '<rootDir>/dtos/utils/__tests__/userDto.test.js',
+    '<rootDir>/dtos/utils/__tests__/bookDto.test.js',
 
     // Validators
     // '<rootDir>/validators/__tests__/**.test.js',

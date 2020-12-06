@@ -2,7 +2,7 @@ const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const catchExceptions = require('../utils/catchExceptions')
 const registerUserRequestDTO = require('../dtos/requests/registerUserRequestDTO')
 const loginUserRequestDTO = require('../dtos/requests/loginUserRequestDTO')
-const userResponseDTO = require('../dtos/responses/userResponseDTO')
+const userDto = require('../dtos/utils/userDto')
 const registerUserValidator = require('../validators/registerUserValidator')
 const loginUserValidator = require('../validators/loginUserValidator')
 const authService = require('../domain/services/auth.service')
@@ -21,7 +21,7 @@ const registerUser = catchExceptions(async (req, res) => {
   res.status(200).json(
     globalResponseDTO({
       message: `The email: ${registerUserRequest.email} has successfully registered.`,
-      data: userResponseDTO(user)
+      data: userDto(user)
     })
   )
 })
@@ -41,7 +41,7 @@ const logUserIn = catchExceptions(async (req, res, next) => {
   res.status(200).json(
     globalResponseDTO({
       message: `The user has successfully logged in.`,
-      data: userResponseDTO(loggedInUser)
+      data: userDto(loggedInUser)
     })
   )
 })
@@ -62,7 +62,7 @@ const getAuthUser = catchExceptions((req, res) => {
   res.status(200).json(
     globalResponseDTO({
       message: `The currently authenticated user's information.`,
-      data: userResponseDTO(user)
+      data: userDto(user)
     })
   )
 })

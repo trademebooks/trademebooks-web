@@ -19,7 +19,7 @@ const createBookValidator = (data) => {
   const validator = new Validator(data, rules)
 
   if (validator.fails()) {
-    const errors = []
+    let errors = []
     for (const field in validator.errors.errors) {
       errors = errors.concat(validator.errors.errors[field])
     }

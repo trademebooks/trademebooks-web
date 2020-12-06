@@ -1,5 +1,7 @@
-function booksResponseDTO(books) {
-  return books
+const bookDto = require('../utils/bookDto')
+
+function booksResponseDto(books) {
+  return books.map(book => bookDto(book))
 }
 
-module.exports = booksResponseDTO
+module.exports = booksResponseDto
