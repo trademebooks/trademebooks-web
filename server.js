@@ -10,10 +10,3 @@ server.listen(PORT, async () => {
     `Visit the API's health check page at: http://localhost:${PORT}/api/v1/app/health`
   )
 })
-
-// global exception handler
-// process.on("unhandledRejection", error => {
-//   console.log(error.message);
-//   console.log("--------------------------");
-//   process.exit(1);
-// });
