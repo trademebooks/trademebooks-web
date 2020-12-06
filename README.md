@@ -19,7 +19,7 @@ The key features:
 - Frontend: JavaScript and ReactJS
 - Backend: Node.js, Express, and MongoDB
 - Server (DevOps): Heroku
-- Tools: Visual Studio Code (with plugins: Prettier), and MongoDB Atlas
+- Tools: Visual Studio Code (with plugins: Prettier, ESlint, Husky), and MongoDB Atlas
 
 ## Required Software
 
