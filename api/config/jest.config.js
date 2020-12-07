@@ -25,6 +25,7 @@ module.exports = {
     // '<rootDir>/domain/services/__tests__/message.service.test.js',
 
     // '<rootDir>/domain/services/mailer/__tests__/mailer.test.js',
+    '<rootDir>/domain/services/mailer/emailTemplates/passwordResetTemplate.test',
     // '<rootDir>/domain/services/mailer/emailTemplates/__tests__/*.test.js',
 
     /*******************************************************************************/
@@ -120,7 +121,7 @@ module.exports = {
   ],
 
   // testMatch: [
-  //       '<rootDir>/dtos/requests/__tests__/createBookRequestDTO.test.js',
+  //   '<rootDir>/domain/services/mailer/emailTemplates/__tests__/passwordResetTemplate.test.js',
   // ],
   testTimeout: 30000,
   testEnvironment: 'node'

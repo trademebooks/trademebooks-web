@@ -2,12 +2,12 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import PrivateRoute from '../routing/PrivateRoute'
-import NotFound from '../pages/NotFound'
+import NotFound from '../pages/notFound'
 
 import Register from '../auth/register'
 import Login from '../auth/login'
-import ForgotPassword from '../auth/forgotPassword'
-import ResetPassword from '../auth/forgotPassword/resetPassword'
+import ResetPassword from '../password/resetPassword'
+import ForgotPassword from '../password/sendEmail'
 
 import About from '../pages/about'
 import Contact from '../pages/contact'
@@ -27,7 +27,7 @@ const Routes = () => {
         {/* Public Routes */}
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        
+
         <Route exact path="/forgot-password" component={ForgotPassword} />
         <Route exact path="/reset-password/:token" component={ResetPassword} />
 

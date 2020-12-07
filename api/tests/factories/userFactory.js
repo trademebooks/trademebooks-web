@@ -36,9 +36,9 @@ const userfactory = async (numberOfSeeds) => {
     }
     const bookstore = await new Bookstore(bookstoreFields).save()
 
+    // final output with account and bookstore
     user.account = account
     user.bookstore = bookstore
-
     users.push(user)
   }
 

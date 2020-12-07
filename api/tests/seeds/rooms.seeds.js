@@ -14,6 +14,8 @@ const rooms = [
 ]
 
 module.exports = async () => {
+  console.log('rooms.seeds...')
+
   for (const room of rooms) {
     await new Room(room).save()
   }

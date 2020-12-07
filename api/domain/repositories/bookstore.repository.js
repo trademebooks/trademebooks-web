@@ -3,7 +3,8 @@ const User = require('../models/user.model')
 
 const getByUsername = async (username) => {
   const user = await User.findOne({ username })
-  const bookstore = await BookstoreModel.findOne({ userId: user.id })
+
+  const bookstore = await Bookstore.findOne({ userId: user._id })
 
   return bookstore
 }

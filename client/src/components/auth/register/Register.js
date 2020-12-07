@@ -35,7 +35,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (password !== password_confirmation) {
       setAlert('Passwords do not match', 'danger')
     } else {

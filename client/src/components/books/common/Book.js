@@ -22,8 +22,6 @@ import socket from '../../../utils/socket'
 
 const Book = ({ book, editFlag, deleteBookById }) => {
   const chatWithUser = (book) => {
-    console.log({ book })
-
     socket.emit('join_private_room', {
       room: undefined,
       user: {
@@ -54,11 +52,11 @@ const Book = ({ book, editFlag, deleteBookById }) => {
   }
 
   const conditions = {
-    POOR: require('../../../images/Poor_condition.png'),
-    FAIR: require('../../../images/Fair_condition.png'),
-    GOOD: require('../../../images/Good_condition.png'),
-    VERY_GOOD: require('../../../images/Verygood_condition.png'),
-    LIKE_NEW: require('../../../images/Likenew_condition.png')
+    POOR: require(`../images/conditions/Poor_condition.png`),
+    FAIR: require(`../images/conditions/Fair_condition.png`),
+    GOOD: require(`../images/conditions/Good_condition.png`),
+    VERY_GOOD: require(`../images/conditions/Verygood_condition.png`),
+    LIKE_NEW: require(`../images/conditions/Likenew_condition.png`)
   }
 
   return (

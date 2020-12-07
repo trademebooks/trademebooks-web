@@ -3,10 +3,7 @@ import { toastr } from 'react-redux-toastr'
 import api from '../utils/api'
 import displayErrors from '../utils/displayErrors'
 
-import {
-  USER_LOADED,
-  AUTH_ERROR,
-} from './types'
+import { USER_LOADED, AUTH_ERROR } from './types'
 
 export const loadUser = () => async (dispatch) => {
   try {

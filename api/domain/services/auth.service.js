@@ -2,13 +2,18 @@ const userRepository = require('../repositories/user.repository')
 const bookstoreRepository = require('../repositories/bookstore.repository')
 const accountRepository = require('../repositories/account.repository')
 const ApiGeneralError = require('../../utils/ApiGeneralError')
+const userDto = require('../../dtos/utils/userDto')
 
 const registerUser = async (user) => {
   const createdUser = await userRepository.createUser(user)
   const bookstore = await bookstoreRepository.createByUserId(createdUser._id)
   const account = await accountRepository.createByUserId(createdUser._id)
 
-  return { createdUser, account, bookstore }
+  return {
+    createdUser: userDto(createdUser),
+    account,
+    bookstore
+  }
 }
 
 /**

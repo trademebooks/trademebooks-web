@@ -114,6 +114,8 @@ const customBooks = [
 ]
 
 module.exports = async (users, numberOfBooksPerUser) => {
+  console.log('books.seeds...')
+
   for (const customBook of customBooks) {
     const newBook = await new Book(customBook).save()
 
