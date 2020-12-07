@@ -6,7 +6,7 @@ const init = (async () => {
 
   const dbConnection = await db()
 
-  dbUtils.clearDatabase()
+  await dbUtils.clearDatabase()
 
   const users = await require('./users.seeds')(10)
   const books = await require('./books.seeds')(users, 10)

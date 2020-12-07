@@ -33,6 +33,8 @@ const messages = [
 ]
 
 module.exports = async () => {
+  console.log('messages.seeds...')
+
   // Custom messages
   for (const message of messages) {
     await new Message(message).save()
