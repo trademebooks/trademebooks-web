@@ -2,9 +2,7 @@ const config = require('../../../../config')
 
 const basePath = `${config.baseUrl}${config.port}`
 
-const template = ({
-  token
-}) => {
+const template = ({ token }) => {
   return `
     <html>
       <body>

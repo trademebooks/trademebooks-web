@@ -3,14 +3,7 @@ const config = require('../../../config')
 const mailer = require('@sendgrid/mail')
 mailer.setApiKey(config.sendGridKey)
 
-const sendEmail = async ({
-  fromEmail,
-  fromName,
-  to,
-  subject,
-  text,
-  html
-}) => {
+const sendEmail = async ({ fromEmail, fromName, to, subject, text, html }) => {
   fromEmail = fromEmail || 'noreply@trademebooks.com'
   fromName = fromName || 'Team trademebooks'
   subject = subject || 'No Subject.'

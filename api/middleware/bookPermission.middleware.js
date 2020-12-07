@@ -6,7 +6,7 @@ const bookService = require('../domain/services/book.service')
 // const ApiGeneralError = require('../utils/ApiGeneralError')
 // const catchException = require('../utils/catchExceptions')
 
-const bookPermission = (async (req, res, next) => {
+const bookPermission = async (req, res, next) => {
   const bookId = req.params.id
 
   // the id must be of valid format
@@ -26,8 +26,7 @@ const bookPermission = (async (req, res, next) => {
   let book = {}
   try {
     book = await bookService.getBookById(bookId)
-  }
-  catch (error) {
+  } catch (error) {
     res.status(error.code).json(
       globalResponseDTO({
         status: 'failed',
@@ -45,14 +44,17 @@ const bookPermission = (async (req, res, next) => {
       globalResponseDTO({
         status: 'failed',
         code: 401,
-        message: 'Access denied: you must be the owner of this book when updating or deleting it.',
+        message:
+          'Access denied: you must be the owner of this book when updating or deleting it.',
         data: null,
-        errors: ['Access denied: you must be the owner of this book when updating or deleting it.']
+        errors: [
+          'Access denied: you must be the owner of this book when updating or deleting it.'
+        ]
       })
     )
   }
 
   next()
-})
+}
 
 module.exports = bookPermission

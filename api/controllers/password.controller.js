@@ -9,7 +9,8 @@ const sendPasswordResetEmail = catchExceptions(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      message: 'If there is an email in our database, then we will have sent you a password reset email.',
+      message:
+        'If there is an email in our database, then we will have sent you a password reset email.',
       data: message
     })
   )
@@ -18,7 +19,11 @@ const sendPasswordResetEmail = catchExceptions(async (req, res) => {
 const resetPassword = catchExceptions(async (req, res) => {
   const { email, token, newPassword } = req.body
 
-  const userWithUpdatedPassword = await passwordService.resetPassword(email, token, newPassword)
+  const userWithUpdatedPassword = await passwordService.resetPassword(
+    email,
+    token,
+    newPassword
+  )
 
   res.status(200).json(
     globalResponseDTO({

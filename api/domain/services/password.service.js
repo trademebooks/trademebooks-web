@@ -14,7 +14,10 @@ const sendResetPasswordEmail = async (email) => {
   // this means the user is not in our system
   const user = await User.findOne({ email })
   if (!user) {
-    throw new ApiGeneralError({ code: 200, message: 'User does not exist in the database.' })
+    throw new ApiGeneralError({
+      code: 200,
+      message: 'User does not exist in the database.'
+    })
   }
 
   const password = await Password.findOneAndUpdate(
