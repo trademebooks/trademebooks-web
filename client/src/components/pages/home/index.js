@@ -24,8 +24,9 @@ const HomePage = () => {
   useEffect(() => {
     ;(async () => {
       try {
-        const response = await api.get(`/books?limit=50`)
+        const response = await api.get(`/books?limit=30`)
         const books = response.data.data
+
         setBooks(books)
       } catch (error) {
         console.log({ error })

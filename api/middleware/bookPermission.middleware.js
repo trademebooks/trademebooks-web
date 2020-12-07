@@ -23,8 +23,9 @@ const bookPermission = (async (req, res, next) => {
   }
 
   // when we do try to find the book from the book service, and it throws us service errors
+  let book = {}
   try {
-    await bookService.getBookById(bookId)
+    book = await bookService.getBookById(bookId)
   }
   catch (error) {
     res.status(error.code).json(

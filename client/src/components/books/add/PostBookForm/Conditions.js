@@ -15,47 +15,46 @@ const Conditions = ({ book, addBook }) => {
     LIKE_NEW: 'LIKE_NEW'
   }
 
-  console.log('Conditions', { book })
-
   const [currentConditionType, setCurrentConditionType] = useState(
     CONDITION_TYPES.GOOD
   )
 
+  const conditionsImagePath = '../../images/conditions'
   const conditions = [
     {
       text: 'POOR',
       type: CONDITION_TYPES.POOR,
       description: 'Heavily worn, all text are still legible',
-      imageUrl: require('../../../../images/Poor_condition_default.png'),
-      imgSelected: require('../../../../images/Poor_condition.png')
+      imageUrl: require(`../../images/conditions/Poor_condition_default.png`),
+      imgSelected: require(`../../images/conditions/Poor_condition.png`)
     },
     {
       text: 'FAIR',
       type: CONDITION_TYPES.FAIR,
       description: 'Lots of wear and tear',
-      imageUrl: require('../../../../images/Fair_condition_default.png'),
-      imgSelected: require('../../../../images/Fair_condition.png')
+      imageUrl: require(`../../images/conditions/Fair_condition_default.png`),
+      imgSelected: require(`../../images/conditions/Fair_condition.png`)
     },
     {
       text: 'GOOD',
       type: CONDITION_TYPES.GOOD,
       description: 'Some signs of wear, includes markings',
-      imageUrl: require('../../../../images/Good_condition_default.png'),
-      imgSelected: require('../../../../images/Good_condition.png')
+      imageUrl: require(`../../images/conditions/Good_condition_default.png`),
+      imgSelected: require(`../../images/conditions/Good_condition.png`)
     },
     {
       text: 'VERY GOOD',
       type: CONDITION_TYPES.VERY_GOOD,
       description: 'Minimal signs of wear, no markings',
-      imageUrl: require('../../../../images/Verygood_condition_default.png'),
-      imgSelected: require('../../../../images/Verygood_condition.png')
+      imageUrl: require(`../../images/conditions/Verygood_condition_default.png`),
+      imgSelected: require(`../../images/conditions/Verygood_condition.png`)
     },
     {
       text: 'LIKE NEW',
       type: CONDITION_TYPES.LIKE_NEW,
       description: 'No damage, lightly used, no markings',
-      imageUrl: require('../../../../images/Likenew_condition_default.png'),
-      imgSelected: require('../../../../images/Likenew_condition.png')
+      imageUrl: require(`../../images/conditions/Likenew_condition_default.png`),
+      imgSelected: require(`../../images/conditions/Likenew_condition.png`)
     }
   ]
 
