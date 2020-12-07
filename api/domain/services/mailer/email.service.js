@@ -1,7 +1,6 @@
 const config = require('../../../config')
 
 const mailer = require('@sendgrid/mail')
-const { body } = require('express-validator')
 mailer.setApiKey(config.sendGridKey)
 
 const sendEmail = async ({
