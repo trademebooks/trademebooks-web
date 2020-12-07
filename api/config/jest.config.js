@@ -1,7 +1,7 @@
 module.exports = {
   rootDir: '../',
   testPathIgnorePatterns: [],
-  testMatch123: [
+  testMatch: [
     /***********************/
     /***** Domain **********/
     /***********************/
@@ -120,9 +120,9 @@ module.exports = {
     '<rootDir>/utils/__tests__/ApiGeneralError.test.js'
   ],
 
-  testMatch: [
-    '<rootDir>/domain/services/mailer/emailTemplates/__tests__/passwordResetTemplate.test.js',
-  ],
+  // testMatch: [
+  //   '<rootDir>/domain/services/mailer/emailTemplates/__tests__/passwordResetTemplate.test.js',
+  // ],
   testTimeout: 30000,
   testEnvironment: 'node'
 }
