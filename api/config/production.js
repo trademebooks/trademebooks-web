@@ -3,7 +3,6 @@ module.exports = {
   port: 80,
   apiPrefix: 'api',
   apiVersion: 'v1',
-  baseUrl: `${this.baseUrl}${this.port}/${this.apiPrefix}/${this.apiVersion}`,
   mongoURI: process.env.MONGO_URI,
   sessionSecret: process.env.COOKIE_KEY,
   sendGridKey: process.env.SEND_GRID_KEY,

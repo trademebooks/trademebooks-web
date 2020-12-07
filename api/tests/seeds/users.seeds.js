@@ -37,10 +37,11 @@ module.exports = async (numberOfUsers) => {
   for (const customUser of customUsers) {
     const newUser = await new User(customUser).save()
 
+    console.log(newUser)
     users.push(newUser)
   }
 
   const fakeUsers = await userFactory(numberOfUsers)
-
+  console.log({ fakeUsers })
   return [...users, ...fakeUsers]
 }

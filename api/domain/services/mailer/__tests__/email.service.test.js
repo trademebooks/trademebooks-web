@@ -1,4 +1,4 @@
-const mailerService = require('../mailer.service')
+const mailerService = require('../email.service')
 
 beforeAll(async () => {})
 
