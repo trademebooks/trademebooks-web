@@ -8,8 +8,7 @@ configure({ adapter: new Adapter() })
 describe('Component: Register', () => {
   const props = {
     isAuthenticated: false,
-    register: jest.fn(),
-    setAlert: jest.fn()
+    register: jest.fn()
   }
 
   const container = mount(<Register {...props} />)

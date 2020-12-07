@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
+import { toastr } from 'react-redux-toastr'
 
 import { sendPasswordResetEmail } from '../../../actions/password'
 
@@ -14,12 +15,16 @@ const ForgotPasswordForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const onSubmit = (e) => {
+  const onSubmit =async (e) => {
     e.preventDefault()
 
-    sendPasswordResetEmail({ email })
+    const response = await sendPasswordResetEmail({ email })
 
-    setFormData({ email: '' })
+    if (response) {
+      toastr.success(`A password reset email has been sent.`)
+
+      setFormData({ email: '' })
+    }
   }
 
   return (

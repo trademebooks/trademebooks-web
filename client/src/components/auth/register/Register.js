@@ -9,8 +9,11 @@ import {
   MDBBtn,
   MDBIcon
 } from 'mdbreact'
+import { toastr } from 'react-redux-toastr'
 
-const Register = ({ setAlert, register, isAuthenticated }) => {
+import redirect from '../../../utils/redirect'
+
+const Register = ({ register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -37,9 +40,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     e.preventDefault()
 
     if (password !== password_confirmation) {
-      setAlert('Passwords do not match', 'danger')
+      toastr.error('Passwords do not match')
     } else {
-      register({
+      const response = await register({
         first_name,
         last_name,
         username,
@@ -47,6 +50,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         password,
         password_confirmation
       })
+
+      if (response) {
+        toastr.success('You have successfully registered! Try logging in now!')
+
+        redirect('/login')
+      }
     }
   }
 
@@ -175,7 +184,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 }
 
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 }

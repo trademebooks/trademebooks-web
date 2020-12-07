@@ -2,6 +2,7 @@ import { toastr } from 'react-redux-toastr'
 
 import api from '../utils/api'
 import displayErrors from '../utils/displayErrors'
+import redirect from '../utils/redirect'
 
 import { USER_LOADED, AUTH_ERROR } from './types'
 
@@ -22,11 +23,7 @@ export const loadUser = () => async (dispatch) => {
 
 export const register = (formData) => async (dispatch) => {
   try {
-    await api.post('/auth/register', formData)
-
-    dispatch(loadUser())
-
-    toastr.success('You have successfully registered! Try logging in now!')
+    return (await api.post('/auth/register', formData)).data.data
   } catch (error) {
     displayErrors(error)
   }

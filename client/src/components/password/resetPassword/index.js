@@ -1,26 +1,39 @@
 import React, { useState } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
+import { useParams } from 'react-router'
+import { toastr } from 'react-redux-toastr'
 
 import { resetPassword } from '../../../actions/password'
 
-const ForgotPasswordForm = () => {
+const ForgotPasswordForm = ({
+  match
+}) => {
+  const { token } = useParams()
+
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
-    password_confirmation: ''
+    newPassword: ''
   })
 
-  const { email, password, password_confirmation } = formData
+  const { email, newPassword } = formData
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
 
-    resetPassword(formData)
+    const response = await resetPassword({
+      ...formData,
+      token
+    })
 
-    setFormData({ email: '' })
+    if (response) {
+      toastr.success('Your password has been successfully reset.')
+
+      setFormData({ email: '', newPassword: '' })
+    }
   }
 
   return (
@@ -50,21 +63,8 @@ const ForgotPasswordForm = () => {
                   icon="lock"
                   group
                   type="password"
-                  name="password"
-                  value={password}
-                  onChange={onChange}
-                  required
-                />
-              </div>
-
-              <div className="grey-text">
-                <MDBInput
-                  label="Confirm Your New Password"
-                  icon="lock"
-                  group
-                  type="password"
-                  name="password_confirmation"
-                  value={password_confirmation}
+                  name="newPassword"
+                  value={newPassword}
                   onChange={onChange}
                   required
                 />
