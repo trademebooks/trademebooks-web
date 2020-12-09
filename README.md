@@ -1,8 +1,14 @@
 # trademebooks.com (TMB)
 
-## Test
+## Public Project! 📌
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FEEmUnkReEpjqTx0KPSRA7QoF%2Ftrademebooks-Web%3Fnode-id%3D64%253A23" allowfullscreen></iframe>
+This is a public open source project!
+
+Check out our progress! :construction_worker:
+https://trello.com/b/neeVBQO7/trademebooks-web
+
+Check out our wireframing process! :art:
+https://www.figma.com/file/EEmUnkReEpjqTx0KPSRA7QoF/trademebooks-Web?node-id=64%3A23
 
 ## About
 
