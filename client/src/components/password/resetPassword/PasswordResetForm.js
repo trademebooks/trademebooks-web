@@ -87,4 +87,8 @@ const PasswordResetForm = ({ resetPassword }) => {
   )
 }
 
+PasswordSendEmailForm.propTypes = {
+  resetPassword: PropTypes.func.isRequired
+}
+
 export default PasswordResetForm
