@@ -1,14 +1,12 @@
 # trademebooks.com (TMB)
 
-## Public Project! 📌
+## 📌 Public Project!
 
 This is a public open source project!
 
-Check out our progress! :construction_worker:
-https://trello.com/b/neeVBQO7/trademebooks-web
+:construction_worker: Check out our progress! https://trello.com/b/neeVBQO7/trademebooks-web
 
-Check out our wireframing process! :art:
-https://www.figma.com/file/EEmUnkReEpjqTx0KPSRA7QoF/trademebooks-Web?node-id=64%3A23
+:art: Check out our wireframing process! https://www.figma.com/file/EEmUnkReEpjqTx0KPSRA7QoF/trademebooks-Web?node-id=64%3A23
 
 ## About
 
