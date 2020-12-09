@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Login should match the snapshot 1`] = `
+<div
+  className="container mt-4 login-form"
+  data-test="container"
+>
+  <div
+    className="row justify-content-center"
+    data-test="row"
+  >
+    <div
+      className="col-md-6"
+      data-test="col"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <p
+          className="h2 text-center mb-5"
+        >
+          Login
+        </p>
+        <div
+          className="grey-text"
+        >
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-envelope prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              required={true}
+              type="email"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              Type your email
+            </label>
+          </div>
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-lock prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              minLength="6"
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              type="password"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              Type your password
+            </label>
+          </div>
+        </div>
+        <div>
+          <div
+            className="text-right"
+          >
+            <a
+              href="/forgot-password"
+            >
+              <strong>
+                Forgot Your Password?
+              </strong>
+            </a>
+          </div>
+          <div
+            className="text-center"
+          >
+            <button
+              className="btn-default btn Ripple-parent w-100"
+              data-test="button"
+              onMouseUp={[Function]}
+              onTouchStart={[Function]}
+              type="submit"
+            >
+              Login
+              <div
+                className="Ripple "
+                data-test="waves"
+                style={
+                  Object {
+                    "height": "0px",
+                    "left": "0px",
+                    "top": "0px",
+                    "width": "0px",
+                  }
+                }
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          className="row"
+          data-test="row"
+        >
+          <div
+            className="col-md-12"
+            data-test="col"
+          >
+            <div
+              className="text-center mt-4"
+            >
+              <a
+                className="btn-danger btn Ripple-parent btn-gplus btn-lg"
+                data-test="button"
+                href="/api/v1/passport/auth/google"
+                onMouseUp={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+              >
+                <i
+                  className="fab fa-google"
+                  data-test="fa"
+                />
+                <div
+                  className="Ripple Ripple-outline "
+                  data-test="waves"
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "0px",
+                      "top": "0px",
+                      "width": "0px",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="btn-primary btn Ripple-parent btn-fb btn-lg"
+                data-test="button"
+                href="/api/v1/passport/auth/facebook"
+                onMouseUp={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+              >
+                <i
+                  className="fab fa-facebook-f"
+                  data-test="fa"
+                />
+                <div
+                  className="Ripple Ripple-outline "
+                  data-test="waves"
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "0px",
+                      "top": "0px",
+                      "width": "0px",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="btn-info btn Ripple-parent btn-tw btn-lg"
+                data-test="button"
+                href="/api/v1/passport/auth/twitter"
+                onMouseUp={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+              >
+                <i
+                  className="fab fa-twitter"
+                  data-test="fa"
+                />
+                <div
+                  className="Ripple Ripple-outline "
+                  data-test="waves"
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "0px",
+                      "top": "0px",
+                      "width": "0px",
+                    }
+                  }
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

@@ -2,7 +2,6 @@ import { toastr } from 'react-redux-toastr'
 
 import api from '../utils/api'
 import displayErrors from '../utils/displayErrors'
-import redirect from '../utils/redirect'
 
 import { USER_LOADED, AUTH_ERROR } from './types'
 

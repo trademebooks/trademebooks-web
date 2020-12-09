@@ -1,9 +1,8 @@
 import React from 'react'
-import { configure, mount } from 'enzyme'
-import Register from '../Register'
+import { mount } from 'enzyme'
+import renderer from 'react-test-renderer'
 
-import Adapter from 'enzyme-adapter-react-16'
-configure({ adapter: new Adapter() })
+import RegisterForm from '../RegisterForm'
 
 describe('Component: Register', () => {
   const props = {
@@ -11,7 +10,12 @@ describe('Component: Register', () => {
     register: jest.fn()
   }
 
-  const container = mount(<Register {...props} />)
+  const container = mount(<RegisterForm {...props} />)
+
+  it('should match the snapshot', () => {
+    const loginFormSnapshot = renderer.create(<RegisterForm {...props} />).toJSON()
+    expect(loginFormSnapshot).toMatchSnapshot()
+  })
 
   it('should render the Register component.', () => {
     const registerComponent = container.find('.register-form')

@@ -1,5 +1,5 @@
 import Container from './Container'
 
-const RegisterPage = Container
+const RegisterForm = Container
 
-export default RegisterPage
+export default RegisterForm

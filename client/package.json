@@ -26,7 +26,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --setupFiles ./src/setupTests.js",
+    "test:nowatch": "react-scripts test --setupFiles ./src/setupTests.js --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,6 +47,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.4"
+    "enzyme-adapter-react-16": "^1.15.4",
+    "react-test-renderer": "^16.13.0"
   }
 }

@@ -13,14 +13,14 @@ import { toastr } from 'react-redux-toastr'
 
 import redirect from '../../../utils/redirect'
 
-const Register = ({ register, isAuthenticated }) => {
+const RegisterForm = ({ register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
     email: '',
+    username: '',
     password: '',
-    password_confirmation: '',
-    username: ''
+    password_confirmation: ''
   })
 
   const {
@@ -52,6 +52,15 @@ const Register = ({ register, isAuthenticated }) => {
       })
 
       if (response) {
+        setFormData({
+          first_name: '',
+          last_name: '',
+          email: '',
+          username: '',
+          password: '',
+          password_confirmation: ''
+        })
+
         toastr.success('You have successfully registered! Try logging in now!')
 
         redirect('/login')
@@ -143,7 +152,6 @@ const Register = ({ register, isAuthenticated }) => {
                       href="/api/v1/passport/auth/google"
                       size="lg"
                       tag="a"
-                      floating
                       social="gplus"
                       color="danger"
                       rounded
@@ -154,7 +162,6 @@ const Register = ({ register, isAuthenticated }) => {
                       href="/api/v1/passport/auth/facebook"
                       size="lg"
                       tag="a"
-                      floating
                       social="fb"
                       color="primary"
                       rounded
@@ -165,7 +172,6 @@ const Register = ({ register, isAuthenticated }) => {
                       href="/api/v1/passport/auth/twitter"
                       size="lg"
                       tag="a"
-                      floating
                       social="tw"
                       color="info"
                       rounded
@@ -183,9 +189,9 @@ const Register = ({ register, isAuthenticated }) => {
   )
 }
 
-Register.propTypes = {
+RegisterForm.propTypes = {
   register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 }
 
-export default Register
+export default RegisterForm

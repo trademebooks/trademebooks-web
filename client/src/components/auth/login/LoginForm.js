@@ -7,11 +7,10 @@ import {
   MDBCol,
   MDBInput,
   MDBBtn,
-  MDBIcon,
-  Link
+  MDBIcon
 } from 'mdbreact'
 
-const Login = ({ login, isAuthenticated }) => {
+const LoginForm = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -19,8 +18,9 @@ const Login = ({ login, isAuthenticated }) => {
 
   const { email, password } = formData
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -64,9 +64,9 @@ const Login = ({ login, isAuthenticated }) => {
 
               <div>
                 <div className="text-right">
-                  <Link to="/forgot-password">
+                  <a href="/forgot-password">
                     <strong>Forgot Your Password?</strong>
-                  </Link>
+                  </a>
                 </div>
                 <div className="text-center">
                   <MDBBtn type="submit" className="w-100">
@@ -82,7 +82,6 @@ const Login = ({ login, isAuthenticated }) => {
                       href="/api/v1/passport/auth/google"
                       size="lg"
                       tag="a"
-                      floating
                       social="gplus"
                       color="danger"
                       rounded
@@ -93,7 +92,6 @@ const Login = ({ login, isAuthenticated }) => {
                       href="/api/v1/passport/auth/facebook"
                       size="lg"
                       tag="a"
-                      floating
                       social="fb"
                       color="primary"
                       rounded
@@ -104,7 +102,6 @@ const Login = ({ login, isAuthenticated }) => {
                       href="/api/v1/passport/auth/twitter"
                       size="lg"
                       tag="a"
-                      floating
                       social="tw"
                       color="info"
                       rounded
@@ -122,9 +119,9 @@ const Login = ({ login, isAuthenticated }) => {
   )
 }
 
-Login.propTypes = {
+LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 }
 
-export default Login
+export default LoginForm
