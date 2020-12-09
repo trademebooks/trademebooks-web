@@ -24,21 +24,21 @@ const registerUser = async (user) => {
 const loginUser = async (user, req, res, next) => {
   const loginUser = await userRepository.findUserByEmailAndPassword(user)
 
-  if (!loginUser) {
-    throw new ApiGeneralError({
-      errors: [
-        'Invalid credentials, please try a different email and password combination.'
-      ]
+  if (loginUser) {
+    req.login(loginUser, (err) => {
+      if (err) {
+        return next(err)
+      }
     })
+
+    return loginUser
   }
 
-  req.login(loginUser, (err) => {
-    if (err) {
-      return next(err)
-    }
+  throw new ApiGeneralError({
+    errors: [
+      'Invalid credentials, please try a different email and password combination.'
+    ]
   })
-
-  return loginUser
 }
 
 module.exports = {

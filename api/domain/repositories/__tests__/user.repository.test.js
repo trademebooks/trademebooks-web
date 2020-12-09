@@ -33,22 +33,15 @@ describe('Test Suite: User Repository', () => {
   test('User Repository - createUser', async () => {
     const user = await userRepository.createUser(testUser)
 
-    const expected = 'Yichen'
-    const actual = user.first_name
-
-    expect(actual).toEqual(expected)
+    expect(user.first_name).toEqual(testUser.first_name)
+    expect(user.password).not.toEqual(testUser.password)
+    expect(user.password).toHaveLength(60)
   })
 
   test('user Repository - findUserByEmailAndPassword', async () => {
-    // 1. Arrange
     const user = await userRepository.createUser(testUser)
-
-    // 2. Act
-    const foundUser = await userRepository.findUserByEmailAndPassword(user)
-
-    // 3. Assert
-    const expected = 'Yichen'
-    const actual = foundUser.first_name
-    expect(actual).toEqual(expected)
+    const foundUser = await userRepository.findUserByEmailAndPassword(testUser)
+    
+    expect(user.first_name).toEqual(foundUser.first_name)
   })
 })

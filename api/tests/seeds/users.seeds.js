@@ -1,4 +1,6 @@
 const faker = require('faker')
+const bcrypt = require('bcrypt')
+const saltRounds = 10
 
 const User = require('../../domain/models/user.model')
 const Account = require('../../domain/models/account.model')
@@ -82,6 +84,9 @@ module.exports = async (numberOfUsers) => {
   console.log('users.seeds...')
 
   for (const customUser of customUsers) {
+    const salt = await bcrypt.genSalt(saltRounds)
+    customUser.user.password = await bcrypt.hash(customUser.user.password, salt)
+
     const user = await new User(customUser.user).save()
     const account = await new Account(customUser.account).save()
     const bookstore = await new Bookstore(customUser.bookstore).save()

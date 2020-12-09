@@ -1,3 +1,6 @@
+const bcrypt = require('bcrypt')
+const saltRounds = 10
+
 const User = require('../models/user.model')
 
 /**
@@ -11,7 +14,16 @@ const User = require('../models/user.model')
  * @returns user
  */
 const createUser = async (userData) => {
-  const user = await new User(userData).save(userData)
+  const salt = await bcrypt.genSalt(saltRounds);
+  const hashedPassword = await bcrypt.hash(userData.password, salt)
+
+  const newUser = {
+    ...userData,
+    password: hashedPassword
+  }
+
+  const user = await new User(newUser).save()
+
   return user
 }
 
@@ -26,8 +38,19 @@ const createUser = async (userData) => {
  * @returns user
  */
 const findUserByEmailAndPassword = async (userData) => {
-  const user = await User.findOne(userData)
-  return user
+  const { email, password } = userData
+
+  const user = await User.findOne({ email })
+
+  if (user) {
+    const passwordsMatch = await bcrypt.compare(password, user.password);
+
+    if (passwordsMatch) {
+      return user
+    }
+  }
+
+  return null
 }
 
 /**
