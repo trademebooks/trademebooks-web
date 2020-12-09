@@ -12,9 +12,9 @@ const isAuthenticated = (req, res, next) => {
         errors: ['You must be logged in.']
       })
     )
+  } else {
+    next()
   }
-
-  next()
 }
 
 module.exports = isAuthenticated

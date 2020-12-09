@@ -27,32 +27,18 @@ afterAll(async () => {
 })
 
 describe('Books API', () => {
-  test('POST /api/v1/books - create a book in the datbase', async () => {
+  test('POST /api/v1/books - create a book in the datbase - User is loggedin', async () => {
     // 1. Log the user in via the POST /auth/login api endpoint
     const user = {
       email: 'yichenzhu1337@gmail.com',
       password: 'yichen'
     }
-    const response = await (
-      await fetch(`${baseURL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: user
-      })
-    ).json()
 
-    /////////////////////////////////////////////
-    /**
-     * TODO
-     * -------
-     * Figure out how to pass the cookie into the POST /books api endpoint below
-     * 
-     * ...
-     */
-
-
-    /////////////////////////////////////////////
-
+    const userResponse = await fetch(`${baseURL}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    })
 
     // 2. Create a new book via the the POST /books api endpoint
     const book = {
@@ -66,15 +52,20 @@ describe('Books API', () => {
         'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg'
     }
 
-    const response = await (
-      await fetch(`${baseURL}/books`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: book
-      })
-    ).json()
+    const bookResponse = await fetch(`${baseURL}/books`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // this allows us to send the cookie header over for:
+        // connect.sid=s%3ARR_MrMKrRXeNUBBnDqZb5P-9Y-1iJcFG.DuIFzOR%2Bn%2FjiAApJhn5I0w2HSARueYl%2Fr6q%2FyeqOOEs; Path=/; HttpOnly
+        cookie: userResponse.headers.get('set-cookie')
+      },
+      body: JSON.stringify(book)
+    })
 
-    expect(response).toMatchObject({
+    const responseJson = await bookResponse.json()
+
+    expect(responseJson).toMatchObject({
       status: 'success',
       code: 200,
       message: 'Book has successfully been added to the database.',
@@ -88,6 +79,36 @@ describe('Books API', () => {
         price: 199
       },
       errors: null
+    })
+  })
+
+  test('POST /api/v1/books - create a book in the datbase - User is NOT loggedin', async () => {
+    const book = {
+      title: 'Test Book #1',
+      description: 'This book is awesome, buy it',
+      authors: ['JK Rowling', "JK's Husbhand", 'Harry Himself'],
+      condition: 'Good',
+      location: 'UofT',
+      price: 199,
+      image:
+        'https://images-na.ssl-images-amazon.com/images/I/51KEJAS5ABL._AC_SY445_.jpg'
+    }
+
+    const response = await fetch(`${baseURL}/books`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(book)
+    })
+
+    const responseJson = await response.json()
+
+    expect(responseJson).toMatchObject({
+      status: 'failed',
+      code: 401,
+      message:
+        'Access denied: you must be logged in to access this API endpoint.',
+      data: {},
+      errors: ['You must be logged in.']
     })
   })
 })

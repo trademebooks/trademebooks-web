@@ -55,7 +55,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
     }
   } else {
     console.error('Other Error', err)
-    res.status(err.code).json(
+    res.status(499).json(
       globalResponseDTO({
         status: err.status,
         code: err.code,
