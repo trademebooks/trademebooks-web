@@ -41,7 +41,7 @@ describe('Test Suite: User Repository', () => {
   test('user Repository - findUserByEmailAndPassword', async () => {
     const user = await userRepository.createUser(testUser)
     const foundUser = await userRepository.findUserByEmailAndPassword(testUser)
-    
+
     expect(user.first_name).toEqual(foundUser.first_name)
   })
 })

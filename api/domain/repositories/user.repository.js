@@ -14,7 +14,7 @@ const User = require('../models/user.model')
  * @returns user
  */
 const createUser = async (userData) => {
-  const salt = await bcrypt.genSalt(saltRounds);
+  const salt = await bcrypt.genSalt(saltRounds)
   const hashedPassword = await bcrypt.hash(userData.password, salt)
 
   const newUser = {
@@ -43,7 +43,7 @@ const findUserByEmailAndPassword = async (userData) => {
   const user = await User.findOne({ email })
 
   if (user) {
-    const passwordsMatch = await bcrypt.compare(password, user.password);
+    const passwordsMatch = await bcrypt.compare(password, user.password)
 
     if (passwordsMatch) {
       return user

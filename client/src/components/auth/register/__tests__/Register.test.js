@@ -13,7 +13,9 @@ describe('Component: Register', () => {
   const container = mount(<RegisterForm {...props} />)
 
   it('should match the snapshot', () => {
-    const loginFormSnapshot = renderer.create(<RegisterForm {...props} />).toJSON()
+    const loginFormSnapshot = renderer
+      .create(<RegisterForm {...props} />)
+      .toJSON()
     expect(loginFormSnapshot).toMatchSnapshot()
   })
 

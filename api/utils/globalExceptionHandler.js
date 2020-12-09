@@ -31,8 +31,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
             errors: ['The email is already taken.']
           })
         )
-      }
-      else if (err.errmsg.includes('username')) {
+      } else if (err.errmsg.includes('username')) {
         res.status(400).json(
           globalResponseDTO({
             status: 'failed',
@@ -42,8 +41,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
             errors: ['The username is already taken.']
           })
         )
-      }
-      else {
+      } else {
         res.status(400).json(
           globalResponseDTO({
             status: 'failed',

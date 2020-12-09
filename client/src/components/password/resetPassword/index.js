@@ -5,9 +5,7 @@ import { toastr } from 'react-redux-toastr'
 
 import { resetPassword } from '../../../actions/password'
 
-const ForgotPasswordForm = ({
-  match
-}) => {
+const ForgotPasswordForm = ({ match }) => {
   const { token } = useParams()
 
   const [formData, setFormData] = useState({
