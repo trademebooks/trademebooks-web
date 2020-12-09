@@ -8,7 +8,7 @@ const template = ({ token }) => {
       <body>
         <div>
           <h2>trademebooks Password Reset</h2>
-          <p>Hi yichenzhu1,</p>
+          <p>Hello fellow classmate,</p>
           
           <p>It seems like you're having trouble logging into trademebooks.</p>
 
