@@ -1,5 +1,8 @@
 const crypto = require('crypto')
 
+const bcrypt = require('bcrypt')
+const saltRounds = 10
+
 const mailer = require('./mailer/email.service')
 const Password = require('../../domain/models/password.model')
 const User = require('../../domain/models/user.model')
@@ -37,13 +40,18 @@ const sendResetPasswordEmail = async (email) => {
 }
 
 const resetPassword = async (email, token, newPassword) => {
+  const salt = await bcrypt.genSalt(saltRounds)
+  const hashedPassword = await bcrypt.hash(newPassword, salt)
+
   const permissionToResetPassword = await Password.findOne({ email, token })
 
   if (permissionToResetPassword) {
     const userWithUpdatedPassword = await User.updateOne(
       { email },
-      { password: newPassword }
+      { password: hashedPassword }
     )
+
+    await Password.findOneAndDelete({ email })
 
     return userWithUpdatedPassword
   }

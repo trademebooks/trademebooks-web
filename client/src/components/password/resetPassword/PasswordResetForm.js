@@ -3,9 +3,9 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 import { useParams } from 'react-router'
 import { toastr } from 'react-redux-toastr'
 
-const PasswordResetForm = ({
-  resetPassword
-}) => {
+import redirect from '../../../utils/redirect'
+
+const PasswordResetForm = ({ resetPassword }) => {
   const { token } = useParams()
 
   const [formData, setFormData] = useState({
@@ -28,9 +28,15 @@ const PasswordResetForm = ({
     })
 
     if (response) {
-      toastr.success('Your password has been successfully reset.')
-
       setFormData({ email: '', newPassword: '' })
+
+      toastr.success(
+        'Your password has been successfully reset.',
+        'You may now login',
+        { timeOut: 0 }
+      )
+
+      redirect('/login', 2000)
     }
   }
 
