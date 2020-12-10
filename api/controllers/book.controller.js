@@ -73,7 +73,7 @@ const deleteABook = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDTO({
-      message: `The book with the id: ${book.id} was successfully deleted.`,
+      message: `The book with the id: ${id} was successfully deleted.`,
       data: bookDto(book)
     })
   )
