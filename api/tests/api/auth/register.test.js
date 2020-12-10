@@ -40,7 +40,7 @@ describe('API Test - Register User', () => {
       first_name: 'Yichen',
       last_name: 'Zhu',
       username: 'yichen1337',
-      email: 'yichen1337@yichen1337.com',
+      email: 'yichen@chosensolutions.ca',
       password: 'password123',
       password_confirmation: 'password123'
     }
@@ -66,7 +66,7 @@ describe('API Test - Register User', () => {
           first_name: 'Yichen',
           last_name: 'Zhu',
           username: 'yichen1337',
-          email: 'yichen1337@yichen1337.com'
+          email: 'yichen@chosensolutions.ca'
         }
       }
     })

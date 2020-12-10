@@ -63,7 +63,7 @@ module.exports = {
 
     // Events
     // '<rootDir>/events/__tests__/**.test.js',
-    // '<rootDir>/events/__tests__/userHasRegisteredEvent.test.js',
+    '<rootDir>/events/__tests__/userHasRegisteredEvent.test.js',
     // '<rootDir>/events/__tests__/userHasLoggedInEvent.test.js',
 
     /*******************************************************************************/
