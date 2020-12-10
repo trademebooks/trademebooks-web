@@ -26,7 +26,7 @@ afterAll(async () => {
   await dbConnection.disconnect()
 })
 
-describe('Books API', () => {
+describe('Books API - create', () => {
   test('POST /api/v1/books - create a book in the datbase - User is loggedin', async () => {
     // 1. Log the user in via the POST /auth/login api endpoint
     const user = {

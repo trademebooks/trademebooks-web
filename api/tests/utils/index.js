@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 const userFactory = require('../factories/userFactory')
 const bookFactory = require('../factories/bookFactory')
 
@@ -8,6 +10,7 @@ const Message = require('../../domain/models/message.model')
 const Password = require('../../domain/models/password.model')
 const Room = require('../../domain/models/room.model')
 const User = require('../../domain/models/user.model')
+// const Session = require('../../domain/models/session.model')
 
 const Models = [Account, Book, Bookstore, Message, Password, Room, User]
 
@@ -44,9 +47,29 @@ const getAllTableData = async (Model) => {
   return await Model.find({})
 }
 
+const getLogingUserCookies = async (baseURL, user) => {
+  user = user || {
+    email: 'yichenzhu1337@gmail.com',
+    password: 'yichen'
+  }
+
+  await fetch(`${baseURL}/auth/logout`, { method: 'GET' })
+
+  const userResponse = await fetch(`${baseURL}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user)
+  })
+
+  console.log('thecookies', userResponse.headers.get('set-cookie'))
+
+  return userResponse.headers.get('set-cookie')
+}
+
 module.exports = {
   setUpDatabase,
   clearDatabase,
   getAllTableData,
-  seeInDatabase
+  seeInDatabase,
+  getLogingUserCookies
 }

@@ -26,7 +26,7 @@ afterAll(async () => {
   await dbConnection.disconnect()
 })
 
-describe('Books API', () => {
+describe('Books API - getAll', () => {
   test('Get /api/v1/books', async () => {
     const response = await (await fetch(`${baseURL}/books`)).json()
 

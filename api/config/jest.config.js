@@ -120,11 +120,7 @@ module.exports = {
   //   '<rootDir>/utils/__tests__/ApiGeneralError.test.js'
   // ],
 
-  testMatch: [
-    // '<rootDir>/tests/api/book/getAll.test.js',
-    // '<rootDir>/tests/api/book/get.test.js',
-    '<rootDir>/tests/api/book/create.test.js'
-  ],
+  testMatch: ['<rootDir>/tests/api/book/update.test.js'],
   testTimeout: 30000,
   testEnvironment: 'node'
 }

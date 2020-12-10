@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 import { useParams } from 'react-router'
 import { toastr } from 'react-redux-toastr'
@@ -87,7 +88,7 @@ const PasswordResetForm = ({ resetPassword }) => {
   )
 }
 
-PasswordSendEmailForm.propTypes = {
+PasswordResetForm.propTypes = {
   resetPassword: PropTypes.func.isRequired
 }
 
