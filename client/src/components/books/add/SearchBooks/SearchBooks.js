@@ -47,10 +47,8 @@ const SearchBooks = ({ addBook }) => {
           }
           return bookPrettified
         })
-        console.log('inputValue:', inputValue)
-        console.log(books.map((book) => book.title).join('\n'))
+
         setOptions(books)
-        console.log({ options })
       }
     } else {
       setOptions([])

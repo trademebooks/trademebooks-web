@@ -10,7 +10,7 @@ const bookPermission = async (req, res, next) => {
     // when we do try to find the book from the book service, and it throws us service errors
     let book = {}
     book = await bookService.getBookById(bookId)
-    console.log({ book })
+
     // the id must be of valid format
     if (!mongoose.Types.ObjectId.isValid(bookId)) {
       res.status(401).json(

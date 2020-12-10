@@ -43,3 +43,20 @@ export const createBook = (book) => async (dispatch) => {
     displayErrors(error)
   }
 }
+
+// API: Get all books in the database
+export const getAllBooks = async (searchQuery = undefined, limit = 30) => {
+  try {
+    let response = await api.get(`/books?q=${searchQuery}&limit=${limit}`)
+
+    if (!searchQuery) {
+      response = await api.get(`/books?limit=30`)
+    }
+
+    const books = response.data.data
+
+    return books
+  } catch (error) {
+    displayErrors(error)
+  }
+}

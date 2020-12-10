@@ -7,6 +7,7 @@ const bookService = require('../domain/services/book.service')
 const createBookValidator = require('../validators/createBookValidator')
 
 const getAllbooks = catchException(async (req, res) => {
+  console.log('req.query.q', req.query.q)
   const books = await bookService.getAllBooks(
     req.query.q,
     req.query.limit || 10

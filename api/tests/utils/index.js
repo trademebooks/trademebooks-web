@@ -70,8 +70,6 @@ const getLogingUserCookies = async (baseURL, user) => {
     body: JSON.stringify(user)
   })
 
-  // console.log('thecookies', userResponse.headers.get('set-cookie'))
-
   return userResponse.headers.get('set-cookie')
 }
 
