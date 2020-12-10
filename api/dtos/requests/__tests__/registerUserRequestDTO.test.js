@@ -1,4 +1,4 @@
-const registerUserRequestDTO = require('../registerUserRequestDTO')
+const registerUserRequestDto = require('../registerUserRequestDto')
 const ApiGeneralError = require('../../../utils/ApiGeneralError')
 
 describe('Test Suite: Request', () => {
@@ -9,7 +9,7 @@ describe('Test Suite: Request', () => {
     // 2. Act
     // 3. Assert
     expect(() => {
-      registerUserRequestDTO(apiInputRequest)
+      registerUserRequestDto(apiInputRequest)
     }).toThrow(Error)
   })
 
@@ -26,7 +26,7 @@ describe('Test Suite: Request', () => {
     // 2. Act
     // 3. Assert
     expect(() => {
-      registerUserRequestDTO(apiInputRequest)
+      registerUserRequestDto(apiInputRequest)
     }).toThrow(Error)
   })
 
@@ -43,7 +43,7 @@ describe('Test Suite: Request', () => {
     }
 
     // 2. Act
-    const registerUserRequest = registerUserRequestDTO(apiInputRequest)
+    const registerUserRequest = registerUserRequestDto(apiInputRequest)
 
     // 3. Assert
     expect(registerUserRequest).toMatchObject({
@@ -63,7 +63,7 @@ describe('Test Suite: Request', () => {
 
     // 2. + 3. Act and Assert
     expect(() => {
-      registerUserRequestDTO(apiInputRequest)
+      registerUserRequestDto(apiInputRequest)
     }).toThrow(ApiGeneralError)
   })
 })

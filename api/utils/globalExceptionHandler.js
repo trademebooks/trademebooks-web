@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
 
 const globalExceptionHandler = async (err, req, res, next) => {
   console.log('===============================')
@@ -9,7 +9,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
     console.error('ApiGeneralError', err)
 
     res.status(err.code).json(
-      globalResponseDTO({
+      globalResponseDto({
         status: err.status,
         code: err.code,
         message: err.message,
@@ -23,7 +23,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
     if (err.errmsg.includes('E11000 duplicate key error')) {
       if (err.errmsg.includes('email')) {
         res.status(400).json(
-          globalResponseDTO({
+          globalResponseDto({
             status: 'failed',
             code: 400,
             message: err.errmsg,
@@ -33,7 +33,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
         )
       } else if (err.errmsg.includes('username')) {
         res.status(400).json(
-          globalResponseDTO({
+          globalResponseDto({
             status: 'failed',
             code: 400,
             message: err.errmsg,
@@ -43,7 +43,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
         )
       } else {
         res.status(400).json(
-          globalResponseDTO({
+          globalResponseDto({
             status: 'failed',
             code: 400,
             message: err.errmsg,
@@ -56,7 +56,7 @@ const globalExceptionHandler = async (err, req, res, next) => {
   } else {
     console.error('Other Error', err)
     res.status(err.code).json(
-      globalResponseDTO({
+      globalResponseDto({
         status: err.status,
         code: err.code,
         message: err.message,

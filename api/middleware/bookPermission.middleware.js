@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const bookService = require('../domain/services/book.service')
 
 const bookPermission = async (req, res, next) => {
@@ -14,7 +14,7 @@ const bookPermission = async (req, res, next) => {
     // the id must be of valid format
     if (!mongoose.Types.ObjectId.isValid(bookId)) {
       res.status(401).json(
-        globalResponseDTO({
+        globalResponseDto({
           status: 'failed',
           code: 401,
           message: `the book with that id: ${bookId} does not exist.`,
@@ -29,7 +29,7 @@ const bookPermission = async (req, res, next) => {
       req.user._id.toString() !== book.userId.toString()
     ) {
       res.status(401).json(
-        globalResponseDTO({
+        globalResponseDto({
           status: 'failed',
           code: 401,
           message:
@@ -45,7 +45,7 @@ const bookPermission = async (req, res, next) => {
     }
   } catch (error) {
     res.status(error.code).json(
-      globalResponseDTO({
+      globalResponseDto({
         status: 'failed',
         code: error.code,
         message: error.message,

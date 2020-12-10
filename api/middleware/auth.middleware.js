@@ -1,9 +1,9 @@
-const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
 
 const isAuthenticated = (req, res, next) => {
   if (!req.user) {
     res.status(401).json(
-      globalResponseDTO({
+      globalResponseDto({
         status: 'failed',
         code: 401,
         message:

@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../globalResponseDTO')
+const globalResponseDto = require('../globalResponseDto')
 
 describe('Global Response DTO', () => {
   test('Correct request 1 - happy path', () => {
@@ -12,7 +12,7 @@ describe('Global Response DTO', () => {
     }
 
     // 2. Act
-    const response = globalResponseDTO(globalResponse)
+    const response = globalResponseDto(globalResponse)
 
     // 3. Assert
     expect(response).toEqual(globalResponse)

@@ -9,10 +9,7 @@ const fields = [
   'password_confirmation'
 ]
 
-/**
- * @param Object data
- */
-registerUserRequestDTO = (data) => {
+registerUserRequestDto = (data) => {
   const errors = []
   fields.forEach((field) => {
     if (!(field in data)) {
@@ -32,4 +29,4 @@ registerUserRequestDTO = (data) => {
   return data
 }
 
-module.exports = registerUserRequestDTO
+module.exports = registerUserRequestDto

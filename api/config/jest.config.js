@@ -43,15 +43,13 @@ module.exports = {
 
     // Requests
     // '<rootDir>/dtos/requests/__tests__/**.test.js',
-    '<rootDir>/dtos/requests/__tests__/registerUserRequestDTO.test.js',
-    // '<rootDir>/dtos/requests/__tests__/createBookRequestDTO.test.js',
-    // '<rootDir>/dtos/requests/__tests__/loginUserRequestDTO.test.js',
-    // '<rootDir>/dtos/requests/__tests__/updateBookRequestDTO.test.js',
+    '<rootDir>/dtos/requests/__tests__/registerUserRequestDto.test.js',
+    // '<rootDir>/dtos/requests/__tests__/createBookRequestDto.test.js',
+    // '<rootDir>/dtos/requests/__tests__/loginUserRequestDto.test.js',
 
     // Responses
     // '<rootDir>/dtos/responses/__tests__/**.test.js',
-    // '<rootDir>/dtos/responses/__tests__/booksResponseDTO.test.js',
-    // '<rootDir>/dtos/responses/__tests__/globalResponseDTO.test.js',
+    '<rootDir>/dtos/responses/__tests__/globalResponseDto.test.js',
     '<rootDir>/dtos/utils/__tests__/userDto.test.js',
     '<rootDir>/dtos/utils/__tests__/bookDto.test.js',
 

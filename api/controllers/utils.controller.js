@@ -1,24 +1,24 @@
-const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchExceptions = require('../utils/catchExceptions')
-const contactUsRequestDTO = require('../dtos/requests/contactUsRequestDTO')
+const contactUsRequestDto = require('../dtos/requests/contactUsRequestDto')
 const contactUsValidator = require('../validators/contactUsValidator')
 const mailer = require('../domain/services/mailer/email.service')
 
 const getHealthCheck = catchExceptions(async (req, res) => {
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message: 'The application is up and running!'
     })
   )
 })
 
 const contactUs = catchExceptions(async (req, res) => {
-  const contactUsRequest = contactUsRequestDTO(req.body)
+  const contactUsRequest = contactUsRequestDto(req.body)
 
   contactUsValidator(contactUsRequest)
 
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message: 'Contact email successfully sent.'
     })
   )

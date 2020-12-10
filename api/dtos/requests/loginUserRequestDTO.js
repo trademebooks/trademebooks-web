@@ -2,7 +2,7 @@ const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 const fields = ['email', 'password']
 
-const loginUserRequestDTO = (data) => {
+const loginUserRequestDto = (data) => {
   const errors = []
   fields.forEach((field) => {
     if (!(field in data)) {
@@ -11,16 +11,15 @@ const loginUserRequestDTO = (data) => {
   })
 
   if (errors.length > 0) {
-    throw new ApiGeneralError(
-      (status = 'failed'),
-      (code = 422),
-      (message = 'loginUserRequestDTO failed.'),
-      (data = null),
+    throw new ApiGeneralError({
+      status: 'failed',
+      code: 422,
+      message: 'loginUserRequestDto failed.',
       errors
-    )
+    })
   }
 
   return data
 }
 
-module.exports = loginUserRequestDTO
+module.exports = loginUserRequestDto

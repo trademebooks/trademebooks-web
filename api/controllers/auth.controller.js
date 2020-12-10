@@ -1,7 +1,7 @@
-const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchExceptions = require('../utils/catchExceptions')
-const registerUserRequestDTO = require('../dtos/requests/registerUserRequestDTO')
-const loginUserRequestDTO = require('../dtos/requests/loginUserRequestDTO')
+const registerUserRequestDto = require('../dtos/requests/registerUserRequestDto')
+const loginUserRequestDto = require('../dtos/requests/loginUserRequestDto')
 const userDto = require('../dtos/utils/userDto')
 const registerUserValidator = require('../validators/registerUserValidator')
 const loginUserValidator = require('../validators/loginUserValidator')
@@ -10,7 +10,7 @@ const EventEmitter = require('events')
 const eventEmitter = new EventEmitter()
 
 const registerUser = catchExceptions(async (req, res) => {
-  const registerUserRequest = registerUserRequestDTO(req.body)
+  const registerUserRequest = registerUserRequestDto(req.body)
 
   registerUserValidator(registerUserRequest)
 
@@ -19,7 +19,7 @@ const registerUser = catchExceptions(async (req, res) => {
   eventEmitter.emit('userHasRegistered', user)
 
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message: `The email: ${registerUserRequest.email} has successfully registered.`,
       data: user
     })
@@ -27,7 +27,7 @@ const registerUser = catchExceptions(async (req, res) => {
 })
 
 const logUserIn = catchExceptions(async (req, res, next) => {
-  const loginUserRequest = loginUserRequestDTO(req.body)
+  const loginUserRequest = loginUserRequestDto(req.body)
 
   loginUserValidator(loginUserRequest)
 
@@ -39,7 +39,7 @@ const logUserIn = catchExceptions(async (req, res, next) => {
   )
 
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message: `The user has successfully logged in.`,
       data: userDto(loggedInUser)
     })
@@ -50,7 +50,7 @@ const logUserOut = catchExceptions((req, res) => {
   req.logout()
 
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message: `The user has successfully logged out.`
     })
   )
@@ -60,7 +60,7 @@ const getAuthUser = catchExceptions((req, res) => {
   const user = req.user ? userDto(req.user) : {}
 
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message: `The currently authenticated user's information.`,
       data: user
     })
