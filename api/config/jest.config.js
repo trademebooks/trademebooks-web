@@ -104,6 +104,11 @@ module.exports = {
     // '<rootDir>/tests/api/message/getAllMessagesInRoom.test.js',
     // '<rootDir>/tests/api/message/send.test.js',
 
+    // Password
+    // '<rootDir>/tests/api/password/**.test.js',
+    '<rootDir>/tests/api/password/resetPassword.test.js',
+    '<rootDir>/tests/api/password/sendEmail.test.js',
+
     // Utils
     // '<rootDir>/tests/api/utils/**.test.js',
     '<rootDir>/tests/api/utils/health.test.js',
@@ -121,8 +126,7 @@ module.exports = {
   ],
 
   // testMatch: [
-  //   '<rootDir>/tests/api/bookstore/getAuth.test.js',
-  //   '<rootDir>/tests/api/bookstore/getByUsername.test.js'
+  //   '<rootDir>/tests/api/password/resetPassword.test.js'
   // ],
   testTimeout: 30000,
   testEnvironment: 'node'
