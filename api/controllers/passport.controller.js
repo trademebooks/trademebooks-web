@@ -33,7 +33,12 @@ const authenticateGoogle = async (accessToken, refreshToken, profile, done) => {
   }
 }
 
-const authenticateFacebook = async (accessToken, refreshToken, profile, done) => {
+const authenticateFacebook = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) => {
   const profileJson = profile._json
   const { id, email, last_name, first_name } = profileJson
 
@@ -63,9 +68,21 @@ const authenticateFacebook = async (accessToken, refreshToken, profile, done) =>
   }
 }
 
-const authenticateTwitter = async (accessToken, refreshToken, profile, done) => {
+const authenticateTwitter = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) => {
   const profileJson = profile._json
-  const { id, email, name, screen_name, location, profile_image_url_https } = profileJson
+  const {
+    id,
+    email,
+    name,
+    screen_name,
+    location,
+    profile_image_url_https
+  } = profileJson
 
   const [first_name, last_name] = name.split(' ')
 

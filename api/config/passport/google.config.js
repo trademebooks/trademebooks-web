@@ -12,7 +12,12 @@ const googleStrategyConfig = {
 }
 
 const googleStrategyLogin = (accessToken, refreshToken, profile, done) => {
-  passportController.authenticateGoogle(accessToken, refreshToken, profile, done)
+  passportController.authenticateGoogle(
+    accessToken,
+    refreshToken,
+    profile,
+    done
+  )
 }
 
 const googleStrategy = new GoogleStrategy(

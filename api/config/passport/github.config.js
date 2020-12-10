@@ -10,10 +10,15 @@ const githubStrategyConfig = {
   proxy: true
 }
 
-const githubStrategyLogin = async (accessToken, refreshToken, profile, cb) => {
+const githubStrategyLogin = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) => {
   console.log(JSON.stringify(profile, null, '\t'))
-  user = { ...profile }
-  return cb(null, profile)
+
+  return done(null, profile)
 }
 
 const githubStrategy = new GithubStrategy(

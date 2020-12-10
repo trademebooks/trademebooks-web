@@ -12,8 +12,18 @@ const facebookStrategyConfig = {
   proxy: true
 }
 
-const facebookStrategyLogin = async (accessToken, refreshToken, profile, done) => {
-  passportController.authenticateFacebook(accessToken, refreshToken, profile, done)
+const facebookStrategyLogin = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) => {
+  passportController.authenticateFacebook(
+    accessToken,
+    refreshToken,
+    profile,
+    done
+  )
 }
 
 const facebookStrategy = new FacebookStrategy(
