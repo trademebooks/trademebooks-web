@@ -2,16 +2,7 @@ const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
 
 const config = require('../../config')
-const User = require('../../domain/models/user.model')
-
-/*
-{
-  "id"
-  "email"
-  "last_name"
-  "first_name"
-}
-*/
+const passportController = require('../../controllers/passport.controller')
 
 const facebookStrategyConfig = {
   clientID: config.FACEBOOK.clientID,
@@ -21,36 +12,8 @@ const facebookStrategyConfig = {
   proxy: true
 }
 
-const facebookStrategyLogin = async (
-  accessToken,
-  refreshToken,
-  profile,
-  done
-) => {
-  const profileJson = profile._json
-  const { id, email, last_name, first_name } = profileJson
-
-  try {
-    // scenario 1: if the user is already in our database, then proceed to setting the session with that user
-    const existingUser = await User.findOne({ email })
-
-    if (existingUser) {
-      return done(null, existingUser)
-    }
-
-    // scenario 2: if the user does not exist in the database, then create it inou
-    const user = await new User({
-      email,
-      last_name,
-      last_name,
-      facebook_id: id,
-      username: id
-    }).save()
-
-    done(null, user)
-  } catch (err) {
-    console.log('facebook - passport error', { err })
-  }
+const facebookStrategyLogin = async (accessToken, refreshToken, profile, done) => {
+  passportController.authenticateFacebook(accessToken, refreshToken, profile, done)
 }
 
 const facebookStrategy = new FacebookStrategy(
