@@ -8,7 +8,7 @@ This is a public open source project!
 
 :construction_worker: Check out our progress! https://trello.com/b/neeVBQO7/trademebooks-web
 
-:art: Check out our wireframing process! https://www.figma.com/file/EEmUnkReEpjqTx0KPSRA7QoF/trademebooks-Web?node-id=64%3A23
+:art: Check out our wireframing process! https://figma.fun/CfpxqL
 
 ## About
 
