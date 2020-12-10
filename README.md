@@ -1,6 +1,6 @@
 # trademebooks.com (TMB)
 
-![David](https://img.shields.io/david/yichenzhu1337/trademebooks-web?style=flat-square)
+![David](https://img.shields.io/david/yichenzhu1337/trademebooks-web?color=66ff00&style=flat-square)
 
 ## 📌 Public Project!
 
