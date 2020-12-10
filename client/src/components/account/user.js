@@ -55,44 +55,6 @@ const User = ({ auth: { user } }) => {
         />
         <MDBBtn onClick={updateUser}>Save Changes</MDBBtn>
       </div>
-
-      {/* <div className="mt-5">
-        <h4>Change Password</h4>
-        <MDBInput
-          label="Current Password"
-          icon="lock"
-          group
-          type="password"
-          name="currentPassword"
-          onChange={onChange}
-          minLength="6"
-          validate
-        />
-
-        <MDBInput
-          label="New Password"
-          icon="lock"
-          group
-          type="password"
-          name="newPassword"
-          onChange={onChange}
-          minLength="6"
-          validate
-        />
-        <MDBInput
-          label="Re-enter New Password"
-          icon="lock"
-          group
-          type="password"
-          name="newPasswordConfirmation"
-          onChange={onChange}
-          minLength="6"
-          validate
-        />
-        <MDBBtn>
-          Save Changes
-        </MDBBtn>
-      </div> */}
     </>
   )
 }

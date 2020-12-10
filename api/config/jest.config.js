@@ -75,10 +75,10 @@ module.exports = {
     /*********************************/
 
     // Account
-    // '<rootDir>/tests/integration/api/account/**.test.js',
-    // '<rootDir>/tests/integration/api/account/get.test.js',
-    // '<rootDir>/tests/integration/api/account/update.test.js',
-    // '<rootDir>/tests/integration/api/account/updateAuth.test.js',
+    // '<rootDir>/tests/api/account/**.test.js',
+    '<rootDir>/tests/api/account/get.test.js',
+    '<rootDir>/tests/api/account/update.test.js',
+    '<rootDir>/tests/api/account/updateAuth.test.js',
 
     // Auth
     // '<rootDir>/tests//api/auth/**.test.js',
@@ -94,20 +94,20 @@ module.exports = {
     '<rootDir>/tests/api/book/delete.test.js',
 
     // Bookstore
-    // '<rootDir>/tests/integration/api/bookstore/**.test.js',
-    // '<rootDir>/tests/integration/api/bookstore/get.test.js',
-    // '<rootDir>/tests/integration/api/bookstore/getAuth.test.js',
+    // '<rootDir>/tests/api/bookstore/**.test.js',
+    '<rootDir>/tests/api/bookstore/get.test.js',
+    '<rootDir>/tests/api/bookstore/getAuth.test.js',
 
     // Message
-    // '<rootDir>/tests/integration/api/bookstore/**.test.js',
-    // '<rootDir>/tests/integration/api/bookstore/getAllConversations.test.js',
-    // '<rootDir>/tests/integration/api/bookstore/getAllMessagesInRoom.test.js',
-    // '<rootDir>/tests/integration/api/bookstore/send.test.js',
+    // '<rootDir>/tests/api/message/**.test.js',
+    // '<rootDir>/tests/api/message/getAllConversations.test.js',
+    // '<rootDir>/tests/api/message/getAllMessagesInRoom.test.js',
+    // '<rootDir>/tests/api/message/send.test.js',
 
     // Utils
-    // '<rootDir>/tests/integration/api/utils/**.test.js',
+    // '<rootDir>/tests/api/utils/**.test.js',
     '<rootDir>/tests/api/utils/health.test.js',
-    // '<rootDir>/tests/integration/api/utils/contact.test.js',
+    // '<rootDir>/tests/api/utils/contact.test.js',
 
     /*******************************************************************************/
     /*******************************************************************************/
@@ -121,8 +121,8 @@ module.exports = {
   ],
 
   // testMatch: [
-  //   '<rootDir>/tests/api/book/update.test.js',
-  //   '<rootDir>/tests/api/book/delete.test.js',
+  //   '<rootDir>/tests/api/bookstore/getAuth.test.js',
+  //   '<rootDir>/tests/api/bookstore/getByUsername.test.js'
   // ],
   testTimeout: 30000,
   testEnvironment: 'node'
