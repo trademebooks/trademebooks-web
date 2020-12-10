@@ -18,8 +18,7 @@ const Conditions = ({ book, addBook }) => {
   const [currentConditionType, setCurrentConditionType] = useState(
     CONDITION_TYPES.GOOD
   )
-
-  const conditionsImagePath = '../../images/conditions'
+  
   const conditions = [
     {
       text: 'POOR',
