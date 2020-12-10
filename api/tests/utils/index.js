@@ -10,9 +10,18 @@ const Message = require('../../domain/models/message.model')
 const Password = require('../../domain/models/password.model')
 const Room = require('../../domain/models/room.model')
 const User = require('../../domain/models/user.model')
-// const Session = require('../../domain/models/session.model')
+const Session = require('../../domain/models/session.model')
 
-const Models = [Account, Book, Bookstore, Message, Password, Room, User]
+const Models = [
+  Account,
+  Book,
+  Bookstore,
+  Message,
+  Password,
+  Room,
+  User,
+  Session
+]
 
 const clearDatabase = async () => {
   try {
@@ -61,7 +70,7 @@ const getLogingUserCookies = async (baseURL, user) => {
     body: JSON.stringify(user)
   })
 
-  console.log('thecookies', userResponse.headers.get('set-cookie'))
+  // console.log('thecookies', userResponse.headers.get('set-cookie'))
 
   return userResponse.headers.get('set-cookie')
 }

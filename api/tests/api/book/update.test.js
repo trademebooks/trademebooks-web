@@ -11,7 +11,6 @@ const dbTestUtils = require('../../utils')
 beforeAll(async () => {
   await api.listen(apiPort)
   dbConnection = await db()
-
 })
 
 beforeEach(async () => {
@@ -28,8 +27,7 @@ afterAll(async () => {
 })
 
 describe('Books API - Update - PUT /api/v1/books/:id', () => {
-  xtest('Update an existing book by id - with Loggedin User', async () => {
-
+  test('Update an existing book by id - with Loggedin User', async () => {
     const cookie = await dbTestUtils.getLogingUserCookies(baseURL)
 
     const newBook = {
@@ -61,7 +59,7 @@ describe('Books API - Update - PUT /api/v1/books/:id', () => {
     })
   })
 
-  test('Update an a non-existing book id - with Loggedin User', async () => {
+  xtest('Update an a non-existing book id - with Loggedin User', async () => {
     const cookie = await dbTestUtils.getLogingUserCookies(baseURL)
 
     const newBook = {

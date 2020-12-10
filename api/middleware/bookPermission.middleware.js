@@ -4,7 +4,6 @@ const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
 const bookService = require('../domain/services/book.service')
 
 const bookPermission = async (req, res, next) => {
-
   try {
     const bookId = req.params.id
 
@@ -25,7 +24,10 @@ const bookPermission = async (req, res, next) => {
       )
     }
     // When updating or deleting a book, the book must belong to the user that created it
-    else if (book.userId && (req.user._id.toString() !== book.userId.toString())) {
+    else if (
+      book.userId &&
+      req.user._id.toString() !== book.userId.toString()
+    ) {
       res.status(401).json(
         globalResponseDTO({
           status: 'failed',
@@ -38,8 +40,7 @@ const bookPermission = async (req, res, next) => {
           ]
         })
       )
-    }
-    else {
+    } else {
       next()
     }
   } catch (error) {
@@ -53,9 +54,6 @@ const bookPermission = async (req, res, next) => {
       })
     )
   }
-
-
-
 }
 
 module.exports = bookPermission
