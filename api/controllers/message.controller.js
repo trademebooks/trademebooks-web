@@ -1,42 +1,183 @@
-const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchException = require('../utils/catchExceptions')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const messageService = require('../domain/services/message.service')
 
-const getAllConversations = catchException(async (req, res, next) => {
-  const converations = await messageService.getAllConversations(req.user._id)
+const Message = require('../domain/models/chat/message.model');
+const Conversation = require('../domain/models/chat/conversation.model');
+const GlobalMessage = require('../domain/models/chat/globalMessage.model');
 
-  res.status(200).json(
-    globalResponseDto({
-      message: `List of all messages.`,
-      data: converations
+// Get global messages
+const getGlobalMessages = catchException(async (req, res) => {
+  GlobalMessage.aggregate([
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'from',
+        foreignField: '_id',
+        as: 'fromObj'
+      }
+    }
+  ])
+    .project({
+      'fromObj.password': 0,
+      'fromObj.__v': 0,
+      'fromObj.date': 0
     })
-  )
+    .exec((err, messages) => {
+      if (err) {
+        console.log(err)
+        res.setHeader('Content-Type', 'application/json')
+        res.end(JSON.stringify({ message: 'Failure' }))
+        res.sendStatus(500)
+      } else {
+        res.send(messages)
+      }
+    })
 })
 
-const getAllMessagesInRoom = catchException(async (req, res, next) => {
-  const messages = await messageService.getAllMessagesInRoom(req.params)
+// Post global message
+const postGlobalMessages = catchException(async (req, res, next) => {
+  let message = new GlobalMessage({
+    from: jwtUser.id,
+    body: req.body.body
+  })
 
-  res.status(200).json(
-    globalResponseDto({
-      message: `List of all messages.`,
-      data: messages
-    })
-  )
+  req.io.sockets.emit('messages', req.body.body)
+
+  message.save((err) => {
+    if (err) {
+      console.log(err)
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify({ message: 'Failure' }))
+      res.sendStatus(500)
+    } else {
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify({ message: 'Success' }))
+    }
+  })
 })
 
-const sendAMessageToRoom = catchException(async (req, res, next) => {
-  const messageCreated = await messageService.sendMessagesToRoomId(req.body)
-
-  res.status(200).json(
-    globalResponseDto({
-      message: `The message has successfully been sent.`,
-      data: messageCreated
+// Get conversations list
+const getConversations = catchException(async (req, res, next) => {
+  let from = mongoose.Types.ObjectId(jwtUser.id)
+  Conversation.aggregate([
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'recipients',
+        foreignField: '_id',
+        as: 'recipientObj'
+      }
+    }
+  ])
+    .match({ recipients: { $all: [{ $elemMatch: { $eq: from } }] } })
+    .project({
+      'recipientObj.password': 0,
+      'recipientObj.__v': 0,
+      'recipientObj.date': 0
     })
+    .exec((err, conversations) => {
+      if (err) {
+        console.log(err)
+        res.setHeader('Content-Type', 'application/json')
+        res.end(JSON.stringify({ message: 'Failure' }))
+        res.sendStatus(500)
+      } else {
+        res.send(conversations)
+      }
+    })
+})
+
+// Get messages from conversation
+// based on to & from
+const getConversationsQuery = catchException(async (req, res, next) => {
+  let from = mongoose.Types.ObjectId(jwtUser.id)
+  Conversation.aggregate([
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'recipients',
+        foreignField: '_id',
+        as: 'recipientObj'
+      }
+    }
+  ])
+    .match({ recipients: { $all: [{ $elemMatch: { $eq: from } }] } })
+    .project({
+      'recipientObj.password': 0,
+      'recipientObj.__v': 0,
+      'recipientObj.date': 0
+    })
+    .exec((err, conversations) => {
+      if (err) {
+        console.log(err)
+        res.setHeader('Content-Type', 'application/json')
+        res.end(JSON.stringify({ message: 'Failure' }))
+        res.sendStatus(500)
+      } else {
+        res.send(conversations)
+      }
+    })
+})
+
+// Post private message
+const postSendPrivateMessage = catchException(async (req, res, next) => {
+  let from = mongoose.Types.ObjectId(jwtUser.id)
+  let to = mongoose.Types.ObjectId(req.body.to)
+
+  Conversation.findOneAndUpdate(
+    {
+      recipients: {
+        $all: [{ $elemMatch: { $eq: from } }, { $elemMatch: { $eq: to } }]
+      }
+    },
+    {
+      recipients: [jwtUser.id, req.body.to],
+      lastMessage: req.body.body,
+      date: Date.now()
+    },
+    { upsert: true, new: true, setDefaultsOnInsert: true },
+    function (err, conversation) {
+      if (err) {
+        console.log(err)
+        res.setHeader('Content-Type', 'application/json')
+        res.end(JSON.stringify({ message: 'Failure' }))
+        res.sendStatus(500)
+      } else {
+        let message = new Message({
+          conversation: conversation._id,
+          to: req.body.to,
+          from: jwtUser.id,
+          body: req.body.body
+        })
+
+        req.io.sockets.emit('messages', req.body.body)
+
+        message.save((err) => {
+          if (err) {
+            console.log(err)
+            res.setHeader('Content-Type', 'application/json')
+            res.end(JSON.stringify({ message: 'Failure' }))
+            res.sendStatus(500)
+          } else {
+            res.setHeader('Content-Type', 'application/json')
+            res.end(
+              JSON.stringify({
+                message: 'Success',
+                conversationId: conversation._id
+              })
+            )
+          }
+        })
+      }
+    }
   )
 })
 
 module.exports = {
-  getAllConversations,
-  getAllMessagesInRoom,
-  sendAMessageToRoom
+  getGlobalMessages,
+  postGlobalMessages,
+  getConversations,
+  getConversationsQuery,
+  postSendPrivateMessage
 }
