@@ -16,8 +16,8 @@ import Home from '../pages/home'
 import Account from '../account'
 import BookAdd from '../books/add'
 import BookEdit from '../books/edit'
-import Bookstore from '../bookstore'
-import MyBookstore from '../bookstore/myBookstore'
+import PublicBookstore from '../bookstore/publicBookstore'
+import AuthBookstore from '../bookstore/authBookstore'
 import ChatShell from '../chat'
 
 const Routes = () => {
@@ -32,7 +32,7 @@ const Routes = () => {
         <Route exact path="/reset-password/:token" component={ResetPassword} />
 
         <Route exact path="/buy-books" component={Home} />
-        <Route exact path="/bookstore/:username" component={Bookstore} />
+        <Route exact path="/bookstore/:username" component={PublicBookstore} />
 
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
@@ -41,7 +41,7 @@ const Routes = () => {
         <PrivateRoute exact path="/add-book" component={BookAdd} />
         <PrivateRoute exact path="/books/edit/:bookId" component={BookEdit} />
         <PrivateRoute exact path="/account" component={Account} />
-        <PrivateRoute exact path="/my-bookstore" component={MyBookstore} />
+        <PrivateRoute exact path="/my-bookstore" component={AuthBookstore} />
         <PrivateRoute exact path="/chat/:userId?" component={ChatShell} />
 
         <Route component={NotFound} />

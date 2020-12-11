@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
+
 import Books from '../../books/common/Books'
 
-const MyBookStore = ({ books, getBookstoreByUsername }) => {
+const PublicBookstore = ({
+  match,
+  books,
+  getBookstoreByUsername
+}) => {
   useEffect(() => {
-    getBookstoreByUsername('auth')
-  }, [getBookstoreByUsername])
+    getBookstoreByUsername(match.params.username)
+  }, [match.params.username, getBookstoreByUsername])
 
   return (
     <>
       <div className="header-container text-center">
-        <h3 className="font-weight-bold">My Bookstore</h3>
+        <h3 className="font-weight-bold">
+          Welcome to {match.params.username}'s Bookstore
+        </h3>
       </div>
       <div className="mt-4">
         <MDBContainer>
@@ -19,8 +26,8 @@ const MyBookStore = ({ books, getBookstoreByUsername }) => {
               {books.length < 1 ? (
                 <div>There are no books in this bookstore...</div>
               ) : (
-                <Books books={books} editFlag={true} />
-              )}
+                  <Books books={books} />
+                )}
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -29,4 +36,4 @@ const MyBookStore = ({ books, getBookstoreByUsername }) => {
   )
 }
 
-export default MyBookStore
+export default PublicBookstore

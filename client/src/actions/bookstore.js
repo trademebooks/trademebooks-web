@@ -6,12 +6,26 @@ import { GET_BOOKSTORE, GET_BOOK, UPDATE_BOOK } from './types'
 // API: Get a bookstore with its description and all its books
 export const getBookstoreByUsername = (username) => async (dispatch) => {
   try {
-    const books = (await api.get(`/bookstores/${username}`)).data.data
+    if (username === 'auth') {
+      const bookstoreBooks = (await api.get(`/bookstores/${username}`)).data.data
 
-    dispatch({
-      type: GET_BOOKSTORE,
-      payload: books
-    })
+      console.log('auth', { bookstoreBooks })
+
+      dispatch({
+        type: GET_BOOKSTORE,
+        payload: bookstoreBooks
+      })
+    }
+    else {
+      const bookstoreBooks = (await api.get(`/bookstores/${username}`)).data.data
+
+      console.log('notauth', bookstoreBooks.books)
+
+      dispatch({
+        type: GET_BOOKSTORE,
+        payload: bookstoreBooks.books
+      })
+    }
   } catch (error) {
     displayErrors(error)
   }

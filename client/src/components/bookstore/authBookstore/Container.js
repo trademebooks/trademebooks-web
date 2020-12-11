@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { getBookstoreByUsername } from '../../../actions/bookstore'
-import MyBookstore from './MyBookstore'
+import AuthBookstore from './AuthBookstore'
 
 const mapStateToProps = (state) => ({
   books: state.bookstore.books
@@ -10,4 +10,4 @@ const mapDispatchToProps = {
   getBookstoreByUsername
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyBookstore)
+export default connect(mapStateToProps, mapDispatchToProps)(AuthBookstore)
