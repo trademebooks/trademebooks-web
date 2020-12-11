@@ -7,4 +7,5 @@ jobs:
       - checkout
       - run: node --version
       - run: npm install
+      - run: npm install -D jest
       - run: npm run test:ci
