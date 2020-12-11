@@ -5,7 +5,7 @@ import SearchBooks from './SearchBooks'
 import PostBookForm from './PostBookForm'
 import BookFields from './BookFields'
 
-const addBooks = () => {
+const addBook = () => {
   return (
     <>
       <div className="header-container text-center">
@@ -26,4 +26,4 @@ const addBooks = () => {
   )
 }
 
-export default addBooks
+export default addBook

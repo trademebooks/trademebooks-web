@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Book from './Book'
 
-function Books({ books, editFlag }) {
+const Books = ({ books, editFlag }) => {
   return (
     <>
       <div>
@@ -12,6 +13,11 @@ function Books({ books, editFlag }) {
       </div>
     </>
   )
+}
+
+Books.propTypes = {
+  books: PropTypes.array.isRequired,
+  editFlag: PropTypes.bool
 }
 
 export default Books

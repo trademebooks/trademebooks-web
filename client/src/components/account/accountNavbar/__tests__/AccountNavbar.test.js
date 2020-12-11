@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { render } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom'
 
 import AccountNavbar from '../AccountNavbar'
 
@@ -12,11 +12,13 @@ describe('Component: AccountNavbar', () => {
   }
 
   it('should match the snapshot', () => {
-    const accountNavbarSnapshot = renderer.create(
-      <MemoryRouter>
-        <AccountNavbar {...props} />
-      </MemoryRouter>
-    ).toJSON()
+    const accountNavbarSnapshot = renderer
+      .create(
+        <MemoryRouter>
+          <AccountNavbar {...props} />
+        </MemoryRouter>
+      )
+      .toJSON()
     expect(accountNavbarSnapshot).toMatchSnapshot()
   })
 

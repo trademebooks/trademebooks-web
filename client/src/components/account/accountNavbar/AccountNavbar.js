@@ -2,10 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact'
 
-const AccountNavbar = ({
-  toggleJustified,
-  activeItemJustified
-}) => {
+const AccountNavbar = ({ toggleJustified, activeItemJustified }) => {
   return (
     <>
       <MDBNav tabs className="border-bottom" color="indigo">
@@ -48,6 +45,5 @@ AccountNavbar.propTypes = {
   toggleJustified: PropTypes.func.isRequired,
   activeItemJustified: PropTypes.string.isRequired
 }
-
 
 export default AccountNavbar

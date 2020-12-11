@@ -11,7 +11,9 @@ describe('Component: AuthBookstore', () => {
   }
 
   it('should match the snapshot', () => {
-    const authBookstoreSnapshot = renderer.create(<AuthBookstore {...props} />).toJSON()
+    const authBookstoreSnapshot = renderer
+      .create(<AuthBookstore {...props} />)
+      .toJSON()
     expect(authBookstoreSnapshot).toMatchSnapshot()
   })
 

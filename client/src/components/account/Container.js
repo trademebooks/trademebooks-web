@@ -1,5 +1,9 @@
 import { connect } from 'react-redux'
-import { getAccountSettings, saveAccountSettings, updateAuthUser } from '../../actions/account'
+import {
+  getAccountSettings,
+  saveAccountSettings,
+  updateAuthUser
+} from '../../actions/account'
 
 import Account from './Account'
 

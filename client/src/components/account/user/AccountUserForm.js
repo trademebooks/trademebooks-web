@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import { MDBInput, MDBBtn } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
 
-const AccountUserForm = ({
-  auth: {
-    user
-  },
-  updateAuthUser
-}) => {
+const AccountUserForm = ({ auth: { user }, updateAuthUser }) => {
   const [formData, setFormData] = useState({
     first_name: user.first_name,
     last_name: user.last_name

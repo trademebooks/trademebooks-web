@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom'
 
 import Account from '../Account'
 
@@ -18,11 +18,13 @@ describe('Component: Account', () => {
   }
 
   it('should match the snapshot', () => {
-    const accountSnapshot = renderer.create(
-      <MemoryRouter>
-        <Account {...props} />
-      </MemoryRouter>
-    ).toJSON()
+    const accountSnapshot = renderer
+      .create(
+        <MemoryRouter>
+          <Account {...props} />
+        </MemoryRouter>
+      )
+      .toJSON()
     expect(accountSnapshot).toMatchSnapshot()
   })
 })

@@ -14,13 +14,21 @@ describe('Component: AccountBookstoreForm', () => {
         last_name: 'doe'
       }
     },
-    getAccountSettings: jest.fn(() => { return promise }),
-    saveAccountSettings: jest.fn(() => { return promise }),
-    updateAuthUser: jest.fn(() => { return promise })
+    getAccountSettings: jest.fn(() => {
+      return promise
+    }),
+    saveAccountSettings: jest.fn(() => {
+      return promise
+    }),
+    updateAuthUser: jest.fn(() => {
+      return promise
+    })
   }
 
   it('should match the snapshot', () => {
-    const accountBookstoreFormSnapshot = renderer.create(<AccountBookstoreForm {...props} />).toJSON()
+    const accountBookstoreFormSnapshot = renderer
+      .create(<AccountBookstoreForm {...props} />)
+      .toJSON()
     expect(accountBookstoreFormSnapshot).toMatchSnapshot()
   })
 
@@ -28,6 +36,8 @@ describe('Component: AccountBookstoreForm', () => {
     const accountBookstoreForm = render(<AccountBookstoreForm {...props} />)
 
     // got rid of act warning: https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
-    await act(() => { return promise })
+    await act(() => {
+      return promise
+    })
   })
 })

@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 
 import Books from '../../books/common/Books'
 
-const PublicBookstore = ({
-  match,
-  books,
-  getBookstoreByUsername
-}) => {
+const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
   useEffect(() => {
     getBookstoreByUsername(match.params.username)
   }, [match.params.username, getBookstoreByUsername])
@@ -26,14 +23,20 @@ const PublicBookstore = ({
               {books.length < 1 ? (
                 <div>There are no books in this bookstore...</div>
               ) : (
-                  <Books books={books} />
-                )}
+                <Books books={books} />
+              )}
             </MDBCol>
           </MDBRow>
         </MDBContainer>
       </div>
     </>
   )
+}
+
+PublicBookstore.propTypes = {
+  match: PropTypes.object.isRequired,
+  books: PropTypes.array.isRequired,
+  getBookstoreByUsername: PropTypes.func.isRequired
 }
 
 export default PublicBookstore

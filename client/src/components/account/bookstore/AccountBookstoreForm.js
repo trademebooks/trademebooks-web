@@ -4,9 +4,7 @@ import { MDBInput, MDBBtn } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
 
 const AccountBookStoreForm = ({
-  auth: {
-    user
-  },
+  auth: { user },
   getAccountSettings,
   saveAccountSettings,
   updateAuthUser
@@ -48,7 +46,7 @@ const AccountBookStoreForm = ({
   }
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       const account = await getAccountSettings()
 
       setFormData({
@@ -118,7 +116,7 @@ AccountBookStoreForm.propTypes = {
   auth: PropTypes.object.isRequired,
   getAccountSettings: PropTypes.func.isRequired,
   saveAccountSettings: PropTypes.func.isRequired,
-  updateAuthUser: PropTypes.func.isRequired,
+  updateAuthUser: PropTypes.func.isRequired
 }
 
 export default AccountBookStoreForm

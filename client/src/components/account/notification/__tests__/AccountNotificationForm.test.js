@@ -11,19 +11,29 @@ describe('Component: AccountNotificationForm', () => {
   })
 
   const props = {
-    getAccountSettings: jest.fn(() => { return promise }),
-    saveAccountSettings: jest.fn(() => { return promise })
+    getAccountSettings: jest.fn(() => {
+      return promise
+    }),
+    saveAccountSettings: jest.fn(() => {
+      return promise
+    })
   }
 
   it('should match the snapshot', () => {
-    const accountNotificationFormSnapshot = renderer.create(<AccountNotificationForm {...props} />).toJSON()
+    const accountNotificationFormSnapshot = renderer
+      .create(<AccountNotificationForm {...props} />)
+      .toJSON()
     expect(accountNotificationFormSnapshot).toMatchSnapshot()
   })
 
   it('should render properly', async () => {
-    const accountNotificationForm = render(<AccountNotificationForm {...props} />)
+    const accountNotificationForm = render(
+      <AccountNotificationForm {...props} />
+    )
 
     // got rid of act warning: https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
-    await act(() => { return promise })
+    await act(() => {
+      return promise
+    })
   })
 })

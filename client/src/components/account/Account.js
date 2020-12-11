@@ -35,10 +35,7 @@ const Account = ({
 
           <MDBTabContent className="mt-4" activeItem={activeItemJustified}>
             <MDBTabPane tabId="1" role="tabpanel">
-              <User
-                auth={auth}
-                updateAuthUser={updateAuthUser}
-              />
+              <User auth={auth} updateAuthUser={updateAuthUser} />
             </MDBTabPane>
 
             <MDBTabPane tabId="2" role="tabpanel">
@@ -67,7 +64,7 @@ Account.propTypes = {
   auth: PropTypes.object.isRequired,
   getAccountSettings: PropTypes.func.isRequired,
   saveAccountSettings: PropTypes.func.isRequired,
-  updateAuthUser: PropTypes.func.isRequired,
+  updateAuthUser: PropTypes.func.isRequired
 }
 
 export default Account

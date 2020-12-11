@@ -14,11 +14,15 @@ describe('Component: AccountUserForm', () => {
         last_name: 'doe'
       }
     },
-    updateAuthUser: jest.fn(() => { return promise })
+    updateAuthUser: jest.fn(() => {
+      return promise
+    })
   }
 
   it('should match the snapshot', () => {
-    const accountUserFormSnapshot = renderer.create(<AccountUserForm {...props} />).toJSON()
+    const accountUserFormSnapshot = renderer
+      .create(<AccountUserForm {...props} />)
+      .toJSON()
     expect(accountUserFormSnapshot).toMatchSnapshot()
   })
 
@@ -26,6 +30,8 @@ describe('Component: AccountUserForm', () => {
     const accountUserForm = render(<AccountUserForm {...props} />)
 
     // got rid of act warning: https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
-    await act(() => { return promise })
+    await act(() => {
+      return promise
+    })
   })
 })

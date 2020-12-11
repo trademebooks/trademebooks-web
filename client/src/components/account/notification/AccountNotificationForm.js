@@ -29,7 +29,7 @@ const AccountNotificationForm = ({
   }
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       const account = await getAccountSettings()
 
       setFormData(account)

@@ -7,7 +7,8 @@ import { GET_BOOKSTORE, GET_BOOK, UPDATE_BOOK } from './types'
 export const getBookstoreByUsername = (username) => async (dispatch) => {
   try {
     if (username === 'auth') {
-      const bookstoreBooks = (await api.get(`/bookstores/${username}`)).data.data
+      const bookstoreBooks = (await api.get(`/bookstores/${username}`)).data
+        .data
 
       console.log('auth', { bookstoreBooks })
 
@@ -15,9 +16,9 @@ export const getBookstoreByUsername = (username) => async (dispatch) => {
         type: GET_BOOKSTORE,
         payload: bookstoreBooks
       })
-    }
-    else {
-      const bookstoreBooks = (await api.get(`/bookstores/${username}`)).data.data
+    } else {
+      const bookstoreBooks = (await api.get(`/bookstores/${username}`)).data
+        .data
 
       console.log('notauth', bookstoreBooks.books)
 
