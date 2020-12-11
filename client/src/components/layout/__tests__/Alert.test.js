@@ -8,13 +8,15 @@ import Alert from '../Alert'
 
 describe('Component: Alert', () => {
   it('should match the snapshot', () => {
-    const snapshot = renderer.create(
-      <Provider store={store}>
-        <MemoryRouter>
-          <Alert />
-        </MemoryRouter>
-      </Provider>
-    ).toJSON()
+    const snapshot = renderer
+      .create(
+        <Provider store={store}>
+          <MemoryRouter>
+            <Alert />
+          </MemoryRouter>
+        </Provider>
+      )
+      .toJSON()
 
     expect(snapshot).toMatchSnapshot()
   })
