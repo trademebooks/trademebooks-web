@@ -18,7 +18,7 @@ const Conditions = ({ book, addBook }) => {
   const [currentConditionType, setCurrentConditionType] = useState(
     CONDITION_TYPES.GOOD
   )
-  
+
   const conditions = [
     {
       text: 'POOR',

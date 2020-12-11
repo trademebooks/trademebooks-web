@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { MDBBtn } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
 
-import { getAccountSettings, saveAccountSettings } from '../../actions/account'
-
-const Notifications = () => {
+const AccountNotificationForm = ({
+  getAccountSettings,
+  saveAccountSettings
+}) => {
   const [formData, setFormData] = useState({
     receiveEmail: false,
     receiveSms: false
@@ -18,16 +20,21 @@ const Notifications = () => {
 
   const saveSettings = async (e) => {
     e.preventDefault()
-    await saveAccountSettings(formData)
-    toastr.success('Your settings have been updated.')
+
+    const response = await saveAccountSettings(formData)
+
+    if (response) {
+      toastr.success('Your settings have been updated.')
+    }
   }
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const account = await getAccountSettings()
+
       setFormData(account)
     })()
-  }, [])
+  }, [getAccountSettings])
 
   return (
     <>
@@ -68,4 +75,9 @@ const Notifications = () => {
   )
 }
 
-export default Notifications
+AccountNotificationForm.propTypes = {
+  getAccountSettings: PropTypes.func.isRequired,
+  saveAccountSettings: PropTypes.func.isRequired
+}
+
+export default AccountNotificationForm

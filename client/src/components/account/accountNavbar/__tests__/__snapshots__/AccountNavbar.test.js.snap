@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: AccountNavbar should match the snapshot 1`] = `
+<ul
+  className="nav md-tabs tabs-indigo border-bottom"
+  data-test="nav"
+>
+  <li
+    className="nav-item"
+    data-test="nav-item"
+  >
+    <a
+      className="nav-link Ripple-parent nav-link Ripple-parent"
+      data-test="nav-link"
+      href="/"
+      onClick={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      role="tab"
+    >
+      <i
+        className="fa fa-user"
+        data-test="fa"
+      />
+       User
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+    </a>
+  </li>
+  <li
+    className="nav-item"
+    data-test="nav-item"
+  >
+    <a
+      className="nav-link Ripple-parent nav-link Ripple-parent"
+      data-test="nav-link"
+      href="/"
+      onClick={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      role="tab"
+    >
+      <i
+        className="fa fa-store"
+        data-test="fa"
+      />
+       Bookstore
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+    </a>
+  </li>
+  <li
+    className="nav-item"
+    data-test="nav-item"
+  >
+    <a
+      className="nav-link Ripple-parent nav-link Ripple-parent"
+      data-test="nav-link"
+      href="/"
+      onClick={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      role="tab"
+    >
+      <i
+        className="fa fa-envelope"
+        data-test="fa"
+      />
+       Notifications
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+    </a>
+  </li>
+</ul>
+`;

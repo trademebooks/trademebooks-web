@@ -151,7 +151,8 @@ const Book = ({ book, editFlag, deleteBookById }) => {
             ) : (
               <MDBTooltip domElement tag="span" placement="left">
                 <span>
-                  <a href="!#"
+                  <a
+                    href="!#"
                     onClick={(event) => {
                       event.preventDefault()
                       chatWithUser(book)

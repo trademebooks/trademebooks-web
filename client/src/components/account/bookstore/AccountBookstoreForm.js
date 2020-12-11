@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { MDBInput, MDBBtn } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
-import { connect } from 'react-redux'
 
-import { getAccountSettings, saveAccountSettings } from '../../actions/account'
-import { updateAuthUser } from '../../actions/user'
-
-const BookStore = ({ auth: { user } }) => {
+const AccountBookStoreForm = ({
+  auth: {
+    user
+  },
+  getAccountSettings,
+  saveAccountSettings,
+  updateAuthUser
+}) => {
   const [formData, setFormData] = useState({
     username: '',
     location: '',
@@ -21,29 +25,38 @@ const BookStore = ({ auth: { user } }) => {
 
   const saveUsername = async (e) => {
     e.preventDefault()
-    await updateAuthUser({ username })
-    toastr.success(
-      'Your username has been changed.',
-      'To see your username change be taken into effect, logout then log back in.',
-      { timeOut: 0 }
-    )
+
+    const response = await updateAuthUser({ username })
+
+    if (response) {
+      toastr.success(
+        'Your username has been changed.',
+        'To see your username change be taken into effect, logout then log back in.',
+        { timeOut: 0 }
+      )
+    }
   }
 
   const saveSettings = async (e) => {
     e.preventDefault()
-    await saveAccountSettings({ location, school })
-    toastr.success('Your settings have been updated.')
+
+    const response = await saveAccountSettings({ location, school })
+
+    if (response) {
+      toastr.success('Your settings have been updated.')
+    }
   }
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const account = await getAccountSettings()
+
       setFormData({
         ...account,
         ...user
       })
     })()
-  }, [user])
+  }, [user, getAccountSettings])
 
   return (
     <>
@@ -101,10 +114,11 @@ const BookStore = ({ auth: { user } }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  auth: state.auth
-})
+AccountBookStoreForm.propTypes = {
+  auth: PropTypes.object.isRequired,
+  getAccountSettings: PropTypes.func.isRequired,
+  saveAccountSettings: PropTypes.func.isRequired,
+  updateAuthUser: PropTypes.func.isRequired,
+}
 
-const mapDispatchToProps = {}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookStore)
+export default AccountBookStoreForm
