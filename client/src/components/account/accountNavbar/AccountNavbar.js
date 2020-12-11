@@ -11,7 +11,6 @@ const AccountNavbar = ({
       <MDBNav tabs className="border-bottom" color="indigo">
         <MDBNavItem>
           <MDBNavLink
-            link
             to="#"
             active={activeItemJustified === '1'}
             onClick={toggleJustified('1')}
@@ -22,7 +21,6 @@ const AccountNavbar = ({
         </MDBNavItem>
         <MDBNavItem>
           <MDBNavLink
-            link
             to="#"
             active={activeItemJustified === '2'}
             onClick={toggleJustified('2')}
@@ -33,7 +31,6 @@ const AccountNavbar = ({
         </MDBNavItem>
         <MDBNavItem>
           <MDBNavLink
-            link
             to="#"
             active={activeItemJustified === '3'}
             onClick={toggleJustified('3')}

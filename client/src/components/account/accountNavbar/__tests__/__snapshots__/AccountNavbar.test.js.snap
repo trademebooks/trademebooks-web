@@ -10,13 +10,15 @@ exports[`Component: AccountNavbar should match the snapshot 1`] = `
     data-test="nav-item"
   >
     <a
-      className="nav-link Ripple-parent nav-link Ripple-parent"
+      aria-current="page"
+      className="nav-link Ripple-parent active active"
       data-test="nav-link"
       href="/"
       onClick={[Function]}
       onMouseUp={[Function]}
       onTouchStart={[Function]}
       role="tab"
+      style={Object {}}
     >
       <i
         className="fa fa-user"
@@ -35,18 +37,6 @@ exports[`Component: AccountNavbar should match the snapshot 1`] = `
           }
         }
       />
-      <div
-        className="Ripple "
-        data-test="waves"
-        style={
-          Object {
-            "height": "0px",
-            "left": "0px",
-            "top": "0px",
-            "width": "0px",
-          }
-        }
-      />
     </a>
   </li>
   <li
@@ -54,13 +44,15 @@ exports[`Component: AccountNavbar should match the snapshot 1`] = `
     data-test="nav-item"
   >
     <a
-      className="nav-link Ripple-parent nav-link Ripple-parent"
+      aria-current="page"
+      className="nav-link Ripple-parent active"
       data-test="nav-link"
       href="/"
       onClick={[Function]}
       onMouseUp={[Function]}
       onTouchStart={[Function]}
       role="tab"
+      style={Object {}}
     >
       <i
         className="fa fa-store"
@@ -79,18 +71,6 @@ exports[`Component: AccountNavbar should match the snapshot 1`] = `
           }
         }
       />
-      <div
-        className="Ripple "
-        data-test="waves"
-        style={
-          Object {
-            "height": "0px",
-            "left": "0px",
-            "top": "0px",
-            "width": "0px",
-          }
-        }
-      />
     </a>
   </li>
   <li
@@ -98,31 +78,21 @@ exports[`Component: AccountNavbar should match the snapshot 1`] = `
     data-test="nav-item"
   >
     <a
-      className="nav-link Ripple-parent nav-link Ripple-parent"
+      aria-current="page"
+      className="nav-link Ripple-parent active"
       data-test="nav-link"
       href="/"
       onClick={[Function]}
       onMouseUp={[Function]}
       onTouchStart={[Function]}
       role="tab"
+      style={Object {}}
     >
       <i
         className="fa fa-envelope"
         data-test="fa"
       />
        Notifications
-      <div
-        className="Ripple "
-        data-test="waves"
-        style={
-          Object {
-            "height": "0px",
-            "left": "0px",
-            "top": "0px",
-            "width": "0px",
-          }
-        }
-      />
       <div
         className="Ripple "
         data-test="waves"

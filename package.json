@@ -48,7 +48,6 @@
     "validatorjs": "^3.18.1"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.2",
     "concurrently": "^5.1.0",
     "husky": "^4.3.0",
     "nodemon": "^2.0.2",
