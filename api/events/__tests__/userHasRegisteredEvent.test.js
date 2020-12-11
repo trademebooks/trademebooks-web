@@ -1,22 +1,22 @@
 const event = require('../userHasRegisteredEvent')
-const mailer = require('../../utils/mailer')
+const mailer = require('../../domain/services/mailer/email.service.js')
 
 const sentEmailSuccessful = !!Math.round(Math.random(0, 1))
-jest.mock('../../utils/mailer')
-mailer.sendEmailToUser.mockImplementation(() => sentEmailSuccessful)
+jest.mock('../../domain/services/mailer/email.service.js')
+mailer.sendEmail.mockImplementation(() => sentEmailSuccessful)
 
 describe('userHasRegisteredEvent', () => {
   test("Email has (un)successfully been sent to the user's email address", () => {
-    const eventResult = event(
-      (user = {
-        firstName: 'John',
-        email: 'john@john.com'
-      })
-    )
+    const user = {
+      first_name: 'John',
+      last_name: 'John',
+      email: 'john123@chosensolutions.com'
+    }
+    const eventResult = event(user)
 
-    mailer.sendEmailToUser.mockImplementation(() => true)
+    mailer.sendEmail.mockImplementation(() => true)
 
-    expect(mailer.sendEmailToUser).toHaveBeenCalledTimes(1)
+    expect(mailer.sendEmail).toHaveBeenCalledTimes(1)
     expect(eventResult).toBe(sentEmailSuccessful)
   })
 })

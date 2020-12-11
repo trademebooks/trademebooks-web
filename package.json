@@ -13,8 +13,9 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "mongo:start": "docker run --rm -d -p 27017:27017 mongo",
+    "test:ci": "NODE_ENV=testing jest --config=api/config/jest.config.js --maxWorkers=1 && npm run test:nowatch --prefix client",
     "test:mac": "NODE_ENV=testing jest --config=api/config/jest.config.js --maxWorkers=1",
-    "test:windows": "set NODE_ENV=testing && jest --config=api/config/jest.config.js --runInBand",
+    "test:windows": "set NODE_ENV=testing && jest --config=api/config/jest.config.js --maxWorkers=1",
     "db:seed": "node ./api/tests/seeds",
     "db:seed:prod": "NODE_ENV=production node ./api/seeds",
     "prettier:write": "npx prettier --write .",
@@ -27,7 +28,6 @@
     "@sendgrid/mail": "^7.2.6",
     "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "client": "file:client",
     "connect-mongo": "^3.2.0",
@@ -48,7 +48,6 @@
     "validatorjs": "^3.18.1"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.2",
     "concurrently": "^5.1.0",
     "husky": "^4.3.0",
     "nodemon": "^2.0.2",

@@ -48,7 +48,7 @@ const create = async (newBook) => {
 
 // Update
 const updateById = async (id, book) => {
-  return await Model.findByIdAndUpdate(id, book)
+  return await Model.findByIdAndUpdate(id, book, { new: true })
 }
 
 // Delete

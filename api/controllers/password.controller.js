@@ -1,4 +1,4 @@
-const globalResponseDTO = require('../dtos/responses/globalResponseDTO')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchExceptions = require('../utils/catchExceptions')
 const passwordService = require('../domain/services/password.service')
 
@@ -8,7 +8,7 @@ const sendPasswordResetEmail = catchExceptions(async (req, res) => {
   const message = await passwordService.sendResetPasswordEmail(email)
 
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message:
         'If there is an email in our database, then we will have sent you a password reset email.',
       data: message
@@ -26,7 +26,7 @@ const resetPassword = catchExceptions(async (req, res) => {
   )
 
   res.status(200).json(
-    globalResponseDTO({
+    globalResponseDto({
       message: 'Password reset success!',
       data: userWithUpdatedPassword
     })

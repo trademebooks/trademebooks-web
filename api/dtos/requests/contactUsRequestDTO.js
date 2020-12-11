@@ -2,7 +2,7 @@ const ApiGeneralError = require('../../utils/ApiGeneralError')
 
 const fields = ['name', 'toEmail', 'body']
 
-contactUsRequestDTO = (data) => {
+contactUsRequestDto = (data) => {
   const errors = []
   fields.forEach((field) => {
     if (!(field in data)) {
@@ -11,16 +11,15 @@ contactUsRequestDTO = (data) => {
   })
 
   if (errors.length > 0) {
-    throw new ApiGeneralError(
-      'Contact Us Request DTO failed.',
-      'failed',
-      422,
-      null,
+    throw new ApiGeneralError({
+      status: 'failed',
+      code: 422,
+      message: 'Contact Us Request DTO failed.',
       errors
-    )
+    })
   }
 
   return data
 }
 
-module.exports = contactUsRequestDTO
+module.exports = contactUsRequestDto

@@ -14,11 +14,11 @@ const linkedinStrategyLogin = async (
   accessToken,
   refreshToken,
   profile,
-  cb
+  done
 ) => {
   console.log(JSON.stringify(profile, null, '\t'))
-  user = { ...profile }
-  return cb(null, profile)
+
+  return done(null, profile)
 }
 
 const linkedinStrategy = new LinkedInStrategy(

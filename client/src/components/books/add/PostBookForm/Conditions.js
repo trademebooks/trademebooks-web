@@ -4,6 +4,17 @@ import { MDBRow, MDBCol } from 'mdbreact'
 
 import { addBook } from '../../../../actions/book'
 
+import Poor_condition_default from '../../images/conditions/Poor_condition_default.png'
+import Poor_condition from '../../images/conditions/Poor_condition.png'
+import Fair_condition_default from '../../images/conditions/Fair_condition_default.png'
+import Fair_condition from '../../images/conditions/Fair_condition.png'
+import Good_condition_default from '../../images/conditions/Good_condition_default.png'
+import Good_condition from '../../images/conditions/Good_condition.png'
+import Verygood_condition_default from '../../images/conditions/Verygood_condition_default.png'
+import Verygood_condition from '../../images/conditions/Verygood_condition.png'
+import Likenew_condition_default from '../../images/conditions/Likenew_condition_default.png'
+import Likenew_condition from '../../images/conditions/Likenew_condition.png'
+
 import './Conditions.scss'
 
 const Conditions = ({ book, addBook }) => {
@@ -19,42 +30,41 @@ const Conditions = ({ book, addBook }) => {
     CONDITION_TYPES.GOOD
   )
 
-  const conditionsImagePath = '../../images/conditions'
   const conditions = [
     {
       text: 'POOR',
       type: CONDITION_TYPES.POOR,
       description: 'Heavily worn, all text are still legible',
-      imageUrl: require(`../../images/conditions/Poor_condition_default.png`),
-      imgSelected: require(`../../images/conditions/Poor_condition.png`)
+      imageUrl: Poor_condition_default,
+      imgSelected: Poor_condition
     },
     {
       text: 'FAIR',
       type: CONDITION_TYPES.FAIR,
       description: 'Lots of wear and tear',
-      imageUrl: require(`../../images/conditions/Fair_condition_default.png`),
-      imgSelected: require(`../../images/conditions/Fair_condition.png`)
+      imageUrl: Fair_condition_default,
+      imgSelected: Fair_condition
     },
     {
       text: 'GOOD',
       type: CONDITION_TYPES.GOOD,
       description: 'Some signs of wear, includes markings',
-      imageUrl: require(`../../images/conditions/Good_condition_default.png`),
-      imgSelected: require(`../../images/conditions/Good_condition.png`)
+      imageUrl: Good_condition_default,
+      imgSelected: Good_condition
     },
     {
       text: 'VERY GOOD',
       type: CONDITION_TYPES.VERY_GOOD,
       description: 'Minimal signs of wear, no markings',
-      imageUrl: require(`../../images/conditions/Verygood_condition_default.png`),
-      imgSelected: require(`../../images/conditions/Verygood_condition.png`)
+      imageUrl: Verygood_condition_default,
+      imgSelected: Verygood_condition
     },
     {
       text: 'LIKE NEW',
       type: CONDITION_TYPES.LIKE_NEW,
       description: 'No damage, lightly used, no markings',
-      imageUrl: require(`../../images/conditions/Likenew_condition_default.png`),
-      imgSelected: require(`../../images/conditions/Likenew_condition.png`)
+      imageUrl: Likenew_condition_default,
+      imgSelected: Likenew_condition
     }
   ]
 

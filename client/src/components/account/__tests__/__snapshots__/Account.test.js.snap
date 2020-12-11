@@ -1,0 +1,498 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Account should match the snapshot 1`] = `
+Array [
+  <div
+    className="header-container text-center"
+  >
+    <h3
+      className="font-weight-bold"
+    >
+      Account Settings
+    </h3>
+  </div>,
+  <div
+    className="mt-4 mb-4"
+  >
+    <div
+      className="container"
+      data-test="container"
+    >
+      <ul
+        className="nav md-tabs tabs-indigo border-bottom"
+        data-test="nav"
+      >
+        <li
+          className="nav-item"
+          data-test="nav-item"
+        >
+          <a
+            aria-current="page"
+            className="nav-link Ripple-parent active active"
+            data-test="nav-link"
+            href="/"
+            onClick={[Function]}
+            onMouseUp={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            style={Object {}}
+          >
+            <i
+              className="fa fa-user"
+              data-test="fa"
+            />
+             User
+            <div
+              className="Ripple "
+              data-test="waves"
+              style={
+                Object {
+                  "height": "0px",
+                  "left": "0px",
+                  "top": "0px",
+                  "width": "0px",
+                }
+              }
+            />
+          </a>
+        </li>
+        <li
+          className="nav-item"
+          data-test="nav-item"
+        >
+          <a
+            aria-current="page"
+            className="nav-link Ripple-parent active"
+            data-test="nav-link"
+            href="/"
+            onClick={[Function]}
+            onMouseUp={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            style={Object {}}
+          >
+            <i
+              className="fa fa-store"
+              data-test="fa"
+            />
+             Bookstore
+            <div
+              className="Ripple "
+              data-test="waves"
+              style={
+                Object {
+                  "height": "0px",
+                  "left": "0px",
+                  "top": "0px",
+                  "width": "0px",
+                }
+              }
+            />
+          </a>
+        </li>
+        <li
+          className="nav-item"
+          data-test="nav-item"
+        >
+          <a
+            aria-current="page"
+            className="nav-link Ripple-parent active"
+            data-test="nav-link"
+            href="/"
+            onClick={[Function]}
+            onMouseUp={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            style={Object {}}
+          >
+            <i
+              className="fa fa-envelope"
+              data-test="fa"
+            />
+             Notifications
+            <div
+              className="Ripple "
+              data-test="waves"
+              style={
+                Object {
+                  "height": "0px",
+                  "left": "0px",
+                  "top": "0px",
+                  "width": "0px",
+                }
+              }
+            />
+          </a>
+        </li>
+      </ul>
+      <div
+        className="tab-content mt-4"
+        data-test="tabContent"
+      >
+        <div
+          className="tab-pane active"
+          data-test="tab-pane"
+          role="tabpanel"
+        >
+          <h3
+            className="mb-4 font-weight-bold"
+          >
+            User Settings
+          </h3>
+          <div
+            className="mt-5"
+          >
+            <h4>
+              Change Name
+            </h4>
+            <div
+              className="md-form form-group"
+            >
+              <i
+                className="fa fa-user prefix"
+                data-test="fa"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              />
+              <input
+                aria-disabled={false}
+                className="form-control"
+                data-test="input"
+                disabled={false}
+                name="first_name"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                required={true}
+                type="text"
+                value="john"
+              />
+              <label
+                aria-labelledby=""
+                className="active"
+                data-error=""
+                data-success=""
+                id=""
+                onClick={[Function]}
+              >
+                First Name
+              </label>
+            </div>
+            <div
+              className="md-form form-group"
+            >
+              <i
+                className="fa fa-user prefix"
+                data-test="fa"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              />
+              <input
+                aria-disabled={false}
+                className="form-control"
+                data-test="input"
+                disabled={false}
+                name="last_name"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                required={true}
+                type="text"
+                value="doe"
+              />
+              <label
+                aria-labelledby=""
+                className="active"
+                data-error=""
+                data-success=""
+                id=""
+                onClick={[Function]}
+              >
+                Last Name
+              </label>
+            </div>
+            <button
+              className="btn-default btn Ripple-parent"
+              data-test="button"
+              onClick={[Function]}
+              onMouseUp={[Function]}
+              onTouchStart={[Function]}
+              type="button"
+            >
+              Save Changes
+              <div
+                className="Ripple "
+                data-test="waves"
+                style={
+                  Object {
+                    "height": "0px",
+                    "left": "0px",
+                    "top": "0px",
+                    "width": "0px",
+                  }
+                }
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          className="tab-pane"
+          data-test="tab-pane"
+          role="tabpanel"
+        >
+          <h3
+            className="mb-4 font-weight-bold"
+          >
+            Bookstore Settings
+          </h3>
+          <div
+            className="mt-5"
+          >
+            <h4>
+              Change Username
+            </h4>
+            <div
+              className="md-form form-group"
+            >
+              <i
+                className="fa fa-user prefix"
+                data-test="fa"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              />
+              <input
+                aria-disabled={false}
+                className="form-control"
+                data-test="input"
+                disabled={false}
+                name="username"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+              <label
+                aria-labelledby=""
+                className=""
+                data-error=""
+                data-success=""
+                id=""
+                onClick={[Function]}
+              >
+                Username
+              </label>
+            </div>
+            <button
+              className="btn-default btn Ripple-parent"
+              data-test="button"
+              onClick={[Function]}
+              onMouseUp={[Function]}
+              onTouchStart={[Function]}
+              type="button"
+            >
+              Save Changes
+              <div
+                className="Ripple "
+                data-test="waves"
+                style={
+                  Object {
+                    "height": "0px",
+                    "left": "0px",
+                    "top": "0px",
+                    "width": "0px",
+                  }
+                }
+              />
+            </button>
+          </div>
+          <div
+            className="mt-5"
+          >
+            <h4>
+              Location
+            </h4>
+            <div
+              className="md-form form-group"
+            >
+              <i
+                className="fa fa-map prefix"
+                data-test="fa"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              />
+              <input
+                aria-disabled={false}
+                className="form-control validate"
+                data-test="input"
+                disabled={false}
+                minLength="6"
+                name="location"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                type="text"
+                value=""
+              />
+              <label
+                aria-labelledby=""
+                className=""
+                data-error=""
+                data-success=""
+                id=""
+                onClick={[Function]}
+              >
+                Current Location
+              </label>
+            </div>
+          </div>
+          <div>
+            <h4>
+              School
+            </h4>
+            <div
+              className="md-form form-group"
+            >
+              <i
+                className="fa fa-school prefix"
+                data-test="fa"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              />
+              <input
+                aria-disabled={false}
+                className="form-control validate"
+                data-test="input"
+                disabled={false}
+                minLength="6"
+                name="school"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                type="text"
+                value=""
+              />
+              <label
+                aria-labelledby=""
+                className=""
+                data-error=""
+                data-success=""
+                id=""
+                onClick={[Function]}
+              >
+                Current School
+              </label>
+            </div>
+          </div>
+          <div>
+            <button
+              className="btn-default btn Ripple-parent"
+              data-test="button"
+              onClick={[Function]}
+              onMouseUp={[Function]}
+              onTouchStart={[Function]}
+              type="button"
+            >
+              Save Changes
+              <div
+                className="Ripple "
+                data-test="waves"
+                style={
+                  Object {
+                    "height": "0px",
+                    "left": "0px",
+                    "top": "0px",
+                    "width": "0px",
+                  }
+                }
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          className="tab-pane"
+          data-test="tab-pane"
+          role="tabpanel"
+        >
+          <h3
+            className="mb-4 font-weight-bold"
+          >
+            Notifications Settings
+          </h3>
+          <div
+            className="custom-control custom-checkbox my-3"
+          >
+            <input
+              checked={false}
+              className="custom-control-input"
+              id="defaultInline1"
+              name="receiveEmail"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="custom-control-label"
+              htmlFor="defaultInline1"
+            >
+              Receive Emails
+            </label>
+          </div>
+          <div
+            className="custom-control custom-checkbox my-3"
+          >
+            <input
+              checked={false}
+              className="custom-control-input"
+              id="defaultInline2"
+              name="receiveSms"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="custom-control-label"
+              htmlFor="defaultInline2"
+            >
+              Receive Text Messages
+            </label>
+          </div>
+          <div>
+            <button
+              className="btn-default btn Ripple-parent"
+              data-test="button"
+              onClick={[Function]}
+              onMouseUp={[Function]}
+              onTouchStart={[Function]}
+              type="button"
+            >
+              Save Changes
+              <div
+                className="Ripple "
+                data-test="waves"
+                style={
+                  Object {
+                    "height": "0px",
+                    "left": "0px",
+                    "top": "0px",
+                    "width": "0px",
+                  }
+                }
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
