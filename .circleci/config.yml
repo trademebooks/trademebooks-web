@@ -5,7 +5,7 @@ jobs:
       - image: cimg/node:12.18.3
     environment:
       NODE_ENV: ci
-      MONGO_URI: $MONGO_URI
+      MONGO_URI: MONGO_URI
     steps:
       - checkout
       - run: node --version
