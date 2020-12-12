@@ -14,7 +14,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "mongo:start": "docker run --rm -d -p 27017:27017 mongo",
     "test:ci": "npm run test:mac && npm run test:nowatch --prefix client",
-    "test:client": "npm run test:nowatch --prefix client",
+    "test:client": "NODE_ENV=ci npm run test:nowatch --prefix client",
     "test:mac": "NODE_ENV=testing ./client/node_modules/.bin/jest --config=api/config/jest.config.js --maxWorkers=1",
     "test:windows": "set NODE_ENV=testing && ./client/node_modules/.bin/jest --config=api/config/jest.config.js --maxWorkers=1",
     "db:seed": "node ./api/tests/seeds",
@@ -22,7 +22,8 @@
     "prettier:write": "npx prettier --write .",
     "prettier:check": "npx prettier --check .",
     "lint:check": "eslint ./",
-    "lint:fix": "eslint ./ --fix"
+    "lint:fix": "eslint ./ --fix",
+    "scripts:env": "node ./scripts/env.js"
   },
   "author": "Yichen Zhu",
   "dependencies": {

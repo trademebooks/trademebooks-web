@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: cimg/node:12.18.3
     environment:
-      NODE_ENV: build
+      NODE_ENV: ci
     steps:
       - checkout
       - run: node --version
