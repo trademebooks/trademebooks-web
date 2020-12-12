@@ -49,8 +49,10 @@ const setUpDatabase = async () => {
 
     const users = await require('../seeds/users.seeds')(10)
     const books = await require('../seeds/books.seeds')(users, 10)
-    const rooms = await require('../seeds/rooms.seeds')(users)
-    const messages = await require('../seeds/messages.seeds')(rooms, users)
+    const conversations = await require('../seeds/chat/conversations.seeds')(users)
+    const messages = await require('../seeds/chat/messages.seeds')(conversations, users)
+    const globalMessages = await require('../seeds/chat/globalMessages.seeds')()
+
   } catch (err) {
     console.log('setUpDatabase, error:', { err })
   }

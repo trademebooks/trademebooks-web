@@ -1,5 +1,5 @@
 const faker = require('faker')
-const { ObjectId } = require('mongodb');
+const { ObjectId } = require('mongodb')
 
 const Message = require('../../../domain/models/chat/message.model')
 
@@ -55,7 +55,6 @@ module.exports = async () => {
     //   ],
     //   messageBody: faker.lorem.sentences(Math.ceil(Math.random(1, 5) * 5))
     // }
-
     // await new Message(message).save()
   }
 
@@ -68,7 +67,6 @@ module.exports = async () => {
     //   ],
     //   messageBody: faker.lorem.sentences(Math.ceil(Math.random(1, 5) * 5))
     // }
-
     // await new Message(message).save()
   }
 }

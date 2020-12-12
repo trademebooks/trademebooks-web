@@ -23,7 +23,7 @@ const messages = [
   },
   {
     from: '5e11e9d8eded1d23742c1c6b',
-    body: "Count me in!"
+    body: 'Count me in!'
   }
 ]
 
@@ -44,7 +44,6 @@ module.exports = async () => {
     //   ],
     //   messageBody: faker.lorem.sentences(Math.ceil(Math.random(1, 5) * 5))
     // }
-
     // await new Message(message).save()
   }
 
@@ -57,7 +56,6 @@ module.exports = async () => {
     //   ],
     //   messageBody: faker.lorem.sentences(Math.ceil(Math.random(1, 5) * 5))
     // }
-
     // await new Message(message).save()
   }
 }
