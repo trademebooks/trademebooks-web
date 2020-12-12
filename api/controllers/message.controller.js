@@ -6,6 +6,8 @@ const Message = require('../domain/models/chat/message.model')
 const Conversation = require('../domain/models/chat/conversation.model')
 const GlobalMessage = require('../domain/models/chat/globalMessage.model')
 
+const mongoose = require('mongoose')
+
 // Get global messages
 const getGlobalMessages = catchException(async (req, res) => {
   GlobalMessage.aggregate([
@@ -36,9 +38,9 @@ const getGlobalMessages = catchException(async (req, res) => {
 })
 
 // Post global message
-const postGlobalMessages = catchException(async (req, res, next) => {
+const postGlobalMessages = catchException(async (req, res) => {
   let message = new GlobalMessage({
-    from: jwtUser.id,
+    from: req.user.id,
     body: req.body.body
   })
 
@@ -58,8 +60,8 @@ const postGlobalMessages = catchException(async (req, res, next) => {
 })
 
 // Get conversations list
-const getConversations = catchException(async (req, res, next) => {
-  let from = mongoose.Types.ObjectId(jwtUser.id)
+const getConversations = catchException(async (req, res) => {
+  let from = mongoose.Types.ObjectId(req.user.id)
   Conversation.aggregate([
     {
       $lookup: {
@@ -90,8 +92,8 @@ const getConversations = catchException(async (req, res, next) => {
 
 // Get messages from conversation
 // based on to & from
-const getConversationsQuery = catchException(async (req, res, next) => {
-  let from = mongoose.Types.ObjectId(jwtUser.id)
+const getConversationsQuery = catchException(async (req, res) => {
+  let from = mongoose.Types.ObjectId(req.user.id)
   Conversation.aggregate([
     {
       $lookup: {
@@ -121,8 +123,8 @@ const getConversationsQuery = catchException(async (req, res, next) => {
 })
 
 // Post private message
-const postSendPrivateMessage = catchException(async (req, res, next) => {
-  let from = mongoose.Types.ObjectId(jwtUser.id)
+const postSendPrivateMessage = catchException(async (req, res) => {
+  let from = mongoose.Types.ObjectId(req.user.id)
   let to = mongoose.Types.ObjectId(req.body.to)
 
   Conversation.findOneAndUpdate(
@@ -132,7 +134,7 @@ const postSendPrivateMessage = catchException(async (req, res, next) => {
       }
     },
     {
-      recipients: [jwtUser.id, req.body.to],
+      recipients: [req.user.id, req.body.to],
       lastMessage: req.body.body,
       date: Date.now()
     },
@@ -147,7 +149,7 @@ const postSendPrivateMessage = catchException(async (req, res, next) => {
         let message = new Message({
           conversation: conversation._id,
           to: req.body.to,
-          from: jwtUser.id,
+          from: req.user.id,
           body: req.body.body
         })
 

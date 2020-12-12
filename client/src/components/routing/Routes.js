@@ -18,7 +18,7 @@ import BookAdd from '../books/add'
 import BookEdit from '../books/edit'
 import PublicBookstore from '../bookstore/publicBookstore'
 import AuthBookstore from '../bookstore/authBookstore'
-import ChatShell from '../chat'
+import ChatShell from '../chat/Chat'
 
 const Routes = () => {
   return (

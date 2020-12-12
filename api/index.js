@@ -29,19 +29,19 @@ app.use(passport.initialize())
 app.use(passport.session())
 require('./config/passport')
 
+// socket.io - start
+const server = http.createServer(app)
+const io = require('socket.io')(server)
+// Assign socket object to every request
+app.use(function (req, res, next) {
+  req.io = io;
+  next()
+})
+// socket.io - end
+
 const getRouter = require('./routes')
 const router = getRouter()
 app.use('/api/v1', router)
-
-const server = http.createServer(app)
-const io = require('socket.io')(server)
-io.use(function (socket, next) {
-  sessionMiddleware(socket.request, socket.request.res || {}, next)
-})
-io.on('connection', (socket) => {
-  require('./sockets/chat/privateMessage')(io, socket)
-  require('./sockets/chat/joinPrivateRoom')(io, socket)
-})
 
 require('./events')
 

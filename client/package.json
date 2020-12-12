@@ -7,12 +7,14 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "autosuggest-highlight": "^3.1.1",
     "http-proxy-middleware": "^1.0.6",
     "mdbreact": "^4.27.0",
     "nan": "^2.14.1",
     "node-sass": "^4.14.1",
+    "notistack": "^1.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
@@ -21,7 +23,8 @@
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "socket.io-client": "^2.3.1"
   },
   "scripts": {
     "start": "react-scripts start",

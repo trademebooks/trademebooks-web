@@ -3,18 +3,20 @@ const router = express.Router()
 
 const messageController = require('../controllers/message.controller')
 
+const isAuthenticated = require('../middleware/auth.middleware')
+
 // Get global messages
-router.get('/global', messageController.getGlobalMessages)
+router.get('/global', isAuthenticated, messageController.getGlobalMessages)
 
 // Post global message
-router.post('/global', messageController.postGlobalMessages)
+router.post('/global', isAuthenticated, messageController.postGlobalMessages)
 
 // Get conversations list
-router.get('/conversations', messageController.getConversations)
+router.get('/conversations', isAuthenticated, messageController.getConversations)
 
 // Get messages from conversation
 // based on to & from
-router.post('/conversations/query', messageController.getConversationsQuery)
+router.post('/conversations/query', isAuthenticated, messageController.getConversationsQuery)
 
 // Post private message
 router.post('/', messageController.postSendPrivateMessage)
