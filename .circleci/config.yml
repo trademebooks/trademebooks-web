@@ -1,11 +1,19 @@
 version: 2.1
+
+workflows:
+  build:
+    jobs:
+      - build:
+          context:
+            - trademebooks-web
+
 jobs:
   build:
     docker:
       - image: cimg/node:12.18.3
     environment:
       NODE_ENV: ci
-      MONGO_URI: MONGO_URI
+      MONGO_URI: $MONGO_URI
     steps:
       - checkout
       - run: node --version
