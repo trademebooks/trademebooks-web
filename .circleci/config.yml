@@ -9,6 +9,5 @@ jobs:
       - checkout
       - run: node --version
       - run: npm install
-      - run: npm install -D jest
       - run: npm install --prefix client
       - run: npm run test:client
