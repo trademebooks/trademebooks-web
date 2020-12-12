@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/yichenzhu1337/trademebooks-web/branch/master/graph/badge.svg?token=QLV1VDOBYU)](https://codecov.io/gh/yichenzhu1337/trademebooks-web)
 ![David](https://img.shields.io/david/yichenzhu1337/trademebooks-web?color=00cf33&style=flat-square)
 ![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m782940751-02c03d7c51d8c9788fdeb1a3?style=flat-square)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=trademebooks&style=flat&svg=1&root=notfound.html)]  
 
 ## 📌 Public Project!
 
