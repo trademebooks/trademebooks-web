@@ -1,5 +1,11 @@
 version: 2.1
 
+workflows:
+  build:
+    jobs:
+      - build:
+          context: trademebooks-web
+          
 jobs:
   build:
     docker:
@@ -14,9 +20,3 @@ jobs:
       # - run: npm install --prefix client
       # - run: npm run test:client
       - run: npm run scripts:env
-
-workflows:
-  build:
-    jobs:
-      - build:
-          context: trademebooks-web
