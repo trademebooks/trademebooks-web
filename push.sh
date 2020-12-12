@@ -39,9 +39,7 @@ size=${#new_quote[@]}
 index=$(($RANDOM % $size))
 
 git pull origin master
-#git pull heroku master
 
 git add -A
 git commit -m "${new_quote[$index]}"
 git push
-#git push heroku master # https://git.heroku.com/trademebooks.git
