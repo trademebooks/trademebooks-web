@@ -15,13 +15,8 @@ jobs:
     steps:
       - checkout
       - run: node --version
-      # - run: npm install
-      # - run: npm install --prefix client
-      # - run: npm run test:client
-      - run: npm run scripts:env
-      - run:
-          name: 'Print an env var stored in the Project'
-          command: echo ${MONGO_URI}
-      - run:
-          name: 'Print an env var stored in a Context'
-          command: echo ${CONTACT_US_EMAIL}
+      - run: npm install
+      - run: npm install --prefix client
+      - run: npm run test:ci:client
+      - run: npm run test:ci:api
+      # - run: npm run scripts:env
