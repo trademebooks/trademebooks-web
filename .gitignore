@@ -7,3 +7,5 @@ api/config/dev.js
 yarn.lock
 
 client/build
+
+coverage

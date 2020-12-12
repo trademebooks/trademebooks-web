@@ -3,6 +3,8 @@ const catchExceptions = require('../utils/catchExceptions')
 const contactUsRequestDto = require('../dtos/requests/contactUsRequestDto')
 const contactUsValidator = require('../validators/contactUsValidator')
 const mailer = require('../domain/services/mailer/email.service')
+const User = require('../domain/models/user.model')
+const mongoose = require('mongoose')
 
 const getHealthCheck = catchExceptions(async (req, res) => {
   res.status(200).json(
@@ -24,35 +26,32 @@ const contactUs = catchExceptions(async (req, res) => {
   )
 })
 
-const User = require('../domain/models/user.model')
-const mongoose = require('mongoose')
-
 const getUsers = (req, res) => {
   try {
-    let id = mongoose.Types.ObjectId(req.user.id);
+    let id = mongoose.Types.ObjectId(req.user.id)
 
     User.aggregate()
       .match({ _id: { $not: { $eq: id } } })
       .project({
         password: 0,
         __v: 0,
-        date: 0,
+        date: 0
       })
       .exec((err, users) => {
         if (err) {
-          console.log(err);
-          res.setHeader("Content-Type", "application/json");
-          res.end(JSON.stringify({ message: "Failure" }));
-          res.sendStatus(500);
+          console.log(err)
+          res.setHeader('Content-Type', 'application/json')
+          res.end(JSON.stringify({ message: 'Failure' }))
+          res.sendStatus(500)
         } else {
-          res.send(users);
+          res.send(users)
         }
-      });
+      })
   } catch (err) {
-    console.log(err);
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ message: "Unauthorized" }));
-    res.sendStatus(401);
+    console.log(err)
+    res.setHeader('Content-Type', 'application/json')
+    res.end(JSON.stringify({ message: 'Unauthorized' }))
+    res.sendStatus(401)
   }
 }
 
