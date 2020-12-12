@@ -2,9 +2,9 @@ const catchException = require('../utils/catchExceptions')
 const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const messageService = require('../domain/services/message.service')
 
-const Message = require('../domain/models/chat/message.model');
-const Conversation = require('../domain/models/chat/conversation.model');
-const GlobalMessage = require('../domain/models/chat/globalMessage.model');
+const Message = require('../domain/models/chat/message.model')
+const Conversation = require('../domain/models/chat/conversation.model')
+const GlobalMessage = require('../domain/models/chat/globalMessage.model')
 
 // Get global messages
 const getGlobalMessages = catchException(async (req, res) => {

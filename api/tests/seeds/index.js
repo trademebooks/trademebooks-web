@@ -10,8 +10,9 @@ const init = (async () => {
 
   const users = await require('./users.seeds')(10)
   const books = await require('./books.seeds')(users, 10)
-  const rooms = await require('./rooms.seeds')(users)
-  const messages = await require('./messages.seeds')(rooms, users)
+  const conversations = await require('./chat/conversations.seeds')(users)
+  const messages = await require('./chat/messages.seeds')(conversations, users)
+  const globalMessages = await require('./chat/globalMessages.seeds')()
 
   await dbConnection.disconnect()
 

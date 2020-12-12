@@ -6,21 +6,30 @@ const bookFactory = require('../factories/bookFactory')
 const Account = require('../../domain/models/account.model')
 const Book = require('../../domain/models/book.model')
 const Bookstore = require('../../domain/models/bookstore.model')
-const Message = require('../../domain/models/message.model')
+// const Message = require('../../domain/models/message.model')
 const Password = require('../../domain/models/password.model')
 const Room = require('../../domain/models/room.model')
 const User = require('../../domain/models/user.model')
 const Session = require('../../domain/models/session.model')
 
+// chat
+const Conversation = require('../../domain/models/chat/conversation.model')
+const GlobalMessage = require('../../domain/models/chat/globalMessage.model')
+const Message = require('../../domain/models/chat/message.model')
+
 const Models = [
   Account,
   Book,
   Bookstore,
-  Message,
+
   Password,
   Room,
   User,
-  Session
+  Session,
+
+  Conversation,
+  GlobalMessage,
+  Message
 ]
 
 const clearDatabase = async () => {
