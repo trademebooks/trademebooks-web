@@ -2,10 +2,13 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/node:12.18.2
+      - image: cimg/node:12.18.3
+    environment:
+      NODE_ENV: build
     steps:
       - checkout
       - run: node --version
       - run: npm install
       - run: npm install -D jest
-      - run: npm run test:ci
+      - run: npm install --prefix client
+      - run: npm run test:client

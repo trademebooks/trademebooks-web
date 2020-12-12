@@ -10,6 +10,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "autosuggest-highlight": "^3.1.1",
+    "classnames": "^2.2.6",
     "http-proxy-middleware": "^1.0.6",
     "mdbreact": "^4.27.0",
     "nan": "^2.14.1",
