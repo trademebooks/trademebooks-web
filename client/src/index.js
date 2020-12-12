@@ -2,12 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-import { SnackbarProvider } from 'notistack';
+import { SnackbarProvider } from 'notistack'
 
 ReactDOM.render(
   <SnackbarProvider maxSnack={3}>
     <App />
-  </SnackbarProvider>
-  ,
+  </SnackbarProvider>,
   document.getElementById('root')
 )

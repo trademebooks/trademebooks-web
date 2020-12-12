@@ -34,7 +34,7 @@ const server = http.createServer(app)
 const io = require('socket.io')(server)
 // Assign socket object to every request
 app.use(function (req, res, next) {
-  req.io = io;
+  req.io = io
   next()
 })
 // socket.io - end

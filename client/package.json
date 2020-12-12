@@ -30,7 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --setupFiles ./src/setupTests.js",
-    "test:nowatch": "react-scripts test --setupFiles ./src/setupTests.js --watchAll=false",
+    "test:nowatch": "react-scripts test --setupFiles ./src/setupTests.js --ci --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

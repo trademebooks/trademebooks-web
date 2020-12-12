@@ -1,131 +1,119 @@
-import useHandleResponse from '../Utilities/handle-response';
-import authHeader from '../Utilities/auth-header';
-import { useSnackbar } from 'notistack';
+import useHandleResponse from '../Utilities/handle-response'
+import authHeader from '../Utilities/auth-header'
+import { useSnackbar } from 'notistack'
 
 // Receive global messages
 export function useGetGlobalMessages() {
-    const { enqueueSnackbar } = useSnackbar();
-    const handleResponse = useHandleResponse();
-    const requestOptions = {
-        method: 'GET'
-    };
+  const { enqueueSnackbar } = useSnackbar()
+  const handleResponse = useHandleResponse()
+  const requestOptions = {
+    method: 'GET'
+  }
 
-    const getGlobalMessages = () => {
-        return fetch(
-            `/api/v1/messages/global`,
-            requestOptions
-        )
-            .then(handleResponse)
-            .catch(() =>
-                enqueueSnackbar('Could not load Global Chat', {
-                    variant: 'error',
-                })
-            );
-    };
+  const getGlobalMessages = () => {
+    return fetch(`/api/v1/messages/global`, requestOptions)
+      .then(handleResponse)
+      .catch(() =>
+        enqueueSnackbar('Could not load Global Chat', {
+          variant: 'error'
+        })
+      )
+  }
 
-    return getGlobalMessages;
+  return getGlobalMessages
 }
 
 // Send a global message
 export function useSendGlobalMessage() {
-    const { enqueueSnackbar } = useSnackbar();
-    const handleResponse = useHandleResponse();
+  const { enqueueSnackbar } = useSnackbar()
+  const handleResponse = useHandleResponse()
 
-    const sendGlobalMessage = body => {
-        const requestOptions = {
-            method: 'POST',
-            body: JSON.stringify({ body: body, global: true }),
-        };
+  const sendGlobalMessage = (body) => {
+    const requestOptions = {
+      method: 'POST',
+      body: JSON.stringify({ body: body, global: true })
+    }
 
-        return fetch(
-            `/api/v1/messages/global`,
-            requestOptions
-        )
-            .then(handleResponse)
-            .catch(err => {
-                console.log(err);
-                enqueueSnackbar('Could send message', {
-                    variant: 'error',
-                });
-            });
-    };
+    return fetch(`/api/v1/messages/global`, requestOptions)
+      .then(handleResponse)
+      .catch((err) => {
+        console.log(err)
+        enqueueSnackbar('Could send message', {
+          variant: 'error'
+        })
+      })
+  }
 
-    return sendGlobalMessage;
+  return sendGlobalMessage
 }
 
 // Get list of users conversations
 export function useGetConversations() {
-    const { enqueueSnackbar } = useSnackbar();
-    const handleResponse = useHandleResponse();
-    const requestOptions = {
-        method: 'GET'
-    };
+  const { enqueueSnackbar } = useSnackbar()
+  const handleResponse = useHandleResponse()
+  const requestOptions = {
+    method: 'GET'
+  }
 
-    const getConversations = () => {
-        return fetch(
-            `/api/v1/messages/conversations`,
-            requestOptions
-        )
-            .then(handleResponse)
-            .catch(() =>
-                enqueueSnackbar('Could not load chats', {
-                    variant: 'error',
-                })
-            );
-    };
+  const getConversations = () => {
+    return fetch(`/api/v1/messages/conversations`, requestOptions)
+      .then(handleResponse)
+      .catch(() =>
+        enqueueSnackbar('Could not load chats', {
+          variant: 'error'
+        })
+      )
+  }
 
-    return getConversations;
+  return getConversations
 }
 
 // get conversation messages based on
 // to and from id's
 export function useGetConversationMessages() {
-    const { enqueueSnackbar } = useSnackbar();
-    const handleResponse = useHandleResponse();
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader(),
-    };
+  const { enqueueSnackbar } = useSnackbar()
+  const handleResponse = useHandleResponse()
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  }
 
-    const getConversationMessages = id => {
-        return fetch(
-            `/api/v1/messages/conversations/query?userId=${id}`,
-            requestOptions
-        )
-            .then(handleResponse)
-            .catch(() =>
-                enqueueSnackbar('Could not load chats', {
-                    variant: 'error',
-                })
-            );
-    };
+  const getConversationMessages = (id) => {
+    return fetch(
+      `/api/v1/messages/conversations/query?userId=${id}`,
+      requestOptions
+    )
+      .then(handleResponse)
+      .catch(() =>
+        enqueueSnackbar('Could not load chats', {
+          variant: 'error'
+        })
+      )
+  }
 
-    return getConversationMessages;
+  return getConversationMessages
 }
 
 export function useSendConversationMessage() {
-    const { enqueueSnackbar } = useSnackbar();
-    const handleResponse = useHandleResponse();
+  const { enqueueSnackbar } = useSnackbar()
+  const handleResponse = useHandleResponse()
 
-    const sendConversationMessage = (id, body) => {
-        const requestOptions = {
-            method: 'POST',
-            headers: authHeader(),
-            body: JSON.stringify({ to: id, body: body }),
-        };
+  const sendConversationMessage = (id, body) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: authHeader(),
+      body: JSON.stringify({ to: id, body: body })
+    }
 
-        return fetch(
-            `/api/v1/messages/`,
-            requestOptions
-        )
-            .then(handleResponse)
-            .catch(err => {
-                console.log(err);
-                enqueueSnackbar('Could send message', {
-                    variant: 'error',
-                });
-            });
-    };
+    return fetch(`/api/v1/messages/`, requestOptions)
+      .then(handleResponse)
+      .catch((err) => {
+        console.log(err)
+        enqueueSnackbar('Could send message', {
+          variant: 'error'
+        })
+      })
+  }
 
-    return sendConversationMessage;
+  return sendConversationMessage
 }

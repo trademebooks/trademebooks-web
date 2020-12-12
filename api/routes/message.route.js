@@ -12,11 +12,19 @@ router.get('/global', isAuthenticated, messageController.getGlobalMessages)
 router.post('/global', isAuthenticated, messageController.postGlobalMessages)
 
 // Get conversations list
-router.get('/conversations', isAuthenticated, messageController.getConversations)
+router.get(
+  '/conversations',
+  isAuthenticated,
+  messageController.getConversations
+)
 
 // Get messages from conversation
 // based on to & from
-router.post('/conversations/query', isAuthenticated, messageController.getConversationsQuery)
+router.post(
+  '/conversations/query',
+  isAuthenticated,
+  messageController.getConversationsQuery
+)
 
 // Post private message
 router.post('/', messageController.postSendPrivateMessage)
