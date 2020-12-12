@@ -1,18 +1,17 @@
 version: 2.1
 
-workflows:
-  build:
-    jobs:
-      - build:
-          context: trademebooks-web
-          
+# workflows:
+#   build:
+#     jobs:
+#       - build:
+#           context: trademebooks-web
+
 jobs:
   build:
     docker:
       - image: cimg/node:12.18.3
     environment:
       NODE_ENV: ci
-      MONGO_URI: $MONGO_URI
     steps:
       - checkout
       - run: node --version
@@ -20,3 +19,9 @@ jobs:
       # - run: npm install --prefix client
       # - run: npm run test:client
       - run: npm run scripts:env
+      - run:
+          name: 'Print an env var stored in the Project'
+          command: echo ${MONGO_URI}
+      - run:
+          name: 'Print an env var stored in a Context'
+          command: echo ${CONTACT_US_EMAIL}
