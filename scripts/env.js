@@ -1,1 +1,3 @@
-console.log('env:', process.env.NODE_ENV)
+const config = require('../api/config')
+
+console.log('env:', config)
