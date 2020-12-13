@@ -87,7 +87,7 @@ const Conversations = (props) => {
       <Divider />
 
       {conversations && (
-        <React.Fragment>
+        <>
           {conversations.map((c) => (
             <ListItem
               className={classes.listItem}
@@ -107,11 +107,11 @@ const Conversations = (props) => {
               </ListItemAvatar>
               <ListItemText
                 primary={handleRecipient(c.recipientObj).first_name}
-                secondary={<React.Fragment>{c.lastMessage}</React.Fragment>}
+                secondary={<>{c.lastMessage}</>}
               />
             </ListItem>
           ))}
-        </React.Fragment>
+        </>
       )}
     </List>
   )

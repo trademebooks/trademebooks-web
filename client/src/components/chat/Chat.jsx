@@ -41,7 +41,7 @@ const Chat = () => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <Grid container>
         <Grid item md={4} className={classes.sidebar}>
           <Paper className={classes.paper} square elevation={5}>
@@ -67,7 +67,7 @@ const Chat = () => {
           <ChatBox scope={scope} user={user} />
         </Grid>
       </Grid>
-    </React.Fragment>
+    </>
   )
 }
 

@@ -57,7 +57,7 @@ const Users = (props) => {
   return (
     <List className={classes.list}>
       {users && (
-        <React.Fragment>
+        <>
           {users.map((u) => (
             <ListItem
               className={classes.listItem}
@@ -76,7 +76,7 @@ const Users = (props) => {
               <ListItemText primary={u.first_name} />
             </ListItem>
           ))}
-        </React.Fragment>
+        </>
       )}
     </List>
   )

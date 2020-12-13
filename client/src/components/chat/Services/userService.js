@@ -1,5 +1,5 @@
 import api from '../../../utils/api'
-import displayErrors from '../../../utils/displayErrors'
+// import displayErrors from '../../../utils/displayErrors'
 
 export const getUsers = async () => {
   try {

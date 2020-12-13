@@ -100,8 +100,6 @@ const ChatBox = (props) => {
       await reloadMessages()
       scrollToBottom()
     })()
-    // reloadMessages()
-    // scrollToBottom()
   }, [lastMessage, props.scope, props.conversationId])
 
   useEffect(() => {
@@ -181,7 +179,7 @@ const ChatBox = (props) => {
                         })
                       }}
                       primary={m.fromObj[0] && m.fromObj[0].first_name}
-                      secondary={<React.Fragment>{m.body}</React.Fragment>}
+                      secondary={<>{m.body}</>}
                     />
                   </ListItem>
                 ))}
