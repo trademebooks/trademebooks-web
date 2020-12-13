@@ -31,7 +31,7 @@ require('./config/passport')
 
 // socket.io - start
 const server = http.createServer(app)
-const io = require('socket.io')(server)
+const io = require('socket.io').listen(server)
 // Assign socket object to every request
 app.use(function (req, res, next) {
   req.io = io

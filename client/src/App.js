@@ -37,7 +37,7 @@ const App = () => {
             <Route component={Routes} />
           </Switch>
         </main>
-        <Footer />
+        {/* <Footer /> */}
         <Alert />
       </Router>
     </Provider>

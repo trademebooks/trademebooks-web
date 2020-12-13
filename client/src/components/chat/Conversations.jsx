@@ -12,6 +12,7 @@ import socketIOClient from 'socket.io-client'
 import { useGetConversations } from './Services/chatService'
 import { authenticationService } from './Services/authenticationService'
 import commonUtilites from './Utilities/common'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   subheader: {
@@ -32,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Conversations = (props) => {
+  const { auth: {
+    user
+  } } = props
+
+  const currentUserId = user
+
   const classes = useStyles()
   const [conversations, setConversations] = useState([])
   const [newConversation, setNewConversation] = useState(null)
@@ -42,8 +49,7 @@ const Conversations = (props) => {
   const handleRecipient = (recipients) => {
     for (let i = 0; i < recipients.length; i++) {
       if (
-        recipients[i].username !==
-        authenticationService.currentUserValue.username
+        recipients[i].username !== currentUserId.username
       ) {
         return recipients[i]
       }
@@ -112,4 +118,10 @@ const Conversations = (props) => {
   )
 }
 
-export default Conversations
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Conversations)

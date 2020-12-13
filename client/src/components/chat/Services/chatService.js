@@ -101,7 +101,6 @@ export function useSendConversationMessage() {
   const sendConversationMessage = (id, body) => {
     const requestOptions = {
       method: 'POST',
-      headers: authHeader(),
       body: JSON.stringify({ to: id, body: body })
     }
 

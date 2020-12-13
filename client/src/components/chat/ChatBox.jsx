@@ -21,6 +21,7 @@ import {
   useSendConversationMessage
 } from './Services/chatService'
 import { authenticationService } from './Services/authenticationService'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,9 +83,16 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ChatBox = (props) => {
-  const [currentUserId] = useState(
-    authenticationService.currentUserValue.userId
-  )
+  const {
+    auth: { user }
+  } = props
+
+  const currentUserId = user._id
+
+  // const [currentUserId] = useState(
+  //   authenticationService.currentUserValue.userId
+  // )
+
   const [newMessage, setNewMessage] = useState('')
   const [messages, setMessages] = useState([])
   const [lastMessage, setLastMessage] = useState(null)
@@ -125,8 +133,12 @@ const ChatBox = (props) => {
 
   useEffect(scrollToBottom, [messages])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log('newMessage', JSON.stringify({ newMessage }, null, '\t'))
+    console.log('props', JSON.stringify({ props }, null, '\t'))
+    e.preventDefault()
+
     if (props.scope === 'Global Chat') {
       sendGlobalMessage(newMessage).then(() => {
         setNewMessage('')
@@ -216,4 +228,10 @@ const ChatBox = (props) => {
   )
 }
 
-export default ChatBox
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatBox)

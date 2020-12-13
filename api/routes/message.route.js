@@ -20,7 +20,7 @@ router.get(
 
 // Get messages from conversation
 // based on to & from
-router.post(
+router.get(
   '/conversations/query',
   isAuthenticated,
   messageController.getConversationsQuery
