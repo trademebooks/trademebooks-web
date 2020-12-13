@@ -5,8 +5,6 @@ const Footer = () => {
   return (
     <div>
       <div style={{ alignSelf: 'flex-end' }}>
-        {/* style={{"height": "50px", "marginTop": "-50px"}} */}
-        {/* <div> */}
         <MDBFooter className="font-small pt-4 mt-4 teal">
           <MDBContainer fluid className="text-center text-md-left">
             <MDBRow>
