@@ -1,4 +1,4 @@
-import { toastr } from 'react-redux-toastr'
+// import { toastr } from 'react-redux-toastr'
 
 const redirect = (redirectUrl, delay = 1500) => {
   setTimeout(() => {

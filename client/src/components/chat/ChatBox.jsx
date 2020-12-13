@@ -15,12 +15,11 @@ import socketIOClient from 'socket.io-client'
 import classnames from 'classnames'
 import commonUtilites from './Utilities/common'
 import {
-  useGetGlobalMessages,
-  useSendGlobalMessage,
-  useGetConversationMessages,
-  useSendConversationMessage
+  getGlobalMessages,
+  sendGlobalMessage,
+  getConversationMessages,
+  sendConversationMessage
 } from './Services/chatService'
-import { authenticationService } from './Services/authenticationService'
 import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
@@ -89,25 +88,20 @@ const ChatBox = (props) => {
 
   const currentUserId = user._id
 
-  // const [currentUserId] = useState(
-  //   authenticationService.currentUserValue.userId
-  // )
-
   const [newMessage, setNewMessage] = useState('')
   const [messages, setMessages] = useState([])
   const [lastMessage, setLastMessage] = useState(null)
-
-  const getGlobalMessages = useGetGlobalMessages()
-  const sendGlobalMessage = useSendGlobalMessage()
-  const getConversationMessages = useGetConversationMessages()
-  const sendConversationMessage = useSendConversationMessage()
 
   let chatBottom = useRef(null)
   const classes = useStyles()
 
   useEffect(() => {
-    reloadMessages()
-    scrollToBottom()
+    ;(async () => {
+      await reloadMessages()
+      scrollToBottom()
+    })()
+    // reloadMessages()
+    // scrollToBottom()
   }, [lastMessage, props.scope, props.conversationId])
 
   useEffect(() => {
@@ -115,13 +109,14 @@ const ChatBox = (props) => {
     socket.on('messages', (data) => setLastMessage(data))
   }, [])
 
-  const reloadMessages = () => {
+  const reloadMessages = async () => {
     if (props.scope === 'Global Chat') {
-      getGlobalMessages().then((res) => {
-        setMessages(res)
-      })
+      const globalMessages = await getGlobalMessages()
+      setMessages(globalMessages)
     } else if (props.scope !== null && props.conversationId !== null) {
-      getConversationMessages(props.user._id).then((res) => setMessages(res))
+      const messages = await getConversationMessages(props.user._id)
+      console.log({ messages })
+      setMessages(messages)
     } else {
       setMessages([])
     }
@@ -136,17 +131,15 @@ const ChatBox = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log('newMessage', JSON.stringify({ newMessage }, null, '\t'))
-    console.log('props', JSON.stringify({ props }, null, '\t'))
+    console.log(JSON.stringify({ props }, null, '\t'))
     e.preventDefault()
 
     if (props.scope === 'Global Chat') {
-      sendGlobalMessage(newMessage).then(() => {
-        setNewMessage('')
-      })
+      await sendGlobalMessage(newMessage)
+      setNewMessage('')
     } else {
-      sendConversationMessage(props.user._id, newMessage).then((res) => {
-        setNewMessage('')
-      })
+      await sendConversationMessage(props.user._id, newMessage)
+      setNewMessage('')
     }
   }
 

@@ -1,118 +1,74 @@
-import useHandleResponse from '../Utilities/handle-response'
-import authHeader from '../Utilities/auth-header'
-import { useSnackbar } from 'notistack'
+import api from '../../../utils/api'
+import displayErrors from '../../../utils/displayErrors'
 
 // Receive global messages
-export function useGetGlobalMessages() {
-  const { enqueueSnackbar } = useSnackbar()
-  const handleResponse = useHandleResponse()
-  const requestOptions = {
-    method: 'GET'
-  }
+export const getGlobalMessages = async () => {
+  try {
+    const getGlobalMessagesResponse = (await api.get(`/messages/global`)).data
 
-  const getGlobalMessages = () => {
-    return fetch(`/api/v1/messages/global`, requestOptions)
-      .then(handleResponse)
-      .catch(() =>
-        enqueueSnackbar('Could not load Global Chat', {
-          variant: 'error'
-        })
-      )
-  }
+    console.log({ getGlobalMessagesResponse })
 
-  return getGlobalMessages
+    return getGlobalMessagesResponse
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 // Send a global message
-export function useSendGlobalMessage() {
-  const { enqueueSnackbar } = useSnackbar()
-  const handleResponse = useHandleResponse()
+export const sendGlobalMessage = async (body) => {
+  try {
+    const sendGlobalMessageResponse = (
+      await api.post('/messages/global', { body: body, global: true })
+    ).data
 
-  const sendGlobalMessage = (body) => {
-    const requestOptions = {
-      method: 'POST',
-      body: JSON.stringify({ body: body, global: true })
-    }
+    console.log({ sendGlobalMessageResponse })
 
-    return fetch(`/api/v1/messages/global`, requestOptions)
-      .then(handleResponse)
-      .catch((err) => {
-        console.log(err)
-        enqueueSnackbar('Could send message', {
-          variant: 'error'
-        })
-      })
+    return sendGlobalMessageResponse
+  } catch (err) {
+    console.log(err)
   }
-
-  return sendGlobalMessage
 }
 
 // Get list of users conversations
-export function useGetConversations() {
-  const { enqueueSnackbar } = useSnackbar()
-  const handleResponse = useHandleResponse()
-  const requestOptions = {
-    method: 'GET'
-  }
+export const getConversations = async () => {
+  try {
+    const getConversationsResponse = (await api.get(`/messages/conversations`))
+      .data
 
-  const getConversations = () => {
-    return fetch(`/api/v1/messages/conversations`, requestOptions)
-      .then(handleResponse)
-      .catch(() =>
-        enqueueSnackbar('Could not load chats', {
-          variant: 'error'
-        })
-      )
-  }
+    console.log({ getConversationsResponse })
 
-  return getConversations
+    return getConversationsResponse
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 // get conversation messages based on
 // to and from id's
-export function useGetConversationMessages() {
-  const { enqueueSnackbar } = useSnackbar()
-  const handleResponse = useHandleResponse()
-  const requestOptions = {
-    method: 'GET',
-    headers: authHeader()
-  }
+export const getConversationMessages = async (id) => {
+  try {
+    const getConversationMessagesResponse = (
+      await api.get(`/messages/conversations/query?userId=${id}`)
+    ).data
 
-  const getConversationMessages = (id) => {
-    return fetch(
-      `/api/v1/messages/conversations/query?userId=${id}`,
-      requestOptions
-    )
-      .then(handleResponse)
-      .catch(() =>
-        enqueueSnackbar('Could not load chats', {
-          variant: 'error'
-        })
-      )
-  }
+    console.log({ getConversationMessagesResponse })
 
-  return getConversationMessages
+    return getConversationMessagesResponse
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-export function useSendConversationMessage() {
-  const { enqueueSnackbar } = useSnackbar()
-  const handleResponse = useHandleResponse()
+export const sendConversationMessage = async (id, body) => {
+  try {
+    const sendConversationMessageResponse = (
+      await api.post('/messages', { to: id, body: body })
+    ).data
 
-  const sendConversationMessage = (id, body) => {
-    const requestOptions = {
-      method: 'POST',
-      body: JSON.stringify({ to: id, body: body })
-    }
+    console.log({ sendConversationMessageResponse })
 
-    return fetch(`/api/v1/messages/`, requestOptions)
-      .then(handleResponse)
-      .catch((err) => {
-        console.log(err)
-        enqueueSnackbar('Could send message', {
-          variant: 'error'
-        })
-      })
+    return sendConversationMessageResponse
+  } catch (err) {
+    console.log(err)
   }
-
-  return sendConversationMessage
 }

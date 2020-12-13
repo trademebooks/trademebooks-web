@@ -9,8 +9,7 @@ import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
-import { useGetConversations } from './Services/chatService'
-import { authenticationService } from './Services/authenticationService'
+import { getConversations } from './Services/chatService'
 import commonUtilites from './Utilities/common'
 import { connect } from 'react-redux'
 
@@ -33,24 +32,21 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Conversations = (props) => {
-  const { auth: {
-    user
-  } } = props
+  const {
+    auth: { user }
+  } = props
 
   const currentUserId = user
 
   const classes = useStyles()
   const [conversations, setConversations] = useState([])
   const [newConversation, setNewConversation] = useState(null)
-  const getConversations = useGetConversations()
 
   // Returns the recipient name that does not
   // belong to the current user.
   const handleRecipient = (recipients) => {
     for (let i = 0; i < recipients.length; i++) {
-      if (
-        recipients[i].username !== currentUserId.username
-      ) {
+      if (recipients[i].username !== currentUserId.username) {
         return recipients[i]
       }
     }
@@ -58,7 +54,10 @@ const Conversations = (props) => {
   }
 
   useEffect(() => {
-    getConversations().then((res) => setConversations(res))
+    ;(async () => {
+      const res = await getConversations()
+      setConversations(res)
+    })()
   }, [newConversation])
 
   useEffect(() => {

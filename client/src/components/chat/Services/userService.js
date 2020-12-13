@@ -1,24 +1,13 @@
-import useHandleResponse from '../Utilities/handle-response'
-import authHeader from '../Utilities/auth-header'
-import { useSnackbar } from 'notistack'
+import api from '../../../utils/api'
+import displayErrors from '../../../utils/displayErrors'
 
-export function useGetUsers() {
-  const { enqueueSnackbar } = useSnackbar()
-  const handleResponse = useHandleResponse()
-  const requestOptions = {
-    method: 'GET',
-    headers: authHeader()
+export const getUsers = async () => {
+  try {
+    const response = (await api.get('/utils/users')).data
+
+    console.log({ response })
+    return response
+  } catch (err) {
+    console.log(err)
   }
-
-  const getUsers = () => {
-    return fetch(`/api/v1/utils/users`, requestOptions)
-      .then(handleResponse)
-      .catch(() =>
-        enqueueSnackbar('Could not load Users', {
-          variant: 'error'
-        })
-      )
-  }
-
-  return getUsers
 }

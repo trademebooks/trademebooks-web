@@ -7,7 +7,7 @@ import Avatar from '@material-ui/core/Avatar'
 import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
-import { useGetUsers } from './Services/userService'
+import { getUsers } from './Services/userService'
 import commonUtilites from './Utilities/common'
 
 const useStyles = makeStyles((theme) => ({
@@ -35,10 +35,16 @@ const Users = (props) => {
   const classes = useStyles()
   const [users, setUsers] = useState([])
   const [newUser, setNewUser] = useState(null)
-  const getUsers = useGetUsers()
 
   useEffect(() => {
-    getUsers().then((res) => setUsers(res))
+    async function init() {
+      const users = await getUsers()
+
+      console.log({ users })
+      setUsers(users)
+    }
+
+    init()
   }, [newUser])
 
   useEffect(() => {
