@@ -19,7 +19,7 @@
     "test:mac": "NODE_ENV=testing ./client/node_modules/.bin/jest --config=api/config/jest.config.js --maxWorkers=1",
     "test:windows": "set NODE_ENV=testing && ./client/node_modules/.bin/jest --config=api/config/jest.config.js --maxWorkers=1",
     "db:seed": "node ./api/tests/seeds",
-    "db:seed:prod": "NODE_ENV=production node ./api/seeds",
+    "db:seed:prod": "NODE_ENV=production node ./api/tests/seeds",
     "prettier:write": "npx prettier --write .",
     "prettier:check": "npx prettier --check .",
     "lint:check": "eslint ./",
