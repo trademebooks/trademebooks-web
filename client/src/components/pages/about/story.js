@@ -6,7 +6,9 @@ const Story = () => {
   return (
     <div className="centerTexts" style={{ marginTop: '150px' }}>
       <div>
-        <strong><h3>WHY DID WE CREATE TMB - OUR STORY</h3></strong>
+        <strong>
+          <h3>WHY DID WE CREATE TMB - OUR STORY</h3>
+        </strong>
       </div>
       <div>
         <p>The short story here...</p>
