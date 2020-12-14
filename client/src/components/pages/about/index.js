@@ -51,15 +51,15 @@ const About = () => {
         <h1>About TMB</h1>
       </div>
       {/* <div className="gray"> */}
-        <div className="centerTexts">
-          <h3 style={{marginTop: "5%", marginLeft: "2%"}}>WHO WE ARE</h3>
-          <div>
-            <MDBContainer>
-              <MDBRow>{blocks}</MDBRow>
-            </MDBContainer>
-          </div>
+      <div className="centerTexts">
+        <h3 style={{ marginTop: '5%', marginLeft: '2%' }}>WHO WE ARE</h3>
+        <div>
+          <MDBContainer>
+            <MDBRow>{blocks}</MDBRow>
+          </MDBContainer>
         </div>
-        <Story />
+      </div>
+      <Story />
       {/* </div> */}
     </div>
   )
