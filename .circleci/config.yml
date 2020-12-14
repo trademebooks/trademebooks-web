@@ -1,0 +1,22 @@
+version: 2.1
+
+# workflows:
+#   build:
+#     jobs:
+#       - build:
+#           context: trademebooks-web
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:12.18.3
+    environment:
+      NODE_ENV: ci
+    steps:
+      - checkout
+      - run: node --version
+      - run: npm install
+      - run: npm install --prefix client
+      - run: npm run test:ci:client
+      # - run: npm run test:ci:api
+      # - run: npm run scripts:env

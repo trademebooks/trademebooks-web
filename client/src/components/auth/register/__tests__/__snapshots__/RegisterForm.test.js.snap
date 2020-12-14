@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Register should match the snapshot 1`] = `
+<div
+  className="container mt-4 register-form"
+  data-test="container"
+>
+  <div
+    className="row justify-content-center"
+    data-test="row"
+  >
+    <div
+      className="col-md-6"
+      data-test="col"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <p
+          className="h2 text-center mb-4"
+        >
+          Register
+        </p>
+        <div
+          className="grey-text"
+        >
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-user prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              name="first_name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              First Name
+            </label>
+          </div>
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-user prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              name="last_name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              Last Name
+            </label>
+          </div>
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-envelope prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              type="email"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              Your Email
+            </label>
+          </div>
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-lock prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              type="password"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              Your Password
+            </label>
+          </div>
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-lock prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              name="password_confirmation"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              type="password"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              Confirm Your Password
+            </label>
+          </div>
+          <div
+            className="md-form form-group"
+          >
+            <i
+              className="fa fa-user-circle prefix"
+              data-test="fa"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+            <input
+              aria-disabled={false}
+              className="form-control"
+              data-test="input"
+              disabled={false}
+              name="username"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              aria-labelledby=""
+              className=""
+              data-error=""
+              data-success=""
+              id=""
+              onClick={[Function]}
+            >
+              Desired Username
+            </label>
+          </div>
+        </div>
+        <div
+          className="text-center"
+        >
+          <button
+            className="btn-default btn Ripple-parent w-100"
+            data-test="button"
+            onMouseUp={[Function]}
+            onTouchStart={[Function]}
+            type="submit"
+          >
+            Register
+            <div
+              className="Ripple "
+              data-test="waves"
+              style={
+                Object {
+                  "height": "0px",
+                  "left": "0px",
+                  "top": "0px",
+                  "width": "0px",
+                }
+              }
+            />
+          </button>
+        </div>
+        <p
+          className="h2 text-center mt-5"
+        >
+          Register With Social
+        </p>
+        <div
+          className="row"
+          data-test="row"
+        >
+          <div
+            className="col-md-12"
+            data-test="col"
+          >
+            <div
+              className="text-center my-2"
+            >
+              <a
+                className="btn-danger btn Ripple-parent btn-gplus btn-lg"
+                data-test="button"
+                href="/api/v1/passport/auth/google"
+                onMouseUp={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+              >
+                <i
+                  className="fab fa-google"
+                  data-test="fa"
+                />
+                <div
+                  className="Ripple Ripple-outline "
+                  data-test="waves"
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "0px",
+                      "top": "0px",
+                      "width": "0px",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="btn-primary btn Ripple-parent btn-fb btn-lg"
+                data-test="button"
+                href="/api/v1/passport/auth/facebook"
+                onMouseUp={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+              >
+                <i
+                  className="fab fa-facebook-f"
+                  data-test="fa"
+                />
+                <div
+                  className="Ripple Ripple-outline "
+                  data-test="waves"
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "0px",
+                      "top": "0px",
+                      "width": "0px",
+                    }
+                  }
+                />
+              </a>
+              <a
+                className="btn-info btn Ripple-parent btn-tw btn-lg"
+                data-test="button"
+                href="/api/v1/passport/auth/twitter"
+                onMouseUp={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+              >
+                <i
+                  className="fab fa-twitter"
+                  data-test="fa"
+                />
+                <div
+                  className="Ripple Ripple-outline "
+                  data-test="waves"
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "0px",
+                      "top": "0px",
+                      "width": "0px",
+                    }
+                  }
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

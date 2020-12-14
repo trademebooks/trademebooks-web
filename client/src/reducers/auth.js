@@ -1,10 +1,4 @@
-import {
-  REGISTER_SUCCESS,
-  USER_LOADED,
-  AUTH_ERROR,
-  LOGIN_SUCCESS,
-  LOGOUT
-} from '../actions/types'
+import { USER_LOADED, AUTH_ERROR } from '../actions/types'
 
 const initialState = {
   isAuthenticated: null,
@@ -23,25 +17,9 @@ export default function (state = initialState, action) {
         loading: false,
         user: payload.data
       }
-    case REGISTER_SUCCESS:
-      return {
-        ...state,
-        ...payload,
-        isAuthenticated: true,
-        loading: false
-      }
-    case LOGIN_SUCCESS:
-      return {
-        ...state,
-        ...payload,
-        isAuthenticated: true,
-        loading: false
-      }
     case AUTH_ERROR:
-    case LOGOUT:
       return {
         ...state,
-        token: null,
         isAuthenticated: false,
         loading: false,
         user: null

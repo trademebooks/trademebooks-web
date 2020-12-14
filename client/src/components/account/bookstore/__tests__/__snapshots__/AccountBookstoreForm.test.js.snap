@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: AccountBookstoreForm should match the snapshot 1`] = `
+Array [
+  <h3
+    className="mb-4 font-weight-bold"
+  >
+    Bookstore Settings
+  </h3>,
+  <div
+    className="mt-5"
+  >
+    <h4>
+      Change Username
+    </h4>
+    <div
+      className="md-form form-group"
+    >
+      <i
+        className="fa fa-user prefix"
+        data-test="fa"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <input
+        aria-disabled={false}
+        className="form-control"
+        data-test="input"
+        disabled={false}
+        name="username"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onInput={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+      <label
+        aria-labelledby=""
+        className=""
+        data-error=""
+        data-success=""
+        id=""
+        onClick={[Function]}
+      >
+        Username
+      </label>
+    </div>
+    <button
+      className="btn-default btn Ripple-parent"
+      data-test="button"
+      onClick={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      Save Changes
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+    </button>
+  </div>,
+  <div
+    className="mt-5"
+  >
+    <h4>
+      Location
+    </h4>
+    <div
+      className="md-form form-group"
+    >
+      <i
+        className="fa fa-map prefix"
+        data-test="fa"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <input
+        aria-disabled={false}
+        className="form-control validate"
+        data-test="input"
+        disabled={false}
+        minLength="6"
+        name="location"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onInput={[Function]}
+        type="text"
+        value=""
+      />
+      <label
+        aria-labelledby=""
+        className=""
+        data-error=""
+        data-success=""
+        id=""
+        onClick={[Function]}
+      >
+        Current Location
+      </label>
+    </div>
+  </div>,
+  <div>
+    <h4>
+      School
+    </h4>
+    <div
+      className="md-form form-group"
+    >
+      <i
+        className="fa fa-school prefix"
+        data-test="fa"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <input
+        aria-disabled={false}
+        className="form-control validate"
+        data-test="input"
+        disabled={false}
+        minLength="6"
+        name="school"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onInput={[Function]}
+        type="text"
+        value=""
+      />
+      <label
+        aria-labelledby=""
+        className=""
+        data-error=""
+        data-success=""
+        id=""
+        onClick={[Function]}
+      >
+        Current School
+      </label>
+    </div>
+  </div>,
+  <div>
+    <button
+      className="btn-default btn Ripple-parent"
+      data-test="button"
+      onClick={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      Save Changes
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+    </button>
+  </div>,
+]
+`;

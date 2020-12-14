@@ -18,7 +18,20 @@ import delete_icon from './icons/delete_icon.png'
 
 import { deleteBookById } from '../../../actions/bookstore'
 
+// import socket from '../../../utils/socket'
+
 const Book = ({ book, editFlag, deleteBookById }) => {
+  const chatWithUser = (book) => {
+    // socket.emit('join_private_room', {
+    //   room: undefined,
+    //   user: {
+    //     _id: book.userId
+    //   }
+    // })
+
+    window.location.href = '/chat'
+  }
+
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
     year: 'numeric',
@@ -39,20 +52,13 @@ const Book = ({ book, editFlag, deleteBookById }) => {
   }
 
   const conditions = {
-    POOR: require('../../../img/condition_icons/Poor_condition.png'),
-    FAIR: require('../../../img/condition_icons/Fair_condition.png'),
-    GOOD: require('../../../img/condition_icons/Good_condition.png'),
-    VERY_GOOD: require('../../../img/condition_icons/Verygood_condition.png'),
-    LIKE_NEW: require('../../../img/condition_icons/Likenew_condition.png')
+    POOR: require(`../images/conditions/Poor_condition.png`),
+    FAIR: require(`../images/conditions/Fair_condition.png`),
+    GOOD: require(`../images/conditions/Good_condition.png`),
+    VERY_GOOD: require(`../images/conditions/Verygood_condition.png`),
+    LIKE_NEW: require(`../images/conditions/Likenew_condition.png`)
   }
 
-  console.log()
-
-  // console.log(
-  //   conditions.find(condition => {
-  //     return condition.type === [book.condition]
-  //   })
-  // )
   return (
     <div className="single-card mt-3">
       <div className="single-card-container">
@@ -145,7 +151,13 @@ const Book = ({ book, editFlag, deleteBookById }) => {
             ) : (
               <MDBTooltip domElement tag="span" placement="left">
                 <span>
-                  <a href={`/messages/${book.username}`}>
+                  <a
+                    href="!#"
+                    onClick={(event) => {
+                      event.preventDefault()
+                      chatWithUser(book)
+                    }}
+                  >
                     <img src={Message_icon} alt="test" className="chat-image" />
                   </a>
                 </span>

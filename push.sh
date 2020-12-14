@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # List of cool quotes: 32 of them. The last one is especially good.
 new_quote=(
@@ -39,9 +39,7 @@ size=${#new_quote[@]}
 index=$(($RANDOM % $size))
 
 git pull origin master
-#git pull heroku master
 
 git add -A
 git commit -m "${new_quote[$index]}"
 git push
-#git push heroku master # https://git.heroku.com/trademebooks.git

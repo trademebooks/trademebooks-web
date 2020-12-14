@@ -1,5 +1,5 @@
 const bookRepository = require('../repositories/book.repository')
-const ApiException = require('../../utils/ApiException')
+const ApiGeneralError = require('../../utils/ApiGeneralError')
 const mongoose = require('mongoose')
 
 // Retrieve - all books
@@ -19,27 +19,21 @@ const getAllByUserId = async (userId) => {
 const getBookById = async (bookId) => {
   if (!mongoose.Types.ObjectId.isValid(bookId)) {
     // the id is invalid
-    throw new ApiException(
-      (message = `the book with that id: ${bookId} does not exist.`),
-      (status = 'failed'),
-      (code = 401),
-      (data = null),
-      (errors = [`the book with that id: ${bookId} does not exist.`])
-    )
+    throw new ApiGeneralError({
+      code: 401,
+      message: `the book with that id: ${bookId} does not exist.`,
+      errors: [`the book with that id: ${bookId} does not exist.`]
+    })
   }
 
-  let book = await bookRepository.getById(bookId)
-
-  // console.log('book', book);
+  const book = await bookRepository.getById(bookId)
 
   if (!book) {
-    throw new ApiException(
-      (message = `the book with that id: ${bookId} does not exist.`),
-      (status = 'failed'),
-      (code = 401),
-      (data = null),
-      (errors = [`the book with that id: ${bookId} does not exist.`])
-    )
+    throw new ApiGeneralError({
+      code: 401,
+      message: `the book with that id: ${bookId} does not exist.`,
+      errors: [`the book with that id: ${bookId} does not exist.`]
+    })
   }
 
   return book

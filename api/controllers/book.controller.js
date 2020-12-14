@@ -1,124 +1,80 @@
-const globalResponseDTO = require('../responses/globalResponseDTO')
-const createBookRequestDTO = require('../requests/createBookRequestDTO')
+const catchException = require('../utils/catchExceptions')
+const globalResponseDto = require('../dtos/responses/globalResponseDto')
+const createBookRequestDto = require('../dtos/requests/createBookRequestDto')
+const bookDto = require('../dtos/utils/bookDto')
+const booksResponseDto = require('../dtos/responses/booksResponseDto')
 const bookService = require('../domain/services/book.service')
-const bookResponseDTO = require('../responses/bookResponseDTO')
 const createBookValidator = require('../validators/createBookValidator')
 
-const catchException = require('../utils/catchExceptions')
-
-/**
- * Description:
- */
-const getAllbooks = catchException(async (req, res, next) => {
-  // 5. business logic
+const getAllbooks = catchException(async (req, res) => {
   const books = await bookService.getAllBooks(
     req.query.q,
     req.query.limit || 10
   )
 
-  // 7. response
-  return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      (message = `List of all books in the database.`),
-      (data = books),
-      (errors = null)
-    )
+  res.status(200).json(
+    globalResponseDto({
+      message: `List of all books in the database.`,
+      data: booksResponseDto(books)
+    })
   )
 })
 
-/**
- * Description:
- */
-const getBookById = catchException(async (req, res, next) => {
-  // 5. business logic
-  let book = await bookService.getBookById(req.params.id)
+const getBookById = catchException(async (req, res) => {
+  const { id } = req.params
 
-  // 7. response
-  return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      (message = `Book with the specified id.`),
-      (data = book),
-      (errors = null)
-    )
+  const book = await bookService.getBookById(id)
+
+  res.status(200).json(
+    globalResponseDto({
+      message: 'Book with the specified id.',
+      data: bookDto(book)
+    })
   )
 })
 
-/**
- * Description:
- */
-const createABook = catchException(async (req, res, next) => {
-  // 1. POST /api/v1/books
-
-  // 2. middleware: auth
-
-  // 3. request
-  const createBookRequest = createBookRequestDTO({
-    userId: req.session.user._id,
+const createABook = catchException(async (req, res) => {
+  const createBookRequest = createBookRequestDto({
+    userId: req.user._id,
     ...req.body
   })
 
-  // 4. validation
-  const createBookValidation = createBookValidator(createBookRequest)
+  createBookValidator(createBookRequest)
 
-  // 5. business logic
-  const book = await bookService.createBook({
-    userId: req.session.user._id,
-    ...req.body
-  })
+  const book = await bookService.createBook(createBookRequest)
 
-  // 7. response
-  return res
-    .status(200)
-    .json(
-      globalResponseDTO(
-        (status = 'success'),
-        (code = 200),
-        (message = `Book has successfully been added to the database.`),
-        (data = book),
-        (errors = null)
-      )
-    )
-})
-
-/**
- * Description:
- */
-const updateABook = catchException(async (req, res, next) => {
-  // 5. business logic
-  const book = await bookService.updateBookById(req.params.id, req.body)
-
-  // 7. response
-  return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      (message = `The book has successfully been updated.`),
-      (data = book),
-      (errors = null)
-    )
+  res.status(200).json(
+    globalResponseDto({
+      message: `Book has successfully been added to the database.`,
+      data: bookDto(book)
+    })
   )
 })
 
-/**
- * Deletes a book in the database by the specified book's id
- */
-const deleteABook = catchException(async (req, res, next) => {
-  // 5. business logic
-  const book = await bookService.deleteBookById(req.params.id)
+const updateABook = catchException(async (req, res) => {
+  const { id } = req.params
+  const { body } = req
 
-  // 7. response
-  return res.json(
-    globalResponseDTO(
-      (status = 'success'),
-      (code = 200),
-      (message = `The book with the id: ${book.id} was successfully deleted.`),
-      (data = null),
-      (errors = null)
-    )
+  const book = await bookService.updateBookById(id, body)
+
+  res.status(200).json(
+    globalResponseDto({
+      message: `The book has successfully been updated.`,
+      data: bookDto(book)
+    })
+  )
+})
+
+const deleteABook = catchException(async (req, res) => {
+  const { id } = req.params
+
+  const book = await bookService.deleteBookById(id)
+
+  res.status(200).json(
+    globalResponseDto({
+      message: `The book with the id: ${id} was successfully deleted.`,
+      data: bookDto(book)
+    })
   )
 })
 

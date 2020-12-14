@@ -6,9 +6,10 @@ import debounce from 'lodash/debounce'
 
 import './SearchBook.scss'
 
+import config from '../../../../config'
+
 const SearchBooks = ({ addBook }) => {
   const [value, setValue] = useState(null)
-  // const [inputValue, setInputValue] = useState('')
 
   const [open, setOpen] = useState(false)
   const [options, setOptions] = useState([])
@@ -16,7 +17,7 @@ const SearchBooks = ({ addBook }) => {
 
   const handleInputChange = debounce(async (e, inputValue) => {
     if (inputValue.length > 2) {
-      const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCpl497dKbKN-piJBJJ5zOf3sCPk7CKuJg&q=${inputValue}`
+      const url = `https://www.googleapis.com/books/v1/volumes?key=${config.GOOGLE.API_KEY}&q=${inputValue}`
       const response = await fetch(url)
       const data = await response.json()
       if (data && data.items) {
@@ -47,10 +48,8 @@ const SearchBooks = ({ addBook }) => {
           }
           return bookPrettified
         })
-        console.log('inputValue:', inputValue)
-        console.log(books.map((book) => book.title).join('\n'))
+
         setOptions(books)
-        console.log({ options })
       }
     } else {
       setOptions([])

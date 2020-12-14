@@ -1,29 +1,18 @@
 import api from '../utils/api'
+import displayErrors from '../utils/displayErrors'
 
-import { toastr } from 'react-redux-toastr'
-
-export const sendPasswordResetEmail = async (data) => {
+export const sendPasswordResetEmail = (formData) => async (dispatch) => {
   try {
-    const response = await api.post(`/auth/password/send-email`, data)
-    const responseJson = response.data.data
-
-    toastr.success(`A password reset email has been sent.`)
-
-    return responseJson
+    return (await api.post(`/auth/password/send-email`, formData)).data.data
   } catch (error) {
-    console.log({ error })
+    displayErrors(error)
   }
 }
 
-export const resetPassword = async (data) => {
+export const resetPassword = (formData) => async (dispatch) => {
   try {
-    const response = await api.put(`/auth/password/reset`, data)
-    const responseJson = response.data.data
-
-    toastr.success('Your password has been successfully reset.')
-
-    return responseJson
+    return (await api.post(`/auth/password/reset`, formData)).data.data
   } catch (error) {
-    console.log({ error })
+    displayErrors(error)
   }
 }

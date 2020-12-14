@@ -1,14 +1,13 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Alert from '../layout/Alert'
 import PrivateRoute from '../routing/PrivateRoute'
-import NotFound from '../pages/NotFound'
+import NotFound from '../pages/notFound'
 
 import Register from '../auth/register'
 import Login from '../auth/login'
-import ForgotPassword from '../auth/forgotPassword'
-import ResetPassword from '../auth/forgotPassword/resetPassword'
+import ResetPassword from '../password/resetPassword'
+import ForgotPassword from '../password/sendEmail'
 
 import About from '../pages/about'
 import Contact from '../pages/contact'
@@ -17,25 +16,23 @@ import Home from '../pages/home'
 import Account from '../account'
 import BookAdd from '../books/add'
 import BookEdit from '../books/edit'
-import Bookstore from '../bookstore'
-import MyBookstore from '../bookstore/myBookstore'
-import ChatApp from '../chat'
+import PublicBookstore from '../bookstore/publicBookstore'
+import AuthBookstore from '../bookstore/authBookstore'
+import ChatShell from '../chat/Chat'
 
 const Routes = () => {
   return (
     <>
-      <div className="container">
-        <Alert />
-      </div>
       <Switch>
         {/* Public Routes */}
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+
         <Route exact path="/forgot-password" component={ForgotPassword} />
         <Route exact path="/reset-password/:token" component={ResetPassword} />
 
         <Route exact path="/buy-books" component={Home} />
-        <Route exact path="/bookstore/:username" component={Bookstore} />
+        <Route exact path="/bookstore/:username" component={PublicBookstore} />
 
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
@@ -44,8 +41,8 @@ const Routes = () => {
         <PrivateRoute exact path="/add-book" component={BookAdd} />
         <PrivateRoute exact path="/books/edit/:bookId" component={BookEdit} />
         <PrivateRoute exact path="/account" component={Account} />
-        <PrivateRoute exact path="/my-bookstore" component={MyBookstore} />
-        <PrivateRoute exact path="/chat/:id?" component={ChatApp} />
+        <PrivateRoute exact path="/my-bookstore" component={AuthBookstore} />
+        <PrivateRoute exact path="/chat/:userId?" component={ChatShell} />
 
         <Route component={NotFound} />
       </Switch>

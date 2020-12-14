@@ -1,5 +1,5 @@
 import Container from './Container'
 
-const LoginPage = Container
+const LoginForm = Container
 
-export default LoginPage
+export default LoginForm

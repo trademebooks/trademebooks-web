@@ -1,15 +1,18 @@
-const BookstoreModel = require('../models/bookstore.model')
-const UserModel = require('../models/user.model')
+const Bookstore = require('../models/bookstore.model')
+const User = require('../models/user.model')
 
 const getByUsername = async (username) => {
-  const user = await UserModel.findOne({ username }).exec()
-  const bookstore = await BookstoreModel.findOne({ userId: user.id }).exec()
+  const user = await User.findOne({ username })
+
+  const bookstore = await Bookstore.findOne({ userId: user._id })
+
   return bookstore
 }
 
 const createByUserId = async (userId) => {
-  const userBookstoreData = new BookstoreModel({ userId })
+  const userBookstoreData = new Bookstore({ userId })
   const newBookstore = await userBookstoreData.save({ userId })
+
   return newBookstore
 }
 

@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: AccountUserForm should match the snapshot 1`] = `
+Array [
+  <h3
+    className="mb-4 font-weight-bold"
+  >
+    User Settings
+  </h3>,
+  <div
+    className="mt-5"
+  >
+    <h4>
+      Change Name
+    </h4>
+    <div
+      className="md-form form-group"
+    >
+      <i
+        className="fa fa-user prefix"
+        data-test="fa"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <input
+        aria-disabled={false}
+        className="form-control"
+        data-test="input"
+        disabled={false}
+        name="first_name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onInput={[Function]}
+        required={true}
+        type="text"
+        value="john"
+      />
+      <label
+        aria-labelledby=""
+        className="active"
+        data-error=""
+        data-success=""
+        id=""
+        onClick={[Function]}
+      >
+        First Name
+      </label>
+    </div>
+    <div
+      className="md-form form-group"
+    >
+      <i
+        className="fa fa-user prefix"
+        data-test="fa"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <input
+        aria-disabled={false}
+        className="form-control"
+        data-test="input"
+        disabled={false}
+        name="last_name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onInput={[Function]}
+        required={true}
+        type="text"
+        value="doe"
+      />
+      <label
+        aria-labelledby=""
+        className="active"
+        data-error=""
+        data-success=""
+        id=""
+        onClick={[Function]}
+      >
+        Last Name
+      </label>
+    </div>
+    <button
+      className="btn-default btn Ripple-parent"
+      data-test="button"
+      onClick={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      Save Changes
+      <div
+        className="Ripple "
+        data-test="waves"
+        style={
+          Object {
+            "height": "0px",
+            "left": "0px",
+            "top": "0px",
+            "width": "0px",
+          }
+        }
+      />
+    </button>
+  </div>,
+]
+`;
