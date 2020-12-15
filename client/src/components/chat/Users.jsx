@@ -10,6 +10,8 @@ import socketIOClient from 'socket.io-client'
 import { getUsers } from './Services/userService'
 import commonUtilites from './Utilities/common'
 
+import config from '../../config'
+
 const useStyles = makeStyles((theme) => ({
   subheader: {
     display: 'flex',
@@ -48,7 +50,7 @@ const Users = (props) => {
   }, [newUser])
 
   useEffect(() => {
-    const socket = socketIOClient(process.env.REACT_APP_API_URL)
+    const socket = socketIOClient(config.SOCKET_URL)
     socket.on('users', (data) => {
       setNewUser(data)
     })

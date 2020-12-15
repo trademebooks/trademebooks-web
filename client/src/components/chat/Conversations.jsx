@@ -13,6 +13,8 @@ import { getConversations } from './Services/chatService'
 import commonUtilites from './Utilities/common'
 import { connect } from 'react-redux'
 
+import config from '../../config'
+
 const useStyles = makeStyles((theme) => ({
   subheader: {
     display: 'flex',
@@ -61,7 +63,7 @@ const Conversations = (props) => {
   }, [newConversation])
 
   useEffect(() => {
-    let socket = socketIOClient(process.env.REACT_APP_API_URL)
+    let socket = socketIOClient(config.SOCKET_URL)
     socket.on('messages', (data) => setNewConversation(data))
 
     return () => {

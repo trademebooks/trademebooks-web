@@ -22,6 +22,7 @@ import {
 } from './Services/chatService'
 import { connect } from 'react-redux'
 import { FaBars } from 'react-icons/fa'
+import config from '../../config'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -105,7 +106,7 @@ const ChatBox = (props) => {
   }, [lastMessage, props.scope, props.conversationId])
 
   useEffect(() => {
-    const socket = socketIOClient(process.env.REACT_APP_API_URL)
+    const socket = socketIOClient(config.SOCKET_URL)
     socket.on('messages', (data) => setLastMessage(data))
   }, [])
 
