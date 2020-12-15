@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -14,6 +15,7 @@ import commonUtilites from './Utilities/common'
 import { connect } from 'react-redux'
 
 import config from '../../config'
+import { MDBBadge } from 'mdbreact'
 
 const useStyles = makeStyles((theme) => ({
   subheader: {
@@ -109,7 +111,14 @@ const Conversations = (props) => {
               </ListItemAvatar>
               <ListItemText
                 primary={handleRecipient(c.recipientObj).first_name}
-                secondary={<>{c.lastMessage}</>}
+                secondary={
+                  <>
+                    {c.lastMessage}{' '}
+                    <MDBBadge color="indigo" className="ml-1">
+                      4
+                    </MDBBadge>
+                  </>
+                }
               />
             </ListItem>
           ))}

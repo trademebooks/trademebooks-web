@@ -12,7 +12,8 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
   MDBContainer,
-  MDBIcon
+  MDBIcon,
+  MDBBadge
 } from 'mdbreact'
 import logo from './logo.png'
 
@@ -66,12 +67,13 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/chat">
-                <MDBIcon icon="envelope" /> <span>Messages</span>
+                <MDBIcon icon="envelope" />
+                <MDBBadge color="danger" className="ml-1">4</MDBBadge>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/account">
-                <MDBIcon icon="user" /> <span>Account</span>
+                <MDBIcon icon="user" />
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
