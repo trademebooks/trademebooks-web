@@ -31,15 +31,10 @@ const About = () => {
       <MDBCol md="4">
         <div key={i}>
           <strong>
-            <p>{key}</p>
+            <p style={{ fontSize: '20px' }}>{key}</p>
           </strong>
-          <img
-            src={require(`${imagePaths[i]}`)}
-            width="200"
-            height="200"
-            alt="about us"
-          />
-          <p style={{ width: '200px' }}>{names[key]}</p>
+          <img src={require(`${imagePaths[i]}`)} width="200" height="200" />
+          <p style={{ width: '200px', color: '#898989' }}>{names[key]}</p>
         </div>
       </MDBCol>
     )
@@ -47,20 +42,24 @@ const About = () => {
 
   return (
     <div>
-      <div className="header-container text-center">
-        <h1>About TMB</h1>
-      </div>
-      {/* <div className="gray"> */}
-      <div className="centerTexts">
-        <h3 style={{ marginTop: '5%', marginLeft: '2%' }}>WHO WE ARE</h3>
+      <strong>
+        <h1 className="justify-content-center" style={{ fontSize: '28px' }}>
+          About TMB
+        </h1>
+      </strong>
+      <div className="gray">
+        {/* <div className="centerTexts"> */}
+        <strong>
+          <h3>WHO WE ARE</h3>
+        </strong>
         <div>
           <MDBContainer>
-            <MDBRow>{blocks}</MDBRow>
+            <MDBRow className="justify-content-centre">{blocks}</MDBRow>
           </MDBContainer>
         </div>
+        {/* </div> */}
+        <Story />
       </div>
-      <Story />
-      {/* </div> */}
     </div>
   )
 }
