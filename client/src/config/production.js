@@ -2,7 +2,7 @@ const config = {
   GOOGLE: {
     API_KEY: 'AIzaSyCpl497dKbKN-piJBJJ5zOf3sCPk7CKuJg'
   },
-  socketURL: 'https://trademebooks.herokuapp.com'
+  SOCKET_URL: 'https://www.trademebooks.com'
 }
 
 export default config
