@@ -21,10 +21,11 @@ import {
   sendConversationMessage
 } from './Services/chatService'
 import { connect } from 'react-redux'
+import { FaBars } from 'react-icons/fa'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100%'
+    height: 'calc(100vh - 70px)'
   },
   headerRow: {
     maxHeight: 60,
@@ -83,7 +84,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ChatBox = (props) => {
   const {
-    auth: { user }
+    auth: { user },
+    handleToggleSidebar
   } = props
 
   const currentUserId = user._id
@@ -145,6 +147,13 @@ const ChatBox = (props) => {
     <Grid container className={classes.root}>
       <Grid item xs={12} className={classes.headerRow}>
         <Paper className={classes.paper} square elevation={2}>
+          <span
+            className="btn-toggle"
+            onClick={() => handleToggleSidebar(true)}
+          >
+            <FaBars />
+          </span>
+          &nbsp;
           <Typography color="inherit" variant="h6">
             {props.scope}
           </Typography>

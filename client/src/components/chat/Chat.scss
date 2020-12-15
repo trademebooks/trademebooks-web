@@ -1,0 +1,32 @@
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+
+.chat-app {
+  display: flex;
+
+  .pro-sidebar-inner {
+    background-color: #fff;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+
+  .btn-toggle {
+    cursor: pointer;
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    overflow-x: hidden;
+
+    .btn-toggle {
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .pro-sidebar.md {
+      width: 400px;
+    }
+  }
+}
