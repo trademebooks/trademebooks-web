@@ -6,6 +6,14 @@ const ConversationSchema = new Schema({
   lastMessage: {
     type: String
   },
+  lastMessageIsRead: {
+    type: Boolean,
+    default: false
+  },
+  lastMessageSenderId: {
+    type: Schema.Types.ObjectId,
+    ref: 'user'
+  },
   date: {
     type: String,
     default: Date.now

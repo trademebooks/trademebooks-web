@@ -6,11 +6,11 @@ const MessageSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'conversations'
   },
-  to: {
+  from: {
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  from: {
+  to: {
     type: Schema.Types.ObjectId,
     ref: 'users'
   },

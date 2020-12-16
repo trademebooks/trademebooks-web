@@ -1,6 +1,5 @@
 const catchException = require('../utils/catchExceptions')
 const globalResponseDto = require('../dtos/responses/globalResponseDto')
-const messageService = require('../domain/services/message.service')
 
 const Message = require('../domain/models/chat/message.model')
 const Conversation = require('../domain/models/chat/conversation.model')
@@ -78,6 +77,7 @@ const getConversations = catchException(async (req, res) => {
       'recipientObj.__v': 0,
       'recipientObj.date': 0
     })
+    .sort({ date: 'desc' })
     .exec((err, conversations) => {
       if (err) {
         console.log(err)
@@ -139,7 +139,7 @@ const getConversationsQuery = catchException(async (req, res) => {
     })
 })
 
-// Post private message
+// Post - send private message
 const postSendPrivateMessage = catchException(async (req, res) => {
   let from = mongoose.Types.ObjectId(req.user.id)
   let to = mongoose.Types.ObjectId(req.body.to)
@@ -153,6 +153,8 @@ const postSendPrivateMessage = catchException(async (req, res) => {
     {
       recipients: [req.user.id, req.body.to],
       lastMessage: req.body.body,
+      lastMessageIsRead: false,
+      lastMessageSenderId: from,
       date: Date.now()
     },
     { upsert: true, new: true, setDefaultsOnInsert: true },
@@ -193,10 +195,18 @@ const postSendPrivateMessage = catchException(async (req, res) => {
   )
 })
 
+// Post - update a conversation - make it read
+const putUpdateConversation = catchException(async (req, res) => {
+  const convo = await Conversation.findByIdAndUpdate(req.params.id, req.body)
+
+  res.status(200).json(convo)
+})
+
 module.exports = {
   getGlobalMessages,
   postGlobalMessages,
   getConversations,
   getConversationsQuery,
-  postSendPrivateMessage
+  postSendPrivateMessage,
+  putUpdateConversation
 }

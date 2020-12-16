@@ -29,4 +29,7 @@ router.get(
 // Post private message
 router.post('/', messageController.postSendPrivateMessage)
 
+// PUT update a conversation
+router.put('/conversations/:id', messageController.putUpdateConversation)
+
 module.exports = router

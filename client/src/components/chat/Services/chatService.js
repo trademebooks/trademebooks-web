@@ -35,7 +35,7 @@ export const getConversations = async () => {
     const getConversationsResponse = (await api.get(`/messages/conversations`))
       .data
 
-    console.log({ getConversationsResponse })
+    // console.log({ getConversationsResponse })
 
     return getConversationsResponse
   } catch (err) {
@@ -68,6 +68,20 @@ export const sendConversationMessage = async (id, body) => {
     console.log({ sendConversationMessageResponse })
 
     return sendConversationMessageResponse
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const updateConversation = async (conversationId, data) => {
+  try {
+    const updateConversationResponse = (
+      await api.put(`/messages/conversations/${conversationId}`, data)
+    ).data
+
+    console.log({ updateConversationResponse })
+
+    return updateConversationResponse
   } catch (err) {
     console.log(err)
   }

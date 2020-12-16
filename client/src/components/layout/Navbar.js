@@ -17,9 +17,12 @@ import {
 } from 'mdbreact'
 import logo from './logo.png'
 
+import { getConversations } from '../chat/Services/chatService'
+
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [fullname, setFullname] = useState('')
+  const [unreadMessagesCount, setUnreadMessagesCount] = useState(0)
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen)
@@ -29,6 +32,35 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     if (user) {
       setFullname(`${user.first_name} ${user.last_name}`)
     }
+  }, [user])
+
+  useEffect(() => {
+    setInterval(async () => {
+      if (user) {
+        ;(async () => {
+          const conversations = await getConversations()
+
+          const x = conversations.map((x) => {
+            return {
+              lastMessageIsRead: x.lastMessageIsRead,
+              lastMessageSenderId: x.lastMessageSenderId
+            }
+          })
+
+          let numberOfUnreadMessages = 0
+          for (const conversation of x) {
+            if (
+              !conversation.lastMessageIsRead &&
+              user._id !== conversation.lastMessageSenderId
+            ) {
+              numberOfUnreadMessages++
+            }
+          }
+
+          setUnreadMessagesCount(numberOfUnreadMessages)
+        })()
+      }
+    }, 2000)
   }, [user])
 
   const authNavbar = (
@@ -68,7 +100,13 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/chat">
                 <MDBIcon icon="envelope" />
-                <MDBBadge color="danger" className="ml-1">4</MDBBadge>
+                {unreadMessagesCount > 0 ? (
+                  <MDBBadge color="danger" className="ml-1">
+                    NEW
+                  </MDBBadge>
+                ) : (
+                  ''
+                )}
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>

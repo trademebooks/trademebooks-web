@@ -8,7 +8,6 @@ const Book = require('../../domain/models/book.model')
 const Bookstore = require('../../domain/models/bookstore.model')
 // const Message = require('../../domain/models/message.model')
 const Password = require('../../domain/models/password.model')
-const Room = require('../../domain/models/room.model')
 const User = require('../../domain/models/user.model')
 const Session = require('../../domain/models/session.model')
 
@@ -23,7 +22,6 @@ const Models = [
   Bookstore,
 
   Password,
-  Room,
   User,
   Session,
 
