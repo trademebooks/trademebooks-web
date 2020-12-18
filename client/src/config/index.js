@@ -17,7 +17,4 @@ if (env === 'development') {
   config = production
 }
 
-console.log({ env })
-console.log({ config })
-
 export default config
