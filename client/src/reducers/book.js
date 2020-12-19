@@ -1,4 +1,7 @@
-import { ADD_BOOK, CREATE_BOOK } from '../actions/types'
+import {
+  ADD_BOOK,
+  CREATE_BOOK
+} from '../actions/types'
 
 const initialState = {
   book: {
@@ -19,6 +22,7 @@ export default function (state = initialState, action) {
   const { type, payload } = action
 
   switch (type) {
+    // For CREATING a new book listing
     case ADD_BOOK:
       return {
         book: {

@@ -3,7 +3,7 @@ import { MDBRow, MDBCol, MDBContainer, MDBInput, MDBBtn } from 'mdbreact'
 
 import './BookFields.scss'
 
-const BookFields = ({ book, addBook, createBook, editBook, updateBook }) => {
+const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
   const onChange = (e) => {
     addBook({ ...book, [e.target.name]: e.target.value })
   }
@@ -13,7 +13,8 @@ const BookFields = ({ book, addBook, createBook, editBook, updateBook }) => {
 
     if (editBook) {
       updateBook(book._id, book)
-    } else {
+    }
+    else {
       createBook(book)
     }
   }

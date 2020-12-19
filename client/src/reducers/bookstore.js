@@ -1,4 +1,9 @@
-import { GET_BOOKSTORE, GET_BOOK, UPDATE_BOOK } from '../actions/types'
+import {
+  GET_BOOKSTORE,
+  ADD_EDIT_BOOK,
+  LOAD_EDIT_BOOK,
+  UPDATE_EDIT_BOOK
+} from '../actions/types'
 
 const initialState = {
   book: {
@@ -8,7 +13,18 @@ const initialState = {
     authors: [],
     isbn_10: '',
     isbn_13: '',
-    condition: 'GOOD',
+    condition: '',
+    imageUrl: '',
+    edition: ''
+  },
+  editBook: {
+    title: '',
+    price: '',
+    description: '',
+    authors: [],
+    isbn_10: '',
+    isbn_13: '',
+    condition: '',
     imageUrl: '',
     edition: ''
   },
@@ -25,20 +41,23 @@ export default function (state = initialState, action) {
         books: payload,
         loading: false
       }
-    case GET_BOOK:
+    // For UPDATING/EDITING an existing book listing - accessed via the my bookstore (auth) page
+    case ADD_EDIT_BOOK:
       return {
-        book: {
-          ...state.book,
-          ...payload
-        },
+        ...state,
+        editBook: payload,
         loading: false
       }
-    case UPDATE_BOOK:
+    case LOAD_EDIT_BOOK:
       return {
-        book: {
-          ...state.book,
-          ...payload
-        },
+        ...state,
+        editBook: payload,
+        loading: false
+      }
+    case UPDATE_EDIT_BOOK:
+      return {
+        ...state,
+        editBook: payload,
         loading: false
       }
     default:

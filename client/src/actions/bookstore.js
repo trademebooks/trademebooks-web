@@ -1,7 +1,12 @@
 import api from '../utils/api'
 import displayErrors from '../utils/displayErrors'
 import { toastr } from 'react-redux-toastr'
-import { GET_BOOKSTORE, GET_BOOK, UPDATE_BOOK } from './types'
+import {
+  GET_BOOKSTORE,
+  ADD_EDIT_BOOK,
+  LOAD_EDIT_BOOK,
+  UPDATE_EDIT_BOOK
+} from './types'
 
 // API: Get a bookstore with its description and all its books
 export const getBookstoreByUsername = (username) => async (dispatch) => {
@@ -32,14 +37,23 @@ export const getBookstoreByUsername = (username) => async (dispatch) => {
   }
 }
 
+// Util: Add book
+export const addEditBook = (formData) => async (dispatch) => {
+  dispatch({
+    type: ADD_EDIT_BOOK,
+    payload: formData
+  })
+}
+
 // API: Get a book by id
 export const getBook = (bookId) => async (dispatch) => {
   try {
+    console.log({ bookId })
     const book = (await api.get(`/books/${bookId}`)).data.data
-
+    console.log({ book })
     dispatch({
-      type: GET_BOOK,
-      payload: book.data.data
+      type: LOAD_EDIT_BOOK,
+      payload: book
     })
   } catch (error) {
     displayErrors(error)
@@ -49,13 +63,13 @@ export const getBook = (bookId) => async (dispatch) => {
 // API: Update a book Listing
 export const updateBook = (bookId, book) => async (dispatch) => {
   try {
-    await api.put(`/books/${bookId}`, book)
+    const updatedBook = (await api.put(`/books/${bookId}`, book)).data.data
 
-    toastr.success('Book listing updated successful')
+    toastr.success('Book listing updated successfully')
 
     dispatch({
-      type: UPDATE_BOOK,
-      payload: book
+      type: UPDATE_EDIT_BOOK,
+      payload: updatedBook
     })
   } catch (error) {
     displayErrors(error)
