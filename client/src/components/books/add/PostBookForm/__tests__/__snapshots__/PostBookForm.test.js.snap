@@ -170,32 +170,16 @@ exports[`Component: PostBookForm should match the snapshot 1`] = `
               className="form-group"
             >
               <div
-                className="md-form form-lg"
+                className="tags-input"
               >
-                
-                <input
-                  aria-disabled={false}
-                  className="form-control form-control-lg"
-                  data-test="input"
-                  disabled={false}
-                  name="authors"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  onInput={[Function]}
-                  type="text"
-                  value=""
+                <ul
+                  id="tags"
                 />
-                <label
-                  aria-labelledby=""
-                  className=""
-                  data-error=""
-                  data-success=""
-                  id=""
-                  onClick={[Function]}
-                >
-                  Authors
-                </label>
+                <input
+                  onKeyUp={[Function]}
+                  placeholder="Author Name(s)"
+                  type="text"
+                />
               </div>
             </div>
           </form>

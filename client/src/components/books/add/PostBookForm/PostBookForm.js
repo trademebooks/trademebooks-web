@@ -1,16 +1,52 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { MDBRow, MDBCol, MDBContainer, MDBInput } from 'mdbreact'
 
 import Conditions from './Conditions'
 
-import './PostBookForm.scss'
-
 import bookImage from '../../common/icons/sample-book.png'
 
+import './PostBookForm.scss'
+
 const PostBookForm = ({ book, addBook }) => {
-  const onChange = (e) => {
-    addBook({ ...book, [e.target.name]: e.target.value })
+  // authors
+  const [authors, setAuthors] = useState([])
+
+  const removeAuthor = (indexToRemove) => {
+    const newAuthors = [...authors.filter((_, index) => index !== indexToRemove)]
+
+    setAuthors(newAuthors)
+
+    addBook({
+      ...book,
+      authors: newAuthors
+    })
   }
+
+  const addAuthor = (event) => {
+    if (event.target.value !== '') {
+      const newAuthors = [...authors, event.target.value]
+
+      setAuthors(newAuthors)
+
+      addBook({
+        ...book,
+        authors: newAuthors
+      })
+
+      event.target.value = ''
+    }
+  }
+
+  const onChange = (e) => {
+    addBook({
+      ...book,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  useEffect(() => {
+    setAuthors(book.authors)
+  }, [book])
 
   return (
     <>
@@ -68,13 +104,21 @@ const PostBookForm = ({ book, addBook }) => {
                     />
                   </div>
                   <div className="form-group">
-                    <MDBInput
-                      label="Authors"
-                      size="lg"
-                      value={book.authors}
-                      name="authors"
-                      onChange={onChange}
-                    />
+                    <div className="tags-input">
+                      <ul id="tags">
+                        {authors.map((author, index) => (
+                          <li key={index} className="tag">
+                            <span className="tag-title">{author}</span>
+                            <span className="tag-close-icon" onClick={() => removeAuthor(index)}>x</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <input
+                        type="text"
+                        onKeyUp={(event) => (event.key === 'Enter' ? addAuthor(event) : null)}
+                        placeholder="Author Name(s)"
+                      />
+                    </div>
                   </div>
                 </form>
               </div>
