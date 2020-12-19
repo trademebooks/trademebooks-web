@@ -12,7 +12,9 @@ const PostBookForm = ({ book, addBook }) => {
   const [authors, setAuthors] = useState([])
 
   const removeAuthor = (indexToRemove) => {
-    const newAuthors = [...authors.filter((_, index) => index !== indexToRemove)]
+    const newAuthors = [
+      ...authors.filter((_, index) => index !== indexToRemove)
+    ]
 
     setAuthors(newAuthors)
 
@@ -109,13 +111,20 @@ const PostBookForm = ({ book, addBook }) => {
                         {authors.map((author, index) => (
                           <li key={index} className="tag">
                             <span className="tag-title">{author}</span>
-                            <span className="tag-close-icon" onClick={() => removeAuthor(index)}>x</span>
+                            <span
+                              className="tag-close-icon"
+                              onClick={() => removeAuthor(index)}
+                            >
+                              x
+                            </span>
                           </li>
                         ))}
                       </ul>
                       <input
                         type="text"
-                        onKeyUp={(event) => (event.key === 'Enter' ? addAuthor(event) : null)}
+                        onKeyUp={(event) =>
+                          event.key === 'Enter' ? addAuthor(event) : null
+                        }
                         placeholder="Author Name(s)"
                       />
                     </div>
