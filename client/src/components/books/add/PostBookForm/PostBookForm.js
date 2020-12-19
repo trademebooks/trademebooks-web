@@ -41,13 +41,40 @@ const PostBookForm = ({ book, addBook }) => {
                     />
                   </div>
                   <div className="form-group">
-                    <MDBInput label="ISBN-10" size="lg" value={book.isbn_10} />
+                    <MDBInput
+                      label="ISBN-10"
+                      size="lg"
+                      value={book.isbn_10}
+                      name="isbn_10"
+                      onChange={onChange}
+                    />
                   </div>
                   <div className="form-group">
-                    <MDBInput label="ISBN-13" size="lg" value={book.isbn_13} />
+                    <MDBInput
+                      label="ISBN-13"
+                      size="lg"
+                      value={book.isbn_13}
+                      name="isbn_13"
+                      onChange={onChange}
+                    />
                   </div>
                   <div className="form-group">
-                    <MDBInput label="Edition" size="lg" value={book.edition} />
+                    <MDBInput
+                      label="Edition"
+                      size="lg"
+                      value={book.edition}
+                      name="edition"
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <MDBInput
+                      label="Authors"
+                      size="lg"
+                      value={book.authors}
+                      name="authors"
+                      onChange={onChange}
+                    />
                   </div>
                 </form>
               </div>
@@ -55,7 +82,7 @@ const PostBookForm = ({ book, addBook }) => {
           </MDBRow>
           <MDBRow>
             <MDBCol md="12" sm="12">
-              <Conditions />
+              <Conditions book={book} addBook={addBook} />
             </MDBCol>
           </MDBRow>
         </MDBContainer>

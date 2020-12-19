@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
 import { MDBRow, MDBCol } from 'mdbreact'
-
-import { addBook } from '../../../../actions/book'
 
 import Poor_condition_default from '../../images/conditions/Poor_condition_default.png'
 import Poor_condition from '../../images/conditions/Poor_condition.png'
@@ -106,12 +103,4 @@ const Conditions = ({ book, addBook }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  book: state.book.book
-})
-
-const mapDispatchToProps = {
-  addBook
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Conditions)
+export default Conditions

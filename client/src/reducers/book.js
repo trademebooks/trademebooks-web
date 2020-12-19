@@ -5,7 +5,7 @@ const initialState = {
     title: '',
     price: '',
     description: '',
-    authors: [],
+    authors: '',
     isbn_10: '',
     isbn_13: '',
     condition: 'GOOD',

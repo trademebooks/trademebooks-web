@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: BookFields should match the snapshot 1`] = `
+<div
+  className="book-fields-container"
+>
+  <div
+    className="container"
+    data-test="container"
+  >
+    <div
+      className="row justify-content-center"
+      data-test="row"
+    >
+      <div
+        className="col-sm-12 col-md-8"
+        data-test="col"
+      >
+        <form>
+          <div
+            className="form-group"
+          >
+            <div
+              className="md-form"
+            >
+              
+              <input
+                aria-disabled={false}
+                className="form-control"
+                data-test="input"
+                disabled={false}
+                name="price"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                type="text"
+                value=""
+              />
+              <label
+                aria-labelledby=""
+                className=""
+                data-error=""
+                data-success=""
+                id=""
+                onClick={[Function]}
+              >
+                Price
+              </label>
+            </div>
+          </div>
+          <div
+            className="form-group"
+          >
+            <div
+              className="md-form"
+            >
+              
+              <textarea
+                aria-disabled={false}
+                className="md-textarea form-control"
+                data-test="input"
+                disabled={false}
+                name="description"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                rows="5"
+                value=""
+              />
+              <label
+                aria-labelledby=""
+                className=""
+                data-error=""
+                data-success=""
+                id=""
+                onClick={[Function]}
+              >
+                Description
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="row"
+      data-test="row"
+    >
+      <div
+        className="col-sm-12 col-md-12"
+        data-test="col"
+      >
+        <button
+          className="btn-default btn Ripple-parent w-100"
+          data-test="button"
+          onClick={[Function]}
+          onMouseUp={[Function]}
+          onTouchStart={[Function]}
+          type="button"
+        >
+          Update Book Listing
+          <div
+            className="Ripple "
+            data-test="waves"
+            style={
+              Object {
+                "height": "0px",
+                "left": "0px",
+                "top": "0px",
+                "width": "0px",
+              }
+            }
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

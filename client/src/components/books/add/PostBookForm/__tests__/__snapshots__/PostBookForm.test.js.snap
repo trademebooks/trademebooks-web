@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: PostBookForm should match the snapshot 1`] = `
+<div
+  className="post-book-form-container"
+>
+  <div
+    className="container"
+    data-test="container"
+  >
+    <div
+      className="row"
+      data-test="row"
+    >
+      <div
+        className="col-sm-12 col-md-4"
+        data-test="col"
+      >
+        <div
+          className="text-center"
+        >
+          <div
+            className="py-5"
+          >
+            <img
+              alt="thumbnail"
+              className="img-thumbnail book-image-size"
+              src="sample-book.png"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-12 col-md-8"
+        data-test="col"
+      >
+        <div>
+          <form
+            className="post-book-form-fields"
+          >
+            <div
+              className="form-group"
+            >
+              <div
+                className="md-form form-lg"
+              >
+                
+                <input
+                  aria-disabled={false}
+                  className="form-control form-control-lg"
+                  data-test="input"
+                  disabled={false}
+                  name="title"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  type="text"
+                  value=""
+                />
+                <label
+                  aria-labelledby=""
+                  className=""
+                  data-error=""
+                  data-success=""
+                  id=""
+                  onClick={[Function]}
+                >
+                  Title
+                </label>
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <div
+                className="md-form form-lg"
+              >
+                
+                <input
+                  aria-disabled={false}
+                  className="form-control form-control-lg"
+                  data-test="input"
+                  disabled={false}
+                  name="isbn_10"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  type="text"
+                  value=""
+                />
+                <label
+                  aria-labelledby=""
+                  className=""
+                  data-error=""
+                  data-success=""
+                  id=""
+                  onClick={[Function]}
+                >
+                  ISBN-10
+                </label>
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <div
+                className="md-form form-lg"
+              >
+                
+                <input
+                  aria-disabled={false}
+                  className="form-control form-control-lg"
+                  data-test="input"
+                  disabled={false}
+                  name="isbn_13"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  type="text"
+                  value=""
+                />
+                <label
+                  aria-labelledby=""
+                  className=""
+                  data-error=""
+                  data-success=""
+                  id=""
+                  onClick={[Function]}
+                >
+                  ISBN-13
+                </label>
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <div
+                className="md-form form-lg"
+              >
+                
+                <input
+                  aria-disabled={false}
+                  className="form-control form-control-lg"
+                  data-test="input"
+                  disabled={false}
+                  name="edition"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  type="text"
+                  value=""
+                />
+                <label
+                  aria-labelledby=""
+                  className=""
+                  data-error=""
+                  data-success=""
+                  id=""
+                  onClick={[Function]}
+                >
+                  Edition
+                </label>
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <div
+                className="md-form form-lg"
+              >
+                
+                <input
+                  aria-disabled={false}
+                  className="form-control form-control-lg"
+                  data-test="input"
+                  disabled={false}
+                  name="authors"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  type="text"
+                  value=""
+                />
+                <label
+                  aria-labelledby=""
+                  className=""
+                  data-error=""
+                  data-success=""
+                  id=""
+                  onClick={[Function]}
+                >
+                  Authors
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+      data-test="row"
+    >
+      <div
+        className="col-sm-12 col-md-12"
+        data-test="col"
+      >
+        <div
+          className="mt-5"
+        >
+          <div
+            className="row justify-content-center"
+            data-test="row"
+          >
+            <div
+              className="col-sm-12 col-md-2 condition text-center"
+              data-test="col"
+            >
+              <p
+                className="condition-title"
+              >
+                POOR
+              </p>
+              <img
+                alt="POOR"
+                className="condition-img"
+                name="condition"
+                onClick={[Function]}
+                src="Poor_condition_default.png"
+              />
+              <p
+                className="condition-desc"
+              >
+                Heavily worn, all text are still legible
+              </p>
+            </div>
+            <div
+              className="col-sm-12 col-md-2 condition text-center"
+              data-test="col"
+            >
+              <p
+                className="condition-title"
+              >
+                FAIR
+              </p>
+              <img
+                alt="FAIR"
+                className="condition-img"
+                name="condition"
+                onClick={[Function]}
+                src="Fair_condition_default.png"
+              />
+              <p
+                className="condition-desc"
+              >
+                Lots of wear and tear
+              </p>
+            </div>
+            <div
+              className="col-sm-12 col-md-2 condition text-center"
+              data-test="col"
+            >
+              <p
+                className="condition-title"
+              >
+                GOOD
+              </p>
+              <img
+                alt="GOOD"
+                className="condition-img"
+                name="condition"
+                onClick={[Function]}
+                src="Good_condition.png"
+              />
+              <p
+                className="condition-desc"
+              >
+                Some signs of wear, includes markings
+              </p>
+            </div>
+            <div
+              className="col-sm-12 col-md-2 condition text-center"
+              data-test="col"
+            >
+              <p
+                className="condition-title"
+              >
+                VERY GOOD
+              </p>
+              <img
+                alt="VERY GOOD"
+                className="condition-img"
+                name="condition"
+                onClick={[Function]}
+                src="Verygood_condition_default.png"
+              />
+              <p
+                className="condition-desc"
+              >
+                Minimal signs of wear, no markings
+              </p>
+            </div>
+            <div
+              className="col-sm-12 col-md-2 condition text-center"
+              data-test="col"
+            >
+              <p
+                className="condition-title"
+              >
+                LIKE NEW
+              </p>
+              <img
+                alt="LIKE NEW"
+                className="condition-img"
+                name="condition"
+                onClick={[Function]}
+                src="Likenew_condition_default.png"
+              />
+              <p
+                className="condition-desc"
+              >
+                No damage, lightly used, no markings
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
