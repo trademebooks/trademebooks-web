@@ -13,8 +13,7 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
 
     if (editBook) {
       updateBook(book._id, book)
-    }
-    else {
+    } else {
       createBook(book)
     }
   }

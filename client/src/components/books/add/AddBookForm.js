@@ -5,11 +5,7 @@ import SearchBooks from './SearchBooks'
 import PostBookForm from './PostBookForm'
 import BookFields from './BookFields'
 
-const AddBookForm = ({
-  book,
-  addBook,
-  createBook
-}) => {
+const AddBookForm = ({ book, addBook, createBook }) => {
   return (
     <>
       <div className="header-container text-center">
@@ -19,14 +15,8 @@ const AddBookForm = ({
         <MDBContainer>
           <MDBRow center={true}>
             <MDBCol>
-              <SearchBooks
-                book={book}
-                addBook={addBook}
-              />
-              <PostBookForm
-                book={book}
-                addBook={addBook}
-              />
+              <SearchBooks book={book} addBook={addBook} />
+              <PostBookForm book={book} addBook={addBook} />
               <BookFields
                 editBook={false}
                 book={book}

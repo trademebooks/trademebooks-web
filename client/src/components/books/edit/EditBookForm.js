@@ -5,13 +5,7 @@ import SearchBooks from '../add/SearchBooks'
 import PostBookForm from '../add/PostBookForm'
 import BookFields from '../add/BookFields'
 
-const EditBookForm = ({
-  match,
-  getBook,
-  book,
-  addBook,
-  updateBook
-}) => {
+const EditBookForm = ({ match, getBook, book, addBook, updateBook }) => {
   useEffect(() => {
     getBook(match.params.bookId)
   }, [])
@@ -28,10 +22,7 @@ const EditBookForm = ({
               {/* <SearchBooks
                 addBook={addBook}
               /> */}
-              <PostBookForm
-                book={book}
-                addBook={addBook}
-              />
+              <PostBookForm book={book} addBook={addBook} />
               <BookFields
                 editBook={true}
                 book={book}

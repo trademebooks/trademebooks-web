@@ -1,7 +1,4 @@
-import {
-  ADD_BOOK,
-  CREATE_BOOK
-} from '../actions/types'
+import { ADD_BOOK, CREATE_BOOK } from '../actions/types'
 
 const initialState = {
   book: {

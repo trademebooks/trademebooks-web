@@ -1,6 +1,10 @@
 import { connect } from 'react-redux'
 
-import { addEditBook as addBook, getBook, updateBook } from '../../../actions/bookstore'
+import {
+  addEditBook as addBook,
+  getBook,
+  updateBook
+} from '../../../actions/bookstore'
 
 import EditBookForm from './EditBookForm'
 
