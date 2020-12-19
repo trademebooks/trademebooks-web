@@ -25,9 +25,9 @@ const EditBookForm = ({
         <MDBContainer>
           <MDBRow center={true}>
             <MDBCol>
-              <SearchBooks
+              {/* <SearchBooks
                 addBook={addBook}
-              />
+              /> */}
               <PostBookForm
                 book={book}
                 addBook={addBook}
