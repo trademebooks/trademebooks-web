@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { render, act } from '@testing-library/react'
+import { render, act, fireEvent, waitFor, screen } from '@testing-library/react'
 
 import AccountBookstoreForm from '../AccountBookstoreForm'
 
@@ -25,17 +25,40 @@ describe('Component: AccountBookstoreForm', () => {
     })
   }
 
-  it('should match the snapshot', () => {
+  it('should match the snapshot', async () => {
     const accountBookstoreFormSnapshot = renderer
       .create(<AccountBookstoreForm {...props} />)
       .toJSON()
+
     expect(accountBookstoreFormSnapshot).toMatchSnapshot()
   })
 
   it('should render properly', async () => {
-    const accountBookstoreForm = render(<AccountBookstoreForm {...props} />)
+    const { getAllByRole, getByText, getAllByText } = render(<AccountBookstoreForm {...props} />)
 
-    // got rid of act warning: https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
+    getByText('Bookstore Settings')
+    getByText('Change Username')
+    getByText('Location')
+    getByText('School')
+
+    getAllByRole('button')
+    getAllByText('Save Changes')
+
+    await act(() => {
+      return promise
+    })
+  })
+
+  // fireEvent
+  it("should save the changes - buttons 1 and 2", async () => {
+    const { getAllByText } = render(<AccountBookstoreForm {...props} />)
+
+    const saveChangesButton1 = getAllByText('Save Changes')[0]
+    const saveChangesButton2 = getAllByText('Save Changes')[1]
+
+    fireEvent.click(saveChangesButton1)
+    fireEvent.click(saveChangesButton2)
+
     await act(() => {
       return promise
     })
