@@ -11,28 +11,6 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
 
   return (
     <>
-        {/* <h3 className="container font-weight-bold">
-          Welcome to {match.params.username}'s Bookstore
-        </h3>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-6 ml-4">
-                  <i class="fas fa-map-marker-alt" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i>
-                </div>
-                <div class="col-xs-6">
-                    Located in:<br />
-                    North York, Toronto
-                </div>
-
-                <div class="col-xs-6 ml-4">
-                  <i class="fas fa-graduation-cap" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i> 
-                </div>
-                <div class="col-xs-6">
-                    Selling books for:<br />
-                    University of Toronto Scarborough
-                </div>
-            </div>
-        </div> */}
 
         <div className="mt-4">
           <MDBContainer>
@@ -50,7 +28,7 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
                 <div class="col-xs-6 ml-4">
                   <i class="fas fa-map-marker-alt" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-12">
                     Located in:<br />
                     <strong>North York, Toronto</strong>
                 </div>
@@ -58,7 +36,7 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
                 <div class="col-xs-6 ml-4">
                   <i class="fas fa-graduation-cap" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i> 
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-12">
                     Selling books for:<br />
                     <strong>University of Toronto Scarborough</strong>
                 </div>
