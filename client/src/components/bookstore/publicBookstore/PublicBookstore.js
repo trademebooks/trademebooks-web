@@ -11,25 +11,61 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
 
   return (
     <>
-        <MDBContainer>
-          <MDBRow>
-            <MDBCol>
-              <div className="header-container mt-4">
+        {/* <h3 className="container font-weight-bold">
+          Welcome to {match.params.username}'s Bookstore
+        </h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 ml-4">
+                  <i class="fas fa-map-marker-alt" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i>
+                </div>
+                <div class="col-xs-6">
+                    Located in:<br />
+                    North York, Toronto
+                </div>
+
+                <div class="col-xs-6 ml-4">
+                  <i class="fas fa-graduation-cap" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i> 
+                </div>
+                <div class="col-xs-6">
+                    Selling books for:<br />
+                    University of Toronto Scarborough
+                </div>
+            </div>
+        </div> */}
+
+        <div className="mt-4">
+          <MDBContainer>
+            <MDBRow>
+              <MDBCol sm="12">
                 <h3 className="font-weight-bold">
                   Welcome to {match.params.username}'s Bookstore
                 </h3>
-                
-                <i class="fas fa-map-marker-alt" style={{fontSize: "200%", height: "150%", color: "var(--primary-dark-color)"}}></i>
-                Located in:
-                North York, Toronto
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
 
-                <i class="fas fa-graduation-cap" style={{fontSize: "200%", height: "150%", color: "var(--primary-dark-color)"}}></i> 
-                Selling books for:
-                University of Toronto Scarborough
-              </div>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+          <MDBContainer>
+            <MDBRow>
+                <div class="col-xs-6 ml-4">
+                  <i class="fas fa-map-marker-alt" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i>
+                </div>
+                <div class="col-xs-6">
+                    Located in:<br />
+                    <strong>North York, Toronto</strong>
+                </div>
+
+                <div class="col-xs-6 ml-4">
+                  <i class="fas fa-graduation-cap" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i> 
+                </div>
+                <div class="col-xs-6">
+                    Selling books for:<br />
+                    <strong>University of Toronto Scarborough</strong>
+                </div>
+            </MDBRow>
+          </MDBContainer>
+        </div>
+        
         <div className="mt-4">
           <MDBContainer>
             <MDBRow center={true}>
