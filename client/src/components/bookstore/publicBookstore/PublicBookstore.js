@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
-
 import Books from '../../books/common/Books'
 
 const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
+  const [formData, setFormData] = useState({
+    location: '',
+    school: ''
+  })
+
+  const { location, school } = formData
+
   useEffect(() => {
     getBookstoreByUsername(match.params.username)
-  }, [match.params.username, getBookstoreByUsername])
+  }, [match.params.username, getBookstoreByUsername, getBookstoreByUsername])
 
   return (
     <>
-
         <div className="mt-4">
           <MDBContainer>
             <MDBRow>
@@ -25,18 +30,18 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
 
           <MDBContainer>
             <MDBRow>
-                <div class="col-xs-6 ml-4">
-                  <i class="fas fa-map-marker-alt" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i>
+                <div className="col-xs-6 ml-4">
+                  <i className="fas fa-map-marker-alt" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i>
                 </div>
-                <div class="col-xs-12">
+                <div className="col-xs-12">
                     Located in:<br />
                     <strong>North York, Toronto</strong>
                 </div>
 
-                <div class="col-xs-6 ml-4">
-                  <i class="fas fa-graduation-cap" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i> 
+                <div className="col-xs-6 ml-4">
+                  <i className="fas fa-graduation-cap" style={{fontSize: "300%", height: "150%", color: "var(--primary-dark-color)"}}></i> 
                 </div>
-                <div class="col-xs-12">
+                <div className="col-xs-12">
                     Selling books for:<br />
                     <strong>University of Toronto Scarborough</strong>
                 </div>

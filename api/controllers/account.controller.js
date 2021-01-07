@@ -36,8 +36,20 @@ const updateUserById = catchException(async (req, res, next) => {
   )
 })
 
+const getAccountByUsername = catchException(async (req, res, next) => {
+  const account = await accountService.getAccountByUsername(req.params.username)
+
+  res.status(200).json(
+    globalResponseDto({
+      message: `Here is the account associated with the username.`,
+      data: account
+    })
+  )
+})
+
 module.exports = {
   getAccountById,
   updateAccountById,
+  getAccountByUsername,
   updateUserById
 }
