@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 import Books from '../../books/common/Books'
+import api from '../../../utils/api';
 
 const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
   const [formData, setFormData] = useState({
@@ -12,8 +13,14 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
   const { location, school } = formData
 
   useEffect(() => {
+    const fetchAccount = async() => {
+      const res = await api.get("/account")
+      const { location, school } = res.data.data
+      setFormData({location: location, school: school})
+    }
+    fetchAccount()
     getBookstoreByUsername(match.params.username)
-  }, [match.params.username, getBookstoreByUsername, getBookstoreByUsername])
+  }, [match.params.username, getBookstoreByUsername])
 
   return (
     <>
@@ -35,7 +42,7 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
                 </div>
                 <div className="col-xs-12">
                     Located in:<br />
-                    <strong>North York, Toronto</strong>
+                    <strong>{location}</strong>
                 </div>
 
                 <div className="col-xs-6 ml-4">
@@ -43,7 +50,7 @@ const PublicBookstore = ({ match, books, getBookstoreByUsername }) => {
                 </div>
                 <div className="col-xs-12">
                     Selling books for:<br />
-                    <strong>University of Toronto Scarborough</strong>
+                    <strong>{school}</strong>
                 </div>
             </MDBRow>
           </MDBContainer>
