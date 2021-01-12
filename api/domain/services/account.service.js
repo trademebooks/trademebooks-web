@@ -10,7 +10,13 @@ const updateById = async (userId, data) => {
   return account
 }
 
+const getAccountByUsername = async (username, data) => {
+  const account = await accountRepository.getAccountByUsername(username, data)
+  return account
+}
+
 module.exports = {
   getById,
-  updateById
+  updateById,
+  getAccountByUsername
 }
