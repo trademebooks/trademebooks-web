@@ -3,15 +3,86 @@
 exports[`Component: PublicBookstore should match the snapshot 1`] = `
 Array [
   <div
-    className="header-container text-center"
+    className="mt-4"
   >
-    <h3
-      className="font-weight-bold"
+    <div
+      className="container"
+      data-test="container"
     >
-      Welcome to 
-      johnny123
-      's Bookstore
-    </h3>
+      <div
+        className="row"
+        data-test="row"
+      >
+        <div
+          className="col-sm-12"
+          data-test="col"
+        >
+          <h3
+            className="font-weight-bold"
+          >
+            Welcome to 
+            johnny123
+            's Bookstore
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div
+      className="container"
+      data-test="container"
+    >
+      <div
+        className="row"
+        data-test="row"
+      >
+        <div
+          className="col-xs-6 ml-4"
+        >
+          <i
+            className="fas fa-map-marker-alt"
+            style={
+              Object {
+                "color": "var(--primary-dark-color)",
+                "fontSize": "300%",
+                "height": "150%",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-xs-12"
+        >
+          Located in:
+          <br />
+          <strong>
+            
+          </strong>
+        </div>
+        <div
+          className="col-xs-6 ml-4"
+        >
+          <i
+            className="fas fa-graduation-cap"
+            style={
+              Object {
+                "color": "var(--primary-dark-color)",
+                "fontSize": "300%",
+                "height": "150%",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-xs-12"
+        >
+          Selling books for:
+          <br />
+          <strong>
+            
+          </strong>
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     className="mt-4"

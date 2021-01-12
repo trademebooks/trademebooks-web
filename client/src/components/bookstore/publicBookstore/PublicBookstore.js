@@ -4,7 +4,12 @@ import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 
 import Books from '../../books/common/Books'
 
-const PublicBookstore = ({ match, books, getAccountByUsername, getBookstoreByUsername }) => {
+const PublicBookstore = ({
+  match,
+  books,
+  getAccountByUsername,
+  getBookstoreByUsername
+}) => {
   const [bookstoreData, setBookstoreData] = useState({
     location: '',
     school: ''
@@ -14,7 +19,9 @@ const PublicBookstore = ({ match, books, getAccountByUsername, getBookstoreByUse
 
   useEffect(() => {
     const fetchAccount = async () => {
-      const { location, school } = await getAccountByUsername(match.params.username)
+      const { location, school } = await getAccountByUsername(
+        match.params.username
+      )
 
       setBookstoreData({ location: location, school: school })
     }
@@ -32,7 +39,7 @@ const PublicBookstore = ({ match, books, getAccountByUsername, getBookstoreByUse
             <MDBCol sm="12">
               <h3 className="font-weight-bold">
                 Welcome to {match.params.username}'s Bookstore
-                </h3>
+              </h3>
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -40,18 +47,34 @@ const PublicBookstore = ({ match, books, getAccountByUsername, getBookstoreByUse
         <MDBContainer>
           <MDBRow>
             <div className="col-xs-6 ml-4">
-              <i className="fas fa-map-marker-alt" style={{ fontSize: "300%", height: "150%", color: "var(--primary-dark-color)" }}></i>
+              <i
+                className="fas fa-map-marker-alt"
+                style={{
+                  fontSize: '300%',
+                  height: '150%',
+                  color: 'var(--primary-dark-color)'
+                }}
+              ></i>
             </div>
             <div className="col-xs-12">
-              Located in:<br />
+              Located in:
+              <br />
               <strong>{location}</strong>
             </div>
 
             <div className="col-xs-6 ml-4">
-              <i className="fas fa-graduation-cap" style={{ fontSize: "300%", height: "150%", color: "var(--primary-dark-color)" }}></i>
+              <i
+                className="fas fa-graduation-cap"
+                style={{
+                  fontSize: '300%',
+                  height: '150%',
+                  color: 'var(--primary-dark-color)'
+                }}
+              ></i>
             </div>
             <div className="col-xs-12">
-              Selling books for:<br />
+              Selling books for:
+              <br />
               <strong>{school}</strong>
             </div>
           </MDBRow>
@@ -65,8 +88,8 @@ const PublicBookstore = ({ match, books, getAccountByUsername, getBookstoreByUse
               {books.length < 1 ? (
                 <div>There are no books in this bookstore...</div>
               ) : (
-                  <Books books={books} />
-                )}
+                <Books books={books} />
+              )}
             </MDBCol>
           </MDBRow>
         </MDBContainer>
