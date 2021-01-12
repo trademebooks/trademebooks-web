@@ -11,7 +11,7 @@ const updateById = async (userId, data) => {
 }
 
 const getAccountByUsername = async (username, data) => {
-  const account = await accountRepository.getAccountByUsername(username, data)
+  const account = await accountRepository.getAccountByUsername(username)
   return account
 }
 

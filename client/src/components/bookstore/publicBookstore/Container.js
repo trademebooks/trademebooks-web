@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { getAccountByUsername } from '../../../actions/account'
 import { getBookstoreByUsername } from '../../../actions/bookstore'
 import PublicBookstore from './PublicBookstore'
 
@@ -7,6 +8,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
+  getAccountByUsername,
   getBookstoreByUsername
 }
 

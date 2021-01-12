@@ -3,8 +3,15 @@ import displayErrors from '../utils/displayErrors'
 
 export const getAccountSettings = () => async (dispatch) => {
   try {
-    // console.log((await api.get(`/account`)).data.data)
     return (await api.get(`/account`)).data.data
+  } catch (error) {
+    displayErrors(error)
+  }
+}
+
+export const getAccountByUsername = (username) => async (dispatch) => {
+  try {
+    return (await api.get(`/account/${username}`)).data.data
   } catch (error) {
     displayErrors(error)
   }

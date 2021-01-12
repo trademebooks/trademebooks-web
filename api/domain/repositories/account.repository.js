@@ -1,7 +1,5 @@
-const accountModel = require('../models/account.model')
 const AccountModel = require('../models/account.model')
-const BookstoreModel = require('../models/bookstore.model')
-const userModel = require('../models/user.model')
+const UserModel = require('../models/user.model')
 
 const getById = async (userId) => {
   const account = await AccountModel.findOne({ userId })
@@ -14,9 +12,9 @@ const updateById = async (userId, data) => {
   return updatedAccount
 }
 
-const getAccountByUsername = async (username, data) => {
-  const user = await userModel.findOne({username}, data)
-  const account = await accountModel.findOne({_id: user._id})
+const getAccountByUsername = async (username) => {
+  const user = await UserModel.findOne({ username })
+  const account = await AccountModel.findOne({ userId: user._id })
   return account
 }
 
