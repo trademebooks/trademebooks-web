@@ -8,6 +8,12 @@ const passport = require('passport')
 const config = require('./config')
 const globalExceptionHandler = require('../api/utils/globalExceptionHandler')
 
+// force the use of HTTPS (in production only)
+if (process.env.NODE_ENV === 'production') {
+  const enforce = require('express-sslify')
+  app.use(enforce.HTTPS({ trustProtoHeader: true }))
+}
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
