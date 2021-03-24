@@ -122,8 +122,6 @@ Start the server locally on localhost:3000 with the following command in the roo
 npm run dev
 ```
 
-`
-
 ## Deploy to Production
 
 - production link: https://www.trademebooks.com/
