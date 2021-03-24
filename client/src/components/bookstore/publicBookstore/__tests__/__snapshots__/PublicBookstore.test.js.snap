@@ -17,11 +17,14 @@ Array [
           className="col-sm-12"
           data-test="col"
         >
-          <h3
-            className="font-weight-bold"
-          >
-            Welcome to 
-            johnny123
+          <h3>
+            Welcome to
+             
+            <span
+              className="font-weight-bold"
+            >
+              johnny123
+            </span>
             's Bookstore
           </h3>
         </div>
@@ -36,7 +39,7 @@ Array [
         data-test="row"
       >
         <div
-          className="col-xs-6 ml-4"
+          className="col-xs-6 ml-4 mr-2"
         >
           <i
             className="fas fa-map-marker-alt"
@@ -59,7 +62,7 @@ Array [
           </strong>
         </div>
         <div
-          className="col-xs-6 ml-4"
+          className="col-xs-6 ml-4 mr-2"
         >
           <i
             className="fas fa-graduation-cap"

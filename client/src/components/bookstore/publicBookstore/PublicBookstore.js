@@ -37,8 +37,12 @@ const PublicBookstore = ({
         <MDBContainer>
           <MDBRow>
             <MDBCol sm="12">
-              <h3 className="font-weight-bold">
-                Welcome to {match.params.username}'s Bookstore
+              <h3>
+                Welcome to{' '}
+                <span className="font-weight-bold">
+                  {match.params.username}
+                </span>
+                's Bookstore
               </h3>
             </MDBCol>
           </MDBRow>
@@ -46,7 +50,7 @@ const PublicBookstore = ({
 
         <MDBContainer>
           <MDBRow>
-            <div className="col-xs-6 ml-4">
+            <div className="col-xs-6 ml-4 mr-2">
               <i
                 className="fas fa-map-marker-alt"
                 style={{
@@ -62,7 +66,7 @@ const PublicBookstore = ({
               <strong>{location}</strong>
             </div>
 
-            <div className="col-xs-6 ml-4">
+            <div className="col-xs-6 ml-4 mr-2">
               <i
                 className="fas fa-graduation-cap"
                 style={{
