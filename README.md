@@ -10,11 +10,13 @@
 
 This is a public open source project!
 
-Live Website: https://www.trademebooks.com/
+Live Website: https://www.trademebooks.com
 
 :construction_worker: Check out our progress! https://trello.com/b/neeVBQO7/trademebooks-web
 
 :art: Check out our wireframing process! https://figma.fun/CfpxqL
+
+[trademebooks.com](https://www.trademebooks.com) is the successor project to McMaster Used Student Book Exchange (a.k.a. musbe). Check out the project on [GitHub](https://github.com/yichenzhu1337/musbe) and the [live version](https://www.musbe.ca).
 
 ## About
 
