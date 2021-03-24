@@ -68,21 +68,21 @@ npm install
 
 Create a file called _dev.js_ under the config directory.
 
-```
+```js
 module.exports = {
-    baseUrl: 'http://localhost:',
-    port: 5000,
-    apiPrefix: 'api',
-    apiVersion: 'v1',
-    baseUrl: `${this.baseUrl}${this.port}/${this.apiPrefix}/${this.apiVersion}`,
-    mongoURI: 'mongodb://localhost:27017/trademebooks_dev_db',
-    sessionSecret: 'my-secret-session-dev',
-    sendGridKey: 'my-sendgrid-key',
-    twilioKeys: {
-        accountSid: 'my-twilio-account-sid',
-        authToken: 'my-twili-auth-token'
-    }
-};
+  baseUrl: 'http://localhost:',
+  port: 5000,
+  apiPrefix: 'api',
+  apiVersion: 'v1',
+  baseUrl: `${this.baseUrl}${this.port}/${this.apiPrefix}/${this.apiVersion}`,
+  mongoURI: 'mongodb://localhost:27017/trademebooks_dev_db',
+  sessionSecret: 'my-secret-session-dev',
+  sendGridKey: 'my-sendgrid-key',
+  twilioKeys: {
+    accountSid: 'my-twilio-account-sid',
+    authToken: 'my-twili-auth-token'
+  }
+}
 ```
 
 Use this file: https://drive.google.com/file/d/1o8WwjnuLpu13pKYMjJ8x2gTKKWUPr0V8/view?usp=sharing
@@ -100,12 +100,18 @@ or
 npm run db:seed
 ```
 
-### Backend Setup - Running the tests
-
-Go to the root directory of the project and run the following command to see if all tests pass.
+(Optional) Run MongoDB locally with Docker.
 
 ```bash
-npm run test
+npm run mongo:start
+```
+
+### Backend Setup - Running the tests
+
+Go to the root directory of the project and run the following command to see if all tests pass. Specifcy if you are on are on mac or windows in the parameter `[mac|windows]`
+
+```bash
+npm run test:[mac|windows]
 ```
 
 ## Work Flow on Local Machine
@@ -115,6 +121,8 @@ Start the server locally on localhost:3000 with the following command in the roo
 ```bash
 npm run dev
 ```
+
+`
 
 ## Deploy to Production
 
