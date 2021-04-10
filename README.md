@@ -12,7 +12,7 @@ This is a public open source project!
 
 Live Website: https://www.trademebooks.com
 
-:construction_worker: Check out our progress! https://trello.com/b/neeVBQO7/trademebooks-web
+:construction_worker: Check out our progress! https://trello.com/b/neeVBQO7
 
 :art: Check out our wireframing process! https://figma.fun/CfpxqL
 
