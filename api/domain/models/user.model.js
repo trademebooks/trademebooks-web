@@ -14,7 +14,8 @@ const UserSchema = Schema({
     type: String,
     required: false,
     unique: true,
-    set: (username) => { // deletes all the white spaces in the username
+    set: (username) => {
+      // deletes all the white spaces in the username
       return username.toString().trim().replace(/\s+/gi, '')
     }
   },
@@ -46,7 +47,7 @@ const UserSchema = Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  },
+  }
 })
 
 module.exports = mongoose.model('user', UserSchema)
