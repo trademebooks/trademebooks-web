@@ -19,6 +19,8 @@ const customBooks = [
     condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
       Math.round(Math.random() * 4)
     ],
+    isbn_10: '0123456789',
+    isbn_13: '0123456789012',
     date_posted: 'Jan 7, 2020'
   },
   {
@@ -34,6 +36,8 @@ const customBooks = [
     condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
       Math.round(Math.random() * 4)
     ],
+    isbn_10: '0123456789',
+    isbn_13: '0123456789012',
     date_posted: 'Jan 7, 2020'
   },
   {
@@ -49,6 +53,8 @@ const customBooks = [
     condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
       Math.round(Math.random() * 4)
     ],
+    isbn_10: '0123456789',
+    isbn_13: '0123456789012',
     date_posted: 'Jan 7, 2020'
   },
   {
@@ -64,6 +70,8 @@ const customBooks = [
     condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
       Math.round(Math.random() * 4)
     ],
+    isbn_10: '0123456789',
+    isbn_13: '0123456789012',
     date_posted: 'Jan 7, 2020'
   },
   {
@@ -79,6 +87,8 @@ const customBooks = [
     condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
       Math.round(Math.random() * 4)
     ],
+    isbn_10: '0123456789',
+    isbn_13: '0123456789012',
     date_posted: 'Jan 7, 2020'
   },
   {
@@ -94,6 +104,8 @@ const customBooks = [
     condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
       Math.round(Math.random() * 4)
     ],
+    isbn_10: '0123456789',
+    isbn_13: '0123456789012',
     date_posted: 'Jan 7, 2020'
   },
   {
@@ -109,6 +121,8 @@ const customBooks = [
     condition: ['POOR', 'FAIR', 'GOOD', 'VERY_GOOD', 'LIKE_NEW'][
       Math.round(Math.random() * 4)
     ],
+    isbn_10: '0123456789',
+    isbn_13: '0123456789012',
     date_posted: 'Jan 7, 2020'
   }
 ]
