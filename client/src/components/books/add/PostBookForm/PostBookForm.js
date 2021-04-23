@@ -8,7 +8,6 @@ import bookImage from '../../common/icons/sample-book.png'
 import './PostBookForm.scss'
 
 const PostBookForm = ({ book, addBook }) => {
-  // authors
   const [authors, setAuthors] = useState([])
 
   const removeAuthor = (indexToRemove) => {
