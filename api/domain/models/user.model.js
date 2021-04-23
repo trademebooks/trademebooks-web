@@ -13,7 +13,11 @@ const UserSchema = Schema({
   username: {
     type: String,
     required: false,
-    unique: true
+    unique: true,
+    set: (username) => {
+      // deletes all the white spaces in the username
+      return username.toString().trim().replace(/\s+/gi, '')
+    }
   },
   email: {
     type: String,
