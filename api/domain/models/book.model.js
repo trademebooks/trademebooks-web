@@ -35,6 +35,12 @@ const BookSchema = new Schema({
   condition: {
     type: String
   },
+  isbn_10: {
+    type: String
+  },
+  isbn_13: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now
