@@ -63,6 +63,19 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     }, 2000)
   }, [user])
 
+  useEffect(() => {
+    // When the user clicks anywhere on the screen while the navbar is open, we toggle (hide) it.
+    document.addEventListener('click', () => {
+      if (
+        Array.from(
+          document.querySelector('[data-test="collapse"]').classList
+        ).includes('show')
+      ) {
+        setIsOpen(false)
+      }
+    })
+  }, [])
+
   const authNavbar = (
     <MDBNavbar color="default-color" dark expand="md">
       <MDBContainer>
@@ -80,7 +93,9 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         <MDBCollapse isOpen={isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavItem>
-              <span className="color-white">{`Hello ${fullname}!`}</span>
+              <span className="color-white">
+                Hello <strong>{fullname}</strong>!
+              </span>
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
@@ -99,7 +114,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/chat">
-                <MDBIcon icon="envelope" />
+                <MDBIcon icon="envelope" /> Messages
                 {unreadMessagesCount > 0 ? (
                   <MDBBadge color="danger" className="ml-1">
                     NEW
@@ -111,7 +126,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/account">
-                <MDBIcon icon="user" />
+                <MDBIcon icon="user" /> Account
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
