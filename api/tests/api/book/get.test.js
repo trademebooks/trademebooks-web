@@ -22,7 +22,6 @@ afterEach(async () => {
 })
 
 afterAll(async () => {
-
   await api.close()
   await dbConnection.disconnect()
 })
