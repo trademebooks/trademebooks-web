@@ -5,7 +5,8 @@ module.exports = {
   apiVersion: 'v1',
   mongoURI: 'mongodb://localhost:27017/trademebooks_test_db',
   sessionSecret: 'test-my-secret-session',
-  sendGridKey: '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',
+  sendGridKey:
+    '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',
   twilioKeys: {
     accountSid: 'test_twilio_account_sid',
     authToken: 'test_twilio_auth_token'

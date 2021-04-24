@@ -22,6 +22,7 @@ afterEach(async () => {
 })
 
 afterAll(async () => {
+
   await api.close()
   await dbConnection.disconnect()
 })
@@ -52,9 +53,4 @@ describe('Books API - get', () => {
       errors: null
     })
   })
-})
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
 })

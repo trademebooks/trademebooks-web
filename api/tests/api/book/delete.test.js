@@ -11,17 +11,15 @@ const dbTestUtils = require('../../utils')
 beforeAll(async () => {
   await api.listen(apiPort)
   dbConnection = await db()
-})
-
-beforeEach(async () => {
   await dbTestUtils.setUpDatabase()
 })
 
-afterEach(async () => {
-  await dbTestUtils.clearDatabase()
-})
+beforeEach(async () => {})
+
+afterEach(async () => {})
 
 afterAll(async () => {
+  await dbTestUtils.clearDatabase()
   await api.close()
   await dbConnection.disconnect()
 })
@@ -49,9 +47,4 @@ describe('Books API - DELETE - DELETE /api/v1/books/:id', () => {
       errors: null
     })
   })
-})
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
 })

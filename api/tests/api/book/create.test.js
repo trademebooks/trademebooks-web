@@ -11,34 +11,23 @@ const dbTestUtils = require('../../utils')
 beforeAll(async () => {
   await api.listen(apiPort)
   dbConnection = await db()
-})
-
-beforeEach(async () => {
   await dbTestUtils.setUpDatabase()
 })
 
-afterEach(async () => {
-  await dbTestUtils.clearDatabase()
-})
+beforeEach(async () => {})
+
+afterEach(async () => {})
 
 afterAll(async () => {
+  await dbTestUtils.clearDatabase()
   await api.close()
   await dbConnection.disconnect()
 })
 
 describe('Books API - create', () => {
-  test('POST /api/v1/books - create a book in the datbase - User is loggedin', async () => {
+  test('POST /api/v1/books - create a book in the database - User is loggedin', async () => {
     // 1. Log the user in via the POST /auth/login api endpoint
-    const user = {
-      email: 'yichenzhu1337@gmail.com',
-      password: 'yichen'
-    }
-
-    const userResponse = await fetch(`${baseURL}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user)
-    })
+    const cookie = await dbTestUtils.getLogingUserCookies(baseURL)
 
     // 2. Create a new book via the the POST /books api endpoint
     const book = {
@@ -56,9 +45,7 @@ describe('Books API - create', () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // this allows us to send the cookie header over for:
-        // connect.sid=s%3ARR_MrMKrRXeNUBBnDqZb5P-9Y-1iJcFG.DuIFzOR%2Bn%2FjiAApJhn5I0w2HSARueYl%2Fr6q%2FyeqOOEs; Path=/; HttpOnly
-        cookie: userResponse.headers.get('set-cookie')
+        cookie
       },
       body: JSON.stringify(book)
     })
@@ -82,7 +69,7 @@ describe('Books API - create', () => {
     })
   })
 
-  test('POST /api/v1/books - create a book in the datbase - User is NOT loggedin', async () => {
+  test('POST /api/v1/books - create a book in the database - User is NOT loggedin', async () => {
     const book = {
       title: 'Test Book #1',
       description: 'This book is awesome, buy it',
@@ -111,9 +98,4 @@ describe('Books API - create', () => {
       errors: ['You must be logged in.']
     })
   })
-})
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
 })

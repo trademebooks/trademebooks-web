@@ -56,8 +56,3 @@ describe('Account API - get Account', () => {
     expect(typeof response.data.location).toBe('string')
   })
 })
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
-})

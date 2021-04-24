@@ -11,25 +11,25 @@ const dbTestUtils = require('../../utils')
 beforeAll(async () => {
   await api.listen(apiPort)
   dbConnection = await db()
-})
-
-beforeEach(async () => {
   await dbTestUtils.setUpDatabase()
 })
 
-afterEach(async () => {
-  await dbTestUtils.clearDatabase()
-})
+beforeEach(async () => {})
+
+afterEach(async () => {})
 
 afterAll(async () => {
+  await dbTestUtils.clearDatabase()
   await api.close()
   await dbConnection.disconnect()
 })
 
 describe('Books API - Update - PUT /api/v1/books/:id', () => {
   test('Update an existing book by id - with Loggedin User', async () => {
+    // 1. Log the user in via the POST /auth/login api endpoint
     const cookie = await dbTestUtils.getLogingUserCookies(baseURL)
 
+    // 2. Create a new book via the the POST /books api endpoint
     const newBook = {
       title: 'Test Book #2',
       description: 'This book is awesome, buy it - updated 2',
@@ -59,7 +59,7 @@ describe('Books API - Update - PUT /api/v1/books/:id', () => {
     })
   })
 
-  xtest('Update an a non-existing book id - with Loggedin User', async () => {
+  test('Update a non-existing book id - with Loggedin User', async () => {
     const cookie = await dbTestUtils.getLogingUserCookies(baseURL)
 
     const newBook = {
@@ -93,9 +93,4 @@ describe('Books API - Update - PUT /api/v1/books/:id', () => {
       ]
     })
   })
-})
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
 })

@@ -56,8 +56,3 @@ describe('Account API - update Account Auth', () => {
     })
   })
 })
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
-})

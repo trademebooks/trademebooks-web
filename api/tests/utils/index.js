@@ -75,7 +75,9 @@ const getLogingUserCookies = async (baseURL, user) => {
     password: 'yichen'
   }
 
-  await fetch(`${baseURL}/auth/logout`, { method: 'GET' })
+  const logoutResponse = await fetch(`${baseURL}/auth/logout`, {
+    method: 'GET'
+  })
 
   const userResponse = await fetch(`${baseURL}/auth/login`, {
     method: 'POST',

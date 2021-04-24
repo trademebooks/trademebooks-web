@@ -40,8 +40,3 @@ describe('Books API - getAll', () => {
     expect(Array.isArray(response.data)).toBe(true)
   })
 })
-
-afterAll(async () => {
-  await api.close()
-  await dbConnection.disconnect()
-})
