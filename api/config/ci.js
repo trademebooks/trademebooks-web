@@ -1,6 +1,6 @@
 module.exports = {
-  baseUrl: 'https://www.trademebooks:',
-  port: 80,
+  baseUrl: 'http://localhost:',
+  port: Math.round(Math.random() * 65535),
   apiPrefix: 'api',
   apiVersion: 'v1',
   mongoURI: process.env.MONGO_URI,
@@ -24,11 +24,11 @@ module.exports = {
     clientSecret: process.env.TWITTER_CLIENT_SECRET
   },
   GITHUB: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET
   },
   LINKEDIN: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: process.env.LINKEDIN_CLIENT_ID,
+    clientSecret: process.env.LINKEDIN_CLIENT_SECRET
   }
 }

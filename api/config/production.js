@@ -24,11 +24,11 @@ module.exports = {
     clientSecret: process.env.TWITTER_CLIENT_SECRET
   },
   GITHUB: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET
   },
   LINKEDIN: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: process.env.LINKEDIN_CLIENT_ID,
+    clientSecret: process.env.LINKEDIN_CLIENT_SECRET
   }
 }
