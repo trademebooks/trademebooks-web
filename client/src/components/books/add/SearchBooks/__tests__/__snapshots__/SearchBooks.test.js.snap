@@ -30,8 +30,7 @@ exports[`Component: SearchBooks should match the snapshot 1`] = `
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
           data-shrink={false}
-          htmlFor="autocomplete-box"
-          id="autocomplete-box-label"
+          id="undefined-label"
         >
           Type in a book name, author name, or isbn number...
         </label>
@@ -49,7 +48,6 @@ exports[`Component: SearchBooks should match the snapshot 1`] = `
             autoFocus={false}
             className="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
             disabled={false}
-            id="autocomplete-box"
             onAnimationStart={[Function]}
             onBlur={[Function]}
             onChange={[Function]}

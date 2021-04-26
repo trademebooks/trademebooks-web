@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -30,19 +30,19 @@ const SearchBooks = ({ addBook }) => {
             publisher: bookVolumeInfo['publisher'],
             imageUrl:
               bookVolumeInfo['imageLinks'] &&
-              bookVolumeInfo['imageLinks']['thumbnail']
+                bookVolumeInfo['imageLinks']['thumbnail']
                 ? bookVolumeInfo['imageLinks']['thumbnail']
                 : '',
             isbn_10:
               bookVolumeInfo['industryIdentifiers'] &&
-              bookVolumeInfo['industryIdentifiers'][0] &&
-              bookVolumeInfo['industryIdentifiers'][0]['identifier']
+                bookVolumeInfo['industryIdentifiers'][0] &&
+                bookVolumeInfo['industryIdentifiers'][0]['identifier']
                 ? bookVolumeInfo['industryIdentifiers'][0]['identifier']
                 : '',
             isbn_13:
               bookVolumeInfo['industryIdentifiers'] &&
-              bookVolumeInfo['industryIdentifiers'][1] &&
-              bookVolumeInfo['industryIdentifiers'][1]['identifier']
+                bookVolumeInfo['industryIdentifiers'][1] &&
+                bookVolumeInfo['industryIdentifiers'][1]['identifier']
                 ? bookVolumeInfo['industryIdentifiers'][1]['identifier']
                 : ''
           }
@@ -56,7 +56,7 @@ const SearchBooks = ({ addBook }) => {
     }
   }, 1250)
 
-  const autoCompleteBoxRef = React.useRef()
+  const autoCompleteBoxRef = useRef()
 
   useEffect(() => {
     autoCompleteBoxRef.current.addEventListener('click', () => {
@@ -73,7 +73,6 @@ const SearchBooks = ({ addBook }) => {
         <div>
           <Autocomplete
             ref={autoCompleteBoxRef}
-            id="autocomplete-box"
             getOptionLabel={(option) => option.title}
             getOptionSelected={(option, value) => option.title === value.title}
             open={open}
