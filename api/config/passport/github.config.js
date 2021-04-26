@@ -2,6 +2,7 @@ const passport = require('passport')
 const GithubStrategy = require('passport-github2').Strategy
 
 const config = require('../../config')
+const passportController = require('../../controllers/passport.controller')
 
 const githubStrategyConfig = {
   clientID: config.GITHUB.clientID,
@@ -10,15 +11,13 @@ const githubStrategyConfig = {
   proxy: true
 }
 
-const githubStrategyLogin = async (
-  accessToken,
-  refreshToken,
-  profile,
-  done
-) => {
-  console.log(JSON.stringify(profile, null, '\t'))
-
-  return done(null, profile)
+const githubStrategyLogin = (accessToken, refreshToken, profile, done) => {
+  passportController.authenticateGithub(
+    accessToken,
+    refreshToken,
+    profile,
+    done
+  )
 }
 
 const githubStrategy = new GithubStrategy(

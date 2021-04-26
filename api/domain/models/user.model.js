@@ -44,6 +44,10 @@ const UserSchema = Schema({
     type: String,
     required: false
   },
+  github_id: {
+    type: String,
+    required: false
+  },
   createdAt: {
     type: Date,
     default: Date.now

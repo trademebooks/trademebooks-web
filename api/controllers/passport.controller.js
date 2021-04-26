@@ -108,12 +108,52 @@ const authenticateTwitter = async (
 
     return done(null, user.createdUser)
   } catch (err) {
-    console.log('passport facebook error', { err })
+    console.log('passport twitter error', { err })
+  }
+}
+
+const authenticateGithub = async (accessToken, refreshToken, profile, done) => {
+  const profileJson = profile._json
+  const {
+    id,
+    email,
+    name,
+    login, // username
+    location,
+    avatar_url // profile image
+  } = profileJson
+
+  const [first_name, last_name] = name.split(' ')
+
+  try {
+    // scenario 1: if the user is already in our database, then proceed to logging that user in
+    const existingUser = await User.findOne({ email })
+
+    if (existingUser) {
+      return done(null, existingUser)
+    }
+
+    // scenario 2: if the user does not exist in the databaase, then register the user
+    const newUser = {
+      email,
+      username: login,
+      first_name,
+      last_name,
+      github_id: id,
+      password: Math.random().toString(36).substring(0)
+    }
+
+    const user = await authService.registerUser(newUser)
+
+    return done(null, user.createdUser)
+  } catch (err) {
+    console.log('passport github error', { err })
   }
 }
 
 module.exports = {
   authenticateGoogle,
   authenticateFacebook,
-  authenticateTwitter
+  authenticateTwitter,
+  authenticateGithub
 }

@@ -108,6 +108,16 @@ const LoginForm = ({ login, isAuthenticated }) => {
                     >
                       <MDBIcon fab icon="twitter" />
                     </MDBBtn>
+                    <MDBBtn
+                      href="/api/v1/passport/auth/github"
+                      size="lg"
+                      tag="a"
+                      social="git"
+                      color="black"
+                      rounded
+                    >
+                      <MDBIcon fab icon="github" />
+                    </MDBBtn>
                   </div>
                 </MDBCol>
               </MDBRow>

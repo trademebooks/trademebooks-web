@@ -219,6 +219,31 @@ exports[`Component: Login should match the snapshot 1`] = `
                   }
                 />
               </a>
+              <a
+                className="btn-black btn Ripple-parent btn-git btn-lg"
+                data-test="button"
+                href="/api/v1/passport/auth/github"
+                onMouseUp={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+              >
+                <i
+                  className="fab fa-github"
+                  data-test="fa"
+                />
+                <div
+                  className="Ripple Ripple-outline "
+                  data-test="waves"
+                  style={
+                    Object {
+                      "height": "0px",
+                      "left": "0px",
+                      "top": "0px",
+                      "width": "0px",
+                    }
+                  }
+                />
+              </a>
             </div>
           </div>
         </div>
