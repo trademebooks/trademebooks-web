@@ -6,6 +6,11 @@ import AuthBookstore from '../AuthBookstore'
 
 describe('Component: AuthBookstore', () => {
   const props = {
+    auth: {
+      user: {
+        username: 'johndoe'
+      }
+    },
     books: [],
     getBookstoreByUsername: jest.fn()
   }

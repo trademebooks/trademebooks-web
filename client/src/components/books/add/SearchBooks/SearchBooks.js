@@ -30,19 +30,19 @@ const SearchBooks = ({ addBook }) => {
             publisher: bookVolumeInfo['publisher'],
             imageUrl:
               bookVolumeInfo['imageLinks'] &&
-                bookVolumeInfo['imageLinks']['thumbnail']
+              bookVolumeInfo['imageLinks']['thumbnail']
                 ? bookVolumeInfo['imageLinks']['thumbnail']
                 : '',
             isbn_10:
               bookVolumeInfo['industryIdentifiers'] &&
-                bookVolumeInfo['industryIdentifiers'][0] &&
-                bookVolumeInfo['industryIdentifiers'][0]['identifier']
+              bookVolumeInfo['industryIdentifiers'][0] &&
+              bookVolumeInfo['industryIdentifiers'][0]['identifier']
                 ? bookVolumeInfo['industryIdentifiers'][0]['identifier']
                 : '',
             isbn_13:
               bookVolumeInfo['industryIdentifiers'] &&
-                bookVolumeInfo['industryIdentifiers'][1] &&
-                bookVolumeInfo['industryIdentifiers'][1]['identifier']
+              bookVolumeInfo['industryIdentifiers'][1] &&
+              bookVolumeInfo['industryIdentifiers'][1]['identifier']
                 ? bookVolumeInfo['industryIdentifiers'][1]['identifier']
                 : ''
           }

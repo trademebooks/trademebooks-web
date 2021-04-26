@@ -10,6 +10,55 @@ Array [
     >
       My Bookstore
     </h3>
+    <div>
+      <span
+        data-popper="popper"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <i
+          className="fa fa-info-circle fa-lg"
+          data-test="fa"
+        />
+      </span>
+       
+      <a
+        href=""
+      >
+        
+      </a>
+       
+      <button
+        className="btn-default btn Ripple-parent btn-sm"
+        data-test="button"
+        onClick={[Function]}
+        onMouseUp={[Function]}
+        onTouchStart={[Function]}
+        type="button"
+      >
+        Copy 
+        <i
+          className="fa fa-clipboard"
+          data-test="fa"
+        />
+        <div
+          className="Ripple "
+          data-test="waves"
+          style={
+            Object {
+              "height": "0px",
+              "left": "0px",
+              "top": "0px",
+              "width": "0px",
+            }
+          }
+        />
+      </button>
+    </div>
   </div>,
   <div
     className="mt-4"

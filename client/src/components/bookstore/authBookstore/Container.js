@@ -3,6 +3,7 @@ import { getBookstoreByUsername } from '../../../actions/bookstore'
 import AuthBookstore from './AuthBookstore'
 
 const mapStateToProps = (state) => ({
+  auth: state.auth,
   books: state.bookstore.books
 })
 

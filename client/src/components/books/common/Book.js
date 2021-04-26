@@ -18,17 +18,8 @@ import delete_icon from './icons/delete_icon.png'
 
 import { deleteBookById } from '../../../actions/bookstore'
 
-// import socket from '../../../utils/socket'
-
 const Book = ({ book, editFlag, deleteBookById }) => {
   const chatWithUser = (book) => {
-    // socket.emit('join_private_room', {
-    //   room: undefined,
-    //   user: {
-    //     _id: book.userId
-    //   }
-    // })
-
     window.location.href = '/chat'
   }
 

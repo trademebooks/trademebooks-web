@@ -15,8 +15,6 @@ export const getBookstoreByUsername = (username) => async (dispatch) => {
       const bookstoreBooks = (await api.get(`/bookstores/${username}`)).data
         .data
 
-      console.log('auth', { bookstoreBooks })
-
       dispatch({
         type: GET_BOOKSTORE,
         payload: bookstoreBooks
