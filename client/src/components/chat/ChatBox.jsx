@@ -98,18 +98,6 @@ const ChatBox = (props) => {
   let chatBottom = useRef(null)
   const classes = useStyles()
 
-  useEffect(() => {
-    ;(async () => {
-      await reloadMessages()
-      scrollToBottom()
-    })()
-  }, [lastMessage, props.scope, props.conversationId])
-
-  useEffect(() => {
-    const socket = socketIOClient(config.SOCKET_URL)
-    socket.on('messages', (data) => setLastMessage(data))
-  }, [])
-
   const reloadMessages = async () => {
     if (props.scope === 'Global Chat') {
       const globalMessages = await getGlobalMessages()
@@ -128,6 +116,18 @@ const ChatBox = (props) => {
   }
 
   useEffect(scrollToBottom, [messages])
+
+  useEffect(() => {
+    ;(async () => {
+      await reloadMessages()
+      scrollToBottom()
+    })()
+  }, [lastMessage, props.scope, props.conversationId])
+
+  useEffect(() => {
+    const socket = socketIOClient(config.SOCKET_URL)
+    socket.on('messages', (data) => setLastMessage(data))
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

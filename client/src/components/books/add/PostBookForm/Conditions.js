@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { MDBRow, MDBCol } from 'mdbreact'
 
-import conditions, { CONDITION_TYPES } from './ConditionConstants'
+import conditions from './ConditionConstants'
 
 import './Conditions.scss'
 
@@ -35,7 +35,7 @@ const Conditions = ({ book, addBook }) => {
     })
 
     setConditionsRow(conditionsElement)
-  }, [book])
+  }, [book, addBook])
 
   return (
     <>

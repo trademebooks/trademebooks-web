@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
-import Footer from './components/layout/Footer'
+// import Footer from './components/layout/Footer'
 import Landing from './components/pages/landing'
 import Routes from './components/routing/Routes'
 

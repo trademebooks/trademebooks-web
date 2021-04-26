@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -56,14 +56,24 @@ const SearchBooks = ({ addBook }) => {
     }
   }, 1250)
 
+  const autoCompleteBoxRef = React.useRef()
+
+  useEffect(() => {
+    autoCompleteBoxRef.current.addEventListener('click', () => {
+      window.location.href = '/add-book#search-books-header'
+    })
+  }, [])
+
   return (
     <>
       <div className="search-books-container">
-        <div className="m-2 text-center">
+        <div className="m-2 text-center" id="search-books-header">
           <p className="search-books-header">Search over millions of books!</p>
         </div>
         <div>
           <Autocomplete
+            ref={autoCompleteBoxRef}
+            id="autocomplete-box"
             getOptionLabel={(option) => option.title}
             getOptionSelected={(option, value) => option.title === value.title}
             open={open}
