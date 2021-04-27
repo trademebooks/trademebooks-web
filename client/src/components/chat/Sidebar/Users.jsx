@@ -7,10 +7,10 @@ import Avatar from '@material-ui/core/Avatar'
 import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
-import { getUsers } from './Services/userService'
-import commonUtilites from './Utilities/common'
+import { getUsers } from '../Services/userService'
+import commonUtilites from '../Utilities/common'
 
-import config from '../../config'
+import config from '../../../config'
 
 const useStyles = makeStyles((theme) => ({
   subheader: {

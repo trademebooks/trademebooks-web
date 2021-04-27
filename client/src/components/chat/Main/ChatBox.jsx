@@ -13,16 +13,16 @@ import Avatar from '@material-ui/core/Avatar'
 import Paper from '@material-ui/core/Paper'
 import socketIOClient from 'socket.io-client'
 import classnames from 'classnames'
-import commonUtilites from './Utilities/common'
+import commonUtilites from '../Utilities/common'
 import {
   getGlobalMessages,
   sendGlobalMessage,
   getConversationMessages,
   sendConversationMessage
-} from './Services/chatService'
+} from '../Services/chatService'
 import { connect } from 'react-redux'
 import { FaBars } from 'react-icons/fa'
-import config from '../../config'
+import config from '../../../config'
 
 const useStyles = makeStyles((theme) => ({
   root: {

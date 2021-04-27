@@ -10,11 +10,11 @@ import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
-import { getConversations, updateConversation } from './Services/chatService'
-import commonUtilites from './Utilities/common'
+import { getConversations, updateConversation } from '../Services/chatService'
+import commonUtilites from '../Utilities/common'
 import { connect } from 'react-redux'
 
-import config from '../../config'
+import config from '../../../config'
 import { MDBBadge } from 'mdbreact'
 
 const useStyles = makeStyles((theme) => ({

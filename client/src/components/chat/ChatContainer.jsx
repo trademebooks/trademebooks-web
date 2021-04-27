@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Aside from './Aside'
-import Main from './Main'
+import Aside from './Sidebar/Aside'
+import Main from './Main/Main'
 
 import './Chat.scss'
 
