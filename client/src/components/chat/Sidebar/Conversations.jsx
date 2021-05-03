@@ -41,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Conversations = (props) => {
   const {
-    auth: { user }
+    auth: { user },
+    handleToggleSidebar
   } = props
 
   const currentUserId = user
@@ -156,6 +157,9 @@ const Conversations = (props) => {
                 props.setScope(handleRecipient(c.recipientObj).first_name)
 
                 markAsConversationAsRead(c)
+
+                // hide the side bar when a user is clicked
+                handleToggleSidebar(false)
               }}
             >
               <ListItemAvatar>

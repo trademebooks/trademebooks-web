@@ -34,8 +34,8 @@ const Aside = ({
         </Tabs>
       </SidebarHeader>
       <SidebarContent>
-        {tab === 0 && <Conversations setUser={setUser} setScope={setScope} />}
-        {tab === 1 && <Users setUser={setUser} setScope={setScope} />}
+        {tab === 0 && <Conversations setUser={setUser} setScope={setScope} handleToggleSidebar={handleToggleSidebar}/>}
+        {tab === 1 && <Users setUser={setUser} setScope={setScope} handleToggleSidebar={handleToggleSidebar}/>}
       </SidebarContent>
     </ProSidebar>
   )

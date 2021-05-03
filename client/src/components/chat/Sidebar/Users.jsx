@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Users = (props) => {
+  const { handleToggleSidebar } = props
   const classes = useStyles()
   const [users, setUsers] = useState([])
   const [newUser, setNewUser] = useState(null)
@@ -67,6 +68,9 @@ const Users = (props) => {
               onClick={() => {
                 props.setUser(u)
                 props.setScope(u.first_name)
+
+                // hide the side bar when a user is clicked
+                handleToggleSidebar(false)
               }}
               button
             >

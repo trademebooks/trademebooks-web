@@ -35,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    padding: '0 1rem 0 1rem',
     height: '100%',
     color: theme.palette.primary.dark
   },
@@ -158,6 +159,8 @@ const ChatBox = (props) => {
           <Typography color="inherit" variant="h6">
             {props.scope}
           </Typography>
+          &nbsp;
+          <span>&nbsp;</span>
         </Paper>
       </Grid>
       <Grid item xs={12}>
