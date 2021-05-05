@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "lint:check": "./node_modules/eslint/bin/eslint.js ./",
+    "lint:fix": "./node_modules/eslint/bin/eslint.js ./ --fix"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.6.3"
+  }
+}

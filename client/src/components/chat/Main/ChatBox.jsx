@@ -216,6 +216,7 @@ const ChatBox = (props) => {
                     fullWidth
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
+                    autoComplete="off"
                   />
                 </Grid>
                 <Grid item xs={1}>

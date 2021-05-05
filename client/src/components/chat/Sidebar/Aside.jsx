@@ -6,6 +6,8 @@ import Tab from '@material-ui/core/Tab'
 import Conversations from './Conversations'
 import Users from './Users'
 
+import './Aside.scss'
+
 const Aside = ({
   toggled,
   handleToggleSidebar,
@@ -34,8 +36,20 @@ const Aside = ({
         </Tabs>
       </SidebarHeader>
       <SidebarContent>
-        {tab === 0 && <Conversations setUser={setUser} setScope={setScope} handleToggleSidebar={handleToggleSidebar}/>}
-        {tab === 1 && <Users setUser={setUser} setScope={setScope} handleToggleSidebar={handleToggleSidebar}/>}
+        {tab === 0 && (
+          <Conversations
+            setUser={setUser}
+            setScope={setScope}
+            handleToggleSidebar={handleToggleSidebar}
+          />
+        )}
+        {tab === 1 && (
+          <Users
+            setUser={setUser}
+            setScope={setScope}
+            handleToggleSidebar={handleToggleSidebar}
+          />
+        )}
       </SidebarContent>
     </ProSidebar>
   )
