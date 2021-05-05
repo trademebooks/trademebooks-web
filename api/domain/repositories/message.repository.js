@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Message = require('../models/user.model')
 
 const getAllMessages = async () => {}

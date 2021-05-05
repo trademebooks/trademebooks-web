@@ -1,6 +1,4 @@
 const catchException = require('../utils/catchExceptions')
-const globalResponseDto = require('../dtos/responses/globalResponseDto')
-
 const Message = require('../domain/models/chat/message.model')
 const Conversation = require('../domain/models/chat/conversation.model')
 const GlobalMessage = require('../domain/models/chat/globalMessage.model')

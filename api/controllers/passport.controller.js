@@ -1,11 +1,16 @@
-const catchExceptions = require('../utils/catchExceptions')
 const authService = require('../domain/services/auth.service')
 
 const User = require('../domain/models/user.model')
 
 const authenticateGoogle = async (accessToken, refreshToken, profile, done) => {
   const profileJson = profile._json
-  const { sub, email, given_name, family_name, picture } = profileJson
+  const {
+    sub,
+    email,
+    given_name,
+    family_name
+    // picture
+  } = profileJson
 
   try {
     // scenario 1: if the user is already in our database, then proceed to logging that user in
@@ -79,9 +84,9 @@ const authenticateTwitter = async (
     id,
     email,
     name,
-    screen_name,
-    location,
-    profile_image_url_https
+    screen_name
+    // location,
+    // profile_image_url_https
   } = profileJson
 
   const [first_name, last_name] = name.split(' ')
@@ -118,9 +123,9 @@ const authenticateGithub = async (accessToken, refreshToken, profile, done) => {
     id,
     email,
     name,
-    login, // username
-    location,
-    avatar_url // profile image
+    login // username
+    // location,
+    // avatar_url // profile image
   } = profileJson
 
   const [first_name, last_name] = name.split(' ')

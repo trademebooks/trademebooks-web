@@ -25,7 +25,7 @@ const updateAccountById = catchException(async (req, res) => {
   )
 })
 
-const updateUserById = catchException(async (req, res, next) => {
+const updateUserById = catchException(async (req, res) => {
   const user = await userService.updateById(req.user._id, req.body)
 
   res.status(200).json(
@@ -36,7 +36,7 @@ const updateUserById = catchException(async (req, res, next) => {
   )
 })
 
-const getAccountByUsername = catchException(async (req, res, next) => {
+const getAccountByUsername = catchException(async (req, res) => {
   const account = await accountService.getAccountByUsername(req.params.username)
 
   res.status(200).json(

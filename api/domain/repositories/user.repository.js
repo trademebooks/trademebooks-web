@@ -64,7 +64,7 @@ const findUserByEmailAndPassword = async (userData) => {
  * @returns user
  */
 const updateById = async (userId, data) => {
-  const user = await User.updateOne({ _id: userId }, data)
+  await User.updateOne({ _id: userId }, data)
   const updatedUser = await User.findOne({ _id: userId })
   return updatedUser
 }

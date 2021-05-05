@@ -20,7 +20,4 @@ const ConversationSchema = new Schema({
   }
 })
 
-module.exports = Conversation = mongoose.model(
-  'conversations',
-  ConversationSchema
-)
+module.exports = mongoose.model('conversations', ConversationSchema)

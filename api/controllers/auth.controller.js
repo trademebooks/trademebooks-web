@@ -26,7 +26,7 @@ const registerUser = catchExceptions(async (req, res) => {
   )
 })
 
-const logUserIn = catchExceptions(async (req, res, next) => {
+const logUserIn = catchExceptions(async (req, res) => {
   const loginUserRequest = loginUserRequestDto(req.body)
 
   loginUserValidator(loginUserRequest)

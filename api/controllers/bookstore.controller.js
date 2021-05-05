@@ -3,7 +3,7 @@ const catchException = require('../utils/catchExceptions')
 const bookstoreService = require('../domain/services/bookstore.service')
 const bookService = require('../domain/services/book.service')
 
-const getBookstoreByUsername = catchException(async (req, res, next) => {
+const getBookstoreByUsername = catchException(async (req, res) => {
   const bookstore = await bookstoreService.getBookstoreByUsername(
     req.params.username
   )
@@ -16,7 +16,7 @@ const getBookstoreByUsername = catchException(async (req, res, next) => {
   )
 })
 
-const getAuthBookstore = catchException(async (req, res, next) => {
+const getAuthBookstore = catchException(async (req, res) => {
   const books = await bookService.getAllByUserId(req.user._id)
 
   res.status(200).json(

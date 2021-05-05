@@ -2,7 +2,6 @@ const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchExceptions = require('../utils/catchExceptions')
 const contactUsRequestDto = require('../dtos/requests/contactUsRequestDto')
 const contactUsValidator = require('../validators/contactUsValidator')
-const mailer = require('../domain/services/mailer/email.service')
 const User = require('../domain/models/user.model')
 const mongoose = require('mongoose')
 
