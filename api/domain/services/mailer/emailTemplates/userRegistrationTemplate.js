@@ -1,3 +1,4 @@
+/* eslint-disable-next-line */
 const template = (user) => {
   return `
     <html>

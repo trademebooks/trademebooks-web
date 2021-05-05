@@ -60,7 +60,7 @@ describe('Test Suite: Book Repository', () => {
       author: 'J.K. Rowling',
       datePublished: Date.now()
     }
-    const book = await bookRepository.updateById(bookToUpdate.id, newBook)
+    await bookRepository.updateById(bookToUpdate.id, newBook)
 
     const updatedBooks = await dbTestUtils.getAllTableData(Book)
 

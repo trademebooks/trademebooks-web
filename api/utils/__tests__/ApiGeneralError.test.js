@@ -1,3 +1,4 @@
+/* eslint-disable */
 const ApiGeneralError = require('../ApiGeneralError')
 
 describe('ApiGeneralError', () => {

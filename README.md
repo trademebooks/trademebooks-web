@@ -124,6 +124,24 @@ Start the server locally on localhost:3000 with the following command in the roo
 npm run dev
 ```
 
+## Linting and Prettier
+
+Run the following commands in the root directory of the project.
+
+For eslint on the backend `api` directory; but for eslint on the client frontend, run the test command in the client folder.
+
+```bash
+npm run lint:check # does a simple check for the backend api folder
+npm run lint:fix # tries to fix all the linting issues in the backend api folder
+```
+
+For running prettier formatting for the entire project.
+
+```bash
+npm run prettier:check # checks if the entire is formatted properly
+npm run prettier:write # reformat the entire project
+```
+
 ## Deploy to Production
 
 - production link: https://www.trademebooks.com/

@@ -3,8 +3,8 @@ const bookService = require('../book.service')
 
 beforeEach(() => {
   bookRepository.getAll = jest.fn(() => [])
-  bookRepository.getById = jest.fn((id) => {})
-  bookRepository.create = jest.fn((book) => {})
+  bookRepository.getById = jest.fn(() => {})
+  bookRepository.create = jest.fn(() => {})
 })
 
 describe('Book Service Test Suite', () => {

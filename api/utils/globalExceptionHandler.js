@@ -1,6 +1,7 @@
 const globalResponseDto = require('../dtos/responses/globalResponseDto')
 
-const globalExceptionHandler = async (err, req, res) => {
+/* eslint-disable-next-line */
+const globalExceptionHandler = async (err, req, res, next) => {
   console.log('===============================')
   console.log('Global Error Catcher:', err.name)
   console.log('===============================')

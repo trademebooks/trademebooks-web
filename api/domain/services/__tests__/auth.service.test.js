@@ -5,18 +5,18 @@ const accountRepository = require('../../repositories/account.repository')
 const authService = require('../auth.service')
 
 beforeEach(() => {
-  userRepository.createUser = jest.fn((user) => {
+  userRepository.createUser = jest.fn(() => {
     return {}
   })
-  userRepository.findUserByEmailAndPassword = jest.fn((user) => {
-    return {}
-  })
-
-  bookstoreRepository.createByUserId = jest.fn((userId) => {
+  userRepository.findUserByEmailAndPassword = jest.fn(() => {
     return {}
   })
 
-  accountRepository.createByUserId = jest.fn((userId) => {
+  bookstoreRepository.createByUserId = jest.fn(() => {
+    return {}
+  })
+
+  accountRepository.createByUserId = jest.fn(() => {
     return {}
   })
 })
@@ -46,7 +46,7 @@ describe('Auth Service', () => {
 
     await authService.loginUser(
       testUser,
-      { login: jest.fn((param) => {}) },
+      { login: jest.fn(() => {}) },
       {},
       () => {}
     )

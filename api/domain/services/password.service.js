@@ -23,7 +23,7 @@ const sendResetPasswordEmail = async (email) => {
     })
   }
 
-  const password = await Password.findOneAndUpdate(
+  await Password.findOneAndUpdate(
     { email, token }, // find a document with that filter
     { email, token }, // document to insert when nothing was found
     { upsert: true, new: true, runValidators: true } // options
