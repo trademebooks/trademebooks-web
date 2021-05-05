@@ -9,7 +9,7 @@ const fields = [
   'password_confirmation'
 ]
 
-registerUserRequestDto = (data) => {
+const registerUserRequestDto = (data) => {
   const errors = []
   fields.forEach((field) => {
     if (!(field in data)) {

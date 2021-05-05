@@ -1,6 +1,6 @@
 const globalResponseDto = require('../dtos/responses/globalResponseDto')
 
-const globalExceptionHandler = async (err, req, res, next) => {
+const globalExceptionHandler = async (err, req, res) => {
   console.log('===============================')
   console.log('Global Error Catcher:', err.name)
   console.log('===============================')

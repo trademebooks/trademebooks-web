@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 
-const userFactory = require('../factories/userFactory')
-const bookFactory = require('../factories/bookFactory')
+// const userFactory = require('../factories/userFactory')
+// const bookFactory = require('../factories/bookFactory')
 
 const Account = require('../../domain/models/account.model')
 const Book = require('../../domain/models/book.model')
@@ -32,7 +32,7 @@ const Models = [
 
 const clearDatabase = async () => {
   try {
-    for (Model of Models) {
+    for (const Model of Models) {
       await Model.deleteMany({})
     }
     // also clear the mongostore session table: https://stackoverflow.com/questions/24416953/clear-the-session-store
@@ -46,15 +46,12 @@ const setUpDatabase = async () => {
     await clearDatabase()
 
     const users = await require('../seeds/users.seeds')(10)
-    const books = await require('../seeds/books.seeds')(users, 10)
+    await require('../seeds/books.seeds')(users, 10)
     const conversations = await require('../seeds/chat/conversations.seeds')(
       users
     )
-    const messages = await require('../seeds/chat/messages.seeds')(
-      conversations,
-      users
-    )
-    const globalMessages = await require('../seeds/chat/globalMessages.seeds')()
+    await require('../seeds/chat/messages.seeds')(conversations, users)
+    await require('../seeds/chat/globalMessages.seeds')()
   } catch (err) {
     console.log('setUpDatabase, error:', { err })
   }
@@ -75,7 +72,7 @@ const getLogingUserCookies = async (baseURL, user) => {
     password: 'yichen'
   }
 
-  const logoutResponse = await fetch(`${baseURL}/auth/logout`, {
+  await fetch(`${baseURL}/auth/logout`, {
     method: 'GET'
   })
 

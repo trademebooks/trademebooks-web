@@ -1,5 +1,3 @@
-const faker = require('faker')
-
 const GlobalMessage = require('../../../domain/models/chat/globalMessage.model')
 
 const messages = [

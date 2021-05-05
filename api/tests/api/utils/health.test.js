@@ -28,9 +28,7 @@ afterAll(async () => {
 
 describe('Utils Health Test', () => {
   test('GET /health', async () => {
-    const response = await fetch(
-      `http://localhost:${apiPort}/api/v1/utils/health`
-    )
+    const response = await fetch(`${baseURL}/utils/health`)
     const json = await response.json()
     expect(json).toEqual({
       status: 'success',

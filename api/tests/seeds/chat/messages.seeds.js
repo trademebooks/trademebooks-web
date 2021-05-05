@@ -1,6 +1,3 @@
-const faker = require('faker')
-const { ObjectId } = require('mongodb')
-
 const Message = require('../../../domain/models/chat/message.model')
 
 const messages = [

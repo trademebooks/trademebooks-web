@@ -1,3 +1,4 @@
+/* eslint-disable */
 const bookPermission = require('../bookPermission.middleware')
 
 describe('Book Middleware', () => {

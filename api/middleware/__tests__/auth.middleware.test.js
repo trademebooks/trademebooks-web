@@ -1,3 +1,4 @@
+/* eslint-disable */
 const authMiddleware = require('../auth.middleware')
 
 describe('Auth Middleware', () => {

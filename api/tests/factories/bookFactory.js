@@ -4,7 +4,7 @@ const Book = require('../../domain/models/book.model')
 const bookFactory = async (users, numberOfBooks) => {
   const books = []
 
-  for (user of users) {
+  for (const user of users) {
     for (let i = 1; i <= numberOfBooks; i++) {
       const bookFields = {
         userId: user.id,
@@ -15,9 +15,6 @@ const bookFactory = async (users, numberOfBooks) => {
           faker.lorem.words(),
           faker.lorem.words()
         ].slice(0, Math.round(Math.random(0, 3) * 3)),
-        condition: ['Poor', 'Fair', 'Good', 'Very Good', 'Like New'][
-          Math.round(Math.random(0, 4)) + 1
-        ],
         location: `${faker.address.city()}, ${faker.address.county()}`,
         price: faker.random.number(500),
         edition: Math.round(Math.random(0, 5) * 5),
