@@ -16,6 +16,7 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-ga": "^3.3.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
     "react-pro-sidebar": "^0.4.4",
@@ -52,9 +53,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
-    "react-test-renderer": "^16.13.0",
-    "@testing-library/react": "^11.2.2"
+    "react-test-renderer": "^16.13.0"
   }
 }
