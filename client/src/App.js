@@ -25,9 +25,10 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 // global CSS
 import './css/main.scss'
 
+import './config/googleAnalytics'
+
 // Initialize google analytics page view tracking
 const history = createBrowserHistory()
-import './config/googleAnalytics'
 history.listen((location) => {
   ReactGA.set({ page: location.pathname }) // Update the user's current page
   ReactGA.pageview(location.pathname) // Record a pageview for the given page
