@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import ReactGA from 'react-ga'
 
@@ -27,16 +27,16 @@ import './css/main.scss'
 
 import './config/googleAnalytics'
 
-// Initialize google analytics page view tracking
-const history = createBrowserHistory()
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname }) // Update the user's current page
-  ReactGA.pageview(location.pathname) // Record a pageview for the given page
-})
-
 const App = () => {
+  const history = createBrowserHistory()
+
   useEffect(() => {
     store.dispatch(loadUser())
+
+    history.listen((location) => {
+      ReactGA.set({ page: location.pathname + window.location.search })
+      ReactGA.pageview(location.pathname + window.location.search)
+    })
   }, [])
 
   return (
