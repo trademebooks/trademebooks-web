@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import ReactGA from 'react-ga'
+
 import Navbar from './components/layout/Navbar'
 // import Footer from './components/layout/Footer'
 import Landing from './components/pages/landing'
@@ -22,6 +25,14 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 // global CSS
 import './css/main.scss'
 
+// Initialize google analytics page view tracking
+const history = createBrowserHistory()
+import './config/googleAnalytics'
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname }) // Update the user's current page
+  ReactGA.pageview(location.pathname) // Record a pageview for the given page
+})
+
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser())
@@ -29,7 +40,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <Navbar />
         <main>
           <Switch>
