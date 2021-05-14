@@ -4,6 +4,8 @@ import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 
 import Books from '../../books/common/Books'
 
+import './PublicBookstore.scss'
+
 const PublicBookstore = ({
   match,
   books,
@@ -50,36 +52,21 @@ const PublicBookstore = ({
 
         <MDBContainer>
           <MDBRow>
-            <div className="col-xs-6 ml-4 mr-2">
-              <i
-                className="fas fa-map-marker-alt"
-                style={{
-                  fontSize: '300%',
-                  height: '150%',
-                  color: 'var(--primary-dark-color)'
-                }}
-              ></i>
+            <div className="col-xs-12 ml-4">
+              <div>
+                <i className="fas fa-map-marker-alt icon--style"></i> Location
+              </div>
+              <div>
+                <strong>{location}</strong>
+              </div>
             </div>
-            <div className="col-xs-12">
-              Located in:
-              <br />
-              <strong>{location}</strong>
-            </div>
-
-            <div className="col-xs-6 ml-4 mr-2">
-              <i
-                className="fas fa-graduation-cap"
-                style={{
-                  fontSize: '300%',
-                  height: '150%',
-                  color: 'var(--primary-dark-color)'
-                }}
-              ></i>
-            </div>
-            <div className="col-xs-12">
-              Selling books for:
-              <br />
-              <strong>{school}</strong>
+            <div className="col-xs-12 ml-4">
+              <div>
+                <i className="fas fa-graduation-cap icon--style"></i> School
+              </div>
+              <div>
+                <strong>{school}</strong>
+              </div>
             </div>
           </MDBRow>
         </MDBContainer>

@@ -22,6 +22,12 @@
   &-container {
     display: flex;
     flex-wrap: nowrap;
+
+    @media screen and (max-width: 767px) {
+      .flex-grow-1-mobile {
+        display: none;
+      }
+    }
   }
 
   &-image {

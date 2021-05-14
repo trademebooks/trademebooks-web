@@ -33,7 +33,7 @@ const AuthBookstore = ({
   const handleUrlCopyToClipboard = (e) => {
     navigator.clipboard.writeText(clipBoardUrl).then(
       function () {
-        toastr.success('Clipboard successfully set.')
+        toastr.success('Your bookstore URL has been copied to your clipboard!')
       },
       function () {
         toastr.error('Clipboard write failed.')
@@ -56,7 +56,7 @@ const AuthBookstore = ({
               books.
             </span>
           </MDBTooltip>{' '}
-          <a href={clipBoardUrl}>{clipBoardUrl}</a>{' '}
+          <input className="form-control" readOnly type="text" value={clipBoardUrl}/>{' '}
           <MDBBtn size="sm" onClick={handleUrlCopyToClipboard}>
             Copy <MDBIcon icon="clipboard" />
           </MDBBtn>

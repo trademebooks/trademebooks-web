@@ -126,7 +126,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
         </div>
         {/* Column 2 - end   */}
 
-        <div className="flex-grow-1">&nbsp;</div>
+        <div className="flex-grow-1 flex-grow-1-mobile">&nbsp;</div>
 
         {/* Column 3 - start */}
         <div className="single-card-column-section-3">

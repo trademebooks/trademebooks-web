@@ -109,7 +109,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                 className="waves-effect waves-light"
                 to="/my-bookstore"
               >
-                <MDBIcon icon="store" /> <span>Bookstore</span>
+                <MDBIcon icon="store" /> <span>My Bookstore</span>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
