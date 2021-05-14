@@ -47,9 +47,9 @@ describe('Password API - reset password with token', () => {
     expect(response).toMatchObject({
       status: 'failed',
       code: 400,
-      message: 'Password Reset incomplete',
+      message: 'Password Reset incomplete.',
       data: {},
-      errors: ['Invalid token and/or email combination']
+      errors: ['Invalid token and/or email combination.']
     })
   })
 })
