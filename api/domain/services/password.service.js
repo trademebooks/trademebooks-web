@@ -25,7 +25,11 @@ const sendResetPasswordEmail = async (email) => {
 
   await Password.findOneAndUpdate(
     { email, token }, // find a document with that filter
-    { email, token }, // document to insert when nothing was found
+    { 
+      email, 
+      token, 
+      tokenExpiresAt: new Date(+new Date() + 30 * 60 * 1000),
+    }, // document to insert when nothing was found
     { upsert: true, new: true, runValidators: true } // options
   )
 
@@ -57,8 +61,8 @@ const resetPassword = async (email, token, newPassword) => {
   }
 
   throw new ApiGeneralError({
-    message: `Password Reset incomplete`,
-    errors: ['Invalid token and/or email combination']
+    message: `Password Reset incomplete.`,
+    errors: ['Invalid token and/or email combination.']
   })
 }
 
