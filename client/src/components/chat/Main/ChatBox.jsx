@@ -13,7 +13,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Paper from '@material-ui/core/Paper'
 import socketIOClient from 'socket.io-client'
 import classnames from 'classnames'
-import commonUtilites from '../Utilities/common'
+import { getInitialsFromName } from '../Utilities/common'
 import {
   getGlobalMessages,
   sendGlobalMessage,
@@ -105,7 +105,6 @@ const ChatBox = (props) => {
       setMessages(globalMessages)
     } else if (props.scope !== null && props.conversationId !== null) {
       const messages = await getConversationMessages(props.user._id)
-      console.log({ messages })
       setMessages(messages)
     } else {
       setMessages([])
@@ -130,11 +129,8 @@ const ChatBox = (props) => {
     socket.on('messages', (data) => setLastMessage(data))
   }, [])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    console.log('newMessage', JSON.stringify({ newMessage }, null, '\t'))
-    console.log(JSON.stringify({ props }, null, '\t'))
-    e.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
 
     if (props.scope === 'Global Chat') {
       await sendGlobalMessage(newMessage)
@@ -179,7 +175,7 @@ const ChatBox = (props) => {
                   >
                     <ListItemAvatar className={classes.avatar}>
                       <Avatar>
-                        {commonUtilites.getInitialsFromName(
+                        {getInitialsFromName(
                           m.fromObj[0].first_name
                         )}
                       </Avatar>

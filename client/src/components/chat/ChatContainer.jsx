@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
-import Aside from './Sidebar/Aside'
-import Main from './Main/Main'
+import Sidebar from './Sidebar/Sidebar'
+import MainChat from './Main/MainChat'
 
 import './Chat.scss'
 
-function ChatContainer() {
-  // for the side bar
+const ChatContainer = () => {
+  // Sidebar
   const [toggled, setToggled] = useState(false)
-
   const handleToggleSidebar = (value) => {
     setToggled(value)
   }
 
-  // main chat content
+  // Main Chat Content
   const [scope, setScope] = useState('Global Chat')
   const [tab, setTab] = useState(0)
   const [user, setUser] = useState(null)
@@ -23,7 +22,7 @@ function ChatContainer() {
 
   return (
     <div className="chat-app">
-      <Aside
+      <Sidebar
         toggled={toggled}
         handleToggleSidebar={handleToggleSidebar}
         handleChange={handleChange}
@@ -31,7 +30,7 @@ function ChatContainer() {
         setUser={setUser}
         setScope={setScope}
       />
-      <Main
+      <MainChat
         handleToggleSidebar={handleToggleSidebar}
         scope={scope}
         user={user}

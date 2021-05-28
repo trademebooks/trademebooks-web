@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
 import { getUsers } from '../Services/userService'
-import commonUtilites from '../Utilities/common'
+import { getInitialsFromName } from '../Utilities/common'
 
 import config from '../../../config'
 
@@ -33,8 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Users = (props) => {
-  const { handleToggleSidebar } = props
+const Users = ({ handleToggleSidebar, setUser, setScope }) => {
   const classes = useStyles()
   const [users, setUsers] = useState([])
   const [newUser, setNewUser] = useState(null)
@@ -42,16 +41,15 @@ const Users = (props) => {
   useEffect(() => {
     async function init() {
       const users = await getUsers()
-
-      console.log({ users })
       setUsers(users)
     }
-
+    
     init()
   }, [newUser])
 
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
+
     socket.on('users', (data) => {
       setNewUser(data)
     })
@@ -61,25 +59,22 @@ const Users = (props) => {
     <List className={classes.list}>
       {users && (
         <>
-          {users.map((u) => (
+          {users.map((user) => (
             <ListItem
               className={classes.listItem}
-              key={u._id}
+              key={user._id}
               onClick={() => {
-                props.setUser(u)
-                props.setScope(u.first_name)
-
+                setUser(user)
+                setScope(user.first_name)
                 // hide the side bar when a user is clicked
                 handleToggleSidebar(false)
               }}
               button
             >
               <ListItemAvatar className={classes.avatar}>
-                <Avatar>
-                  {commonUtilites.getInitialsFromName(u.first_name)}
-                </Avatar>
+                <Avatar>{getInitialsFromName(user.first_name)}</Avatar>
               </ListItemAvatar>
-              <ListItemText primary={u.first_name} />
+              <ListItemText primary={user.first_name} />
             </ListItem>
           ))}
         </>

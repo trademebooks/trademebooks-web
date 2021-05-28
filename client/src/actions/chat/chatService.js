@@ -1,12 +1,9 @@
 import api from '../../../utils/api'
-// import displayErrors from '../../../utils/displayErrors'
 
 // Receive global messages
 export const getGlobalMessages = async () => {
   try {
     const getGlobalMessagesResponse = (await api.get(`/messages/global`)).data
-
-    console.log({ getGlobalMessagesResponse })
 
     return getGlobalMessagesResponse
   } catch (err) {
@@ -17,11 +14,7 @@ export const getGlobalMessages = async () => {
 // Send a global message
 export const sendGlobalMessage = async (body) => {
   try {
-    const sendGlobalMessageResponse = (
-      await api.post('/messages/global', { body: body, global: true })
-    ).data
-
-    console.log({ sendGlobalMessageResponse })
+    const sendGlobalMessageResponse = (await api.post('/messages/global', { body: body, global: true })).data
 
     return sendGlobalMessageResponse
   } catch (err) {
@@ -32,10 +25,7 @@ export const sendGlobalMessage = async (body) => {
 // Get list of users conversations
 export const getConversations = async () => {
   try {
-    const getConversationsResponse = (await api.get(`/messages/conversations`))
-      .data
-
-    // console.log({ getConversationsResponse })
+    const getConversationsResponse = (await api.get(`/messages/conversations`)).data
 
     return getConversationsResponse
   } catch (err) {
@@ -51,8 +41,6 @@ export const getConversationMessages = async (id) => {
       await api.get(`/messages/conversations/query?userId=${id}`)
     ).data
 
-    console.log({ getConversationMessagesResponse })
-
     return getConversationMessagesResponse
   } catch (err) {
     console.log(err)
@@ -65,8 +53,6 @@ export const sendConversationMessage = async (id, body) => {
       await api.post('/messages', { to: id, body: body })
     ).data
 
-    console.log({ sendConversationMessageResponse })
-
     return sendConversationMessageResponse
   } catch (err) {
     console.log(err)
@@ -78,8 +64,6 @@ export const updateConversation = async (conversationId, data) => {
     const updateConversationResponse = (
       await api.put(`/messages/conversations/${conversationId}`, data)
     ).data
-
-    console.log({ updateConversationResponse })
 
     return updateConversationResponse
   } catch (err) {

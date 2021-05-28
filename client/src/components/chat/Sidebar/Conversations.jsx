@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
 import { getConversations, updateConversation } from '../Services/chatService'
-import commonUtilites from '../Utilities/common'
+import { getInitialsFromName } from '../Utilities/common'
 import { connect } from 'react-redux'
 
 import config from '../../../config'
@@ -32,19 +32,15 @@ const useStyles = makeStyles((theme) => ({
   list: {
     maxHeight: 'calc(100vh - 112px)',
     overflowY: 'auto'
-  },
-  listItem: {
-    // backgroundColor: '#2bbbad'
-    // opacity: 0.7
   }
 }))
 
-const Conversations = (props) => {
-  const {
-    auth: { user },
-    handleToggleSidebar
-  } = props
-
+const Conversations = ({
+  setUser,
+  setScope,
+  auth: { user },
+  handleToggleSidebar
+}) => {
   const currentUserId = user
 
   const classes = useStyles()
@@ -59,14 +55,17 @@ const Conversations = (props) => {
         return recipients[i]
       }
     }
+
     return null
   }
 
   useEffect(() => {
-    ;(async () => {
+    async function init() {
       const res = await getConversations()
       setConversations(res)
-    })()
+    }
+
+    init()
   }, [newConversation])
 
   useEffect(() => {
@@ -80,8 +79,6 @@ const Conversations = (props) => {
   }, [])
 
   const markAsConversationAsRead = async (conversation) => {
-    console.log({ conversation })
-
     await updateConversation(conversation._id, {
       lastMessageIsRead: true
     })
@@ -89,43 +86,6 @@ const Conversations = (props) => {
     const res = await getConversations()
 
     setConversations(res)
-
-    // const res = await getConversations()
-    // setConversations(res)
-
-    // conversation OBJECT
-    // {
-    //     "_id": "5fd9c848c22f0d3a70e1d0cc",
-    //     "__v": 0,
-    //     "date": "1608108104163",
-    //     "lastMessage": "hi cindy",
-    //     "lastMessageIsRead": false,
-    //     "lastMessageSenderId" : 12345,
-    //     "recipients": [
-    //         "5e11e9d8eded1d23742c1c6b",
-    //         "5fd9c7d836c6593a7eeeb652"
-    //     ],
-    //     "recipientObj": [
-    //         {
-    //             "_id": "5e11e9d8eded1d23742c1c6b",
-    //             "first_name": "Cedric",
-    //             "last_name": "Mosdell",
-    //             "username": "cedric",
-    //             "email": "cedric@cedric.com",
-    //             "phone_number": "4162932502",
-    //             "createdAt": "2020-12-16T08:39:52.478Z"
-    //         },
-    //         {
-    //             "_id": "5fd9c7d836c6593a7eeeb652",
-    //             "first_name": "Cindy",
-    //             "last_name": "Bayer",
-    //             "username": "Sigurd.OKon64",
-    //             "email": "Cali40@hotmail.com",
-    //             "phone_number": "549-168-9728",
-    //             "createdAt": "2020-12-16T08:39:52.587Z"
-    //         }
-    //     ]
-    // },
   }
 
   return (
@@ -133,7 +93,7 @@ const Conversations = (props) => {
       <ListItem
         classes={{ root: classes.subheader }}
         onClick={() => {
-          props.setScope('Global Chat')
+          setScope('Global Chat')
         }}
       >
         <ListItemAvatar>
@@ -153,8 +113,8 @@ const Conversations = (props) => {
               key={c._id}
               button
               onClick={() => {
-                props.setUser(handleRecipient(c.recipientObj))
-                props.setScope(handleRecipient(c.recipientObj).first_name)
+                setUser(handleRecipient(c.recipientObj))
+                setScope(handleRecipient(c.recipientObj).first_name)
 
                 markAsConversationAsRead(c)
 
@@ -164,7 +124,7 @@ const Conversations = (props) => {
             >
               <ListItemAvatar>
                 <Avatar>
-                  {commonUtilites.getInitialsFromName(
+                  {getInitialsFromName(
                     handleRecipient(c.recipientObj).first_name
                   )}
                 </Avatar>

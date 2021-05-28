@@ -6,9 +6,9 @@ import Tab from '@material-ui/core/Tab'
 import Conversations from './Conversations'
 import Users from './Users'
 
-import './Aside.scss'
+import './Sidebar.scss'
 
-const Aside = ({
+const Sidebar = ({
   toggled,
   handleToggleSidebar,
   handleChange,
@@ -55,4 +55,4 @@ const Aside = ({
   )
 }
 
-export default Aside
+export default Sidebar
