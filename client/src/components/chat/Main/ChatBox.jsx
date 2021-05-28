@@ -19,7 +19,7 @@ import {
   sendGlobalMessage,
   getConversationMessages,
   sendConversationMessage
-} from '../Services/chatService'
+} from '../../../actions/chat/chatService'
 import { connect } from 'react-redux'
 import { FaBars } from 'react-icons/fa'
 import config from '../../../config'

@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
-import { getConversations, updateConversation } from '../Services/chatService'
+import { getConversations, updateConversation } from '../../../actions/chat/chatService'
 import { getInitialsFromName } from '../Utilities/common'
 import { connect } from 'react-redux'
 

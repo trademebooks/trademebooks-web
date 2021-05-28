@@ -7,7 +7,7 @@ import Avatar from '@material-ui/core/Avatar'
 import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
-import { getUsers } from '../Services/userService'
+import { getUsers } from '../../../actions/chat/userService'
 import { getInitialsFromName } from '../Utilities/common'
 
 import config from '../../../config'
