@@ -14,7 +14,9 @@ export const getGlobalMessages = async () => {
 // Send a global message
 export const sendGlobalMessage = async (body) => {
   try {
-    const sendGlobalMessageResponse = (await api.post('/messages/global', { body: body, global: true })).data
+    const sendGlobalMessageResponse = (
+      await api.post('/messages/global', { body: body, global: true })
+    ).data
 
     return sendGlobalMessageResponse
   } catch (err) {
@@ -25,7 +27,8 @@ export const sendGlobalMessage = async (body) => {
 // Get list of users conversations
 export const getConversations = async () => {
   try {
-    const getConversationsResponse = (await api.get(`/messages/conversations`)).data
+    const getConversationsResponse = (await api.get(`/messages/conversations`))
+      .data
 
     return getConversationsResponse
   } catch (err) {

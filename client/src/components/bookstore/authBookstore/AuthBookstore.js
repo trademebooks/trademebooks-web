@@ -56,7 +56,12 @@ const AuthBookstore = ({
               books.
             </span>
           </MDBTooltip>{' '}
-          <input className="form-control" readOnly type="text" value={clipBoardUrl}/>{' '}
+          <input
+            className="form-control"
+            readOnly
+            type="text"
+            value={clipBoardUrl}
+          />{' '}
           <MDBBtn size="sm" onClick={handleUrlCopyToClipboard}>
             Copy <MDBIcon icon="clipboard" />
           </MDBBtn>

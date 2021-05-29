@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
@@ -19,7 +20,7 @@ import {
   getConversationMessages,
   sendConversationMessage
 } from '../../../actions/chat/chatService'
-import { connect } from 'react-redux'
+
 import { FaBars } from 'react-icons/fa'
 import config from '../../../config'
 import { mainChatStyles as useStyles } from '../utils/styles'
