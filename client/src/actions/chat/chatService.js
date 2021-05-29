@@ -47,6 +47,7 @@ export const getConversationMessages = async (id) => {
   }
 }
 
+// send message
 export const sendConversationMessage = async (id, body) => {
   try {
     const sendConversationMessageResponse = (
@@ -59,6 +60,7 @@ export const sendConversationMessage = async (id, body) => {
   }
 }
 
+// update conversation
 export const updateConversation = async (conversationId, data) => {
   try {
     const updateConversationResponse = (

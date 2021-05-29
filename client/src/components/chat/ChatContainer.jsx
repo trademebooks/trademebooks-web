@@ -1,39 +1,39 @@
 import React, { useState } from 'react'
-import Sidebar from './Sidebar/Sidebar'
-import MainChat from './Main/MainChat'
+import Sidebar from './sidebar/Sidebar'
+import MainChat from './mainChat/MainChat'
 
 import './Chat.scss'
 
 const ChatContainer = () => {
-  // Sidebar
+  // 1. Sidebar - section
   const [toggled, setToggled] = useState(false)
   const handleToggleSidebar = (value) => {
     setToggled(value)
   }
-
-  // Main Chat Content
-  const [scope, setScope] = useState('Global Chat')
+  // For switching the Sidebar tabs
   const [tab, setTab] = useState(0)
-  const [user, setUser] = useState(null)
-
-  const handleChange = (e, newVal) => {
+  const toggleTab = (e, newVal) => {
     setTab(newVal)
   }
+
+  // 2. Main Chat - section
+  const [scope, setScope] = useState('Global Chat')
+  const [user, setUser] = useState(null)
 
   return (
     <div className="chat-app">
       <Sidebar
         toggled={toggled}
         handleToggleSidebar={handleToggleSidebar}
-        handleChange={handleChange}
+        toggleTab={toggleTab}
         tab={tab}
         setUser={setUser}
         setScope={setScope}
       />
       <MainChat
         handleToggleSidebar={handleToggleSidebar}
-        scope={scope}
         user={user}
+        scope={scope}
       />
     </div>
   )

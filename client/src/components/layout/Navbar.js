@@ -34,34 +34,34 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     }
   }, [user])
 
-  useEffect(() => {
-    setInterval(async () => {
-      if (user) {
-        ;(async () => {
-          const conversations = await getConversations()
+  // useEffect(() => {
+  //   setInterval(async () => {
+  //     if (user) {
+  //       ;(async () => {
+  //         const conversations = await getConversations()
 
-          const x = conversations.map((x) => {
-            return {
-              lastMessageIsRead: x.lastMessageIsRead,
-              lastMessageSenderId: x.lastMessageSenderId
-            }
-          })
+  //         const x = conversations.map((x) => {
+  //           return {
+  //             lastMessageIsRead: x.lastMessageIsRead,
+  //             lastMessageSenderId: x.lastMessageSenderId
+  //           }
+  //         })
 
-          let numberOfUnreadMessages = 0
-          for (const conversation of x) {
-            if (
-              !conversation.lastMessageIsRead &&
-              user._id !== conversation.lastMessageSenderId
-            ) {
-              numberOfUnreadMessages++
-            }
-          }
+  //         let numberOfUnreadMessages = 0
+  //         for (const conversation of x) {
+  //           if (
+  //             !conversation.lastMessageIsRead &&
+  //             user._id !== conversation.lastMessageSenderId
+  //           ) {
+  //             numberOfUnreadMessages++
+  //           }
+  //         }
 
-          setUnreadMessagesCount(numberOfUnreadMessages)
-        })()
-      }
-    }, 2000)
-  }, [user])
+  //         setUnreadMessagesCount(numberOfUnreadMessages)
+  //       })()
+  //     }
+  //   }, 2000)
+  // }, [user])
 
   useEffect(() => {
     // When the user clicks anywhere on the screen while the navbar is open, we toggle (hide) it.

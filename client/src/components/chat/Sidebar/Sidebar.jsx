@@ -6,12 +6,10 @@ import Tab from '@material-ui/core/Tab'
 import Conversations from './Conversations'
 import Users from './Users'
 
-import './Sidebar.scss'
-
 const Sidebar = ({
   toggled,
   handleToggleSidebar,
-  handleChange,
+  toggleTab,
   tab,
   setUser,
   setScope
@@ -25,7 +23,7 @@ const Sidebar = ({
     >
       <SidebarHeader>
         <Tabs
-          onChange={handleChange}
+          onChange={toggleTab}
           variant="fullWidth"
           value={tab}
           indicatorColor="primary"

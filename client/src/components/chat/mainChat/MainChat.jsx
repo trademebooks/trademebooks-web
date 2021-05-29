@@ -13,7 +13,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Paper from '@material-ui/core/Paper'
 import socketIOClient from 'socket.io-client'
 import classnames from 'classnames'
-import { getInitialsFromName } from '../Utilities/common'
+import { getInitialsFromName } from '../utils'
 import {
   getGlobalMessages,
   sendGlobalMessage,
@@ -87,7 +87,8 @@ const useStyles = makeStyles((theme) => ({
 const ChatBox = (props) => {
   const {
     auth: { user },
-    handleToggleSidebar
+    handleToggleSidebar,
+    scope
   } = props
 
   const currentUserId = user._id
@@ -100,10 +101,10 @@ const ChatBox = (props) => {
   const classes = useStyles()
 
   const reloadMessages = async () => {
-    if (props.scope === 'Global Chat') {
+    if (scope === 'Global Chat') {
       const globalMessages = await getGlobalMessages()
       setMessages(globalMessages)
-    } else if (props.scope !== null && props.conversationId !== null) {
+    } else if (scope !== null && props.conversationId !== null) {
       const messages = await getConversationMessages(props.user._id)
       setMessages(messages)
     } else {
@@ -122,7 +123,7 @@ const ChatBox = (props) => {
       await reloadMessages()
       scrollToBottom()
     })()
-  }, [lastMessage, props.scope, props.conversationId])
+  }, [lastMessage, scope, props.conversationId])
 
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
@@ -132,7 +133,7 @@ const ChatBox = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    if (props.scope === 'Global Chat') {
+    if (scope === 'Global Chat') {
       await sendGlobalMessage(newMessage)
       setNewMessage('')
     } else {
@@ -142,90 +143,90 @@ const ChatBox = (props) => {
   }
 
   return (
-    <Grid container className={classes.root}>
-      <Grid item xs={12} className={classes.headerRow}>
-        <Paper className={classes.paper} square elevation={2}>
-          <span
-            className="btn-toggle"
-            onClick={() => handleToggleSidebar(true)}
-          >
-            <FaBars />
-          </span>
-          &nbsp;
-          <Typography color="inherit" variant="h6">
-            {props.scope}
-          </Typography>
-          &nbsp;
-          <span>&nbsp;</span>
-        </Paper>
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container className={classes.messageContainer}>
-          <Grid item xs={12} className={classes.messagesRow}>
-            {messages && (
-              <List>
-                {messages.map((m) => (
-                  <ListItem
-                    key={m._id}
-                    className={classnames(classes.listItem, {
-                      [`${classes.listItemRight}`]:
-                        m.fromObj[0]._id === currentUserId
-                    })}
-                    alignItems="flex-start"
-                  >
-                    <ListItemAvatar className={classes.avatar}>
-                      <Avatar>
-                        {getInitialsFromName(
-                          m.fromObj[0].first_name
-                        )}
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText
-                      classes={{
-                        root: classnames(classes.messageBubble, {
-                          [`${classes.messageBubbleRight}`]:
-                            m.fromObj[0]._id === currentUserId
-                        })
-                      }}
-                      primary={m.fromObj[0] && m.fromObj[0].first_name}
-                      secondary={<>{m.body}</>}
+    <div class="main-chat">
+      <Grid container className={classes.root}>
+        <Grid item xs={12} className={classes.headerRow}>
+          <Paper className={classes.paper} square elevation={2}>
+            <span
+              className="btn-toggle"
+              onClick={() => handleToggleSidebar(true)}
+            >
+              <FaBars />
+            </span>
+            &nbsp;
+            <Typography color="inherit" variant="h6">
+              {props.scope}
+            </Typography>
+            &nbsp;
+            <span>&nbsp;</span>
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid container className={classes.messageContainer}>
+            <Grid item xs={12} className={classes.messagesRow}>
+              {messages && (
+                <List>
+                  {messages.map((m) => (
+                    <ListItem
+                      key={m._id}
+                      className={classnames(classes.listItem, {
+                        [`${classes.listItemRight}`]:
+                          m.fromObj[0]._id === currentUserId
+                      })}
+                      alignItems="flex-start"
+                    >
+                      <ListItemAvatar className={classes.avatar}>
+                        <Avatar>
+                          {getInitialsFromName(m.fromObj[0].first_name)}
+                        </Avatar>
+                      </ListItemAvatar>
+                      <ListItemText
+                        classes={{
+                          root: classnames(classes.messageBubble, {
+                            [`${classes.messageBubbleRight}`]:
+                              m.fromObj[0]._id === currentUserId
+                          })
+                        }}
+                        primary={m.fromObj[0] && m.fromObj[0].first_name}
+                        secondary={<>{m.body}</>}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              )}
+              <div ref={chatBottom} />
+            </Grid>
+            <Grid item xs={12} className={classes.inputRow}>
+              <form onSubmit={handleSubmit} className={classes.form}>
+                <Grid
+                  container
+                  className={classes.newMessageRow}
+                  alignItems="flex-end"
+                >
+                  <Grid item xs={11}>
+                    <TextField
+                      id="message"
+                      label="Message"
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      value={newMessage}
+                      onChange={(e) => setNewMessage(e.target.value)}
+                      autoComplete="off"
                     />
-                  </ListItem>
-                ))}
-              </List>
-            )}
-            <div ref={chatBottom} />
-          </Grid>
-          <Grid item xs={12} className={classes.inputRow}>
-            <form onSubmit={handleSubmit} className={classes.form}>
-              <Grid
-                container
-                className={classes.newMessageRow}
-                alignItems="flex-end"
-              >
-                <Grid item xs={11}>
-                  <TextField
-                    id="message"
-                    label="Message"
-                    variant="outlined"
-                    margin="dense"
-                    fullWidth
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    autoComplete="off"
-                  />
+                  </Grid>
+                  <Grid item xs={1}>
+                    <IconButton type="submit">
+                      <SendIcon />
+                    </IconButton>
+                  </Grid>
                 </Grid>
-                <Grid item xs={1}>
-                  <IconButton type="submit">
-                    <SendIcon />
-                  </IconButton>
-                </Grid>
-              </Grid>
-            </form>
+              </form>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </div>
   )
 }
 

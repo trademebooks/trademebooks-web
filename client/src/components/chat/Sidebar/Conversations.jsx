@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
 
 import { getConversations, updateConversation } from '../../../actions/chat/chatService'
-import { getInitialsFromName } from '../Utilities/common'
+import { getInitialsFromName } from '../utils'
 import { connect } from 'react-redux'
 
 import config from '../../../config'
