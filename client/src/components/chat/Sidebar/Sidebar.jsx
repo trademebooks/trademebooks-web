@@ -2,7 +2,6 @@ import React from 'react'
 import { ProSidebar, SidebarHeader, SidebarContent } from 'react-pro-sidebar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-
 import Conversations from './Conversations'
 import Users from './Users'
 

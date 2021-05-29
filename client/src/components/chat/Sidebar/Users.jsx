@@ -4,34 +4,11 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
-import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
-
 import { getUsers } from '../../../actions/chat/userService'
 import { getInitialsFromName } from '../utils'
-
 import config from '../../../config'
-
-const useStyles = makeStyles((theme) => ({
-  subheader: {
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer'
-  },
-  globe: {
-    backgroundColor: theme.palette.primary.dark
-  },
-  subheaderText: {
-    color: theme.palette.primary.dark
-  },
-  list: {
-    maxHeight: 'calc(100vh - 112px)',
-    overflowY: 'auto'
-  },
-  avatar: {
-    margin: theme.spacing(0, 3, 0, 1)
-  }
-}))
+import { usersStyles as useStyles } from '../utils/styles'
 
 const Users = ({ handleToggleSidebar, setUser, setScope }) => {
   const classes = useStyles()
@@ -43,7 +20,7 @@ const Users = ({ handleToggleSidebar, setUser, setScope }) => {
       const users = await getUsers()
       setUsers(users)
     }
-    
+
     init()
   }, [newUser])
 

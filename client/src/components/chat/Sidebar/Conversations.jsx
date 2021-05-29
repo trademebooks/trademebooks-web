@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
+import { MDBBadge } from 'mdbreact'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -7,33 +9,14 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
 import LanguageIcon from '@material-ui/icons/Language'
 import Divider from '@material-ui/core/Divider'
-import { makeStyles } from '@material-ui/core/styles'
 import socketIOClient from 'socket.io-client'
-
-import { getConversations, updateConversation } from '../../../actions/chat/chatService'
+import {
+  getConversations,
+  updateConversation
+} from '../../../actions/chat/chatService'
 import { getInitialsFromName } from '../utils'
-import { connect } from 'react-redux'
-
 import config from '../../../config'
-import { MDBBadge } from 'mdbreact'
-
-const useStyles = makeStyles((theme) => ({
-  subheader: {
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer'
-  },
-  globe: {
-    backgroundColor: theme.palette.primary.dark
-  },
-  subheaderText: {
-    color: theme.palette.primary.dark
-  },
-  list: {
-    maxHeight: 'calc(100vh - 112px)',
-    overflowY: 'auto'
-  }
-}))
+import { conversationsStyles as useStyles } from '../utils/styles'
 
 const Conversations = ({
   setUser,
