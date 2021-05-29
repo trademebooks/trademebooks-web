@@ -12,7 +12,7 @@ const ChatContainer = () => {
   }
   // For switching the Sidebar tabs
   const [tab, setTab] = useState(0)
-  const toggleTab = (e, newVal) => {
+  const handleToggleTab = (e, newVal) => {
     setTab(newVal)
   }
 
@@ -25,7 +25,7 @@ const ChatContainer = () => {
       <Sidebar
         toggled={toggled}
         handleToggleSidebar={handleToggleSidebar}
-        toggleTab={toggleTab}
+        toggleTab={handleToggleTab}
         tab={tab}
         setUser={setUser}
         setScope={setScope}
