@@ -13,7 +13,7 @@ import socketIOClient from 'socket.io-client'
 import {
   getConversations,
   updateConversation
-} from '../../../actions/chat/chatService'
+} from '../../../actions/chat/chat'
 import { getInitialsFromName } from '../utils'
 import config from '../../../config'
 import { conversationsStyles as useStyles } from '../utils/styles'

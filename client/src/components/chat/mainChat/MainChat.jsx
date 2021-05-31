@@ -19,7 +19,7 @@ import {
   sendGlobalMessage,
   getConversationMessages,
   sendConversationMessage
-} from '../../../actions/chat/chatService'
+} from '../../../actions/chat/chat'
 import { FaBars } from 'react-icons/fa'
 import config from '../../../config'
 import { mainChatStyles as useStyles } from '../utils/styles'

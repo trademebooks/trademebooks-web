@@ -17,7 +17,7 @@ import {
 } from 'mdbreact'
 import logo from './logo.png'
 
-import { getConversations } from '../../actions/chat/chatService'
+import { getConversations } from '../../actions/chat/chat'
 
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [isOpen, setIsOpen] = useState(false)
