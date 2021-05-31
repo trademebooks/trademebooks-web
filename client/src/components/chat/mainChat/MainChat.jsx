@@ -20,7 +20,6 @@ import {
   getConversationMessages,
   sendConversationMessage
 } from '../../../actions/chat/chatService'
-
 import { FaBars } from 'react-icons/fa'
 import config from '../../../config'
 import { mainChatStyles as useStyles } from '../utils/styles'
@@ -38,7 +37,7 @@ const ChatBox = (props) => {
   const [messages, setMessages] = useState([])
   const [lastMessage, setLastMessage] = useState(null)
 
-  let chatBottom = useRef(null)
+  const chatBottom = useRef(null)
   const classes = useStyles()
 
   const reloadMessages = async () => {
@@ -60,18 +59,21 @@ const ChatBox = (props) => {
   useEffect(scrollToBottom, [messages])
 
   useEffect(() => {
-    ;(async () => {
+    async function init() {
       await reloadMessages()
       scrollToBottom()
-    })()
+    }
+
+    init()
   }, [lastMessage, scope, props.conversationId])
 
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
+
     socket.on('messages', (data) => setLastMessage(data))
   }, [])
 
-  const handleSubmit = async (event) => {
+  const sendMessageHandler = async (event) => {
     event.preventDefault()
 
     if (scope === 'Global Chat') {
@@ -96,7 +98,7 @@ const ChatBox = (props) => {
             </span>
             &nbsp;
             <Typography color="inherit" variant="h6">
-              {props.scope}
+              {scope}
             </Typography>
             &nbsp;
             <span>&nbsp;</span>
@@ -104,32 +106,35 @@ const ChatBox = (props) => {
         </Grid>
         <Grid item xs={12}>
           <Grid container className={classes.messageContainer}>
+            {/* Messages List */}
             <Grid item xs={12} className={classes.messagesRow}>
               {messages && (
                 <List>
-                  {messages.map((m) => (
+                  {messages.map((message) => (
                     <ListItem
-                      key={m._id}
+                      key={message._id}
                       className={classnames(classes.listItem, {
                         [`${classes.listItemRight}`]:
-                          m.fromObj[0]._id === currentUserId
+                          message.fromObj[0]._id === currentUserId
                       })}
                       alignItems="flex-start"
                     >
                       <ListItemAvatar className={classes.avatar}>
                         <Avatar>
-                          {getInitialsFromName(m.fromObj[0].first_name)}
+                          {getInitialsFromName(message.fromObj[0].first_name)}
                         </Avatar>
                       </ListItemAvatar>
                       <ListItemText
                         classes={{
                           root: classnames(classes.messageBubble, {
                             [`${classes.messageBubbleRight}`]:
-                              m.fromObj[0]._id === currentUserId
+                              message.fromObj[0]._id === currentUserId
                           })
                         }}
-                        primary={m.fromObj[0] && m.fromObj[0].first_name}
-                        secondary={<>{m.body}</>}
+                        primary={
+                          message.fromObj[0] && message.fromObj[0].first_name
+                        }
+                        secondary={<>{message.body}</>}
                       />
                     </ListItem>
                   ))}
@@ -137,8 +142,10 @@ const ChatBox = (props) => {
               )}
               <div ref={chatBottom} />
             </Grid>
+
+            {/* Input Text */}
             <Grid item xs={12} className={classes.inputRow}>
-              <form onSubmit={handleSubmit} className={classes.form}>
+              <form onSubmit={sendMessageHandler} className={classes.form}>
                 <Grid
                   container
                   className={classes.newMessageRow}

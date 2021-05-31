@@ -25,22 +25,10 @@ const Conversations = ({
   handleToggleSidebar
 }) => {
   const currentUserId = user
-
   const classes = useStyles()
+
   const [conversations, setConversations] = useState([])
   const [newConversation, setNewConversation] = useState(null)
-
-  // Returns the recipient name that does not
-  // belong to the current user.
-  const handleRecipient = (recipients) => {
-    for (let i = 0; i < recipients.length; i++) {
-      if (recipients[i].username !== currentUserId.username) {
-        return recipients[i]
-      }
-    }
-
-    return null
-  }
 
   useEffect(() => {
     async function init() {
@@ -54,7 +42,9 @@ const Conversations = ({
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
 
-    socket.on('messages', (data) => setNewConversation(data))
+    socket.on('messages', (data) => {
+      setNewConversation(data)
+    })
 
     return () => {
       socket.removeListener('messages')
@@ -66,9 +56,21 @@ const Conversations = ({
       lastMessageIsRead: true
     })
 
-    const res = await getConversations()
+    const conversations = await getConversations()
 
-    setConversations(res)
+    setConversations(conversations)
+  }
+
+  // Returns the recipient name that does not
+  // belong to the current user.
+  const handleRecipient = (recipients) => {
+    for (let i = 0; i < recipients.length; i++) {
+      if (recipients[i].username !== currentUserId.username) {
+        return recipients[i]
+      }
+    }
+
+    return null
   }
 
   return (
@@ -90,16 +92,16 @@ const Conversations = ({
 
       {conversations && (
         <>
-          {conversations.map((c) => (
+          {conversations.map((conversation) => (
             <ListItem
               className={classes.listItem}
-              key={c._id}
+              key={conversation._id}
               button
               onClick={() => {
-                setUser(handleRecipient(c.recipientObj))
-                setScope(handleRecipient(c.recipientObj).first_name)
+                setUser(handleRecipient(conversation.recipientObj))
+                setScope(handleRecipient(conversation.recipientObj).first_name)
 
-                markAsConversationAsRead(c)
+                markAsConversationAsRead(conversation)
 
                 // hide the side bar when a user is clicked
                 handleToggleSidebar(false)
@@ -108,15 +110,15 @@ const Conversations = ({
               <ListItemAvatar>
                 <Avatar>
                   {getInitialsFromName(
-                    handleRecipient(c.recipientObj).first_name
+                    handleRecipient(conversation.recipientObj).first_name
                   )}
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary={handleRecipient(c.recipientObj).first_name}
+                primary={handleRecipient(conversation.recipientObj).first_name}
                 secondary={
                   <>
-                    {c.lastMessage.substr(0, 30)}
+                    {conversation.lastMessage.substr(0, 30)}
                     {'... '}
 
                     {/* 
@@ -124,8 +126,8 @@ const Conversations = ({
                       if not and the lastMessageRead is false
                       if (c.lastMessageIsRead) { } 
                     */}
-                    {c.lastMessageSenderId !== currentUserId._id &&
-                    !c.lastMessageIsRead ? (
+                    {conversation.lastMessageSenderId !== currentUserId._id &&
+                    !conversation.lastMessageIsRead ? (
                       <MDBBadge color="danger" className="ml-1">
                         &nbsp;
                       </MDBBadge>
