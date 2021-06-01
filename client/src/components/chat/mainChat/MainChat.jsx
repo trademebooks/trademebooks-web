@@ -41,10 +41,11 @@ const ChatBox = (props) => {
   const classes = useStyles()
 
   const reloadMessages = async () => {
+    console.log(JSON.stringify(props, null, '\t'))
     if (scope === 'Global Chat') {
       const globalMessages = await getGlobalMessages()
       setMessages(globalMessages)
-    } else if (scope !== null && props.conversationId !== null) {
+    } else if (scope !== null) {
       const messages = await getConversationMessages(props.user._id)
       setMessages(messages)
     } else {
@@ -65,7 +66,7 @@ const ChatBox = (props) => {
     }
 
     init()
-  }, [lastMessage, scope, props.conversationId])
+  }, [lastMessage, scope])
 
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
@@ -86,7 +87,7 @@ const ChatBox = (props) => {
   }
 
   return (
-    <div class="main-chat">
+    <div className="main-chat">
       <Grid container className={classes.root}>
         <Grid item xs={12} className={classes.headerRow}>
           <Paper className={classes.paper} square elevation={2}>

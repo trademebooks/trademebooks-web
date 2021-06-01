@@ -3,7 +3,7 @@ import api from '../../utils/api'
 // Receive global messages
 export const getGlobalMessages = async () => {
   try {
-    const getGlobalMessagesResponse = (await api.get(`/messages/global`)).data
+    const getGlobalMessagesResponse = (await api.get(`/messages/global`)).data.data
 
     return getGlobalMessagesResponse
   } catch (err) {
@@ -16,7 +16,7 @@ export const sendGlobalMessage = async (body) => {
   try {
     const sendGlobalMessageResponse = (
       await api.post('/messages/global', { body: body, global: true })
-    ).data
+    ).data.data
 
     return sendGlobalMessageResponse
   } catch (err) {
@@ -28,7 +28,7 @@ export const sendGlobalMessage = async (body) => {
 export const getConversations = async () => {
   try {
     const getConversationsResponse = (await api.get(`/messages/conversations`))
-      .data
+      .data.data
 
     return getConversationsResponse
   } catch (err) {
@@ -42,7 +42,7 @@ export const getConversationMessages = async (id) => {
   try {
     const getConversationMessagesResponse = (
       await api.get(`/messages/conversations/query?userId=${id}`)
-    ).data
+    ).data.data
 
     return getConversationMessagesResponse
   } catch (err) {
@@ -68,7 +68,7 @@ export const updateConversation = async (conversationId, data) => {
   try {
     const updateConversationResponse = (
       await api.put(`/messages/conversations/${conversationId}`, data)
-    ).data
+    ).data.data
 
     return updateConversationResponse
   } catch (err) {
