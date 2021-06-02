@@ -71,6 +71,7 @@ npm install
 Create a file called _dev.js_ under the `api/config` directory.
 
 ```js
+// example file
 module.exports = {
   baseUrl: 'http://localhost:',
   port: 5000,
@@ -87,7 +88,7 @@ module.exports = {
 }
 ```
 
-https://drive.google.com/drive/folders/14W8O1DmqWm1DEV4Pld6hBhu0fmjKOiob
+Use this file: https://drive.google.com/drive/folders/14W8O1DmqWm1DEV4Pld6hBhu0fmjKOiob
 
 ### Backend Setup - Seeding the databse with data
 
