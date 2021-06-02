@@ -68,7 +68,7 @@ npm install
 
 ### Backend Setup - Add the local config file
 
-Create a file called _dev.js_ under the config directory.
+Create a file called _dev.js_ under the `api/config` directory.
 
 ```js
 module.exports = {
@@ -87,7 +87,7 @@ module.exports = {
 }
 ```
 
-Use this file: https://drive.google.com/file/d/1o8WwjnuLpu13pKYMjJ8x2gTKKWUPr0V8/view?usp=sharing
+https://drive.google.com/drive/folders/14W8O1DmqWm1DEV4Pld6hBhu0fmjKOiob
 
 ### Backend Setup - Seeding the databse with data
 
