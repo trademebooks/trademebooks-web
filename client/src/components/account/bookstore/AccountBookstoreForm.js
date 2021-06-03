@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { MDBInput, MDBBtn } from 'mdbreact'
+import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon} from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
+import { Autocomplete } from '@material-ui/lab';
+import TextField from '@material-ui/core/TextField';
 
+
+const schools = ["Algoma University", "Brock University", "Carleton University", "Lakehead University",
+    "Laurentian University", "McMaster University", "Nipissing University", "OCAD University","Ontario Tech University",
+    "Queen’s University", "Royal Military College", "Ryerson University", "Trent University", "University of Guelph","University of Hearst",
+    "Université de l’Ontario français", "University of Ottawa", "University of Toronto", "University of Waterloo", "University of Windsor","Western University",
+    "Wilfrid Laurier University","York University"
+]
 const AccountBookStoreForm = ({
   auth: { user },
   getAccountSettings,
@@ -16,8 +25,13 @@ const AccountBookStoreForm = ({
   })
 
   const { username, location, school } = formData
+  const defaultProps = {
+        options: schools,
+        getOptionLabel: (option) => option,
+  };
 
   const onChange = (e) => {
+
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
@@ -92,17 +106,26 @@ const AccountBookStoreForm = ({
 
       <div>
         <h4>School</h4>
-        <MDBInput
-          label="Current School"
-          icon="school"
-          group
-          type="text"
-          name="school"
-          onChange={onChange}
-          minLength="6"
-          validate
-          value={school}
-        />
+        <MDBRow className="pr-0">
+            <MDBCol size="1" className="mt-3 w-75 px-0">
+                <MDBIcon className="ml-3" icon="school" size="2x" />
+            </MDBCol>
+            <MDBCol size="11" className="px-0">
+                <Autocomplete
+                    {...defaultProps}
+                    name="school"
+                    id="my-school"
+                    autoComplete
+                    autoHighlight
+                    autoSelect
+                    onChange={(event, newValue) => {
+                        setFormData({...formData,"school":newValue})
+                    }}
+                    renderInput={(params) => <TextField {...params} label={school ? school : 'Select School'} margin="normal" />}
+                />
+            </MDBCol>
+        </MDBRow>
+
       </div>
 
       <div>
