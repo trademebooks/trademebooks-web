@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { MDBInput, MDBBtn } from 'mdbreact'
+import { MDBInput, MDBBtn, MDBIcon} from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
+import GoogleMaps from '../LocationSearch'
 
 const AccountBookStoreForm = ({
   auth: { user },
@@ -16,6 +17,12 @@ const AccountBookStoreForm = ({
   })
 
   const { username, location, school } = formData
+  
+  const handleSelect = (value) =>{
+    if(value != null){
+      setFormData({...formData, "location":value.description})
+    }
+  }
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -77,32 +84,25 @@ const AccountBookStoreForm = ({
 
       <div className="mt-5">
         <h4>Location</h4>
-        <MDBInput
-          label="Current Location"
-          icon="map"
-          group
-          type="text"
-          name="location"
-          onChange={onChange}
-          minLength="6"
-          validate
-          value={location}
-        />
+        <div className="d-flex flex-row">
+          <MDBIcon size="2x" icon = "map" className="mt-3 pr-2" />
+          <GoogleMaps handleChange={handleSelect} placeholder={formData.location} className="w-100"/>
+        </div>
       </div>
 
       <div>
         <h4>School</h4>
-        <MDBInput
-          label="Current School"
-          icon="school"
-          group
-          type="text"
-          name="school"
-          onChange={onChange}
-          minLength="6"
-          validate
-          value={school}
-        />
+          <MDBInput
+            label="Current School"
+            icon="school"
+            group
+            type="text"
+            name="school"
+            onChange={onChange}
+            minLength="6"
+            validate
+            value={school}
+          />
       </div>
 
       <div>
