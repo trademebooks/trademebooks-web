@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import socketIOClient from 'socket.io-client'
-import classnames from 'classnames'
 import {
   getGlobalMessages,
   sendGlobalMessage,
@@ -24,7 +23,9 @@ const ChatBox = (props) => {
     scope
   } = props
 
-  const currentUserId = user._id
+  const currentUserId = user._id // auth user
+
+  // props.user - the current user that you are scoped to
 
   const [newMessage, setNewMessage] = useState('')
   const [messages, setMessages] = useState([])
@@ -34,7 +35,7 @@ const ChatBox = (props) => {
   const classes = useStyles()
 
   const reloadMessages = async () => {
-    console.log(JSON.stringify(props, null, '\t'))
+    // console.log(JSON.stringify(props, null, '\t'))
     if (scope === 'Global Chat') {
       const globalMessages = await getGlobalMessages()
       setMessages(globalMessages)
