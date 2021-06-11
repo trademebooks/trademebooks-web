@@ -10,7 +10,10 @@ const conversations = [
       ObjectId('5e11e9d8eded1d23742c1c6a'),
       ObjectId('5e11e9d8eded1d23742c1c6b')
     ], // Yichen's user id, Cedric's user id
-    lastMessage: 'whats going on'
+    lastestMessage: "Sure let's do it!",
+    usersWhoHaveReadLastestMessage: [
+      '5e11e9d8eded1d23742c1c6a' // This indicates that userId 5e11e9d8eded1d23742c1c6a (Yichen) was the last to have sent this message because one can't send a message without it being read first.
+    ]
   },
   // Yichen chats with Wesley
   {
@@ -19,7 +22,10 @@ const conversations = [
       ObjectId('5e11e9d8eded1d23742c1c6a'),
       ObjectId('5e11e9d8eded1d23742c1c6c')
     ], // Yichen's user id, Wesley's user id
-    lastMessage: 'whats going on'
+    lastestMessage: '',
+    usersWhoHaveReadLastestMessage: [
+      '5e11e9d8eded1d23742c1c6c' // This indicates that userId 5e11e9d8eded1d23742c1c6c (Wesley) was the last to have sent this message because one can't send a message without it being read first.
+    ]
   }
 ]
 

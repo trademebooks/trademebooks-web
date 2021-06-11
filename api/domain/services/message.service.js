@@ -1,11 +1,16 @@
 const messageRepository = require('../repositories/message.repository')
 
+const conversationDto = require('../../dtos')
 const getAllAuthConversations = async (authId) => {
-  return await messageRepository.getAllAuthConversations(authId)
+  const conversations = await messageRepository.getAllAuthConversations(authId)
+  return conversations
 }
 
 const getConversationMessagesByUserId = async (authId, toChatUserId) => {
-  return await messageRepository.getConversationMessagesByUserId(authId, toChatUserId)
+  return await messageRepository.getConversationMessagesByUserId(
+    authId,
+    toChatUserId
+  )
 }
 
 const sendMessageToUserInConveration = async (messageData) => {

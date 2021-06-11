@@ -43,7 +43,7 @@ module.exports = async () => {
     await new Message(message).save()
   }
 
-  // Messages for room: 5fc36879a0d3010d607eaade
+  // Messages for conversation: 5fc36879a0d3010d607eaade (between Yichen and Cedric)
   for (let i = 1; i <= 200; i++) {
     // const message = {
     //   roomId: '5fc36879a0d3010d607eaade',
@@ -55,7 +55,7 @@ module.exports = async () => {
     // await new Message(message).save()
   }
 
-  // Messages for room: 5fc40064c17e1f1e88dc806d
+  // Messages for converation: 5fc40064c17e1f1e88dc806d (between Yichen and Wesley)
   for (let i = 1; i <= 20; i++) {
     // const message = {
     //   roomId: '5fc40064c17e1f1e88dc806d',

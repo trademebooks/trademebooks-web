@@ -3,7 +3,8 @@ import api from '../../utils/api'
 // Receive global messages
 export const getGlobalMessages = async () => {
   try {
-    const getGlobalMessagesResponse = (await api.get(`/messages/global`)).data.data
+    const getGlobalMessagesResponse = (await api.get(`/messages/global`)).data
+      .data
 
     return getGlobalMessagesResponse
   } catch (err) {

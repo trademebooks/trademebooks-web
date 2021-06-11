@@ -5,14 +5,16 @@ const messageService = require('../domain/services/message.service')
 
 // Get global messages
 const getGlobalMessages = catchException(async (req, res) => {
-  const messages = await GlobalMessage.aggregate([{
-    $lookup: {
-      from: 'users',
-      localField: 'from',
-      foreignField: '_id',
-      as: 'fromObj'
+  const messages = await GlobalMessage.aggregate([
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'from',
+        foreignField: '_id',
+        as: 'fromObj'
+      }
     }
-  }]).project({
+  ]).project({
     'fromObj.password': 0,
     'fromObj.__v': 0,
     'fromObj.date': 0
@@ -64,7 +66,8 @@ const getConversationMessagesByUserId = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDto({
-      message: 'Gets a specified conversation and its messages between the current auth user and the specified userId.',
+      message:
+        'Gets a specified conversation and its messages between the current auth user and the specified userId.',
       data: messages
     })
   )
@@ -76,7 +79,8 @@ const sendMessageToUserInConveration = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDto({
-      message: 'Sent a message from the currently authenticated user to a specified userId.',
+      message:
+        'Sent a message from the currently authenticated user to a specified userId.',
       data: newMessage
     })
   )
@@ -88,7 +92,8 @@ const updateConversationById = catchException(async (req, res) => {
 
   res.status(200).json(
     globalResponseDto({
-      message: 'Updated the conversation by its conversationId, marking the conversation as read.',
+      message:
+        'Updated the conversation by its conversationId, marking the conversation as read.',
       data: updatedConveration
     })
   )
