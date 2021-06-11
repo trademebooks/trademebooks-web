@@ -1,10 +1,7 @@
 const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchException = require('../utils/catchExceptions')
-const Message = require('../domain/models/chat/message.model')
-const Conversation = require('../domain/models/chat/conversation.model')
 const GlobalMessage = require('../domain/models/chat/globalMessage.model')
-
-const mongoose = require('mongoose')
+const messageService = require('../domain/services/message.service')
 
 // Get global messages
 const getGlobalMessages = catchException(async (req, res) => {
@@ -48,28 +45,13 @@ const postGlobalMessages = catchException(async (req, res) => {
   )
 })
 
-// Get conversations list
-const getConversations = catchException(async (req, res) => {
-  const from = mongoose.Types.ObjectId(req.user.id)
-
-  const conversations = await Conversation.aggregate([{
-    $lookup: {
-      from: 'users',
-      localField: 'recipients',
-      foreignField: '_id',
-      as: 'recipientObj'
-    }
-  }]).match({ recipients: { $all: [{ $elemMatch: { $eq: from } }] } })
-    .project({
-      'recipientObj.password': 0,
-      'recipientObj.__v': 0,
-      'recipientObj.date': 0
-    })
-    .sort({ date: 'desc' })
+// Get all the list of of the currently authenticated user
+const getAllAuthConversations = catchException(async (req, res) => {
+  const conversations = messageService.getAllAuthConversations(req.user.id)
 
   res.status(200).json(
     globalResponseDto({
-      message: 'All the messages in the global chat.',
+      message: 'A a list of conversations of the currently authenticated user.',
       data: conversations
     })
   )
@@ -77,113 +59,37 @@ const getConversations = catchException(async (req, res) => {
 
 // Get messages from conversation
 // based on to & from
-const getConversationsQuery = catchException(async (req, res) => {
-  const user1 = mongoose.Types.ObjectId(req.user.id)
-  const user2 = mongoose.Types.ObjectId(req.query.userId)
-
-  const conversations = await Message.aggregate([{
-    $lookup: {
-      from: 'users',
-      localField: 'to',
-      foreignField: '_id',
-      as: 'toObj'
-    }
-  },
-  {
-    $lookup: {
-      from: 'users',
-      localField: 'from',
-      foreignField: '_id',
-      as: 'fromObj'
-    }
-  }]).match({
-    $or: [
-      { $and: [{ to: user1 }, { from: user2 }] },
-      { $and: [{ to: user2 }, { from: user1 }] }
-    ]
-  }).project({
-    'toObj.password': 0,
-    'toObj.__v': 0,
-    'toObj.date': 0,
-    'fromObj.password': 0,
-    'fromObj.__v': 0,
-    'fromObj.date': 0
-  })
+const getConversationMessagesByUserId = catchException(async (req, res) => {
+  const messages = messageService.getConversationMessagesByUserId()
 
   res.status(200).json(
     globalResponseDto({
-      message: 'All the messages by conversation id.',
-      data: conversations
+      message: 'Gets a specified conversation and its messages between the current auth user and the specified userId.',
+      data: messages
     })
   )
 })
 
-// Post - send private message
-const postSendPrivateMessage = catchException(async (req, res) => {
-  let from = mongoose.Types.ObjectId(req.user.id)
-  let to = mongoose.Types.ObjectId(req.body.to)
-
-  Conversation.findOneAndUpdate(
-    {
-      recipients: {
-        $all: [{ $elemMatch: { $eq: from } }, { $elemMatch: { $eq: to } }]
-      }
-    },
-    {
-      recipients: [req.user.id, req.body.to],
-      lastMessage: req.body.body,
-      lastMessageIsRead: false,
-      lastMessageSenderId: from,
-      date: Date.now()
-    },
-    { upsert: true, new: true, setDefaultsOnInsert: true },
-    function (err, conversation) {
-      if (err) {
-        console.log(err)
-        res.setHeader('Content-Type', 'application/json')
-        res.end(JSON.stringify({ message: 'Failure' }))
-        res.sendStatus(500)
-      } else {
-        let message = new Message({
-          conversation: conversation._id,
-          to: req.body.to,
-          from: req.user.id,
-          body: req.body.body
-        })
-
-        req.io.sockets.emit('messages', req.body.body)
-
-        message.save((err, newMessage) => {
-          if (err) {
-            console.log(err)
-            res.setHeader('Content-Type', 'application/json')
-            res.end(JSON.stringify({ message: 'Failure' }))
-            res.sendStatus(500)
-          } else {
-            res.status(200).json(
-              globalResponseDto({
-                message: 'Successfully sent the message to the converation',
-                data: {
-                  conversation: conversation._id,
-                  newMessage
-                }
-              })
-            )
-          }
-        })
-      }
-    }
-  )
-})
-
-// Post - update a conversation - make it read
-const putUpdateConversation = catchException(async (req, res) => {
-  const converation = await Conversation.findByIdAndUpdate(req.params.id, req.body)
+// Send private message
+const sendMessageToUserInConveration = catchException(async (req, res) => {
+  const newMessage = messageService.sendMessageToUserInConveration()
 
   res.status(200).json(
     globalResponseDto({
-      message: 'All the messages in the global chat.',
-      data: converation
+      message: 'Sent a message from the currently authenticated user to a specified userId.',
+      data: newMessage
+    })
+  )
+})
+
+// Updates a conversation - mark it as read
+const updateConversationById = catchException(async (req, res) => {
+  const updatedConveration = messageService.updateConversationById()
+
+  res.status(200).json(
+    globalResponseDto({
+      message: 'Updated the conversation by its conversationId, marking the conversation as read.',
+      data: updatedConveration
     })
   )
 })
@@ -191,8 +97,8 @@ const putUpdateConversation = catchException(async (req, res) => {
 module.exports = {
   getGlobalMessages,
   postGlobalMessages,
-  getConversations,
-  getConversationsQuery,
-  postSendPrivateMessage,
-  putUpdateConversation
+  getAllAuthConversations,
+  getConversationMessagesByUserId,
+  sendMessageToUserInConveration,
+  updateConversationById
 }

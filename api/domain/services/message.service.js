@@ -1,45 +1,24 @@
-const Message = require('../models/message.model')
-const Room = require('../models/room.model')
-const User = require('../models/user.model')
+const messageRepository = require('../repositories/message.repository')
 
-const getAllConversations = async (authId) => {
-  const rooms = await Room.find({
-    users: {
-      $in: [authId]
-    }
-  })
-
-  const conversations = await Promise.all(
-    rooms.map(async (room) => {
-      const userId = room.users.find((user) => {
-        return user.toString() !== authId.toString()
-      })
-
-      const user = await User.findById(userId)
-
-      return {
-        room_id: room._id,
-        user
-      }
-    })
-  )
-
-  return conversations
+const getAllAuthConversations = async (authId) => {
+  return await messageRepository.getAllAuthConversations(authId)
 }
 
-const getAllMessagesInRoom = async ({ roomId }) => {
-  const messagesInRoom = await Message.find({ roomId })
-
-  return messagesInRoom
+const getConversationMessagesByUserId = async (authId, toChatUserId) => {
+  return await messageRepository.getConversationMessagesByUserId(authId, toChatUserId)
 }
 
-const sendMessagesToRoomId = async (messageData) => {
-  const message = new Message(messageData).save()
-  return message
+const sendMessageToUserInConveration = async (messageData) => {
+  return await messageRepository.sendMessageToUserInConveration(messageData)
+}
+
+const updateConversationById = async (conversationId) => {
+  return await messageRepository.updateConversationById(conversationId)
 }
 
 module.exports = {
-  getAllConversations,
-  getAllMessagesInRoom,
-  sendMessagesToRoomId
+  getAllAuthConversations,
+  getConversationMessagesByUserId,
+  sendMessageToUserInConveration,
+  updateConversationById
 }

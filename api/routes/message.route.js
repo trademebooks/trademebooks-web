@@ -15,7 +15,7 @@ router.post('/global', isAuthenticated, messageController.postGlobalMessages)
 router.get(
   '/conversations',
   isAuthenticated,
-  messageController.getConversations
+  messageController.getAllAuthConversations
 )
 
 // Get messages from conversation
@@ -23,13 +23,13 @@ router.get(
 router.get(
   '/conversations/query',
   isAuthenticated,
-  messageController.getConversationsQuery
+  messageController.getConversationMessagesByUserId
 )
 
 // Post private message
-router.post('/', messageController.postSendPrivateMessage)
+router.post('/', messageController.sendMessageToUserInConveration)
 
 // PUT update a conversation
-router.put('/conversations/:id', messageController.putUpdateConversation)
+router.put('/conversations/:id', messageController.updateConversationById)
 
 module.exports = router
