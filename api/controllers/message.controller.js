@@ -49,7 +49,7 @@ const postGlobalMessages = catchException(async (req, res) => {
 
 // Get all the list of of the currently authenticated user
 const getAllAuthConversations = catchException(async (req, res) => {
-  const conversations = messageService.getAllAuthConversations(req.user.id)
+  const conversations = await messageService.getAllAuthConversations(req.user.id)
 
   res.status(200).json(
     globalResponseDto({
@@ -61,9 +61,9 @@ const getAllAuthConversations = catchException(async (req, res) => {
 
 // Get messages from conversation between the auth user and the specified userId
 const getConversationMessagesByUserId = catchException(async (req, res) => {
-  const messages = messageService.getConversationMessagesByUserId(
+  const messages = await messageService.getConversationMessagesByUserId(
     req.user.id,
-    req.params.userId
+    req.query.userId
   )
 
   res.status(200).json(
@@ -77,10 +77,10 @@ const getConversationMessagesByUserId = catchException(async (req, res) => {
 
 // Send private message
 const sendMessageToUserInConveration = catchException(async (req, res) => {
-  const newMessage = messageService.sendMessageToUserInConveration(
+  const newMessage = await messageService.sendMessageToUserInConveration(
     req.user.id,
-    req.body.userId,
-    req.body.body
+    req.body.toRecipientId,
+    req.body.messageBody
   )
 
   // event
