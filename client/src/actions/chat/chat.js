@@ -64,12 +64,12 @@ export const sendConversationMessage = async (toUserId, body) => {
   try {
     const sendConversationMessageResponse = (
       await api.post('/conversation/messages', { toUserId, body: body })
-    ).data
+    ).data.data
 
     return sendConversationMessageResponse
   } catch (error) {
     console.log(error)
-    
+
     displayErrors(error)
   }
 }
