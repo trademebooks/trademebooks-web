@@ -39,50 +39,34 @@ Array [
         data-test="row"
       >
         <div
-          className="col-xs-6 ml-4 mr-2"
+          className="col-xs-12 ml-4"
         >
-          <i
-            className="fas fa-map-marker-alt"
-            style={
-              Object {
-                "color": "var(--primary-dark-color)",
-                "fontSize": "300%",
-                "height": "150%",
-              }
-            }
-          />
+          <div>
+            <i
+              className="fas fa-map-marker-alt icon--style"
+            />
+             Location
+          </div>
+          <div>
+            <strong>
+              
+            </strong>
+          </div>
         </div>
         <div
-          className="col-xs-12"
+          className="col-xs-12 ml-4"
         >
-          Located in:
-          <br />
-          <strong>
-            
-          </strong>
-        </div>
-        <div
-          className="col-xs-6 ml-4 mr-2"
-        >
-          <i
-            className="fas fa-graduation-cap"
-            style={
-              Object {
-                "color": "var(--primary-dark-color)",
-                "fontSize": "300%",
-                "height": "150%",
-              }
-            }
-          />
-        </div>
-        <div
-          className="col-xs-12"
-        >
-          Selling books for:
-          <br />
-          <strong>
-            
-          </strong>
+          <div>
+            <i
+              className="fas fa-graduation-cap icon--style"
+            />
+             School
+          </div>
+          <div>
+            <strong>
+              
+            </strong>
+          </div>
         </div>
       </div>
     </div>

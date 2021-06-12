@@ -26,11 +26,12 @@ Array [
         />
       </span>
        
-      <a
-        href=""
-      >
-        
-      </a>
+      <input
+        className="form-control"
+        readOnly={true}
+        type="text"
+        value=""
+      />
        
       <button
         className="btn-default btn Ripple-parent btn-sm"
