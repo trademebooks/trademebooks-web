@@ -14,9 +14,9 @@ beforeAll(async () => {
   await dbTestUtils.setUpDatabase()
 })
 
-beforeEach(async () => { })
+beforeEach(async () => {})
 
-afterEach(async () => { })
+afterEach(async () => {})
 
 afterAll(async () => {
   await dbTestUtils.clearDatabase()
@@ -31,20 +31,24 @@ describe('Message/Chat API - Get all messages between auth user and a specified 
 
     const userId = '5e11e9d8eded1d23742c1c6b' // cedric is the person yichen wants to talk to
     // 2. Make the API call to the endpoint
-    const response = await fetch(`${baseURL}/conversations/messages?userId=${userId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        cookie
+    const response = await fetch(
+      `${baseURL}/conversations/messages?userId=${userId}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          cookie
+        }
       }
-    })
+    )
     const responseJson = await response.json()
 
     // 3. Assertion on the JSON response output
     expect(responseJson).toMatchObject({
       status: 'success',
       code: 200,
-      message: 'Gets a specified conversation and its messages between the current auth user and the specified userId.',
+      message:
+        'Gets a specified conversation and its messages between the current auth user and the specified userId.',
       data: [
         {
           conversationId: '5fc36879a0d3010d607eaade',
@@ -114,7 +118,7 @@ describe('Message/Chat API - Get all messages between auth user and a specified 
           conversationId: '5fc36879a0d3010d607eaade',
           fromUserId: '5e11e9d8eded1d23742c1c6b',
           toUserId: '5e11e9d8eded1d23742c1c6a',
-          body: 'Sure let\'s do it!',
+          body: "Sure let's do it!",
           senderUser: {
             _id: '5e11e9d8eded1d23742c1c6b',
             first_name: 'Cedric',

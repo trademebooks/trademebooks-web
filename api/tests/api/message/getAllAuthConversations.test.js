@@ -14,9 +14,9 @@ beforeAll(async () => {
   await dbTestUtils.setUpDatabase()
 })
 
-beforeEach(async () => { })
+beforeEach(async () => {})
 
-afterEach(async () => { })
+afterEach(async () => {})
 
 afterAll(async () => {
   await dbTestUtils.clearDatabase()
@@ -47,10 +47,8 @@ describe('Message/Chat API - Get all converations', () => {
       data: [
         {
           _id: '5fc36879a0d3010d607eaade',
-          usersWhoHaveReadLastestMessage: [
-            '5e11e9d8eded1d23742c1c6a'
-          ],
-          lastestMessage: 'Sure let\'s do it!',
+          usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6a'],
+          lastestMessage: "Sure let's do it!",
           recipientUsers: [
             {
               _id: '5e11e9d8eded1d23742c1c6a',

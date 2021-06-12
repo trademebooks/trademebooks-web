@@ -49,7 +49,9 @@ const postGlobalMessages = catchException(async (req, res) => {
 
 // Get all the list of of the currently authenticated user
 const getAllAuthConversations = catchException(async (req, res) => {
-  const conversations = await messageService.getAllAuthConversations(req.user.id)
+  const conversations = await messageService.getAllAuthConversations(
+    req.user.id
+  )
 
   res.status(200).json(
     globalResponseDto({

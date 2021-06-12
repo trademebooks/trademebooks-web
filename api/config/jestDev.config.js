@@ -8,9 +8,8 @@ module.exports = {
 
     // Services
     // '<rootDir>/domain/services/__tests__/message.service.test.js',
-    
-    '<rootDir>/tests/api/message/update*.test.js',
-    
+
+    '<rootDir>/tests/api/message/update*.test.js'
   ],
   testTimeout: 30000,
   testEnvironment: 'node'

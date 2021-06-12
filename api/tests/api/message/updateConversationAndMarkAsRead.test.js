@@ -14,9 +14,9 @@ beforeAll(async () => {
   await dbTestUtils.setUpDatabase()
 })
 
-beforeEach(async () => { })
+beforeEach(async () => {})
 
-afterEach(async () => { })
+afterEach(async () => {})
 
 afterAll(async () => {
   // await dbTestUtils.clearDatabase()
@@ -43,11 +43,12 @@ describe('Message/Chat API - updateConversationAndMarkAsRead', () => {
     })
 
     const responseJson = await response.json()
-    
+
     expect(responseJson).toMatchObject({
       status: 'success',
       code: 200,
-      message: 'Updated the conversation by its conversationId, marking the conversation as read.',
+      message:
+        'Updated the conversation by its conversationId, marking the conversation as read.',
       data: {},
       errors: null
     })

@@ -14,9 +14,9 @@ beforeAll(async () => {
   await dbTestUtils.setUpDatabase()
 })
 
-beforeEach(async () => { })
+beforeEach(async () => {})
 
-afterEach(async () => { })
+afterEach(async () => {})
 
 afterAll(async () => {
   await dbTestUtils.clearDatabase()
@@ -42,16 +42,17 @@ describe('Message/Chat API - Send a message', () => {
       })
     })
     const responseJson = await response.json()
-  
+
     // 3. Assertion on the JSON response output
     expect(responseJson).toMatchObject({
       status: 'success',
       code: 200,
-      message: 'Sent a message from the currently authenticated user to the specified userId.',
+      message:
+        'Sent a message from the currently authenticated user to the specified userId.',
       data: {
         fromUserId: '5e11e9d8eded1d23742c1c6a',
-    		toUserId: '5e11e9d8eded1d23742c1c6b',
-        body: "this is a message from yichen to cedric! 101.",
+        toUserId: '5e11e9d8eded1d23742c1c6b',
+        body: 'this is a message from yichen to cedric! 101.'
       },
       errors: null
     })
