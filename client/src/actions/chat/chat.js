@@ -1,4 +1,5 @@
 import api from '../../utils/api'
+import displayErrors from '../utils/displayErrors'
 
 // Receive global messages
 export const getGlobalMessages = async () => {
@@ -7,8 +8,10 @@ export const getGlobalMessages = async () => {
       .data
 
     return getGlobalMessagesResponse
-  } catch (err) {
-    console.log(err)
+  } catch (error) {
+    console.log(error)
+
+    displayErrors(error)
   }
 }
 
@@ -20,20 +23,23 @@ export const sendGlobalMessage = async (body) => {
     ).data.data
 
     return sendGlobalMessageResponse
-  } catch (err) {
-    console.log(err)
+  } catch (error) {
+    console.log(error)
+
+    displayErrors(error)
   }
 }
 
 // Get list of users conversations
 export const getConversations = async () => {
   try {
-    const getConversationsResponse = (await api.get(`/conversations`))
-      .data.data
+    const getConversationsResponse = (await api.get(`/conversations`)).data.data
 
     return getConversationsResponse
-  } catch (err) {
-    console.log(err)
+  } catch (error) {
+    console.log(error)
+
+    displayErrors(error)
   }
 }
 
@@ -46,8 +52,10 @@ export const getConversationMessages = async (id) => {
     ).data.data
 
     return getConversationMessagesResponse
-  } catch (err) {
-    console.log(err)
+  } catch (error) {
+    console.log(error)
+
+    displayErrors(error)
   }
 }
 
@@ -59,8 +67,10 @@ export const sendConversationMessage = async (toUserId, body) => {
     ).data
 
     return sendConversationMessageResponse
-  } catch (err) {
-    console.log(err)
+  } catch (error) {
+    console.log(error)
+    
+    displayErrors(error)
   }
 }
 
@@ -72,7 +82,9 @@ export const updateConversation = async (conversationId) => {
     ).data.data
 
     return updateConversationResponse
-  } catch (err) {
-    console.log(err)
+  } catch (error) {
+    console.log(error)
+
+    displayErrors(error)
   }
 }
