@@ -11,7 +11,7 @@ const getConversationMessagesByUserId = async (authId, toChatUserId) => {
   )
 }
 
-const sendMessageToUserInConveration = async (messageBody) => {
+const sendMessageToUserInConveration = async (authId, recipientUserId, messageBody) => {
   return await messageRepository.sendConversationMessageToRecipientId(
     authId,
     recipientUserId,

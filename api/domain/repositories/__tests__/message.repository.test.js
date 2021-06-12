@@ -184,7 +184,7 @@ describe('Test Suite: Message Repository - Updaters', () => {
   })
 
   // cedric reads the conversation between yichen and cedric
-  test('Message Repository - updateConversationById', async () => {
+  test('Message Repository - updateConversationById - cedric reads the conversation between yichen and cedric', async () => {
     const conversationId = '5fc36879a0d3010d607eaade'
     const authId = '5e11e9d8eded1d23742c1c6b'
 
@@ -197,7 +197,7 @@ describe('Test Suite: Message Repository - Updaters', () => {
   })
 
   // cedric reads the conversation between wes and cedric
-  test('Message Repository - updateConversationById', async () => {
+  test('Message Repository - updateConversationById - edric reads the conversation between wes and cedric', async () => {
     const conversationId = '5fc40064c17e1f1e88dc806f'
     const authId = '5e11e9d8eded1d23742c1c6b'
 
