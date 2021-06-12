@@ -59,10 +59,12 @@ const getAllAuthConversations = catchException(async (req, res) => {
   )
 })
 
-// Get messages from conversation
-// based on to & from
+// Get messages from conversation between the auth user and the specified userId
 const getConversationMessagesByUserId = catchException(async (req, res) => {
-  const messages = messageService.getConversationMessagesByUserId()
+  const messages = messageService.getConversationMessagesByUserId(
+    req.user.id,
+    req.params.userId
+  )
 
   res.status(200).json(
     globalResponseDto({
@@ -95,7 +97,10 @@ const sendMessageToUserInConveration = catchException(async (req, res) => {
 
 // Updates a conversation - mark it as read
 const updateConversationById = catchException(async (req, res) => {
-  const updatedConveration = messageService.updateConversationById()
+  const updatedConveration = messageService.updateConversationById(
+    req.params.conversationId,
+    req.user.id
+  )
 
   res.status(200).json(
     globalResponseDto({

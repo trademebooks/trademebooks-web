@@ -144,15 +144,12 @@ const sendConversationMessageToRecipientId = async (
 }
 
 const updateConversationByIdAndMarkAsRead = async (conversationId, authId) => {
-  const conversation = await ConversationModel.findById(
-    conversationId
-  )
+  const conversation = await ConversationModel.findById(conversationId)
 
   // If the user has read a message more than once, we get rid of the duplicate ids.
-  const conversationUsersWhoHaveReadLastestMessage = [...new Set([
-    authId,
-    ...conversation.usersWhoHaveReadLastestMessage
-  ])]
+  const conversationUsersWhoHaveReadLastestMessage = [
+    ...new Set([authId, ...conversation.usersWhoHaveReadLastestMessage])
+  ]
 
   const updatedConversation = await ConversationModel.findByIdAndUpdate(
     conversationId,

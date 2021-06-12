@@ -1,8 +1,7 @@
 const messageRepository = require('../repositories/message.repository')
 
 const getAllAuthConversations = async (authId) => {
-  const conversations = await messageRepository.getAllAuthConversations(authId)
-  return conversations
+  return await messageRepository.getAllAuthConversations(authId)
 }
 
 const getConversationMessagesByUserId = async (authId, toChatUserId) => {
@@ -12,12 +11,19 @@ const getConversationMessagesByUserId = async (authId, toChatUserId) => {
   )
 }
 
-const sendMessageToUserInConveration = async (messageData) => {
-  return await messageRepository.sendMessageToUserInConveration(messageData)
+const sendMessageToUserInConveration = async (messageBody) => {
+  return await messageRepository.sendConversationMessageToRecipientId(
+    authId,
+    recipientUserId,
+    messageBody
+  )
 }
 
-const updateConversationById = async (conversationId) => {
-  return await messageRepository.updateConversationById(conversationId)
+const updateConversationById = async (conversationId, authId) => {
+  return await messageRepository.updateConversationByIdAndMarkAsRead(
+    conversationId,
+    authId
+  )
 }
 
 module.exports = {

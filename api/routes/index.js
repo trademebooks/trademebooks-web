@@ -16,7 +16,7 @@ const getRouter = () => {
   router.use('/account', accountRoutes)
   router.use('/books', bookRoutes)
   router.use('/bookstores', bookstoreRoutes)
-  router.use('/messages', messageRoutes)
+  router.use('/conversations', messageRoutes)
 
   return router
 }
