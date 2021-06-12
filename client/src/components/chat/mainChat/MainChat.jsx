@@ -35,7 +35,6 @@ const ChatBox = (props) => {
   const classes = useStyles()
 
   const reloadMessages = async () => {
-    // console.log(JSON.stringify(props, null, '\t'))
     if (scope === 'Global Chat') {
       const globalMessages = await getGlobalMessages()
       setMessages(globalMessages)

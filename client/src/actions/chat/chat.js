@@ -28,7 +28,7 @@ export const sendGlobalMessage = async (body) => {
 // Get list of users conversations
 export const getConversations = async () => {
   try {
-    const getConversationsResponse = (await api.get(`/messages/conversations`))
+    const getConversationsResponse = (await api.get(`/conversations`))
       .data.data
 
     return getConversationsResponse
@@ -42,7 +42,7 @@ export const getConversations = async () => {
 export const getConversationMessages = async (id) => {
   try {
     const getConversationMessagesResponse = (
-      await api.get(`/messages/conversations/query?userId=${id}`)
+      await api.get(`/conversations/messages?userId=${id}`)
     ).data.data
 
     return getConversationMessagesResponse
@@ -52,10 +52,10 @@ export const getConversationMessages = async (id) => {
 }
 
 // send message
-export const sendConversationMessage = async (id, body) => {
+export const sendConversationMessage = async (toUserId, body) => {
   try {
     const sendConversationMessageResponse = (
-      await api.post('/messages', { to: id, body: body })
+      await api.post('/conversation/messages', { toUserId, body: body })
     ).data
 
     return sendConversationMessageResponse
@@ -65,10 +65,10 @@ export const sendConversationMessage = async (id, body) => {
 }
 
 // update conversation
-export const updateConversation = async (conversationId, data) => {
+export const updateConversation = async (conversationId) => {
   try {
     const updateConversationResponse = (
-      await api.put(`/messages/conversations/${conversationId}`, data)
+      await api.put(`/conversations/${conversationId}`)
     ).data.data
 
     return updateConversationResponse

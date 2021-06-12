@@ -11,6 +11,7 @@ const ChatContainer = () => {
     setToggled(value)
   }
   // For switching the Sidebar tabs
+  // between conversations and users
   const [tab, setTab] = useState(0)
   const handleToggleTab = (e, newVal) => {
     setTab(newVal)
@@ -18,22 +19,22 @@ const ChatContainer = () => {
 
   // 2. Main Chat - section
   const [scope, setScope] = useState('Global Chat')
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null) // set the current user that the auth user is chatting with
 
   return (
     <div className="chat-app">
       <Sidebar
-        toggled={toggled}
         handleToggleSidebar={handleToggleSidebar}
+        toggled={toggled}
         toggleTab={handleToggleTab}
         tab={tab}
-        setUser={setUser}
         setScope={setScope}
+        setUser={setUser}
       />
       <MainChat
         handleToggleSidebar={handleToggleSidebar}
-        user={user}
         scope={scope}
+        user={user}
       />
     </div>
   )

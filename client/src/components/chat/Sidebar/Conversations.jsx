@@ -105,8 +105,6 @@ const Conversations = ({
 
                 // hide the side bar when a user is clicked
                 handleToggleSidebar(false)
-
-                console.log(JSON.stringify(conversation, null, '\t'))
               }}
             >
               <ListItemAvatar>
