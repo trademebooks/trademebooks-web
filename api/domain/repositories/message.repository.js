@@ -22,12 +22,12 @@ const getAllAuthConversations = async (authId) => {
     .project({
       'recipientUsers.password': 0,
       'recipientUsers.__v': 0,
-      'recipientUsers.date': 0,
       'recipientUsers.username': 0,
       'recipientUsers.email': 0,
       'recipientUsers.phone_number': 0,
       'recipientUsers.google_id': 0,
       'recipientUsers.createdAt': 0,
+      'recipientUsers.updatedAt': 0,
       __v: 0,
       recipients: 0
     })
@@ -49,88 +49,125 @@ const getAllAuthConversations = async (authId) => {
 }
 
 const getConversationMessagesByUserId = async (authId, userId) => {
-  const user1 = mongoose.Types.ObjectId(authId)
-  const user2 = mongoose.Types.ObjectId(userId)
+  const authUserId = mongoose.Types.ObjectId(authId) // auth user
+  const otherUserId = mongoose.Types.ObjectId(userId) // other user
 
-  const conversations = await MessageModel.aggregate([
+  const messages = await MessageModel.aggregate([
     {
       $lookup: {
         from: 'users',
-        localField: 'to',
+        localField: 'fromUserId',
         foreignField: '_id',
-        as: 'toObj'
+        as: 'senderUser'
       }
     },
     {
       $lookup: {
         from: 'users',
-        localField: 'from',
+        localField: 'toUserId',
         foreignField: '_id',
-        as: 'fromObj'
+        as: 'recipientUser'
       }
     }
   ])
     .match({
       $or: [
-        { $and: [{ to: user1 }, { from: user2 }] },
-        { $and: [{ to: user2 }, { from: user1 }] }
+        { $and: [{ fromUserId: otherUserId }, { toUserId: authUserId }] },
+        { $and: [{ fromUserId: authUserId }, { toUserId: otherUserId }] }
       ]
     })
     .project({
-      'toObj.password': 0,
-      'toObj.__v': 0,
-      'toObj.date': 0,
-      'fromObj.password': 0,
-      'fromObj.__v': 0,
-      'fromObj.date': 0
+      'senderUser.password': 0,
+      'senderUser.__v': 0,
+      'senderUser.username': 0,
+      'senderUser.email': 0,
+      'senderUser.phone_number': 0,
+      'senderUser.google_id': 0,
+      'senderUser.createdAt': 0,
+      'senderUser.updatedAt': 0,
+      'recipientUser.password': 0,
+      'recipientUser.__v': 0,
+      'recipientUser.username': 0,
+      'recipientUser.email': 0,
+      'recipientUser.phone_number': 0,
+      'recipientUser.google_id': 0,
+      'recipientUser.createdAt': 0,
+      'recipientUser.updatedAt': 0,
+      __v: 0
     })
 
-  return conversations
+  return messages.map((message) => {
+    return {
+      ...message,
+      senderUser: message['senderUser'][0],
+      recipientUser: message['recipientUser'][0]
+    }
+  })
 }
 
-const createConversationMessage = async (req, res) => {
-  let from = mongoose.Types.ObjectId(req.user.id)
-  let to = mongoose.Types.ObjectId(req.body.to)
+const sendConversationMessageToRecipientId = async (
+  authId,
+  recipientUserId,
+  messageBody
+) => {
+  const fromUserId = mongoose.Types.ObjectId(authId)
+  const toUserId = mongoose.Types.ObjectId(recipientUserId)
 
-  const conversation = Conversation.findOneAndUpdate(
+  // If there is already an existing conversation between the fromUserId and toUserId, then don't
+  // create a new conversation, simply update it with new information.
+  const conversation = await ConversationModel.findOneAndUpdate(
     {
       recipients: {
-        $all: [{ $elemMatch: { $eq: from } }, { $elemMatch: { $eq: to } }]
+        $all: [
+          { $elemMatch: { $eq: fromUserId } },
+          { $elemMatch: { $eq: toUserId } }
+        ]
       }
     },
     {
-      recipients: [req.user.id, req.body.to],
-      lastMessage: req.body.body,
-      lastMessageIsRead: false,
-      lastMessageSenderId: from,
-      date: Date.now()
+      recipients: [fromUserId, toUserId],
+      lastestMessage: messageBody,
+      usersWhoHaveReadLastestMessage: [authId]
     },
     { upsert: true, new: true, setDefaultsOnInsert: true }
   )
 
+  // Create a new message attached to that particular conversation above.
   const newMessage = new MessageModel({
-    conversation: conversation._id,
-    to: req.body.to,
-    from: req.user.id,
-    body: req.body.body
+    conversationId: conversation.id,
+    fromUserId,
+    toUserId,
+    body: messageBody
   }).save()
-
-  req.io.sockets.emit('messages', req.body.body)
 
   return await newMessage
 }
 
-const updateConversationById = async (req, res) => {
-  const conversation = await ConversationModel.findByIdAndUpdate(
-    req.params.id,
-    req.body
+const updateConversationByIdAndMarkAsRead = async (conversationId, authId) => {
+  const conversation = await ConversationModel.findById(
+    conversationId
   )
-  return conversation
+
+  // If the user has read a message more than once, we get rid of the duplicate ids.
+  const conversationUsersWhoHaveReadLastestMessage = [...new Set([
+    authId,
+    ...conversation.usersWhoHaveReadLastestMessage
+  ])]
+
+  const updatedConversation = await ConversationModel.findByIdAndUpdate(
+    conversationId,
+    {
+      usersWhoHaveReadLastestMessage: conversationUsersWhoHaveReadLastestMessage
+    },
+    { new: true }
+  )
+
+  return updatedConversation
 }
 
 module.exports = {
   getAllAuthConversations,
   getConversationMessagesByUserId,
-  createConversationMessage,
-  updateConversationById
+  sendConversationMessageToRecipientId,
+  updateConversationByIdAndMarkAsRead
 }

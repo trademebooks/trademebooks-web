@@ -58,7 +58,7 @@ const setUpDatabase = async () => {
 
 const seeInDatabase = async (Model, item) => {
   const findItem = await Model.findById(item.id)
-  return findItem
+  return findItem ? true : false
 }
 
 const getAllTableData = async (Model) => {

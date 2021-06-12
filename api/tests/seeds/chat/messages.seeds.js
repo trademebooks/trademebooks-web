@@ -3,34 +3,34 @@ const Message = require('../../../domain/models/chat/message.model')
 const messages = [
   // Yichen Speaks
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6a',
-    to: '5e11e9d8eded1d23742c1c6b',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6a',
+    toUserId: '5e11e9d8eded1d23742c1c6b',
     body: 'hey'
   },
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6a',
-    to: '5e11e9d8eded1d23742c1c6b',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6a',
+    toUserId: '5e11e9d8eded1d23742c1c6b',
     body: 'Do you want to grab lunch?'
   },
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6a',
-    to: '5e11e9d8eded1d23742c1c6b',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6a',
+    toUserId: '5e11e9d8eded1d23742c1c6b',
     body: 'I was thinking sushi buffet, what do you think?'
   },
   // Cedric Speaks
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6b',
-    to: '5e11e9d8eded1d23742c1c6a',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6b',
+    toUserId: '5e11e9d8eded1d23742c1c6a',
     body: 'Oh hey Yichen!'
   },
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6b',
-    to: '5e11e9d8eded1d23742c1c6a',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6b',
+    toUserId: '5e11e9d8eded1d23742c1c6a',
     body: "Sure let's do it!"
   }
 ]
@@ -43,7 +43,7 @@ module.exports = async () => {
     await new Message(message).save()
   }
 
-  // Messages for conversation: 5fc36879a0d3010d607eaade (between Yichen and Cedric)
+  // Messages for conversationId: 5fc36879a0d3010d607eaade (between Yichen and Cedric)
   for (let i = 1; i <= 200; i++) {
     // const message = {
     //   roomId: '5fc36879a0d3010d607eaade',

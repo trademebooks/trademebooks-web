@@ -15,14 +15,15 @@ const conversations = [
       '5e11e9d8eded1d23742c1c6a' // This indicates that userId 5e11e9d8eded1d23742c1c6a (Yichen) was the last to have sent this message because one can't send a message without it being read first.
     ]
   },
-  // Yichen chats with Wesley
+
+  // Cedric chats with Wesley
   {
-    _id: '5fc40064c17e1f1e88dc806d',
+    _id: '5fc40064c17e1f1e88dc806f',
     recipients: [
-      ObjectId('5e11e9d8eded1d23742c1c6a'),
+      ObjectId('5e11e9d8eded1d23742c1c6b'),
       ObjectId('5e11e9d8eded1d23742c1c6c')
-    ], // Yichen's user id, Wesley's user id
-    lastestMessage: '',
+    ], // Cedric's user id, Wesley's user id
+    lastestMessage: 'Hi Wes, this is Cedric',
     usersWhoHaveReadLastestMessage: [
       '5e11e9d8eded1d23742c1c6c' // This indicates that userId 5e11e9d8eded1d23742c1c6c (Wesley) was the last to have sent this message because one can't send a message without it being read first.
     ]

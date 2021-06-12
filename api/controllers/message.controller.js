@@ -75,12 +75,19 @@ const getConversationMessagesByUserId = catchException(async (req, res) => {
 
 // Send private message
 const sendMessageToUserInConveration = catchException(async (req, res) => {
-  const newMessage = messageService.sendMessageToUserInConveration()
+  const newMessage = messageService.sendMessageToUserInConveration(
+    req.user.id,
+    req.body.userId,
+    req.body.body
+  )
+
+  // event
+  // req.io.sockets.emit('messages', req.body.body)
 
   res.status(200).json(
     globalResponseDto({
       message:
-        'Sent a message from the currently authenticated user to a specified userId.',
+        'Sent a message from the currently authenticated user to the specified userId.',
       data: newMessage
     })
   )

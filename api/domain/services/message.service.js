@@ -1,6 +1,5 @@
 const messageRepository = require('../repositories/message.repository')
 
-const conversationDto = require('../../dtos')
 const getAllAuthConversations = async (authId) => {
   const conversations = await messageRepository.getAllAuthConversations(authId)
   return conversations
