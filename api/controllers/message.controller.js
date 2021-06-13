@@ -85,8 +85,8 @@ const sendMessageToUserInConveration = catchException(async (req, res) => {
     req.body.messageBody
   )
 
-  // event
-  // req.io.sockets.emit('messages', req.body.body)
+  // Event - 'messages'
+  req.io.sockets.emit('messages', newMessage)
 
   res.status(200).json(
     globalResponseDto({

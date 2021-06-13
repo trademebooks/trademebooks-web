@@ -9,7 +9,7 @@ import classnames from 'classnames'
 import { mainChatStyles as useStyles } from '../utils/styles'
 import { getInitialsFromName } from '../utils'
 
-const Messages = ({ messages, chatBottom, currentUserId }) => {
+const Messages = ({ messages, currentAuthUser, chatBottom }) => {
   const classes = useStyles()
 
   return (
@@ -22,23 +22,23 @@ const Messages = ({ messages, chatBottom, currentUserId }) => {
                 key={message._id}
                 className={classnames(classes.listItem, {
                   [`${classes.listItemRight}`]:
-                    message.fromObj[0]._id === currentUserId
+                    message.senderUser._id === currentAuthUser._id
                 })}
                 alignItems="flex-start"
               >
                 <ListItemAvatar className={classes.avatar}>
                   <Avatar>
-                    {getInitialsFromName(message.fromObj[0].first_name)}
+                    {getInitialsFromName(message.senderUser.first_name)}
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
                   classes={{
                     root: classnames(classes.messageBubble, {
                       [`${classes.messageBubbleRight}`]:
-                        message.fromObj[0]._id === currentUserId
+                        message.senderUser._id === currentAuthUser._id
                     })
                   }}
-                  primary={message.fromObj[0] && message.fromObj[0].first_name}
+                  primary={message.senderUser && message.senderUser.first_name}
                   secondary={<>{message.body}</>}
                 />
               </ListItem>

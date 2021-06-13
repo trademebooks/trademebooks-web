@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import Sidebar from './sidebar/Sidebar'
 import MainChat from './mainChat/MainChat'
 
 import './Chat.scss'
 
-const ChatContainer = () => {
+const ChatContainer = ({ auth: { user } }) => {
+  // The currently authenticated user in the presently logged in session
+  const currentAuthUser = user
+
   // 1. Sidebar - section
   const [toggled, setToggled] = useState(false)
   const handleToggleSidebar = (value) => {
@@ -19,7 +23,8 @@ const ChatContainer = () => {
 
   // 2. Main Chat - section
   const [scope, setScope] = useState('Global Chat')
-  const [user, setUser] = useState(null) // set the current user that the auth user is chatting with
+  // The current conversation that current auth user is having
+  const [currentConversation, setCurrentConversation] = useState(null)
 
   return (
     <div className="chat-app">
@@ -29,15 +34,23 @@ const ChatContainer = () => {
         toggleTab={handleToggleTab}
         tab={tab}
         setScope={setScope}
-        setUser={setUser}
+        setCurrentConversation={setCurrentConversation}
+        currentAuthUser={currentAuthUser}
       />
       <MainChat
         handleToggleSidebar={handleToggleSidebar}
         scope={scope}
-        user={user}
+        currentConversation={currentConversation}
+        currentAuthUser={currentAuthUser}
       />
     </div>
   )
 }
 
-export default ChatContainer
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatContainer)

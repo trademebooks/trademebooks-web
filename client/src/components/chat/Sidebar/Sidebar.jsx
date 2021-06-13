@@ -2,16 +2,17 @@ import React from 'react'
 import { ProSidebar, SidebarHeader, SidebarContent } from 'react-pro-sidebar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import Conversations from './Conversations'
+import ConversationsTab from './ConversationsTab'
 import Users from './Users'
 
 const Sidebar = ({
-  toggled,
   handleToggleSidebar,
+  toggled,
   toggleTab,
   tab,
-  setUser,
-  setScope
+  setScope,
+  setCurrentConversation,
+  currentAuthUser
 }) => {
   return (
     <ProSidebar
@@ -34,17 +35,19 @@ const Sidebar = ({
       </SidebarHeader>
       <SidebarContent>
         {tab === 0 && (
-          <Conversations
-            setUser={setUser}
-            setScope={setScope}
+          <ConversationsTab
             handleToggleSidebar={handleToggleSidebar}
+            setScope={setScope}
+            setCurrentConversation={setCurrentConversation}
+            currentAuthUser={currentAuthUser}
           />
         )}
         {tab === 1 && (
           <Users
-            setUser={setUser}
-            setScope={setScope}
             handleToggleSidebar={handleToggleSidebar}
+            setScope={setScope}
+            setCurrentConversation={setCurrentConversation}
+            currentAuthUser={currentAuthUser}
           />
         )}
       </SidebarContent>

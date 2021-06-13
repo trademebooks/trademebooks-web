@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton'
 import SendIcon from '@material-ui/icons/Send'
 import { mainChatStyles as useStyles } from '../utils/styles'
 
-const ChatInputForm = ({ sendMessageHandler, newMessage, setNewMessage }) => {
+const ChatInputForm = ({ newMessage, setNewMessage, sendMessageHandler }) => {
   const classes = useStyles()
 
   return (

@@ -1,154 +1,106 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
-import { MDBBadge } from 'mdbreact'
-import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
-import LanguageIcon from '@material-ui/icons/Language'
-import Divider from '@material-ui/core/Divider'
-import socketIOClient from 'socket.io-client'
-import {
-  getConversations,
-  updateConversation
-} from '../../../actions/chat/chat'
-import { getInitialsFromName } from '../utils'
-import config from '../../../config'
+
 import { conversationsStyles as useStyles } from '../utils/styles'
+import { getInitialsFromName } from '../utils'
 
 const Conversations = ({
-  setUser,
+  conversations,
+  handleToggleSidebar,
   setScope,
-  auth: { user },
-  handleToggleSidebar
+  setCurrentConversation,
+  currentAuthUser
 }) => {
-  const currentUserId = user
   const classes = useStyles()
 
-  const [conversations, setConversations] = useState([])
-  const [newConversation, setNewConversation] = useState(null)
+  /*
+  data: [
+        {
+          _id: '5fc36879a0d3010d607eaade',
+          usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6a'],
+          lastestMessage: "Sure let's do it!",
+          recipientUsers: [
+            {
+              _id: '5e11e9d8eded1d23742c1c6a',
+              first_name: 'Yi Chen',
+              last_name: 'Zhu'
+            },
+            {
+              _id: '5e11e9d8eded1d23742c1c6b',
+              first_name: 'Cedric',
+              last_name: 'Mosdell'
+            }
+          ],
+          chattingWithUser: {
+            _id: '5e11e9d8eded1d23742c1c6b',
+            first_name: 'Cedric',
+            last_name: 'Mosdell'
+          }
+        }
+      ],
+  */
 
+  // TODO - TMB0065
+  const query = new URLSearchParams(useLocation().search)
   useEffect(() => {
-    async function init() {
-      const res = await getConversations()
-      setConversations(res)
+    const currentConversationUserId = query.get('userId')
+
+    if (Array.isArray(conversations)) {
+      const currentConversationByUserId = conversations.find((conversation) => {
+        return conversation.chattingWithUser._id === currentConversationUserId
+      })
+
+      setCurrentConversation(currentConversationByUserId)
     }
-
-    init()
-  }, [newConversation])
-
-  useEffect(() => {
-    const socket = socketIOClient(config.SOCKET_URL)
-
-    socket.on('messages', (data) => {
-      setNewConversation(data)
-    })
-
-    return () => {
-      socket.removeListener('messages')
-    }
-  }, [])
-
-  const markAsConversationAsRead = async (conversation) => {
-    await updateConversation(conversation._id, {
-      lastMessageIsRead: true
-    })
-
-    const conversations = await getConversations()
-
-    setConversations(conversations)
-  }
-
-  // Returns the recipient name that does not
-  // belong to the current user.
-  const handleRecipient = (recipients) => {
-    for (let i = 0; i < recipients.length; i++) {
-      if (recipients[i].username !== currentUserId.username) {
-        return recipients[i]
-      }
-    }
-
-    return null
-  }
+  }, [query, conversations, setCurrentConversation])
 
   return (
-    <List className={classes.list}>
-      <ListItem
-        classes={{ root: classes.subheader }}
-        onClick={() => {
-          setScope('Global Chat')
-        }}
-      >
-        <ListItemAvatar>
-          <Avatar className={classes.globe}>
-            <LanguageIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText className={classes.subheaderText} primary="Global Chat" />
-      </ListItem>
-      <Divider />
-
+    <>
       {conversations && (
         <>
-          {conversations.map((conversation) => (
-            <ListItem
-              className={classes.listItem}
-              key={conversation._id}
-              button
-              onClick={() => {
-                setUser(handleRecipient(conversation.recipientObj))
-                setScope(handleRecipient(conversation.recipientObj).first_name)
+          {conversations.map((conversation) => {
+            const { chattingWithUser } = conversation
+            return (
+              <ListItem
+                className={classes.listItem}
+                key={conversation._id}
+                button
+                onClick={() => {
+                  setCurrentConversation(conversation)
+                  setScope(
+                    `${chattingWithUser.first_name} ${chattingWithUser.last_name}`
+                  )
+                  // markAsConversationAsRead(conversation)
 
-                markAsConversationAsRead(conversation)
-
-                // hide the side bar when a user is clicked
-                handleToggleSidebar(false)
-              }}
-            >
-              <ListItemAvatar>
-                <Avatar>
-                  {getInitialsFromName(
-                    handleRecipient(conversation.recipientObj).first_name
-                  )}
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={handleRecipient(conversation.recipientObj).first_name}
-                secondary={
-                  <>
-                    {conversation.lastMessage.substr(0, 30)}
-                    {'... '}
-
-                    {/* 
-                      if the current auth user was the last person that sent the message, then it would be read ALWAYS
-                      if not and the lastMessageRead is false
-                      if (c.lastMessageIsRead) { } 
-                    */}
-                    {conversation.lastMessageSenderId !== currentUserId._id &&
-                    !conversation.lastMessageIsRead ? (
-                      <MDBBadge color="danger" className="ml-1">
-                        &nbsp;
-                      </MDBBadge>
-                    ) : (
-                      ''
+                  // hide the side bar when a user is clicked
+                  handleToggleSidebar(false)
+                }}
+              >
+                <ListItemAvatar>
+                  <Avatar>
+                    {getInitialsFromName(
+                      `${chattingWithUser.first_name} ${chattingWithUser.last_name}`
                     )}
-                  </>
-                }
-              />
-            </ListItem>
-          ))}
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={`${chattingWithUser.first_name} ${chattingWithUser.last_name}`}
+                  secondary={
+                    <>{`${conversation.lastestMessage.substr(0, 30)}...`}</>
+                  }
+                />
+              </ListItem>
+            )
+          })}
         </>
       )}
-    </List>
+    </>
   )
 }
 
-const mapStateToProps = (state) => ({
-  auth: state.auth
-})
-
-const mapDispatchToProps = {}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Conversations)
+export default Conversations

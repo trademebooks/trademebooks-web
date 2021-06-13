@@ -1,5 +1,5 @@
 import api from '../../utils/api'
-import displayErrors from '../utils/displayErrors'
+import displayErrors from '../../utils/displayErrors'
 
 // Receive global messages
 export const getGlobalMessages = async () => {
@@ -45,10 +45,10 @@ export const getConversations = async () => {
 
 // get conversation messages based on
 // to and from id's
-export const getConversationMessages = async (id) => {
+export const getConversationMessages = async (recipientUserId) => {
   try {
     const getConversationMessagesResponse = (
-      await api.get(`/conversations/messages?userId=${id}`)
+      await api.get(`/conversations/messages?userId=${recipientUserId}`)
     ).data.data
 
     return getConversationMessagesResponse
@@ -60,10 +60,10 @@ export const getConversationMessages = async (id) => {
 }
 
 // send message
-export const sendConversationMessage = async (toUserId, body) => {
+export const sendConversationMessage = async (toRecipientId, messageBody) => {
   try {
     const sendConversationMessageResponse = (
-      await api.post('/conversation/messages', { toUserId, body: body })
+      await api.post('/conversations/messages', { toRecipientId, messageBody })
     ).data.data
 
     return sendConversationMessageResponse

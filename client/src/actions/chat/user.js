@@ -1,5 +1,5 @@
 import api from '../../utils/api'
-import displayErrors from '../utils/displayErrors'
+import displayErrors from '../../utils/displayErrors'
 
 // get a list of all users in the database
 export const getUsers = async () => {

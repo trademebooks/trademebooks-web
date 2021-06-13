@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
@@ -16,19 +15,50 @@ import { mainChatStyles as useStyles } from '../utils/styles'
 import Messages from './Messages'
 import ChatInputForm from './ChatInputForm'
 
-const ChatBox = (props) => {
-  const {
-    auth: { user },
-    handleToggleSidebar,
-    scope
-  } = props
+const MainChat = ({
+  handleToggleSidebar,
+  scope,
+  currentConversation,
+  currentAuthUser
+}) => {
+  /**
+    currentConversation
+    {
+      _id: '5fc36879a0d3010d607eaade',
+      usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6a'],
+      lastestMessage: "Sure let's do it!",
+      recipientUsers: [
+        {
+          _id: '5e11e9d8eded1d23742c1c6a',
+          first_name: 'Yi Chen',
+          last_name: 'Zhu'
+        },
+        {
+          _id: '5e11e9d8eded1d23742c1c6b',
+          first_name: 'Cedric',
+          last_name: 'Mosdell'
+        }
+      ],
+      chattingWithUser: {
+        _id: '5e11e9d8eded1d23742c1c6b',
+        first_name: 'Cedric',
+        last_name: 'Mosdell'
+      }
+    }
 
-  const currentUserId = user._id // auth user
+    currentAuthUser
+      {
+      _id:"5e11e9d8eded1d23742c1c6a"
+      first_name:"Yi Chen"
+      last_name:"Zhu"
+      username:"yichen"
+      email:"yichenzhu1337@gmail.com"
+      phone_number:"4162932500"
+    }
+  */
 
-  // props.user - the current user that you are scoped to
-
-  const [newMessage, setNewMessage] = useState('')
   const [messages, setMessages] = useState([])
+  const [newMessage, setNewMessage] = useState('')
   const [lastMessage, setLastMessage] = useState(null)
 
   const chatBottom = useRef(null)
@@ -39,7 +69,9 @@ const ChatBox = (props) => {
       const globalMessages = await getGlobalMessages()
       setMessages(globalMessages)
     } else if (scope !== null) {
-      const messages = await getConversationMessages(props.user._id)
+      const messages = await getConversationMessages(
+        currentConversation.chattingWithUser._id
+      )
       setMessages(messages)
     } else {
       setMessages([])
@@ -59,6 +91,7 @@ const ChatBox = (props) => {
     }
 
     init()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastMessage, scope])
 
   useEffect(() => {
@@ -74,7 +107,7 @@ const ChatBox = (props) => {
       await sendGlobalMessage(newMessage)
       setNewMessage('')
     } else {
-      await sendConversationMessage(props.user._id, newMessage)
+      await sendConversationMessage(currentConversation.chattingWithUser._id, newMessage)
       setNewMessage('')
     }
   }
@@ -100,18 +133,18 @@ const ChatBox = (props) => {
         </Grid>
         <Grid item xs={12}>
           <Grid container className={classes.messageContainer}>
-            {/* Messages List */}
+            {/* Chat Messages List */}
             <Messages
               messages={messages}
+              currentAuthUser={currentAuthUser}
               chatBottom={chatBottom}
-              currentUserId={currentUserId}
             />
 
-            {/* Input Text */}
+            {/* Chat Input Text Form */}
             <ChatInputForm
-              sendMessageHandler={sendMessageHandler}
               newMessage={newMessage}
               setNewMessage={setNewMessage}
+              sendMessageHandler={sendMessageHandler}
             />
           </Grid>
         </Grid>
@@ -120,10 +153,4 @@ const ChatBox = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  auth: state.auth
-})
-
-const mapDispatchToProps = {}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChatBox)
+export default MainChat
