@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -21,8 +20,7 @@ import Conversations from './Conversations'
 const ConversationsTab = ({
   handleToggleSidebar,
   setScope,
-  setCurrentConversation,
-  currentAuthUser
+  setCurrentConversation
 }) => {
   const classes = useStyles()
 
@@ -78,7 +76,6 @@ const ConversationsTab = ({
         handleToggleSidebar={handleToggleSidebar}
         setScope={setScope}
         setCurrentConversation={setCurrentConversation}
-        currentAuthUser={currentAuthUser}
       />
     </List>
   )

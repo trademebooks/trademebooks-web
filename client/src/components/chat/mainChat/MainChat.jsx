@@ -21,42 +21,6 @@ const MainChat = ({
   currentConversation,
   currentAuthUser
 }) => {
-  /**
-    currentConversation
-    {
-      _id: '5fc36879a0d3010d607eaade',
-      usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6a'],
-      lastestMessage: "Sure let's do it!",
-      recipientUsers: [
-        {
-          _id: '5e11e9d8eded1d23742c1c6a',
-          first_name: 'Yi Chen',
-          last_name: 'Zhu'
-        },
-        {
-          _id: '5e11e9d8eded1d23742c1c6b',
-          first_name: 'Cedric',
-          last_name: 'Mosdell'
-        }
-      ],
-      chattingWithUser: {
-        _id: '5e11e9d8eded1d23742c1c6b',
-        first_name: 'Cedric',
-        last_name: 'Mosdell'
-      }
-    }
-
-    currentAuthUser
-      {
-      _id:"5e11e9d8eded1d23742c1c6a"
-      first_name:"Yi Chen"
-      last_name:"Zhu"
-      username:"yichen"
-      email:"yichenzhu1337@gmail.com"
-      phone_number:"4162932500"
-    }
-  */
-
   const [messages, setMessages] = useState([])
   const [newMessage, setNewMessage] = useState('')
   const [lastMessage, setLastMessage] = useState(null)
@@ -65,14 +29,14 @@ const MainChat = ({
   const classes = useStyles()
 
   const reloadMessages = async () => {
-    if (scope === 'Global Chat') {
-      const globalMessages = await getGlobalMessages()
-      setMessages(globalMessages)
-    } else if (scope !== null) {
+    if (currentConversation && currentConversation.chattingWithUser) {
       const messages = await getConversationMessages(
         currentConversation.chattingWithUser._id
       )
       setMessages(messages)
+    } else if (scope === 'Global Chat') {
+      const globalMessages = await getGlobalMessages()
+      setMessages(globalMessages)
     } else {
       setMessages([])
     }
@@ -91,8 +55,8 @@ const MainChat = ({
     }
 
     init()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lastMessage, scope])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lastMessage, scope, currentConversation])
 
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
@@ -107,7 +71,10 @@ const MainChat = ({
       await sendGlobalMessage(newMessage)
       setNewMessage('')
     } else {
-      await sendConversationMessage(currentConversation.chattingWithUser._id, newMessage)
+      await sendConversationMessage(
+        currentConversation.chattingWithUser._id,
+        newMessage
+      )
       setNewMessage('')
     }
   }

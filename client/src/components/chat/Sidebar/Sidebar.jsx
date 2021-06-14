@@ -39,7 +39,6 @@ const Sidebar = ({
             handleToggleSidebar={handleToggleSidebar}
             setScope={setScope}
             setCurrentConversation={setCurrentConversation}
-            currentAuthUser={currentAuthUser}
           />
         )}
         {tab === 1 && (
@@ -47,7 +46,6 @@ const Sidebar = ({
             handleToggleSidebar={handleToggleSidebar}
             setScope={setScope}
             setCurrentConversation={setCurrentConversation}
-            currentAuthUser={currentAuthUser}
           />
         )}
       </SidebarContent>

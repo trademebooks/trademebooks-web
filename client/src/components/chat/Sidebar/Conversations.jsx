@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import ListItem from '@material-ui/core/ListItem'
@@ -13,51 +13,28 @@ const Conversations = ({
   conversations,
   handleToggleSidebar,
   setScope,
-  setCurrentConversation,
-  currentAuthUser
+  setCurrentConversation
 }) => {
   const classes = useStyles()
 
-  /*
-  data: [
-        {
-          _id: '5fc36879a0d3010d607eaade',
-          usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6a'],
-          lastestMessage: "Sure let's do it!",
-          recipientUsers: [
-            {
-              _id: '5e11e9d8eded1d23742c1c6a',
-              first_name: 'Yi Chen',
-              last_name: 'Zhu'
-            },
-            {
-              _id: '5e11e9d8eded1d23742c1c6b',
-              first_name: 'Cedric',
-              last_name: 'Mosdell'
-            }
-          ],
-          chattingWithUser: {
-            _id: '5e11e9d8eded1d23742c1c6b',
-            first_name: 'Cedric',
-            last_name: 'Mosdell'
-          }
-        }
-      ],
-  */
-
-  // TODO - TMB0065
   const query = new URLSearchParams(useLocation().search)
   useEffect(() => {
     const currentConversationUserId = query.get('userId')
 
     if (Array.isArray(conversations)) {
-      const currentConversationByUserId = conversations.find((conversation) => {
+      const currentConvo = conversations.find((conversation) => {
         return conversation.chattingWithUser._id === currentConversationUserId
       })
 
-      setCurrentConversation(currentConversationByUserId)
+      if (currentConvo) {
+        setScope(
+          `${currentConvo.chattingWithUser.first_name} ${currentConvo.chattingWithUser.last_name}`
+        )
+      }
+
+      setCurrentConversation(currentConvo)
     }
-  }, [query, conversations, setCurrentConversation])
+  }, [query])
 
   return (
     <>
