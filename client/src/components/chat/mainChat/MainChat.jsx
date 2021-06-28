@@ -4,8 +4,6 @@ import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import socketIOClient from 'socket.io-client'
 import {
-  getGlobalMessages,
-  sendGlobalMessage,
   getConversationMessages,
   sendConversationMessage
 } from '../../../actions/chat/chat'
@@ -37,9 +35,6 @@ const MainChat = ({
         currentConversation.chattingWithUser._id
       )
       setMessages(messages)
-    } else if (scope === 'Global Chat') {
-      const globalMessages = await getGlobalMessages()
-      setMessages(globalMessages)
     } else {
       setMessages([])
     }
@@ -70,19 +65,14 @@ const MainChat = ({
   const sendMessageHandler = async (event) => {
     event.preventDefault()
 
-    if (scope === 'Global Chat') {
-      await sendGlobalMessage(newMessage)
-      setNewMessage('')
-    } else {
-      await sendConversationMessage(
-        currentConversation.chattingWithUser._id,
-        newMessage
-      )
+    await sendConversationMessage(
+      currentConversation.chattingWithUser._id,
+      newMessage
+    )
 
-      setNewMessage('')
+    setNewMessage('')
 
-      setIsLoadedFromPage(false)
-    }
+    setIsLoadedFromPage(false)
   }
 
   return (

@@ -18,6 +18,7 @@ const getAllAuthConversations = async (authId) => {
       }
     }
   ])
+    .sort({ updatedAt: -1 })
     .match({ recipients: { $all: [{ $elemMatch: { $eq: fromUserId } }] } })
     .project({
       'recipientUsers.password': 0,
@@ -31,7 +32,6 @@ const getAllAuthConversations = async (authId) => {
       __v: 0,
       recipients: 0
     })
-    .sort({ date: 'desc' })
 
   // Add a 'chattingWithUser' field to indicate who the auth user is chatting with in that particular conversation
   return conversations.map((conversation) => {

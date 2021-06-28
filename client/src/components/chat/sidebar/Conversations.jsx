@@ -24,6 +24,7 @@ const Conversations = ({
 
       if (conversations && conversations.length === 0) {
         // you have no conversations currently, you didnt chat with anyone yet
+        setScope('You do not have any conversations at the moment...')
       } else if (conversations && conversations.length > 0) {
         if (currentConversationUserId && isLoadedFromPage === true) {
           const currentConvo = conversations.find((conversation) => {
@@ -47,6 +48,9 @@ const Conversations = ({
           // we are on just /chat meaning the currentConversationUserId is not set and it is not isLoadedFromPage, meaning its just switching between conversations
         } else {
           setCurrentConversation(conversations[0])
+          setScope(
+            `${conversations[0].chattingWithUser.first_name} ${conversations[0].chattingWithUser.last_name}`
+          )
         }
       }
     }

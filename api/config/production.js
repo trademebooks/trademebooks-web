@@ -3,7 +3,8 @@ module.exports = {
   port: 80,
   apiPrefix: 'api',
   apiVersion: 'v1',
-  mongoURI: process.env.MONGO_URI,
+  mongoURI:
+    'mongodb+srv://yichen:7nSG04yWBagm65Jd@trademebookscluster01.selho.mongodb.net/trademebooks_prod_db',
   sessionSecret: process.env.COOKIE_KEY,
   sendGridKey: process.env.SEND_GRID_KEY,
   twilioKeys: {

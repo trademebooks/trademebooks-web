@@ -56,12 +56,7 @@ const ConversationsTab = ({
 
   return (
     <List className={classes.list}>
-      <ListItem
-        classes={{ root: classes.subheader }}
-        onClick={() => {
-          // setScope('Global Chat')
-        }}
-      >
+      <ListItem classes={{ root: classes.subheader }}>
         <ListItemAvatar>
           <Avatar className={classes.globe}>
             <LanguageIcon />
