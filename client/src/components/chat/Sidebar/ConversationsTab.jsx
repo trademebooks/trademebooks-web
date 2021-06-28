@@ -8,10 +8,7 @@ import Avatar from '@material-ui/core/Avatar'
 import LanguageIcon from '@material-ui/icons/Language'
 import Divider from '@material-ui/core/Divider'
 import socketIOClient from 'socket.io-client'
-import {
-  getConversations,
-  updateConversation
-} from '../../../actions/chat/chat'
+import { getConversations } from '../../../actions/chat/chat'
 
 import config from '../../../config'
 import { conversationsStyles as useStyles } from '../utils/styles'
@@ -20,7 +17,10 @@ import Conversations from './Conversations'
 const ConversationsTab = ({
   handleToggleSidebar,
   setScope,
-  setCurrentConversation
+  setCurrentConversation,
+  currentConversation,
+  isLoadedFromPage,
+  setNewMessage
 }) => {
   const classes = useStyles()
 
@@ -46,20 +46,20 @@ const ConversationsTab = ({
     }
   }, [])
 
-  const markAsConversationAsRead = async (conversationId) => {
-    await updateConversation(conversationId)
+  // const markAsConversationAsRead = async (conversationId) => {
+  //   await updateConversation(conversationId)
 
-    const conversations = await getConversations()
+  //   const conversations = await getConversations()
 
-    setConversations(conversations)
-  }
+  //   setConversations(conversations)
+  // }
 
   return (
     <List className={classes.list}>
       <ListItem
         classes={{ root: classes.subheader }}
         onClick={() => {
-          setScope('Global Chat')
+          // setScope('Global Chat')
         }}
       >
         <ListItemAvatar>
@@ -67,8 +67,9 @@ const ConversationsTab = ({
             <LanguageIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText className={classes.subheaderText} primary="Global Chat" />
+        <ListItemText className={classes.subheaderText} primary="Contacts" />
       </ListItem>
+
       <Divider />
 
       <Conversations
@@ -76,6 +77,9 @@ const ConversationsTab = ({
         handleToggleSidebar={handleToggleSidebar}
         setScope={setScope}
         setCurrentConversation={setCurrentConversation}
+        currentConversation={currentConversation}
+        isLoadedFromPage={isLoadedFromPage}
+        setNewMessage={setNewMessage}
       />
     </List>
   )

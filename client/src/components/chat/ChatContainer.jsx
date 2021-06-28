@@ -26,6 +26,12 @@ const ChatContainer = ({ auth: { user } }) => {
   // The current conversation that current auth user is having
   const [currentConversation, setCurrentConversation] = useState(null)
 
+  // This is a utility to let us know if the user is loading the page via the inital browser load via the URL address bar
+  const [isLoadedFromPage, setIsLoadedFromPage] = useState(true)
+
+  // This is whatever the user is typing into the form
+  const [newMessage, setNewMessage] = useState('')
+
   return (
     <div className="chat-app">
       <Sidebar
@@ -35,13 +41,18 @@ const ChatContainer = ({ auth: { user } }) => {
         tab={tab}
         setScope={setScope}
         setCurrentConversation={setCurrentConversation}
-        currentAuthUser={currentAuthUser}
+        currentConversation={currentConversation}
+        isLoadedFromPage={isLoadedFromPage}
+        setNewMessage={setNewMessage}
       />
       <MainChat
         handleToggleSidebar={handleToggleSidebar}
         scope={scope}
         currentConversation={currentConversation}
         currentAuthUser={currentAuthUser}
+        setIsLoadedFromPage={setIsLoadedFromPage}
+        newMessage={newMessage}
+        setNewMessage={setNewMessage}
       />
     </div>
   )

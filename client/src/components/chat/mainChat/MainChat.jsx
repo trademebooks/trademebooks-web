@@ -19,10 +19,13 @@ const MainChat = ({
   handleToggleSidebar,
   scope,
   currentConversation,
-  currentAuthUser
+  currentAuthUser,
+  setIsLoadedFromPage,
+  newMessage,
+  setNewMessage
 }) => {
   const [messages, setMessages] = useState([])
-  const [newMessage, setNewMessage] = useState('')
+
   const [lastMessage, setLastMessage] = useState(null)
 
   const chatBottom = useRef(null)
@@ -43,7 +46,7 @@ const MainChat = ({
   }
 
   const scrollToBottom = () => {
-    chatBottom.current.scrollIntoView({ behavior: 'smooth' })
+    chatBottom.current.scrollIntoView({ behavior: 'auto' })
   }
 
   useEffect(scrollToBottom, [messages])
@@ -75,7 +78,10 @@ const MainChat = ({
         currentConversation.chattingWithUser._id,
         newMessage
       )
+
       setNewMessage('')
+
+      setIsLoadedFromPage(false)
     }
   }
 

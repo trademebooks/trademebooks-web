@@ -12,7 +12,9 @@ const Sidebar = ({
   tab,
   setScope,
   setCurrentConversation,
-  currentAuthUser
+  currentConversation,
+  isLoadedFromPage,
+  setNewMessage
 }) => {
   return (
     <ProSidebar
@@ -21,7 +23,7 @@ const Sidebar = ({
       breakPoint="md"
       onToggle={handleToggleSidebar}
     >
-      <SidebarHeader>
+      {/* <SidebarHeader>
         <Tabs
           onChange={toggleTab}
           variant="fullWidth"
@@ -32,22 +34,25 @@ const Sidebar = ({
           <Tab label="Chats" />
           <Tab label="Users" />
         </Tabs>
-      </SidebarHeader>
+      </SidebarHeader> */}
       <SidebarContent>
         {tab === 0 && (
           <ConversationsTab
             handleToggleSidebar={handleToggleSidebar}
             setScope={setScope}
             setCurrentConversation={setCurrentConversation}
+            currentConversation={currentConversation}
+            isLoadedFromPage={isLoadedFromPage}
+            setNewMessage={setNewMessage}
           />
         )}
-        {tab === 1 && (
+        {/* {tab === 1 && (
           <Users
             handleToggleSidebar={handleToggleSidebar}
             setScope={setScope}
             setCurrentConversation={setCurrentConversation}
           />
-        )}
+        )} */}
       </SidebarContent>
     </ProSidebar>
   )

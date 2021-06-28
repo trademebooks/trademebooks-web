@@ -2,6 +2,7 @@ const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchException = require('../utils/catchExceptions')
 const GlobalMessage = require('../domain/models/chat/globalMessage.model')
 const messageService = require('../domain/services/message.service')
+const ApiGeneralError = require('../utils/ApiGeneralError')
 
 // Get global messages
 const getGlobalMessages = catchException(async (req, res) => {
@@ -78,7 +79,46 @@ const getConversationMessagesByUserId = catchException(async (req, res) => {
 })
 
 // Send private message
+const startConversationWithRecipient = catchException(async (req, res) => {
+  if (!req.body.toRecipientId) {
+    console.log('toRecipientId is required.')
+
+    throw new ApiGeneralError({
+      errors: ['toRecipientId is required.']
+    })
+  }
+
+  const newMessage = await messageService.startConversationWithRecipient(
+    req.user.id,
+    req.body.toRecipientId
+  )
+
+  res.status(200).json(
+    globalResponseDto({
+      message: 'Conversation started with recipient user.',
+      data: newMessage
+    })
+  )
+})
+
+// Send private message
 const sendMessageToUserInConveration = catchException(async (req, res) => {
+  if (!req.body.toRecipientId) {
+    console.log('toRecipientId is required.')
+
+    throw new ApiGeneralError({
+      errors: ['toRecipientId is required.']
+    })
+  }
+
+  if (!req.body.messageBody) {
+    console.log('messageBody is required.')
+
+    throw new ApiGeneralError({
+      errors: ['messageBody is required.']
+    })
+  }
+
   const newMessage = await messageService.sendMessageToUserInConveration(
     req.user.id,
     req.body.toRecipientId,
@@ -118,6 +158,7 @@ module.exports = {
   postGlobalMessages,
   getAllAuthConversations,
   getConversationMessagesByUserId,
+  startConversationWithRecipient,
   sendMessageToUserInConveration,
   updateConversationById
 }

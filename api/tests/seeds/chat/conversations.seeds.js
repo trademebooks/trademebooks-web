@@ -16,6 +16,19 @@ const conversations = [
     ]
   },
 
+  // Wesley chats with Yichen
+  {
+    _id: '5fc40064c17e1f1e88dc805f',
+    recipients: [
+      ObjectId('5e11e9d8eded1d23742c1c6a'),
+      ObjectId('5e11e9d8eded1d23742c1c6c')
+    ], // Wesley's user id
+    lastestMessage: 'Hi Yichen, this is Wes',
+    usersWhoHaveReadLastestMessage: [
+      '5e11e9d8eded1d23742c1c6c' // This indicates that userId 5e11e9d8eded1d23742c1c6c (Wesley) was the last to have sent this message because one can't send a message without it being read first.
+    ]
+  },
+
   // Cedric chats with Wesley
   {
     _id: '5fc40064c17e1f1e88dc806f',

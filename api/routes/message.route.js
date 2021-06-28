@@ -20,6 +20,12 @@ router.get(
   messageController.getConversationMessagesByUserId
 )
 
+// Starts a conversation only
+router.post(
+  '/messages/start-conversation',
+  messageController.startConversationWithRecipient
+)
+
 // Sends a private message
 router.post('/messages', messageController.sendMessageToUserInConveration)
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { toastr } from 'react-redux-toastr'
@@ -17,8 +16,15 @@ import edit_icon from './icons/edit_icon.png'
 import delete_icon from './icons/delete_icon.png'
 
 import { deleteBookById } from '../../../actions/bookstore'
+import { startConversationWithRecipient } from '../../../actions/chat/chat'
 
 const Book = ({ book, editFlag, deleteBookById }) => {
+  const chatWithUser = async (book) => {
+    await startConversationWithRecipient(book.userId)
+
+    window.location.href = `/chat/${book.userId}`
+  }
+
   const date = new Date(book.createdAt)
   const datePosted = date.toLocaleDateString('en-CA', {
     year: 'numeric',
@@ -132,13 +138,15 @@ const Book = ({ book, editFlag, deleteBookById }) => {
             ) : (
               <MDBTooltip domElement tag="span" placement="left">
                 <span>
-                  <Link
-                    to={{
-                      pathname: `/chat/${book.userId}`
+                  <a
+                    href="!#"
+                    onClick={async (event) => {
+                      event.preventDefault()
+                      await chatWithUser(book)
                     }}
                   >
                     <img src={Message_icon} alt="test" className="chat-image" />
-                  </Link>
+                  </a>
                 </span>
                 <span>{`Message ${book.username}`}</span>
               </MDBTooltip>

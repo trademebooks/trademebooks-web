@@ -105,6 +105,32 @@ const getConversationMessagesByUserId = async (authId, userId) => {
   })
 }
 
+const startConversationWithRecipient = async (authId, recipientUserId) => {
+  const fromUserId = mongoose.Types.ObjectId(authId)
+  const toUserId = mongoose.Types.ObjectId(recipientUserId)
+
+  // If there is already an existing conversation between the fromUserId and toUserId, then don't
+  // create a new conversation, simply update it with new information.
+  const conversation = await ConversationModel.findOneAndUpdate(
+    {
+      recipients: {
+        $all: [
+          { $elemMatch: { $eq: fromUserId } },
+          { $elemMatch: { $eq: toUserId } }
+        ]
+      }
+    },
+    {
+      recipients: [fromUserId, toUserId],
+      lastestMessage: '',
+      usersWhoHaveReadLastestMessage: [authId]
+    },
+    { upsert: true, new: true, setDefaultsOnInsert: true }
+  )
+
+  return conversation
+}
+
 const sendConversationMessageToRecipientId = async (
   authId,
   recipientUserId,
@@ -165,6 +191,7 @@ const updateConversationByIdAndMarkAsRead = async (conversationId, authId) => {
 module.exports = {
   getAllAuthConversations,
   getConversationMessagesByUserId,
+  startConversationWithRecipient,
   sendConversationMessageToRecipientId,
   updateConversationByIdAndMarkAsRead
 }

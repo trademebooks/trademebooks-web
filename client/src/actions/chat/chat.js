@@ -60,6 +60,23 @@ export const getConversationMessages = async (recipientUserId) => {
 }
 
 // send message
+export const startConversationWithRecipient = async (toRecipientId) => {
+  try {
+    const startConversationWithRecipientResponse = (
+      await api.post('/conversations/messages/start-conversation', {
+        toRecipientId
+      })
+    ).data.data
+
+    return startConversationWithRecipientResponse
+  } catch (error) {
+    console.log(error)
+
+    displayErrors(error)
+  }
+}
+
+// send message
 export const sendConversationMessage = async (toRecipientId, messageBody) => {
   try {
     const sendConversationMessageResponse = (

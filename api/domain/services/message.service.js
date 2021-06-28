@@ -11,6 +11,12 @@ const getConversationMessagesByUserId = async (authId, toChatUserId) => {
   )
 }
 
+const startConversationWithRecipient = async (authId, recipientUserId) => {
+  return await messageRepository.startConversationWithRecipient(
+    authId,
+    recipientUserId
+  )
+}
 const sendMessageToUserInConveration = async (
   authId,
   recipientUserId,
@@ -33,6 +39,7 @@ const updateConversationById = async (conversationId, authId) => {
 module.exports = {
   getAllAuthConversations,
   getConversationMessagesByUserId,
+  startConversationWithRecipient,
   sendMessageToUserInConveration,
   updateConversationById
 }

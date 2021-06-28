@@ -52,7 +52,7 @@ describe('Test Suite: Message Repository - Getters', () => {
           first_name: 'Wesley',
           last_name: 'Michaels'
         },
-        lastestMessage: '',
+        lastestMessage: 'Hi Yichen, this is Wes',
         usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6c'],
         recipientUsers: [
           {

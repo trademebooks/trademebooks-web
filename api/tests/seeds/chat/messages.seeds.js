@@ -1,6 +1,7 @@
 const Message = require('../../../domain/models/chat/message.model')
 
 const messages = [
+  // Conversation messages between Yichen and Cedric
   // Yichen Speaks
   {
     conversationId: '5fc36879a0d3010d607eaade',
@@ -32,6 +33,15 @@ const messages = [
     fromUserId: '5e11e9d8eded1d23742c1c6b',
     toUserId: '5e11e9d8eded1d23742c1c6a',
     body: "Sure let's do it!"
+  },
+
+  // Conversation messages between Yichen and Wes
+  // Wes Speaks
+  {
+    conversationId: '5fc40064c17e1f1e88dc805f',
+    fromUserId: '5e11e9d8eded1d23742c1c6c',
+    toUserId: '5e11e9d8eded1d23742c1c6a',
+    body: 'Hi Yichen, this is Wes'
   }
 ]
 

@@ -8,9 +8,12 @@
   }
 
   // .MuiListItem-button:focus {
-  //   text-decoration: none;
   //   background-color: rgba(0, 0, 0, 0.04);
   // }
+
+  .current-focused-conversation {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
 
   .main-chat {
     flex-grow: 1;

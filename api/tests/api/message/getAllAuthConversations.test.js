@@ -25,7 +25,7 @@ afterAll(async () => {
 })
 
 describe('Message/Chat API - Get all converations', () => {
-  test('POST /api/v1/conversations - Get all conversations for the current auth user', async () => {
+  test('GET /api/v1/conversations - Get all conversations for the current auth user', async () => {
     // 1. Log the user in via the POST /auth/login api endpoint
     const cookie = await dbTestUtils.getLogingUserCookies(baseURL)
 
@@ -66,6 +66,27 @@ describe('Message/Chat API - Get all converations', () => {
             first_name: 'Cedric',
             last_name: 'Mosdell'
           }
+        },
+        {
+          chattingWithUser: {
+            _id: '5e11e9d8eded1d23742c1c6c',
+            first_name: 'Wesley',
+            last_name: 'Michaels'
+          },
+          lastestMessage: 'Hi Yichen, this is Wes',
+          recipientUsers: [
+            {
+              _id: '5e11e9d8eded1d23742c1c6a',
+              first_name: 'Yi Chen',
+              last_name: 'Zhu'
+            },
+            {
+              _id: '5e11e9d8eded1d23742c1c6c',
+              first_name: 'Wesley',
+              last_name: 'Michaels'
+            }
+          ],
+          usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6c']
         }
       ],
       errors: null
