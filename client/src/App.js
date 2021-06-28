@@ -37,7 +37,7 @@ const App = () => {
       ReactGA.set({ page: location.pathname + window.location.search })
       ReactGA.pageview(location.pathname + window.location.search)
     })
-  }, [])
+  }, [history])
 
   return (
     <Provider store={store}>

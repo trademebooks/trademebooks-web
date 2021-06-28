@@ -6,7 +6,6 @@ const fetch = require('node-fetch')
 const Account = require('../../domain/models/account.model')
 const Book = require('../../domain/models/book.model')
 const Bookstore = require('../../domain/models/bookstore.model')
-// const Message = require('../../domain/models/message.model')
 const Password = require('../../domain/models/password.model')
 const User = require('../../domain/models/user.model')
 const Session = require('../../domain/models/session.model')
@@ -59,7 +58,7 @@ const setUpDatabase = async () => {
 
 const seeInDatabase = async (Model, item) => {
   const findItem = await Model.findById(item.id)
-  return findItem
+  return findItem ? true : false
 }
 
 const getAllTableData = async (Model) => {

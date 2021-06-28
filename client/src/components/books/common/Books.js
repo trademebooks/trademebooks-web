@@ -7,9 +7,10 @@ const Books = ({ books, editFlag }) => {
   return (
     <>
       <div>
-        {books && books.map((book, index) => {
-          return <Book key={book._id} book={book} editFlag={editFlag} />
-        })}
+        {books &&
+          books.map((book, index) => {
+            return <Book key={book._id} book={book} editFlag={editFlag} />
+          })}
       </div>
     </>
   )

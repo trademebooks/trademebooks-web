@@ -1,45 +1,45 @@
-const Message = require('../models/message.model')
-const Room = require('../models/room.model')
-const User = require('../models/user.model')
+const messageRepository = require('../repositories/message.repository')
 
-const getAllConversations = async (authId) => {
-  const rooms = await Room.find({
-    users: {
-      $in: [authId]
-    }
-  })
+const getAllAuthConversations = async (authId) => {
+  return await messageRepository.getAllAuthConversations(authId)
+}
 
-  const conversations = await Promise.all(
-    rooms.map(async (room) => {
-      const userId = room.users.find((user) => {
-        return user.toString() !== authId.toString()
-      })
-
-      const user = await User.findById(userId)
-
-      return {
-        room_id: room._id,
-        user
-      }
-    })
+const getConversationMessagesByUserId = async (authId, toChatUserId) => {
+  return await messageRepository.getConversationMessagesByUserId(
+    authId,
+    toChatUserId
   )
-
-  return conversations
 }
 
-const getAllMessagesInRoom = async ({ roomId }) => {
-  const messagesInRoom = await Message.find({ roomId })
-
-  return messagesInRoom
+const startConversationWithRecipient = async (authId, recipientUserId) => {
+  return await messageRepository.startConversationWithRecipient(
+    authId,
+    recipientUserId
+  )
+}
+const sendMessageToUserInConveration = async (
+  authId,
+  recipientUserId,
+  messageBody
+) => {
+  return await messageRepository.sendConversationMessageToRecipientId(
+    authId,
+    recipientUserId,
+    messageBody
+  )
 }
 
-const sendMessagesToRoomId = async (messageData) => {
-  const message = new Message(messageData).save()
-  return message
+const updateConversationById = async (conversationId, authId) => {
+  return await messageRepository.updateConversationByIdAndMarkAsRead(
+    conversationId,
+    authId
+  )
 }
 
 module.exports = {
-  getAllConversations,
-  getAllMessagesInRoom,
-  sendMessagesToRoomId
+  getAllAuthConversations,
+  getConversationMessagesByUserId,
+  startConversationWithRecipient,
+  sendMessageToUserInConveration,
+  updateConversationById
 }

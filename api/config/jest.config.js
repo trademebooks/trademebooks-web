@@ -15,7 +15,7 @@ module.exports = {
     '<rootDir>/domain/repositories/__tests__/user.repository.test.js',
     // '<rootDir>/domain/repositories/__tests__/password.repository.test.js',
     // '<rootDir>/domain/repositories/__tests__/account.repository.test.js',
-    // '<rootDir>/domain/repositories/__tests__/message.repository.test.js',
+    '<rootDir>/domain/repositories/__tests__/message.repository.test.js',
 
     // Services
     // '<rootDir>/domain/services/__tests__/**.test.js',
@@ -24,7 +24,7 @@ module.exports = {
     '<rootDir>/domain/services/__tests__/auth.service.test.js',
     // '<rootDir>/domain/services/__tests__/account.service.test.js',
     // '<rootDir>/domain/services/__tests__/password.service.test.js',
-    // '<rootDir>/domain/services/__tests__/message.service.test.js',
+    '<rootDir>/domain/services/__tests__/message.service.test.js',
 
     // '<rootDir>/domain/services/mailer/__tests__/mailer.test.js',
     '<rootDir>/domain/services/mailer/emailTemplates/passwordResetTemplate.test',
@@ -99,10 +99,7 @@ module.exports = {
     '<rootDir>/tests/api/bookstore/getAuth.test.js',
 
     // Message
-    // '<rootDir>/tests/api/message/**.test.js',
-    // '<rootDir>/tests/api/message/getAllConversations.test.js',
-    // '<rootDir>/tests/api/message/getAllMessagesInRoom.test.js',
-    // '<rootDir>/tests/api/message/send.test.js',
+    '<rootDir>/tests/api/message/**.test.js',
 
     // Password
     // '<rootDir>/tests/api/password/**.test.js',

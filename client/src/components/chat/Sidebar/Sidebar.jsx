@@ -2,19 +2,19 @@ import React from 'react'
 import { ProSidebar, SidebarHeader, SidebarContent } from 'react-pro-sidebar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-
-import Conversations from './Conversations'
+import ConversationsTab from './ConversationsTab'
 import Users from './Users'
 
-import './Aside.scss'
-
-const Aside = ({
-  toggled,
+const Sidebar = ({
   handleToggleSidebar,
-  handleChange,
+  toggled,
+  toggleTab,
   tab,
-  setUser,
-  setScope
+  setScope,
+  setCurrentConversation,
+  currentConversation,
+  isLoadedFromPage,
+  setNewMessage
 }) => {
   return (
     <ProSidebar
@@ -23,9 +23,9 @@ const Aside = ({
       breakPoint="md"
       onToggle={handleToggleSidebar}
     >
-      <SidebarHeader>
+      {/* <SidebarHeader>
         <Tabs
-          onChange={handleChange}
+          onChange={toggleTab}
           variant="fullWidth"
           value={tab}
           indicatorColor="primary"
@@ -34,25 +34,28 @@ const Aside = ({
           <Tab label="Chats" />
           <Tab label="Users" />
         </Tabs>
-      </SidebarHeader>
+      </SidebarHeader> */}
       <SidebarContent>
         {tab === 0 && (
-          <Conversations
-            setUser={setUser}
-            setScope={setScope}
+          <ConversationsTab
             handleToggleSidebar={handleToggleSidebar}
+            setScope={setScope}
+            setCurrentConversation={setCurrentConversation}
+            currentConversation={currentConversation}
+            isLoadedFromPage={isLoadedFromPage}
+            setNewMessage={setNewMessage}
           />
         )}
-        {tab === 1 && (
+        {/* {tab === 1 && (
           <Users
-            setUser={setUser}
-            setScope={setScope}
             handleToggleSidebar={handleToggleSidebar}
+            setScope={setScope}
+            setCurrentConversation={setCurrentConversation}
           />
-        )}
+        )} */}
       </SidebarContent>
     </ProSidebar>
   )
 }
 
-export default Aside
+export default Sidebar

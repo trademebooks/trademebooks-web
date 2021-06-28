@@ -9,7 +9,6 @@ import './Book.scss'
 
 import defaultBookImage from '../common/icons/sample-book.png'
 
-// import very_good_condition_green_image from './icons/Verygood_condition.png'
 import Message_icon from './icons/Message_user.png'
 import Location_icon from './icons/Location_icon.png'
 import bookstoreIcon from './icons/bookstoreIcon.png'
@@ -17,10 +16,13 @@ import edit_icon from './icons/edit_icon.png'
 import delete_icon from './icons/delete_icon.png'
 
 import { deleteBookById } from '../../../actions/bookstore'
+import { startConversationWithRecipient } from '../../../actions/chat/chat'
 
 const Book = ({ book, editFlag, deleteBookById }) => {
-  const chatWithUser = (book) => {
-    window.location.href = '/chat'
+  const chatWithUser = async (book) => {
+    await startConversationWithRecipient(book.userId)
+
+    window.location.href = `/chat/${book.userId}`
   }
 
   const date = new Date(book.createdAt)
@@ -93,12 +95,6 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                 />
               </span>
             </div>
-
-            {/* <div className="single-card__tags">
-                            <span><a href="#tag">MCMASTER UNIVERSITY</a></span>
-                            <span><a href="#tag">CIV358</a></span>
-                            <span><a href="#tag">CIV5481</a></span>
-                        </div> */}
           </div>
 
           <div className="single-card-column-section-2__row-3">
@@ -144,9 +140,9 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                 <span>
                   <a
                     href="!#"
-                    onClick={(event) => {
+                    onClick={async (event) => {
                       event.preventDefault()
-                      chatWithUser(book)
+                      await chatWithUser(book)
                     }}
                   >
                     <img src={Message_icon} alt="test" className="chat-image" />

@@ -17,6 +17,7 @@
     "test:ci:client": "NODE_ENV=ci npm run test:nowatch --prefix client",
     "test:ci:api": "NODE_ENV=ci ./client/node_modules/.bin/jest --config=api/config/jest.config.js --maxWorkers=1",
     "test:mac": "NODE_ENV=testing ./client/node_modules/.bin/jest --config=api/config/jest.config.js --maxWorkers=1",
+    "test:mac:dev": "NODE_ENV=testing ./client/node_modules/.bin/jest --config=api/config/jestDev.config.js --maxWorkers=1",
     "test:windows": "set NODE_ENV=testing && ./client/node_modules/.bin/jest --config=api/config/jest.config.js --maxWorkers=1",
     "db:seed": "node ./api/tests/seeds",
     "db:seed:prod": "NODE_ENV=production node ./api/tests/seeds",

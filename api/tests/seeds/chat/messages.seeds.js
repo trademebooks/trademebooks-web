@@ -1,37 +1,47 @@
 const Message = require('../../../domain/models/chat/message.model')
 
 const messages = [
+  // Conversation messages between Yichen and Cedric
   // Yichen Speaks
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6a',
-    to: '5e11e9d8eded1d23742c1c6b',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6a',
+    toUserId: '5e11e9d8eded1d23742c1c6b',
     body: 'hey'
   },
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6a',
-    to: '5e11e9d8eded1d23742c1c6b',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6a',
+    toUserId: '5e11e9d8eded1d23742c1c6b',
     body: 'Do you want to grab lunch?'
   },
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6a',
-    to: '5e11e9d8eded1d23742c1c6b',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6a',
+    toUserId: '5e11e9d8eded1d23742c1c6b',
     body: 'I was thinking sushi buffet, what do you think?'
   },
   // Cedric Speaks
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6b',
-    to: '5e11e9d8eded1d23742c1c6a',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6b',
+    toUserId: '5e11e9d8eded1d23742c1c6a',
     body: 'Oh hey Yichen!'
   },
   {
-    conversation: '5fc36879a0d3010d607eaade',
-    from: '5e11e9d8eded1d23742c1c6b',
-    to: '5e11e9d8eded1d23742c1c6a',
+    conversationId: '5fc36879a0d3010d607eaade',
+    fromUserId: '5e11e9d8eded1d23742c1c6b',
+    toUserId: '5e11e9d8eded1d23742c1c6a',
     body: "Sure let's do it!"
+  },
+
+  // Conversation messages between Yichen and Wes
+  // Wes Speaks
+  {
+    conversationId: '5fc40064c17e1f1e88dc805f',
+    fromUserId: '5e11e9d8eded1d23742c1c6c',
+    toUserId: '5e11e9d8eded1d23742c1c6a',
+    body: 'Hi Yichen, this is Wes'
   }
 ]
 
@@ -43,7 +53,7 @@ module.exports = async () => {
     await new Message(message).save()
   }
 
-  // Messages for room: 5fc36879a0d3010d607eaade
+  // Messages for conversationId: 5fc36879a0d3010d607eaade (between Yichen and Cedric)
   for (let i = 1; i <= 200; i++) {
     // const message = {
     //   roomId: '5fc36879a0d3010d607eaade',
@@ -55,7 +65,7 @@ module.exports = async () => {
     // await new Message(message).save()
   }
 
-  // Messages for room: 5fc40064c17e1f1e88dc806d
+  // Messages for converation: 5fc40064c17e1f1e88dc806d (between Yichen and Wesley)
   for (let i = 1; i <= 20; i++) {
     // const message = {
     //   roomId: '5fc40064c17e1f1e88dc806d',

@@ -185,7 +185,7 @@ const RegisterForm = ({ register, isAuthenticated }) => {
                       social="git"
                       color="black"
                       rounded
-                    >                      
+                    >
                       <MDBIcon fab icon="github" />
                     </MDBBtn>
                   </div>

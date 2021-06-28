@@ -7,7 +7,15 @@
     background-color: #fff;
   }
 
-  main {
+  // .MuiListItem-button:focus {
+  //   background-color: rgba(0, 0, 0, 0.04);
+  // }
+
+  .current-focused-conversation {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .main-chat {
     flex-grow: 1;
   }
 
@@ -16,7 +24,7 @@
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     overflow-x: hidden;
 
     .btn-toggle {
