@@ -35,7 +35,7 @@ const ConversationsTab = ({
     }
 
     init()
-  }, [newConversation, currentConversation])
+  }, [newConversation])
 
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
@@ -74,4 +74,4 @@ const ConversationsTab = ({
   )
 }
 
-export default ConversationsTab
+export default React.memo(ConversationsTab)

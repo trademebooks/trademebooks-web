@@ -18,50 +18,46 @@ import {
 import logo from './logo.png'
 
 import { getConversations } from '../../actions/chat/chat'
+import socketIOClient from 'socket.io-client'
+import config from '../../config'
 
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [fullname, setFullname] = useState('')
-  const [unreadMessagesCount, setUnreadMessagesCount] = useState(0)
+  const [haveUnreadMessages, setHaveUnreadMessages] = useState(false)
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen)
   }
 
   useEffect(() => {
+    async function init() {
+      const conversations = await getConversations()
+
+      // the current auth user has NOT read at least 1 message
+      const authUserHasAtLeastOneUnreadMessage = conversations.some(
+        (conversation) => {
+          return !conversation.usersWhoHaveReadLastestMessage.includes(user._id)
+        }
+      )
+
+      console.log({ authUserHasAtLeastOneUnreadMessage })
+
+      setHaveUnreadMessages(authUserHasAtLeastOneUnreadMessage)
+    }
+
     if (user) {
       setFullname(`${user.first_name} ${user.last_name}`)
+
+      init()
+
+      const socket = socketIOClient(config.SOCKET_URL)
+
+      socket.on('messages', (data) => {
+        init()
+      })
     }
   }, [user])
-
-  // useEffect(() => {
-  //   setInterval(async () => {
-  //     if (user) {
-  //       ;(async () => {
-  //         const conversations = await getConversations()
-
-  //         const x = conversations.map((x) => {
-  //           return {
-  //             lastMessageIsRead: x.lastMessageIsRead,
-  //             lastMessageSenderId: x.lastMessageSenderId
-  //           }
-  //         })
-
-  //         let numberOfUnreadMessages = 0
-  //         for (const conversation of x) {
-  //           if (
-  //             !conversation.lastMessageIsRead &&
-  //             user._id !== conversation.lastMessageSenderId
-  //           ) {
-  //             numberOfUnreadMessages++
-  //           }
-  //         }
-
-  //         setUnreadMessagesCount(numberOfUnreadMessages)
-  //       })()
-  //     }
-  //   }, 2000)
-  // }, [user])
 
   useEffect(() => {
     // When the user clicks anywhere on the screen while the navbar is open, we toggle (hide) it.
@@ -115,7 +111,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/chat">
                 <MDBIcon icon="envelope" /> Messages
-                {unreadMessagesCount > 0 ? (
+                {haveUnreadMessages ? (
                   <MDBBadge color="danger" className="ml-1">
                     NEW
                   </MDBBadge>

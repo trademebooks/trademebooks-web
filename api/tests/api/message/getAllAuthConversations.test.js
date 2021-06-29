@@ -46,28 +46,8 @@ describe('Message/Chat API - Get all converations', () => {
       message: 'A a list of conversations of the currently authenticated user.',
       data: [
         {
-          _id: '5fc36879a0d3010d607eaade',
-          usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6a'],
-          lastestMessage: "Sure let's do it!",
-          recipientUsers: [
-            {
-              _id: '5e11e9d8eded1d23742c1c6a',
-              first_name: 'Yi Chen',
-              last_name: 'Zhu'
-            },
-            {
-              _id: '5e11e9d8eded1d23742c1c6b',
-              first_name: 'Cedric',
-              last_name: 'Mosdell'
-            }
-          ],
-          chattingWithUser: {
-            _id: '5e11e9d8eded1d23742c1c6b',
-            first_name: 'Cedric',
-            last_name: 'Mosdell'
-          }
-        },
-        {
+          _id: '5fc40064c17e1f1e88dc805f',
+
           chattingWithUser: {
             _id: '5e11e9d8eded1d23742c1c6c',
             first_name: 'Wesley',
@@ -87,6 +67,28 @@ describe('Message/Chat API - Get all converations', () => {
             }
           ],
           usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6c']
+        },
+        {
+          chattingWithUser: {
+            _id: '5e11e9d8eded1d23742c1c6b',
+            first_name: 'Cedric',
+            last_name: 'Mosdell'
+          },
+          lastestMessage: "Sure let's do it!",
+
+          recipientUsers: [
+            {
+              _id: '5e11e9d8eded1d23742c1c6a',
+              first_name: 'Yi Chen',
+              last_name: 'Zhu'
+            },
+            {
+              _id: '5e11e9d8eded1d23742c1c6b',
+              first_name: 'Cedric',
+              last_name: 'Mosdell'
+            }
+          ],
+          usersWhoHaveReadLastestMessage: ['5e11e9d8eded1d23742c1c6a']
         }
       ],
       errors: null

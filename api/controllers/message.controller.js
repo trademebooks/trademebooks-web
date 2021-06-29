@@ -144,6 +144,9 @@ const updateConversationById = catchException(async (req, res) => {
     req.user.id
   )
 
+  // Event - 'messages'
+  req.io.sockets.emit('messages', { updatedConveration })
+
   res.status(200).json(
     globalResponseDto({
       message:
