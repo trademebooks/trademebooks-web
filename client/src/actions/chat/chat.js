@@ -43,8 +43,7 @@ export const getConversations = async () => {
   }
 }
 
-// get conversation messages based on
-// to and from id's
+// get conversation messages between auth user and the recipientUserId
 export const getConversationMessages = async (recipientUserId) => {
   try {
     const getConversationMessagesResponse = (
@@ -59,7 +58,7 @@ export const getConversationMessages = async (recipientUserId) => {
   }
 }
 
-// send message
+// start a conversation with recipient, but do not send message
 export const startConversationWithRecipient = async (toRecipientId) => {
   try {
     const startConversationWithRecipientResponse = (
@@ -91,8 +90,8 @@ export const sendConversationMessage = async (toRecipientId, messageBody) => {
   }
 }
 
-// update conversation
-export const updateConversation = async (conversationId) => {
+// update conversation - marking a conversation as read
+export const updateConversationByIdAndMarkAsRead = async (conversationId) => {
   try {
     const updateConversationResponse = (
       await api.put(`/conversations/${conversationId}`)

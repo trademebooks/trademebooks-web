@@ -36,6 +36,7 @@ const ChatContainer = ({ auth: { user } }) => {
         currentConversation={currentConversation}
         isLoadedFromPage={isLoadedFromPage}
         setNewMessage={setNewMessage}
+        currentAuthUser={currentAuthUser}
       />
       <MainChat
         handleToggleSidebar={handleToggleSidebar}

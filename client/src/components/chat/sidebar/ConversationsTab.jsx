@@ -20,7 +20,8 @@ const ConversationsTab = ({
   setCurrentConversation,
   currentConversation,
   isLoadedFromPage,
-  setNewMessage
+  setNewMessage,
+  currentAuthUser
 }) => {
   const classes = useStyles()
 
@@ -34,7 +35,7 @@ const ConversationsTab = ({
     }
 
     init()
-  }, [newConversation])
+  }, [newConversation, currentConversation])
 
   useEffect(() => {
     const socket = socketIOClient(config.SOCKET_URL)
@@ -45,14 +46,6 @@ const ConversationsTab = ({
       socket.removeListener('messages')
     }
   }, [])
-
-  // const markAsConversationAsRead = async (conversationId) => {
-  //   await updateConversation(conversationId)
-
-  //   const conversations = await getConversations()
-
-  //   setConversations(conversations)
-  // }
 
   return (
     <List className={classes.list}>
@@ -75,6 +68,7 @@ const ConversationsTab = ({
         currentConversation={currentConversation}
         isLoadedFromPage={isLoadedFromPage}
         setNewMessage={setNewMessage}
+        currentAuthUser={currentAuthUser}
       />
     </List>
   )

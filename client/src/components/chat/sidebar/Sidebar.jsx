@@ -9,7 +9,8 @@ const Sidebar = ({
   setCurrentConversation,
   currentConversation,
   isLoadedFromPage,
-  setNewMessage
+  setNewMessage,
+  currentAuthUser
 }) => {
   return (
     <ProSidebar
@@ -26,6 +27,7 @@ const Sidebar = ({
           currentConversation={currentConversation}
           isLoadedFromPage={isLoadedFromPage}
           setNewMessage={setNewMessage}
+          currentAuthUser={currentAuthUser}
         />
       </SidebarContent>
     </ProSidebar>

@@ -5,8 +5,10 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
+import { MDBBadge } from 'mdbreact'
 
 import { getInitialsFromName } from '../utils'
+import { updateConversationByIdAndMarkAsRead } from '../../../actions/chat/chat'
 
 const Conversations = ({
   conversations,
@@ -15,7 +17,8 @@ const Conversations = ({
   setCurrentConversation,
   currentConversation,
   isLoadedFromPage,
-  setNewMessage
+  setNewMessage,
+  currentAuthUser
 }) => {
   const params = useParams()
   useEffect(() => {
@@ -75,12 +78,13 @@ const Conversations = ({
                   }
                   key={conversation._id}
                   button
-                  onClick={() => {
+                  onClick={async () => {
+                    await updateConversationByIdAndMarkAsRead(conversation._id)
+
                     setCurrentConversation(conversation)
                     setScope(
                       `${chattingWithUser.first_name} ${chattingWithUser.last_name}`
                     )
-                    // markAsConversationAsRead(conversation)
 
                     // hide the side bar when a user is clicked
                     handleToggleSidebar(false)
@@ -99,7 +103,19 @@ const Conversations = ({
                   <ListItemText
                     primary={`${chattingWithUser.first_name} ${chattingWithUser.last_name}`}
                     secondary={
-                      <>{`${conversation.lastestMessage.substr(0, 30)}...`}</>
+                      <>
+                        {`${conversation.lastestMessage.substr(0, 30)}...`}
+
+                        {!conversation.usersWhoHaveReadLastestMessage.includes(
+                          currentAuthUser._id
+                        ) ? (
+                          <MDBBadge color="danger" className="ml-1">
+                            &nbsp;
+                          </MDBBadge>
+                        ) : (
+                          ''
+                        )}
+                      </>
                     }
                   />
                 </ListItem>
@@ -112,4 +128,4 @@ const Conversations = ({
   )
 }
 
-export default React.memo(Conversations)
+export default Conversations
