@@ -1,7 +1,7 @@
-const redirect = (redirectUrl, delay = 1500) => {
+const redirect = (redirectUrl, delayTimeMs = 1500) => {
   setTimeout(() => {
     window.location.href = redirectUrl
-  }, 2000)
+  }, delayTimeMs)
 }
 
 export default redirect

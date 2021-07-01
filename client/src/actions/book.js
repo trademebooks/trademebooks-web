@@ -4,6 +4,7 @@ import { ADD_BOOK, CREATE_BOOK } from './types'
 
 import api from '../utils/api'
 import displayErrors from '../utils/displayErrors'
+import redirect from '../utils/redirect'
 
 // Util: Add book
 export const addBook = (formData) => async (dispatch) => {
@@ -14,7 +15,7 @@ export const addBook = (formData) => async (dispatch) => {
 }
 
 // API: Create a book Listing
-export const createBook = (book) => async (dispatch) => {
+export const createBook = (book, redirectUrl) => async (dispatch) => {
   try {
     await api.post(`/books`, book)
 
@@ -39,6 +40,10 @@ export const createBook = (book) => async (dispatch) => {
         edition: ''
       }
     })
+
+    if (redirectUrl) {
+      redirect(redirectUrl)
+    }
   } catch (error) {
     displayErrors(error)
   }

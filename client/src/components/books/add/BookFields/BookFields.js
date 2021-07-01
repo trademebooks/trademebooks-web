@@ -8,11 +8,11 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
     addBook({ ...book, [e.target.name]: e.target.value })
   }
 
-  const postBook = () => {
+  const postBook = (redirectUrl) => {
     if (editBook) {
-      updateBook(book._id, book)
+      updateBook(book._id, book, redirectUrl)
     } else {
-      createBook(book)
+      createBook(book, redirectUrl)
     }
   }
 
@@ -56,8 +56,7 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
             <MDBCol md="6" sm="12">
               <MDBBtn className="w-100" onClick={(e) => {
                 e.preventDefault()
-                postBook()
-                window.location.href = '/my-bookstore'
+                postBook('/my-bookstore')
               }}>
                 {'Save and Preview in My Bookstore'}
               </MDBBtn>

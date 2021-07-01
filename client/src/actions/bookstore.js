@@ -7,6 +7,7 @@ import {
   LOAD_EDIT_BOOK,
   UPDATE_EDIT_BOOK
 } from './types'
+import redirect from '../utils/redirect'
 
 // API: Get a bookstore with its description and all its books
 export const getBookstoreByUsername = (username) => async (dispatch) => {
@@ -59,7 +60,7 @@ export const getBook = (bookId) => async (dispatch) => {
 }
 
 // API: Update a book Listing
-export const updateBook = (bookId, book) => async (dispatch) => {
+export const updateBook = (bookId, book, redirectUrl) => async (dispatch) => {
   try {
     const updatedBook = (await api.put(`/books/${bookId}`, book)).data.data
 
@@ -69,6 +70,10 @@ export const updateBook = (bookId, book) => async (dispatch) => {
       type: UPDATE_EDIT_BOOK,
       payload: updatedBook
     })
+
+    if (redirectUrl) {
+      redirect(redirectUrl)
+    }
   } catch (error) {
     displayErrors(error)
   }
