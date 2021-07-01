@@ -5,6 +5,7 @@ const bookDto = require('../dtos/utils/bookDto')
 const booksResponseDto = require('../dtos/responses/booksResponseDto')
 const bookService = require('../domain/services/book.service')
 const createBookValidator = require('../validators/createBookValidator')
+const accountSerivce = require('../domain/services/account.service')
 
 const getAllbooks = catchException(async (req, res) => {
   const books = await bookService.getAllBooks(
@@ -34,12 +35,17 @@ const getBookById = catchException(async (req, res) => {
 })
 
 const createABook = catchException(async (req, res) => {
-  const createBookRequest = createBookRequestDto({
+  const account = await accountSerivce.getById(req.user._id)
+  let bookRequest = {
     userId: req.user._id,
-    ...req.body
-  })
+    ...req.body}
+  if (account.location) {
+    bookRequest.location = account.location
+  }
+  const createBookRequest = createBookRequestDto(bookRequest)
 
   createBookValidator(createBookRequest)
+
 
   const book = await bookService.createBook(createBookRequest)
 
