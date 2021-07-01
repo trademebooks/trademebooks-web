@@ -8,9 +8,7 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
     addBook({ ...book, [e.target.name]: e.target.value })
   }
 
-  const postBook = (e) => {
-    e.preventDefault()
-
+  const postBook = () => {
     if (editBook) {
       updateBook(book._id, book)
     } else {
@@ -27,7 +25,7 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
               <form>
                 <div className="form-group">
                   <MDBInput
-                    label="Price"
+                    label="Price (Required)"
                     onChange={onChange}
                     name="price"
                     value={book.price}
@@ -35,7 +33,7 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
                 </div>
                 <div className="form-group">
                   <MDBInput
-                    label="Description"
+                    label="Description (Optional)"
                     type="textarea"
                     rows="5"
                     onChange={onChange}
@@ -47,9 +45,21 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
             </MDBCol>
           </MDBRow>
           <MDBRow>
-            <MDBCol md="12" sm="12">
-              <MDBBtn className="w-100" onClick={postBook}>
+            <MDBCol md="6" sm="12">
+              <MDBBtn className="w-100" onClick={(e) => {
+                e.preventDefault()
+                postBook()
+              }}>
                 {editBook ? 'Update Book Listing' : 'Save and Add Another Book'}
+              </MDBBtn>
+            </MDBCol>
+            <MDBCol md="6" sm="12">
+              <MDBBtn className="w-100" onClick={(e) => {
+                e.preventDefault()
+                postBook()
+                window.location.href = '/my-bookstore'
+              }}>
+                {'Save and Preview in My Bookstore'}
               </MDBBtn>
             </MDBCol>
           </MDBRow>

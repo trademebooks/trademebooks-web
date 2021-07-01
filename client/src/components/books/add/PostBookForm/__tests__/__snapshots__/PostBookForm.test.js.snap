@@ -66,71 +66,7 @@ exports[`Component: PostBookForm should match the snapshot 1`] = `
                   id=""
                   onClick={[Function]}
                 >
-                  Title
-                </label>
-              </div>
-            </div>
-            <div
-              className="form-group"
-            >
-              <div
-                className="md-form form-lg"
-              >
-                
-                <input
-                  aria-disabled={false}
-                  className="form-control form-control-lg"
-                  data-test="input"
-                  disabled={false}
-                  name="isbn_10"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  onInput={[Function]}
-                  type="text"
-                  value=""
-                />
-                <label
-                  aria-labelledby=""
-                  className=""
-                  data-error=""
-                  data-success=""
-                  id=""
-                  onClick={[Function]}
-                >
-                  ISBN-10
-                </label>
-              </div>
-            </div>
-            <div
-              className="form-group"
-            >
-              <div
-                className="md-form form-lg"
-              >
-                
-                <input
-                  aria-disabled={false}
-                  className="form-control form-control-lg"
-                  data-test="input"
-                  disabled={false}
-                  name="isbn_13"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  onInput={[Function]}
-                  type="text"
-                  value=""
-                />
-                <label
-                  aria-labelledby=""
-                  className=""
-                  data-error=""
-                  data-success=""
-                  id=""
-                  onClick={[Function]}
-                >
-                  ISBN-13
+                  Title (Required)
                 </label>
               </div>
             </div>
@@ -162,7 +98,7 @@ exports[`Component: PostBookForm should match the snapshot 1`] = `
                   id=""
                   onClick={[Function]}
                 >
-                  Edition
+                  Edition (Optional)
                 </label>
               </div>
             </div>
@@ -177,7 +113,7 @@ exports[`Component: PostBookForm should match the snapshot 1`] = `
                 />
                 <input
                   onKeyUp={[Function]}
-                  placeholder="Author Name(s)"
+                  placeholder="Author Name(s) (Optional)"
                   type="text"
                 />
               </div>

@@ -21,35 +21,35 @@ export default [
   {
     text: 'POOR',
     type: CONDITION_TYPES.POOR,
-    description: 'Heavily worn, all text are still legible',
+    description: 'Heavily worn, all text are still legible.',
     imageUrl: Poor_condition_default,
     imgSelected: Poor_condition
   },
   {
     text: 'FAIR',
     type: CONDITION_TYPES.FAIR,
-    description: 'Lots of wear and tear',
+    description: 'Lots of wear and tear.',
     imageUrl: Fair_condition_default,
     imgSelected: Fair_condition
   },
   {
     text: 'GOOD',
     type: CONDITION_TYPES.GOOD,
-    description: 'Some signs of wear, includes markings',
+    description: 'Some signs of wear, includes markings.',
     imageUrl: Good_condition_default,
     imgSelected: Good_condition
   },
   {
     text: 'VERY GOOD',
     type: CONDITION_TYPES.VERY_GOOD,
-    description: 'Minimal signs of wear, no markings',
+    description: 'Minimal signs of wear, no markings.',
     imageUrl: Verygood_condition_default,
     imgSelected: Verygood_condition
   },
   {
     text: 'LIKE NEW',
     type: CONDITION_TYPES.LIKE_NEW,
-    description: 'No damage, lightly used, no markings',
+    description: 'No damage, lightly used, no markings.',
     imageUrl: Likenew_condition_default,
     imgSelected: Likenew_condition
   }

@@ -70,14 +70,14 @@ const PostBookForm = ({ book, addBook }) => {
                 <form className="post-book-form-fields">
                   <div className="form-group">
                     <MDBInput
-                      label="Title"
+                      label="Title (Required)"
                       size="lg"
                       value={book.title}
                       name="title"
                       onChange={onChange}
                     />
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <MDBInput
                       label="ISBN-10"
                       size="lg"
@@ -94,10 +94,10 @@ const PostBookForm = ({ book, addBook }) => {
                       name="isbn_13"
                       onChange={onChange}
                     />
-                  </div>
+                  </div> */}
                   <div className="form-group">
                     <MDBInput
-                      label="Edition"
+                      label="Edition (Optional)"
                       size="lg"
                       value={book.edition}
                       name="edition"
@@ -124,7 +124,7 @@ const PostBookForm = ({ book, addBook }) => {
                         onKeyUp={(event) =>
                           event.key === 'Enter' ? addAuthor(event) : null
                         }
-                        placeholder="Author Name(s)"
+                        placeholder="Author Name(s) (Optional)"
                       />
                     </div>
                   </div>

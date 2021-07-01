@@ -19,16 +19,16 @@ const updateAccountById = catchException(async (req, res) => {
   // update location of all relevant books if submitted location is non-empty and different
   if (req.body.location) {
     const account = await accountService.getById(req.user._id)
-    if(account.location != req.body.location){
+    if (account.location != req.body.location) {
       const books = await bookService.getAllByUserId(req.user._id)
-      books.forEach(async book => {
+      books.forEach(async (book) => {
         book.location = req.body.location
-        const updated = await bookService.updateBookById(book._id, book)
+        await bookService.updateBookById(book._id, book)
       })
     }
   }
   const account = await accountService.updateById(req.user._id, req.body)
-  
+
   res.status(200).json(
     globalResponseDto({
       message: `Updated the current auth user's account settings.`,

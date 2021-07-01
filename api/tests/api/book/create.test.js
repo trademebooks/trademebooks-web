@@ -62,7 +62,6 @@ describe('Books API - create', () => {
         title: 'Test Book #1',
         description: 'This book is awesome, buy it',
         condition: 'Good',
-        location: 'UofT',
         price: 199
       },
       errors: null

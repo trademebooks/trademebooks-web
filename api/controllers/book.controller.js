@@ -38,14 +38,14 @@ const createABook = catchException(async (req, res) => {
   const account = await accountSerivce.getById(req.user._id)
   let bookRequest = {
     userId: req.user._id,
-    ...req.body}
+    ...req.body
+  }
   if (account.location) {
     bookRequest.location = account.location
   }
   const createBookRequest = createBookRequestDto(bookRequest)
 
   createBookValidator(createBookRequest)
-
 
   const book = await bookService.createBook(createBookRequest)
 

@@ -45,7 +45,7 @@ exports[`Component: BookFields should match the snapshot 1`] = `
                 id=""
                 onClick={[Function]}
               >
-                Price
+                Price (Required)
               </label>
             </div>
           </div>
@@ -77,7 +77,7 @@ exports[`Component: BookFields should match the snapshot 1`] = `
                 id=""
                 onClick={[Function]}
               >
-                Description
+                Description (Optional)
               </label>
             </div>
           </div>
@@ -89,7 +89,7 @@ exports[`Component: BookFields should match the snapshot 1`] = `
       data-test="row"
     >
       <div
-        className="col-sm-12 col-md-12"
+        className="col-sm-12 col-md-6"
         data-test="col"
       >
         <button
@@ -101,6 +101,33 @@ exports[`Component: BookFields should match the snapshot 1`] = `
           type="button"
         >
           Update Book Listing
+          <div
+            className="Ripple "
+            data-test="waves"
+            style={
+              Object {
+                "height": "0px",
+                "left": "0px",
+                "top": "0px",
+                "width": "0px",
+              }
+            }
+          />
+        </button>
+      </div>
+      <div
+        className="col-sm-12 col-md-6"
+        data-test="col"
+      >
+        <button
+          className="btn-default btn Ripple-parent w-100"
+          data-test="button"
+          onClick={[Function]}
+          onMouseUp={[Function]}
+          onTouchStart={[Function]}
+          type="button"
+        >
+          Save and Preview in My Bookstore
           <div
             className="Ripple "
             data-test="waves"
