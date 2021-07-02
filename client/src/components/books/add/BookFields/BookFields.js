@@ -46,18 +46,24 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
           </MDBRow>
           <MDBRow>
             <MDBCol md="6" sm="12">
-              <MDBBtn className="w-100" onClick={(e) => {
-                e.preventDefault()
-                postBook()
-              }}>
+              <MDBBtn
+                className="w-100"
+                onClick={(e) => {
+                  e.preventDefault()
+                  postBook()
+                }}
+              >
                 {editBook ? 'Update Book Listing' : 'Save and Add Another Book'}
               </MDBBtn>
             </MDBCol>
             <MDBCol md="6" sm="12">
-              <MDBBtn className="w-100" onClick={(e) => {
-                e.preventDefault()
-                postBook('/my-bookstore')
-              }}>
+              <MDBBtn
+                className="w-100"
+                onClick={(e) => {
+                  e.preventDefault()
+                  postBook('/my-bookstore')
+                }}
+              >
                 {'Save and Preview in My Bookstore'}
               </MDBBtn>
             </MDBCol>

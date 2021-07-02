@@ -1,0 +1,43 @@
+.bookstore-clipboard {
+  &-container {
+    margin-top: 1rem;
+  }
+
+  &-inner-container {
+    width: 60%;
+    margin: 0 auto;
+
+    @media screen and (min-width: 1200px) /*and (max-width: 1200px) */ {
+      width: 50%;
+    }
+
+    @media screen and (min-width: 767px) and (max-width: 1200px) {
+      width: 70%;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 95%;
+    }
+  }
+
+  &__top-section {
+    color: #898989;
+  }
+
+  &__bottom-section {
+    display: flex;
+
+    &-input-text {
+      border-radius: 0.3rem 0 0 0.3rem !important;
+
+      &[readonly] {
+        background-color: white !important;
+      }
+    }
+
+    &-copy-button {
+      margin: 0 !important;
+      border-radius: 0 0.3rem 0.3rem 0 !important;
+    }
+  }
+}

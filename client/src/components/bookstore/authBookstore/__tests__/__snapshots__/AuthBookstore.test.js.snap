@@ -11,54 +11,54 @@ Array [
       My Bookstore
     </h3>
     <div>
-      <span
-        data-popper="popper"
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}
+      <div
+        className="bookstore-clipboard-container"
       >
-        <i
-          className="fa fa-info-circle fa-lg"
-          data-test="fa"
-        />
-      </span>
-       
-      <input
-        className="form-control"
-        readOnly={true}
-        type="text"
-        value=""
-      />
-       
-      <button
-        className="btn-default btn Ripple-parent btn-sm"
-        data-test="button"
-        onClick={[Function]}
-        onMouseUp={[Function]}
-        onTouchStart={[Function]}
-        type="button"
-      >
-        Copy 
-        <i
-          className="fa fa-clipboard"
-          data-test="fa"
-        />
         <div
-          className="Ripple "
-          data-test="waves"
-          style={
-            Object {
-              "height": "0px",
-              "left": "0px",
-              "top": "0px",
-              "width": "0px",
-            }
-          }
-        />
-      </button>
+          className="bookstore-clipboard-inner-container"
+        >
+          <div
+            className="bookstore-clipboard__top-section"
+          >
+            Copy & Share your Bookstore Link!
+          </div>
+          <div
+            className="bookstore-clipboard__bottom-section"
+          >
+            <input
+              className="form-control bookstore-clipboard__bottom-section-input-text"
+              readOnly={true}
+              type="text"
+              value=""
+            />
+            <button
+              className="btn-default btn Ripple-parent btn-sm bookstore-clipboard__bottom-section-copy-button"
+              data-test="button"
+              onClick={[Function]}
+              onMouseUp={[Function]}
+              onTouchStart={[Function]}
+              type="button"
+            >
+              <i
+                className="fa fa-clipboard fa-lg"
+                data-test="fa"
+              />
+              <div
+                className="Ripple "
+                data-test="waves"
+                style={
+                  Object {
+                    "height": "0px",
+                    "left": "0px",
+                    "top": "0px",
+                    "width": "0px",
+                  }
+                }
+              />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <div

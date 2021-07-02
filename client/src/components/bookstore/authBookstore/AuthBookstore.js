@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import {
-  MDBRow,
-  MDBCol,
-  MDBContainer,
-  MDBBtn,
-  MDBIcon,
-  MDBTooltip
-} from 'mdbreact'
+import { MDBRow, MDBCol, MDBContainer, MDBBtn, MDBIcon } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
 
 import Books from '../../books/common/Books'
 import config from '../../../config'
+
+import './AuthBookstore.scss'
 
 const AuthBookstore = ({
   auth: {
@@ -33,7 +28,7 @@ const AuthBookstore = ({
   const handleUrlCopyToClipboard = (e) => {
     navigator.clipboard.writeText(clipBoardUrl).then(
       function () {
-        toastr.success('Your bookstore URL has been copied to your clipboard!')
+        toastr.success('Your bookstore Link has been copied to your clipboard!')
       },
       function () {
         toastr.error('Clipboard write failed.')
@@ -46,25 +41,28 @@ const AuthBookstore = ({
       <div className="header-container text-center">
         <h3 className="font-weight-bold">My Bookstore</h3>
         <div>
-          <MDBTooltip domElement tag="span" placement="bottom">
-            <span>
-              <MDBIcon icon="info-circle" size="lg" />
-            </span>
-            <span>
-              This is your public bookstore link. You may go to this page to
-              preview your listings or share it with others when selling your
-              books.
-            </span>
-          </MDBTooltip>{' '}
-          <input
-            className="form-control"
-            readOnly
-            type="text"
-            value={clipBoardUrl}
-          />{' '}
-          <MDBBtn size="sm" onClick={handleUrlCopyToClipboard}>
-            Copy <MDBIcon icon="clipboard" />
-          </MDBBtn>
+          <div className="bookstore-clipboard-container">
+            <div className="bookstore-clipboard-inner-container">
+              <div className="bookstore-clipboard__top-section">
+                Copy &amp; Share your Bookstore Link!
+              </div>
+              <div className="bookstore-clipboard__bottom-section">
+                <input
+                  className="form-control bookstore-clipboard__bottom-section-input-text"
+                  readOnly
+                  type="text"
+                  value={clipBoardUrl}
+                />
+                <MDBBtn
+                  size="sm"
+                  className="bookstore-clipboard__bottom-section-copy-button"
+                  onClick={handleUrlCopyToClipboard}
+                >
+                  <MDBIcon icon="clipboard" size="lg" />
+                </MDBBtn>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="mt-4">
