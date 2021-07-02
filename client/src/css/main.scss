@@ -50,6 +50,12 @@ h3,
   color: #ffffff;
 }
 
-main {
-  min-height: calc(100vh - 335px);
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
 }

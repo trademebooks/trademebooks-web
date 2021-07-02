@@ -34,5 +34,9 @@ export default {
   passwordResetPage: {
     title: 'Reset Password',
     description: 'Forgot your password to TradeMeBooks? Reset here.'
+  },
+  notFoundPage: {
+    title: '404 Not FOund',
+    description: 'Oopsies, there is nothing here...'
   }
 }

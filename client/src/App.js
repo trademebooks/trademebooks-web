@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history'
 import ReactGA from 'react-ga'
 
 import Navbar from './components/layout/Navbar'
-// import Footer from './components/layout/Footer'
+import Footer from './components/layout/Footer'
 import Landing from './components/pages/landing'
 import Routes from './components/routing/Routes'
 
@@ -49,7 +49,7 @@ const App = () => {
             <Route component={Routes} />
           </Switch>
         </main>
-        {/* <Footer /> */}
+        <Footer />
         <Alert />
       </Router>
     </Provider>
