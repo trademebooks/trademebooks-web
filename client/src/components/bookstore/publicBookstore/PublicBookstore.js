@@ -52,22 +52,23 @@ const PublicBookstore = ({
 
         <MDBContainer>
           <MDBRow>
-            <div className="col-xs-12 ml-4">
+            {location ? <div className="col-xs-12 ml-4">
               <div>
                 <i className="fas fa-map-marker-alt icon--style"></i> Location
               </div>
               <div>
                 <strong>{location}</strong>
               </div>
-            </div>
-            <div className="col-xs-12 ml-4">
+            </div> : ''}
+
+            {school ? <div className="col-xs-12 ml-4">
               <div>
                 <i className="fas fa-graduation-cap icon--style"></i> School
               </div>
               <div>
                 <strong>{school}</strong>
               </div>
-            </div>
+            </div> : ''}
           </MDBRow>
         </MDBContainer>
       </div>
