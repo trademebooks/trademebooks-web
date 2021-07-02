@@ -1,7 +1,8 @@
 import React from 'react'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
 import Story from './story'
-
+import metags from '../../../config/metags'
+import MetaDecorator from '../../utils/MetaDecorator'
 import './story.css'
 
 const About = () => {
@@ -46,7 +47,11 @@ const About = () => {
   })
 
   return (
-    <div>
+    <>
+      <MetaDecorator
+        description={metags.aboutPage.description}
+        title={metags.aboutPage.title}
+      />
       <div className="header-container text-center">
         <h1>About TMB</h1>
       </div>
@@ -61,7 +66,7 @@ const About = () => {
       </div>
       <Story />
       {/* </div> */}
-    </div>
+    </>
   )
 }
 

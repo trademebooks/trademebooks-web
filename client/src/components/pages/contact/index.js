@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
+import metags from '../../../config/metags'
+import MetaDecorator from '../../utils/MetaDecorator'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -29,6 +31,10 @@ const ContactPage = () => {
 
   return (
     <>
+      <MetaDecorator
+        description={metags.contactPage.description}
+        title={metags.contactPage.title}
+      />
       <div className="header-container text-center">
         <h3 className="font-weight-bold">Contact Us</h3>
       </div>

@@ -8,7 +8,7 @@ function Jumbotron({ onChangeSearchBooks }) {
       <section className="home-page-top-section">
         <div className="home-page-top-section__main-text">
           <span>
-            Buy & Sell Textbooks from Canada’s <b>35+</b> Universities and
+            Buy &amp; Sell Textbooks from Canada’s <b>35+</b> Universities and
             Colleges
           </span>
         </div>

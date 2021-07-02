@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { MDBRow, MDBCol, MDBContainer } from 'mdbreact'
-
 import Books from '../../books/common/Books'
 import Jumbotron from './Jumbotron'
-
 import { getAllBooks } from '../../../actions/book'
+import MetaDecorator from '../../utils/MetaDecorator'
+import metags from '../../../config/metags'
 
 const HomePage = () => {
   const [books, setBooks] = useState([])
@@ -29,6 +29,10 @@ const HomePage = () => {
 
   return (
     <>
+      <MetaDecorator
+        description={metags.homePage.description}
+        title={metags.homePage.title}
+      />
       <MDBContainer>
         <MDBRow>
           <MDBCol sm="12">

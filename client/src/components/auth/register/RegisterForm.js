@@ -10,8 +10,9 @@ import {
   MDBIcon
 } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
-
 import redirect from '../../../utils/redirect'
+import metags from '../../../config/metags'
+import MetaDecorator from '../../utils/MetaDecorator'
 
 const RegisterForm = ({ register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -74,6 +75,10 @@ const RegisterForm = ({ register, isAuthenticated }) => {
 
   return (
     <>
+      <MetaDecorator
+        description={metags.registerPage.description}
+        title={metags.registerPage.title}
+      />
       <MDBContainer className="mt-4 register-form">
         <MDBRow className="justify-content-center">
           <MDBCol md="6">

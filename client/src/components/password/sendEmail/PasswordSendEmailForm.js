@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
+import metags from '../../../config/metags'
+import MetaDecorator from '../../utils/MetaDecorator'
 
 const PasswordSendEmailForm = ({ sendPasswordResetEmail }) => {
   const [formData, setFormData] = useState({
@@ -30,6 +32,10 @@ const PasswordSendEmailForm = ({ sendPasswordResetEmail }) => {
 
   return (
     <>
+      <MetaDecorator
+        description={metags.passwordResetPage.description}
+        title={metags.passwordResetPage.title}
+      />
       <MDBContainer className="mt-4 password-send-email-form">
         <MDBRow className="justify-content-center">
           <MDBCol md="6">

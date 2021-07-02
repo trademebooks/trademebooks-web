@@ -9,6 +9,8 @@ import {
   MDBBtn,
   MDBIcon
 } from 'mdbreact'
+import metags from '../../../config/metags'
+import MetaDecorator from '../../utils/MetaDecorator'
 
 const LoginForm = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -33,6 +35,10 @@ const LoginForm = ({ login, isAuthenticated }) => {
 
   return (
     <>
+      <MetaDecorator
+        description={metags.loginPage.description}
+        title={metags.loginPage.title}
+      />
       <MDBContainer className="mt-4 login-form">
         <MDBRow className="justify-content-center">
           <MDBCol md="6">
