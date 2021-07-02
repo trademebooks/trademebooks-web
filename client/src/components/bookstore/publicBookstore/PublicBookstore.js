@@ -59,7 +59,7 @@ const PublicBookstore = ({
               <div>
                 <strong>{location}</strong>
               </div>
-            </div> : ''}
+            </div> : <></>}
 
             {school ? <div className="col-xs-12 ml-4">
               <div>
@@ -68,7 +68,7 @@ const PublicBookstore = ({
               <div>
                 <strong>{school}</strong>
               </div>
-            </div> : ''}
+            </div> : <></>}
           </MDBRow>
         </MDBContainer>
       </div>

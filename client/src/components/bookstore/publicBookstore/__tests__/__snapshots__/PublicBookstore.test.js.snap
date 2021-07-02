@@ -37,10 +37,7 @@ Array [
       <div
         className="row"
         data-test="row"
-      >
-        
-        
-      </div>
+      />
     </div>
   </div>,
   <div
