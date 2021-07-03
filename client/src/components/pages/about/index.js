@@ -53,7 +53,7 @@ const About = () => {
         title={metags.aboutPage.title}
       />
       <div className="header-container text-center">
-        <h1>About TMB</h1>
+        <h1 className="font-weight-bold">About Us</h1>
       </div>
       {/* <div className="gray"> */}
       <div className="centerTexts">

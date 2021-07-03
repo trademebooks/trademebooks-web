@@ -36,7 +36,7 @@ const ContactPage = () => {
         title={metags.contactPage.title}
       />
       <div className="header-container text-center">
-        <h3 className="font-weight-bold">Contact Us</h3>
+        <h1 className="font-weight-bold">Contact Us</h1>
       </div>
       <MDBContainer className="mt-4 contact-form">
         <MDBRow className="justify-content-center">

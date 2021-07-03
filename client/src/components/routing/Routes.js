@@ -11,6 +11,8 @@ import ForgotPassword from '../password/sendEmail'
 
 import About from '../pages/about'
 import Contact from '../pages/contact'
+import Terms from '../pages/legal/Terms'
+import Privacy from '../pages/legal/Privacy'
 import Home from '../pages/home'
 
 import Account from '../account'
@@ -36,6 +38,8 @@ const Routes = () => {
 
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/terms" component={Terms} />
+        <Route exact path="/privacy" component={Privacy} />
 
         {/* Protected Routes */}
         <PrivateRoute exact path="/add-book" component={BookAdd} />

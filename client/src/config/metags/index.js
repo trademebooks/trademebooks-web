@@ -16,11 +16,11 @@ export default {
     description: 'TBA' // TODO
   },
   termsPage: {
-    title: 'Terms and Service',
+    title: 'Terms of Use',
     description: 'TBA' // TODO
   },
   privacyPage: {
-    title: 'Privacy Policy',
+    title: 'Privacy Notice',
     description: 'TBA' // TODO
   },
   registerPage: {
