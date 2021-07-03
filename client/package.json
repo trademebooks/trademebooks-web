@@ -35,7 +35,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --setupFiles ./src/setupTests.js",
     "test:nowatch": "react-scripts test --setupFiles ./src/setupTests.js --ci --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"

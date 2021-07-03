@@ -5,35 +5,38 @@ import { Helmet } from 'react-helmet'
 import config from '../../config'
 
 const MetaDecorator = ({ title, description, imageUrl, imageAlt }) => {
+  if (imageUrl && imageAlt) {
+    return (
+      <Helmet>
+        {/* Search Engine */}
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="description" content={description} />
+
+        {/* Facebook */}
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={config.HOST + imageUrl} />
+        <meta
+          property="og:url"
+          content={
+            config.HOST + window.location.pathname + window.location.search
+          }
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image:alt" content={imageAlt} />
+        <meta name="twitter:site" content="@yichenzhu1337" />
+      </Helmet>
+    )
+  }
+
   return (
     <Helmet>
       {/* Search Engine */}
       <title>{title}</title>
       <meta property="og:title" content={title} />
       <meta name="description" content={description} />
-
-      {/* Facebook */}
-      {imageUrl !== undefined && (
-        <>
-          <meta property="og:description" content={description} />
-          <meta property="og:image" content={config.HOST + imageUrl} />
-          <meta
-            property="og:url"
-            content={
-              config.HOST + window.location.pathname + window.location.search
-            }
-          />
-        </>
-      )}
-
-      {/* Twitter */}
-      {imageAlt !== undefined && (
-        <>
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:image:alt" content={imageAlt} />
-          <meta name="twitter:site" content="@yichenzhu1337" />
-        </>
-      )}
     </Helmet>
   )
 }

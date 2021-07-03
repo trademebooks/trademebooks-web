@@ -2,9 +2,11 @@ export default {
   homePage: {
     title: 'TradeMeBooks | Buy & Sell Textbooks',
     description:
-      "A marketplace to buy and sell textbooks for Ontario's universities and colleges."
-    // imageUrl: './homePage.png',
-    // imageAltText: "The image contains the logo of this website. The letter C with some sort of an elliptical shape at the bottom."
+      "A marketplace to buy and sell textbooks for Ontario's universities and colleges.",
+    imageUrl: './defaultImage.png',
+    // imageUrl: 'https://trello-attachments.s3.amazonaws.com/57be6074907ec6ea690dbfcd/608d03fa30cd2b74225746be/7d0f437c368d423432d1b4200ff254eb/Logo_Meta_Tag_Compressed.jpg',
+    imageAltText:
+      'The image contains the logo of this website. The book is so darn pretty.'
   },
   aboutPage: {
     title: 'About',

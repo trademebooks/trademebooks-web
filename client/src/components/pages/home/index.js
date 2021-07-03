@@ -32,6 +32,8 @@ const HomePage = () => {
       <MetaDecorator
         description={metags.homePage.description}
         title={metags.homePage.title}
+        imageUrl={metags.homePage.imageUrl}
+        imageAltText={metags.homePage.imageAltText}
       />
       <MDBContainer>
         <MDBRow>

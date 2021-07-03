@@ -1,3 +1,5 @@
 # Ignore artifacts:
 build
 coverage
+client/src/components/pages/legal/privacy.html
+client/src/components/pages/legal/terms.html
