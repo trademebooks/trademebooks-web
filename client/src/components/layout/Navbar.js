@@ -41,8 +41,6 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         }
       )
 
-      console.log({ authUserHasAtLeastOneUnreadMessage })
-
       setHaveUnreadMessages(authUserHasAtLeastOneUnreadMessage)
     }
 

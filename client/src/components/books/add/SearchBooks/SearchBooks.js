@@ -86,7 +86,6 @@ const SearchBooks = ({ addBook }) => {
             loading={loading}
             value={value}
             onChange={(event, newValue) => {
-              console.log({ newValue })
               setOptions(newValue ? [newValue, ...options] : options)
               setValue(newValue)
               addBook(newValue)
