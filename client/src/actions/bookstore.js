@@ -47,9 +47,8 @@ export const addEditBook = (formData) => async (dispatch) => {
 // API: Get a book by id
 export const getBook = (bookId) => async (dispatch) => {
   try {
-    console.log({ bookId })
     const book = (await api.get(`/books/${bookId}`)).data.data
-    console.log({ book })
+
     dispatch({
       type: LOAD_EDIT_BOOK,
       payload: book
