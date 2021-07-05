@@ -10,10 +10,17 @@ const Conditions = ({ book, addBook }) => {
 
   useEffect(() => {
     const conditionsElement = []
+
+    conditionsElement.push(
+      <MDBCol md="2" sm="12" className="condition-title">
+        <p className="mb-4">CONDITION</p>
+      </MDBCol>
+    )
+
     conditions.forEach((cond, i) => {
       conditionsElement.push(
         <MDBCol md="2" sm="12" key={i} className="condition text-center">
-          <p className="condition-title">{cond.text}</p>
+          <p className="my-0">{cond.text}</p>
           <img
             className="condition-img"
             src={
