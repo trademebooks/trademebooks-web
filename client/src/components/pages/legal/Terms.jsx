@@ -18,7 +18,7 @@ export default function TermsPage() {
           <MDBCol md="8">
             <p>Last updated May 14, 2021</p>
 
-            <p>AGREEMENT TO TERMS</p>
+            <p>AGREEMENT TO TERMS TEST</p>
 
             <p>
               These Terms of Use constitute a legally binding agreement made
