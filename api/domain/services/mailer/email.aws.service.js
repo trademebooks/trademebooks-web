@@ -1,5 +1,4 @@
 const config = require('../../../config')
-
 const mailer = require('@sendgrid/mail')
 mailer.setApiKey(config.sendGridKey)
 
@@ -23,8 +22,8 @@ const sendEmail = async ({ fromEmail, fromName, to, subject, text, html }) => {
 //////////
 const AWS = require('aws-sdk')
 AWS.config.update({
-  accessKeyId: 'AKIAUITMNBXUQ5XYDUMF',
-  secretAccessKey: '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',
+  accessKeyId: config.AWS.accessKeyId,
+  secretAccessKey: config.AWS.secretAccessKey,
   region: 'us-east-1'
 })
 
