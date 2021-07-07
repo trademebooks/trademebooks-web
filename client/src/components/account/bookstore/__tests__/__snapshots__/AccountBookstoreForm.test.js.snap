@@ -78,39 +78,151 @@ Array [
       Location
     </h4>
     <div
-      className="md-form form-group"
+      className="d-flex flex-row"
     >
       <i
-        className="fa fa-map prefix"
+        className="fa fa-map fa-2x mt-3 pr-2"
         data-test="fa"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
       />
-      <input
-        aria-disabled={false}
-        className="form-control validate"
-        data-test="input"
-        disabled={false}
-        minLength="6"
-        name="location"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onInput={[Function]}
-        type="text"
-        value=""
-      />
-      <label
-        aria-labelledby=""
-        className=""
-        data-error=""
-        data-success=""
-        id=""
+      <div
+        aria-expanded={false}
+        aria-owns={null}
+        className="MuiAutocomplete-root py-2 MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon"
         onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="combobox"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
       >
-        Current Location
-      </label>
+        <div
+          className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink={false}
+            htmlFor="google-map-demo"
+            id="google-map-demo-label"
+          >
+            Add a Location
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            onClick={[Function]}
+          >
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="both"
+              aria-controls={null}
+              aria-invalid={false}
+              autoCapitalize="none"
+              autoComplete="off"
+              autoFocus={false}
+              className="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+              disabled={false}
+              id="google-map-demo"
+              onAnimationStart={[Function]}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              required={false}
+              spellCheck="false"
+              type="text"
+              value=""
+            />
+            <div
+              className="MuiAutocomplete-endAdornment"
+            >
+              <button
+                aria-label="Clear"
+                className="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={-1}
+                title="Clear"
+                type="button"
+              >
+                <span
+                  className="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden={true}
+                    className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <button
+                aria-label="Open"
+                className="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-popupIndicator"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={-1}
+                title="Open"
+                type="button"
+              >
+                <span
+                  className="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden={true}
+                    className="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <fieldset
+              aria-hidden={true}
+              className="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                className="PrivateNotchedOutline-legendLabelled-4"
+              >
+                <span>
+                  Add a Location
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   <div>
