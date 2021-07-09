@@ -16,9 +16,10 @@ export default function TermsPage() {
       <MDBContainer className="mt-4 contact-form">
         <MDBRow className="justify-content-center">
           <MDBCol md="8">
-            <p>Last updated May 14, 2021</p>
 
-            <p>AGREEMENT TO TERMS TEST</p>
+            <p>Last updated July 7, 2021</p>
+
+            <p style={{fontWeight: "bold",fontSize: 26}}>AGREEMENT TO TERMS</p>
 
             <p>
               These Terms of Use constitute a legally binding agreement made
@@ -77,7 +78,7 @@ export default function TermsPage() {
               for the Site or use the Marketplace Offerings.
             </p>
 
-            <p> INTELLECTUAL PROPERTY RIGHTS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> INTELLECTUAL PROPERTY RIGHTS</p>
 
             <p>
               Unless otherwise indicated, the Site and the Marketplace Offerings
@@ -109,21 +110,26 @@ export default function TermsPage() {
               the Site, the Content and the Marks.
             </p>
 
-            <p> USER REPRESENTATIONS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> USER REPRESENTATIONS</p>
 
             <p>
               By using the Site or the Marketplace Offerings, you represent and
-              warrant that:(1) all registration information you submit will be
-              true, accurate, current, and complete; (2) you will maintain the
+              warrant that:
+            </p>
+            <p style={{marginLeft:26}}>
+            <ol>
+              <li>All registration information you submit will be
+              true, accurate, current, and complete;</li><li>You will maintain the
               accuracy of such information and promptly update such registration
-              information as necessary; (3) you have the legal capacity and you
-              agree to comply with these Terms of Use; (4) you are not a minor
-              in the jurisdiction in which you reside; (5) you will not access
+              information as necessary;</li><li>You have the legal capacity and you
+              agree to comply with these Terms of Use;</li><li>You are not a minor
+              in the jurisdiction in which you reside;</li><li>You will not access
               the Site or the Marketplace Offerings through automated or
-              non-human means, whether through a bot, script or otherwise; (6)
-              you will not use the Site for any illegal or unauthorized purpose;
-              and (7) your use of the Site or the Marketplace Offerings will not
-              violate any applicable law or regulation.
+              non-human means, whether through a bot, script or otherwise;</li><li>
+              You will not use the Site for any illegal or unauthorized purpose;
+              and</li><li>Your use of the Site or the Marketplace Offerings will not
+              violate any applicable law or regulation.</li>
+            </ol>
             </p>
 
             <p>
@@ -159,7 +165,7 @@ export default function TermsPage() {
               and advertising purposes only.
             </p>
 
-            <p> USER REGISTRATION</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> USER REGISTRATION</p>
 
             <p>
               You may be required to register with the Site in order to access
@@ -171,7 +177,7 @@ export default function TermsPage() {
               objectionable.
             </p>
 
-            <p> MARKETPLACE OFFERINGS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> MARKETPLACE OFFERINGS</p>
 
             <p>
               We make every effort to display as accurately as possible the
@@ -200,7 +206,7 @@ export default function TermsPage() {
               or that any errors in the Site will be corrected.
             </p>
 
-            <p> PURCHASES AND PAYMENT</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> PURCHASES AND PAYMENT</p>
 
             <p>We accept the following forms of payment:</p>
 
@@ -213,7 +219,7 @@ export default function TermsPage() {
               and payment card expiration date, so that we can complete your
               transactions and contact you as needed. Sales tax will be added to
               the price of purchases as deemed required by us. We may change
-              prices at any time. All payments shall be in __________.
+              prices at any time. All payments shall be in Canadian Dollars.
             </p>
 
             <p>
@@ -236,11 +242,11 @@ export default function TermsPage() {
               placed by dealers, resellers, or distributors.
             </p>
 
-            <p> RETURN/REFUNDS POLICY</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> RETURN/REFUNDS POLICY</p>
 
             <p>All sales are final and no refund will be issued.</p>
 
-            <p> PROHIBITED ACTIVITIES</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> PROHIBITED ACTIVITIES</p>
 
             <p>
               You may not access or use the Site for any purpose other than that
@@ -251,70 +257,72 @@ export default function TermsPage() {
 
             <p>As a user of the Site, you agree not to:</p>
 
-            <p>
-              1. Systematically retrieve data or other content from the Site to
+            <p style={{marginLeft: 26}}>
+            <ol> 
+              <li>Systematically retrieve data or other content from the Site to
               create or compile, directly or indirectly, a collection,
               compilation, database, or directory without written permission
-              from us. 2. Make any unauthorized use of the Marketplace
+              from us. </li><li>Make any unauthorized use of the Marketplace
               Offerings, including collecting usernames and/or email addresses
               of users by electronic or other means for the purpose of sending
               unsolicited email, or creating user accounts by automated means or
-              under false pretenses. 3. Circumvent, disable, or otherwise
+              under false pretenses. </li><li>Circumvent, disable, or otherwise
               interfere with security-related features of the Site, including
               features that prevent or restrict the use or copying of any
               Content or enforce limitations on the use of the Site and/or the
-              Content contained therein. 4. Engage in unauthorized framing of or
-              linking to the Site. 5. Trick, defraud, or mislead us and other
+              Content contained therein. </li><li>Engage in unauthorized framing of or
+              linking to the Site. </li><li>Trick, defraud, or mislead us and other
               users, especially in any attempt to learn sensitive account
-              information such as user passwords. 6. Make improper use of our
+              information such as user passwords. </li><li>Make improper use of our
               support services or submit false reports of abuse or misconduct.
-              7. Engage in any automated use of the system, such as using
+              </li><li>Engage in any automated use of the system, such as using
               scripts to send comments or messages, or using any data mining,
-              robots, or similar data gathering and extraction tools. 8.
+              robots, or similar data gathering and extraction tools. </li><li>
               Interfere with, disrupt, or create an undue burden on the Site or
-              the networks or services connected to the Site. 9. Attempt to
+              the networks or services connected to the Site. </li><li>Attempt to
               impersonate another user or person or use the username of another
-              user. 10. Sell or otherwise transfer your profile. 11. Use any
+              user. </li><li>Sell or otherwise transfer your profile. </li><li>Use any
               information obtained from the Site in order to harass, abuse, or
-              harm another person. 12. Use the Marketplace Offerings as part of
+              harm another person. </li><li>Use the Marketplace Offerings as part of
               any effort to compete with us or otherwise use the Site and/or the
               Content for any revenue-generating endeavor or commercial
-              enterprise. 13. Decipher, decompile, disassemble, or reverse
+              enterprise. </li><li>Decipher, decompile, disassemble, or reverse
               engineer any of the software comprising or in any way making up a
-              part of the Site. 14. Attempt to bypass any measures of the Site
+              part of the Site. </li><li>Attempt to bypass any measures of the Site
               designed to prevent or restrict access to the Site, or any portion
-              of the Site. 15. Harass, annoy, intimidate, or threaten any of our
+              of the Site. </li><li>Harass, annoy, intimidate, or threaten any of our
               employees or agents engaged in providing any portion of the
-              Marketplace Offerings to you. 16. Delete the copyright or other
-              proprietary rights notice from any Content. 17. Copy or adapt the
+              Marketplace Offerings to you. </li><li>Delete the copyright or other
+              proprietary rights notice from any Content. </li><li>Copy or adapt the
               Site&rsquo;s software, including but not limited to Flash, PHP,
-              HTML, JavaScript, or other code. 18. Upload or transmit (or
+              HTML, JavaScript, or other code. </li><li>Upload or transmit (or
               attempt to upload or to transmit) viruses, Trojan horses, or other
               material, including excessive use of capital letters and spamming
               (continuous posting of repetitive text), that interferes with any
               party&rsquo;s uninterrupted use and enjoyment of the Site or
               modifies, impairs, disrupts, alters, or interferes with the use,
               features, functions, operation, or maintenance of the Marketplace
-              Offerings. 19. Upload or transmit (or attempt to upload or to
+              Offerings. </li><li>Upload or transmit (or attempt to upload or to
               transmit) any material that acts as a passive or active
               information collection or transmission mechanism, including
               without limitation, clear graphics interchange formats
-              (&ldquo;gifs&rdquo;), 1&times;1 pixels, web bugs, cookies, or
+              (&ldquo;gifs&rdquo;), 1x1 pixels, web bugs, cookies, or
               other similar devices (sometimes referred to as
               &ldquo;spyware&rdquo; or &ldquo;passive collection
-              mechanisms&rdquo; or &ldquo;pcms&rdquo;). 20. Except as may be the
+              mechanisms&rdquo; or &ldquo;pcms&rdquo;). </li><li>Except as may be the
               result of standard search engine or Internet browser usage, use,
               launch, develop, or distribute any automated system, including
               without limitation, any spider, robot, cheat utility, scraper, or
               offline reader that accesses the Site, or using or launching any
-              unauthorized script or other software. 21. Disparage, tarnish, or
-              otherwise harm, in our opinion, us and/or the Site. 22. Use the
+              unauthorized script or other software. </li><li>Disparage, tarnish, or
+              otherwise harm, in our opinion, us and/or the Site. </li><li>Use the
               Site in a manner inconsistent with any applicable laws or
-              regulations. 23. Use a buying agent or purchasing agent to make
-              purchases on the Site.
+              regulations. </li><li>Use a buying agent or purchasing agent to make
+              purchases on the Site.</li>
+            </ol>
             </p>
 
-            <p> USER GENERATED CONTRIBUTIONS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> USER GENERATED CONTRIBUTIONS</p>
 
             <p>
               The Site may invite you to chat, contribute to, or participate in
@@ -332,46 +340,48 @@ export default function TermsPage() {
               represent and warrant that:
             </p>
 
-            <p>
-              1. The creation, distribution, transmission, public display, or
+            <p style={{marginLeft:26}}>
+            <ol>
+              <li>The creation, distribution, transmission, public display, or
               performance, and the accessing, downloading, or copying of your
               Contributions do not and will not infringe the proprietary rights,
               including but not limited to the copyright, patent, trademark,
-              trade secret, or moral rights of any third party. 2. You are the
+              trade secret, or moral rights of any third party.</li><li>You are the
               creator and owner of or have the necessary licenses, rights,
               consents, releases, and permissions to use and to authorize us,
               the Site, and other users of the Site to use your Contributions in
-              any manner contemplated by the Site and these Terms of Use. 3. You
+              any manner contemplated by the Site and these Terms of Use. </li><li>You
               have the written consent, release, and/or permission of each and
               every identifiable individual person in your Contributions to use
               the name or likeness of each and every such identifiable
               individual person to enable inclusion and use of your
               Contributions in any manner contemplated by the Site and these
-              Terms of Use. 4. Your Contributions are not false, inaccurate, or
-              misleading. 5. Your Contributions are not unsolicited or
+              Terms of Use. </li><li>Your Contributions are not false, inaccurate, or
+              misleading. </li><li>Your Contributions are not unsolicited or
               unauthorized advertising, promotional materials, pyramid schemes,
               chain letters, spam, mass mailings, or other forms of
-              solicitation. 6. Your Contributions are not obscene, lewd,
+              solicitation. </li><li>Your Contributions are not obscene, lewd,
               lascivious, filthy, violent, harassing, libelous, slanderous, or
-              otherwise objectionable (as determined by us). 7. Your
+              otherwise objectionable (as determined by us). </li><li>Your
               Contributions do not ridicule, mock, disparage, intimidate, or
-              abuse anyone. 8. Your Contributions are not used to harass or
+              abuse anyone. </li><li>Your Contributions are not used to harass or
               threaten (in the legal sense of those terms) any other person and
               to promote violence against a specific person or class of people.
-              9. Your Contributions do not violate any applicable law,
-              regulation, or rule. 10. Your Contributions do not violate the
-              privacy or publicity rights of any third party. 11. Your
+              </li><li>Your Contributions do not violate any applicable law,
+              regulation, or rule. </li><li>Your Contributions do not violate the
+              privacy or publicity rights of any third party. </li><li>Your
               Contributions do not contain any material that solicits personal
               information from anyone under the age of 18 or exploits people
-              under the age of 18 in a sexual or violent manner. 12. Your
+              under the age of 18 in a sexual or violent manner. </li><li>Your
               Contributions do not violate any applicable law concerning child
               pornography, or otherwise intended to protect the health or
-              well-being of minors. 13. Your Contributions do not include any
+              well-being of minors. </li><li>Your Contributions do not include any
               offensive comments that are connected to race, national origin,
-              gender, sexual preference, or physical handicap. 14. Your
+              gender, sexual preference, or physical handicap. </li><li>Your
               Contributions do not otherwise violate, or link to material that
               violates, any provision of these Terms of Use, or any applicable
-              law or regulation.
+              law or regulation.</li>
+            </ol>
             </p>
 
             <p>
@@ -381,7 +391,7 @@ export default function TermsPage() {
               Site and the Marketplace Offerings.
             </p>
 
-            <p> CONTRIBUTION LICENSE</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> CONTRIBUTION LICENSE</p>
 
             <p>
               By posting your Contributions to any part of the Site or making
@@ -433,7 +443,7 @@ export default function TermsPage() {
               have no obligation to monitor your Contributions.
             </p>
 
-            <p> SOCIAL MEDIA</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> SOCIAL MEDIA</p>
 
             <p>
               As part of the functionality of the Site, you may link your
@@ -488,7 +498,7 @@ export default function TermsPage() {
               profile picture that become associated with your account.
             </p>
 
-            <p> SUBMISSIONS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> SUBMISSIONS</p>
 
             <p>
               You acknowledge and agree that any questions, comments,
@@ -507,7 +517,7 @@ export default function TermsPage() {
               proprietary right in your Submissions.
             </p>
 
-            <p> ADVERTISERS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> ADVERTISERS</p>
 
             <p>
               We allow advertisers to display their advertisements and other
@@ -524,7 +534,7 @@ export default function TermsPage() {
               advertisers.
             </p>
 
-            <p> SITE MANAGEMENT</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> SITE MANAGEMENT</p>
 
             <p>
               We reserve the right, but not the obligation, to: (1) monitor the
@@ -544,7 +554,7 @@ export default function TermsPage() {
               Offerings.
             </p>
 
-            <p> PRIVACY POLICY</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> PRIVACY POLICY</p>
 
             <p>
               We care about data privacy and security. By using the Site or the
@@ -560,7 +570,7 @@ export default function TermsPage() {
               processed in Canada.
             </p>
 
-            <p> COPYRIGHT INFRINGEMENTS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> COPYRIGHT INFRINGEMENTS</p>
 
             <p>
               We respect the intellectual property rights of others. If you
@@ -576,7 +586,7 @@ export default function TermsPage() {
               copyright, you should consider first contacting an attorney.
             </p>
 
-            <p> TERM AND TERMINATION</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> TERM AND TERMINATION</p>
 
             <p>
               These Terms of Use shall remain in full force and effect while you
@@ -603,7 +613,7 @@ export default function TermsPage() {
               limitation pursuing civil, criminal, and injunctive redress.
             </p>
 
-            <p> MODIFICATIONS AND INTERRUPTIONS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> MODIFICATIONS AND INTERRUPTIONS</p>
 
             <p>
               We reserve the right to change, modify, or remove the contents of
@@ -633,7 +643,7 @@ export default function TermsPage() {
               releases in connection therewith.
             </p>
 
-            <p> GOVERNING LAW</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> GOVERNING LAW</p>
 
             <p>
               These terms shall be governed by and defined following the laws of
@@ -642,9 +652,9 @@ export default function TermsPage() {
               dispute which may arise in connection with these terms.
             </p>
 
-            <p> DISPUTE RESOLUTION</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> DISPUTE RESOLUTION</p>
 
-            <p>Informal Negotiations</p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>Informal Negotiations</p>
 
             <p>
               To expedite resolution and control the cost of any dispute,
@@ -658,7 +668,7 @@ export default function TermsPage() {
               written notice from one Party to the other Party.
             </p>
 
-            <p>Binding Arbitration</p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>Binding Arbitration</p>
 
             <p>
               Any dispute arising out of or in connection with this contract,
@@ -674,7 +684,7 @@ export default function TermsPage() {
               contract shall be the substantive law of Canada.
             </p>
 
-            <p>Restrictions</p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>Restrictions</p>
 
             <p>
               The Parties agree that any arbitration shall be limited to the
@@ -687,7 +697,7 @@ export default function TermsPage() {
               capacity on behalf of the general public or any other persons.
             </p>
 
-            <p>Exceptions to Informal Negotiations and Arbitration</p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>Exceptions to Informal Negotiations and Arbitration</p>
 
             <p>
               The Parties agree that the following Disputes are not subject to
@@ -705,7 +715,7 @@ export default function TermsPage() {
               submit to the personal jurisdiction of that court.
             </p>
 
-            <p> CORRECTIONS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> CORRECTIONS</p>
 
             <p>
               There may be information on the Site that contains typographical
@@ -717,7 +727,7 @@ export default function TermsPage() {
               notice.
             </p>
 
-            <p> DISCLAIMER</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> DISCLAIMER</p>
 
             <p>
               THE SITE AND THE MARKETPLACE OFFERINGS ARE PROVIDED ON AN AS-IS
@@ -754,7 +764,7 @@ export default function TermsPage() {
               CAUTION WHERE APPROPRIATE.
             </p>
 
-            <p> LIMITATIONS OF LIABILITY</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> LIMITATIONS OF LIABILITY</p>
 
             <p>
               IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE
@@ -773,7 +783,7 @@ export default function TermsPage() {
               AND YOU MAY HAVE ADDITIONAL RIGHTS.
             </p>
 
-            <p> INDEMNIFICATION</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> INDEMNIFICATION</p>
 
             <p>
               You agree to defend, indemnify, and hold us harmless, including
@@ -797,7 +807,7 @@ export default function TermsPage() {
               upon becoming aware of it.
             </p>
 
-            <p> USER DATA</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> USER DATA</p>
 
             <p>
               We will maintain certain data that you transmit to the Site for
@@ -812,7 +822,7 @@ export default function TermsPage() {
               corruption of such data.
             </p>
 
-            <p> ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</p>
 
             <p>
               Visiting the Site, sending us emails, and completing online forms
@@ -831,7 +841,7 @@ export default function TermsPage() {
               granting of credits by any means other than electronic means.
             </p>
 
-            <p> MISCELLANEOUS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> MISCELLANEOUS</p>
 
             <p>
               These Terms of Use and any policies or operating rules posted by
@@ -857,7 +867,7 @@ export default function TermsPage() {
               by the parties hereto to execute these Terms of Use.
             </p>
 
-            <p> CONTACT US</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}> CONTACT US</p>
 
             <p>
               In order to resolve a complaint regarding the Site or the
@@ -866,9 +876,9 @@ export default function TermsPage() {
               at:
             </p>
 
-            <p>
-              Chosen Solutions 6 Prince Charles Way Markham, Ontario L6C 0B5
-              Canada Phone: 4168561988 yichenzhu1337@gmail.com
+            <p style={{textAlign: 'center'}}>
+              
+              By email: yichenzhu1337@gmail.com
             </p>
 
             <p>
