@@ -39,6 +39,15 @@
     "eject": "react-scripts eject",
     "postbuild": "react-snap"
   },
+  "reactSnap": {
+    "cacheAjaxRequests": true,
+    "inlineCss": true,
+    "http2PushManifest": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
