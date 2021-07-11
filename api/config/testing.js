@@ -1,6 +1,7 @@
 module.exports = {
   baseUrl: 'http://localhost:',
   port: Math.round(Math.random() * 65535),
+  clientPort: Math.round(Math.random() * 65535),
   apiPrefix: 'api',
   apiVersion: 'v1',
   mongoURI: 'mongodb://localhost:27017/trademebooks_test_db',

@@ -1,6 +1,7 @@
 module.exports = {
   baseUrl: 'http://localhost:',
   port: Math.round(Math.random() * 65535),
+  clientPort: Math.round(Math.random() * 65535),
   apiPrefix: 'api',
   apiVersion: 'v1',
   mongoURI: process.env.MONGO_URI,

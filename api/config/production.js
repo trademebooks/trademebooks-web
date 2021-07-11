@@ -1,6 +1,7 @@
 module.exports = {
   baseUrl: 'https://www.trademebooks:',
   port: 80,
+  clientPort: 80,
   apiPrefix: 'api',
   apiVersion: 'v1',
   mongoURI: process.env.MONGO_URI,

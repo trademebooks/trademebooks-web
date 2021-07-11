@@ -9,6 +9,7 @@ AWS.config.update({
 
 const sendEmail = async ({ fromEmail, fromName, to, subject, text, html }) => {
   fromEmail = fromEmail || 'no-reply@trademebooks.com'
+  /* eslint-disable no-unused-vars */
   fromName = fromName || 'Team trademebooks'
   subject = subject || 'No Subject.'
 
