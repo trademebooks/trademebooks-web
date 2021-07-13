@@ -32,9 +32,17 @@ export default function Privacy() {
             </p>
 
             <p>
-              When you visit our website https://www.trademebooks.com/buy-books
+              When you visit our website 
+              <a
+                  href="/buy-books"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <strong> https://www.trademebooks.com/buy-books </strong>
+                </a>        
+              
               (the &quot;<text style={{fontWeight: "bold"}}>Website</text>&quot;),
-               and more generally, use any of our
+              and more generally, use any of our
               services (the &quot;<text style={{fontWeight: "bold"}}>Services</text>&quot;,
               which include the Website), we
               appreciate that you are trusting us with your personal
@@ -58,34 +66,12 @@ export default function Privacy() {
               understand what we do with the information that we collect.
             </p>
 
-            <p style={{fontWeight: "bold",fontSize: 26}}>TABLE OF CONTENTS</p>
-
-            <ol style={{marginLeft:26}}>
-              <li>WHAT INFORMATION DO WE COLLECT? </li>
-              <li>HOW DO WE USE YOUR INFORMATION? </li>
-              <li>WILL YOUR INFORMATION BE SHARED WITH ANYONE? </li>
-              <li>WHO WILL YOUR INFORMATION BE SHARED WITH? </li>
-              <li>DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES? </li>
-              <li>HOW DO WE HANDLE YOUR SOCIAL LOGINS? </li>
-              <li>WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES? </li>
-              <li>HOW LONG DO WE KEEP YOUR INFORMATION? </li>
-              <li>HOW DO WE KEEP YOUR INFORMATION SAFE? </li>
-              <li>DO WE COLLECT INFORMATION FROM MINORS? </li>
-              <li>WHAT ARE YOUR PRIVACY RIGHTS? </li>
-              <li>CONTROLS FOR DO-NOT-TRACK FEATURES </li>
-              <li>DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS? </li>
-              <li>DO WE MAKE UPDATES TO THIS NOTICE? </li>
-              <li>HOW CAN YOU CONTACT US ABOUT THIS NOTICE? </li>
-              <li>HOW CAN YOU REVIEW, UPDATE OR DELETE THE DATA WE COLLECT FROM
-              YOU?</li>
-            </ol>
-
             <p style={{fontWeight: "bold",fontSize: 26}}>1. WHAT INFORMATION DO WE COLLECT?</p>
 
             <p style={{fontWeight: "bold",fontSize: 20}}>Personal information you disclose to us</p>
 
             <p>
-              In Short: We collect personal information that you provide to us.
+            <text style={{fontWeight: "bold"}}>In Short</text>: We collect personal information that you provide to us.
             </p>
 
             <p>
@@ -111,8 +97,11 @@ export default function Privacy() {
               information.
             </p>
 
-            <p>
-              Social Media Login Data. We may provide you with the option to
+            <p style={{fontWeight: "bold",fontSize: 20}}>
+              Social Media Login Data. 
+            </p>
+            <p>  
+              We may provide you with the option to
               register with us using your existing social media account details,
               like your Facebook, Twitter or other social media account. If you
               choose to register in this way, we will collect the information
@@ -126,10 +115,10 @@ export default function Privacy() {
               such personal information.
             </p>
 
-            <p style={{fontWeight: "bold",fontSize: 26}}>Information automatically collected</p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>Information automatically collected</p>
 
             <p>
-              In Short: Some information &mdash; such as your Internet Protocol
+            <text style={{fontWeight: "bold"}}>In Short</text>: Some information &mdash; such as your Internet Protocol
               (IP) address and/or browser and device characteristics &mdash; is
               collected automatically when you visit our Website.
             </p>
@@ -164,15 +153,25 @@ export default function Privacy() {
               associated with your usage, pages and files viewed, searches and
               other actions you take such as which features you use), device
               event information (such as system activity, error reports
-              (sometimes called 'crash dumps') and hardware settings). Device
-              Data. We collect device data such as information about your
+              (sometimes called 'crash dumps') and hardware settings). 
+            </p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>   
+              Device Data. 
+            </p>
+            <p>  
+              We collect device data such as information about your
               computer, phone, tablet or other device you use to access the
               Website. Depending on the device used, this device data may
               include information such as your IP address (or proxy server),
               device and application identification numbers, location, browser
               type, hardware model Internet service provider and/or mobile
               carrier, operating system and system configuration information.
-              Location Data. We collect location data such as information about
+            </p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>  
+              Location Data. 
+            </p>
+            <p>  
+              We collect location data such as information about
               your device's location, which can be either precise or imprecise.
               How much information we collect depends on the type and settings
               of the device you use to access the Website. For example, we may
@@ -187,7 +186,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>2. HOW DO WE USE YOUR INFORMATION?</p>
 
             <p>
-              In Short: We process your information for purposes based on
+            <text style={{fontWeight: "bold"}}>In Short</text>: We process your information for purposes based on
               legitimate business interests, the fulfillment of our contract
               with you, compliance with our legal obligations, and/or your
               consent.
@@ -285,7 +284,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>3. WILL YOUR INFORMATION BE SHARED WITH ANYONE?</p>
 
             <p>
-              In Short: We only share information with your consent, to comply
+            <text style={{fontWeight: "bold"}}>In Short</text>: We only share information with your consent, to comply
               with laws, to provide you with services, to protect your rights,
               or to fulfill business obligations.
             </p>
@@ -357,7 +356,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>4. WHO WILL YOUR INFORMATION BE SHARED WITH?</p>
 
             <p>
-              In Short: We only share information with the following categories
+            <text style={{fontWeight: "bold"}}>In Short</text>: We only share information with the following categories
               of third parties.
             </p>
 
@@ -380,7 +379,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</p>
 
             <p>
-              In Short: We may use cookies and other tracking technologies to
+            <text style={{fontWeight: "bold"}}>In Short</text>: We may use cookies and other tracking technologies to
               collect and store your information.
             </p>
 
@@ -395,7 +394,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>6. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</p>
 
             <p>
-              In Short: If you choose to register or log in to our services
+            <text style={{fontWeight: "bold"}}>In Short</text>: If you choose to register or log in to our services
               using a social media account, we may have access to certain
               information about you.
             </p>
@@ -428,7 +427,7 @@ export default function Privacy() {
             </p>
 
             <p>
-              In Short: We are not responsible for the safety of any information
+            <text style={{fontWeight: "bold"}}>In Short</text>: We are not responsible for the safety of any information
               that you share with third-party providers who advertise, but are
               not affiliated with, our Website.
             </p>
@@ -449,7 +448,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>8. HOW LONG DO WE KEEP YOUR INFORMATION?</p>
 
             <p>
-              In Short: We keep your information for as long as necessary to
+            <text style={{fontWeight: "bold"}}>In Short</text>: We keep your information for as long as necessary to
               fulfill the purposes outlined in this privacy notice unless
               otherwise required by law.
             </p>
@@ -476,7 +475,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>9. HOW DO WE KEEP YOUR INFORMATION SAFE?</p>
 
             <p>
-              In Short: We aim to protect your personal information through a
+            <text style={{fontWeight: "bold"}}>In Short</text>: We aim to protect your personal information through a
               system of organizational and technical security measures.
             </p>
 
@@ -498,7 +497,7 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>10. DO WE COLLECT INFORMATION FROM MINORS?</p>
 
             <p>
-              In Short: We do not knowingly collect data from or market to
+            <text style={{fontWeight: "bold"}}>In Short</text>: We do not knowingly collect data from or market to
               children under 18 years of age.
             </p>
 
@@ -518,26 +517,11 @@ export default function Privacy() {
             <p style={{fontWeight: "bold",fontSize: 26}}>11. WHAT ARE YOUR PRIVACY RIGHTS?</p>
 
             <p>
-              In Short: You may review, change, or terminate your account at any
-              time. If you are a resident in the EEA or UK and you believe we
-              are unlawfully processing your personal information, you also have
-              the right to complain to your local data protection supervisory
-              authority. You can find their contact details here:
-              http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.
-            </p>
-
-            <p>
-              If you are a resident in Switzerland, the contact details for the
-              data protection authorities are available here:
-              https://www.edoeb.admin.ch/edoeb/en/home.html.
-            </p>
-
-            <p>
               If you have questions or comments about your privacy rights, you
               may email us at yichenzhu1337@gmail.com.
             </p>
 
-            <p style={{fontWeight: "bold",fontSize: 26}}>Account Information</p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>Account Information</p>
 
             <p>
               If you would at any time like to review or change the information
@@ -590,45 +574,10 @@ export default function Privacy() {
               practice in a revised version of this privacy notice.
             </p>
 
-            <p>13. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>13. DO WE MAKE UPDATES TO THIS NOTICE?</p>
 
             <p>
-              In Short: Yes, if you are a resident of California, you are
-              granted specific rights regarding access to your personal
-              information.
-            </p>
-
-            <p>
-              California Civil Code Section 1798.83, also known as the
-              &quot;Shine The Light&quot; law, permits our users who are
-              California residents to request and obtain from us, once a year
-              and free of charge, information about categories of personal
-              information (if any) we disclosed to third parties for direct
-              marketing purposes and the names and addresses of all third
-              parties with which we shared personal information in the
-              immediately preceding calendar year. If you are a California
-              resident and would like to make such a request, please submit your
-              request in writing to us using the contact information provided
-              below.
-            </p>
-
-            <p>
-              If you are under 18 years of age, reside in California, and have a
-              registered account with the Website, you have the right to request
-              removal of unwanted data that you publicly post on the Website. To
-              request removal of such data, please contact us using the contact
-              information provided below, and include the email address
-              associated with your account and a statement that you reside in
-              California. We will make sure the data is not publicly displayed
-              on the Website, but please be aware that the data may not be
-              completely or comprehensively removed from all our systems (e.g.
-              backups, etc.).
-            </p>
-
-            <p style={{fontWeight: "bold",fontSize: 26}}>14. DO WE MAKE UPDATES TO THIS NOTICE?</p>
-
-            <p>
-              In Short: Yes, we will update this notice as necessary to stay
+            <text style={{fontWeight: "bold"}}>In Short</text>: Yes, we will update this notice as necessary to stay
               compliant with relevant laws.
             </p>
 
@@ -643,14 +592,14 @@ export default function Privacy() {
               we are protecting your information.
             </p>
 
-            <p style={{fontWeight: "bold",fontSize: 26}}>15. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>14. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</p>
 
             <p>
               If you have questions or comments about this notice, you may email
               us at yichenzhu1337@gmail.com
             </p>
 
-            <p style={{fontWeight: "bold",fontSize: 26}}> 16. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM
+            <p style={{fontWeight: "bold",fontSize: 26}}> 15. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM
               YOU?
             </p>
 
