@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: 'https://www.trademebooks:',
+  baseUrl: 'https://www.trademebooks.com:',
   port: 80,
   clientPort: 80,
   apiPrefix: 'api',
