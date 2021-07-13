@@ -16,12 +16,15 @@ export default function Privacy() {
       <MDBContainer className="mt-4 contact-form">
         <MDBRow className="justify-content-center">
           <MDBCol md="8">
-            <p>Last updated May 15, 2021</p>
+            <p>Last updated July 12, 2021</p>
 
             <p>
               Thank you for choosing to be part of our community at Chosen
-              Solutions (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;,
-              &quot;our&quot;). We are committed to protecting your personal
+              Solutions (&quot;<text style={{fontWeight: "bold"}}>Company</text>&quot;,
+              &quot;<text style={{fontWeight: "bold"}}>we</text>&quot;,
+              &quot;<text style={{fontWeight: "bold"}}>us</text>&quot;,
+              &quot;<text style={{fontWeight: "bold"}}>our</text>&quot;). 
+              We are committed to protecting your personal
               information and your right to privacy. If you have any questions
               or concerns about this privacy notice, or our practices with
               regards to your personal information, please contact us at
@@ -30,8 +33,10 @@ export default function Privacy() {
 
             <p>
               When you visit our website https://www.trademebooks.com/buy-books
-              (the &quot;Website&quot;), and more generally, use any of our
-              services (the &quot;Services&quot;, which include the Website), we
+              (the &quot;<text style={{fontWeight: "bold"}}>Website</text>&quot;),
+               and more generally, use any of our
+              services (the &quot;<text style={{fontWeight: "bold"}}>Services</text>&quot;,
+              which include the Website), we
               appreciate that you are trusting us with your personal
               information. We take your privacy very seriously. In this privacy
               notice, we seek to explain to you in the clearest way possible
@@ -53,9 +58,9 @@ export default function Privacy() {
               understand what we do with the information that we collect.
             </p>
 
-            <p>TABLE OF CONTENTS</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>TABLE OF CONTENTS</p>
 
-            <ol>
+            <ol style={{marginLeft:26}}>
               <li>WHAT INFORMATION DO WE COLLECT? </li>
               <li>HOW DO WE USE YOUR INFORMATION? </li>
               <li>WILL YOUR INFORMATION BE SHARED WITH ANYONE? </li>
@@ -65,21 +70,19 @@ export default function Privacy() {
               <li>WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES? </li>
               <li>HOW LONG DO WE KEEP YOUR INFORMATION? </li>
               <li>HOW DO WE KEEP YOUR INFORMATION SAFE? </li>
-              <li> DO WE COLLECT INFORMATION FROM MINORS? </li>
-              <li> WHAT ARE YOUR PRIVACY RIGHTS? </li>
-              <li> CONTROLS FOR DO-NOT-TRACK FEATURES </li>
-              <li> DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS? </li>
-              <li> DO WE MAKE UPDATES TO THIS NOTICE? </li>
-              <li> HOW CAN YOU CONTACT US ABOUT THIS NOTICE? </li>
-              <li>
-                HOW CAN YOU REVIEW, UPDATE OR DELETE THE DATA WE COLLECT FROM
-                YOU?
-              </li>
+              <li>DO WE COLLECT INFORMATION FROM MINORS? </li>
+              <li>WHAT ARE YOUR PRIVACY RIGHTS? </li>
+              <li>CONTROLS FOR DO-NOT-TRACK FEATURES </li>
+              <li>DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS? </li>
+              <li>DO WE MAKE UPDATES TO THIS NOTICE? </li>
+              <li>HOW CAN YOU CONTACT US ABOUT THIS NOTICE? </li>
+              <li>HOW CAN YOU REVIEW, UPDATE OR DELETE THE DATA WE COLLECT FROM
+              YOU?</li>
             </ol>
 
-            <p>1. WHAT INFORMATION DO WE COLLECT?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>1. WHAT INFORMATION DO WE COLLECT?</p>
 
-            <p>Personal information you disclose to us</p>
+            <p style={{fontWeight: "bold",fontSize: 20}}>Personal information you disclose to us</p>
 
             <p>
               In Short: We collect personal information that you provide to us.
@@ -123,7 +126,7 @@ export default function Privacy() {
               such personal information.
             </p>
 
-            <p>Information automatically collected</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>Information automatically collected</p>
 
             <p>
               In Short: Some information &mdash; such as your Internet Protocol
@@ -181,7 +184,7 @@ export default function Privacy() {
               you may not be able to use certain aspects of the Services.
             </p>
 
-            <p>2. HOW DO WE USE YOUR INFORMATION?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>2. HOW DO WE USE YOUR INFORMATION?</p>
 
             <p>
               In Short: We process your information for purposes based on
@@ -279,7 +282,7 @@ export default function Privacy() {
               without your consent.
             </p>
 
-            <p>3. WILL YOUR INFORMATION BE SHARED WITH ANYONE?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>3. WILL YOUR INFORMATION BE SHARED WITH ANYONE?</p>
 
             <p>
               In Short: We only share information with your consent, to comply
@@ -321,7 +324,7 @@ export default function Privacy() {
               similar information. A full list of what we use information for
               can be found in this section and in the previous section titled
               &quot;HOW DO WE USE YOUR INFORMATION?&quot;. We obtain and store
-              on your device ('cache') your location for __________ months. You
+              on your device ('cache') your location for 12 months. You
               may revoke your consent anytime by contacting us at the contact
               details provided at the end of this document. The Google Maps
               Platform APIs that we use store and access cookies and other
@@ -351,7 +354,7 @@ export default function Privacy() {
               you. See our Cookie Notice: __________ for further information.
             </p>
 
-            <p>4. WHO WILL YOUR INFORMATION BE SHARED WITH?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>4. WHO WILL YOUR INFORMATION BE SHARED WITH?</p>
 
             <p>
               In Short: We only share information with the following categories
@@ -374,7 +377,7 @@ export default function Privacy() {
               Authentication Services Website Hosting Service Providers
             </p>
 
-            <p>5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</p>
 
             <p>
               In Short: We may use cookies and other tracking technologies to
@@ -389,7 +392,7 @@ export default function Privacy() {
               __________.
             </p>
 
-            <p>6. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>6. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</p>
 
             <p>
               In Short: If you choose to register or log in to our services
@@ -417,8 +420,11 @@ export default function Privacy() {
               information by your third-party social media provider. We
               recommend that you review their privacy notice to understand how
               they collect, use and share your personal information, and how you
-              can set your privacy preferences on their sites and apps. 7. WHAT
-              IS OUR STANCE ON THIRD-PARTY WEBSITES?
+              can set your privacy preferences on their sites and apps. 
+             </p>
+
+            <p style={{fontWeight: "bold",fontSize: 26}}> 
+              7. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?
             </p>
 
             <p>
@@ -440,7 +446,7 @@ export default function Privacy() {
               parties and contact them directly to respond to your questions.
             </p>
 
-            <p>8. HOW LONG DO WE KEEP YOUR INFORMATION?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>8. HOW LONG DO WE KEEP YOUR INFORMATION?</p>
 
             <p>
               In Short: We keep your information for as long as necessary to
@@ -467,7 +473,7 @@ export default function Privacy() {
               it from any further processing until deletion is possible.
             </p>
 
-            <p>9. HOW DO WE KEEP YOUR INFORMATION SAFE?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>9. HOW DO WE KEEP YOUR INFORMATION SAFE?</p>
 
             <p>
               In Short: We aim to protect your personal information through a
@@ -489,7 +495,7 @@ export default function Privacy() {
               You should only access the Website within a secure environment.
             </p>
 
-            <p>10. DO WE COLLECT INFORMATION FROM MINORS?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>10. DO WE COLLECT INFORMATION FROM MINORS?</p>
 
             <p>
               In Short: We do not knowingly collect data from or market to
@@ -509,7 +515,7 @@ export default function Privacy() {
               yichenzhu1337@gmail.com.
             </p>
 
-            <p>11. WHAT ARE YOUR PRIVACY RIGHTS?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>11. WHAT ARE YOUR PRIVACY RIGHTS?</p>
 
             <p>
               In Short: You may review, change, or terminate your account at any
@@ -531,7 +537,7 @@ export default function Privacy() {
               may email us at yichenzhu1337@gmail.com.
             </p>
 
-            <p>Account Information</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>Account Information</p>
 
             <p>
               If you would at any time like to review or change the information
@@ -568,7 +574,7 @@ export default function Privacy() {
               update your preferences.
             </p>
 
-            <p>12. CONTROLS FOR DO-NOT-TRACK FEATURES</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>12. CONTROLS FOR DO-NOT-TRACK FEATURES</p>
 
             <p>
               Most web browsers and some mobile operating systems and mobile
@@ -619,7 +625,7 @@ export default function Privacy() {
               backups, etc.).
             </p>
 
-            <p>14. DO WE MAKE UPDATES TO THIS NOTICE?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>14. DO WE MAKE UPDATES TO THIS NOTICE?</p>
 
             <p>
               In Short: Yes, we will update this notice as necessary to stay
@@ -637,20 +643,14 @@ export default function Privacy() {
               we are protecting your information.
             </p>
 
-            <p>15. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</p>
+            <p style={{fontWeight: "bold",fontSize: 26}}>15. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</p>
 
             <p>
               If you have questions or comments about this notice, you may email
-              us at yichenzhu1337@gmail.com or by post to:
+              us at yichenzhu1337@gmail.com
             </p>
 
-            <p>
-              Chosen Solutions 6 Prince Charles Way Markham, Ontario L6C 0B5
-              Canada
-            </p>
-
-            <p>
-              16. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM
+            <p style={{fontWeight: "bold",fontSize: 26}}> 16. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM
               YOU?
             </p>
 
