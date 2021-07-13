@@ -11,6 +11,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "autosuggest-highlight": "^3.1.1",
     "http-proxy-middleware": "^1.0.6",
+    "lodash": "^4.17.21",
     "mdbreact": "^4.27.0",
     "nan": "^2.14.1",
     "node-sass": "^4.14.1",
@@ -37,6 +38,15 @@
     "test:nowatch": "react-scripts test --setupFiles ./src/setupTests.js --ci --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "cacheAjaxRequests": true,
+    "inlineCss": true,
+    "http2PushManifest": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -13,7 +13,7 @@ export default function Privacy() {
       <div className="header-container text-center">
         <h1 className="font-weight-bold">Privacy Notice</h1>
       </div>
-      <MDBContainer className="mt-4 contact-form">
+      <MDBContainer className="mt-4">
         <MDBRow className="justify-content-center">
           <MDBCol md="8">
             <p>Last updated July 12, 2021</p>

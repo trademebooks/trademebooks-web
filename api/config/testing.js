@@ -1,6 +1,7 @@
 module.exports = {
   baseUrl: 'http://localhost:',
   port: Math.round(Math.random() * 65535),
+  clientPort: Math.round(Math.random() * 65535),
   apiPrefix: 'api',
   apiVersion: 'v1',
   mongoURI: 'mongodb://localhost:27017/trademebooks_test_db',
@@ -13,23 +14,27 @@ module.exports = {
   },
   contactUsEmail: 'yichenzhu1337@gmail.com',
   GOOGLE: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: 'process.env.GOOGLE_CLIENT_ID',
+    clientSecret: 'process.env.GOOGLE_CLIENT_SECRET'
   },
   FACEBOOK: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: 'process.env.FACEBOOK_CLIENT_ID',
+    clientSecret: 'process.env.FACEBOOK_CLIENT_SECRET'
   },
   TWITTER: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: 'process.env.TWITTER_CLIENT_ID',
+    clientSecret: 'process.env.TWITTER_CLIENT_SECRET'
   },
   GITHUB: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: 'process.env.GITHUB_CLIENT_ID,',
+    clientSecret: 'process.env.GITHUB_CLIENT_SECRET'
   },
   LINKEDIN: {
-    clientID: 'x',
-    clientSecret: 'x'
+    clientID: 'process.env.LINKEDIN_CLIENT_ID,',
+    clientSecret: 'process.env.LINKEDIN_CLIENT_SECRET'
+  },
+  AWS: {
+    accessKeyId: 'process.env.AWS_KEY_ID,',
+    secretAccessKey: 'process.env.AWS_SECRET_ACCESS_KEY'
   }
 }

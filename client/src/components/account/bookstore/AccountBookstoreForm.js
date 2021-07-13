@@ -4,6 +4,7 @@ import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
 import { Autocomplete } from '@material-ui/lab'
 import TextField from '@material-ui/core/TextField'
+import GoogleMaps from '../LocationSearch'
 
 const schools = [
   'Algoma University',
@@ -30,6 +31,7 @@ const schools = [
   'Wilfrid Laurier University',
   'York University'
 ]
+
 const AccountBookStoreForm = ({
   auth: { user },
   getAccountSettings,
@@ -43,9 +45,16 @@ const AccountBookStoreForm = ({
   })
 
   const { username, location, school } = formData
+
   const defaultProps = {
     options: schools,
     getOptionLabel: (option) => option
+  }
+
+  const handleSelect = (value) => {
+    if (value != null) {
+      setFormData({ ...formData, location: value.description })
+    }
   }
 
   const onChange = (e) => {
@@ -108,17 +117,14 @@ const AccountBookStoreForm = ({
 
       <div className="mt-5">
         <h4>Location</h4>
-        <MDBInput
-          label="Current Location"
-          icon="map"
-          group
-          type="text"
-          name="location"
-          onChange={onChange}
-          minLength="6"
-          validate
-          value={location}
-        />
+        <div className="d-flex flex-row">
+          <MDBIcon size="2x" icon="map" className="mt-3 pr-2" />
+          <GoogleMaps
+            handleChange={handleSelect}
+            placeholder={formData.location}
+            className="w-100"
+          />
+        </div>
       </div>
 
       <div>
