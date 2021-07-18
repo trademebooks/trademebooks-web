@@ -16,7 +16,7 @@ export default function TermsPage() {
       <MDBContainer className="mt-4">
         <MDBRow className="justify-content-center">
           <MDBCol md="8">
-            <p>Last updated July 7, 2021</p>
+            <p>Last updated July 12, 2021</p>
 
             <p style={{ fontWeight: 'bold', fontSize: 26 }}>
               AGREEMENT TO TERMS
@@ -25,16 +25,19 @@ export default function TermsPage() {
             <p>
               These Terms of Use constitute a legally binding agreement made
               between you, whether personally or on behalf of an entity
-              (&ldquo;you&rdquo;) and Chosen Solutions (&quot;Company&quot;,
-              &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;),
+              (&ldquo;<text style={{fontWeight: "bold"}}>you</text>&rdquo;) 
+              and Chosen Solutions (&quot;<text style={{fontWeight: "bold"}}>Company</text>&quot;,
+              &ldquo;<text style={{fontWeight: "bold"}}>we</text>&rdquo;, 
+              &ldquo;<text style={{fontWeight: "bold"}}>us</text>&rdquo;, 
+              or &ldquo;<text style={{fontWeight: "bold"}}>our</text>&rdquo;),
               concerning your access to and use of the
               https://www.trademebooks.com/buy-books website as well as any
               other media form, media channel, mobile website or mobile
               application related, linked, or otherwise connected thereto
-              (collectively, the &ldquo;Site&rdquo;). The Site provides an
+              (collectively, the &ldquo;<text style={{fontWeight: "bold"}}>Site</text>&rdquo;). The Site provides an
               online marketplace for the following goods, products, and/or
               services: textbooks, books, electronic textbooks, electronic books
-              (the &ldquo;Marketplace Offerings&rdquo;). In order to help make
+              (the &ldquo;<text style={{fontWeight: "bold"}}>Marketplace Offerings</text>&rdquo;). In order to help make
               the Site a secure environment for the purchase and sale of
               Marketplace Offerings, all users are required to accept and comply
               with these Terms of Use. You agree that by accessing the Site
@@ -51,7 +54,7 @@ export default function TermsPage() {
               herein by reference. We reserve the right, in our sole discretion,
               to make changes or modifications to these Terms of Use at any time
               and for any reason. We will alert you about any changes by
-              updating the &ldquo;Last updated&rdquo; date of these Terms of
+              updating the &ldquo;<text style={{fontWeight: "bold"}}>Last updated</text>&rdquo; date of these Terms of
               Use, and you waive any right to receive specific notice of each
               such change. It is your responsibility to periodically review
               these Terms of Use to stay informed of updates. You will be
@@ -89,13 +92,14 @@ export default function TermsPage() {
               are our proprietary property and all source code, databases,
               functionality, software, website designs, audio, video, text,
               photographs, and graphics on the Site (collectively, the
-              &ldquo;Content&rdquo;) and the trademarks, service marks, and
-              logos contained therein (the &ldquo;Marks&rdquo;) are owned or
+              &ldquo;<text style={{fontWeight: "bold"}}>Content</text>&rdquo;) 
+              and the trademarks, service marks, and
+              logos contained therein (the &ldquo;<text style={{fontWeight: "bold"}}>Marks</text>&rdquo;) are owned or
               controlled by us or licensed to us, and are protected by copyright
               and trademark laws and various other intellectual property rights
               and unfair competition laws of the United States, international
               copyright laws, and international conventions. The Content and the
-              Marks are provided on the Site &ldquo;AS IS&rdquo; for your
+              Marks are provided on the Site &ldquo;<text style={{fontWeight: "bold"}}>AS IS</text>&rdquo; for your
               information and personal use only. Except as expressly provided in
               these Terms of Use, no part of the Site or the Marketplace
               Offerings and no Content or Marks may be copied, reproduced,
@@ -587,8 +591,8 @@ export default function TermsPage() {
               As part of the functionality of the Site, you may link your
               account with online accounts you have with third-party service
               providers (each such account, a &ldquo;Third-Party Account&rdquo;)
-              by either: (1) providing your Third-Party Account login
-              information through the Site; or (2) allowing us to access your
+              by either: <text style={{fontWeight: "bold"}}>(1)</text> providing your Third-Party Account login
+              information through the Site; or <text style={{fontWeight: "bold"}}>(2)</text> allowing us to access your
               Third-Party Account, as is permitted under the applicable terms
               and conditions that govern your use of each Third-Party Account.
               You represent and warrant that you are entitled to disclose your
@@ -599,11 +603,11 @@ export default function TermsPage() {
               making us subject to any usage limitations imposed by the
               third-party service provider of the Third-Party Account. By
               granting us access to any Third-Party Accounts, you understand
-              that (1) we may access, make available, and store (if applicable)
+              that <text style={{fontWeight: "bold"}}>(1)</text> we may access, make available, and store (if applicable)
               any content that you have provided to and stored in your
-              Third-Party Account (the &ldquo;Social Network Content&rdquo;) so
+              Third-Party Account (the &ldquo;<text style={{fontWeight: "bold"}}>Social Network Content</text>&rdquo;) so
               that it is available on and through the Site via your account,
-              including without limitation any friend lists and (2) we may
+              including without limitation any friend lists and <text style={{fontWeight: "bold"}}>(2)</text> we may
               submit to and receive from your Third-Party Account additional
               information to the extent you are notified when you link your
               account with the Third-Party Account. Depending on the Third-Party
@@ -617,10 +621,16 @@ export default function TermsPage() {
               Network Content may no longer be available on and through the
               Site. You will have the ability to disable the connection between
               your account on the Site and your Third-Party Accounts at any
-              time. PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE THIRD-PARTY
+              time. 
+              </p>
+              <p>
+              PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE THIRD-PARTY
               SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY ACCOUNTS IS
               GOVERNED SOLELY BY YOUR AGREEMENT(S) WITH SUCH THIRD-PARTY SERVICE
-              PROVIDERS. We make no effort to review any Social Network Content
+              PROVIDERS. 
+              </p>
+              <p>
+              We make no effort to review any Social Network Content
               for any purpose, including but not limited to, for accuracy,
               legality, or non-infringement, and we are not responsible for any
               Social Network Content. You acknowledge and agree that we may
@@ -641,7 +651,7 @@ export default function TermsPage() {
             <p>
               You acknowledge and agree that any questions, comments,
               suggestions, ideas, feedback, or other information regarding the
-              Site or the Marketplace Offerings (&quot;Submissions&quot;)
+              Site or the Marketplace Offerings (&quot;<text style={{fontWeight: "bold"}}>Submissions</text>&quot;)
               provided by you to us are non-confidential and shall become our
               sole property. We shall own exclusive rights, including all
               intellectual property rights, and shall be entitled to the
@@ -675,22 +685,26 @@ export default function TermsPage() {
             <p style={{ fontWeight: 'bold', fontSize: 26 }}> SITE MANAGEMENT</p>
 
             <p>
-              We reserve the right, but not the obligation, to: (1) monitor the
-              Site for violations of these Terms of Use; (2) take appropriate
+              We reserve the right, but not the obligation, to: 
+            </p> 
+
+            <p style={{marginLeft:26}}>
+            <ol>
+              <li>Monitor the Site for violations of these Terms of Use; </li><li>Take appropriate
               legal action against anyone who, in our sole discretion, violates
               the law or these Terms of Use, including without limitation,
-              reporting such user to law enforcement authorities; (3) in our
+              reporting such user to law enforcement authorities; </li><li> In our
               sole discretion and without limitation, refuse, restrict access
               to, limit the availability of, or disable (to the extent
               technologically feasible) any of your Contributions or any portion
-              thereof; (4) in our sole discretion and without limitation,
+              thereof; </li><li> In our sole discretion and without limitation,
               notice, or liability, to remove from the Site or otherwise disable
               all files and content that are excessive in size or are in any way
-              burdensome to our systems; and (5) otherwise manage the Site in a
+              burdensome to our systems; and </li><li> Otherwise manage the Site in a
               manner designed to protect our rights and property and to
               facilitate the proper functioning of the Site and the Marketplace
-              Offerings.
-            </p>
+              Offerings. </li>
+            </ol></p>
 
             <p style={{ fontWeight: 'bold', fontSize: 26 }}> PRIVACY POLICY</p>
 
@@ -718,7 +732,7 @@ export default function TermsPage() {
               believe that any material available on or through the Site
               infringes upon any copyright you own or control, please
               immediately notify us using the contact information provided below
-              (a &ldquo;Notification&rdquo;). A copy of your Notification will
+              (a &ldquo;<text style={{fontWeight: "bold"}}>Notification</text>&rdquo;). A copy of your Notification will
               be sent to the person who posted or stored the material addressed
               in the Notification. Please be advised that pursuant to applicable
               law you may be held liable for damages if you make material
@@ -811,9 +825,10 @@ export default function TermsPage() {
             <p>
               To expedite resolution and control the cost of any dispute,
               controversy, or claim related to these Terms of Use (each a
-              &quot;Dispute&quot; and collectively, the &quot;Disputes&quot;)
-              brought by either you or us (individually, a &quot;Party&quot; and
-              collectively, the &quot;Parties&quot;), the Parties agree to first
+              &quot;<text style={{fontWeight: "bold"}}>Dispute</text>&quot; 
+              and collectively, the &quot;<text style={{fontWeight: "bold"}}>Disputes</text>&quot;)
+              brought by either you or us (individually, a &quot;<text style={{fontWeight: "bold"}}>Party</text>&quot; and
+              collectively, the &quot;<text style={{fontWeight: "bold"}}>Parties</text>&quot;), the Parties agree to first
               attempt to negotiate any Dispute (except those Disputes expressly
               provided below) informally for at least thirty (30) days before
               initiating arbitration. Such informal negotiations commence upon
@@ -843,10 +858,10 @@ export default function TermsPage() {
             <p>
               The Parties agree that any arbitration shall be limited to the
               Dispute between the Parties individually. To the full extent
-              permitted by law, (a) no arbitration shall be joined with any
-              other proceeding; (b) there is no right or authority for any
+              permitted by law, <text style={{fontWeight: "bold"}}>(a)</text> no arbitration shall be joined with any
+              other proceeding; <text style={{fontWeight: "bold"}}>(b)</text> there is no right or authority for any
               Dispute to be arbitrated on a class-action basis or to utilize
-              class action procedures; and (c) there is no right or authority
+              class action procedures; and <text style={{fontWeight: "bold"}}>(c)</text> there is no right or authority
               for any Dispute to be brought in a purported representative
               capacity on behalf of the general public or any other persons.
             </p>
@@ -858,18 +873,23 @@ export default function TermsPage() {
             <p>
               The Parties agree that the following Disputes are not subject to
               the above provisions concerning informal negotiations and binding
-              arbitration: (a) any Disputes seeking to enforce or protect, or
+              arbitration: 
+            </p>
+
+            <p style={{marginLeft:16}}>
+            <ul>
+              <li>Any Disputes seeking to enforce or protect, or
               concerning the validity of, any of the intellectual property
-              rights of a Party; (b) any Dispute related to, or arising from,
+              rights of a Party; </li><li>Any Dispute related to, or arising from,
               allegations of theft, piracy, invasion of privacy, or unauthorized
-              use; and (c) any claim for injunctive relief. If this provision is
+              use; and </li><li>Any claim for injunctive relief. If this provision is
               found to be illegal or unenforceable, then neither Party will
               elect to arbitrate any Dispute falling within that portion of this
               provision found to be illegal or unenforceable and such Dispute
               shall be decided by a court of competent jurisdiction within the
               courts listed for jurisdiction above, and the Parties agree to
-              submit to the personal jurisdiction of that court.
-            </p>
+              submit to the personal jurisdiction of that court.</li>
+            </ul></p>
 
             <p style={{ fontWeight: 'bold', fontSize: 26 }}> CORRECTIONS</p>
 
@@ -950,13 +970,19 @@ export default function TermsPage() {
               agents, partners, and employees, from and against any loss,
               damage, liability, claim, or demand, including reasonable
               attorneys&rsquo; fees and expenses, made by any third party due to
-              or arising out of: (1) your Contributions; (2) use of the
-              Marketplace Offerings; (3) breach of these Terms of Use; (4) any
+              or arising out of:
+            </p>
+            <p style={{marginLeft:26}}>
+            <ol>
+              <li>Your Contributions; </li><li>Use of the
+              Marketplace Offerings; </li><li>Breach of these Terms of Use; </li><li>Any
               breach of your representations and warranties set forth in these
-              Terms of Use; (5) your violation of the rights of a third party,
-              including but not limited to intellectual property rights; or (6)
-              any overt harmful act toward any other user of the Site or the
-              Marketplace Offerings with whom you connected via the Site.
+              Terms of Use; </li><li>Your violation of the rights of a third party,
+              including but not limited to intellectual property rights; or </li><li>
+              Any overt harmful act toward any other user of the Site or the
+              Marketplace Offerings with whom you connected via the Site.</li>
+            </ol></p>
+            <p>
               Notwithstanding the foregoing, we reserve the right, at your
               expense, to assume the exclusive defense and control of any matter
               for which you are required to indemnify us, and you agree to
