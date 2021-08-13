@@ -47,11 +47,13 @@ const HomePage = () => {
       <MDBContainer>
         <MDBRow>
           <MDBCol sm="12">
-            <Jumbotron onChangeSearchBooks={e => onChangeSearchBooks(e.target.value)} />
+            <Jumbotron
+              onChangeSearchBooks={(e) => onChangeSearchBooks(e.target.value)}
+            />
             {/* {booksIsLoading ? (
               <Spinner isLoading={false} />
             ) : ( */}
-              <Books books={books} editFlag={false} />
+            <Books books={books} editFlag={false} />
             {/* )} */}
           </MDBCol>
         </MDBRow>
