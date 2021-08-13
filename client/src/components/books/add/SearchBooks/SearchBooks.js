@@ -17,7 +17,6 @@ const SearchBooks = ({ addBook }) => {
 
   const handleInputChange = debounce(async (e, inputValue) => {
     if (inputValue.length > 2) {
-      console.log('searching...')
       const url = `https://www.googleapis.com/books/v1/volumes?key=${config.GOOGLE.API_KEY}&q=${inputValue}`
       const response = await fetch(url)
       const data = await response.json()
