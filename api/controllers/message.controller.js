@@ -88,6 +88,17 @@ const startConversationWithRecipient = catchException(async (req, res) => {
     })
   }
 
+  /*
+  Bug: when you are not logged in and you try to message someone using the message icon on the book card, 
+  you need to wait 20+ sec before the site redirects you to the login page.
+
+  Fix: do a redirect in the backend if there is no current auth (meaning there is no logged in user) when 
+  clicking on the message icon button.
+  */
+  if (!req.user) {
+    res.redirect('/login')
+  }
+
   const newMessage = await messageService.startConversationWithRecipient(
     req.user.id,
     req.body.toRecipientId
