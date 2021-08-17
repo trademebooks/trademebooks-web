@@ -61,6 +61,8 @@ const updateABook = catchException(async (req, res) => {
   const { id } = req.params
   const { body } = req
 
+  createBookValidator(body)
+
   const book = await bookService.updateBookById(id, body)
 
   res.status(200).json(
