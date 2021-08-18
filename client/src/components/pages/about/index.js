@@ -29,11 +29,11 @@ const About = () => {
               <span>
                 Yichen Zhu (
                 <a
-                  href="https://twitter.com/yichenzhu1337"
+                  href="https://www.linkedin.com/in/yichenzhu1337/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @yichenzhu1337
+                  LinkedIn
                 </a>
                 )
               </span>
@@ -51,11 +51,11 @@ const About = () => {
               <span>
                 Cedric Mosdell (
                 <a
-                  href="https://twitter.com/leftyced"
+                  href="https://www.linkedin.com/in/cedricmosdell/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @leftyced
+                  LinkedIn
                 </a>
                 )
               </span>
