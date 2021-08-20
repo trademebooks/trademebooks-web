@@ -3,7 +3,7 @@ import displayErrors from '../utils/displayErrors'
 
 export const postContact = async (contactFormData) => {
   try {
-    await api.post('/utilities/contact', contactFormData)
+    await api.post('/utils/contact', contactFormData)
   } catch (error) {
     displayErrors(error)
   }
