@@ -14,8 +14,8 @@ function Jumbotron({ onChangeSearchBooks }) {
         </div>
 
         <div className="home-page-top-section__small-caption mt-4">
-          Buy and sell textbooks with ease and minimal effort using the
-          latest technology!
+          Buy and sell textbooks with ease and minimal effort using the latest
+          technology!
         </div>
 
         <div className="home-search-box">

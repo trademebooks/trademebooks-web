@@ -12,9 +12,9 @@ const ApiGeneralError = require('../utils/ApiGeneralError')
  */
 const createBookValidator = (data) => {
   const rules = {
-    title: 'required',
+    title: 'required|max:250',
     price: 'required|numeric|min:1|max:999',
-    edition: 'numeric|min:1|max:999'
+    edition: 'integer|min:1|max:99'
   }
 
   const validator = new Validator(data, rules)
