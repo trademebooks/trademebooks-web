@@ -3,15 +3,16 @@ import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdbreact'
 import { toastr } from 'react-redux-toastr'
 import metags from '../../../config/metags'
 import MetaDecorator from '../../utils/MetaDecorator'
+import { postContact } from '../../../actions/utils'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    fromEmail: '',
     body: ''
   })
 
-  const { name, email, body } = formData
+  const { name, fromEmail, body } = formData
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -22,9 +23,11 @@ const ContactPage = () => {
 
     setFormData({
       name: '',
-      email: '',
+      fromEmail: '',
       body: ''
     })
+
+    await postContact(formData)
 
     toastr.success('Message sent! Thank you for contacting us.')
   }
@@ -64,8 +67,8 @@ const ContactPage = () => {
                 type="email"
                 id="contact__email"
                 className="form-control"
-                name="email"
-                value={email}
+                name="fromEmail"
+                value={fromEmail}
                 onChange={onChange}
                 required
               />

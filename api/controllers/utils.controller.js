@@ -1,9 +1,11 @@
 const globalResponseDto = require('../dtos/responses/globalResponseDto')
 const catchExceptions = require('../utils/catchExceptions')
 const contactUsRequestDto = require('../dtos/requests/contactUsRequestDto')
-const contactUsValidator = require('../validators/contactUsValidator')
+// const contactUsValidator = require('../validators/contactUsValidator')
 const User = require('../domain/models/user.model')
 const mongoose = require('mongoose')
+const config = require('../config')
+const mailer = require('../domain/services/mailer/email.service')
 
 const getHealthCheck = catchExceptions(async (req, res) => {
   res.status(200).json(
@@ -16,11 +18,19 @@ const getHealthCheck = catchExceptions(async (req, res) => {
 const contactUs = catchExceptions(async (req, res) => {
   const contactUsRequest = contactUsRequestDto(req.body)
 
-  contactUsValidator(contactUsRequest)
+  const { name, fromEmail, body } = contactUsRequest
+
+  const mailResponse = await mailer.sendEmail({
+    to: config.contactUsEmail,
+    subject: `${name} (${fromEmail}) sent you a message on the trademebooks.com contact form.`,
+    text: body,
+    html: body
+  })
 
   res.status(200).json(
     globalResponseDto({
-      message: 'Contact email successfully sent.'
+      message: 'Contact email successfully sent.',
+      data: mailResponse
     })
   )
 })

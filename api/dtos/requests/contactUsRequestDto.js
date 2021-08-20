@@ -1,6 +1,6 @@
 const ApiGeneralError = require('../../utils/ApiGeneralError')
 
-const fields = ['name', 'toEmail', 'body']
+const fields = ['name', 'fromEmail', 'body']
 
 const contactUsRequestDto = (data) => {
   const errors = []
