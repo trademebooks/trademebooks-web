@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField'
 import GoogleMaps from '../LocationSearch'
 
 const schools = [
+  // Universities
   'Algoma University',
   'Brock University',
   'Carleton University',
@@ -29,7 +30,35 @@ const schools = [
   'University of Windsor',
   'Western University',
   'Wilfrid Laurier University',
-  'York University'
+  'York University',
+
+  // Colleges
+  'Algonquin College',
+  'Cambrian College',
+  'Canadore College',
+  'Centennial College',
+  'Collège Boréal',
+  'Conestoga College',
+  'Confederation College',
+  'Durham College',
+  'Fanshawe College',
+  'Fleming College',
+  'George Brown College',
+  'Georgian College',
+  'Humber College',
+  'La Cité collégiale',
+  'Lambton College',
+  'Loyalist College',
+  'Mohawk College',
+  'Niagara College',
+  'Northern College',
+  'Royal Military College',
+  'St. Clair College',
+  'St. Lawrence College',
+  'Sault College',
+  'Seneca College',
+  'Sheridan College',
+  'Springfield College Brampton'
 ]
 
 const AccountBookStoreForm = ({
