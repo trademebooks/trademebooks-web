@@ -23,7 +23,7 @@ describe('Component: AccountNavbar', () => {
   })
 
   it('should render properly', () => {
-    const accountNavbar = render(
+    render(
       <MemoryRouter>
         <AccountNavbar {...props} />
       </MemoryRouter>

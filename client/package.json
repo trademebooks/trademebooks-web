@@ -36,7 +36,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --setupFiles ./src/setupTests.js",
     "test:nowatch": "react-scripts test --setupFiles ./src/setupTests.js --ci --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:check": "./node_modules/eslint/bin/eslint.js --ext .js,.jsx src/",
+    "lint:fix": "./node_modules/eslint/bin/eslint.js --ext .js,.jsx src/ --fix"
   },
   "reactSnap": {
     "cacheAjaxRequests": true,

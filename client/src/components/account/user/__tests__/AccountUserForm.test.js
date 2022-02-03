@@ -27,7 +27,7 @@ describe('Component: AccountUserForm', () => {
   })
 
   it('should render properly', async () => {
-    const accountUserForm = render(<AccountUserForm {...props} />)
+    render(<AccountUserForm {...props} />)
 
     // got rid of act warning: https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
     await act(() => {
