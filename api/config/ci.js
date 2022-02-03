@@ -25,8 +25,8 @@ module.exports = {
     clientSecret: process.env.TWITTER_CLIENT_SECRET
   },
   GITHUB: {
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_CLIENT_SECRET
+    clientID: process.env.GHUB_CLIENT_ID,
+    clientSecret: process.env.GHUB_CLIENT_SECRET
   },
   LINKEDIN: {
     clientID: process.env.LINKEDIN_CLIENT_ID,

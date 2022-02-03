@@ -74,7 +74,7 @@ exports[`Component: Footer should match the snapshot 1`] = `
         data-test="col"
       >
         © 
-        2021
+        2022
          
         <a
           href="https://www.chosensolutions.ca"
