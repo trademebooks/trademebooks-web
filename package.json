@@ -23,8 +23,8 @@
     "db:seed:prod": "NODE_ENV=production node ./api/tests/seeds",
     "format:check": "npx prettier --check .",
     "format:fix": "npx prettier --write .",
-    "lint:check": "npm run lint:check --prefix api",
-    "lint:fix": "npm run lint:fix --prefix api",
+    "lint:check": "npm run lint:check --prefix api && npm run lint:check --prefix client",
+    "lint:fix": "npm run lint:fix --prefix api && npm run lint:fix --prefix client",
     "scripts:env": "node ./scripts/env.js"
   },
   "author": "Yichen Zhu",

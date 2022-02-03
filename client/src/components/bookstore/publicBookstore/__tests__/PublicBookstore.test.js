@@ -23,6 +23,6 @@ describe('Component: PublicBookstore', () => {
   })
 
   it('should render properly', () => {
-    const publicBookstore = render(<PublicBookstore {...props} />)
+    render(<PublicBookstore {...props} />)
   })
 })

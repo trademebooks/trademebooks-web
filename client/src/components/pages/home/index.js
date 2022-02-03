@@ -5,11 +5,11 @@ import Jumbotron from './Jumbotron'
 import { getAllBooks } from '../../../actions/book'
 import MetaDecorator from '../../utils/MetaDecorator'
 import metags from '../../../config/metags'
-import Spinner from '../../layout/Spinner'
 import debounce from 'lodash/debounce'
 
 const HomePage = () => {
   const [books, setBooks] = useState([])
+  /* eslint-disable-next-line */
   const [booksIsLoading, setBooksIsLoading] = useState(true)
 
   const onChangeSearchBooks = debounce(async (searchQuery) => {

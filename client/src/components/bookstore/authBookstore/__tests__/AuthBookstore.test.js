@@ -23,6 +23,6 @@ describe('Component: AuthBookstore', () => {
   })
 
   it('should render properly', () => {
-    const authBookstore = render(<AuthBookstore {...props} />)
+    render(<AuthBookstore {...props} />)
   })
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { render, act, fireEvent, waitFor, screen } from '@testing-library/react'
+import { render, act, fireEvent } from '@testing-library/react'
 
 import AccountBookstoreForm from '../AccountBookstoreForm'
 
