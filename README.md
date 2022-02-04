@@ -139,8 +139,8 @@ npm run lint:fix # tries to fix all the linting issues in the backend api folder
 For running prettier formatting for the entire project.
 
 ```bash
-npm run prettier:check # checks if the entire is formatted properly
-npm run prettier:write # reformat the entire project
+npm run format:check # checks if the entire is formatted properly
+npm run format:write # reformat the entire project
 ```
 
 ## Deploy to Production
