@@ -92,6 +92,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                   height="25px"
                   src={conditions[book.condition]}
                   alt={conditions[book.condition]}
+                  title={book.condition}
                 />
               </span>
             </div>
