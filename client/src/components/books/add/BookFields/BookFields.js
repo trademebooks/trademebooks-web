@@ -9,6 +9,9 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
   }
 
   const postBook = (redirectUrl) => {
+    let location = book.location.toLowerCase().split(" ").join("+")
+    book.location = "https://www.google.com/maps/search/?api=1&query=" + location
+    // console.log(book.location)
     if (editBook) {
       updateBook(book._id, book, redirectUrl)
     } else {
@@ -29,6 +32,14 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
                     onChange={onChange}
                     name="price"
                     value={book.price}
+                  />
+                </div>
+                <div className="form-group">
+                  <MDBInput
+                    label="Location (Required)"
+                    onChange={onChange}
+                    name="location"
+                    value={book.location}
                   />
                 </div>
                 <div className="form-group">

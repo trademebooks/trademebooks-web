@@ -116,7 +116,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
               <span>
                 <img src={Location_icon} width="20px" alt="contact info card" />
                 <span>&nbsp;</span>
-                <span className="location"> {book.location}</span>
+                <span className="location"><a href={book.location}>Location</a></span>
               </span>
             )}
           </div>
