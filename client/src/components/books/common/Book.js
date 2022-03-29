@@ -73,13 +73,15 @@ const Book = ({ book, editFlag, deleteBookById }) => {
             <span className="single-card__book-title">{book.title}</span>
             <span>&nbsp;</span>
             {book.edition ? (
-              <span className="single-card__book-edition-container">
-                <span className="single-card__book-edition">Edition</span>
-                <span>&nbsp;</span>
-                <span className="single-card__book-edition-number">
-                  {book.edition}
+              <div>
+                <span className="single-card__book-edition-container">
+                  <span className="single-card__book-edition">Edition</span>
+                  <span>&nbsp;</span>
+                  <span className="single-card__book-edition-number">
+                    {book.edition}
+                  </span>
                 </span>
-              </span>
+              </div>
             ) : (
               ''
             )}
