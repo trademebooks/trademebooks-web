@@ -10,6 +10,9 @@ const BookSchema = new Schema({
     type: String,
     required: true
   },
+  email: {
+    type: String
+  },
   description: {
     type: String
   },

@@ -52,6 +52,16 @@ const BookFields = ({ book, addBook, createBook, updateBook, editBook }) => {
                     value={book.description}
                   />
                 </div>
+                <div className="form-group">
+                  <MDBInput
+                    label="Email (Required)"
+                    type="textarea"
+                    rows="5"
+                    onChange={onChange}
+                    name="email"
+                    value={book.email}
+                  />
+                </div>
               </form>
             </MDBCol>
           </MDBRow>

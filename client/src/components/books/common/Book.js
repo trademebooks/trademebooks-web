@@ -106,6 +106,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                 By <i>{book.authors.join(', ')}</i>
               </span>
             )}
+            <span>Contact: {book.email}</span>
           </div>
 
           <div className="single-card-column-section-2__row-4">
