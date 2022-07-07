@@ -1,6 +1,6 @@
 const ApiGeneralError = require('../../utils/ApiGeneralError')
 
-const fields = ['title', 'description', 'price']
+const fields = ['title', 'description', 'price', 'email']
 
 const createBookRequestDto = (data) => {
   const errors = []

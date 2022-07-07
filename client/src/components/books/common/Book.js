@@ -73,13 +73,15 @@ const Book = ({ book, editFlag, deleteBookById }) => {
             <span className="single-card__book-title">{book.title}</span>
             <span>&nbsp;</span>
             {book.edition ? (
-              <span className="single-card__book-edition-container">
-                <span className="single-card__book-edition">Edition</span>
-                <span>&nbsp;</span>
-                <span className="single-card__book-edition-number">
-                  {book.edition}
+              <div>
+                <span className="single-card__book-edition-container">
+                  <span className="single-card__book-edition">Edition</span>
+                  <span>&nbsp;</span>
+                  <span className="single-card__book-edition-number">
+                    {book.edition}
+                  </span>
                 </span>
-              </span>
+              </div>
             ) : (
               ''
             )}
@@ -92,6 +94,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                   height="25px"
                   src={conditions[book.condition]}
                   alt={conditions[book.condition]}
+                  title={book.condition}
                 />
               </span>
             </div>
@@ -103,6 +106,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
                 By <i>{book.authors.join(', ')}</i>
               </span>
             )}
+            <span>Contact: {book.email}</span>
           </div>
 
           <div className="single-card-column-section-2__row-4">
@@ -115,7 +119,7 @@ const Book = ({ book, editFlag, deleteBookById }) => {
               <span>
                 <img src={Location_icon} width="20px" alt="contact info card" />
                 <span>&nbsp;</span>
-                <span className="location"> {book.location}</span>
+                <span className="location"><a href={book.location}>Location</a></span>
               </span>
             )}
           </div>
