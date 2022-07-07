@@ -27,6 +27,8 @@ import './css/main.scss'
 
 import './config/googleAnalytics'
 
+import { Helmet } from 'react-helmet';
+
 const App = () => {
   const history = createBrowserHistory()
 
@@ -41,6 +43,11 @@ const App = () => {
 
   return (
     <Provider store={store}>
+      <Helmet>
+        <meta charSet="utf-8"/>
+        <title>TradeMeBooks</title>
+        <link rel="canonical" href="https://www.trademebooks.com/" />
+      </Helmet>
       <Router history={history}>
         <Navbar />
         <main>
